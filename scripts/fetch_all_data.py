@@ -26,7 +26,14 @@ JSON 結構（v3.0）：
                    pct_above_20ma, pct_above_50ma, pct_above_200ma }
       "nasdaq":  { ... }
       "nyse":    { ... }
-      "adr":     { SPY, QQQ, DIA, IWM }  ← 14-day Average Daily Range %
+      "advance_decline": {
+          "NYSE":   { advances, declines, unchanged, total_issues,
+                      pct_advancing, pct_declining, adv_vol, dec_vol,
+                      ad_ratio, new_52w_highs, new_52w_lows }
+          "NASDAQ": { ... }
+          "source": "Barchart.com/stocks/momentum (live)"
+      }  ← 抓取型：Barchart 全市場 Advance/Decline Ratio
+      "avg_daily_range": { SPY, QQQ, DIA, IWM }  ← 技術型：14-day Avg Daily Range %
   }
 }
 """
@@ -426,6 +433,8 @@ def fetch_adr(raw_data: pd.DataFrame, window: int = 14) -> dict:
     """
     計算四大指數 ETF 的 ADR（Average Daily Range）。
     ADR = mean( (High - Low) / ((High + Low) / 2) * 100 ) over last `window` days
+    此為「技術型 ADR」（Average Daily Range %），用於衡量波動性，
+    與「市場廣度 ADR」（Advance/Decline Ratio）不同。
     """
     adr_out = {}
     for ticker in INDEX_ETFS:
@@ -439,6 +448,103 @@ def fetch_adr(raw_data: pd.DataFrame, window: int = 14) -> dict:
             print(f"  ⚠  {ticker} ADR 計算失敗: {e}")
             adr_out[ticker] = None
     return adr_out
+
+
+# ─── Barchart Advance/Decline Ratio（抓取型）──────────────────────────────────
+def fetch_barchart_advance_decline() -> dict:
+    """
+    從 Barchart.com 抓取 NYSE / NASDAQ 的 Advance/Decline 數據。
+    數據源：https://www.barchart.com/stocks/momentum
+    API：  /proxies/core-api/v1/momentum/get
+
+    回傳結構：
+    {
+      "NYSE":   { advances, declines, unchanged, total_issues,
+                  pct_advancing, pct_declining,
+                  adv_vol, dec_vol,
+                  ad_ratio, new_52w_highs, new_52w_lows },
+      "NASDAQ": { ... },
+      "source": "Barchart.com/stocks/momentum"
+    }
+    """
+    API_URL = (
+        "https://www.barchart.com/proxies/core-api/v1/momentum/get"
+        "?raw=1"
+        "&fields=exchange%2Chigh52w%2Clow52w%2CnewHighs%2CnewLows"
+        "%2CadvancingVolume%2CunchangedVolume%2CdecliningVolume"
+        "%2CadvancingIssues%2CpercentAdvancingIssues"
+        "%2CunchangedIssues%2CpercentUnchangedIssues"
+        "%2CdecliningIssues%2CpercentDecliningIssues"
+        "&exchanges=NASDAQ%2CNYSE"
+    )
+    REFERER_URL = "https://www.barchart.com/stocks/momentum"
+
+    try:
+        session = requests.Session()
+        session.headers.update({
+            "User-Agent": HTTP_HEADERS["User-Agent"],
+            "Accept":     "application/json, text/plain, */*",
+            "Accept-Language": "en-US,en;q=0.9",
+        })
+
+        # Step 1: 訪問頁面取得 XSRF Token（必須）
+        r0 = session.get(REFERER_URL, timeout=20)
+        r0.raise_for_status()
+        xsrf = requests.utils.unquote(session.cookies.get("XSRF-TOKEN", ""))
+        if not xsrf:
+            raise ValueError("XSRF-TOKEN not found in cookies")
+
+        # Step 2: 帶 Token 呼叫 API
+        session.headers["X-Xsrf-Token"] = xsrf
+        session.headers["Referer"] = REFERER_URL
+        r = session.get(API_URL, timeout=20)
+        r.raise_for_status()
+        payload = r.json()
+
+        result = {}
+        for item in payload.get("data", []):
+            raw_item = item.get("raw", {})
+            exchange = raw_item.get("exchange", item.get("exchange", ""))
+            if exchange not in ("NYSE", "NASDAQ"):
+                continue
+
+            advances  = int(raw_item.get("advancingIssues", 0))
+            declines  = int(raw_item.get("decliningIssues", 0))
+            unchanged = int(raw_item.get("unchangedIssues", 0))
+            total     = advances + declines + unchanged
+            adv_vol   = int(raw_item.get("advancingVolume", 0))
+            dec_vol   = int(raw_item.get("decliningVolume", 0))
+            unc_vol   = int(raw_item.get("unchangedVolume", 0))
+            highs     = int(raw_item.get("newHighs", raw_item.get("high52w", 0)))
+            lows      = int(raw_item.get("newLows",  raw_item.get("low52w",  0)))
+
+            ad_ratio  = round(advances / declines, 3) if declines > 0 else None
+
+            result[exchange] = {
+                "advances":       advances,
+                "declines":       declines,
+                "unchanged":      unchanged,
+                "total_issues":   total,
+                "pct_advancing":  round(raw_item.get("percentAdvancingIssues", 0), 1),
+                "pct_declining":  round(raw_item.get("percentDecliningIssues", 0), 1),
+                "adv_vol":        adv_vol,
+                "dec_vol":        dec_vol,
+                "unc_vol":        unc_vol,
+                "ad_ratio":       ad_ratio,
+                "new_52w_highs":  highs,
+                "new_52w_lows":   lows,
+            }
+
+        result["source"] = "Barchart.com/stocks/momentum (live)"
+        return result
+
+    except Exception as e:
+        print(f"  ⚠  Barchart A/D 抓取失敗: {e}")
+        return {
+            "NYSE":   None,
+            "NASDAQ": None,
+            "source": f"Barchart (failed: {e})",
+        }
 
 
 # ─── 主要抓取函數 ──────────────────────────────────────────────────────────────
@@ -588,19 +694,37 @@ def fetch_all() -> dict:
     else:
         print("  ⚠  Industry 數據不可用")
 
-    # ── 7. Breadth & ADR ─────────────────────────────────────────────────────
-    print("\n[7/7] 抓取市場廣度（Breadth）及 ADR…")
+        # ── 7. Breadth & ADR ─────────────────────────────────────────────────
+    print("\n[7/7] 抓取市場廣度（Breadth）及 Advance/Decline Ratio…")
     breadth_data = fetch_breadth()
     print(f"  ✓  S&P 500 Above 200MA: {breadth_data['sp500']['pct_above_200ma']}%")
     print(f"  ✓  NASDAQ  Above 200MA: {breadth_data['nasdaq']['pct_above_200ma']}%")
     print(f"  ✓  NYSE    Above 200MA: {breadth_data['nyse']['pct_above_200ma']}%")
 
-    print("  正在計算 ADR（Average Daily Range，14 天）…")
-    adr_data = fetch_adr(raw)
-    for sym, val in adr_data.items():
-        print(f"  ✓  {sym} ADR(14): {val}%")
+    # 抓取型 ADR：Barchart NYSE/NASDAQ Advance/Decline Ratio
+    print("  正在從 Barchart 抓取 NYSE/NASDAQ Advance/Decline 數據…")
+    ad_data = fetch_barchart_advance_decline()
+    if ad_data.get("NYSE") and ad_data["NYSE"]:
+        nyse_ad = ad_data["NYSE"]
+        nasd_ad = ad_data.get("NASDAQ", {})
+        print(f"  ✓  NYSE:   Advances={nyse_ad['advances']:,}  Declines={nyse_ad['declines']:,}  "
+              f"Unchanged={nyse_ad['unchanged']:,}  ADR={nyse_ad['ad_ratio']}")
+        print(f"  ✓  NASDAQ: Advances={nasd_ad['advances']:,}  Declines={nasd_ad['declines']:,}  "
+              f"Unchanged={nasd_ad['unchanged']:,}  ADR={nasd_ad['ad_ratio']}")
+    else:
+        print("  ⚠  Barchart A/D 數據不可用")
 
-    breadth_out = {**breadth_data, "adr": adr_data}
+    # 技術型 ADR：yfinance High/Low Average Daily Range %
+    print("  正在計算技術型 ADR（Average Daily Range，14 天）…")
+    avg_daily_range = fetch_adr(raw)
+    for sym, val in avg_daily_range.items():
+        print(f"  ✓  {sym} Avg Daily Range(14): {val}%")
+
+    breadth_out = {
+        **breadth_data,
+        "advance_decline": ad_data,     # 抓取型：Barchart NYSE/NASDAQ A/D Ratio
+        "avg_daily_range": avg_daily_range,  # 技術型：yfinance 14-day ADR %
+    }
 
     # ── 8. 組合完整 JSON 輸出 ────────────────────────────────────────────────
     output = {
@@ -608,9 +732,9 @@ def fetch_all() -> dict:
             "generated_hkt":  ts_hkt,
             "generated_et":   ts_et,
             "date":           date_str,
-            "source":         "Yahoo Finance (yfinance) + CNN + NAAIM + Finviz",
+            "source":         "Yahoo Finance (yfinance) + CNN + NAAIM + Finviz + Barchart",
             "rsi_method":     "Wilder SMMA (EWM alpha=1/14)",
-            "schema_version": "3.0",
+            "schema_version": "3.1",
         },
         "macro":     macro_out,      # VIX, DXY, 10Y Yield, Gold, Oil, BTC
         "indices":   indices_out,    # SPY, QQQ, DIA, IWM（含 MA 距離 %）
@@ -711,10 +835,26 @@ def print_summary(data: dict):
             f"{str(b['pct_above_200ma'])+'%':>13}"
         )
 
-    # ADR
-    print("\n── ADR (Average Daily Range, 14-day) ────────────────────────────")
-    adr = data["breadth"]["adr"]
-    for sym, val in adr.items():
+    # Advance/Decline Ratio
+    print("\n── NYSE/NASDAQ Advance/Decline Ratio (Barchart Live) ────────────────────")
+    ad = data["breadth"].get("advance_decline", {})
+    for exch in ["NYSE", "NASDAQ"]:
+        ex_data = ad.get(exch)
+        if ex_data:
+            print(
+                f"  {exch:<8} Adv={ex_data['advances']:>5,}  "
+                f"Dec={ex_data['declines']:>5,}  "
+                f"Unch={ex_data['unchanged']:>4,}  "
+                f"ADR={ex_data['ad_ratio']}  "
+                f"({ex_data['pct_advancing']:.1f}% adv)  "
+                f"52wH={ex_data['new_52w_highs']}  52wL={ex_data['new_52w_lows']}"
+            )
+    print(f"  Source: {ad.get('source', 'N/A')}")
+
+    # Avg Daily Range (Technical)
+    print("\n── Avg Daily Range % (14-day, Technical) ──────────────────────────────")
+    avg_dr = data["breadth"].get("avg_daily_range", {})
+    for sym, val in avg_dr.items():
         print(f"  {sym}: {val}%")
     print()
 
