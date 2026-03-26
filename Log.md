@@ -39,6 +39,16 @@
   - Hardcoded data values: 0
 - **Note**: 初步 regex 掃描 render_report.py 源碼只找到 5 個靜態字串，因為其餘 77 個 key 是透過 f-string 動態生成的。需用 runtime 執行才能正確審計。
 
+## 2026-03-27 (Session 6 — Pre-Stage 3: Finviz Visual Assets)
+### Task: Heatmap + Industry Performance Capture
+- **Actions**:
+  - Captured `market_heatmap.png` via Playwright (1600×900, device_scale=1.5): Finviz S&P 500 Map with full canvas render wait (5s). Canvas element 1179×655px confirmed colored.
+  - Captured `industry_performance.png` via full-page screenshot + PIL crop: Finviz Industry 1-Day Performance bar chart. `#groups` div scrollHeight=17899px; cropped to 1D section only (1500×3300px output).
+  - Sorted by 1-day performance (URL param `o=perf1d`). Top: Oil & Gas Refining (+3.59%), Beverages-Wineries (+3.37%). Bottom: Airports & Air Services (-2.55%), Specialty Industrial Machinery (-2.5%).
+  - Added scripts: `screenshot_finviz.py`, `screenshot_industry.py`.
+- **Assets in `assets/img/today/`**: 11 files total (2.7MB).
+- **Status**: ✅ Pre-Stage 3 visuals complete. Ready for Stage 3 (Report Generation).
+
 ## 2026-03-27 (Session 5 — Stage 2: Visuals & Specialized Data)
 ### Task: Stockbee T2108 Capture + Index Trend Screenshots
 - **Actions**:
