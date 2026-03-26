@@ -23,3 +23,18 @@
   - QQQ: $581.55 (-1.07%) RSI=37.8 BELOW ALL MAs
   - Top Sector by RSI: XLE (Energy) RSI=78.9 ABOVE ALL
 - **Status**: ✅ Pipeline completed successfully.
+
+## 2026-03-26 (Session 3 — Audit)
+### Task: Template & Render Script Alignment Audit
+- **Actions**:
+  - 完整審計 `templates/report_template.html` 與 `scripts/render_report.py` 的標籤對應關係。
+  - 使用 regex 提取模板所有 `{{...}}` 佔位符（共 82 個）。
+  - 模擬 runtime 執行 render_report.py，提取實際 `tags` dict 鍵值（共 82 個）。
+  - 執行 render_report.py 並確認 index.html 無殘留佔位符。
+  - 確認模板中所有數字（14, 20, 50, 200）均為 UI 標籤（如 "20-Day MA"），非寫死數據。
+- **Audit Result**: ✅ PASS — 系統完全對齊，無需修復。
+  - Template placeholders: 82
+  - render_report.py tags keys: 82
+  - Residual in output: 0
+  - Hardcoded data values: 0
+- **Note**: 初步 regex 掃描 render_report.py 源碼只找到 5 個靜態字串，因為其餘 77 個 key 是透過 f-string 動態生成的。需用 runtime 執行才能正確審計。
