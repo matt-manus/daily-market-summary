@@ -4,1034 +4,564 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Daily Market Summary — 2026-03-27</title>
-
-  <!-- ── Google Fonts: Inter ──────────────────────────────────────── -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <style>
-    /* ══════════════════════════════════════════════════════════════
-       RESET & BASE
-    ══════════════════════════════════════════════════════════════ */
+    /* ─── RESET ──────────────────────────────────────────────────── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    /* ── Dark Mode Body ─────────────────────────────────────────── */
+    /* ─── DARK MODE BASE ─────────────────────────────────────────── */
     body {
-      font-family: 'Inter', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
-      background-color: #121212;
+      background-color: #0d0d0d;
       color: #e0e0e0;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
       font-size: 13px;
-      line-height: 1.55;
+      line-height: 1.5;
       -webkit-font-smoothing: antialiased;
     }
-    a { color: #5b9bd5; text-decoration: none; }
-    a:hover { color: #7db8e8; }
 
-    /* ── Universal Image Rules ──────────────────────────────────── */
+    /* ─── UNIVERSAL IMAGE RULE ───────────────────────────────────── */
     img {
       max-width: 100%;
       height: auto;
       display: block;
       margin: 0 auto;
+      border-radius: 4px;
     }
 
-    /* ══════════════════════════════════════════════════════════════
-       CSS CUSTOM PROPERTIES — Dark Mode Palette
-    ══════════════════════════════════════════════════════════════ */
+    /* ─── CSS VARIABLES ──────────────────────────────────────────── */
     :root {
-      /* Backgrounds */
-      --bg-page:    #121212;
-      --bg-card:    #1e1e1e;
-      --bg-card-alt:#252525;
-      --bg-header:  #0d0d0d;
-      --bg-row-hover: #2a2a2a;
-      --bg-thead:   #181818;
-
-      /* Borders */
-      --border:     #2e2e2e;
-      --border-accent: #3d4a6a;
-
-      /* Accent */
-      --accent:     #4a9eff;
-      --accent-dim: #1e3a5f;
-
-      /* Text */
-      --text-main:  #e0e0e0;
-      --text-sub:   #a0a0a0;
-      --text-muted: #666666;
-      --text-head:  #ffffff;
-
-      /* Semantic colors */
-      --green:      #3ddc84;
-      --green-bg:   #0d2e1a;
-      --green-dim:  #1a4a2a;
-      --red:        #ff5c5c;
-      --red-bg:     #2e0d0d;
-      --red-dim:    #4a1a1a;
-      --amber:      #f0c040;
-      --amber-bg:   #2e2400;
+      --bg-card:    #161616;
+      --bg-card2:   #1c1c1c;
+      --bg-head:    #111111;
+      --border:     #2a2a2a;
+      --border-lt:  #1e1e1e;
+      --text-muted: #777777;
+      --text-label: #aaaaaa;
+      --green:      #4caf50;
+      --green-bg:   rgba(76,175,80,0.13);
+      --red:        #f44336;
+      --red-bg:     rgba(244,67,54,0.13);
+      --amber:      #ff9800;
+      --amber-bg:   rgba(255,152,0,0.11);
+      --blue:       #42a5f5;
     }
 
-    /* ══════════════════════════════════════════════════════════════
-       DYNAMIC COLOR CLASSES
-       text-green / text-red replace the old .up / .down
-       Both naming conventions are supported for compatibility
-    ══════════════════════════════════════════════════════════════ */
+    /* ─── DYNAMIC COLOR CLASSES ──────────────────────────────────── */
     .text-green, .up   { color: var(--green) !important; }
     .text-red,   .down { color: var(--red)   !important; }
-    .text-amber,  .flat { color: var(--amber) !important; }
+    .text-amber        { color: var(--amber) !important; }
     .text-muted        { color: var(--text-muted) !important; }
+    .text-green-bg { background: var(--green-bg); color: var(--green) !important; }
+    .text-red-bg   { background: var(--red-bg);   color: var(--red)   !important; }
+    .na-val { color: var(--text-muted); font-style: italic; font-size: 11px; }
 
-    /* Background pill variants */
-    .text-green-bg, .up-bg {
-      background: var(--green-bg);
-      color: var(--green) !important;
-    }
-    .text-red-bg, .down-bg {
-      background: var(--red-bg);
-      color: var(--red) !important;
-    }
+    /* ─── LAYOUT ─────────────────────────────────────────────────── */
+    .page-wrap { max-width: 1100px; margin: 0 auto; padding: 0 16px 48px; }
 
-    /* ══════════════════════════════════════════════════════════════
-       LAYOUT
-    ══════════════════════════════════════════════════════════════ */
-    .page-wrapper { max-width: 1280px; margin: 0 auto; padding: 24px 24px 60px; }
-
-    /* ══════════════════════════════════════════════════════════════
-       HEADER
-    ══════════════════════════════════════════════════════════════ */
+    /* ─── HEADER ─────────────────────────────────────────────────── */
     .report-header {
-      background: var(--bg-header);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 20px 28px 18px;
+      background: var(--bg-head);
+      border-bottom: 1px solid var(--border);
+      padding: 18px 24px 14px;
       margin-bottom: 24px;
       display: flex;
-      align-items: flex-start;
       justify-content: space-between;
+      align-items: center;
       flex-wrap: wrap;
-      gap: 12px;
+      gap: 8px;
     }
-    .report-header h1 {
-      font-size: 20px;
-      font-weight: 800;
-      letter-spacing: 0.3px;
-      color: var(--text-head);
-    }
-    .report-header .subtitle {
-      font-size: 12px;
-      color: var(--text-sub);
-      margin-top: 4px;
-      font-weight: 400;
-    }
-    .header-meta { text-align: right; }
+    .report-header h1 { font-size: 20px; font-weight: 700; color: #fff; letter-spacing: -0.3px; }
+    .report-header .subtitle { font-size: 11px; color: var(--text-muted); margin-top: 2px; }
+    .ts-badges { display: flex; gap: 8px; flex-wrap: wrap; }
     .ts-badge {
-      display: inline-block;
-      background: #1e2330;
-      border: 1px solid var(--border-accent);
+      background: var(--bg-card2);
+      border: 1px solid var(--border);
       border-radius: 4px;
-      padding: 3px 10px;
+      padding: 4px 10px;
       font-size: 11px;
-      color: #c8cdd8;
-      margin-left: 6px;
-      font-weight: 500;
+      color: var(--text-label);
+      white-space: nowrap;
     }
+    .ts-badge span { color: #e0e0e0; font-weight: 500; }
 
-    /* ══════════════════════════════════════════════════════════════
-       SECTION TITLES
-    ══════════════════════════════════════════════════════════════ */
+    /* ─── SECTIONS ───────────────────────────────────────────────── */
     .section { margin-bottom: 28px; }
     .section-title {
-      font-size: 11px;
-      font-weight: 700;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1.2px;
       text-transform: uppercase;
-      letter-spacing: 1.5px;
-      color: var(--accent);
-      border-left: 3px solid var(--accent);
+      color: var(--text-muted);
+      border-left: 3px solid #333;
       padding-left: 10px;
       margin-bottom: 14px;
     }
-    .section-subtitle {
+    .sub-title {
       font-size: 10px;
       font-weight: 600;
+      letter-spacing: 0.8px;
       text-transform: uppercase;
-      letter-spacing: 1.1px;
       color: var(--text-muted);
-      border-left: 2px solid var(--border);
-      padding-left: 8px;
-      margin: 18px 0 10px;
+      margin: 16px 0 10px;
     }
 
-    /* ══════════════════════════════════════════════════════════════
-       SECTION 1 — MACRO CARDS
-    ══════════════════════════════════════════════════════════════ */
+    /* ─── TABLE BASE ─────────────────────────────────────────────── */
+    .table-wrap {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+    .data-table { width: 100%; border-collapse: collapse; font-size: 12.5px; }
+    .data-table th {
+      background: var(--bg-head);
+      color: var(--text-muted);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.6px;
+      text-transform: uppercase;
+      padding: 8px 10px;
+      text-align: right;
+      border-bottom: 1px solid var(--border);
+      white-space: nowrap;
+    }
+    .data-table th:first-child { text-align: left; }
+    .data-table td {
+      padding: 8px 10px;
+      text-align: right;
+      border-bottom: 1px solid var(--border-lt);
+      color: #e0e0e0;
+      white-space: nowrap;
+    }
+    .data-table td:first-child { text-align: left; }
+    .data-table tbody tr:hover { background: var(--bg-card2); }
+    .data-table tbody tr:last-child td { border-bottom: none; }
+
+    /* ─── SECTION 1: MACRO CARDS ─────────────────────────────────── */
     .macro-grid {
       display: grid;
       grid-template-columns: repeat(6, 1fr);
       gap: 10px;
     }
+    @media (max-width: 900px) { .macro-grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 500px) { .macro-grid { grid-template-columns: repeat(2, 1fr); } }
     .macro-card {
       background: var(--bg-card);
       border: 1px solid var(--border);
-      border-radius: 8px;
+      border-radius: 6px;
       padding: 14px 14px 12px;
-      transition: border-color 0.15s, box-shadow 0.15s;
     }
-    .macro-card:hover {
-      border-color: var(--border-accent);
-      box-shadow: 0 2px 12px rgba(0,0,0,0.4);
-    }
-    .macro-card .mc-label {
-      font-size: 10px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.9px;
-      color: var(--text-muted);
-      margin-bottom: 6px;
-    }
-    .macro-card .mc-sub {
-      font-size: 9px;
-      color: #555;
-      font-weight: 400;
-    }
-    .macro-card .mc-price {
-      font-size: 19px;
-      font-weight: 700;
-      color: var(--text-main);
-      letter-spacing: -0.3px;
-    }
-    .macro-card .mc-chg {
-      font-size: 12px;
-      font-weight: 600;
-      margin-top: 4px;
-    }
+    .mc-label { font-size: 9px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 2px; }
+    .mc-sub   { font-size: 9px; color: #555; margin-bottom: 6px; }
+    .mc-price { font-size: 21px; font-weight: 700; color: #fff; letter-spacing: -0.5px; line-height: 1.1; }
+    .mc-chg   { font-size: 12px; font-weight: 500; margin-top: 4px; }
 
-    /* ══════════════════════════════════════════════════════════════
-       SECTION 2 — INDICES TABLE
-    ══════════════════════════════════════════════════════════════ */
-    .indices-table-wrap { overflow-x: auto; }
-    .indices-table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 13px;
-      background: var(--bg-card);
-      border-radius: 8px;
-      overflow: hidden;
-      border: 1px solid var(--border);
-    }
-    .indices-table thead tr {
-      background: var(--bg-thead);
-      border-bottom: 2px solid var(--border);
-    }
-    .indices-table th {
-      padding: 10px 14px;
-      text-align: right;
-      font-size: 10px;
-      text-transform: uppercase;
-      letter-spacing: 0.9px;
-      color: var(--text-muted);
-      font-weight: 700;
-      white-space: nowrap;
-    }
-    .indices-table th:first-child { text-align: left; }
-    .indices-table td {
-      padding: 10px 14px;
-      border-bottom: 1px solid var(--border);
-      text-align: right;
-      color: var(--text-main);
-      white-space: nowrap;
-    }
-    .indices-table td:first-child { text-align: left; }
-    .indices-table tbody tr:last-child td { border-bottom: none; }
-    .indices-table tbody tr:hover { background: var(--bg-row-hover); }
-    .idx-sym {
-      font-weight: 700;
-      font-size: 14px;
-      color: var(--text-head);
-    }
-    .idx-name {
-      font-size: 11px;
-      color: var(--text-muted);
-      font-weight: 400;
-      display: block;
-    }
-
-    /* Status Badges */
-    .status-badge {
+    /* ─── SECTION 2: INDICES ─────────────────────────────────────── */
+    .sym-cell .sym { font-size: 14px; font-weight: 700; color: #fff; }
+    .sym-cell .sym-name { font-size: 10px; color: var(--text-muted); margin-top: 1px; }
+    .chg-pill {
       display: inline-block;
-      font-size: 10px;
-      font-weight: 700;
       padding: 2px 7px;
       border-radius: 3px;
-      white-space: nowrap;
-      letter-spacing: 0.3px;
+      font-size: 11.5px;
+      font-weight: 600;
     }
-    .badge-above { background: var(--green-bg);  color: var(--green); border: 1px solid var(--green-dim); }
-    .badge-below { background: var(--red-bg);    color: var(--red);   border: 1px solid var(--red-dim);   }
-    .badge-mixed { background: var(--amber-bg);  color: var(--amber); border: 1px solid #4a3800;          }
-
-    /* RSI Progress Bar */
-    .rsi-wrap {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      justify-content: flex-end;
-    }
-    .rsi-bar {
-      height: 5px;
+    .rsi-wrap { display: flex; align-items: center; gap: 6px; justify-content: flex-end; }
+    .rsi-track { width: 56px; height: 5px; background: #333; border-radius: 3px; overflow: hidden; }
+    .rsi-fill  { height: 100%; border-radius: 3px; }
+    .rsi-ob    { background: var(--red); }
+    .rsi-os    { background: var(--green); }
+    .rsi-neu   { background: var(--blue); }
+    .rsi-ob-cell { background: rgba(244,67,54,0.10); }
+    .rsi-os-cell { background: rgba(76,175,80,0.10); }
+    .status-badge {
+      display: inline-block;
+      font-size: 9.5px;
+      font-weight: 600;
+      letter-spacing: 0.4px;
+      padding: 2px 7px;
       border-radius: 3px;
-      background: #333;
-      width: 56px;
-      overflow: hidden;
+      text-transform: uppercase;
     }
-    .rsi-fill { height: 100%; border-radius: 3px; }
-    .rsi-ob  { background: var(--red);   }  /* RSI ≥ 70 overbought  */
-    .rsi-os  { background: var(--green); }  /* RSI ≤ 30 oversold    */
-    .rsi-neu { background: var(--accent);}  /* RSI neutral          */
+    .badge-above { background: var(--green-bg); color: var(--green); }
+    .badge-below { background: var(--red-bg);   color: var(--red);   }
+    .badge-mixed { background: var(--amber-bg); color: var(--amber); }
 
-    /* RSI cell highlight */
-    .rsi-ob-cell { background: rgba(255, 92, 92, 0.12); }
-    .rsi-os-cell { background: rgba(61, 220, 132, 0.10); }
-
-    /* ══════════════════════════════════════════════════════════════
-       SECTION 3 — SENTIMENT CARDS
-    ══════════════════════════════════════════════════════════════ */
+    /* ─── SECTION 3: SENTIMENT ───────────────────────────────────── */
     .sentiment-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 12px;
     }
+    @media (max-width: 700px) { .sentiment-grid { grid-template-columns: 1fr; } }
     .sent-card {
       background: var(--bg-card);
       border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 16px 18px;
+      border-radius: 6px;
+      padding: 16px;
     }
-    .sent-card .sc-label {
-      font-size: 10px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.9px;
-      color: var(--text-muted);
-      margin-bottom: 8px;
-    }
-    .sent-card .sc-value {
-      font-size: 28px;
-      font-weight: 800;
-      color: var(--text-main);
-      line-height: 1;
-    }
-    .sent-card .sc-rating {
-      font-size: 12px;
-      font-weight: 600;
-      margin-top: 5px;
-      text-transform: capitalize;
-    }
-    .sent-card .sc-detail {
-      font-size: 11px;
-      color: var(--text-muted);
-      margin-top: 10px;
-      border-top: 1px solid var(--border);
-      padding-top: 8px;
-    }
-    .sent-card .sc-row {
+    .sc-label  { font-size: 9px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 8px; }
+    .sc-value  { font-size: 30px; font-weight: 700; letter-spacing: -1px; line-height: 1; margin-bottom: 4px; }
+    .sc-rating { font-size: 11px; font-weight: 500; text-transform: capitalize; margin-bottom: 12px; }
+    .sc-sub    { font-size: 10px; color: var(--text-muted); margin-bottom: 8px; }
+    .hist-table { width: 100%; border-collapse: collapse; margin-top: 6px; }
+    .hist-table td { padding: 3px 0; font-size: 11px; color: var(--text-label); border-bottom: 1px solid var(--border-lt); }
+    .hist-table td:last-child { text-align: right; color: #e0e0e0; font-weight: 500; }
+    .hist-table tr:last-child td { border-bottom: none; }
+    .naaim-hist-row {
       display: flex;
       justify-content: space-between;
       padding: 3px 0;
+      font-size: 11px;
+      border-bottom: 1px solid var(--border-lt);
+      color: var(--text-label);
     }
-    .sent-card .sc-row span:last-child {
-      font-weight: 600;
-      color: var(--text-sub);
-    }
+    .naaim-hist-row:last-child { border-bottom: none; }
+    .naaim-hist-row .nh-val { color: #e0e0e0; font-weight: 500; }
 
-    /* Fear & Greed zone colors */
-    .fg-extreme-fear { color: #ff5c5c !important; }
-    .fg-fear         { color: #ff9944 !important; }
-    .fg-neutral      { color: var(--amber) !important; }
-    .fg-greed        { color: #3ddc84 !important; }
-    .fg-extreme-greed{ color: #00e676 !important; }
-
-    /* ══════════════════════════════════════════════════════════════
-       SECTION 4 — BREADTH TABLES
-    ══════════════════════════════════════════════════════════════ */
-    .breadth-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-    }
-    .breadth-table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 12px;
-      background: var(--bg-card);
-      border-radius: 8px;
-      overflow: hidden;
-      border: 1px solid var(--border);
-    }
-    .breadth-table thead tr {
-      background: var(--bg-thead);
-      border-bottom: 2px solid var(--border);
-    }
-    .breadth-table th {
-      padding: 8px 12px;
-      font-size: 10px;
-      text-transform: uppercase;
-      letter-spacing: 0.8px;
-      color: var(--text-muted);
-      font-weight: 700;
-      text-align: center;
-    }
-    .breadth-table th:first-child { text-align: left; }
-    .breadth-table td {
-      padding: 8px 12px;
-      border-bottom: 1px solid var(--border);
-      text-align: center;
-      color: var(--text-main);
-    }
-    .breadth-table td:first-child { text-align: left; font-weight: 600; }
-    .breadth-table tbody tr:last-child td { border-bottom: none; }
-    .breadth-table tbody tr:hover { background: var(--bg-row-hover); }
-
-    /* Breadth percentage bar */
-    .pct-bar-wrap { display: flex; align-items: center; gap: 6px; justify-content: center; }
-    .pct-bar { height: 5px; border-radius: 3px; background: #333; width: 50px; overflow: hidden; }
-    .pct-fill { height: 100%; border-radius: 3px; }
-    .pct-fill.pct-low  { background: var(--red);   }
-    .pct-fill.pct-mid  { background: var(--amber); }
-    .pct-fill.pct-high { background: var(--green); }
-
-    /* ADR Cards */
-    .adr-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-      margin-top: 4px;
-    }
+    /* ─── SECTION 4: BREADTH ─────────────────────────────────────── */
+    .breadth-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    @media (max-width: 700px) { .breadth-grid { grid-template-columns: 1fr; } }
     .adr-card {
       background: var(--bg-card);
       border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 14px 16px;
+      border-radius: 6px;
+      overflow: hidden;
     }
-    .adr-card .adr-title {
-      font-size: 11px;
-      font-weight: 700;
-      text-transform: uppercase;
+    .adr-card-head {
+      background: var(--bg-head);
+      padding: 8px 12px;
+      font-size: 10px;
+      font-weight: 600;
       letter-spacing: 0.8px;
-      color: var(--text-muted);
-      margin-bottom: 10px;
+      text-transform: uppercase;
+      color: var(--text-label);
+      border-bottom: 1px solid var(--border);
     }
     .adr-row {
       display: flex;
       justify-content: space-between;
-      align-items: center;
-      padding: 4px 0;
-      border-bottom: 1px solid var(--border);
+      padding: 6px 12px;
       font-size: 12px;
+      border-bottom: 1px solid var(--border-lt);
+      color: var(--text-label);
     }
     .adr-row:last-child { border-bottom: none; }
-    .adr-row .adr-key { color: var(--text-muted); }
-    .adr-row .adr-val { font-weight: 600; color: var(--text-main); }
+    .adr-row .adr-val { color: #e0e0e0; font-weight: 500; }
+    .pct-bar-wrap { display: flex; align-items: center; gap: 6px; justify-content: flex-end; }
+    .pct-bar-track { width: 70px; height: 5px; background: #333; border-radius: 3px; overflow: hidden; }
+    .pct-bar-red   { height: 100%; border-radius: 3px; background: var(--red); }
+    .pct-bar-amber { height: 100%; border-radius: 3px; background: var(--amber); }
+    .pct-bar-green { height: 100%; border-radius: 3px; background: var(--green); }
 
-    /* ══════════════════════════════════════════════════════════════
-       SECTION 5 — DATA TABLES (Sectors & Industries)
-    ══════════════════════════════════════════════════════════════ */
-    .data-table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 12px;
-      background: var(--bg-card);
-      border-radius: 8px;
-      overflow: hidden;
-      border: 1px solid var(--border);
-    }
-    .data-table thead tr {
-      background: var(--bg-thead);
-      border-bottom: 2px solid var(--border);
-    }
-    .data-table th {
-      padding: 9px 12px;
-      text-align: right;
-      font-size: 10px;
-      text-transform: uppercase;
-      letter-spacing: 0.8px;
-      color: var(--text-muted);
-      font-weight: 700;
-      white-space: nowrap;
-    }
-    .data-table th:first-child,
-    .data-table th:nth-child(2) { text-align: left; }
-    .data-table td {
-      padding: 8px 12px;
-      border-bottom: 1px solid var(--border);
-      text-align: right;
-      color: var(--text-main);
-      white-space: nowrap;
-    }
-    .data-table td:first-child,
-    .data-table td:nth-child(2) { text-align: left; }
-    .data-table tbody tr:last-child td { border-bottom: none; }
-    .data-table tbody tr:hover { background: var(--bg-row-hover); }
-
-    .sym { font-weight: 700; font-size: 13px; color: var(--text-head); }
-    .rank-num {
-      display: inline-block;
-      width: 22px;
-      height: 22px;
-      line-height: 22px;
-      text-align: center;
-      background: #2a2a2a;
-      border-radius: 4px;
-      font-size: 11px;
-      font-weight: 700;
-      color: var(--text-muted);
-    }
-
-    /* Change pill — used for all % change cells */
-    .chg-cell {
-      display: inline-block;
-      padding: 2px 6px;
-      border-radius: 3px;
-      font-weight: 600;
-      font-size: 12px;
-    }
-
-    /* ══════════════════════════════════════════════════════════════
-       SECTION 6 & 7 — AI TEXT AREAS
-    ══════════════════════════════════════════════════════════════ */
-    .ai-section {
+    /* ─── IMAGE BLOCKS ───────────────────────────────────────────── */
+    .img-block {
       background: var(--bg-card);
       border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 20px 22px;
-      min-height: 120px;
-    }
-    .ai-section .ai-placeholder {
-      color: var(--text-muted);
-      font-style: italic;
-      font-size: 13px;
-    }
-    .ai-content {
-      font-size: 13px;
-      line-height: 1.75;
-      color: var(--text-main);
-    }
-    .ai-content p { margin-bottom: 10px; }
-    .ai-content p:last-child { margin-bottom: 0; }
-
-    /* ══════════════════════════════════════════════════════════════
-       IMAGE CONTAINERS
-    ══════════════════════════════════════════════════════════════ */
-    .img-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: 8px;
+      border-radius: 6px;
       padding: 12px;
       margin-top: 14px;
     }
-    .img-card .img-label {
-      font-size: 10px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.8px;
-      color: var(--text-muted);
-      margin-bottom: 8px;
-    }
-    /* img inside .img-card inherits the universal rule but gets border-radius */
-    .img-card img {
-      border-radius: 4px;
-    }
-    .img-placeholder {
-      display: none;
-      height: 100px;
-      align-items: center;
-      justify-content: center;
-      color: var(--text-muted);
-      font-size: 12px;
-      background: #1a1a1a;
-      border-radius: 4px;
-      border: 1px dashed var(--border);
-    }
+    .img-caption { font-size: 10px; color: var(--text-muted); text-align: center; margin-top: 8px; }
 
-    /* ══════════════════════════════════════════════════════════════
-       FOOTER
-    ══════════════════════════════════════════════════════════════ */
+    /* ─── SECTIONS 6 & 7: AI TEXT ────────────────────────────────── */
+    .ai-text-area {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 20px 22px;
+      min-height: 90px;
+      font-size: 13px;
+      line-height: 1.7;
+      white-space: pre-wrap;
+    }
+    .ai-placeholder { color: var(--text-muted); font-style: italic; font-size: 12px; }
+
+    /* ─── FOOTER ─────────────────────────────────────────────────── */
     .report-footer {
       margin-top: 36px;
-      padding-top: 14px;
+      padding-top: 16px;
       border-top: 1px solid var(--border);
-      font-size: 11px;
-      color: var(--text-muted);
       text-align: center;
+      font-size: 10px;
+      color: var(--text-muted);
       line-height: 1.8;
-    }
-
-    /* ══════════════════════════════════════════════════════════════
-       UTILITY
-    ══════════════════════════════════════════════════════════════ */
-    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-    .full-col { grid-column: 1 / -1; }
-
-    /* N/A value styling */
-    .na-val { color: var(--text-muted); font-style: italic; }
-
-    /* ══════════════════════════════════════════════════════════════
-       RESPONSIVE
-    ══════════════════════════════════════════════════════════════ */
-    @media (max-width: 900px) {
-      .macro-grid       { grid-template-columns: repeat(3, 1fr); }
-      .sentiment-grid   { grid-template-columns: 1fr; }
-      .breadth-grid     { grid-template-columns: 1fr; }
-      .two-col          { grid-template-columns: 1fr; }
-      .adr-grid         { grid-template-columns: 1fr; }
-    }
-    @media (max-width: 600px) {
-      .macro-grid { grid-template-columns: repeat(2, 1fr); }
     }
   </style>
 </head>
 <body>
-<div class="page-wrapper">
 
-  <!-- ══════════════════════════════════════════════════════════════
-       HEADER
-  ══════════════════════════════════════════════════════════════ -->
-  <header class="report-header">
-    <div>
-      <h1>Daily Market Summary</h1>
-      <div class="subtitle">Automated Credit-Efficient System &nbsp;·&nbsp; 2026-03-27</div>
-    </div>
-    <div class="header-meta">
-      <span class="ts-badge">HKT &nbsp;2026-03-27 00:12</span>
-      <span class="ts-badge">ET &nbsp;2026-03-26 12:12</span>
-    </div>
-  </header>
-
-  <!-- ══════════════════════════════════════════════════════════════
-       SECTION 1 — MACRO INDICATORS
-       Tags: 26.82 +5.88 text-green
-             99.807 +0.21 text-green
-             4.382 +1.25 text-green
-             4,427.70 -2.68 text-red
-             94.55 +4.68 text-green
-             68,979 -3.27 text-red
-       _DIR values: text-green | text-red | flat
-  ══════════════════════════════════════════════════════════════ -->
-  <section class="section">
-    <div class="section-title">Section 1 &mdash; Macro Indicators</div>
-    <div class="macro-grid">
-
-      <div class="macro-card">
-        <div class="mc-label">VIX <span class="mc-sub">Fear Index</span></div>
-        <div class="mc-price">26.82</div>
-        <div class="mc-chg text-green">+5.88%</div>
-      </div>
-
-      <div class="macro-card">
-        <div class="mc-label">DXY <span class="mc-sub">US Dollar</span></div>
-        <div class="mc-price">99.807</div>
-        <div class="mc-chg text-green">+0.21%</div>
-      </div>
-
-      <div class="macro-card">
-        <div class="mc-label">10Y Yield <span class="mc-sub">TNX %</span></div>
-        <div class="mc-price">4.382</div>
-        <div class="mc-chg text-green">+1.25%</div>
-      </div>
-
-      <div class="macro-card">
-        <div class="mc-label">Gold <span class="mc-sub">USD/oz</span></div>
-        <div class="mc-price">4,427.70</div>
-        <div class="mc-chg text-red">-2.68%</div>
-      </div>
-
-      <div class="macro-card">
-        <div class="mc-label">WTI Oil <span class="mc-sub">USD/bbl</span></div>
-        <div class="mc-price">94.55</div>
-        <div class="mc-chg text-green">+4.68%</div>
-      </div>
-
-      <div class="macro-card">
-        <div class="mc-label">Bitcoin <span class="mc-sub">USD</span></div>
-        <div class="mc-price">68,979</div>
-        <div class="mc-chg text-red">-3.27%</div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ══════════════════════════════════════════════════════════════
-       SECTION 2 — MAJOR INDICES
-       Tags per symbol (SPY/QQQ/DIA/IWM):
-         SYM_PRICE  SYM_CHG_PCT  SYM_CHG_DIR
-         SYM_STATUS  SYM_BADGE_CLASS  SYM_RSI  SYM_RSI_CLASS  SYM_RSI_W
-         SYM_VS_MA20_PCT  SYM_VS_MA20_DIR
-         SYM_VS_MA50_PCT  SYM_VS_MA50_DIR
-         SYM_VS_MA200_PCT SYM_VS_MA200_DIR
-       _DIR values: text-green | text-red | flat
-  ══════════════════════════════════════════════════════════════ -->
-  <section class="section">
-    <div class="section-title">Section 2 &mdash; Major Indices</div>
-    <div class="indices-table-wrap">
-      <table class="indices-table">
-        <thead>
-          <tr>
-            <th>Symbol</th>
-            <th style="text-align:right">Price</th>
-            <th>1D Chg%</th>
-            <th>RSI 14</th>
-            <th>vs 20MA</th>
-            <th>vs 50MA</th>
-            <th>vs 200MA</th>
-            <th>Status</th>
-          </tr>
-        </thead>
-        <tbody>
-          <!-- SPY -->
-          <tr>
-            <td>
-              <span class="idx-sym">SPY</span>
-              <span class="idx-name">S&amp;P 500 ETF</span>
-            </td>
-            <td style="font-weight:600">$651.11</td>
-            <td><span class="chg-cell text-red-bg">-0.87%</span></td>
-            <td class="">
-              <div class="rsi-wrap">
-                <span class="">36.2</span>
-                <div class="rsi-bar"><div class="rsi-fill rsi-neu" style="width:36%"></div></div>
-              </div>
-            </td>
-            <td class="text-red">-2.46%</td>
-            <td class="text-red">-4.12%</td>
-            <td class="text-red">-1.02%</td>
-            <td><span class="status-badge badge-below">BELOW ALL</span></td>
-          </tr>
-          <!-- QQQ -->
-          <tr>
-            <td>
-              <span class="idx-sym">QQQ</span>
-              <span class="idx-name">Nasdaq-100 ETF</span>
-            </td>
-            <td style="font-weight:600">$580.50</td>
-            <td><span class="chg-cell text-red-bg">-1.25%</span></td>
-            <td class="">
-              <div class="rsi-wrap">
-                <span class="">37.8</span>
-                <div class="rsi-bar"><div class="rsi-fill rsi-neu" style="width:38%"></div></div>
-              </div>
-            </td>
-            <td class="text-red">-2.86%</td>
-            <td class="text-red">-4.37%</td>
-            <td class="text-red">-2.02%</td>
-            <td><span class="status-badge badge-below">BELOW ALL</span></td>
-          </tr>
-          <!-- DIA -->
-          <tr>
-            <td>
-              <span class="idx-sym">DIA</span>
-              <span class="idx-name">Dow Jones ETF</span>
-            </td>
-            <td style="font-weight:600">$462.00</td>
-            <td><span class="chg-cell text-red-bg">-0.46%</span></td>
-            <td class="">
-              <div class="rsi-wrap">
-                <span class="">36.7</span>
-                <div class="rsi-bar"><div class="rsi-fill rsi-neu" style="width:37%"></div></div>
-              </div>
-            </td>
-            <td class="text-red">-1.98%</td>
-            <td class="text-red">-4.51%</td>
-            <td class="text-red">-0.29%</td>
-            <td><span class="status-badge badge-below">BELOW ALL</span></td>
-          </tr>
-          <!-- IWM -->
-          <tr>
-            <td>
-              <span class="idx-sym">IWM</span>
-              <span class="idx-name">Russell 2000 ETF</span>
-            </td>
-            <td style="font-weight:600">$250.06</td>
-            <td><span class="chg-cell text-red-bg">-0.70%</span></td>
-            <td class="">
-              <div class="rsi-wrap">
-                <span class="">46.1</span>
-                <div class="rsi-bar"><div class="rsi-fill rsi-neu" style="width:46%"></div></div>
-              </div>
-            </td>
-            <td class="text-red">-0.68%</td>
-            <td class="text-red">-3.33%</td>
-            <td class="text-green">+3.82%</td>
-            <td><span class="status-badge badge-mixed">MIXED</span></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </section>
-
-  <!-- ══════════════════════════════════════════════════════════════
-       SECTION 3 — MARKET SENTIMENT
-       Tags: FG_SCORE  FG_RATING  FG_CLASS
-             FG_PREV_CLOSE  FG_PREV_1W  FG_PREV_1M  FG_PREV_1Y
-             NAAIM_VALUE  NAAIM_DATE
-             PC_VALUE  PC_RATING  PC_CLASS
-  ══════════════════════════════════════════════════════════════ -->
-  <section class="section">
-    <div class="section-title">Section 3 &mdash; Market Sentiment</div>
-    <div class="sentiment-grid">
-
-      <!-- Fear & Greed -->
-      <div class="sent-card">
-        <div class="sc-label">CNN Fear &amp; Greed Index</div>
-        <div class="sc-value fg-extreme-fear">20.0</div>
-        <div class="sc-rating fg-extreme-fear">Extreme Fear</div>
-        <div class="sc-detail">
-          <div class="sc-row"><span>Prev Close</span><span>19.3</span></div>
-          <div class="sc-row"><span>1 Week Ago</span><span>17.3</span></div>
-          <div class="sc-row"><span>1 Month Ago</span><span>42.2</span></div>
-          <div class="sc-row"><span>1 Year Ago</span><span>28.9</span></div>
-        </div>
-      </div>
-
-      <!-- NAAIM -->
-      <div class="sent-card">
-        <div class="sc-label">NAAIM Exposure Index</div>
-        <div class="sc-value">68.52</div>
-        <div class="sc-rating" style="color:var(--text-muted)">Weekly Survey</div>
-        <div class="sc-detail">
-          <div class="sc-row"><span>Survey Date</span><span>2026-03-25</span></div>
-          <div class="sc-row"><span>Source</span><span>NAAIM.org</span></div>
-          <div class="sc-row" style="margin-top:6px">
-            <span style="font-size:11px;color:var(--text-muted)">
-              Active managers' equity exposure. &gt;80 = overweight; &lt;40 = underweight.
-            </span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Put/Call Ratio -->
-      <div class="sent-card">
-        <div class="sc-label">Put / Call Ratio</div>
-        <div class="sc-value text-green">0.7329</div>
-        <div class="sc-rating text-green">Extreme Fear</div>
-        <div class="sc-detail">
-          <div class="sc-row"><span>Threshold</span><span>&gt;1.0 = Bearish</span></div>
-          <div class="sc-row"><span>Source</span><span>CNN (5-day avg equity P/C)</span></div>
-          <div class="sc-row" style="margin-top:6px">
-            <span style="font-size:11px;color:var(--text-muted)">
-              High P/C = more puts = fear. Low P/C = complacency.
-            </span>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ══════════════════════════════════════════════════════════════
-       SECTION 4 — MARKET BREADTH
-  ══════════════════════════════════════════════════════════════ -->
-  <section class="section">
-    <div class="section-title">Section 4 &mdash; Market Breadth</div>
-
-    <!-- 4a/b: % Above Moving Averages + Avg Daily Range -->
-    <div class="section-subtitle">4A / 4B &mdash; % of Stocks Above Moving Averages</div>
-    <div class="breadth-grid">
-      <table class="breadth-table">
-        <thead>
-          <tr>
-            <th>Index</th>
-            <th>Total</th>
-            <th>% &gt; 20MA</th>
-            <th>% &gt; 50MA</th>
-            <th>% &gt; 200MA</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td>S&amp;P 500</td><td style='text-align:center'>503</td><td><div class="pct-bar-wrap"><span style="font-weight:600;color:#ff5c5c">22.9%</span><div class="pct-bar"><div class="pct-fill pct-low" style="width:23%"></div></div></div></td><td><div class="pct-bar-wrap"><span style="font-weight:600;color:#ff5c5c">25.2%</span><div class="pct-bar"><div class="pct-fill pct-low" style="width:25%"></div></div></div></td><td><div class="pct-bar-wrap"><span style="font-weight:600;color:#f0c040">47.7%</span><div class="pct-bar"><div class="pct-fill pct-mid" style="width:48%"></div></div></div></td></tr>
-<tr><td>NASDAQ</td><td style='text-align:center'>4,581</td><td><div class="pct-bar-wrap"><span style="font-weight:600;color:#ff5c5c">30.9%</span><div class="pct-bar"><div class="pct-fill pct-low" style="width:31%"></div></div></div></td><td><div class="pct-bar-wrap"><span style="font-weight:600;color:#ff5c5c">24.6%</span><div class="pct-bar"><div class="pct-fill pct-low" style="width:25%"></div></div></div></td><td><div class="pct-bar-wrap"><span style="font-weight:600;color:#f0c040">35.8%</span><div class="pct-bar"><div class="pct-fill pct-mid" style="width:36%"></div></div></div></td></tr>
-<tr><td>NYSE</td><td style='text-align:center'>4,895</td><td><div class="pct-bar-wrap"><span style="font-weight:600;color:#ff5c5c">22.2%</span><div class="pct-bar"><div class="pct-fill pct-low" style="width:22%"></div></div></div></td><td><div class="pct-bar-wrap"><span style="font-weight:600;color:#ff5c5c">18.8%</span><div class="pct-bar"><div class="pct-fill pct-low" style="width:19%"></div></div></div></td><td><div class="pct-bar-wrap"><span style="font-weight:600;color:#f0c040">43.6%</span><div class="pct-bar"><div class="pct-fill pct-mid" style="width:44%"></div></div></div></td></tr>
-<tr><td>Russell 2000</td><td style='text-align:center'>1,930</td><td><div class="pct-bar-wrap"><span style="font-weight:600;color:#f0c040">43.5%</span><div class="pct-bar"><div class="pct-fill pct-mid" style="width:44%"></div></div></div></td><td><div class="pct-bar-wrap"><span style="font-weight:600;color:#ff5c5c">31.1%</span><div class="pct-bar"><div class="pct-fill pct-low" style="width:31%"></div></div></div></td><td><div class="pct-bar-wrap"><span style="font-weight:600;color:#f0c040">47.8%</span><div class="pct-bar"><div class="pct-fill pct-mid" style="width:48%"></div></div></div></td></tr>
-        </tbody>
-      </table>
-      <table class="breadth-table">
-        <thead>
-          <tr>
-            <th>ETF</th>
-            <th>Avg Daily Range %</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td style='font-weight:700'>SPY</td><td style='text-align:center;font-weight:600'>1.23%</td></tr>
-<tr><td style='font-weight:700'>QQQ</td><td style='text-align:center;font-weight:600'>1.39%</td></tr>
-<tr><td style='font-weight:700'>DIA</td><td style='text-align:center;font-weight:600'>1.31%</td></tr>
-<tr><td style='font-weight:700'>IWM</td><td style='text-align:center;font-weight:600'>1.98%</td></tr>
-        </tbody>
-      </table>
-    </div>
-
-    <!-- 4c: Advance-Decline -->
-    <div class="section-subtitle">4C &mdash; NYSE / NASDAQ Advance-Decline</div>
-    <div class="adr-grid">
-      <div class="adr-card">
-        <div class="adr-title">NASDAQ</div>
-        <div class="adr-row"><span class="adr-key">Advances</span><span class="adr-val text-green">1,426</span></div>
-<div class="adr-row"><span class="adr-key">Declines</span><span class="adr-val text-red">1,522</span></div>
-<div class="adr-row"><span class="adr-key">Unchanged</span><span class="adr-val">86</span></div>
-<div class="adr-row"><span class="adr-key">% Advancing</span><span class="adr-val text-green">47.0%</span></div>
-<div class="adr-row"><span class="adr-key">% Declining</span><span class="adr-val text-red">50.2%</span></div>
-<div class="adr-row"><span class="adr-key">A/D Ratio</span><span class="adr-val text-red">0.937</span></div>
-<div class="adr-row"><span class="adr-key">Adv Volume</span><span class="adr-val">1074M</span></div>
-<div class="adr-row"><span class="adr-key">Dec Volume</span><span class="adr-val">1226M</span></div>
-<div class="adr-row"><span class="adr-key">52W Highs</span><span class="adr-val text-green">32</span></div>
-<div class="adr-row"><span class="adr-key">52W Lows</span><span class="adr-val text-red">40</span></div>
-      </div>
-      <div class="adr-card">
-        <div class="adr-title">NYSE</div>
-        <div class="adr-row"><span class="adr-key">Advances</span><span class="adr-val text-green">1,046</span></div>
-<div class="adr-row"><span class="adr-key">Declines</span><span class="adr-val text-red">810</span></div>
-<div class="adr-row"><span class="adr-key">Unchanged</span><span class="adr-val">18</span></div>
-<div class="adr-row"><span class="adr-key">% Advancing</span><span class="adr-val text-green">55.8%</span></div>
-<div class="adr-row"><span class="adr-key">% Declining</span><span class="adr-val text-red">43.2%</span></div>
-<div class="adr-row"><span class="adr-key">A/D Ratio</span><span class="adr-val text-green">1.291</span></div>
-<div class="adr-row"><span class="adr-key">Adv Volume</span><span class="adr-val">522M</span></div>
-<div class="adr-row"><span class="adr-key">Dec Volume</span><span class="adr-val">582M</span></div>
-<div class="adr-row"><span class="adr-key">52W Highs</span><span class="adr-val text-green">45</span></div>
-<div class="adr-row"><span class="adr-key">52W Lows</span><span class="adr-val text-red">21</span></div>
-      </div>
-    </div>
-
-    <!-- 4d: Stockbee Market Monitor Image -->
-    <div class="section-subtitle">4D &mdash; Stockbee Market Monitor</div>
-    <div class="img-card">
-      <div class="img-label">Stockbee Market Monitor &mdash; Momentum Breakdown</div>
-      <img src="assets/img/today/stockbee_mm.png"
-           alt="Stockbee Market Monitor"
-           onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
-      <div class="img-placeholder">No screenshot — assets/img/today/stockbee_mm.png</div>
-    </div>
-
-  </section>
-
-  <!-- ══════════════════════════════════════════════════════════════
-       SECTION 5 — SECTOR & INDUSTRY
-       Tags: SECTOR_ROWS_FULL  INDUSTRY_ROWS
-  ══════════════════════════════════════════════════════════════ -->
-  <section class="section">
-    <div class="section-title">Section 5 &mdash; Sector &amp; Industry Performance</div>
-
-    <!-- 5A: Sectors sorted by 1D change -->
-    <div class="section-subtitle">5A &mdash; Sector ETF Performance (Sorted by 1D Change)</div>
-    <div style="overflow-x:auto">
-      <table class="data-table">
-        <thead>
-          <tr>
-            <th>Symbol</th>
-            <th>Sector</th>
-            <th>Price</th>
-            <th>1D Chg%</th>
-            <th>1W Chg%</th>
-            <th>1M Chg%</th>
-            <th>RSI 14</th>
-            <th>vs 20MA</th>
-            <th>Status</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td><span class='sym'>XLE</span></td><td style='color:var(--text-sub);font-size:12px'>Energy</td><td style='font-weight:600'>$61.73</td><td><span class="chg-cell text-green-bg">+1.91%</span></td><td><span class="chg-cell text-green-bg">+3.21%</span></td><td><span class="chg-cell text-green-bg">+12.98%</span></td><td class='rsi-ob-cell'><div class='rsi-wrap'><span class='text-red' style='font-weight:600'>80.8</span><div class='rsi-bar'><div class='rsi-fill rsi-ob' style='width:81%'></div></div></div></td><td class='text-green' style='font-weight:600'>Green</td><td><span class='status-badge badge-above'>ABOVE ALL</span></td></tr>
-<tr><td><span class='sym'>XLRE</span></td><td style='color:var(--text-sub);font-size:12px'>Real Estate</td><td style='font-weight:600'>$40.45</td><td><span class="chg-cell text-green-bg">+0.43%</span></td><td><span class="chg-cell text-red-bg">-2.84%</span></td><td><span class="chg-cell text-red-bg">-6.88%</span></td><td class=''><div class='rsi-wrap'><span class='' style='font-weight:600'>30.3</span><div class='rsi-bar'><div class='rsi-fill rsi-neu' style='width:30%'></div></div></div></td><td class='text-red' style='font-weight:600'>Red</td><td><span class='status-badge badge-below'>BELOW ALL</span></td></tr>
-<tr><td><span class='sym'>XLV</span></td><td style='color:var(--text-sub);font-size:12px'>Health Care</td><td style='font-weight:600'>$146.64</td><td><span class="chg-cell text-green-bg">+0.27%</span></td><td><span class="chg-cell text-green-bg">+0.29%</span></td><td><span class="chg-cell text-red-bg">-6.98%</span></td><td class=''><div class='rsi-wrap'><span class='' style='font-weight:600'>34.8</span><div class='rsi-bar'><div class='rsi-fill rsi-neu' style='width:35%'></div></div></div></td><td class='text-red' style='font-weight:600'>Red</td><td><span class='status-badge badge-mixed'>MIXED</span></td></tr>
-<tr><td><span class='sym'>XLP</span></td><td style='color:var(--text-sub);font-size:12px'>Consumer Staples</td><td style='font-weight:600'>$81.64</td><td><span class="chg-cell text-green-bg">+0.15%</span></td><td><span class="chg-cell text-green-bg">+0.11%</span></td><td><span class="chg-cell text-red-bg">-7.53%</span></td><td class=''><div class='rsi-wrap'><span class='' style='font-weight:600'>35.6</span><div class='rsi-bar'><div class='rsi-fill rsi-neu' style='width:36%'></div></div></div></td><td class='text-red' style='font-weight:600'>Red</td><td><span class='status-badge badge-mixed'>MIXED</span></td></tr>
-<tr><td><span class='sym'>XLU</span></td><td style='color:var(--text-sub);font-size:12px'>Utilities</td><td style='font-weight:600'>$45.28</td><td><span class="chg-cell text-green-bg">+0.07%</span></td><td><span class="chg-cell text-red-bg">-2.13%</span></td><td><span class="chg-cell text-red-bg">-5.12%</span></td><td class=''><div class='rsi-wrap'><span class='' style='font-weight:600'>46.4</span><div class='rsi-bar'><div class='rsi-fill rsi-neu' style='width:46%'></div></div></div></td><td class='text-red' style='font-weight:600'>Red</td><td><span class='status-badge badge-mixed'>MIXED</span></td></tr>
-<tr><td><span class='sym'>XLB</span></td><td style='color:var(--text-sub);font-size:12px'>Materials</td><td style='font-weight:600'>$49.34</td><td><span class="chg-cell text-red-bg">-0.13%</span></td><td><span class="chg-cell text-green-bg">+2.48%</span></td><td><span class="chg-cell text-red-bg">-13.90%</span></td><td class=''><div class='rsi-wrap'><span class='' style='font-weight:600'>46.6</span><div class='rsi-bar'><div class='rsi-fill rsi-neu' style='width:47%'></div></div></div></td><td class='text-red' style='font-weight:600'>Red</td><td><span class='status-badge badge-mixed'>MIXED</span></td></tr>
-<tr><td><span class='sym'>XLF</span></td><td style='color:var(--text-sub);font-size:12px'>Financials</td><td style='font-weight:600'>$49.12</td><td><span class="chg-cell text-red-bg">-0.44%</span></td><td><span class="chg-cell text-green-bg">+0.46%</span></td><td><span class="chg-cell text-red-bg">-6.90%</span></td><td class=''><div class='rsi-wrap'><span class='' style='font-weight:600'>36.0</span><div class='rsi-bar'><div class='rsi-fill rsi-neu' style='width:36%'></div></div></div></td><td class='text-red' style='font-weight:600'>Red</td><td><span class='status-badge badge-below'>BELOW ALL</span></td></tr>
-<tr><td><span class='sym'>XLY</span></td><td style='color:var(--text-sub);font-size:12px'>Consumer Discretionary</td><td style='font-weight:600'>$109.83</td><td><span class="chg-cell text-red-bg">-0.81%</span></td><td><span class="chg-cell text-green-bg">+0.73%</span></td><td><span class="chg-cell text-red-bg">-6.47%</span></td><td class=''><div class='rsi-wrap'><span class='' style='font-weight:600'>38.7</span><div class='rsi-bar'><div class='rsi-fill rsi-neu' style='width:39%'></div></div></div></td><td class='text-red' style='font-weight:600'>Red</td><td><span class='status-badge badge-below'>BELOW ALL</span></td></tr>
-<tr><td><span class='sym'>XLI</span></td><td style='color:var(--text-sub);font-size:12px'>Industrials</td><td style='font-weight:600'>$162.93</td><td><span class="chg-cell text-red-bg">-1.32%</span></td><td><span class="chg-cell text-red-bg">-0.22%</span></td><td><span class="chg-cell text-red-bg">-7.41%</span></td><td class=''><div class='rsi-wrap'><span class='' style='font-weight:600'>37.8</span><div class='rsi-bar'><div class='rsi-fill rsi-neu' style='width:38%'></div></div></div></td><td class='text-red' style='font-weight:600'>Red</td><td><span class='status-badge badge-mixed'>MIXED</span></td></tr>
-<tr><td><span class='sym'>XLK</span></td><td style='color:var(--text-sub);font-size:12px'>Technology</td><td style='font-weight:600'>$134.58</td><td><span class="chg-cell text-red-bg">-1.59%</span></td><td><span class="chg-cell text-red-bg">-1.83%</span></td><td><span class="chg-cell text-red-bg">-6.73%</span></td><td class=''><div class='rsi-wrap'><span class='' style='font-weight:600'>40.4</span><div class='rsi-bar'><div class='rsi-fill rsi-neu' style='width:40%'></div></div></div></td><td class='text-red' style='font-weight:600'>Red</td><td><span class='status-badge badge-below'>BELOW ALL</span></td></tr>
-<tr><td><span class='sym'>XLC</span></td><td style='color:var(--text-sub);font-size:12px'>Communication Services</td><td style='font-weight:600'>$109.53</td><td><span class="chg-cell text-red-bg">-1.71%</span></td><td><span class="chg-cell text-red-bg">-4.86%</span></td><td><span class="chg-cell text-red-bg">-7.46%</span></td><td class='rsi-os-cell'><div class='rsi-wrap'><span class='text-green' style='font-weight:600'>26.6</span><div class='rsi-bar'><div class='rsi-fill rsi-os' style='width:27%'></div></div></div></td><td class='text-red' style='font-weight:600'>Red</td><td><span class='status-badge badge-below'>BELOW ALL</span></td></tr>
-        </tbody>
-      </table>
-    </div>
-
-    <!-- 5B: Top 15 Industries -->
-    <div class="section-subtitle">5B &mdash; Top 15 Industries (by 1D Change)</div>
-    <div style="overflow-x:auto">
-      <table class="data-table">
-        <thead>
-          <tr>
-            <th style="text-align:center">Rank</th>
-            <th>Industry</th>
-            <th>1D Chg%</th>
-            <th>1W Chg%</th>
-            <th>1M Chg%</th>
-            <th>3M Chg%</th>
-            <th>YTD Chg%</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td style='text-align:center'><span class='rank-num'>1</span></td><td style='font-weight:600;max-width:220px;white-space:normal'>Oil & Gas Refining & Marketing</td><td><span class="chg-cell text-green-bg">+3.34%</span></td><td><span class="chg-cell text-green-bg">+3.87%</span></td><td><span class="chg-cell text-green-bg">+22.21%</span></td><td><span class="chg-cell text-green-bg">+44.25%</span></td><td><span class="chg-cell text-green-bg">+45.57%</span></td></tr>
-<tr><td style='text-align:center'><span class='rank-num'>2</span></td><td style='font-weight:600;max-width:220px;white-space:normal'>Staffing & Employment Services</td><td><span class="chg-cell text-green-bg">+2.51%</span></td><td><span class="chg-cell text-green-bg">+6.69%</span></td><td><span class="chg-cell text-green-bg">+7.20%</span></td><td><span class="chg-cell text-red-bg">-12.37%</span></td><td><span class="chg-cell text-red-bg">-13.23%</span></td></tr>
-<tr><td style='text-align:center'><span class='rank-num'>3</span></td><td style='font-weight:600;max-width:220px;white-space:normal'>Oil & Gas E&P</td><td><span class="chg-cell text-green-bg">+2.12%</span></td><td><span class="chg-cell text-green-bg">+4.30%</span></td><td><span class="chg-cell text-green-bg">+19.67%</span></td><td><span class="chg-cell text-green-bg">+43.07%</span></td><td><span class="chg-cell text-green-bg">+41.89%</span></td></tr>
-<tr><td style='text-align:center'><span class='rank-num'>4</span></td><td style='font-weight:600;max-width:220px;white-space:normal'>Oil & Gas Drilling</td><td><span class="chg-cell text-green-bg">+1.67%</span></td><td><span class="chg-cell text-green-bg">+5.48%</span></td><td><span class="chg-cell text-green-bg">+14.17%</span></td><td><span class="chg-cell text-green-bg">+63.17%</span></td><td><span class="chg-cell text-green-bg">+61.30%</span></td></tr>
-<tr><td style='text-align:center'><span class='rank-num'>5</span></td><td style='font-weight:600;max-width:220px;white-space:normal'>Farm Products</td><td><span class="chg-cell text-green-bg">+1.65%</span></td><td><span class="chg-cell text-green-bg">+4.86%</span></td><td><span class="chg-cell text-green-bg">+4.32%</span></td><td><span class="chg-cell text-green-bg">+22.79%</span></td><td><span class="chg-cell text-green-bg">+22.55%</span></td></tr>
-<tr><td style='text-align:center'><span class='rank-num'>6</span></td><td style='font-weight:600;max-width:220px;white-space:normal'>Broadcasting</td><td><span class="chg-cell text-green-bg">+1.62%</span></td><td><span class="chg-cell text-red-bg">-0.05%</span></td><td><span class="chg-cell text-red-bg">-6.00%</span></td><td><span class="chg-cell text-red-bg">-8.10%</span></td><td><span class="chg-cell text-red-bg">-5.93%</span></td></tr>
-<tr><td style='text-align:center'><span class='rank-num'>7</span></td><td style='font-weight:600;max-width:220px;white-space:normal'>Grocery Stores</td><td><span class="chg-cell text-green-bg">+1.49%</span></td><td><span class="chg-cell text-red-bg">-3.52%</span></td><td><span class="chg-cell text-green-bg">+2.72%</span></td><td><span class="chg-cell text-green-bg">+8.48%</span></td><td><span class="chg-cell text-green-bg">+8.36%</span></td></tr>
-<tr><td style='text-align:center'><span class='rank-num'>8</span></td><td style='font-weight:600;max-width:220px;white-space:normal'>Chemicals</td><td><span class="chg-cell text-green-bg">+1.44%</span></td><td><span class="chg-cell text-green-bg">+6.97%</span></td><td><span class="chg-cell text-green-bg">+26.41%</span></td><td><span class="chg-cell text-green-bg">+59.42%</span></td><td><span class="chg-cell text-green-bg">+58.01%</span></td></tr>
-<tr><td style='text-align:center'><span class='rank-num'>9</span></td><td style='font-weight:600;max-width:220px;white-space:normal'>Consumer Electronics</td><td><span class="chg-cell text-green-bg">+1.41%</span></td><td><span class="chg-cell text-green-bg">+2.84%</span></td><td><span class="chg-cell text-red-bg">-6.49%</span></td><td><span class="chg-cell text-red-bg">-6.43%</span></td><td><span class="chg-cell text-red-bg">-6.25%</span></td></tr>
-<tr><td style='text-align:center'><span class='rank-num'>10</span></td><td style='font-weight:600;max-width:220px;white-space:normal'>REIT - Hotel & Motel</td><td><span class="chg-cell text-green-bg">+1.33%</span></td><td><span class="chg-cell text-green-bg">+2.43%</span></td><td><span class="chg-cell text-red-bg">-2.17%</span></td><td><span class="chg-cell text-green-bg">+4.06%</span></td><td><span class="chg-cell text-green-bg">+6.06%</span></td></tr>
-<tr><td style='text-align:center'><span class='rank-num'>11</span></td><td style='font-weight:600;max-width:220px;white-space:normal'>Thermal Coal</td><td><span class="chg-cell text-green-bg">+1.27%</span></td><td><span class="chg-cell text-green-bg">+3.11%</span></td><td><span class="chg-cell text-green-bg">+15.08%</span></td><td><span class="chg-cell text-green-bg">+21.19%</span></td><td><span class="chg-cell text-green-bg">+23.67%</span></td></tr>
-<tr><td style='text-align:center'><span class='rank-num'>12</span></td><td style='font-weight:600;max-width:220px;white-space:normal'>Oil & Gas Integrated</td><td><span class="chg-cell text-green-bg">+1.26%</span></td><td><span class="chg-cell text-green-bg">+2.82%</span></td><td><span class="chg-cell text-green-bg">+14.87%</span></td><td><span class="chg-cell text-green-bg">+40.66%</span></td><td><span class="chg-cell text-green-bg">+39.46%</span></td></tr>
-<tr><td style='text-align:center'><span class='rank-num'>13</span></td><td style='font-weight:600;max-width:220px;white-space:normal'>Marine Shipping</td><td><span class="chg-cell text-green-bg">+1.20%</span></td><td><span class="chg-cell text-green-bg">+2.99%</span></td><td><span class="chg-cell text-red-bg">-1.80%</span></td><td><span class="chg-cell text-green-bg">+26.79%</span></td><td><span class="chg-cell text-green-bg">+26.31%</span></td></tr>
-<tr><td style='text-align:center'><span class='rank-num'>14</span></td><td style='font-weight:600;max-width:220px;white-space:normal'>Oil & Gas Equipment & Services</td><td><span class="chg-cell text-green-bg">+1.13%</span></td><td><span class="chg-cell text-green-bg">+5.74%</span></td><td><span class="chg-cell text-green-bg">+3.22%</span></td><td><span class="chg-cell text-green-bg">+41.46%</span></td><td><span class="chg-cell text-green-bg">+41.40%</span></td></tr>
-<tr><td style='text-align:center'><span class='rank-num'>15</span></td><td style='font-weight:600;max-width:220px;white-space:normal'>Medical Devices</td><td><span class="chg-cell text-green-bg">+1.09%</span></td><td><span class="chg-cell text-green-bg">+0.32%</span></td><td><span class="chg-cell text-red-bg">-8.35%</span></td><td><span class="chg-cell text-red-bg">-11.98%</span></td><td><span class="chg-cell text-red-bg">-11.40%</span></td></tr>
-        </tbody>
-      </table>
-    </div>
-
-    <!-- Market Heatmap -->
-    <div class="img-card">
-      <div class="img-label">Market Heatmap (Finviz)</div>
-      <img src="assets/img/today/market_heatmap.png"
-           alt="Market Heatmap"
-           onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
-      <div class="img-placeholder">No screenshot — assets/img/today/market_heatmap.png</div>
-    </div>
-
-  </section>
-
-  <!-- ══════════════════════════════════════════════════════════════
-       SECTION 6 — MARKET ANALYSIS (AI-generated)
-       Tag: SECTION6_CONTENT
-  ══════════════════════════════════════════════════════════════ -->
-  <section class="section">
-    <div class="section-title">Section 6 &mdash; Market Analysis</div>
-    <div class="ai-section">
-      <p class="ai-placeholder">[ Section 6: Market Analysis — to be filled by AI after data review. Include macro environment assessment, index trend analysis, and key risk factors. ]</p>
-    </div>
-  </section>
-
-  <!-- ══════════════════════════════════════════════════════════════
-       SECTION 7 — TRADING OUTLOOK & WATCHLIST (AI-generated)
-       Tag: SECTION7_CONTENT
-  ══════════════════════════════════════════════════════════════ -->
-  <section class="section">
-    <div class="section-title">Section 7 &mdash; Trading Outlook &amp; Watchlist</div>
-    <div class="ai-section">
-      <p class="ai-placeholder">[ Section 7: Trading Outlook &amp; Watchlist — to be filled by AI. Include sector rotation opportunities, high-momentum setups, and key levels to watch. ]</p>
-    </div>
-  </section>
-
-  <!-- ══════════════════════════════════════════════════════════════
-       FOOTER
-  ══════════════════════════════════════════════════════════════ -->
-  <footer class="report-footer">
-    Generated by Credit-Efficient Market Summary System &nbsp;|&nbsp;
-    Data: Yahoo Finance · CNN · NAAIM · Finviz · Barchart &nbsp;|&nbsp;
-    2026-03-27 00:12 HKT &nbsp;/&nbsp; 2026-03-26 12:12 ET
-    <br/>
-    <span style="color:#3a3a3a">For informational purposes only. Not financial advice.</span>
-  </footer>
-
+<!-- HEADER -->
+<div class="report-header">
+  <div>
+    <h1>Daily Market Summary</h1>
+    <div class="subtitle">Automated Credit-Efficient System &middot; 2026-03-27</div>
+  </div>
+  <div class="ts-badges">
+    <div class="ts-badge">HKT <span>2026-03-27 01:34</span></div>
+    <div class="ts-badge">ET <span>2026-03-26 13:34</span></div>
+  </div>
 </div>
+
+<div class="page-wrap">
+
+<!-- ═══ SECTION 1 — MACRO INDICATORS ═══════════════════════════════ -->
+<div class="section">
+  <div class="section-title">Section 1 — Macro Indicators</div>
+  <div class="macro-grid">
+    <div class="macro-card">
+      <div class="mc-label">VIX</div><div class="mc-sub">Fear Index</div>
+      <div class="mc-price">27.54</div>
+      <div class="mc-chg text-green">+8.72%</div>
+    </div>
+    <div class="macro-card">
+      <div class="mc-label">DXY</div><div class="mc-sub">US Dollar</div>
+      <div class="mc-price">99.871</div>
+      <div class="mc-chg text-green">+0.27%</div>
+    </div>
+    <div class="macro-card">
+      <div class="mc-label">10Y Yield</div><div class="mc-sub">TNX %</div>
+      <div class="mc-price">4.412</div>
+      <div class="mc-chg text-green">+1.94%</div>
+    </div>
+    <div class="macro-card">
+      <div class="mc-label">Gold</div><div class="mc-sub">USD/oz</div>
+      <div class="mc-price">4,382.90</div>
+      <div class="mc-chg text-red">-3.67%</div>
+    </div>
+    <div class="macro-card">
+      <div class="mc-label">WTI Oil</div><div class="mc-sub">USD/bbl</div>
+      <div class="mc-price">94.81</div>
+      <div class="mc-chg text-green">+4.97%</div>
+    </div>
+    <div class="macro-card">
+      <div class="mc-label">Bitcoin</div><div class="mc-sub">USD</div>
+      <div class="mc-price">69,076</div>
+      <div class="mc-chg text-red">-3.13%</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ SECTION 2 — MAJOR INDICES (with MA distances + A/D Ratio) ══ -->
+<div class="section">
+  <div class="section-title">Section 2 — Major Indices</div>
+  <div class="table-wrap">
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Symbol</th>
+          <th>Price</th>
+          <th>1D Chg%</th>
+          <th>RSI 14</th>
+          <th>vs 20MA</th>
+          <th>vs 50MA</th>
+          <th>vs 200MA</th>
+          <th>A/D Ratio</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class=""><td><div class="sym-cell"><span class="sym">SPY</span><span class="sym-name">S&P 500 ETF</span></div></td><td>648.93</td><td><span class="chg-pill text-red-bg">-1.20%</span></td><td><div class="rsi-wrap"><span class="">35.0</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:35%"></div></div></div></td><td class="text-red">-2.77%</td><td class="text-red">-4.43%</td><td class="text-red">-1.35%</td><td><span class="text-red">0.267</span></td><td><span class="status-badge badge-below">Below All</span></td></tr>
+<tr class=""><td><div class="sym-cell"><span class="sym">QQQ</span><span class="sym-name">Nasdaq 100 ETF</span></div></td><td>578.17</td><td><span class="chg-pill text-red-bg">-1.64%</span></td><td><div class="rsi-wrap"><span class="">36.2</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:36%"></div></div></div></td><td class="text-red">-3.33%</td><td class="text-red">-4.86%</td><td class="text-red">-2.53%</td><td><span class="text-red">0.389</span></td><td><span class="status-badge badge-below">Below All</span></td></tr>
+<tr class=""><td><div class="sym-cell"><span class="sym">DIA</span><span class="sym-name">Dow Jones ETF</span></div></td><td>460.30</td><td><span class="chg-pill text-red-bg">-0.83%</span></td><td><div class="rsi-wrap"><span class="">35.4</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:35%"></div></div></div></td><td class="text-red">-2.32%</td><td class="text-red">-4.85%</td><td class="text-red">-0.65%</td><td><span class="text-red">0.250</span></td><td><span class="status-badge badge-below">Below All</span></td></tr>
+<tr class=""><td><div class="sym-cell"><span class="sym">IWM</span><span class="sym-name">Russell 2000 ETF</span></div></td><td>248.54</td><td><span class="chg-pill text-red-bg">-1.30%</span></td><td><div class="rsi-wrap"><span class="">44.3</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:44%"></div></div></div></td><td class="text-red">-1.25%</td><td class="text-red">-3.90%</td><td class="text-green">+3.20%</td><td><span class="text-red">0.636</span></td><td><span class="status-badge badge-mixed">Mixed</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ═══ SECTION 3 — MARKET SENTIMENT ══════════════════════════════ -->
+<div class="section">
+  <div class="section-title">Section 3 — Market Sentiment</div>
+  <div class="sentiment-grid">
+
+    <div class="sent-card">
+      <div class="sc-label">CNN Fear &amp; Greed Index</div>
+      <div class="sc-value text-red">19</div>
+      <div class="sc-rating text-red">Extreme Fear</div>
+      <table class="hist-table">
+        <tr><td>Prev Close</td><td>19.26</td></tr>
+        <tr><td>1 Week Ago</td><td>17.31</td></tr>
+        <tr><td>1 Month Ago</td><td>42.17</td></tr>
+        <tr><td>1 Year Ago</td><td>28.89</td></tr>
+      </table>
+    </div>
+
+    <div class="sent-card">
+      <div class="sc-label">NAAIM Exposure Index</div>
+      <div class="sc-value" style="color:#e0e0e0">68.52</div>
+      <div class="sc-rating text-muted">Weekly Survey</div>
+      <div class="sc-sub">Latest: 2026-03-25</div>
+      <div style="font-size:9px;color:var(--text-muted);letter-spacing:0.6px;text-transform:uppercase;margin:8px 0 4px;">3-Week History</div>
+      <div class="naaim-hist-row"><span>2026-03-25</span><span class="nh-val">68.52</span></div>
+<div class="naaim-hist-row"><span>2026-03-18</span><span class="nh-val">60.24</span></div>
+<div class="naaim-hist-row"><span>2026-03-11</span><span class="nh-val">66.99</span></div>
+      <div style="margin-top:10px;font-size:10px;color:var(--text-muted);">Active managers' equity exposure. &gt;80 = overweight; &lt;40 = underweight.</div>
+    </div>
+
+    <div class="sent-card">
+      <div class="sc-label">Put / Call Ratio</div>
+      <div class="sc-value text-green">0.7306</div>
+      <div class="sc-rating text-green">Bullish (Low Fear)</div>
+      <table class="hist-table">
+        <tr><td>Threshold</td><td>&gt;1.0 = Bearish</td></tr>
+        <tr><td>Source</td><td>CNN (5-day avg equity P/C)</td></tr>
+      </table>
+      <div style="margin-top:10px;font-size:10px;color:var(--text-muted);">High P/C = more puts = fear. Low P/C = complacency.</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══ SECTION 4 — MARKET BREADTH ════════════════════════════════ -->
+<div class="section">
+  <div class="section-title">Section 4 — Market Breadth</div>
+
+  <!-- 4B: % Above MA (Section 4a removed — MA distances now in Section 2) -->
+  <div class="sub-title">4B — % of Stocks Above Moving Averages</div>
+  <div class="table-wrap">
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Index</th>
+          <th>Total</th>
+          <th>% &gt; 20MA</th>
+          <th>% &gt; 50MA</th>
+          <th>% &gt; 200MA</th>
+          <th>ETF</th>
+          <th>Volatility ADR%</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>S&P 500</strong></td><td><span class="na-val">N/A</span></td><td><span class="na-val">N/A</span></td><td><span class="na-val">N/A</span></td><td><span class="na-val">N/A</span></td><td style="color:var(--text-muted)">SPY</td><td>1.26%</td></tr>
+<tr><td><strong>NASDAQ</strong></td><td><span class="na-val">N/A</span></td><td><span class="na-val">N/A</span></td><td><span class="na-val">N/A</span></td><td><span class="na-val">N/A</span></td><td style="color:var(--text-muted)">QQQ</td><td>1.42%</td></tr>
+<tr><td><strong>NYSE</strong></td><td><span class="na-val">N/A</span></td><td><span class="na-val">N/A</span></td><td><span class="na-val">N/A</span></td><td><span class="na-val">N/A</span></td><td style="color:var(--text-muted)">DIA</td><td>1.34%</td></tr>
+<tr><td><strong>Russell 2000</strong></td><td><span class="na-val">N/A</span></td><td><span class="na-val">N/A</span></td><td><span class="na-val">N/A</span></td><td><span class="na-val">N/A</span></td><td style="color:var(--text-muted)">IWM</td><td>2.01%</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 4C: Advance-Decline Ratio -->
+  <div class="sub-title" style="margin-top:20px;">4C — NYSE / NASDAQ Advance-Decline Ratio</div>
+  <div class="breadth-grid">
+    <div class="adr-card"><div class="adr-card-head">NYSE</div><div class="adr-row"><span>Advances</span><span class="adr-val text-green">775</span></div><div class="adr-row"><span>Declines</span><span class="adr-val text-red">1,069</span></div><div class="adr-row"><span>Unchanged</span><span class="adr-val">34</span></div><div class="adr-row"><span>Total Issues</span><span class="adr-val">1,878</span></div><div class="adr-row"><span>% Advancing</span><span class="adr-val text-green">+41.3%</span></div><div class="adr-row"><span>% Declining</span><span class="adr-val text-red">+56.9%</span></div><div class="adr-row"><span>A/D Ratio</span><span class="adr-val"><span class="text-red">0.725</span></span></div><div class="adr-row"><span>Adv Volume</span><span class="adr-val">670M</span></div><div class="adr-row"><span>Dec Volume</span><span class="adr-val">1073M</span></div><div class="adr-row"><span>52W Highs</span><span class="adr-val text-green">57</span></div><div class="adr-row"><span>52W Lows</span><span class="adr-val text-red">27</span></div></div>
+<div class="adr-card"><div class="adr-card-head">NASDAQ</div><div class="adr-row"><span>Advances</span><span class="adr-val text-green">1,223</span></div><div class="adr-row"><span>Declines</span><span class="adr-val text-red">1,782</span></div><div class="adr-row"><span>Unchanged</span><span class="adr-val">79</span></div><div class="adr-row"><span>Total Issues</span><span class="adr-val">3,084</span></div><div class="adr-row"><span>% Advancing</span><span class="adr-val text-green">+39.7%</span></div><div class="adr-row"><span>% Declining</span><span class="adr-val text-red">+57.8%</span></div><div class="adr-row"><span>A/D Ratio</span><span class="adr-val"><span class="text-red">0.686</span></span></div><div class="adr-row"><span>Adv Volume</span><span class="adr-val">1291M</span></div><div class="adr-row"><span>Dec Volume</span><span class="adr-val">1857M</span></div><div class="adr-row"><span>52W Highs</span><span class="adr-val text-green">36</span></div><div class="adr-row"><span>52W Lows</span><span class="adr-val text-red">43</span></div></div>
+  </div>
+
+  <!-- 4D: Stockbee Market Monitor -->
+  <div class="sub-title" style="margin-top:20px;">4D — Stockbee Market Monitor</div>
+  <div class="img-block">
+    <img src="assets/img/today/stockbee_mm.png" alt="Stockbee Market Monitor" />
+    <div class="img-caption">Stockbee Market Monitor — Momentum Breakdown</div>
+  </div>
+</div>
+
+<!-- ═══ SECTION 5 — SECTOR & INDUSTRY ═════════════════════════════ -->
+<div class="section">
+  <div class="section-title">Section 5 — Sector &amp; Industry Performance</div>
+
+  <!-- 5A: Sectors sorted by RSI desc -->
+  <div class="sub-title">5A — Sector ETF Performance (Sorted by RSI High → Low)</div>
+  <div class="table-wrap">
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Symbol</th>
+          <th>Sector</th>
+          <th>Price</th>
+          <th>1D Chg%</th>
+          <th>1W Chg%</th>
+          <th>1M Chg%</th>
+          <th>RSI 14</th>
+          <th>vs 20MA</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="rsi-ob-cell"><td><strong>XLE</strong></td><td style="color:var(--text-label)">Energy</td><td>61.76</td><td><span class="chg-pill text-green-bg">+1.96%</span></td><td><span class="chg-pill text-green-bg">+3.39%</span></td><td><span class="chg-pill text-green-bg">+13.17%</span></td><td><div class="rsi-wrap"><span class="text-red">80.9</span><div class="rsi-track"><div class="rsi-fill rsi-ob" style="width:81%"></div></div></div></td><td class="text-green">+6.55%</td><td><span class="status-badge badge-above">Above All</span></td></tr>
+<tr class=""><td><strong>XLB</strong></td><td style="color:var(--text-label)">Materials</td><td>49.13</td><td><span class="chg-pill text-red-bg">-0.56%</span></td><td><span class="chg-pill text-green-bg">+1.76%</span></td><td><span class="chg-pill text-red-bg">-14.51%</span></td><td><div class="rsi-wrap"><span class="">45.3</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:45%"></div></div></div></td><td class="text-red">-1.38%</td><td><span class="status-badge badge-mixed">Mixed</span></td></tr>
+<tr class=""><td><strong>XLU</strong></td><td style="color:var(--text-label)">Utilities</td><td>45.37</td><td><span class="chg-pill text-green-bg">+0.25%</span></td><td><span class="chg-pill text-red-bg">-1.96%</span></td><td><span class="chg-pill text-red-bg">-4.96%</span></td><td><div class="rsi-wrap"><span class="">44.6</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:45%"></div></div></div></td><td class="text-red">-2.33%</td><td><span class="status-badge badge-mixed">Mixed</span></td></tr>
+<tr class=""><td><strong>XLK</strong></td><td style="color:var(--text-label)">Technology</td><td>133.76</td><td><span class="chg-pill text-red-bg">-2.19%</span></td><td><span class="chg-pill text-red-bg">-2.47%</span></td><td><span class="chg-pill text-red-bg">-7.34%</span></td><td><div class="rsi-wrap"><span class="">38.6</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:39%"></div></div></div></td><td class="text-red">-3.12%</td><td><span class="status-badge badge-below">Below All</span></td></tr>
+<tr class=""><td><strong>XLY</strong></td><td style="color:var(--text-label)">Cons. Discretionary</td><td>109.30</td><td><span class="chg-pill text-red-bg">-1.29%</span></td><td><span class="chg-pill text-red-bg">-0.05%</span></td><td><span class="chg-pill text-red-bg">-7.19%</span></td><td><div class="rsi-wrap"><span class="">37.5</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:37%"></div></div></div></td><td class="text-red">-2.96%</td><td><span class="status-badge badge-below">Below All</span></td></tr>
+<tr class=""><td><strong>XLI</strong></td><td style="color:var(--text-label)">Industrials</td><td>162.19</td><td><span class="chg-pill text-red-bg">-1.77%</span></td><td><span class="chg-pill text-red-bg">-0.86%</span></td><td><span class="chg-pill text-red-bg">-8.00%</span></td><td><div class="rsi-wrap"><span class="">36.5</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:37%"></div></div></div></td><td class="text-red">-3.68%</td><td><span class="status-badge badge-mixed">Mixed</span></td></tr>
+<tr class=""><td><strong>XLF</strong></td><td style="color:var(--text-label)">Financials</td><td>48.98</td><td><span class="chg-pill text-red-bg">-0.74%</span></td><td><span class="chg-pill text-green-bg">+0.15%</span></td><td><span class="chg-pill text-red-bg">-7.19%</span></td><td><div class="rsi-wrap"><span class="">34.9</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:35%"></div></div></div></td><td class="text-red">-1.83%</td><td><span class="status-badge badge-below">Below All</span></td></tr>
+<tr class=""><td><strong>XLV</strong></td><td style="color:var(--text-label)">Health Care</td><td>146.54</td><td><span class="chg-pill text-green-bg">+0.21%</span></td><td><span class="chg-pill text-green-bg">+0.26%</span></td><td><span class="chg-pill text-red-bg">-7.01%</span></td><td><div class="rsi-wrap"><span class="">34.4</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:34%"></div></div></div></td><td class="text-red">-3.00%</td><td><span class="status-badge badge-mixed">Mixed</span></td></tr>
+<tr class=""><td><strong>XLP</strong></td><td style="color:var(--text-label)">Cons. Staples</td><td>81.59</td><td><span class="chg-pill text-green-bg">+0.10%</span></td><td><span class="chg-pill text-green-bg">+0.23%</span></td><td><span class="chg-pill text-red-bg">-7.42%</span></td><td><div class="rsi-wrap"><span class="">32.6</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:33%"></div></div></div></td><td class="text-red">-3.50%</td><td><span class="status-badge badge-mixed">Mixed</span></td></tr>
+<tr class="rsi-os-cell"><td><strong>XLRE</strong></td><td style="color:var(--text-label)">Real Estate</td><td>40.31</td><td><span class="chg-pill text-green-bg">+0.10%</span></td><td><span class="chg-pill text-red-bg">-3.03%</span></td><td><span class="chg-pill text-red-bg">-7.07%</span></td><td><div class="rsi-wrap"><span class="text-green">27.9</span><div class="rsi-track"><div class="rsi-fill rsi-os" style="width:28%"></div></div></div></td><td class="text-red">-4.64%</td><td><span class="status-badge badge-below">Below All</span></td></tr>
+<tr class="rsi-os-cell"><td><strong>XLC</strong></td><td style="color:var(--text-label)">Communication Svcs</td><td>109.24</td><td><span class="chg-pill text-red-bg">-1.97%</span></td><td><span class="chg-pill text-red-bg">-5.32%</span></td><td><span class="chg-pill text-red-bg">-7.91%</span></td><td><div class="rsi-wrap"><span class="text-green">26.0</span><div class="rsi-track"><div class="rsi-fill rsi-os" style="width:26%"></div></div></div></td><td class="text-red">-5.19%</td><td><span class="status-badge badge-below">Below All</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 5B: Top 15 Industries with num_stocks -->
+  <div class="sub-title" style="margin-top:20px;">5B — Top 15 Industries (by 1D Change)</div>
+  <div class="table-wrap">
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th style="text-align:center;">#</th>
+          <th>Industry</th>
+          <th>Stocks</th>
+          <th>1D Chg%</th>
+          <th>1W Chg%</th>
+          <th>1M Chg%</th>
+          <th>3M Chg%</th>
+          <th>YTD Chg%</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td style="text-align:center;color:var(--text-muted)">1</td><td>Oil & Gas Refining & Marketing</td><td style="color:var(--text-label)">19</td><td><span class="chg-pill text-green-bg">+3.46%</span></td><td><span class="chg-pill text-green-bg">+3.99%</span></td><td><span class="chg-pill text-green-bg">+22.35%</span></td><td><span class="chg-pill text-green-bg">+44.41%</span></td><td><span class="chg-pill text-green-bg">+45.73%</span></td></tr>
+<tr><td style="text-align:center;color:var(--text-muted)">2</td><td>Beverages - Wineries & Distilleries</td><td style="color:var(--text-label)">11</td><td><span class="chg-pill text-green-bg">+3.26%</span></td><td><span class="chg-pill text-green-bg">+2.95%</span></td><td><span class="chg-pill text-red-bg">-11.48%</span></td><td><span class="chg-pill text-red-bg">-9.91%</span></td><td><span class="chg-pill text-red-bg">-10.17%</span></td></tr>
+<tr><td style="text-align:center;color:var(--text-muted)">3</td><td>Oil & Gas E&P</td><td style="color:var(--text-label)">79</td><td><span class="chg-pill text-green-bg">+2.34%</span></td><td><span class="chg-pill text-green-bg">+4.53%</span></td><td><span class="chg-pill text-green-bg">+19.94%</span></td><td><span class="chg-pill text-green-bg">+43.39%</span></td><td><span class="chg-pill text-green-bg">+42.21%</span></td></tr>
+<tr><td style="text-align:center;color:var(--text-muted)">4</td><td>Oil & Gas Drilling</td><td style="color:var(--text-label)">9</td><td><span class="chg-pill text-green-bg">+2.10%</span></td><td><span class="chg-pill text-green-bg">+5.93%</span></td><td><span class="chg-pill text-green-bg">+14.66%</span></td><td><span class="chg-pill text-green-bg">+63.87%</span></td><td><span class="chg-pill text-green-bg">+61.98%</span></td></tr>
+<tr><td style="text-align:center;color:var(--text-muted)">5</td><td>Grocery Stores</td><td style="color:var(--text-label)">12</td><td><span class="chg-pill text-green-bg">+2.03%</span></td><td><span class="chg-pill text-red-bg">-3.00%</span></td><td><span class="chg-pill text-green-bg">+3.27%</span></td><td><span class="chg-pill text-green-bg">+9.06%</span></td><td><span class="chg-pill text-green-bg">+8.94%</span></td></tr>
+<tr><td style="text-align:center;color:var(--text-muted)">6</td><td>Staffing & Employment Services</td><td style="color:var(--text-label)">17</td><td><span class="chg-pill text-green-bg">+1.78%</span></td><td><span class="chg-pill text-green-bg">+5.93%</span></td><td><span class="chg-pill text-green-bg">+6.44%</span></td><td><span class="chg-pill text-red-bg">-13.00%</span></td><td><span class="chg-pill text-red-bg">-13.85%</span></td></tr>
+<tr><td style="text-align:center;color:var(--text-muted)">7</td><td>Oil & Gas Integrated</td><td style="color:var(--text-label)">19</td><td><span class="chg-pill text-green-bg">+1.40%</span></td><td><span class="chg-pill text-green-bg">+2.96%</span></td><td><span class="chg-pill text-green-bg">+15.03%</span></td><td><span class="chg-pill text-green-bg">+40.84%</span></td><td><span class="chg-pill text-green-bg">+39.65%</span></td></tr>
+<tr><td style="text-align:center;color:var(--text-muted)">8</td><td>Farm Products</td><td style="color:var(--text-label)">20</td><td><span class="chg-pill text-green-bg">+1.30%</span></td><td><span class="chg-pill text-green-bg">+4.50%</span></td><td><span class="chg-pill text-green-bg">+3.96%</span></td><td><span class="chg-pill text-green-bg">+22.37%</span></td><td><span class="chg-pill text-green-bg">+22.13%</span></td></tr>
+<tr><td style="text-align:center;color:var(--text-muted)">9</td><td>Oil & Gas Equipment & Services</td><td style="color:var(--text-label)">49</td><td><span class="chg-pill text-green-bg">+1.20%</span></td><td><span class="chg-pill text-green-bg">+5.82%</span></td><td><span class="chg-pill text-green-bg">+3.29%</span></td><td><span class="chg-pill text-green-bg">+41.56%</span></td><td><span class="chg-pill text-green-bg">+41.50%</span></td></tr>
+<tr><td style="text-align:center;color:var(--text-muted)">10</td><td>Oil & Gas Midstream</td><td style="color:var(--text-label)">56</td><td><span class="chg-pill text-green-bg">+1.19%</span></td><td><span class="chg-pill text-green-bg">+2.74%</span></td><td><span class="chg-pill text-green-bg">+7.15%</span></td><td><span class="chg-pill text-green-bg">+24.02%</span></td><td><span class="chg-pill text-green-bg">+23.93%</span></td></tr>
+<tr><td style="text-align:center;color:var(--text-muted)">11</td><td>Consumer Electronics</td><td style="color:var(--text-label)">19</td><td><span class="chg-pill text-green-bg">+0.88%</span></td><td><span class="chg-pill text-green-bg">+2.31%</span></td><td><span class="chg-pill text-red-bg">-6.97%</span></td><td><span class="chg-pill text-red-bg">-6.92%</span></td><td><span class="chg-pill text-red-bg">-6.73%</span></td></tr>
+<tr><td style="text-align:center;color:var(--text-muted)">12</td><td>REIT - Residential</td><td style="color:var(--text-label)">22</td><td><span class="chg-pill text-green-bg">+0.83%</span></td><td><span class="chg-pill text-red-bg">-1.00%</span></td><td><span class="chg-pill text-red-bg">-6.50%</span></td><td><span class="chg-pill text-red-bg">-5.59%</span></td><td><span class="chg-pill text-red-bg">-6.62%</span></td></tr>
+<tr><td style="text-align:center;color:var(--text-muted)">13</td><td>Packaged Foods</td><td style="color:var(--text-label)">63</td><td><span class="chg-pill text-green-bg">+0.76%</span></td><td><span class="chg-pill text-green-bg">+0.48%</span></td><td><span class="chg-pill text-red-bg">-11.49%</span></td><td><span class="chg-pill text-red-bg">-7.34%</span></td><td><span class="chg-pill text-red-bg">-7.20%</span></td></tr>
+<tr><td style="text-align:center;color:var(--text-muted)">14</td><td>Utilities - Regulated Water</td><td style="color:var(--text-label)">13</td><td><span class="chg-pill text-green-bg">+0.76%</span></td><td><span class="chg-pill text-green-bg">+0.50%</span></td><td><span class="chg-pill text-red-bg">-0.55%</span></td><td><span class="chg-pill text-green-bg">+8.46%</span></td><td><span class="chg-pill text-green-bg">+9.64%</span></td></tr>
+<tr><td style="text-align:center;color:var(--text-muted)">15</td><td>Medical Devices</td><td style="color:var(--text-label)">141</td><td><span class="chg-pill text-green-bg">+0.69%</span></td><td><span class="chg-pill text-red-bg">-0.07%</span></td><td><span class="chg-pill text-red-bg">-8.72%</span></td><td><span class="chg-pill text-red-bg">-12.33%</span></td><td><span class="chg-pill text-red-bg">-11.75%</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Market Heatmap -->
+  <div class="img-block" style="margin-top:16px;">
+    <img src="assets/img/today/market_heatmap.png" alt="Market Heatmap (Finviz)" />
+    <div class="img-caption">Market Heatmap (Finviz)</div>
+  </div>
+</div>
+
+<!-- ═══ SECTION 6 — MARKET ANALYSIS (AI) ══════════════════════════ -->
+<div class="section">
+  <div class="section-title">Section 6 — Market Analysis</div>
+  <div class="ai-text-area">
+    <span class="ai-placeholder">[AI Market Analysis — to be filled by AI commentary step]</span>
+  </div>
+</div>
+
+<!-- ═══ SECTION 7 — TRADING OUTLOOK & WATCHLIST (AI) ══════════════ -->
+<div class="section">
+  <div class="section-title">Section 7 — Trading Outlook &amp; Watchlist</div>
+  <div class="ai-text-area">
+    <span class="ai-placeholder">[AI Trading Outlook & Watchlist — to be filled by AI commentary step]</span>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="report-footer">
+  Generated by Credit-Efficient Market Summary System &nbsp;|&nbsp;
+  Data: Yahoo Finance · CNN · NAAIM · Finviz · Barchart &nbsp;|&nbsp;
+  2026-03-27 01:34 HKT &nbsp;/&nbsp; 2026-03-26 13:34 ET<br/>
+  For informational purposes only. Not financial advice.
+</div>
+
+</div><!-- .page-wrap -->
 </body>
 </html>

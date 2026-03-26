@@ -4,986 +4,531 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Daily Market Summary — {{DATE}}</title>
-
-  <!-- ── Google Fonts: Inter ──────────────────────────────────────── -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <style>
-    /* ══════════════════════════════════════════════════════════════
-       RESET & BASE
-    ══════════════════════════════════════════════════════════════ */
+    /* ─── RESET ──────────────────────────────────────────────────── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    /* ── Dark Mode Body ─────────────────────────────────────────── */
+    /* ─── DARK MODE BASE ─────────────────────────────────────────── */
     body {
-      font-family: 'Inter', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
-      background-color: #121212;
+      background-color: #0d0d0d;
       color: #e0e0e0;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
       font-size: 13px;
-      line-height: 1.55;
+      line-height: 1.5;
       -webkit-font-smoothing: antialiased;
     }
-    a { color: #5b9bd5; text-decoration: none; }
-    a:hover { color: #7db8e8; }
 
-    /* ── Universal Image Rules ──────────────────────────────────── */
+    /* ─── UNIVERSAL IMAGE RULE ───────────────────────────────────── */
     img {
       max-width: 100%;
       height: auto;
       display: block;
       margin: 0 auto;
+      border-radius: 4px;
     }
 
-    /* ══════════════════════════════════════════════════════════════
-       CSS CUSTOM PROPERTIES — Dark Mode Palette
-    ══════════════════════════════════════════════════════════════ */
+    /* ─── CSS VARIABLES ──────────────────────────────────────────── */
     :root {
-      /* Backgrounds */
-      --bg-page:    #121212;
-      --bg-card:    #1e1e1e;
-      --bg-card-alt:#252525;
-      --bg-header:  #0d0d0d;
-      --bg-row-hover: #2a2a2a;
-      --bg-thead:   #181818;
-
-      /* Borders */
-      --border:     #2e2e2e;
-      --border-accent: #3d4a6a;
-
-      /* Accent */
-      --accent:     #4a9eff;
-      --accent-dim: #1e3a5f;
-
-      /* Text */
-      --text-main:  #e0e0e0;
-      --text-sub:   #a0a0a0;
-      --text-muted: #666666;
-      --text-head:  #ffffff;
-
-      /* Semantic colors */
-      --green:      #3ddc84;
-      --green-bg:   #0d2e1a;
-      --green-dim:  #1a4a2a;
-      --red:        #ff5c5c;
-      --red-bg:     #2e0d0d;
-      --red-dim:    #4a1a1a;
-      --amber:      #f0c040;
-      --amber-bg:   #2e2400;
+      --bg-card:    #161616;
+      --bg-card2:   #1c1c1c;
+      --bg-head:    #111111;
+      --border:     #2a2a2a;
+      --border-lt:  #1e1e1e;
+      --text-muted: #777777;
+      --text-label: #aaaaaa;
+      --green:      #4caf50;
+      --green-bg:   rgba(76,175,80,0.13);
+      --red:        #f44336;
+      --red-bg:     rgba(244,67,54,0.13);
+      --amber:      #ff9800;
+      --amber-bg:   rgba(255,152,0,0.11);
+      --blue:       #42a5f5;
     }
 
-    /* ══════════════════════════════════════════════════════════════
-       DYNAMIC COLOR CLASSES
-       text-green / text-red replace the old .up / .down
-       Both naming conventions are supported for compatibility
-    ══════════════════════════════════════════════════════════════ */
+    /* ─── DYNAMIC COLOR CLASSES ──────────────────────────────────── */
     .text-green, .up   { color: var(--green) !important; }
     .text-red,   .down { color: var(--red)   !important; }
-    .text-amber,  .flat { color: var(--amber) !important; }
+    .text-amber        { color: var(--amber) !important; }
     .text-muted        { color: var(--text-muted) !important; }
+    .text-green-bg { background: var(--green-bg); color: var(--green) !important; }
+    .text-red-bg   { background: var(--red-bg);   color: var(--red)   !important; }
+    .na-val { color: var(--text-muted); font-style: italic; font-size: 11px; }
 
-    /* Background pill variants */
-    .text-green-bg, .up-bg {
-      background: var(--green-bg);
-      color: var(--green) !important;
-    }
-    .text-red-bg, .down-bg {
-      background: var(--red-bg);
-      color: var(--red) !important;
-    }
+    /* ─── LAYOUT ─────────────────────────────────────────────────── */
+    .page-wrap { max-width: 1100px; margin: 0 auto; padding: 0 16px 48px; }
 
-    /* ══════════════════════════════════════════════════════════════
-       LAYOUT
-    ══════════════════════════════════════════════════════════════ */
-    .page-wrapper { max-width: 1280px; margin: 0 auto; padding: 24px 24px 60px; }
-
-    /* ══════════════════════════════════════════════════════════════
-       HEADER
-    ══════════════════════════════════════════════════════════════ */
+    /* ─── HEADER ─────────────────────────────────────────────────── */
     .report-header {
-      background: var(--bg-header);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 20px 28px 18px;
+      background: var(--bg-head);
+      border-bottom: 1px solid var(--border);
+      padding: 18px 24px 14px;
       margin-bottom: 24px;
       display: flex;
-      align-items: flex-start;
       justify-content: space-between;
+      align-items: center;
       flex-wrap: wrap;
-      gap: 12px;
+      gap: 8px;
     }
-    .report-header h1 {
-      font-size: 20px;
-      font-weight: 800;
-      letter-spacing: 0.3px;
-      color: var(--text-head);
-    }
-    .report-header .subtitle {
-      font-size: 12px;
-      color: var(--text-sub);
-      margin-top: 4px;
-      font-weight: 400;
-    }
-    .header-meta { text-align: right; }
+    .report-header h1 { font-size: 20px; font-weight: 700; color: #fff; letter-spacing: -0.3px; }
+    .report-header .subtitle { font-size: 11px; color: var(--text-muted); margin-top: 2px; }
+    .ts-badges { display: flex; gap: 8px; flex-wrap: wrap; }
     .ts-badge {
-      display: inline-block;
-      background: #1e2330;
-      border: 1px solid var(--border-accent);
+      background: var(--bg-card2);
+      border: 1px solid var(--border);
       border-radius: 4px;
-      padding: 3px 10px;
+      padding: 4px 10px;
       font-size: 11px;
-      color: #c8cdd8;
-      margin-left: 6px;
-      font-weight: 500;
+      color: var(--text-label);
+      white-space: nowrap;
     }
+    .ts-badge span { color: #e0e0e0; font-weight: 500; }
 
-    /* ══════════════════════════════════════════════════════════════
-       SECTION TITLES
-    ══════════════════════════════════════════════════════════════ */
+    /* ─── SECTIONS ───────────────────────────────────────────────── */
     .section { margin-bottom: 28px; }
     .section-title {
-      font-size: 11px;
-      font-weight: 700;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1.2px;
       text-transform: uppercase;
-      letter-spacing: 1.5px;
-      color: var(--accent);
-      border-left: 3px solid var(--accent);
+      color: var(--text-muted);
+      border-left: 3px solid #333;
       padding-left: 10px;
       margin-bottom: 14px;
     }
-    .section-subtitle {
+    .sub-title {
       font-size: 10px;
       font-weight: 600;
+      letter-spacing: 0.8px;
       text-transform: uppercase;
-      letter-spacing: 1.1px;
       color: var(--text-muted);
-      border-left: 2px solid var(--border);
-      padding-left: 8px;
-      margin: 18px 0 10px;
+      margin: 16px 0 10px;
     }
 
-    /* ══════════════════════════════════════════════════════════════
-       SECTION 1 — MACRO CARDS
-    ══════════════════════════════════════════════════════════════ */
+    /* ─── TABLE BASE ─────────────────────────────────────────────── */
+    .table-wrap {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+    .data-table { width: 100%; border-collapse: collapse; font-size: 12.5px; }
+    .data-table th {
+      background: var(--bg-head);
+      color: var(--text-muted);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.6px;
+      text-transform: uppercase;
+      padding: 8px 10px;
+      text-align: right;
+      border-bottom: 1px solid var(--border);
+      white-space: nowrap;
+    }
+    .data-table th:first-child { text-align: left; }
+    .data-table td {
+      padding: 8px 10px;
+      text-align: right;
+      border-bottom: 1px solid var(--border-lt);
+      color: #e0e0e0;
+      white-space: nowrap;
+    }
+    .data-table td:first-child { text-align: left; }
+    .data-table tbody tr:hover { background: var(--bg-card2); }
+    .data-table tbody tr:last-child td { border-bottom: none; }
+
+    /* ─── SECTION 1: MACRO CARDS ─────────────────────────────────── */
     .macro-grid {
       display: grid;
       grid-template-columns: repeat(6, 1fr);
       gap: 10px;
     }
+    @media (max-width: 900px) { .macro-grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 500px) { .macro-grid { grid-template-columns: repeat(2, 1fr); } }
     .macro-card {
       background: var(--bg-card);
       border: 1px solid var(--border);
-      border-radius: 8px;
+      border-radius: 6px;
       padding: 14px 14px 12px;
-      transition: border-color 0.15s, box-shadow 0.15s;
     }
-    .macro-card:hover {
-      border-color: var(--border-accent);
-      box-shadow: 0 2px 12px rgba(0,0,0,0.4);
-    }
-    .macro-card .mc-label {
-      font-size: 10px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.9px;
-      color: var(--text-muted);
-      margin-bottom: 6px;
-    }
-    .macro-card .mc-sub {
-      font-size: 9px;
-      color: #555;
-      font-weight: 400;
-    }
-    .macro-card .mc-price {
-      font-size: 19px;
-      font-weight: 700;
-      color: var(--text-main);
-      letter-spacing: -0.3px;
-    }
-    .macro-card .mc-chg {
-      font-size: 12px;
-      font-weight: 600;
-      margin-top: 4px;
-    }
+    .mc-label { font-size: 9px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 2px; }
+    .mc-sub   { font-size: 9px; color: #555; margin-bottom: 6px; }
+    .mc-price { font-size: 21px; font-weight: 700; color: #fff; letter-spacing: -0.5px; line-height: 1.1; }
+    .mc-chg   { font-size: 12px; font-weight: 500; margin-top: 4px; }
 
-    /* ══════════════════════════════════════════════════════════════
-       SECTION 2 — INDICES TABLE
-    ══════════════════════════════════════════════════════════════ */
-    .indices-table-wrap { overflow-x: auto; }
-    .indices-table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 13px;
-      background: var(--bg-card);
-      border-radius: 8px;
-      overflow: hidden;
-      border: 1px solid var(--border);
-    }
-    .indices-table thead tr {
-      background: var(--bg-thead);
-      border-bottom: 2px solid var(--border);
-    }
-    .indices-table th {
-      padding: 10px 14px;
-      text-align: right;
-      font-size: 10px;
-      text-transform: uppercase;
-      letter-spacing: 0.9px;
-      color: var(--text-muted);
-      font-weight: 700;
-      white-space: nowrap;
-    }
-    .indices-table th:first-child { text-align: left; }
-    .indices-table td {
-      padding: 10px 14px;
-      border-bottom: 1px solid var(--border);
-      text-align: right;
-      color: var(--text-main);
-      white-space: nowrap;
-    }
-    .indices-table td:first-child { text-align: left; }
-    .indices-table tbody tr:last-child td { border-bottom: none; }
-    .indices-table tbody tr:hover { background: var(--bg-row-hover); }
-    .idx-sym {
-      font-weight: 700;
-      font-size: 14px;
-      color: var(--text-head);
-    }
-    .idx-name {
-      font-size: 11px;
-      color: var(--text-muted);
-      font-weight: 400;
-      display: block;
-    }
-
-    /* Status Badges */
-    .status-badge {
+    /* ─── SECTION 2: INDICES ─────────────────────────────────────── */
+    .sym-cell .sym { font-size: 14px; font-weight: 700; color: #fff; }
+    .sym-cell .sym-name { font-size: 10px; color: var(--text-muted); margin-top: 1px; }
+    .chg-pill {
       display: inline-block;
-      font-size: 10px;
-      font-weight: 700;
       padding: 2px 7px;
       border-radius: 3px;
-      white-space: nowrap;
-      letter-spacing: 0.3px;
+      font-size: 11.5px;
+      font-weight: 600;
     }
-    .badge-above { background: var(--green-bg);  color: var(--green); border: 1px solid var(--green-dim); }
-    .badge-below { background: var(--red-bg);    color: var(--red);   border: 1px solid var(--red-dim);   }
-    .badge-mixed { background: var(--amber-bg);  color: var(--amber); border: 1px solid #4a3800;          }
-
-    /* RSI Progress Bar */
-    .rsi-wrap {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      justify-content: flex-end;
-    }
-    .rsi-bar {
-      height: 5px;
+    .rsi-wrap { display: flex; align-items: center; gap: 6px; justify-content: flex-end; }
+    .rsi-track { width: 56px; height: 5px; background: #333; border-radius: 3px; overflow: hidden; }
+    .rsi-fill  { height: 100%; border-radius: 3px; }
+    .rsi-ob    { background: var(--red); }
+    .rsi-os    { background: var(--green); }
+    .rsi-neu   { background: var(--blue); }
+    .rsi-ob-cell { background: rgba(244,67,54,0.10); }
+    .rsi-os-cell { background: rgba(76,175,80,0.10); }
+    .status-badge {
+      display: inline-block;
+      font-size: 9.5px;
+      font-weight: 600;
+      letter-spacing: 0.4px;
+      padding: 2px 7px;
       border-radius: 3px;
-      background: #333;
-      width: 56px;
-      overflow: hidden;
+      text-transform: uppercase;
     }
-    .rsi-fill { height: 100%; border-radius: 3px; }
-    .rsi-ob  { background: var(--red);   }  /* RSI ≥ 70 overbought  */
-    .rsi-os  { background: var(--green); }  /* RSI ≤ 30 oversold    */
-    .rsi-neu { background: var(--accent);}  /* RSI neutral          */
+    .badge-above { background: var(--green-bg); color: var(--green); }
+    .badge-below { background: var(--red-bg);   color: var(--red);   }
+    .badge-mixed { background: var(--amber-bg); color: var(--amber); }
 
-    /* RSI cell highlight */
-    .rsi-ob-cell { background: rgba(255, 92, 92, 0.12); }
-    .rsi-os-cell { background: rgba(61, 220, 132, 0.10); }
-
-    /* ══════════════════════════════════════════════════════════════
-       SECTION 3 — SENTIMENT CARDS
-    ══════════════════════════════════════════════════════════════ */
+    /* ─── SECTION 3: SENTIMENT ───────────────────────────────────── */
     .sentiment-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 12px;
     }
+    @media (max-width: 700px) { .sentiment-grid { grid-template-columns: 1fr; } }
     .sent-card {
       background: var(--bg-card);
       border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 16px 18px;
+      border-radius: 6px;
+      padding: 16px;
     }
-    .sent-card .sc-label {
-      font-size: 10px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.9px;
-      color: var(--text-muted);
-      margin-bottom: 8px;
-    }
-    .sent-card .sc-value {
-      font-size: 28px;
-      font-weight: 800;
-      color: var(--text-main);
-      line-height: 1;
-    }
-    .sent-card .sc-rating {
-      font-size: 12px;
-      font-weight: 600;
-      margin-top: 5px;
-      text-transform: capitalize;
-    }
-    .sent-card .sc-detail {
-      font-size: 11px;
-      color: var(--text-muted);
-      margin-top: 10px;
-      border-top: 1px solid var(--border);
-      padding-top: 8px;
-    }
-    .sent-card .sc-row {
+    .sc-label  { font-size: 9px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 8px; }
+    .sc-value  { font-size: 30px; font-weight: 700; letter-spacing: -1px; line-height: 1; margin-bottom: 4px; }
+    .sc-rating { font-size: 11px; font-weight: 500; text-transform: capitalize; margin-bottom: 12px; }
+    .sc-sub    { font-size: 10px; color: var(--text-muted); margin-bottom: 8px; }
+    .hist-table { width: 100%; border-collapse: collapse; margin-top: 6px; }
+    .hist-table td { padding: 3px 0; font-size: 11px; color: var(--text-label); border-bottom: 1px solid var(--border-lt); }
+    .hist-table td:last-child { text-align: right; color: #e0e0e0; font-weight: 500; }
+    .hist-table tr:last-child td { border-bottom: none; }
+    .naaim-hist-row {
       display: flex;
       justify-content: space-between;
       padding: 3px 0;
+      font-size: 11px;
+      border-bottom: 1px solid var(--border-lt);
+      color: var(--text-label);
     }
-    .sent-card .sc-row span:last-child {
-      font-weight: 600;
-      color: var(--text-sub);
-    }
+    .naaim-hist-row:last-child { border-bottom: none; }
+    .naaim-hist-row .nh-val { color: #e0e0e0; font-weight: 500; }
 
-    /* Fear & Greed zone colors */
-    .fg-extreme-fear { color: #ff5c5c !important; }
-    .fg-fear         { color: #ff9944 !important; }
-    .fg-neutral      { color: var(--amber) !important; }
-    .fg-greed        { color: #3ddc84 !important; }
-    .fg-extreme-greed{ color: #00e676 !important; }
-
-    /* ══════════════════════════════════════════════════════════════
-       SECTION 4 — BREADTH TABLES
-    ══════════════════════════════════════════════════════════════ */
-    .breadth-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-    }
-    .breadth-table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 12px;
-      background: var(--bg-card);
-      border-radius: 8px;
-      overflow: hidden;
-      border: 1px solid var(--border);
-    }
-    .breadth-table thead tr {
-      background: var(--bg-thead);
-      border-bottom: 2px solid var(--border);
-    }
-    .breadth-table th {
-      padding: 8px 12px;
-      font-size: 10px;
-      text-transform: uppercase;
-      letter-spacing: 0.8px;
-      color: var(--text-muted);
-      font-weight: 700;
-      text-align: center;
-    }
-    .breadth-table th:first-child { text-align: left; }
-    .breadth-table td {
-      padding: 8px 12px;
-      border-bottom: 1px solid var(--border);
-      text-align: center;
-      color: var(--text-main);
-    }
-    .breadth-table td:first-child { text-align: left; font-weight: 600; }
-    .breadth-table tbody tr:last-child td { border-bottom: none; }
-    .breadth-table tbody tr:hover { background: var(--bg-row-hover); }
-
-    /* Breadth percentage bar */
-    .pct-bar-wrap { display: flex; align-items: center; gap: 6px; justify-content: center; }
-    .pct-bar { height: 5px; border-radius: 3px; background: #333; width: 50px; overflow: hidden; }
-    .pct-fill { height: 100%; border-radius: 3px; }
-    .pct-fill.pct-low  { background: var(--red);   }
-    .pct-fill.pct-mid  { background: var(--amber); }
-    .pct-fill.pct-high { background: var(--green); }
-
-    /* ADR Cards */
-    .adr-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-      margin-top: 4px;
-    }
+    /* ─── SECTION 4: BREADTH ─────────────────────────────────────── */
+    .breadth-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    @media (max-width: 700px) { .breadth-grid { grid-template-columns: 1fr; } }
     .adr-card {
       background: var(--bg-card);
       border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 14px 16px;
+      border-radius: 6px;
+      overflow: hidden;
     }
-    .adr-card .adr-title {
-      font-size: 11px;
-      font-weight: 700;
-      text-transform: uppercase;
+    .adr-card-head {
+      background: var(--bg-head);
+      padding: 8px 12px;
+      font-size: 10px;
+      font-weight: 600;
       letter-spacing: 0.8px;
-      color: var(--text-muted);
-      margin-bottom: 10px;
+      text-transform: uppercase;
+      color: var(--text-label);
+      border-bottom: 1px solid var(--border);
     }
     .adr-row {
       display: flex;
       justify-content: space-between;
-      align-items: center;
-      padding: 4px 0;
-      border-bottom: 1px solid var(--border);
+      padding: 6px 12px;
       font-size: 12px;
+      border-bottom: 1px solid var(--border-lt);
+      color: var(--text-label);
     }
     .adr-row:last-child { border-bottom: none; }
-    .adr-row .adr-key { color: var(--text-muted); }
-    .adr-row .adr-val { font-weight: 600; color: var(--text-main); }
+    .adr-row .adr-val { color: #e0e0e0; font-weight: 500; }
+    .pct-bar-wrap { display: flex; align-items: center; gap: 6px; justify-content: flex-end; }
+    .pct-bar-track { width: 70px; height: 5px; background: #333; border-radius: 3px; overflow: hidden; }
+    .pct-bar-red   { height: 100%; border-radius: 3px; background: var(--red); }
+    .pct-bar-amber { height: 100%; border-radius: 3px; background: var(--amber); }
+    .pct-bar-green { height: 100%; border-radius: 3px; background: var(--green); }
 
-    /* ══════════════════════════════════════════════════════════════
-       SECTION 5 — DATA TABLES (Sectors & Industries)
-    ══════════════════════════════════════════════════════════════ */
-    .data-table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 12px;
-      background: var(--bg-card);
-      border-radius: 8px;
-      overflow: hidden;
-      border: 1px solid var(--border);
-    }
-    .data-table thead tr {
-      background: var(--bg-thead);
-      border-bottom: 2px solid var(--border);
-    }
-    .data-table th {
-      padding: 9px 12px;
-      text-align: right;
-      font-size: 10px;
-      text-transform: uppercase;
-      letter-spacing: 0.8px;
-      color: var(--text-muted);
-      font-weight: 700;
-      white-space: nowrap;
-    }
-    .data-table th:first-child,
-    .data-table th:nth-child(2) { text-align: left; }
-    .data-table td {
-      padding: 8px 12px;
-      border-bottom: 1px solid var(--border);
-      text-align: right;
-      color: var(--text-main);
-      white-space: nowrap;
-    }
-    .data-table td:first-child,
-    .data-table td:nth-child(2) { text-align: left; }
-    .data-table tbody tr:last-child td { border-bottom: none; }
-    .data-table tbody tr:hover { background: var(--bg-row-hover); }
-
-    .sym { font-weight: 700; font-size: 13px; color: var(--text-head); }
-    .rank-num {
-      display: inline-block;
-      width: 22px;
-      height: 22px;
-      line-height: 22px;
-      text-align: center;
-      background: #2a2a2a;
-      border-radius: 4px;
-      font-size: 11px;
-      font-weight: 700;
-      color: var(--text-muted);
-    }
-
-    /* Change pill — used for all % change cells */
-    .chg-cell {
-      display: inline-block;
-      padding: 2px 6px;
-      border-radius: 3px;
-      font-weight: 600;
-      font-size: 12px;
-    }
-
-    /* ══════════════════════════════════════════════════════════════
-       SECTION 6 & 7 — AI TEXT AREAS
-    ══════════════════════════════════════════════════════════════ */
-    .ai-section {
+    /* ─── IMAGE BLOCKS ───────────────────────────────────────────── */
+    .img-block {
       background: var(--bg-card);
       border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 20px 22px;
-      min-height: 120px;
-    }
-    .ai-section .ai-placeholder {
-      color: var(--text-muted);
-      font-style: italic;
-      font-size: 13px;
-    }
-    .ai-content {
-      font-size: 13px;
-      line-height: 1.75;
-      color: var(--text-main);
-    }
-    .ai-content p { margin-bottom: 10px; }
-    .ai-content p:last-child { margin-bottom: 0; }
-
-    /* ══════════════════════════════════════════════════════════════
-       IMAGE CONTAINERS
-    ══════════════════════════════════════════════════════════════ */
-    .img-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: 8px;
+      border-radius: 6px;
       padding: 12px;
       margin-top: 14px;
     }
-    .img-card .img-label {
-      font-size: 10px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.8px;
-      color: var(--text-muted);
-      margin-bottom: 8px;
-    }
-    /* img inside .img-card inherits the universal rule but gets border-radius */
-    .img-card img {
-      border-radius: 4px;
-    }
-    .img-placeholder {
-      display: none;
-      height: 100px;
-      align-items: center;
-      justify-content: center;
-      color: var(--text-muted);
-      font-size: 12px;
-      background: #1a1a1a;
-      border-radius: 4px;
-      border: 1px dashed var(--border);
-    }
+    .img-caption { font-size: 10px; color: var(--text-muted); text-align: center; margin-top: 8px; }
 
-    /* ══════════════════════════════════════════════════════════════
-       FOOTER
-    ══════════════════════════════════════════════════════════════ */
+    /* ─── SECTIONS 6 & 7: AI TEXT ────────────────────────────────── */
+    .ai-text-area {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 20px 22px;
+      min-height: 90px;
+      font-size: 13px;
+      line-height: 1.7;
+      white-space: pre-wrap;
+    }
+    .ai-placeholder { color: var(--text-muted); font-style: italic; font-size: 12px; }
+
+    /* ─── FOOTER ─────────────────────────────────────────────────── */
     .report-footer {
       margin-top: 36px;
-      padding-top: 14px;
+      padding-top: 16px;
       border-top: 1px solid var(--border);
-      font-size: 11px;
-      color: var(--text-muted);
       text-align: center;
+      font-size: 10px;
+      color: var(--text-muted);
       line-height: 1.8;
-    }
-
-    /* ══════════════════════════════════════════════════════════════
-       UTILITY
-    ══════════════════════════════════════════════════════════════ */
-    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-    .full-col { grid-column: 1 / -1; }
-
-    /* N/A value styling */
-    .na-val { color: var(--text-muted); font-style: italic; }
-
-    /* ══════════════════════════════════════════════════════════════
-       RESPONSIVE
-    ══════════════════════════════════════════════════════════════ */
-    @media (max-width: 900px) {
-      .macro-grid       { grid-template-columns: repeat(3, 1fr); }
-      .sentiment-grid   { grid-template-columns: 1fr; }
-      .breadth-grid     { grid-template-columns: 1fr; }
-      .two-col          { grid-template-columns: 1fr; }
-      .adr-grid         { grid-template-columns: 1fr; }
-    }
-    @media (max-width: 600px) {
-      .macro-grid { grid-template-columns: repeat(2, 1fr); }
     }
   </style>
 </head>
 <body>
-<div class="page-wrapper">
 
-  <!-- ══════════════════════════════════════════════════════════════
-       HEADER
-  ══════════════════════════════════════════════════════════════ -->
-  <header class="report-header">
-    <div>
-      <h1>Daily Market Summary</h1>
-      <div class="subtitle">Automated Credit-Efficient System &nbsp;·&nbsp; {{DATE}}</div>
-    </div>
-    <div class="header-meta">
-      <span class="ts-badge">HKT &nbsp;{{GENERATED_HKT}}</span>
-      <span class="ts-badge">ET &nbsp;{{GENERATED_ET}}</span>
-    </div>
-  </header>
-
-  <!-- ══════════════════════════════════════════════════════════════
-       SECTION 1 — MACRO INDICATORS
-       Tags: {{VIX_PRICE}} {{VIX_CHG_PCT}} {{VIX_DIR}}
-             {{DXY_PRICE}} {{DXY_CHG_PCT}} {{DXY_DIR}}
-             {{TNX_PRICE}} {{TNX_CHG_PCT}} {{TNX_DIR}}
-             {{GOLD_PRICE}} {{GOLD_CHG_PCT}} {{GOLD_DIR}}
-             {{OIL_PRICE}} {{OIL_CHG_PCT}} {{OIL_DIR}}
-             {{BTC_PRICE}} {{BTC_CHG_PCT}} {{BTC_DIR}}
-       _DIR values: text-green | text-red | flat
-  ══════════════════════════════════════════════════════════════ -->
-  <section class="section">
-    <div class="section-title">Section 1 &mdash; Macro Indicators</div>
-    <div class="macro-grid">
-
-      <div class="macro-card">
-        <div class="mc-label">VIX <span class="mc-sub">Fear Index</span></div>
-        <div class="mc-price">{{VIX_PRICE}}</div>
-        <div class="mc-chg {{VIX_DIR}}">{{VIX_CHG_PCT}}%</div>
-      </div>
-
-      <div class="macro-card">
-        <div class="mc-label">DXY <span class="mc-sub">US Dollar</span></div>
-        <div class="mc-price">{{DXY_PRICE}}</div>
-        <div class="mc-chg {{DXY_DIR}}">{{DXY_CHG_PCT}}%</div>
-      </div>
-
-      <div class="macro-card">
-        <div class="mc-label">10Y Yield <span class="mc-sub">TNX %</span></div>
-        <div class="mc-price">{{TNX_PRICE}}</div>
-        <div class="mc-chg {{TNX_DIR}}">{{TNX_CHG_PCT}}%</div>
-      </div>
-
-      <div class="macro-card">
-        <div class="mc-label">Gold <span class="mc-sub">USD/oz</span></div>
-        <div class="mc-price">{{GOLD_PRICE}}</div>
-        <div class="mc-chg {{GOLD_DIR}}">{{GOLD_CHG_PCT}}%</div>
-      </div>
-
-      <div class="macro-card">
-        <div class="mc-label">WTI Oil <span class="mc-sub">USD/bbl</span></div>
-        <div class="mc-price">{{OIL_PRICE}}</div>
-        <div class="mc-chg {{OIL_DIR}}">{{OIL_CHG_PCT}}%</div>
-      </div>
-
-      <div class="macro-card">
-        <div class="mc-label">Bitcoin <span class="mc-sub">USD</span></div>
-        <div class="mc-price">{{BTC_PRICE}}</div>
-        <div class="mc-chg {{BTC_DIR}}">{{BTC_CHG_PCT}}%</div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ══════════════════════════════════════════════════════════════
-       SECTION 2 — MAJOR INDICES
-       Tags per symbol (SPY/QQQ/DIA/IWM):
-         SYM_PRICE  SYM_CHG_PCT  SYM_CHG_DIR
-         SYM_STATUS  SYM_BADGE_CLASS  SYM_RSI  SYM_RSI_CLASS  SYM_RSI_W
-         SYM_VS_MA20_PCT  SYM_VS_MA20_DIR
-         SYM_VS_MA50_PCT  SYM_VS_MA50_DIR
-         SYM_VS_MA200_PCT SYM_VS_MA200_DIR
-       _DIR values: text-green | text-red | flat
-  ══════════════════════════════════════════════════════════════ -->
-  <section class="section">
-    <div class="section-title">Section 2 &mdash; Major Indices</div>
-    <div class="indices-table-wrap">
-      <table class="indices-table">
-        <thead>
-          <tr>
-            <th>Symbol</th>
-            <th style="text-align:right">Price</th>
-            <th>1D Chg%</th>
-            <th>RSI 14</th>
-            <th>vs 20MA</th>
-            <th>vs 50MA</th>
-            <th>vs 200MA</th>
-            <th>Status</th>
-          </tr>
-        </thead>
-        <tbody>
-          <!-- SPY -->
-          <tr>
-            <td>
-              <span class="idx-sym">SPY</span>
-              <span class="idx-name">S&amp;P 500 ETF</span>
-            </td>
-            <td style="font-weight:600">${{SPY_PRICE}}</td>
-            <td><span class="chg-cell {{SPY_CHG_DIR}}-bg">{{SPY_CHG_PCT}}%</span></td>
-            <td class="{{SPY_RSI_CELL_CLASS}}">
-              <div class="rsi-wrap">
-                <span class="{{SPY_RSI_COLOR}}">{{SPY_RSI}}</span>
-                <div class="rsi-bar"><div class="rsi-fill {{SPY_RSI_CLASS}}" style="width:{{SPY_RSI_W}}"></div></div>
-              </div>
-            </td>
-            <td class="{{SPY_VS_MA20_DIR}}">{{SPY_VS_MA20_PCT}}%</td>
-            <td class="{{SPY_VS_MA50_DIR}}">{{SPY_VS_MA50_PCT}}%</td>
-            <td class="{{SPY_VS_MA200_DIR}}">{{SPY_VS_MA200_PCT}}%</td>
-            <td><span class="status-badge {{SPY_BADGE_CLASS}}">{{SPY_STATUS}}</span></td>
-          </tr>
-          <!-- QQQ -->
-          <tr>
-            <td>
-              <span class="idx-sym">QQQ</span>
-              <span class="idx-name">Nasdaq-100 ETF</span>
-            </td>
-            <td style="font-weight:600">${{QQQ_PRICE}}</td>
-            <td><span class="chg-cell {{QQQ_CHG_DIR}}-bg">{{QQQ_CHG_PCT}}%</span></td>
-            <td class="{{QQQ_RSI_CELL_CLASS}}">
-              <div class="rsi-wrap">
-                <span class="{{QQQ_RSI_COLOR}}">{{QQQ_RSI}}</span>
-                <div class="rsi-bar"><div class="rsi-fill {{QQQ_RSI_CLASS}}" style="width:{{QQQ_RSI_W}}"></div></div>
-              </div>
-            </td>
-            <td class="{{QQQ_VS_MA20_DIR}}">{{QQQ_VS_MA20_PCT}}%</td>
-            <td class="{{QQQ_VS_MA50_DIR}}">{{QQQ_VS_MA50_PCT}}%</td>
-            <td class="{{QQQ_VS_MA200_DIR}}">{{QQQ_VS_MA200_PCT}}%</td>
-            <td><span class="status-badge {{QQQ_BADGE_CLASS}}">{{QQQ_STATUS}}</span></td>
-          </tr>
-          <!-- DIA -->
-          <tr>
-            <td>
-              <span class="idx-sym">DIA</span>
-              <span class="idx-name">Dow Jones ETF</span>
-            </td>
-            <td style="font-weight:600">${{DIA_PRICE}}</td>
-            <td><span class="chg-cell {{DIA_CHG_DIR}}-bg">{{DIA_CHG_PCT}}%</span></td>
-            <td class="{{DIA_RSI_CELL_CLASS}}">
-              <div class="rsi-wrap">
-                <span class="{{DIA_RSI_COLOR}}">{{DIA_RSI}}</span>
-                <div class="rsi-bar"><div class="rsi-fill {{DIA_RSI_CLASS}}" style="width:{{DIA_RSI_W}}"></div></div>
-              </div>
-            </td>
-            <td class="{{DIA_VS_MA20_DIR}}">{{DIA_VS_MA20_PCT}}%</td>
-            <td class="{{DIA_VS_MA50_DIR}}">{{DIA_VS_MA50_PCT}}%</td>
-            <td class="{{DIA_VS_MA200_DIR}}">{{DIA_VS_MA200_PCT}}%</td>
-            <td><span class="status-badge {{DIA_BADGE_CLASS}}">{{DIA_STATUS}}</span></td>
-          </tr>
-          <!-- IWM -->
-          <tr>
-            <td>
-              <span class="idx-sym">IWM</span>
-              <span class="idx-name">Russell 2000 ETF</span>
-            </td>
-            <td style="font-weight:600">${{IWM_PRICE}}</td>
-            <td><span class="chg-cell {{IWM_CHG_DIR}}-bg">{{IWM_CHG_PCT}}%</span></td>
-            <td class="{{IWM_RSI_CELL_CLASS}}">
-              <div class="rsi-wrap">
-                <span class="{{IWM_RSI_COLOR}}">{{IWM_RSI}}</span>
-                <div class="rsi-bar"><div class="rsi-fill {{IWM_RSI_CLASS}}" style="width:{{IWM_RSI_W}}"></div></div>
-              </div>
-            </td>
-            <td class="{{IWM_VS_MA20_DIR}}">{{IWM_VS_MA20_PCT}}%</td>
-            <td class="{{IWM_VS_MA50_DIR}}">{{IWM_VS_MA50_PCT}}%</td>
-            <td class="{{IWM_VS_MA200_DIR}}">{{IWM_VS_MA200_PCT}}%</td>
-            <td><span class="status-badge {{IWM_BADGE_CLASS}}">{{IWM_STATUS}}</span></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </section>
-
-  <!-- ══════════════════════════════════════════════════════════════
-       SECTION 3 — MARKET SENTIMENT
-       Tags: FG_SCORE  FG_RATING  FG_CLASS
-             FG_PREV_CLOSE  FG_PREV_1W  FG_PREV_1M  FG_PREV_1Y
-             NAAIM_VALUE  NAAIM_DATE
-             PC_VALUE  PC_RATING  PC_CLASS
-  ══════════════════════════════════════════════════════════════ -->
-  <section class="section">
-    <div class="section-title">Section 3 &mdash; Market Sentiment</div>
-    <div class="sentiment-grid">
-
-      <!-- Fear & Greed -->
-      <div class="sent-card">
-        <div class="sc-label">CNN Fear &amp; Greed Index</div>
-        <div class="sc-value {{FG_CLASS}}">{{FG_SCORE}}</div>
-        <div class="sc-rating {{FG_CLASS}}">{{FG_RATING}}</div>
-        <div class="sc-detail">
-          <div class="sc-row"><span>Prev Close</span><span>{{FG_PREV_CLOSE}}</span></div>
-          <div class="sc-row"><span>1 Week Ago</span><span>{{FG_PREV_1W}}</span></div>
-          <div class="sc-row"><span>1 Month Ago</span><span>{{FG_PREV_1M}}</span></div>
-          <div class="sc-row"><span>1 Year Ago</span><span>{{FG_PREV_1Y}}</span></div>
-        </div>
-      </div>
-
-      <!-- NAAIM -->
-      <div class="sent-card">
-        <div class="sc-label">NAAIM Exposure Index</div>
-        <div class="sc-value">{{NAAIM_VALUE}}</div>
-        <div class="sc-rating" style="color:var(--text-muted)">Weekly Survey</div>
-        <div class="sc-detail">
-          <div class="sc-row"><span>Survey Date</span><span>{{NAAIM_DATE}}</span></div>
-          <div class="sc-row"><span>Source</span><span>NAAIM.org</span></div>
-          <div class="sc-row" style="margin-top:6px">
-            <span style="font-size:11px;color:var(--text-muted)">
-              Active managers' equity exposure. &gt;80 = overweight; &lt;40 = underweight.
-            </span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Put/Call Ratio -->
-      <div class="sent-card">
-        <div class="sc-label">Put / Call Ratio</div>
-        <div class="sc-value {{PC_CLASS}}">{{PC_VALUE}}</div>
-        <div class="sc-rating {{PC_CLASS}}">{{PC_RATING}}</div>
-        <div class="sc-detail">
-          <div class="sc-row"><span>Threshold</span><span>&gt;1.0 = Bearish</span></div>
-          <div class="sc-row"><span>Source</span><span>CNN (5-day avg equity P/C)</span></div>
-          <div class="sc-row" style="margin-top:6px">
-            <span style="font-size:11px;color:var(--text-muted)">
-              High P/C = more puts = fear. Low P/C = complacency.
-            </span>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ══════════════════════════════════════════════════════════════
-       SECTION 4 — MARKET BREADTH
-  ══════════════════════════════════════════════════════════════ -->
-  <section class="section">
-    <div class="section-title">Section 4 &mdash; Market Breadth</div>
-
-    <!-- 4a/b: % Above Moving Averages + Avg Daily Range -->
-    <div class="section-subtitle">4A / 4B &mdash; % of Stocks Above Moving Averages</div>
-    <div class="breadth-grid">
-      <table class="breadth-table">
-        <thead>
-          <tr>
-            <th>Index</th>
-            <th>Total</th>
-            <th>% &gt; 20MA</th>
-            <th>% &gt; 50MA</th>
-            <th>% &gt; 200MA</th>
-          </tr>
-        </thead>
-        <tbody>
-          {{BREADTH_ROWS}}
-        </tbody>
-      </table>
-      <table class="breadth-table">
-        <thead>
-          <tr>
-            <th>ETF</th>
-            <th>Avg Daily Range %</th>
-          </tr>
-        </thead>
-        <tbody>
-          {{ADR_ROWS}}
-        </tbody>
-      </table>
-    </div>
-
-    <!-- 4c: Advance-Decline -->
-    <div class="section-subtitle">4C &mdash; NYSE / NASDAQ Advance-Decline</div>
-    <div class="adr-grid">
-      <div class="adr-card">
-        <div class="adr-title">NASDAQ</div>
-        {{NASDAQ_ADR_ROWS}}
-      </div>
-      <div class="adr-card">
-        <div class="adr-title">NYSE</div>
-        {{NYSE_ADR_ROWS}}
-      </div>
-    </div>
-
-    <!-- 4d: Stockbee Market Monitor Image -->
-    <div class="section-subtitle">4D &mdash; Stockbee Market Monitor</div>
-    <div class="img-card">
-      <div class="img-label">Stockbee Market Monitor &mdash; Momentum Breakdown</div>
-      <img src="assets/img/today/stockbee_mm.png"
-           alt="Stockbee Market Monitor"
-           onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
-      <div class="img-placeholder">No screenshot — assets/img/today/stockbee_mm.png</div>
-    </div>
-
-  </section>
-
-  <!-- ══════════════════════════════════════════════════════════════
-       SECTION 5 — SECTOR & INDUSTRY
-       Tags: SECTOR_ROWS_FULL  INDUSTRY_ROWS
-  ══════════════════════════════════════════════════════════════ -->
-  <section class="section">
-    <div class="section-title">Section 5 &mdash; Sector &amp; Industry Performance</div>
-
-    <!-- 5A: Sectors sorted by 1D change -->
-    <div class="section-subtitle">5A &mdash; Sector ETF Performance (Sorted by 1D Change)</div>
-    <div style="overflow-x:auto">
-      <table class="data-table">
-        <thead>
-          <tr>
-            <th>Symbol</th>
-            <th>Sector</th>
-            <th>Price</th>
-            <th>1D Chg%</th>
-            <th>1W Chg%</th>
-            <th>1M Chg%</th>
-            <th>RSI 14</th>
-            <th>vs 20MA</th>
-            <th>Status</th>
-          </tr>
-        </thead>
-        <tbody>
-          {{SECTOR_ROWS_FULL}}
-        </tbody>
-      </table>
-    </div>
-
-    <!-- 5B: Top 15 Industries -->
-    <div class="section-subtitle">5B &mdash; Top 15 Industries (by 1D Change)</div>
-    <div style="overflow-x:auto">
-      <table class="data-table">
-        <thead>
-          <tr>
-            <th style="text-align:center">Rank</th>
-            <th>Industry</th>
-            <th>1D Chg%</th>
-            <th>1W Chg%</th>
-            <th>1M Chg%</th>
-            <th>3M Chg%</th>
-            <th>YTD Chg%</th>
-          </tr>
-        </thead>
-        <tbody>
-          {{INDUSTRY_ROWS}}
-        </tbody>
-      </table>
-    </div>
-
-    <!-- Market Heatmap -->
-    <div class="img-card">
-      <div class="img-label">Market Heatmap (Finviz)</div>
-      <img src="assets/img/today/market_heatmap.png"
-           alt="Market Heatmap"
-           onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
-      <div class="img-placeholder">No screenshot — assets/img/today/market_heatmap.png</div>
-    </div>
-
-  </section>
-
-  <!-- ══════════════════════════════════════════════════════════════
-       SECTION 6 — MARKET ANALYSIS (AI-generated)
-       Tag: SECTION6_CONTENT
-  ══════════════════════════════════════════════════════════════ -->
-  <section class="section">
-    <div class="section-title">Section 6 &mdash; Market Analysis</div>
-    <div class="ai-section">
-      {{SECTION6_CONTENT}}
-    </div>
-  </section>
-
-  <!-- ══════════════════════════════════════════════════════════════
-       SECTION 7 — TRADING OUTLOOK & WATCHLIST (AI-generated)
-       Tag: SECTION7_CONTENT
-  ══════════════════════════════════════════════════════════════ -->
-  <section class="section">
-    <div class="section-title">Section 7 &mdash; Trading Outlook &amp; Watchlist</div>
-    <div class="ai-section">
-      {{SECTION7_CONTENT}}
-    </div>
-  </section>
-
-  <!-- ══════════════════════════════════════════════════════════════
-       FOOTER
-  ══════════════════════════════════════════════════════════════ -->
-  <footer class="report-footer">
-    Generated by Credit-Efficient Market Summary System &nbsp;|&nbsp;
-    Data: Yahoo Finance · CNN · NAAIM · Finviz · Barchart &nbsp;|&nbsp;
-    {{GENERATED_HKT}} HKT &nbsp;/&nbsp; {{GENERATED_ET}} ET
-    <br/>
-    <span style="color:#3a3a3a">For informational purposes only. Not financial advice.</span>
-  </footer>
-
+<!-- HEADER -->
+<div class="report-header">
+  <div>
+    <h1>Daily Market Summary</h1>
+    <div class="subtitle">Automated Credit-Efficient System &middot; {{DATE}}</div>
+  </div>
+  <div class="ts-badges">
+    <div class="ts-badge">HKT <span>{{TS_HKT}}</span></div>
+    <div class="ts-badge">ET <span>{{TS_ET}}</span></div>
+  </div>
 </div>
+
+<div class="page-wrap">
+
+<!-- ═══ SECTION 1 — MACRO INDICATORS ═══════════════════════════════ -->
+<div class="section">
+  <div class="section-title">Section 1 — Macro Indicators</div>
+  <div class="macro-grid">
+    <div class="macro-card">
+      <div class="mc-label">VIX</div><div class="mc-sub">Fear Index</div>
+      <div class="mc-price">{{VIX_PRICE}}</div>
+      <div class="mc-chg {{VIX_CHG_CLASS}}">{{VIX_CHG_PCT}}</div>
+    </div>
+    <div class="macro-card">
+      <div class="mc-label">DXY</div><div class="mc-sub">US Dollar</div>
+      <div class="mc-price">{{DXY_PRICE}}</div>
+      <div class="mc-chg {{DXY_CHG_CLASS}}">{{DXY_CHG_PCT}}</div>
+    </div>
+    <div class="macro-card">
+      <div class="mc-label">10Y Yield</div><div class="mc-sub">TNX %</div>
+      <div class="mc-price">{{TNX_PRICE}}</div>
+      <div class="mc-chg {{TNX_CHG_CLASS}}">{{TNX_CHG_PCT}}</div>
+    </div>
+    <div class="macro-card">
+      <div class="mc-label">Gold</div><div class="mc-sub">USD/oz</div>
+      <div class="mc-price">{{GOLD_PRICE}}</div>
+      <div class="mc-chg {{GOLD_CHG_CLASS}}">{{GOLD_CHG_PCT}}</div>
+    </div>
+    <div class="macro-card">
+      <div class="mc-label">WTI Oil</div><div class="mc-sub">USD/bbl</div>
+      <div class="mc-price">{{OIL_PRICE}}</div>
+      <div class="mc-chg {{OIL_CHG_CLASS}}">{{OIL_CHG_PCT}}</div>
+    </div>
+    <div class="macro-card">
+      <div class="mc-label">Bitcoin</div><div class="mc-sub">USD</div>
+      <div class="mc-price">{{BTC_PRICE}}</div>
+      <div class="mc-chg {{BTC_CHG_CLASS}}">{{BTC_CHG_PCT}}</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ SECTION 2 — MAJOR INDICES (with MA distances + A/D Ratio) ══ -->
+<div class="section">
+  <div class="section-title">Section 2 — Major Indices</div>
+  <div class="table-wrap">
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Symbol</th>
+          <th>Price</th>
+          <th>1D Chg%</th>
+          <th>RSI 14</th>
+          <th>vs 20MA</th>
+          <th>vs 50MA</th>
+          <th>vs 200MA</th>
+          <th>A/D Ratio</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{INDICES_ROWS}}
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ═══ SECTION 3 — MARKET SENTIMENT ══════════════════════════════ -->
+<div class="section">
+  <div class="section-title">Section 3 — Market Sentiment</div>
+  <div class="sentiment-grid">
+
+    <div class="sent-card">
+      <div class="sc-label">CNN Fear &amp; Greed Index</div>
+      <div class="sc-value {{FG_COLOR}}">{{FG_SCORE}}</div>
+      <div class="sc-rating {{FG_COLOR}}">{{FG_RATING}}</div>
+      <table class="hist-table">
+        <tr><td>Prev Close</td><td>{{FG_PREV_CLOSE}}</td></tr>
+        <tr><td>1 Week Ago</td><td>{{FG_PREV_1W}}</td></tr>
+        <tr><td>1 Month Ago</td><td>{{FG_PREV_1M}}</td></tr>
+        <tr><td>1 Year Ago</td><td>{{FG_PREV_1Y}}</td></tr>
+      </table>
+    </div>
+
+    <div class="sent-card">
+      <div class="sc-label">NAAIM Exposure Index</div>
+      <div class="sc-value" style="color:#e0e0e0">{{NAAIM_VALUE}}</div>
+      <div class="sc-rating text-muted">Weekly Survey</div>
+      <div class="sc-sub">Latest: {{NAAIM_DATE}}</div>
+      <div style="font-size:9px;color:var(--text-muted);letter-spacing:0.6px;text-transform:uppercase;margin:8px 0 4px;">3-Week History</div>
+      {{NAAIM_HISTORY_ROWS}}
+      <div style="margin-top:10px;font-size:10px;color:var(--text-muted);">Active managers' equity exposure. &gt;80 = overweight; &lt;40 = underweight.</div>
+    </div>
+
+    <div class="sent-card">
+      <div class="sc-label">Put / Call Ratio</div>
+      <div class="sc-value {{PC_COLOR}}">{{PC_VALUE}}</div>
+      <div class="sc-rating {{PC_COLOR}}">{{PC_RATING}}</div>
+      <table class="hist-table">
+        <tr><td>Threshold</td><td>&gt;1.0 = Bearish</td></tr>
+        <tr><td>Source</td><td>CNN (5-day avg equity P/C)</td></tr>
+      </table>
+      <div style="margin-top:10px;font-size:10px;color:var(--text-muted);">High P/C = more puts = fear. Low P/C = complacency.</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══ SECTION 4 — MARKET BREADTH ════════════════════════════════ -->
+<div class="section">
+  <div class="section-title">Section 4 — Market Breadth</div>
+
+  <!-- 4B: % Above MA (Section 4a removed — MA distances now in Section 2) -->
+  <div class="sub-title">4B — % of Stocks Above Moving Averages</div>
+  <div class="table-wrap">
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Index</th>
+          <th>Total</th>
+          <th>% &gt; 20MA</th>
+          <th>% &gt; 50MA</th>
+          <th>% &gt; 200MA</th>
+          <th>ETF</th>
+          <th>Volatility ADR%</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{BREADTH_ROWS}}
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 4C: Advance-Decline Ratio -->
+  <div class="sub-title" style="margin-top:20px;">4C — NYSE / NASDAQ Advance-Decline Ratio</div>
+  <div class="breadth-grid">
+    {{ADR_CARDS}}
+  </div>
+
+  <!-- 4D: Stockbee Market Monitor -->
+  <div class="sub-title" style="margin-top:20px;">4D — Stockbee Market Monitor</div>
+  <div class="img-block">
+    <img src="assets/img/today/stockbee_mm.png" alt="Stockbee Market Monitor" />
+    <div class="img-caption">Stockbee Market Monitor — Momentum Breakdown</div>
+  </div>
+</div>
+
+<!-- ═══ SECTION 5 — SECTOR & INDUSTRY ═════════════════════════════ -->
+<div class="section">
+  <div class="section-title">Section 5 — Sector &amp; Industry Performance</div>
+
+  <!-- 5A: Sectors sorted by RSI desc -->
+  <div class="sub-title">5A — Sector ETF Performance (Sorted by RSI High → Low)</div>
+  <div class="table-wrap">
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Symbol</th>
+          <th>Sector</th>
+          <th>Price</th>
+          <th>1D Chg%</th>
+          <th>1W Chg%</th>
+          <th>1M Chg%</th>
+          <th>RSI 14</th>
+          <th>vs 20MA</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{SECTOR_ROWS}}
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 5B: Top 15 Industries with num_stocks -->
+  <div class="sub-title" style="margin-top:20px;">5B — Top 15 Industries (by 1D Change)</div>
+  <div class="table-wrap">
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th style="text-align:center;">#</th>
+          <th>Industry</th>
+          <th>Stocks</th>
+          <th>1D Chg%</th>
+          <th>1W Chg%</th>
+          <th>1M Chg%</th>
+          <th>3M Chg%</th>
+          <th>YTD Chg%</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{INDUSTRY_ROWS}}
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Market Heatmap -->
+  <div class="img-block" style="margin-top:16px;">
+    <img src="assets/img/today/market_heatmap.png" alt="Market Heatmap (Finviz)" />
+    <div class="img-caption">Market Heatmap (Finviz)</div>
+  </div>
+</div>
+
+<!-- ═══ SECTION 6 — MARKET ANALYSIS (AI) ══════════════════════════ -->
+<div class="section">
+  <div class="section-title">Section 6 — Market Analysis</div>
+  <div class="ai-text-area">
+    <span class="ai-placeholder">{{S6_CONTENT}}</span>
+  </div>
+</div>
+
+<!-- ═══ SECTION 7 — TRADING OUTLOOK & WATCHLIST (AI) ══════════════ -->
+<div class="section">
+  <div class="section-title">Section 7 — Trading Outlook &amp; Watchlist</div>
+  <div class="ai-text-area">
+    <span class="ai-placeholder">{{S7_CONTENT}}</span>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="report-footer">
+  Generated by Credit-Efficient Market Summary System &nbsp;|&nbsp;
+  Data: Yahoo Finance · CNN · NAAIM · Finviz · Barchart &nbsp;|&nbsp;
+  {{TS_HKT}} HKT &nbsp;/&nbsp; {{TS_ET}} ET<br/>
+  For informational purposes only. Not financial advice.
+</div>
+
+</div><!-- .page-wrap -->
 </body>
 </html>
