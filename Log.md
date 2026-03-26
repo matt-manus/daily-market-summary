@@ -39,6 +39,28 @@
   - Hardcoded data values: 0
 - **Note**: 初步 regex 掃描 render_report.py 源碼只找到 5 個靜態字串，因為其餘 77 個 key 是透過 f-string 動態生成的。需用 runtime 執行才能正確審計。
 
+## 2026-03-27 (Session 5 — Stage 2: Visuals & Specialized Data)
+### Task: Stockbee T2108 Capture + Index Trend Screenshots
+- **Actions**:
+  - Cloned repo and read all 4 core files.
+  - Validated `today_market.json` (schema v3.2): all 6 modules complete (Macro/Indices/Sentiment/Sectors/Industry/Breadth).
+  - Navigated to `stockbee.blogspot.com/p/mm.html`, identified Google Sheets iframe (double-nested).
+  - Extracted inner sheet URL: `gid=1082103394` via JS console.
+  - Parsed table headers and latest 3 rows via `document.querySelectorAll('table')`.
+  - Captured `stockbee_mm.png` via Playwright headless (1100×800, device_scale=1.5).
+  - Captured `spy_trend.png`, `qqq_trend.png`, `dia_trend.png` via StockCharts (800×500, device_scale=2).
+  - IWM had networkidle timeout; used `domcontentloaded` fallback + PIL crop to remove nav bar.
+  - Updated `today_market.json` → schema v3.3 with `stockbee_mm` section.
+  - Committed 11 files and pushed to GitHub: commit `6edd4a4`.
+- **Key T2108 Data (2026-03-25)**:
+  - T2108: **24.53%** (Oversold zone, below 25% threshold)
+  - Up 4%: 320 | Down 4%: 113
+  - 5-Day Ratio: **0.79** (Bearish) | 10-Day Ratio: **0.67** (Bearish)
+  - S&P reference close: 6,591.90
+- **New Scripts Added**: `screenshot_stockbee.py`, `screenshot_trends.py`, `update_t2108.py`, `crop_iwm.py`, `screenshot_iwm_retry.py`
+- **Status**: ✅ Stage 2 completed. 9 image assets in `assets/img/today/`.
+- **Commit URL**: https://github.com/matt-manus/daily-market-summary/commit/6edd4a4
+
 ## 2026-03-26 (Session 4 — System Upgrade Stage 1)
 ### Task: Data Backend Enhancement (v2.0 → v3.0)
 - **Actions**:
