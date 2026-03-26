@@ -22,11 +22,12 @@ JSON 結構（v3.0）：
   "industry":  [ { rank, label, change_1d_pct, change_1w_pct, change_1m_pct,
                    change_3m_pct, change_ytd_pct } ... ]  ← Top 15 by 1D
   "breadth":   {
-      "sp500":   { total, above_20ma, above_50ma, above_200ma,
-                   pct_above_20ma, pct_above_50ma, pct_above_200ma }
-      "nasdaq":  { ... }
-      "nyse":    { ... }
-      "advance_decline": {
+      "sp500":      { total, above_20ma, above_50ma, above_200ma,
+                       pct_above_20ma, pct_above_50ma, pct_above_200ma }
+      "nasdaq":     { ... }
+      "nyse":       { ... }
+      "russell2000":{ ... }  ← IWM 成份股 % above 20/50/200 MA
+      "market_wide_advance_decline": {
           "NYSE":   { advances, declines, unchanged, total_issues,
                       pct_advancing, pct_declining, adv_vol, dec_vol,
                       ad_ratio, new_52w_highs, new_52w_lows }
@@ -360,7 +361,8 @@ def fetch_finviz_count(filters: str) -> int | None:
 def fetch_breadth() -> dict:
     """
     從 Finviz Screener 抓取市場廣度數據：
-    - S&P 500 / NASDAQ / NYSE 中高於 20/50/200 MA 的股票百分比
+    - S&P 500 / NASDAQ / NYSE / Russell 2000 中高於 20/50/200 MA 的股票百分比
+    Finviz 篩選器代碼：idx_sp500 / exch_nasd / exch_nyse / idx_rut
     """
     print("  正在抓取 S&P 500 廣度數據…")
     sp500_total    = fetch_finviz_count("idx_sp500")
@@ -390,6 +392,16 @@ def fetch_breadth() -> dict:
     nyse_a50       = fetch_finviz_count("exch_nyse,ta_sma50_pa")
     time.sleep(0.5)
     nyse_a20       = fetch_finviz_count("exch_nyse,ta_sma20_pa")
+    time.sleep(0.5)
+
+    print("  正在抓取 Russell 2000 (IWM) 廣度數據…")
+    rut_total      = fetch_finviz_count("idx_rut")
+    time.sleep(0.5)
+    rut_a200       = fetch_finviz_count("idx_rut,ta_sma200_pa")
+    time.sleep(0.5)
+    rut_a50        = fetch_finviz_count("idx_rut,ta_sma50_pa")
+    time.sleep(0.5)
+    rut_a20        = fetch_finviz_count("idx_rut,ta_sma20_pa")
 
     def pct(above, total):
         if above is None or total is None or total == 0:
@@ -423,6 +435,15 @@ def fetch_breadth() -> dict:
             "pct_above_20ma":  pct(nyse_a20, nyse_total),
             "pct_above_50ma":  pct(nyse_a50, nyse_total),
             "pct_above_200ma": pct(nyse_a200, nyse_total),
+        },
+        "russell2000": {
+            "total":           rut_total,
+            "above_20ma":      rut_a20,
+            "above_50ma":      rut_a50,
+            "above_200ma":     rut_a200,
+            "pct_above_20ma":  pct(rut_a20, rut_total),
+            "pct_above_50ma":  pct(rut_a50, rut_total),
+            "pct_above_200ma": pct(rut_a200, rut_total),
         },
         "source": "Finviz Screener",
     }
@@ -722,8 +743,8 @@ def fetch_all() -> dict:
 
     breadth_out = {
         **breadth_data,
-        "advance_decline": ad_data,     # 抓取型：Barchart NYSE/NASDAQ A/D Ratio
-        "avg_daily_range": avg_daily_range,  # 技術型：yfinance 14-day ADR %
+        "market_wide_advance_decline": ad_data,  # 抓取型：Barchart 全市場 A/D Ratio
+        "avg_daily_range": avg_daily_range,       # 技術型：yfinance 14-day ADR %
     }
 
     # ── 8. 組合完整 JSON 輸出 ────────────────────────────────────────────────
@@ -734,7 +755,7 @@ def fetch_all() -> dict:
             "date":           date_str,
             "source":         "Yahoo Finance (yfinance) + CNN + NAAIM + Finviz + Barchart",
             "rsi_method":     "Wilder SMMA (EWM alpha=1/14)",
-            "schema_version": "3.1",
+            "schema_version": "3.2",
         },
         "macro":     macro_out,      # VIX, DXY, 10Y Yield, Gold, Oil, BTC
         "indices":   indices_out,    # SPY, QQQ, DIA, IWM（含 MA 距離 %）
@@ -823,21 +844,24 @@ def print_summary(data: dict):
         print(df_ind[cols_ind].to_markdown(index=False))
 
     # Breadth
-    print("\n── Market Breadth (% Stocks Above MA) ───────────────────────────")
-    print(f"  {'Index':<10} {'Above 20MA':>12} {'Above 50MA':>12} {'Above 200MA':>13}")
-    print(f"  {'─'*10} {'─'*12} {'─'*12} {'─'*13}")
-    for idx_name in ["sp500", "nasdaq", "nyse"]:
-        b = data["breadth"][idx_name]
+    print("\n── Market Breadth (% Stocks Above MA) ─────────────────────────────────")
+    print(f"  {'Index':<12} {'Above 20MA':>12} {'Above 50MA':>12} {'Above 200MA':>13}")
+    print(f"  {'─'*12} {'─'*12} {'─'*12} {'─'*13}")
+    for idx_name in ["sp500", "nasdaq", "nyse", "russell2000"]:
+        b = data["breadth"].get(idx_name, {})
+        if not b:
+            continue
+        label = "RUSSELL2000" if idx_name == "russell2000" else idx_name.upper()
         print(
-            f"  {idx_name.upper():<10} "
-            f"{str(b['pct_above_20ma'])+'%':>12} "
-            f"{str(b['pct_above_50ma'])+'%':>12} "
-            f"{str(b['pct_above_200ma'])+'%':>13}"
+            f"  {label:<12} "
+            f"{str(b.get('pct_above_20ma', 'N/A'))+'%':>12} "
+            f"{str(b.get('pct_above_50ma', 'N/A'))+'%':>12} "
+            f"{str(b.get('pct_above_200ma', 'N/A'))+'%':>13}"
         )
 
     # Advance/Decline Ratio
-    print("\n── NYSE/NASDAQ Advance/Decline Ratio (Barchart Live) ────────────────────")
-    ad = data["breadth"].get("advance_decline", {})
+    print("\n── NYSE/NASDAQ Market-Wide Advance/Decline Ratio (Barchart Live) ────────")
+    ad = data["breadth"].get("market_wide_advance_decline", {})
     for exch in ["NYSE", "NASDAQ"]:
         ex_data = ad.get(exch)
         if ex_data:
