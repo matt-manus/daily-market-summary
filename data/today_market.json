@@ -5,7 +5,8 @@
     "date": "2026-03-27",
     "source": "Yahoo Finance (yfinance) + CNN + NAAIM + Finviz + Barchart",
     "rsi_method": "Wilder SMMA (EWM alpha=1/14)",
-    "schema_version": "3.2"
+    "schema_version": "3.3",
+    "stage2_updated": "2026-03-27"
   },
   "macro": {
     "VIX": {
@@ -552,6 +553,40 @@
       "QQQ": 1.39,
       "DIA": 1.31,
       "IWM": 1.98
+    }
+  },
+  "stockbee_mm": {
+    "source": "Stockbee Market Monitor (stockbee.blogspot.com/p/mm.html)",
+    "sheet_url": "https://docs.google.com/spreadsheets/d/1O6OhS7ciA8zwfycBfGPbP2fWJnR0pn2UUvFZVDP9jpE/pub",
+    "latest_date": "3/25/2026",
+    "t2108": 24.53,
+    "sp500_close": 6591.9,
+    "up_4pct_today": 320,
+    "down_4pct_today": 113,
+    "ratio_5day": 0.79,
+    "ratio_10day": 0.67,
+    "up_25pct_quarter": 996,
+    "down_25pct_quarter": 1393,
+    "up_25pct_month": 106,
+    "down_25pct_month": 164,
+    "up_50pct_month": 26,
+    "down_50pct_month": 25,
+    "up_13pct_34days": 1211,
+    "down_13pct_34days": 2068,
+    "worden_universe": 6401,
+    "prev_day": {
+      "date": "3/24/2026",
+      "t2108": 22.97,
+      "up_4pct": 223,
+      "down_4pct": 285,
+      "ratio_5day": 0.5,
+      "ratio_10day": 0.63
+    },
+    "signal": {
+      "t2108_zone": "Oversold (<25%)",
+      "primary_ratio_5d": "Bearish (<1.0)",
+      "primary_ratio_10d": "Bearish (<1.0)",
+      "interpretation": "Market in oversold territory. T2108 at 24.53% (below 25% threshold). 5-day ratio 0.79 and 10-day ratio 0.67 both indicate more stocks declining than advancing on momentum basis."
     }
   }
 }
