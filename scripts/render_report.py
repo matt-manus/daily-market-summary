@@ -178,23 +178,22 @@ def build_naaim_history(naaim):
     return "\n".join(rows)
 
 def build_breadth_rows(breadth, indices):
+    # JSON structure: breadth.sp500 / breadth.nasdaq / breadth.nyse / breadth.russell2000
+    # Each sub-dict has: total, pct_above_20ma, pct_above_50ma, pct_above_200ma
     if not breadth:
-        return '<tr><td colspan="7"><span class="na-val">N/A</span></td></tr>'
-    pct_above = breadth.get("pct_above_ma", {})
-    vol_adr   = breadth.get("volatility_adr", {})
+        return '<tr><td colspan="6"><span class="na-val">N/A</span></td></tr>'
     rows = []
     for key, label, etf in BREADTH_KEYS:
-        d     = pct_above.get(key, {})
+        # Data lives directly at breadth[key], NOT under a 'pct_above_ma' wrapper
+        d     = breadth.get(key, {})
         total = na(d.get("total"), "int")
-        p20   = pct_bar_cell(d.get("above_20ma_pct"))
-        p50   = pct_bar_cell(d.get("above_50ma_pct"))
-        p200  = pct_bar_cell(d.get("above_200ma_pct"))
-        vadr  = safe_float(vol_adr.get(etf))
-        vadr_str = f"{vadr:.2f}%" if vadr is not None else '<span class="na-val">N/A</span>'
+        p20   = pct_bar_cell(d.get("pct_above_20ma"))   # correct field name
+        p50   = pct_bar_cell(d.get("pct_above_50ma"))   # correct field name
+        p200  = pct_bar_cell(d.get("pct_above_200ma"))  # correct field name
         rows.append(
             f'<tr><td><strong>{label}</strong></td><td>{total}</td>'
             f'<td>{p20}</td><td>{p50}</td><td>{p200}</td>'
-            f'<td style="color:var(--text-muted)">{etf}</td><td>{vadr_str}</td></tr>'
+            f'<td style="color:var(--text-muted)">{etf}</td></tr>'
         )
     return "\n".join(rows)
 
@@ -356,8 +355,6 @@ def render():
 
     # Section 4: Breadth
     html = html.replace("{{BREADTH_ROWS}}", build_breadth_rows(breadth, indices))
-    html = html.replace("{{ADR_CARDS}}",    build_adr_cards(breadth))
-
     # Section 5: Sectors & Industries
     html = html.replace("{{SECTOR_ROWS}}",   build_sector_rows(sectors))
     html = html.replace("{{INDUSTRY_ROWS}}", build_industry_rows(industry))
