@@ -1,209 +1,502 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Daily Market Summary — {{DATE}}</title>
   <style>
-    /* ── Reset & Base ─────────────────────────────────────────── */
+    /* ── Reset & Base ──────────────────────────────────────────────── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     body {
       font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
-      background: #0d0f14;
-      color: #d4d8e2;
-      font-size: 14px;
-      line-height: 1.6;
+      background: #f4f5f7;
+      color: #1a1d23;
+      font-size: 13px;
+      line-height: 1.55;
     }
-    a { color: #5b9bd5; text-decoration: none; }
+    a { color: #1a56db; text-decoration: none; }
 
-    /* ── Layout ───────────────────────────────────────────────── */
-    .page-wrapper { max-width: 1200px; margin: 0 auto; padding: 24px 20px 60px; }
+    /* ── Layout ────────────────────────────────────────────────────── */
+    .page-wrapper { max-width: 1280px; margin: 0 auto; padding: 24px 24px 60px; }
 
-    /* ── Header ───────────────────────────────────────────────── */
+    /* ── Color Tokens ──────────────────────────────────────────────── */
+    :root {
+      --bg-card:    #ffffff;
+      --bg-header:  #1a1d23;
+      --bg-section: #f4f5f7;
+      --border:     #e2e4ea;
+      --border-dark:#2e3448;
+      --accent:     #1a56db;
+      --accent-lt:  #e8f0fe;
+      --text-main:  #1a1d23;
+      --text-muted: #6b7280;
+      --text-head:  #ffffff;
+      --up:         #0a7c42;
+      --up-bg:      #ecfdf5;
+      --down:       #c0392b;
+      --down-bg:    #fef2f2;
+      --warn:       #b45309;
+      --warn-bg:    #fffbeb;
+    }
+
+    /* ── Up / Down / Flat ──────────────────────────────────────────── */
+    .up   { color: var(--up);   }
+    .down { color: var(--down); }
+    .flat { color: var(--text-muted); }
+    .up-bg   { background: var(--up-bg);   color: var(--up);   }
+    .down-bg { background: var(--down-bg); color: var(--down); }
+
+    /* ── Header ────────────────────────────────────────────────────── */
     .report-header {
-      border-bottom: 2px solid #2a2f3e;
-      padding-bottom: 16px;
-      margin-bottom: 28px;
+      background: var(--bg-header);
+      color: var(--text-head);
+      border-radius: 10px;
+      padding: 20px 28px 18px;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
     }
     .report-header h1 {
-      font-size: 22px;
+      font-size: 20px;
       font-weight: 700;
-      color: #e8ecf4;
-      letter-spacing: 0.5px;
+      letter-spacing: 0.4px;
+      color: #ffffff;
     }
     .report-header .subtitle {
       font-size: 12px;
-      color: #7a8099;
-      margin-top: 4px;
+      color: #9ba3bb;
+      margin-top: 3px;
     }
-    .report-header .ts-badge {
+    .header-meta { text-align: right; }
+    .ts-badge {
       display: inline-block;
-      background: #1e2330;
-      border: 1px solid #2e3448;
+      background: #2a2f3e;
+      border: 1px solid #3d4a6a;
       border-radius: 4px;
       padding: 3px 10px;
       font-size: 11px;
-      color: #9ba3bb;
-      margin-right: 8px;
-      margin-top: 8px;
+      color: #c8cdd8;
+      margin-left: 6px;
     }
 
-    /* ── Section ──────────────────────────────────────────────── */
-    .section { margin-bottom: 32px; }
+    /* ── Section ────────────────────────────────────────────────────── */
+    .section { margin-bottom: 28px; }
     .section-title {
-      font-size: 13px;
+      font-size: 11px;
       font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 1.2px;
-      color: #5b9bd5;
-      border-left: 3px solid #5b9bd5;
+      letter-spacing: 1.4px;
+      color: var(--accent);
+      border-left: 3px solid var(--accent);
       padding-left: 10px;
       margin-bottom: 14px;
     }
+    .section-subtitle {
+      font-size: 10px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1.1px;
+      color: var(--text-muted);
+      border-left: 2px solid var(--border);
+      padding-left: 8px;
+      margin: 16px 0 10px;
+    }
 
-    /* ── Macro Card Grid ──────────────────────────────────────── */
+    /* ── Card ───────────────────────────────────────────────────────── */
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px 18px;
+    }
+
+    /* ── Section 1: Macro Grid ──────────────────────────────────────── */
     .macro-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-      gap: 12px;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 10px;
     }
     .macro-card {
-      background: #161b27;
-      border: 1px solid #252b3b;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
       border-radius: 8px;
-      padding: 14px 16px;
-      transition: border-color 0.2s;
+      padding: 14px 14px 12px;
+      transition: box-shadow 0.15s;
     }
-    .macro-card:hover { border-color: #3d4a6a; }
-    .macro-card .label {
-      font-size: 11px;
+    .macro-card:hover { box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+    .macro-card .mc-label {
+      font-size: 10px;
+      font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 0.8px;
-      color: #7a8099;
+      letter-spacing: 0.9px;
+      color: var(--text-muted);
       margin-bottom: 6px;
     }
-    .macro-card .price {
-      font-size: 20px;
+    .macro-card .mc-sub {
+      font-size: 9px;
+      color: #9ba3bb;
+      font-weight: 400;
+    }
+    .macro-card .mc-price {
+      font-size: 19px;
       font-weight: 700;
-      color: #e8ecf4;
+      color: var(--text-main);
+      letter-spacing: -0.3px;
     }
-    .macro-card .change {
+    .macro-card .mc-chg {
       font-size: 12px;
-      margin-top: 4px;
       font-weight: 600;
+      margin-top: 3px;
     }
-    .up   { color: #3ddc84; }
-    .down { color: #ff5c5c; }
-    .flat { color: #9ba3bb; }
 
-    /* ── ETF MA Distance Cards ────────────────────────────────── */
-    .ma-grid {
+    /* ── Section 2: Indices Table ───────────────────────────────────── */
+    .indices-table-wrap { overflow-x: auto; }
+    .indices-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+      background: var(--bg-card);
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+    .indices-table thead tr {
+      background: #f8f9fb;
+      border-bottom: 2px solid var(--border);
+    }
+    .indices-table th {
+      padding: 10px 14px;
+      text-align: right;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.9px;
+      color: var(--text-muted);
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    .indices-table th:first-child { text-align: left; }
+    .indices-table td {
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--border);
+      text-align: right;
+      color: var(--text-main);
+      white-space: nowrap;
+    }
+    .indices-table td:first-child { text-align: left; }
+    .indices-table tbody tr:last-child td { border-bottom: none; }
+    .indices-table tbody tr:hover { background: #f8f9fb; }
+    .idx-sym {
+      font-weight: 700;
+      font-size: 14px;
+      color: var(--text-main);
+    }
+    .idx-name {
+      font-size: 11px;
+      color: var(--text-muted);
+      font-weight: 400;
+      display: block;
+    }
+    .status-badge {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 3px;
+      white-space: nowrap;
+    }
+    .badge-above { background: #ecfdf5; color: #0a7c42; border: 1px solid #a7f3d0; }
+    .badge-below { background: #fef2f2; color: #c0392b; border: 1px solid #fca5a5; }
+    .badge-mixed { background: #fffbeb; color: #b45309; border: 1px solid #fcd34d; }
+
+    /* RSI bar */
+    .rsi-wrap {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      justify-content: flex-end;
+    }
+    .rsi-bar {
+      height: 5px;
+      border-radius: 3px;
+      background: #e5e7eb;
+      width: 56px;
+      overflow: hidden;
+    }
+    .rsi-fill { height: 100%; border-radius: 3px; }
+    .rsi-ob  { background: #c0392b; }
+    .rsi-os  { background: #0a7c42; }
+    .rsi-neu { background: #1a56db; }
+
+    /* ── Section 3: Sentiment ───────────────────────────────────────── */
+    .sentiment-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+    .sent-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px 18px;
+    }
+    .sent-card .sc-label {
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.9px;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+    .sent-card .sc-value {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--text-main);
+      line-height: 1;
+    }
+    .sent-card .sc-rating {
+      font-size: 12px;
+      font-weight: 600;
+      margin-top: 5px;
+      text-transform: capitalize;
+    }
+    .sent-card .sc-detail {
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-top: 10px;
+      border-top: 1px solid var(--border);
+      padding-top: 8px;
+    }
+    .sent-card .sc-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 2px 0;
+    }
+    /* Fear & Greed color zones */
+    .fg-extreme-fear { color: #c0392b; }
+    .fg-fear         { color: #e67e22; }
+    .fg-neutral      { color: #b45309; }
+    .fg-greed        { color: #0a7c42; }
+    .fg-extreme-greed{ color: #065f46; }
+
+    /* ── Section 4: Breadth ─────────────────────────────────────────── */
+    .breadth-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 16px;
     }
-    .ma-card {
-      background: #161b27;
-      border: 1px solid #252b3b;
+    .breadth-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 12px;
+      background: var(--bg-card);
       border-radius: 8px;
-      padding: 16px;
+      overflow: hidden;
+      border: 1px solid var(--border);
     }
-    .ma-card h3 {
-      font-size: 16px;
+    .breadth-table thead tr {
+      background: #f8f9fb;
+      border-bottom: 2px solid var(--border);
+    }
+    .breadth-table th {
+      padding: 8px 12px;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--text-muted);
       font-weight: 700;
-      color: #e8ecf4;
-      margin-bottom: 12px;
+      text-align: center;
     }
-    .ma-card .price-line {
-      font-size: 24px;
-      font-weight: 700;
-      color: #e8ecf4;
-      margin-bottom: 4px;
+    .breadth-table th:first-child { text-align: left; }
+    .breadth-table td {
+      padding: 8px 12px;
+      border-bottom: 1px solid var(--border);
+      text-align: center;
+      color: var(--text-main);
     }
-    .ma-card .status-badge {
-      display: inline-block;
+    .breadth-table td:first-child { text-align: left; font-weight: 600; }
+    .breadth-table tbody tr:last-child td { border-bottom: none; }
+    .breadth-table tbody tr:hover { background: #f8f9fb; }
+
+    /* Breadth bar */
+    .pct-bar-wrap { display: flex; align-items: center; gap: 6px; justify-content: center; }
+    .pct-bar { height: 5px; border-radius: 3px; background: #e5e7eb; width: 50px; overflow: hidden; }
+    .pct-fill { height: 100%; border-radius: 3px; background: var(--accent); }
+    .pct-fill.pct-low  { background: var(--down); }
+    .pct-fill.pct-mid  { background: var(--warn); }
+    .pct-fill.pct-high { background: var(--up); }
+
+    /* ADR Table */
+    .adr-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 4px;
+    }
+    .adr-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 14px 16px;
+    }
+    .adr-card .adr-title {
       font-size: 11px;
       font-weight: 700;
-      padding: 2px 8px;
-      border-radius: 3px;
-      margin-bottom: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--text-muted);
+      margin-bottom: 10px;
     }
-    .badge-above { background: #1a3a2a; color: #3ddc84; border: 1px solid #2a5a3a; }
-    .badge-below { background: #3a1a1a; color: #ff5c5c; border: 1px solid #5a2a2a; }
-    .badge-mixed { background: #3a3a1a; color: #f0c040; border: 1px solid #5a5a2a; }
-    .ma-row {
+    .adr-row {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 6px 0;
-      border-bottom: 1px solid #1e2330;
-      font-size: 13px;
+      padding: 4px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 12px;
     }
-    .ma-row:last-child { border-bottom: none; }
-    .ma-row .ma-label { color: #7a8099; }
-    .ma-row .ma-val   { color: #c8cdd8; }
-    .ma-row .ma-pct   { font-weight: 600; min-width: 60px; text-align: right; }
+    .adr-row:last-child { border-bottom: none; }
+    .adr-row .adr-key { color: var(--text-muted); }
+    .adr-row .adr-val { font-weight: 600; color: var(--text-main); }
 
-    /* ── Data Tables ──────────────────────────────────────────── */
+    /* ── Section 5: Sectors & Industries ───────────────────────────── */
     .data-table {
       width: 100%;
       border-collapse: collapse;
-      font-size: 13px;
+      font-size: 12px;
+      background: var(--bg-card);
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid var(--border);
     }
     .data-table thead tr {
-      background: #1a1f2e;
-      border-bottom: 2px solid #2a2f3e;
+      background: #f8f9fb;
+      border-bottom: 2px solid var(--border);
     }
     .data-table th {
-      padding: 10px 14px;
-      text-align: left;
-      font-size: 11px;
+      padding: 9px 12px;
+      text-align: right;
+      font-size: 10px;
       text-transform: uppercase;
       letter-spacing: 0.8px;
-      color: #7a8099;
-      font-weight: 600;
+      color: var(--text-muted);
+      font-weight: 700;
+      white-space: nowrap;
     }
+    .data-table th:first-child,
+    .data-table th:nth-child(2) { text-align: left; }
     .data-table td {
-      padding: 9px 14px;
-      border-bottom: 1px solid #1e2330;
-      color: #c8cdd8;
+      padding: 8px 12px;
+      border-bottom: 1px solid var(--border);
+      text-align: right;
+      color: var(--text-main);
+      white-space: nowrap;
     }
-    .data-table tbody tr:hover { background: #161b27; }
-    .data-table .sym { font-weight: 700; color: #e8ecf4; font-size: 14px; }
-    .rsi-bar-wrap {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .rsi-bar {
-      height: 6px;
-      border-radius: 3px;
-      background: #252b3b;
-      flex: 1;
-      max-width: 80px;
-      overflow: hidden;
-    }
-    .rsi-fill {
-      height: 100%;
-      border-radius: 3px;
-    }
-    .rsi-ob  { background: #ff5c5c; }  /* RSI ≥ 70 超買：紅 */
-    .rsi-os  { background: #3ddc84; }  /* RSI ≤ 30 超賣：綠 */
-    .rsi-neu { background: #5b9bd5; }  /* RSI 中性：藍 */
-
-    /* ── Footer ───────────────────────────────────────────────── */
-    .report-footer {
-      margin-top: 40px;
-      padding-top: 16px;
-      border-top: 1px solid #1e2330;
+    .data-table td:first-child,
+    .data-table td:nth-child(2) { text-align: left; }
+    .data-table tbody tr:last-child td { border-bottom: none; }
+    .data-table tbody tr:hover { background: #f8f9fb; }
+    .sym { font-weight: 700; font-size: 13px; color: var(--text-main); }
+    .rank-num {
+      display: inline-block;
+      width: 22px;
+      height: 22px;
+      line-height: 22px;
+      text-align: center;
+      background: #f1f3f9;
+      border-radius: 4px;
       font-size: 11px;
-      color: #4a5068;
+      font-weight: 700;
+      color: var(--text-muted);
+    }
+    .chg-cell {
+      display: inline-block;
+      padding: 2px 6px;
+      border-radius: 3px;
+      font-weight: 600;
+      font-size: 12px;
+    }
+
+    /* ── Section 6 & 7: AI Text ─────────────────────────────────────── */
+    .ai-section {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 20px 22px;
+      min-height: 120px;
+    }
+    .ai-section .ai-placeholder {
+      color: var(--text-muted);
+      font-style: italic;
+      font-size: 13px;
+    }
+    .ai-content {
+      font-size: 13px;
+      line-height: 1.7;
+      color: var(--text-main);
+    }
+    .ai-content p { margin-bottom: 10px; }
+    .ai-content p:last-child { margin-bottom: 0; }
+
+    /* ── Image Containers ───────────────────────────────────────────── */
+    .img-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px;
+      margin-top: 14px;
+    }
+    .img-card .img-label {
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+    .img-card img {
+      width: 100%;
+      height: auto;
+      border-radius: 4px;
+      display: block;
+    }
+    .img-placeholder {
+      display: none;
+      height: 100px;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-muted);
+      font-size: 12px;
+      background: #f8f9fb;
+      border-radius: 4px;
+      border: 1px dashed var(--border);
+    }
+
+    /* ── Footer ─────────────────────────────────────────────────────── */
+    .report-footer {
+      margin-top: 36px;
+      padding-top: 14px;
+      border-top: 1px solid var(--border);
+      font-size: 11px;
+      color: var(--text-muted);
       text-align: center;
     }
 
-    /* ── Responsive ───────────────────────────────────────────── */
-    @media (max-width: 700px) {
-      .ma-grid { grid-template-columns: 1fr; }
+    /* ── Two-column layout ──────────────────────────────────────────── */
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .full-col { grid-column: 1 / -1; }
+
+    /* ── Responsive ─────────────────────────────────────────────────── */
+    @media (max-width: 900px) {
+      .macro-grid { grid-template-columns: repeat(3, 1fr); }
+      .sentiment-grid { grid-template-columns: 1fr; }
+      .breadth-grid { grid-template-columns: 1fr; }
+      .two-col { grid-template-columns: 1fr; }
+      .adr-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 600px) {
       .macro-grid { grid-template-columns: repeat(2, 1fr); }
     }
   </style>
@@ -211,328 +504,393 @@
 <body>
 <div class="page-wrapper">
 
-  <!-- ═══════════════════════════════════════════════════════════
+  <!-- ══════════════════════════════════════════════════════════════
        HEADER
-       占位符：{{DATE}}  {{GENERATED_HKT}}  {{GENERATED_ET}}
-  ═══════════════════════════════════════════════════════════ -->
+  ══════════════════════════════════════════════════════════════ -->
   <header class="report-header">
-    <h1>Daily Market Summary</h1>
-    <div class="subtitle">Automated — Credit Efficient System</div>
     <div>
-      <span class="ts-badge">HKT {{GENERATED_HKT}}</span>
-      <span class="ts-badge">ET  {{GENERATED_ET}}</span>
+      <h1>Daily Market Summary</h1>
+      <div class="subtitle">Automated Credit-Efficient System &nbsp;·&nbsp; {{DATE}}</div>
+    </div>
+    <div class="header-meta">
+      <span class="ts-badge">HKT &nbsp;{{GENERATED_HKT}}</span>
+      <span class="ts-badge">ET &nbsp;{{GENERATED_ET}}</span>
     </div>
   </header>
 
-  <!-- ═══════════════════════════════════════════════════════════
+  <!-- ══════════════════════════════════════════════════════════════
        SECTION 1 — MACRO INDICATORS
-       占位符（每個指標）：
-         {{VIX_PRICE}}   {{VIX_CHG_PCT}}   {{VIX_DIR}}
-         {{DXY_PRICE}}   {{DXY_CHG_PCT}}   {{DXY_DIR}}
-         {{TNX_PRICE}}   {{TNX_CHG_PCT}}   {{TNX_DIR}}
-         {{GOLD_PRICE}}  {{GOLD_CHG_PCT}}  {{GOLD_DIR}}
-         {{OIL_PRICE}}   {{OIL_CHG_PCT}}   {{OIL_DIR}}
-         {{BTC_PRICE}}   {{BTC_CHG_PCT}}   {{BTC_DIR}}
-       _DIR 的值為 CSS class：up / down / flat
-  ═══════════════════════════════════════════════════════════ -->
+       Tags: {{VIX_PRICE}} {{VIX_CHG_PCT}} {{VIX_DIR}}
+             {{DXY_PRICE}} {{DXY_CHG_PCT}} {{DXY_DIR}}
+             {{TNX_PRICE}} {{TNX_CHG_PCT}} {{TNX_DIR}}
+             {{GOLD_PRICE}} {{GOLD_CHG_PCT}} {{GOLD_DIR}}
+             {{OIL_PRICE}} {{OIL_CHG_PCT}} {{OIL_DIR}}
+             {{BTC_PRICE}} {{BTC_CHG_PCT}} {{BTC_DIR}}
+  ══════════════════════════════════════════════════════════════ -->
   <section class="section">
-    <div class="section-title">Macro Indicators</div>
+    <div class="section-title">Section 1 &mdash; Macro Indicators</div>
     <div class="macro-grid">
 
       <div class="macro-card">
-        <div class="label">VIX  <span style="font-size:10px;color:#4a5068">Fear Index</span></div>
-        <div class="price">{{VIX_PRICE}}</div>
-        <div class="change {{VIX_DIR}}">{{VIX_CHG_PCT}}%</div>
+        <div class="mc-label">VIX <span class="mc-sub">Fear Index</span></div>
+        <div class="mc-price">{{VIX_PRICE}}</div>
+        <div class="mc-chg {{VIX_DIR}}">{{VIX_CHG_PCT}}%</div>
       </div>
 
       <div class="macro-card">
-        <div class="label">DXY  <span style="font-size:10px;color:#4a5068">US Dollar</span></div>
-        <div class="price">{{DXY_PRICE}}</div>
-        <div class="change {{DXY_DIR}}">{{DXY_CHG_PCT}}%</div>
+        <div class="mc-label">DXY <span class="mc-sub">US Dollar</span></div>
+        <div class="mc-price">{{DXY_PRICE}}</div>
+        <div class="mc-chg {{DXY_DIR}}">{{DXY_CHG_PCT}}%</div>
       </div>
 
       <div class="macro-card">
-        <div class="label">10Y Yield  <span style="font-size:10px;color:#4a5068">%</span></div>
-        <div class="price">{{TNX_PRICE}}</div>
-        <div class="change {{TNX_DIR}}">{{TNX_CHG_PCT}}%</div>
+        <div class="mc-label">10Y Yield <span class="mc-sub">TNX %</span></div>
+        <div class="mc-price">{{TNX_PRICE}}</div>
+        <div class="mc-chg {{TNX_DIR}}">{{TNX_CHG_PCT}}%</div>
       </div>
 
       <div class="macro-card">
-        <div class="label">Gold  <span style="font-size:10px;color:#4a5068">USD/oz</span></div>
-        <div class="price">{{GOLD_PRICE}}</div>
-        <div class="change {{GOLD_DIR}}">{{GOLD_CHG_PCT}}%</div>
+        <div class="mc-label">Gold <span class="mc-sub">USD/oz</span></div>
+        <div class="mc-price">{{GOLD_PRICE}}</div>
+        <div class="mc-chg {{GOLD_DIR}}">{{GOLD_CHG_PCT}}%</div>
       </div>
 
       <div class="macro-card">
-        <div class="label">WTI Oil  <span style="font-size:10px;color:#4a5068">USD/bbl</span></div>
-        <div class="price">{{OIL_PRICE}}</div>
-        <div class="change {{OIL_DIR}}">{{OIL_CHG_PCT}}%</div>
+        <div class="mc-label">WTI Oil <span class="mc-sub">USD/bbl</span></div>
+        <div class="mc-price">{{OIL_PRICE}}</div>
+        <div class="mc-chg {{OIL_DIR}}">{{OIL_CHG_PCT}}%</div>
       </div>
 
       <div class="macro-card">
-        <div class="label">Bitcoin  <span style="font-size:10px;color:#4a5068">USD</span></div>
-        <div class="price">{{BTC_PRICE}}</div>
-        <div class="change {{BTC_DIR}}">{{BTC_CHG_PCT}}%</div>
+        <div class="mc-label">Bitcoin <span class="mc-sub">USD</span></div>
+        <div class="mc-price">{{BTC_PRICE}}</div>
+        <div class="mc-chg {{BTC_DIR}}">{{BTC_CHG_PCT}}%</div>
       </div>
 
     </div>
   </section>
 
-  <!-- ═══════════════════════════════════════════════════════════
-       SECTION 2 — SPY / QQQ  MA DISTANCE
-       占位符（SPY）：
-         {{SPY_PRICE}}  {{SPY_CHG_PCT}}  {{SPY_CHG_DIR}}
-         {{SPY_STATUS}} {{SPY_BADGE_CLASS}}
-         {{SPY_MA20}}   {{SPY_VS_MA20_PCT}}  {{SPY_VS_MA20_DIR}}
-         {{SPY_MA50}}   {{SPY_VS_MA50_PCT}}  {{SPY_VS_MA50_DIR}}
-         {{SPY_MA200}}  {{SPY_VS_MA200_PCT}} {{SPY_VS_MA200_DIR}}
-         {{SPY_RSI}}
-       占位符（QQQ）：同上格式，前綴改為 QQQ_
-  ═══════════════════════════════════════════════════════════ -->
+  <!-- ══════════════════════════════════════════════════════════════
+       SECTION 2 — MAJOR INDICES
+       Tags per symbol (SPY/QQQ/DIA/IWM):
+         SYM_PRICE  SYM_CHG_PCT  SYM_CHG_DIR
+         SYM_STATUS  SYM_BADGE_CLASS  SYM_RSI
+         SYM_MA20  SYM_VS_MA20_PCT  SYM_VS_MA20_DIR
+         SYM_MA50  SYM_VS_MA50_PCT  SYM_VS_MA50_DIR
+         SYM_MA200  SYM_VS_MA200_PCT  SYM_VS_MA200_DIR
+  ══════════════════════════════════════════════════════════════ -->
   <section class="section">
-    <div class="section-title">SPY &amp; QQQ — Distance from Moving Averages</div>
-    <div class="ma-grid">
-
-      <!-- SPY -->
-      <div class="ma-card">
-        <h3>SPY &nbsp;<span style="font-size:12px;color:#7a8099">S&amp;P 500 ETF</span></h3>
-        <div class="price-line">
-          ${{SPY_PRICE}}
-          <span style="font-size:13px;font-weight:400;" class="{{SPY_CHG_DIR}}">{{SPY_CHG_PCT}}%</span>
-        </div>
-        <span class="status-badge {{SPY_BADGE_CLASS}}">{{SPY_STATUS}}</span>
-        <div class="ma-row">
-          <span class="ma-label">20-Day MA</span>
-          <span class="ma-val">${{SPY_MA20}}</span>
-          <span class="ma-pct {{SPY_VS_MA20_DIR}}">{{SPY_VS_MA20_PCT}}%</span>
-        </div>
-        <div class="ma-row">
-          <span class="ma-label">50-Day MA</span>
-          <span class="ma-val">${{SPY_MA50}}</span>
-          <span class="ma-pct {{SPY_VS_MA50_DIR}}">{{SPY_VS_MA50_PCT}}%</span>
-        </div>
-        <div class="ma-row">
-          <span class="ma-label">200-Day MA</span>
-          <span class="ma-val">${{SPY_MA200}}</span>
-          <span class="ma-pct {{SPY_VS_MA200_DIR}}">{{SPY_VS_MA200_PCT}}%</span>
-        </div>
-        <div class="ma-row" style="margin-top:6px;">
-          <span class="ma-label">RSI (14)</span>
-          <span></span>
-          <span class="ma-pct" style="color:#e8ecf4">{{SPY_RSI}}</span>
-        </div>
-      </div>
-
-      <!-- QQQ -->
-      <div class="ma-card">
-        <h3>QQQ &nbsp;<span style="font-size:12px;color:#7a8099">Nasdaq-100 ETF</span></h3>
-        <div class="price-line">
-          ${{QQQ_PRICE}}
-          <span style="font-size:13px;font-weight:400;" class="{{QQQ_CHG_DIR}}">{{QQQ_CHG_PCT}}%</span>
-        </div>
-        <span class="status-badge {{QQQ_BADGE_CLASS}}">{{QQQ_STATUS}}</span>
-        <div class="ma-row">
-          <span class="ma-label">20-Day MA</span>
-          <span class="ma-val">${{QQQ_MA20}}</span>
-          <span class="ma-pct {{QQQ_VS_MA20_DIR}}">{{QQQ_VS_MA20_PCT}}%</span>
-        </div>
-        <div class="ma-row">
-          <span class="ma-label">50-Day MA</span>
-          <span class="ma-val">${{QQQ_MA50}}</span>
-          <span class="ma-pct {{QQQ_VS_MA50_DIR}}">{{QQQ_VS_MA50_PCT}}%</span>
-        </div>
-        <div class="ma-row">
-          <span class="ma-label">200-Day MA</span>
-          <span class="ma-val">${{QQQ_MA200}}</span>
-          <span class="ma-pct {{QQQ_VS_MA200_DIR}}">{{QQQ_VS_MA200_PCT}}%</span>
-        </div>
-        <div class="ma-row" style="margin-top:6px;">
-          <span class="ma-label">RSI (14)</span>
-          <span></span>
-          <span class="ma-pct" style="color:#e8ecf4">{{QQQ_RSI}}</span>
-        </div>
-      </div>
-
+    <div class="section-title">Section 2 &mdash; Major Indices</div>
+    <div class="indices-table-wrap">
+      <table class="indices-table">
+        <thead>
+          <tr>
+            <th>Symbol</th>
+            <th style="text-align:right">Price</th>
+            <th>1D Chg%</th>
+            <th>RSI 14</th>
+            <th>vs 20MA</th>
+            <th>vs 50MA</th>
+            <th>vs 200MA</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- SPY -->
+          <tr>
+            <td>
+              <span class="idx-sym">SPY</span>
+              <span class="idx-name">S&amp;P 500 ETF</span>
+            </td>
+            <td style="font-weight:600">${{SPY_PRICE}}</td>
+            <td><span class="chg-cell {{SPY_CHG_DIR}}-bg">{{SPY_CHG_PCT}}%</span></td>
+            <td>
+              <div class="rsi-wrap">
+                <span>{{SPY_RSI}}</span>
+                <div class="rsi-bar"><div class="rsi-fill {{SPY_RSI_CLASS}}" style="width:{{SPY_RSI_W}}"></div></div>
+              </div>
+            </td>
+            <td class="{{SPY_VS_MA20_DIR}}">{{SPY_VS_MA20_PCT}}%</td>
+            <td class="{{SPY_VS_MA50_DIR}}">{{SPY_VS_MA50_PCT}}%</td>
+            <td class="{{SPY_VS_MA200_DIR}}">{{SPY_VS_MA200_PCT}}%</td>
+            <td><span class="status-badge {{SPY_BADGE_CLASS}}">{{SPY_STATUS}}</span></td>
+          </tr>
+          <!-- QQQ -->
+          <tr>
+            <td>
+              <span class="idx-sym">QQQ</span>
+              <span class="idx-name">Nasdaq-100 ETF</span>
+            </td>
+            <td style="font-weight:600">${{QQQ_PRICE}}</td>
+            <td><span class="chg-cell {{QQQ_CHG_DIR}}-bg">{{QQQ_CHG_PCT}}%</span></td>
+            <td>
+              <div class="rsi-wrap">
+                <span>{{QQQ_RSI}}</span>
+                <div class="rsi-bar"><div class="rsi-fill {{QQQ_RSI_CLASS}}" style="width:{{QQQ_RSI_W}}"></div></div>
+              </div>
+            </td>
+            <td class="{{QQQ_VS_MA20_DIR}}">{{QQQ_VS_MA20_PCT}}%</td>
+            <td class="{{QQQ_VS_MA50_DIR}}">{{QQQ_VS_MA50_PCT}}%</td>
+            <td class="{{QQQ_VS_MA200_DIR}}">{{QQQ_VS_MA200_PCT}}%</td>
+            <td><span class="status-badge {{QQQ_BADGE_CLASS}}">{{QQQ_STATUS}}</span></td>
+          </tr>
+          <!-- DIA -->
+          <tr>
+            <td>
+              <span class="idx-sym">DIA</span>
+              <span class="idx-name">Dow Jones ETF</span>
+            </td>
+            <td style="font-weight:600">${{DIA_PRICE}}</td>
+            <td><span class="chg-cell {{DIA_CHG_DIR}}-bg">{{DIA_CHG_PCT}}%</span></td>
+            <td>
+              <div class="rsi-wrap">
+                <span>{{DIA_RSI}}</span>
+                <div class="rsi-bar"><div class="rsi-fill {{DIA_RSI_CLASS}}" style="width:{{DIA_RSI_W}}"></div></div>
+              </div>
+            </td>
+            <td class="{{DIA_VS_MA20_DIR}}">{{DIA_VS_MA20_PCT}}%</td>
+            <td class="{{DIA_VS_MA50_DIR}}">{{DIA_VS_MA50_PCT}}%</td>
+            <td class="{{DIA_VS_MA200_DIR}}">{{DIA_VS_MA200_PCT}}%</td>
+            <td><span class="status-badge {{DIA_BADGE_CLASS}}">{{DIA_STATUS}}</span></td>
+          </tr>
+          <!-- IWM -->
+          <tr>
+            <td>
+              <span class="idx-sym">IWM</span>
+              <span class="idx-name">Russell 2000 ETF</span>
+            </td>
+            <td style="font-weight:600">${{IWM_PRICE}}</td>
+            <td><span class="chg-cell {{IWM_CHG_DIR}}-bg">{{IWM_CHG_PCT}}%</span></td>
+            <td>
+              <div class="rsi-wrap">
+                <span>{{IWM_RSI}}</span>
+                <div class="rsi-bar"><div class="rsi-fill {{IWM_RSI_CLASS}}" style="width:{{IWM_RSI_W}}"></div></div>
+              </div>
+            </td>
+            <td class="{{IWM_VS_MA20_DIR}}">{{IWM_VS_MA20_PCT}}%</td>
+            <td class="{{IWM_VS_MA50_DIR}}">{{IWM_VS_MA50_PCT}}%</td>
+            <td class="{{IWM_VS_MA200_DIR}}">{{IWM_VS_MA200_PCT}}%</td>
+            <td><span class="status-badge {{IWM_BADGE_CLASS}}">{{IWM_STATUS}}</span></td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </section>
 
-  <!-- ═══════════════════════════════════════════════════════════
-       SECTION 3 — MAIN ETF OVERVIEW  (DIA & IWM MA cards)
-       占位符（DIA）：
-         {{DIA_PRICE}}  {{DIA_CHG_PCT}}  {{DIA_CHG_DIR}}
-         {{DIA_STATUS}} {{DIA_BADGE_CLASS}}
-         {{DIA_MA20}}   {{DIA_VS_MA20_PCT}}  {{DIA_VS_MA20_DIR}}
-         {{DIA_MA50}}   {{DIA_VS_MA50_PCT}}  {{DIA_VS_MA50_DIR}}
-         {{DIA_MA200}}  {{DIA_VS_MA200_PCT}} {{DIA_VS_MA200_DIR}}
-         {{DIA_RSI}}
-       占位符（IWM）：同上格式，前綴改為 IWM_
-  ═══════════════════════════════════════════════════════════ -->
+  <!-- ══════════════════════════════════════════════════════════════
+       SECTION 3 — MARKET SENTIMENT
+       Tags: {{FG_SCORE}} {{FG_RATING}} {{FG_CLASS}}
+             {{FG_PREV_CLOSE}} {{FG_PREV_1W}} {{FG_PREV_1M}} {{FG_PREV_1Y}}
+             {{NAAIM_VALUE}} {{NAAIM_DATE}}
+             {{PC_VALUE}} {{PC_RATING}}
+  ══════════════════════════════════════════════════════════════ -->
   <section class="section">
-    <div class="section-title">DIA &amp; IWM — Distance from Moving Averages</div>
-    <div class="ma-grid">
+    <div class="section-title">Section 3 &mdash; Market Sentiment</div>
+    <div class="sentiment-grid">
 
-      <!-- DIA -->
-      <div class="ma-card">
-        <h3>DIA &nbsp;<span style="font-size:12px;color:#7a8099">Dow Jones ETF</span></h3>
-        <div class="price-line">
-          ${{DIA_PRICE}}
-          <span style="font-size:13px;font-weight:400;" class="{{DIA_CHG_DIR}}">{{DIA_CHG_PCT}}%</span>
-        </div>
-        <span class="status-badge {{DIA_BADGE_CLASS}}">{{DIA_STATUS}}</span>
-        <div class="ma-row">
-          <span class="ma-label">20-Day MA</span>
-          <span class="ma-val">${{DIA_MA20}}</span>
-          <span class="ma-pct {{DIA_VS_MA20_DIR}}">{{DIA_VS_MA20_PCT}}%</span>
-        </div>
-        <div class="ma-row">
-          <span class="ma-label">50-Day MA</span>
-          <span class="ma-val">${{DIA_MA50}}</span>
-          <span class="ma-pct {{DIA_VS_MA50_DIR}}">{{DIA_VS_MA50_PCT}}%</span>
-        </div>
-        <div class="ma-row">
-          <span class="ma-label">200-Day MA</span>
-          <span class="ma-val">${{DIA_MA200}}</span>
-          <span class="ma-pct {{DIA_VS_MA200_DIR}}">{{DIA_VS_MA200_PCT}}%</span>
-        </div>
-        <div class="ma-row" style="margin-top:6px;">
-          <span class="ma-label">RSI (14)</span>
-          <span></span>
-          <span class="ma-pct" style="color:#e8ecf4">{{DIA_RSI}}</span>
+      <!-- Fear & Greed -->
+      <div class="sent-card">
+        <div class="sc-label">CNN Fear &amp; Greed Index</div>
+        <div class="sc-value {{FG_CLASS}}">{{FG_SCORE}}</div>
+        <div class="sc-rating {{FG_CLASS}}">{{FG_RATING}}</div>
+        <div class="sc-detail">
+          <div class="sc-row"><span>Prev Close</span><span style="font-weight:600">{{FG_PREV_CLOSE}}</span></div>
+          <div class="sc-row"><span>1 Week Ago</span><span style="font-weight:600">{{FG_PREV_1W}}</span></div>
+          <div class="sc-row"><span>1 Month Ago</span><span style="font-weight:600">{{FG_PREV_1M}}</span></div>
+          <div class="sc-row"><span>1 Year Ago</span><span style="font-weight:600">{{FG_PREV_1Y}}</span></div>
         </div>
       </div>
 
-      <!-- IWM -->
-      <div class="ma-card">
-        <h3>IWM &nbsp;<span style="font-size:12px;color:#7a8099">Russell 2000 ETF</span></h3>
-        <div class="price-line">
-          ${{IWM_PRICE}}
-          <span style="font-size:13px;font-weight:400;" class="{{IWM_CHG_DIR}}">{{IWM_CHG_PCT}}%</span>
+      <!-- NAAIM -->
+      <div class="sent-card">
+        <div class="sc-label">NAAIM Exposure Index</div>
+        <div class="sc-value">{{NAAIM_VALUE}}</div>
+        <div class="sc-rating" style="color:var(--text-muted)">Weekly Survey</div>
+        <div class="sc-detail">
+          <div class="sc-row"><span>Survey Date</span><span style="font-weight:600">{{NAAIM_DATE}}</span></div>
+          <div class="sc-row"><span>Source</span><span style="font-weight:600;font-size:10px">NAAIM.org</span></div>
+          <div class="sc-row" style="margin-top:6px"><span style="font-size:11px;color:var(--text-muted)">Active managers' equity exposure. &gt;80 = overweight; &lt;40 = underweight.</span></div>
         </div>
-        <span class="status-badge {{IWM_BADGE_CLASS}}">{{IWM_STATUS}}</span>
-        <div class="ma-row">
-          <span class="ma-label">20-Day MA</span>
-          <span class="ma-val">${{IWM_MA20}}</span>
-          <span class="ma-pct {{IWM_VS_MA20_DIR}}">{{IWM_VS_MA20_PCT}}%</span>
-        </div>
-        <div class="ma-row">
-          <span class="ma-label">50-Day MA</span>
-          <span class="ma-val">${{IWM_MA50}}</span>
-          <span class="ma-pct {{IWM_VS_MA50_DIR}}">{{IWM_VS_MA50_PCT}}%</span>
-        </div>
-        <div class="ma-row">
-          <span class="ma-label">200-Day MA</span>
-          <span class="ma-val">${{IWM_MA200}}</span>
-          <span class="ma-pct {{IWM_VS_MA200_DIR}}">{{IWM_VS_MA200_PCT}}%</span>
-        </div>
-        <div class="ma-row" style="margin-top:6px;">
-          <span class="ma-label">RSI (14)</span>
-          <span></span>
-          <span class="ma-pct" style="color:#e8ecf4">{{IWM_RSI}}</span>
+      </div>
+
+      <!-- Put/Call Ratio -->
+      <div class="sent-card">
+        <div class="sc-label">Put / Call Ratio</div>
+        <div class="sc-value {{PC_CLASS}}">{{PC_VALUE}}</div>
+        <div class="sc-rating {{PC_CLASS}}">{{PC_RATING}}</div>
+        <div class="sc-detail">
+          <div class="sc-row"><span>Threshold</span><span style="font-weight:600">&gt;1.0 = Bearish</span></div>
+          <div class="sc-row"><span>Source</span><span style="font-weight:600;font-size:10px">CNN (5-day avg equity P/C)</span></div>
+          <div class="sc-row" style="margin-top:6px"><span style="font-size:11px;color:var(--text-muted)">High P/C = more puts = fear. Low P/C = complacency.</span></div>
         </div>
       </div>
 
     </div>
   </section>
 
-  <!-- ═══════════════════════════════════════════════════════════
-       SECTION 4C — SECTOR ETF ROTATION
-       占位符：{{SECTOR_ROWS}}
-       render_report.py 會將 11 個板塊的 <tr>...</tr> 整塊注入此處
-       每行 <tr> 內部結構：
-         <td class="sym">{symbol}</td>
-         <td>${price}</td>
-         <td class="{up|down}">{chg_pct}%</td>
-         <td> RSI bar + 數值 </td>
-         <td class="{up|down}">{vs20ma}</td>
-         <td><span class="status-badge {badge_class}">{status}</span></td>
-  ═══════════════════════════════════════════════════════════ -->
+  <!-- ══════════════════════════════════════════════════════════════
+       SECTION 4 — MARKET BREADTH
+  ══════════════════════════════════════════════════════════════ -->
   <section class="section">
-    <div class="section-title">Step 4C — Sector ETF Rotation (Sorted by RSI)</div>
-    <table class="data-table">
-      <thead>
-        <tr>
-          <th>Symbol</th>
-          <th>Price</th>
-          <th>1D Chg%</th>
-          <th>RSI 14</th>
-          <th>vs 20MA</th>
-          <th>Status</th>
-        </tr>
-      </thead>
-      <tbody>
-        {{SECTOR_ROWS}}
-      </tbody>
-    </table>
+    <div class="section-title">Section 4 &mdash; Market Breadth</div>
+
+    <!-- 4a/b: % Above Moving Averages -->
+    <div class="section-subtitle">4A / 4B &mdash; % of Stocks Above Moving Averages</div>
+    <div class="breadth-grid">
+      <!-- Table: 4 Indices -->
+      <div>
+        <table class="breadth-table">
+          <thead>
+            <tr>
+              <th>Index</th>
+              <th>Total</th>
+              <th>% &gt; 20MA</th>
+              <th>% &gt; 50MA</th>
+              <th>% &gt; 200MA</th>
+            </tr>
+          </thead>
+          <tbody>
+            {{BREADTH_ROWS}}
+          </tbody>
+        </table>
+      </div>
+      <!-- ADR: Avg Daily Range -->
+      <div>
+        <table class="breadth-table">
+          <thead>
+            <tr>
+              <th>ETF</th>
+              <th>Avg Daily Range %</th>
+            </tr>
+          </thead>
+          <tbody>
+            {{ADR_ROWS}}
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- 4c: NYSE / NASDAQ Advance-Decline -->
+    <div class="section-subtitle">4C &mdash; NYSE / NASDAQ Advance-Decline</div>
+    <div class="adr-grid">
+      <!-- NASDAQ ADR -->
+      <div class="adr-card">
+        <div class="adr-title">NASDAQ</div>
+        {{NASDAQ_ADR_ROWS}}
+      </div>
+      <!-- NYSE ADR -->
+      <div class="adr-card">
+        <div class="adr-title">NYSE</div>
+        {{NYSE_ADR_ROWS}}
+      </div>
+    </div>
+
+    <!-- 4d: Stockbee Market Monitor Image -->
+    <div class="section-subtitle">4D &mdash; Stockbee Market Monitor</div>
+    <div class="img-card">
+      <div class="img-label">Stockbee Market Monitor &mdash; Momentum Breakdown</div>
+      <img src="assets/img/today/stockbee_mm.png"
+           alt="Stockbee Market Monitor"
+           onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+      <div class="img-placeholder">No screenshot available — assets/img/today/stockbee_mm.png</div>
+    </div>
+
   </section>
 
-  <!-- ═══════════════════════════════════════════════════════════
-       SECTION 5 — CHART SCREENSHOTS
-       路徑固定：assets/img/today/{filename}.png
-       尺寸固定：800x500（截圖時 viewport 必須設為 800x500）
-       檔名固定：spy_ma / qqq_ma / sector_heatmap / finviz_map
-       若當日未截圖，img 會顯示為空（alt 文字可見）
-  ═══════════════════════════════════════════════════════════ -->
-  <section class="section" id="charts">
-    <div class="section-title">Chart Screenshots</div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+  <!-- ══════════════════════════════════════════════════════════════
+       SECTION 5 — SECTOR & INDUSTRY
+       Tags: {{SECTOR_ROWS_FULL}} (11 sectors sorted by 1D)
+             {{INDUSTRY_ROWS}} (Top 15 industries)
+  ══════════════════════════════════════════════════════════════ -->
+  <section class="section">
+    <div class="section-title">Section 5 &mdash; Sector &amp; Industry Performance</div>
 
-      <!-- SPY MA Chart (StockCharts) -->
-      <div class="ma-card" style="padding:12px;">
-        <div style="font-size:11px;color:#7a8099;text-transform:uppercase;letter-spacing:.8px;margin-bottom:8px;">SPY — Moving Averages</div>
-        <img src="assets/img/today/spy_ma.png"
-             alt="SPY MA Chart"
-             width="800" height="500"
-             style="width:100%;height:auto;border-radius:4px;display:block;"
-             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
-        <div style="display:none;height:120px;align-items:center;justify-content:center;color:#4a5068;font-size:12px;background:#0d0f14;border-radius:4px;">No screenshot — run: assets/img/today/spy_ma.png</div>
-      </div>
+    <!-- 5A: 11 Sectors -->
+    <div class="section-subtitle">5A &mdash; Sector ETF Performance (Sorted by 1D Change)</div>
+    <div style="overflow-x:auto">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Symbol</th>
+            <th>Sector</th>
+            <th>Price</th>
+            <th>1D Chg%</th>
+            <th>1W Chg%</th>
+            <th>1M Chg%</th>
+            <th>RSI 14</th>
+            <th>vs 20MA</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{SECTOR_ROWS_FULL}}
+        </tbody>
+      </table>
+    </div>
 
-      <!-- QQQ MA Chart (StockCharts) -->
-      <div class="ma-card" style="padding:12px;">
-        <div style="font-size:11px;color:#7a8099;text-transform:uppercase;letter-spacing:.8px;margin-bottom:8px;">QQQ — Moving Averages</div>
-        <img src="assets/img/today/qqq_ma.png"
-             alt="QQQ MA Chart"
-             width="800" height="500"
-             style="width:100%;height:auto;border-radius:4px;display:block;"
-             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
-        <div style="display:none;height:120px;align-items:center;justify-content:center;color:#4a5068;font-size:12px;background:#0d0f14;border-radius:4px;">No screenshot — run: assets/img/today/qqq_ma.png</div>
-      </div>
+    <!-- 5B: Top 15 Industries -->
+    <div class="section-subtitle">5B &mdash; Top 15 Industries (by 1D Change)</div>
+    <div style="overflow-x:auto">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th style="text-align:center">Rank</th>
+            <th>Industry</th>
+            <th>1D Chg%</th>
+            <th>1W Chg%</th>
+            <th>1M Chg%</th>
+            <th>3M Chg%</th>
+            <th>YTD Chg%</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{INDUSTRY_ROWS}}
+        </tbody>
+      </table>
+    </div>
 
-      <!-- Sector Heatmap (Finviz) -->
-      <div class="ma-card" style="padding:12px;">
-        <div style="font-size:11px;color:#7a8099;text-transform:uppercase;letter-spacing:.8px;margin-bottom:8px;">Sector Heatmap (Finviz)</div>
-        <img src="assets/img/today/sector_heatmap.png"
-             alt="Sector Heatmap"
-             width="800" height="500"
-             style="width:100%;height:auto;border-radius:4px;display:block;"
-             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
-        <div style="display:none;height:120px;align-items:center;justify-content:center;color:#4a5068;font-size:12px;background:#0d0f14;border-radius:4px;">No screenshot — run: assets/img/today/sector_heatmap.png</div>
-      </div>
+    <!-- Market Heatmap Image -->
+    <div class="img-card">
+      <div class="img-label">Market Heatmap (Finviz)</div>
+      <img src="assets/img/today/market_heatmap.png"
+           alt="Market Heatmap"
+           onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+      <div class="img-placeholder">No screenshot available — assets/img/today/market_heatmap.png</div>
+    </div>
 
-      <!-- Finviz Market Map -->
-      <div class="ma-card" style="padding:12px;">
-        <div style="font-size:11px;color:#7a8099;text-transform:uppercase;letter-spacing:.8px;margin-bottom:8px;">Market Map (Finviz)</div>
-        <img src="assets/img/today/finviz_map.png"
-             alt="Finviz Market Map"
-             width="800" height="500"
-             style="width:100%;height:auto;border-radius:4px;display:block;"
-             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
-        <div style="display:none;height:120px;align-items:center;justify-content:center;color:#4a5068;font-size:12px;background:#0d0f14;border-radius:4px;">No screenshot — run: assets/img/today/finviz_map.png</div>
-      </div>
+  </section>
 
+  <!-- ══════════════════════════════════════════════════════════════
+       SECTION 6 — MARKET ANALYSIS (AI-generated)
+       Tag: {{SECTION6_CONTENT}}
+  ══════════════════════════════════════════════════════════════ -->
+  <section class="section">
+    <div class="section-title">Section 6 &mdash; Market Analysis</div>
+    <div class="ai-section">
+      {{SECTION6_CONTENT}}
     </div>
   </section>
 
-  <!-- ═══════════════════════════════════════════════════════════
+  <!-- ══════════════════════════════════════════════════════════════
+       SECTION 7 — TRADING OUTLOOK & WATCHLIST (AI-generated)
+       Tag: {{SECTION7_CONTENT}}
+  ══════════════════════════════════════════════════════════════ -->
+  <section class="section">
+    <div class="section-title">Section 7 &mdash; Trading Outlook &amp; Watchlist</div>
+    <div class="ai-section">
+      {{SECTION7_CONTENT}}
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════════
        FOOTER
-       占位符：{{GENERATED_HKT}}  {{GENERATED_ET}}
-  ═══════════════════════════════════════════════════════════ -->
+  ══════════════════════════════════════════════════════════════ -->
   <footer class="report-footer">
-    Generated by Credit Efficient Market Summary System &nbsp;|&nbsp;
-    Data source: Yahoo Finance &nbsp;|&nbsp;
+    Generated by Credit-Efficient Market Summary System &nbsp;|&nbsp;
+    Data: Yahoo Finance · CNN · NAAIM · Finviz · Barchart &nbsp;|&nbsp;
     {{GENERATED_HKT}} HKT &nbsp;/&nbsp; {{GENERATED_ET}} ET
     <br/>
-    <span style="color:#2a2f3e">This report is for informational purposes only and does not constitute financial advice.</span>
+    <span style="color:#d1d5db">For informational purposes only. Not financial advice.</span>
   </footer>
 
 </div>
