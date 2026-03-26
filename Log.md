@@ -38,3 +38,22 @@
   - Residual in output: 0
   - Hardcoded data values: 0
 - **Note**: 初步 regex 掃描 render_report.py 源碼只找到 5 個靜態字串，因為其餘 77 個 key 是透過 f-string 動態生成的。需用 runtime 執行才能正確審計。
+
+## 2026-03-26 (Session 4 — System Upgrade Stage 1)
+### Task: Data Backend Enhancement (v2.0 → v3.0)
+- **Actions**:
+  - Cloned repo and read MASTER_INSTRUCTION.md.
+  - Analyzed existing `fetch_all_data.py` (v2.0) to identify data gaps.
+  - Rewrote `fetch_all_data.py` to v3.0 with 5 new data modules.
+  - Executed script, verified all data populated correctly.
+  - Fixed Finviz sector ticker mapping (`financial` not `financialservices` for XLF).
+  - Pushed to GitHub: commit `2ef097f`.
+- **New Modules Added**:
+  1. **Sentiment**: CNN Fear & Greed (score=20.15, extreme fear), Put/Call Ratio (0.735), NAAIM Exposure (60.24 as of 2026-03-18)
+  2. **Sector 1W/1M**: All 11 sectors now include `change_1w_pct`, `change_1m_pct`, `change_3m_pct`, `change_ytd_pct` via Finviz Groups
+  3. **Industry Top 15**: Top 15 industries by 1D return from Finviz (144 total industries scraped)
+  4. **Breadth**: % stocks above 20/50/200 MA for S&P500, NASDAQ, NYSE via Finviz Screener
+  5. **ADR**: 14-day Average Daily Range for SPY, QQQ, DIA, IWM
+- **JSON Schema**: Upgraded from v2.0 to v3.0; new top-level keys: `sentiment`, `industry`, `breadth`
+- **Data Sources**: Yahoo Finance (yfinance) + CNN Fear & Greed API + NAAIM.org + Finviz Groups + Finviz Screener
+- **Commit URL**: https://github.com/matt-manus/daily-market-summary/commit/2ef097f500789d0670d8124e1eb17bbfa50dd5b0
