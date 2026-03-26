@@ -13,3 +13,9 @@ sandbox.txt
 # Skills & projects (not for repo)
 skills/
 projects/
+.cache/
+page_texts/
+screenshots/
+output/
+sandbox.txt
+upload/
