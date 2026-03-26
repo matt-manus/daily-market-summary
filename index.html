@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Daily Market Summary — 2026-03-26</title>
+  <style>
+    /* ── Reset & Base ─────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+      background: #0d0f14;
+      color: #d4d8e2;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+    a { color: #5b9bd5; text-decoration: none; }
+
+    /* ── Layout ───────────────────────────────────────────────── */
+    .page-wrapper { max-width: 1200px; margin: 0 auto; padding: 24px 20px 60px; }
+
+    /* ── Header ───────────────────────────────────────────────── */
+    .report-header {
+      border-bottom: 2px solid #2a2f3e;
+      padding-bottom: 16px;
+      margin-bottom: 28px;
+    }
+    .report-header h1 {
+      font-size: 22px;
+      font-weight: 700;
+      color: #e8ecf4;
+      letter-spacing: 0.5px;
+    }
+    .report-header .subtitle {
+      font-size: 12px;
+      color: #7a8099;
+      margin-top: 4px;
+    }
+    .report-header .ts-badge {
+      display: inline-block;
+      background: #1e2330;
+      border: 1px solid #2e3448;
+      border-radius: 4px;
+      padding: 3px 10px;
+      font-size: 11px;
+      color: #9ba3bb;
+      margin-right: 8px;
+      margin-top: 8px;
+    }
+
+    /* ── Section ──────────────────────────────────────────────── */
+    .section { margin-bottom: 32px; }
+    .section-title {
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      color: #5b9bd5;
+      border-left: 3px solid #5b9bd5;
+      padding-left: 10px;
+      margin-bottom: 14px;
+    }
+
+    /* ── Macro Card Grid ──────────────────────────────────────── */
+    .macro-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 12px;
+    }
+    .macro-card {
+      background: #161b27;
+      border: 1px solid #252b3b;
+      border-radius: 8px;
+      padding: 14px 16px;
+      transition: border-color 0.2s;
+    }
+    .macro-card:hover { border-color: #3d4a6a; }
+    .macro-card .label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: #7a8099;
+      margin-bottom: 6px;
+    }
+    .macro-card .price {
+      font-size: 20px;
+      font-weight: 700;
+      color: #e8ecf4;
+    }
+    .macro-card .change {
+      font-size: 12px;
+      margin-top: 4px;
+      font-weight: 600;
+    }
+    .up   { color: #3ddc84; }
+    .down { color: #ff5c5c; }
+    .flat { color: #9ba3bb; }
+
+    /* ── ETF MA Distance Cards ────────────────────────────────── */
+    .ma-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .ma-card {
+      background: #161b27;
+      border: 1px solid #252b3b;
+      border-radius: 8px;
+      padding: 16px;
+    }
+    .ma-card h3 {
+      font-size: 16px;
+      font-weight: 700;
+      color: #e8ecf4;
+      margin-bottom: 12px;
+    }
+    .ma-card .price-line {
+      font-size: 24px;
+      font-weight: 700;
+      color: #e8ecf4;
+      margin-bottom: 4px;
+    }
+    .ma-card .status-badge {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 3px;
+      margin-bottom: 14px;
+    }
+    .badge-above { background: #1a3a2a; color: #3ddc84; border: 1px solid #2a5a3a; }
+    .badge-below { background: #3a1a1a; color: #ff5c5c; border: 1px solid #5a2a2a; }
+    .badge-mixed { background: #3a3a1a; color: #f0c040; border: 1px solid #5a5a2a; }
+    .ma-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 6px 0;
+      border-bottom: 1px solid #1e2330;
+      font-size: 13px;
+    }
+    .ma-row:last-child { border-bottom: none; }
+    .ma-row .ma-label { color: #7a8099; }
+    .ma-row .ma-val   { color: #c8cdd8; }
+    .ma-row .ma-pct   { font-weight: 600; min-width: 60px; text-align: right; }
+
+    /* ── Data Tables ──────────────────────────────────────────── */
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+    .data-table thead tr {
+      background: #1a1f2e;
+      border-bottom: 2px solid #2a2f3e;
+    }
+    .data-table th {
+      padding: 10px 14px;
+      text-align: left;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: #7a8099;
+      font-weight: 600;
+    }
+    .data-table td {
+      padding: 9px 14px;
+      border-bottom: 1px solid #1e2330;
+      color: #c8cdd8;
+    }
+    .data-table tbody tr:hover { background: #161b27; }
+    .data-table .sym { font-weight: 700; color: #e8ecf4; font-size: 14px; }
+    .rsi-bar-wrap {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .rsi-bar {
+      height: 6px;
+      border-radius: 3px;
+      background: #252b3b;
+      flex: 1;
+      max-width: 80px;
+      overflow: hidden;
+    }
+    .rsi-fill {
+      height: 100%;
+      border-radius: 3px;
+    }
+    .rsi-ob  { background: #ff5c5c; }  /* RSI ≥ 70 超買：紅 */
+    .rsi-os  { background: #3ddc84; }  /* RSI ≤ 30 超賣：綠 */
+    .rsi-neu { background: #5b9bd5; }  /* RSI 中性：藍 */
+
+    /* ── Footer ───────────────────────────────────────────────── */
+    .report-footer {
+      margin-top: 40px;
+      padding-top: 16px;
+      border-top: 1px solid #1e2330;
+      font-size: 11px;
+      color: #4a5068;
+      text-align: center;
+    }
+
+    /* ── Responsive ───────────────────────────────────────────── */
+    @media (max-width: 700px) {
+      .ma-grid { grid-template-columns: 1fr; }
+      .macro-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+<div class="page-wrapper">
+
+  <!-- ═══════════════════════════════════════════════════════════
+       HEADER
+       占位符：2026-03-26  2026-03-26 14:03  2026-03-26 02:03
+  ═══════════════════════════════════════════════════════════ -->
+  <header class="report-header">
+    <h1>Daily Market Summary</h1>
+    <div class="subtitle">Automated — Credit Efficient System</div>
+    <div>
+      <span class="ts-badge">HKT 2026-03-26 14:03</span>
+      <span class="ts-badge">ET  2026-03-26 02:03</span>
+    </div>
+  </header>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       SECTION 1 — MACRO INDICATORS
+       占位符（每個指標）：
+         25.330   -6.01   down
+         99.650   +0.05   up
+         4.328   -1.46   down
+         4,462.50  -1.92  down
+         92.200   +2.08   up
+         69,942   -0.82   down
+       _DIR 的值為 CSS class：up / down / flat
+  ═══════════════════════════════════════════════════════════ -->
+  <section class="section">
+    <div class="section-title">Macro Indicators</div>
+    <div class="macro-grid">
+
+      <div class="macro-card">
+        <div class="label">VIX  <span style="font-size:10px;color:#4a5068">Fear Index</span></div>
+        <div class="price">25.330</div>
+        <div class="change down">-6.01%</div>
+      </div>
+
+      <div class="macro-card">
+        <div class="label">DXY  <span style="font-size:10px;color:#4a5068">US Dollar</span></div>
+        <div class="price">99.650</div>
+        <div class="change up">+0.05%</div>
+      </div>
+
+      <div class="macro-card">
+        <div class="label">10Y Yield  <span style="font-size:10px;color:#4a5068">%</span></div>
+        <div class="price">4.328</div>
+        <div class="change down">-1.46%</div>
+      </div>
+
+      <div class="macro-card">
+        <div class="label">Gold  <span style="font-size:10px;color:#4a5068">USD/oz</span></div>
+        <div class="price">4,462.50</div>
+        <div class="change down">-1.92%</div>
+      </div>
+
+      <div class="macro-card">
+        <div class="label">WTI Oil  <span style="font-size:10px;color:#4a5068">USD/bbl</span></div>
+        <div class="price">92.200</div>
+        <div class="change up">+2.08%</div>
+      </div>
+
+      <div class="macro-card">
+        <div class="label">Bitcoin  <span style="font-size:10px;color:#4a5068">USD</span></div>
+        <div class="price">69,942</div>
+        <div class="change down">-0.82%</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       SECTION 2 — SPY / QQQ  MA DISTANCE
+       占位符（SPY）：
+         656.82  +0.56  up
+         BELOW ALL badge-below
+         669.33   -1.87  down
+         679.91   -3.40  down
+         657.51  -0.10 down
+         39.5
+       占位符（QQQ）：同上格式，前綴改為 QQQ_
+  ═══════════════════════════════════════════════════════════ -->
+  <section class="section">
+    <div class="section-title">SPY &amp; QQQ — Distance from Moving Averages</div>
+    <div class="ma-grid">
+
+      <!-- SPY -->
+      <div class="ma-card">
+        <h3>SPY &nbsp;<span style="font-size:12px;color:#7a8099">S&amp;P 500 ETF</span></h3>
+        <div class="price-line">
+          $656.82
+          <span style="font-size:13px;font-weight:400;" class="up">+0.56%</span>
+        </div>
+        <span class="status-badge badge-below">BELOW ALL</span>
+        <div class="ma-row">
+          <span class="ma-label">20-Day MA</span>
+          <span class="ma-val">$669.33</span>
+          <span class="ma-pct down">-1.87%</span>
+        </div>
+        <div class="ma-row">
+          <span class="ma-label">50-Day MA</span>
+          <span class="ma-val">$679.91</span>
+          <span class="ma-pct down">-3.40%</span>
+        </div>
+        <div class="ma-row">
+          <span class="ma-label">200-Day MA</span>
+          <span class="ma-val">$657.51</span>
+          <span class="ma-pct down">-0.10%</span>
+        </div>
+        <div class="ma-row" style="margin-top:6px;">
+          <span class="ma-label">RSI (14)</span>
+          <span></span>
+          <span class="ma-pct" style="color:#e8ecf4">39.5</span>
+        </div>
+      </div>
+
+      <!-- QQQ -->
+      <div class="ma-card">
+        <h3>QQQ &nbsp;<span style="font-size:12px;color:#7a8099">Nasdaq-100 ETF</span></h3>
+        <div class="price-line">
+          $587.82
+          <span style="font-size:13px;font-weight:400;" class="up">+0.66%</span>
+        </div>
+        <span class="status-badge badge-below">BELOW ALL</span>
+        <div class="ma-row">
+          <span class="ma-label">20-Day MA</span>
+          <span class="ma-val">$599.66</span>
+          <span class="ma-pct down">-1.98%</span>
+        </div>
+        <div class="ma-row">
+          <span class="ma-label">50-Day MA</span>
+          <span class="ma-val">$608.66</span>
+          <span class="ma-pct down">-3.42%</span>
+        </div>
+        <div class="ma-row">
+          <span class="ma-label">200-Day MA</span>
+          <span class="ma-val">$592.94</span>
+          <span class="ma-pct down">-0.86%</span>
+        </div>
+        <div class="ma-row" style="margin-top:6px;">
+          <span class="ma-label">RSI (14)</span>
+          <span></span>
+          <span class="ma-pct" style="color:#e8ecf4">41.3</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       SECTION 3 — MAIN ETF OVERVIEW  (DIA & IWM MA cards)
+       占位符（DIA）：
+         464.14  +0.64  up
+         MIXED badge-mixed
+         472.91   -1.86  down
+         484.37   -4.18  down
+         463.13  +0.22 up
+         38.5
+       占位符（IWM）：同上格式，前綴改為 IWM_
+  ═══════════════════════════════════════════════════════════ -->
+  <section class="section">
+    <div class="section-title">DIA &amp; IWM — Distance from Moving Averages</div>
+    <div class="ma-grid">
+
+      <!-- DIA -->
+      <div class="ma-card">
+        <h3>DIA &nbsp;<span style="font-size:12px;color:#7a8099">Dow Jones ETF</span></h3>
+        <div class="price-line">
+          $464.14
+          <span style="font-size:13px;font-weight:400;" class="up">+0.64%</span>
+        </div>
+        <span class="status-badge badge-mixed">MIXED</span>
+        <div class="ma-row">
+          <span class="ma-label">20-Day MA</span>
+          <span class="ma-val">$472.91</span>
+          <span class="ma-pct down">-1.86%</span>
+        </div>
+        <div class="ma-row">
+          <span class="ma-label">50-Day MA</span>
+          <span class="ma-val">$484.37</span>
+          <span class="ma-pct down">-4.18%</span>
+        </div>
+        <div class="ma-row">
+          <span class="ma-label">200-Day MA</span>
+          <span class="ma-val">$463.13</span>
+          <span class="ma-pct up">+0.22%</span>
+        </div>
+        <div class="ma-row" style="margin-top:6px;">
+          <span class="ma-label">RSI (14)</span>
+          <span></span>
+          <span class="ma-pct" style="color:#e8ecf4">38.5</span>
+        </div>
+      </div>
+
+      <!-- IWM -->
+      <div class="ma-card">
+        <h3>IWM &nbsp;<span style="font-size:12px;color:#7a8099">Russell 2000 ETF</span></h3>
+        <div class="price-line">
+          $251.82
+          <span style="font-size:13px;font-weight:400;" class="up">+1.22%</span>
+        </div>
+        <span class="status-badge badge-mixed">MIXED</span>
+        <div class="ma-row">
+          <span class="ma-label">20-Day MA</span>
+          <span class="ma-val">$252.53</span>
+          <span class="ma-pct down">-0.28%</span>
+        </div>
+        <div class="ma-row">
+          <span class="ma-label">50-Day MA</span>
+          <span class="ma-val">$258.88</span>
+          <span class="ma-pct down">-2.73%</span>
+        </div>
+        <div class="ma-row">
+          <span class="ma-label">200-Day MA</span>
+          <span class="ma-val">$240.66</span>
+          <span class="ma-pct up">+4.64%</span>
+        </div>
+        <div class="ma-row" style="margin-top:6px;">
+          <span class="ma-label">RSI (14)</span>
+          <span></span>
+          <span class="ma-pct" style="color:#e8ecf4">48.3</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       SECTION 4C — SECTOR ETF ROTATION
+       占位符：
+        <tr>
+          <td class="sym">XLE</td>
+          <td>$60.57</td>
+          <td class="down">-0.44%</td>
+          <td>
+            <div class="rsi-bar-wrap">
+              <span>77.5</span>
+              <div class="rsi-bar">
+                <div class="rsi-fill rsi-ob" style="width:77%"></div>
+              </div>
+            </div>
+          </td>
+          <td class="up">Green</td>
+          <td><span class="status-badge badge-above">ABOVE ALL</span></td>
+        </tr>
+
+        <tr>
+          <td class="sym">XLB</td>
+          <td>$49.41</td>
+          <td class="up">+1.98%</td>
+          <td>
+            <div class="rsi-bar-wrap">
+              <span>47.1</span>
+              <div class="rsi-bar">
+                <div class="rsi-fill rsi-neu" style="width:47%"></div>
+              </div>
+            </div>
+          </td>
+          <td class="down">Red</td>
+          <td><span class="status-badge badge-mixed">MIXED</span></td>
+        </tr>
+
+        <tr>
+          <td class="sym">XLK</td>
+          <td>$136.76</td>
+          <td class="up">+0.45%</td>
+          <td>
+            <div class="rsi-bar-wrap">
+              <span>44.5</span>
+              <div class="rsi-bar">
+                <div class="rsi-fill rsi-neu" style="width:44%"></div>
+              </div>
+            </div>
+          </td>
+          <td class="down">Red</td>
+          <td><span class="status-badge badge-below">BELOW ALL</span></td>
+        </tr>
+
+        <tr>
+          <td class="sym">XLU</td>
+          <td>$45.25</td>
+          <td class="up">+0.35%</td>
+          <td>
+            <div class="rsi-bar-wrap">
+              <span>43.3</span>
+              <div class="rsi-bar">
+                <div class="rsi-fill rsi-neu" style="width:43%"></div>
+              </div>
+            </div>
+          </td>
+          <td class="down">Red</td>
+          <td><span class="status-badge badge-mixed">MIXED</span></td>
+        </tr>
+
+        <tr>
+          <td class="sym">XLI</td>
+          <td>$165.10</td>
+          <td class="up">+0.67%</td>
+          <td>
+            <div class="rsi-bar-wrap">
+              <span>42.2</span>
+              <div class="rsi-bar">
+                <div class="rsi-fill rsi-neu" style="width:42%"></div>
+              </div>
+            </div>
+          </td>
+          <td class="down">Red</td>
+          <td><span class="status-badge badge-mixed">MIXED</span></td>
+        </tr>
+
+        <tr>
+          <td class="sym">XLY</td>
+          <td>$110.73</td>
+          <td class="up">+0.96%</td>
+          <td>
+            <div class="rsi-bar-wrap">
+              <span>41.0</span>
+              <div class="rsi-bar">
+                <div class="rsi-fill rsi-neu" style="width:41%"></div>
+              </div>
+            </div>
+          </td>
+          <td class="down">Red</td>
+          <td><span class="status-badge badge-below">BELOW ALL</span></td>
+        </tr>
+
+        <tr>
+          <td class="sym">XLF</td>
+          <td>$49.34</td>
+          <td class="up">+0.12%</td>
+          <td>
+            <div class="rsi-bar-wrap">
+              <span>37.8</span>
+              <div class="rsi-bar">
+                <div class="rsi-fill rsi-neu" style="width:38%"></div>
+              </div>
+            </div>
+          </td>
+          <td class="down">Red</td>
+          <td><span class="status-badge badge-below">BELOW ALL</span></td>
+        </tr>
+
+        <tr>
+          <td class="sym">XLV</td>
+          <td>$146.24</td>
+          <td class="up">+1.00%</td>
+          <td>
+            <div class="rsi-bar-wrap">
+              <span>33.0</span>
+              <div class="rsi-bar">
+                <div class="rsi-fill rsi-neu" style="width:33%"></div>
+              </div>
+            </div>
+          </td>
+          <td class="down">Red</td>
+          <td><span class="status-badge badge-mixed">MIXED</span></td>
+        </tr>
+
+        <tr>
+          <td class="sym">XLP</td>
+          <td>$81.51</td>
+          <td class="up">+0.49%</td>
+          <td>
+            <div class="rsi-bar-wrap">
+              <span>31.9</span>
+              <div class="rsi-bar">
+                <div class="rsi-fill rsi-neu" style="width:32%"></div>
+              </div>
+            </div>
+          </td>
+          <td class="down">Red</td>
+          <td><span class="status-badge badge-mixed">MIXED</span></td>
+        </tr>
+
+        <tr>
+          <td class="sym">XLC</td>
+          <td>$111.44</td>
+          <td class="up">+0.28%</td>
+          <td>
+            <div class="rsi-bar-wrap">
+              <span>31.8</span>
+              <div class="rsi-bar">
+                <div class="rsi-fill rsi-neu" style="width:32%"></div>
+              </div>
+            </div>
+          </td>
+          <td class="down">Red</td>
+          <td><span class="status-badge badge-below">BELOW ALL</span></td>
+        </tr>
+
+        <tr>
+          <td class="sym">XLRE</td>
+          <td>$40.27</td>
+          <td class="down">-0.05%</td>
+          <td>
+            <div class="rsi-bar-wrap">
+              <span>27.2</span>
+              <div class="rsi-bar">
+                <div class="rsi-fill rsi-os" style="width:27%"></div>
+              </div>
+            </div>
+          </td>
+          <td class="down">Red</td>
+          <td><span class="status-badge badge-below">BELOW ALL</span></td>
+        </tr>
+       render_report.py 會將 11 個板塊的 <tr>...</tr> 整塊注入此處
+       每行 <tr> 內部結構：
+         <td class="sym">{symbol}</td>
+         <td>${price}</td>
+         <td class="{up|down}">{chg_pct}%</td>
+         <td> RSI bar + 數值 </td>
+         <td class="{up|down}">{vs20ma}</td>
+         <td><span class="status-badge {badge_class}">{status}</span></td>
+  ═══════════════════════════════════════════════════════════ -->
+  <section class="section">
+    <div class="section-title">Step 4C — Sector ETF Rotation (Sorted by RSI)</div>
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Symbol</th>
+          <th>Price</th>
+          <th>1D Chg%</th>
+          <th>RSI 14</th>
+          <th>vs 20MA</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+        <tr>
+          <td class="sym">XLE</td>
+          <td>$60.57</td>
+          <td class="down">-0.44%</td>
+          <td>
+            <div class="rsi-bar-wrap">
+              <span>77.5</span>
+              <div class="rsi-bar">
+                <div class="rsi-fill rsi-ob" style="width:77%"></div>
+              </div>
+            </div>
+          </td>
+          <td class="up">Green</td>
+          <td><span class="status-badge badge-above">ABOVE ALL</span></td>
+        </tr>
+
+        <tr>
+          <td class="sym">XLB</td>
+          <td>$49.41</td>
+          <td class="up">+1.98%</td>
+          <td>
+            <div class="rsi-bar-wrap">
+              <span>47.1</span>
+              <div class="rsi-bar">
+                <div class="rsi-fill rsi-neu" style="width:47%"></div>
+              </div>
+            </div>
+          </td>
+          <td class="down">Red</td>
+          <td><span class="status-badge badge-mixed">MIXED</span></td>
+        </tr>
+
+        <tr>
+          <td class="sym">XLK</td>
+          <td>$136.76</td>
+          <td class="up">+0.45%</td>
+          <td>
+            <div class="rsi-bar-wrap">
+              <span>44.5</span>
+              <div class="rsi-bar">
+                <div class="rsi-fill rsi-neu" style="width:44%"></div>
+              </div>
+            </div>
+          </td>
+          <td class="down">Red</td>
+          <td><span class="status-badge badge-below">BELOW ALL</span></td>
+        </tr>
+
+        <tr>
+          <td class="sym">XLU</td>
+          <td>$45.25</td>
+          <td class="up">+0.35%</td>
+          <td>
+            <div class="rsi-bar-wrap">
+              <span>43.3</span>
+              <div class="rsi-bar">
+                <div class="rsi-fill rsi-neu" style="width:43%"></div>
+              </div>
+            </div>
+          </td>
+          <td class="down">Red</td>
+          <td><span class="status-badge badge-mixed">MIXED</span></td>
+        </tr>
+
+        <tr>
+          <td class="sym">XLI</td>
+          <td>$165.10</td>
+          <td class="up">+0.67%</td>
+          <td>
+            <div class="rsi-bar-wrap">
+              <span>42.2</span>
+              <div class="rsi-bar">
+                <div class="rsi-fill rsi-neu" style="width:42%"></div>
+              </div>
+            </div>
+          </td>
+          <td class="down">Red</td>
+          <td><span class="status-badge badge-mixed">MIXED</span></td>
+        </tr>
+
+        <tr>
+          <td class="sym">XLY</td>
+          <td>$110.73</td>
+          <td class="up">+0.96%</td>
+          <td>
+            <div class="rsi-bar-wrap">
+              <span>41.0</span>
+              <div class="rsi-bar">
+                <div class="rsi-fill rsi-neu" style="width:41%"></div>
+              </div>
+            </div>
+          </td>
+          <td class="down">Red</td>
+          <td><span class="status-badge badge-below">BELOW ALL</span></td>
+        </tr>
+
+        <tr>
+          <td class="sym">XLF</td>
+          <td>$49.34</td>
+          <td class="up">+0.12%</td>
+          <td>
+            <div class="rsi-bar-wrap">
+              <span>37.8</span>
+              <div class="rsi-bar">
+                <div class="rsi-fill rsi-neu" style="width:38%"></div>
+              </div>
+            </div>
+          </td>
+          <td class="down">Red</td>
+          <td><span class="status-badge badge-below">BELOW ALL</span></td>
+        </tr>
+
+        <tr>
+          <td class="sym">XLV</td>
+          <td>$146.24</td>
+          <td class="up">+1.00%</td>
+          <td>
+            <div class="rsi-bar-wrap">
+              <span>33.0</span>
+              <div class="rsi-bar">
+                <div class="rsi-fill rsi-neu" style="width:33%"></div>
+              </div>
+            </div>
+          </td>
+          <td class="down">Red</td>
+          <td><span class="status-badge badge-mixed">MIXED</span></td>
+        </tr>
+
+        <tr>
+          <td class="sym">XLP</td>
+          <td>$81.51</td>
+          <td class="up">+0.49%</td>
+          <td>
+            <div class="rsi-bar-wrap">
+              <span>31.9</span>
+              <div class="rsi-bar">
+                <div class="rsi-fill rsi-neu" style="width:32%"></div>
+              </div>
+            </div>
+          </td>
+          <td class="down">Red</td>
+          <td><span class="status-badge badge-mixed">MIXED</span></td>
+        </tr>
+
+        <tr>
+          <td class="sym">XLC</td>
+          <td>$111.44</td>
+          <td class="up">+0.28%</td>
+          <td>
+            <div class="rsi-bar-wrap">
+              <span>31.8</span>
+              <div class="rsi-bar">
+                <div class="rsi-fill rsi-neu" style="width:32%"></div>
+              </div>
+            </div>
+          </td>
+          <td class="down">Red</td>
+          <td><span class="status-badge badge-below">BELOW ALL</span></td>
+        </tr>
+
+        <tr>
+          <td class="sym">XLRE</td>
+          <td>$40.27</td>
+          <td class="down">-0.05%</td>
+          <td>
+            <div class="rsi-bar-wrap">
+              <span>27.2</span>
+              <div class="rsi-bar">
+                <div class="rsi-fill rsi-os" style="width:27%"></div>
+              </div>
+            </div>
+          </td>
+          <td class="down">Red</td>
+          <td><span class="status-badge badge-below">BELOW ALL</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       SECTION 5 — CHART SCREENSHOTS
+       路徑固定：assets/img/today/{filename}.png
+       尺寸固定：800x500（截圖時 viewport 必須設為 800x500）
+       檔名固定：spy_ma / qqq_ma / sector_heatmap / finviz_map
+       若當日未截圖，img 會顯示為空（alt 文字可見）
+  ═══════════════════════════════════════════════════════════ -->
+  <section class="section" id="charts">
+    <div class="section-title">Chart Screenshots</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+
+      <!-- SPY MA Chart (StockCharts) -->
+      <div class="ma-card" style="padding:12px;">
+        <div style="font-size:11px;color:#7a8099;text-transform:uppercase;letter-spacing:.8px;margin-bottom:8px;">SPY — Moving Averages</div>
+        <img src="assets/img/today/spy_ma.png"
+             alt="SPY MA Chart"
+             width="800" height="500"
+             style="width:100%;height:auto;border-radius:4px;display:block;"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+        <div style="display:none;height:120px;align-items:center;justify-content:center;color:#4a5068;font-size:12px;background:#0d0f14;border-radius:4px;">No screenshot — run: assets/img/today/spy_ma.png</div>
+      </div>
+
+      <!-- QQQ MA Chart (StockCharts) -->
+      <div class="ma-card" style="padding:12px;">
+        <div style="font-size:11px;color:#7a8099;text-transform:uppercase;letter-spacing:.8px;margin-bottom:8px;">QQQ — Moving Averages</div>
+        <img src="assets/img/today/qqq_ma.png"
+             alt="QQQ MA Chart"
+             width="800" height="500"
+             style="width:100%;height:auto;border-radius:4px;display:block;"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+        <div style="display:none;height:120px;align-items:center;justify-content:center;color:#4a5068;font-size:12px;background:#0d0f14;border-radius:4px;">No screenshot — run: assets/img/today/qqq_ma.png</div>
+      </div>
+
+      <!-- Sector Heatmap (Finviz) -->
+      <div class="ma-card" style="padding:12px;">
+        <div style="font-size:11px;color:#7a8099;text-transform:uppercase;letter-spacing:.8px;margin-bottom:8px;">Sector Heatmap (Finviz)</div>
+        <img src="assets/img/today/sector_heatmap.png"
+             alt="Sector Heatmap"
+             width="800" height="500"
+             style="width:100%;height:auto;border-radius:4px;display:block;"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+        <div style="display:none;height:120px;align-items:center;justify-content:center;color:#4a5068;font-size:12px;background:#0d0f14;border-radius:4px;">No screenshot — run: assets/img/today/sector_heatmap.png</div>
+      </div>
+
+      <!-- Finviz Market Map -->
+      <div class="ma-card" style="padding:12px;">
+        <div style="font-size:11px;color:#7a8099;text-transform:uppercase;letter-spacing:.8px;margin-bottom:8px;">Market Map (Finviz)</div>
+        <img src="assets/img/today/finviz_map.png"
+             alt="Finviz Market Map"
+             width="800" height="500"
+             style="width:100%;height:auto;border-radius:4px;display:block;"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+        <div style="display:none;height:120px;align-items:center;justify-content:center;color:#4a5068;font-size:12px;background:#0d0f14;border-radius:4px;">No screenshot — run: assets/img/today/finviz_map.png</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       FOOTER
+       占位符：2026-03-26 14:03  2026-03-26 02:03
+  ═══════════════════════════════════════════════════════════ -->
+  <footer class="report-footer">
+    Generated by Credit Efficient Market Summary System &nbsp;|&nbsp;
+    Data source: Yahoo Finance &nbsp;|&nbsp;
+    2026-03-26 14:03 HKT &nbsp;/&nbsp; 2026-03-26 02:03 ET
+    <br/>
+    <span style="color:#2a2f3e">This report is for informational purposes only and does not constitute financial advice.</span>
+  </footer>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,15 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Sandbox artifacts
+screenshots/
+page_texts/
+output/
+sandbox.txt
+*.webp
+
+# Skills & projects (not for repo)
+skills/
+projects/
