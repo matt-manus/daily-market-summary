@@ -89,3 +89,34 @@
 - **JSON Schema**: Upgraded from v2.0 to v3.0; new top-level keys: `sentiment`, `industry`, `breadth`
 - **Data Sources**: Yahoo Finance (yfinance) + CNN Fear & Greed API + NAAIM.org + Finviz Groups + Finviz Screener
 - **Commit URL**: https://github.com/matt-manus/daily-market-summary/commit/2ef097f500789d0670d8124e1eb17bbfa50dd5b0
+
+---
+
+## Session: Stage 3 — Professional HTML Template & Rendering
+**Date:** 2026-03-27 HKT
+
+### Completed Tasks
+1. **Cloned repo** and analyzed `data/today_market.json` (schema v3.3, 592 lines)
+2. **Redesigned `templates/report_template.html`** — full 7-section professional layout:
+   - Section 1: Macro Indicators (6-card grid: VIX, DXY, TNX, GOLD, OIL, BTC)
+   - Section 2: Major Indices unified table (SPY/QQQ/DIA/IWM + MA distances + RSI bars)
+   - Section 3: Market Sentiment (Fear&Greed with history, NAAIM, P/C Ratio)
+   - Section 4a/b: % Above MA breadth table (4 indices) + Avg Daily Range
+   - Section 4c: NYSE/NASDAQ Advance-Decline (advances, declines, volumes, 52W H/L)
+   - Section 4d: Stockbee Market Monitor image
+   - Section 5A: 11 sectors sorted by 1D change (RSI bars + dynamic coloring)
+   - Section 5B: Top 15 Industries table + market_heatmap.png
+   - Section 6 & 7: AI text placeholder areas
+3. **Updated `scripts/render_report.py`**:
+   - 110 tags injected, zero residual placeholders
+   - Dynamic coloring: green/red for changes, RSI overbought (>70) / oversold (<30)
+   - Fear & Greed zone coloring (extreme fear → red, extreme greed → dark green)
+   - P/C ratio coloring (>1.0 = bearish = red)
+   - Breadth bar color: red <35%, amber 35-60%, green >60%
+4. **Pushed to GitHub** — commit `a05f8f2`
+5. **Verified** rendered HTML at local server — all sections display correctly
+
+### Style: Clean Professional Light Theme
+- White/grey background (#f4f5f7), dark header (#1a1d23)
+- Green: #0a7c42, Red: #c0392b, Accent blue: #1a56db
+- Responsive grid layout, RSI progress bars, colored badge pills
