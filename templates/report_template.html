@@ -4,52 +4,106 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Daily Market Summary — {{DATE}}</title>
+
+  <!-- ── Google Fonts: Inter ──────────────────────────────────────── -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
   <style>
-    /* ── Reset & Base ──────────────────────────────────────────────── */
+    /* ══════════════════════════════════════════════════════════════
+       RESET & BASE
+    ══════════════════════════════════════════════════════════════ */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    /* ── Dark Mode Body ─────────────────────────────────────────── */
     body {
-      font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
-      background: #f4f5f7;
-      color: #1a1d23;
+      font-family: 'Inter', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+      background-color: #121212;
+      color: #e0e0e0;
       font-size: 13px;
       line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
     }
-    a { color: #1a56db; text-decoration: none; }
+    a { color: #5b9bd5; text-decoration: none; }
+    a:hover { color: #7db8e8; }
 
-    /* ── Layout ────────────────────────────────────────────────────── */
+    /* ── Universal Image Rules ──────────────────────────────────── */
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
+
+    /* ══════════════════════════════════════════════════════════════
+       CSS CUSTOM PROPERTIES — Dark Mode Palette
+    ══════════════════════════════════════════════════════════════ */
+    :root {
+      /* Backgrounds */
+      --bg-page:    #121212;
+      --bg-card:    #1e1e1e;
+      --bg-card-alt:#252525;
+      --bg-header:  #0d0d0d;
+      --bg-row-hover: #2a2a2a;
+      --bg-thead:   #181818;
+
+      /* Borders */
+      --border:     #2e2e2e;
+      --border-accent: #3d4a6a;
+
+      /* Accent */
+      --accent:     #4a9eff;
+      --accent-dim: #1e3a5f;
+
+      /* Text */
+      --text-main:  #e0e0e0;
+      --text-sub:   #a0a0a0;
+      --text-muted: #666666;
+      --text-head:  #ffffff;
+
+      /* Semantic colors */
+      --green:      #3ddc84;
+      --green-bg:   #0d2e1a;
+      --green-dim:  #1a4a2a;
+      --red:        #ff5c5c;
+      --red-bg:     #2e0d0d;
+      --red-dim:    #4a1a1a;
+      --amber:      #f0c040;
+      --amber-bg:   #2e2400;
+    }
+
+    /* ══════════════════════════════════════════════════════════════
+       DYNAMIC COLOR CLASSES
+       text-green / text-red replace the old .up / .down
+       Both naming conventions are supported for compatibility
+    ══════════════════════════════════════════════════════════════ */
+    .text-green, .up   { color: var(--green) !important; }
+    .text-red,   .down { color: var(--red)   !important; }
+    .text-amber,  .flat { color: var(--amber) !important; }
+    .text-muted        { color: var(--text-muted) !important; }
+
+    /* Background pill variants */
+    .text-green-bg, .up-bg {
+      background: var(--green-bg);
+      color: var(--green) !important;
+    }
+    .text-red-bg, .down-bg {
+      background: var(--red-bg);
+      color: var(--red) !important;
+    }
+
+    /* ══════════════════════════════════════════════════════════════
+       LAYOUT
+    ══════════════════════════════════════════════════════════════ */
     .page-wrapper { max-width: 1280px; margin: 0 auto; padding: 24px 24px 60px; }
 
-    /* ── Color Tokens ──────────────────────────────────────────────── */
-    :root {
-      --bg-card:    #ffffff;
-      --bg-header:  #1a1d23;
-      --bg-section: #f4f5f7;
-      --border:     #e2e4ea;
-      --border-dark:#2e3448;
-      --accent:     #1a56db;
-      --accent-lt:  #e8f0fe;
-      --text-main:  #1a1d23;
-      --text-muted: #6b7280;
-      --text-head:  #ffffff;
-      --up:         #0a7c42;
-      --up-bg:      #ecfdf5;
-      --down:       #c0392b;
-      --down-bg:    #fef2f2;
-      --warn:       #b45309;
-      --warn-bg:    #fffbeb;
-    }
-
-    /* ── Up / Down / Flat ──────────────────────────────────────────── */
-    .up   { color: var(--up);   }
-    .down { color: var(--down); }
-    .flat { color: var(--text-muted); }
-    .up-bg   { background: var(--up-bg);   color: var(--up);   }
-    .down-bg { background: var(--down-bg); color: var(--down); }
-
-    /* ── Header ────────────────────────────────────────────────────── */
+    /* ══════════════════════════════════════════════════════════════
+       HEADER
+    ══════════════════════════════════════════════════════════════ */
     .report-header {
       background: var(--bg-header);
-      color: var(--text-head);
+      border: 1px solid var(--border);
       border-radius: 10px;
       padding: 20px 28px 18px;
       margin-bottom: 24px;
@@ -61,34 +115,38 @@
     }
     .report-header h1 {
       font-size: 20px;
-      font-weight: 700;
-      letter-spacing: 0.4px;
-      color: #ffffff;
+      font-weight: 800;
+      letter-spacing: 0.3px;
+      color: var(--text-head);
     }
     .report-header .subtitle {
       font-size: 12px;
-      color: #9ba3bb;
-      margin-top: 3px;
+      color: var(--text-sub);
+      margin-top: 4px;
+      font-weight: 400;
     }
     .header-meta { text-align: right; }
     .ts-badge {
       display: inline-block;
-      background: #2a2f3e;
-      border: 1px solid #3d4a6a;
+      background: #1e2330;
+      border: 1px solid var(--border-accent);
       border-radius: 4px;
       padding: 3px 10px;
       font-size: 11px;
       color: #c8cdd8;
       margin-left: 6px;
+      font-weight: 500;
     }
 
-    /* ── Section ────────────────────────────────────────────────────── */
+    /* ══════════════════════════════════════════════════════════════
+       SECTION TITLES
+    ══════════════════════════════════════════════════════════════ */
     .section { margin-bottom: 28px; }
     .section-title {
       font-size: 11px;
       font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 1.4px;
+      letter-spacing: 1.5px;
       color: var(--accent);
       border-left: 3px solid var(--accent);
       padding-left: 10px;
@@ -102,18 +160,12 @@
       color: var(--text-muted);
       border-left: 2px solid var(--border);
       padding-left: 8px;
-      margin: 16px 0 10px;
+      margin: 18px 0 10px;
     }
 
-    /* ── Card ───────────────────────────────────────────────────────── */
-    .card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 16px 18px;
-    }
-
-    /* ── Section 1: Macro Grid ──────────────────────────────────────── */
+    /* ══════════════════════════════════════════════════════════════
+       SECTION 1 — MACRO CARDS
+    ══════════════════════════════════════════════════════════════ */
     .macro-grid {
       display: grid;
       grid-template-columns: repeat(6, 1fr);
@@ -124,9 +176,12 @@
       border: 1px solid var(--border);
       border-radius: 8px;
       padding: 14px 14px 12px;
-      transition: box-shadow 0.15s;
+      transition: border-color 0.15s, box-shadow 0.15s;
     }
-    .macro-card:hover { box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+    .macro-card:hover {
+      border-color: var(--border-accent);
+      box-shadow: 0 2px 12px rgba(0,0,0,0.4);
+    }
     .macro-card .mc-label {
       font-size: 10px;
       font-weight: 700;
@@ -137,7 +192,7 @@
     }
     .macro-card .mc-sub {
       font-size: 9px;
-      color: #9ba3bb;
+      color: #555;
       font-weight: 400;
     }
     .macro-card .mc-price {
@@ -149,10 +204,12 @@
     .macro-card .mc-chg {
       font-size: 12px;
       font-weight: 600;
-      margin-top: 3px;
+      margin-top: 4px;
     }
 
-    /* ── Section 2: Indices Table ───────────────────────────────────── */
+    /* ══════════════════════════════════════════════════════════════
+       SECTION 2 — INDICES TABLE
+    ══════════════════════════════════════════════════════════════ */
     .indices-table-wrap { overflow-x: auto; }
     .indices-table {
       width: 100%;
@@ -164,7 +221,7 @@
       border: 1px solid var(--border);
     }
     .indices-table thead tr {
-      background: #f8f9fb;
+      background: var(--bg-thead);
       border-bottom: 2px solid var(--border);
     }
     .indices-table th {
@@ -187,11 +244,11 @@
     }
     .indices-table td:first-child { text-align: left; }
     .indices-table tbody tr:last-child td { border-bottom: none; }
-    .indices-table tbody tr:hover { background: #f8f9fb; }
+    .indices-table tbody tr:hover { background: var(--bg-row-hover); }
     .idx-sym {
       font-weight: 700;
       font-size: 14px;
-      color: var(--text-main);
+      color: var(--text-head);
     }
     .idx-name {
       font-size: 11px;
@@ -199,6 +256,8 @@
       font-weight: 400;
       display: block;
     }
+
+    /* Status Badges */
     .status-badge {
       display: inline-block;
       font-size: 10px;
@@ -206,12 +265,13 @@
       padding: 2px 7px;
       border-radius: 3px;
       white-space: nowrap;
+      letter-spacing: 0.3px;
     }
-    .badge-above { background: #ecfdf5; color: #0a7c42; border: 1px solid #a7f3d0; }
-    .badge-below { background: #fef2f2; color: #c0392b; border: 1px solid #fca5a5; }
-    .badge-mixed { background: #fffbeb; color: #b45309; border: 1px solid #fcd34d; }
+    .badge-above { background: var(--green-bg);  color: var(--green); border: 1px solid var(--green-dim); }
+    .badge-below { background: var(--red-bg);    color: var(--red);   border: 1px solid var(--red-dim);   }
+    .badge-mixed { background: var(--amber-bg);  color: var(--amber); border: 1px solid #4a3800;          }
 
-    /* RSI bar */
+    /* RSI Progress Bar */
     .rsi-wrap {
       display: flex;
       align-items: center;
@@ -221,16 +281,22 @@
     .rsi-bar {
       height: 5px;
       border-radius: 3px;
-      background: #e5e7eb;
+      background: #333;
       width: 56px;
       overflow: hidden;
     }
     .rsi-fill { height: 100%; border-radius: 3px; }
-    .rsi-ob  { background: #c0392b; }
-    .rsi-os  { background: #0a7c42; }
-    .rsi-neu { background: #1a56db; }
+    .rsi-ob  { background: var(--red);   }  /* RSI ≥ 70 overbought  */
+    .rsi-os  { background: var(--green); }  /* RSI ≤ 30 oversold    */
+    .rsi-neu { background: var(--accent);}  /* RSI neutral          */
 
-    /* ── Section 3: Sentiment ───────────────────────────────────────── */
+    /* RSI cell highlight */
+    .rsi-ob-cell { background: rgba(255, 92, 92, 0.12); }
+    .rsi-os-cell { background: rgba(61, 220, 132, 0.10); }
+
+    /* ══════════════════════════════════════════════════════════════
+       SECTION 3 — SENTIMENT CARDS
+    ══════════════════════════════════════════════════════════════ */
     .sentiment-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -252,7 +318,7 @@
     }
     .sent-card .sc-value {
       font-size: 28px;
-      font-weight: 700;
+      font-weight: 800;
       color: var(--text-main);
       line-height: 1;
     }
@@ -272,16 +338,23 @@
     .sent-card .sc-row {
       display: flex;
       justify-content: space-between;
-      padding: 2px 0;
+      padding: 3px 0;
     }
-    /* Fear & Greed color zones */
-    .fg-extreme-fear { color: #c0392b; }
-    .fg-fear         { color: #e67e22; }
-    .fg-neutral      { color: #b45309; }
-    .fg-greed        { color: #0a7c42; }
-    .fg-extreme-greed{ color: #065f46; }
+    .sent-card .sc-row span:last-child {
+      font-weight: 600;
+      color: var(--text-sub);
+    }
 
-    /* ── Section 4: Breadth ─────────────────────────────────────────── */
+    /* Fear & Greed zone colors */
+    .fg-extreme-fear { color: #ff5c5c !important; }
+    .fg-fear         { color: #ff9944 !important; }
+    .fg-neutral      { color: var(--amber) !important; }
+    .fg-greed        { color: #3ddc84 !important; }
+    .fg-extreme-greed{ color: #00e676 !important; }
+
+    /* ══════════════════════════════════════════════════════════════
+       SECTION 4 — BREADTH TABLES
+    ══════════════════════════════════════════════════════════════ */
     .breadth-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -297,7 +370,7 @@
       border: 1px solid var(--border);
     }
     .breadth-table thead tr {
-      background: #f8f9fb;
+      background: var(--bg-thead);
       border-bottom: 2px solid var(--border);
     }
     .breadth-table th {
@@ -318,17 +391,17 @@
     }
     .breadth-table td:first-child { text-align: left; font-weight: 600; }
     .breadth-table tbody tr:last-child td { border-bottom: none; }
-    .breadth-table tbody tr:hover { background: #f8f9fb; }
+    .breadth-table tbody tr:hover { background: var(--bg-row-hover); }
 
-    /* Breadth bar */
+    /* Breadth percentage bar */
     .pct-bar-wrap { display: flex; align-items: center; gap: 6px; justify-content: center; }
-    .pct-bar { height: 5px; border-radius: 3px; background: #e5e7eb; width: 50px; overflow: hidden; }
-    .pct-fill { height: 100%; border-radius: 3px; background: var(--accent); }
-    .pct-fill.pct-low  { background: var(--down); }
-    .pct-fill.pct-mid  { background: var(--warn); }
-    .pct-fill.pct-high { background: var(--up); }
+    .pct-bar { height: 5px; border-radius: 3px; background: #333; width: 50px; overflow: hidden; }
+    .pct-fill { height: 100%; border-radius: 3px; }
+    .pct-fill.pct-low  { background: var(--red);   }
+    .pct-fill.pct-mid  { background: var(--amber); }
+    .pct-fill.pct-high { background: var(--green); }
 
-    /* ADR Table */
+    /* ADR Cards */
     .adr-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -361,7 +434,9 @@
     .adr-row .adr-key { color: var(--text-muted); }
     .adr-row .adr-val { font-weight: 600; color: var(--text-main); }
 
-    /* ── Section 5: Sectors & Industries ───────────────────────────── */
+    /* ══════════════════════════════════════════════════════════════
+       SECTION 5 — DATA TABLES (Sectors & Industries)
+    ══════════════════════════════════════════════════════════════ */
     .data-table {
       width: 100%;
       border-collapse: collapse;
@@ -372,7 +447,7 @@
       border: 1px solid var(--border);
     }
     .data-table thead tr {
-      background: #f8f9fb;
+      background: var(--bg-thead);
       border-bottom: 2px solid var(--border);
     }
     .data-table th {
@@ -397,20 +472,23 @@
     .data-table td:first-child,
     .data-table td:nth-child(2) { text-align: left; }
     .data-table tbody tr:last-child td { border-bottom: none; }
-    .data-table tbody tr:hover { background: #f8f9fb; }
-    .sym { font-weight: 700; font-size: 13px; color: var(--text-main); }
+    .data-table tbody tr:hover { background: var(--bg-row-hover); }
+
+    .sym { font-weight: 700; font-size: 13px; color: var(--text-head); }
     .rank-num {
       display: inline-block;
       width: 22px;
       height: 22px;
       line-height: 22px;
       text-align: center;
-      background: #f1f3f9;
+      background: #2a2a2a;
       border-radius: 4px;
       font-size: 11px;
       font-weight: 700;
       color: var(--text-muted);
     }
+
+    /* Change pill — used for all % change cells */
     .chg-cell {
       display: inline-block;
       padding: 2px 6px;
@@ -419,7 +497,9 @@
       font-size: 12px;
     }
 
-    /* ── Section 6 & 7: AI Text ─────────────────────────────────────── */
+    /* ══════════════════════════════════════════════════════════════
+       SECTION 6 & 7 — AI TEXT AREAS
+    ══════════════════════════════════════════════════════════════ */
     .ai-section {
       background: var(--bg-card);
       border: 1px solid var(--border);
@@ -434,13 +514,15 @@
     }
     .ai-content {
       font-size: 13px;
-      line-height: 1.7;
+      line-height: 1.75;
       color: var(--text-main);
     }
     .ai-content p { margin-bottom: 10px; }
     .ai-content p:last-child { margin-bottom: 0; }
 
-    /* ── Image Containers ───────────────────────────────────────────── */
+    /* ══════════════════════════════════════════════════════════════
+       IMAGE CONTAINERS
+    ══════════════════════════════════════════════════════════════ */
     .img-card {
       background: var(--bg-card);
       border: 1px solid var(--border);
@@ -456,11 +538,9 @@
       color: var(--text-muted);
       margin-bottom: 8px;
     }
+    /* img inside .img-card inherits the universal rule but gets border-radius */
     .img-card img {
-      width: 100%;
-      height: auto;
       border-radius: 4px;
-      display: block;
     }
     .img-placeholder {
       display: none;
@@ -469,12 +549,14 @@
       justify-content: center;
       color: var(--text-muted);
       font-size: 12px;
-      background: #f8f9fb;
+      background: #1a1a1a;
       border-radius: 4px;
       border: 1px dashed var(--border);
     }
 
-    /* ── Footer ─────────────────────────────────────────────────────── */
+    /* ══════════════════════════════════════════════════════════════
+       FOOTER
+    ══════════════════════════════════════════════════════════════ */
     .report-footer {
       margin-top: 36px;
       padding-top: 14px;
@@ -482,19 +564,27 @@
       font-size: 11px;
       color: var(--text-muted);
       text-align: center;
+      line-height: 1.8;
     }
 
-    /* ── Two-column layout ──────────────────────────────────────────── */
+    /* ══════════════════════════════════════════════════════════════
+       UTILITY
+    ══════════════════════════════════════════════════════════════ */
     .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
     .full-col { grid-column: 1 / -1; }
 
-    /* ── Responsive ─────────────────────────────────────────────────── */
+    /* N/A value styling */
+    .na-val { color: var(--text-muted); font-style: italic; }
+
+    /* ══════════════════════════════════════════════════════════════
+       RESPONSIVE
+    ══════════════════════════════════════════════════════════════ */
     @media (max-width: 900px) {
-      .macro-grid { grid-template-columns: repeat(3, 1fr); }
-      .sentiment-grid { grid-template-columns: 1fr; }
-      .breadth-grid { grid-template-columns: 1fr; }
-      .two-col { grid-template-columns: 1fr; }
-      .adr-grid { grid-template-columns: 1fr; }
+      .macro-grid       { grid-template-columns: repeat(3, 1fr); }
+      .sentiment-grid   { grid-template-columns: 1fr; }
+      .breadth-grid     { grid-template-columns: 1fr; }
+      .two-col          { grid-template-columns: 1fr; }
+      .adr-grid         { grid-template-columns: 1fr; }
     }
     @media (max-width: 600px) {
       .macro-grid { grid-template-columns: repeat(2, 1fr); }
@@ -526,6 +616,7 @@
              {{GOLD_PRICE}} {{GOLD_CHG_PCT}} {{GOLD_DIR}}
              {{OIL_PRICE}} {{OIL_CHG_PCT}} {{OIL_DIR}}
              {{BTC_PRICE}} {{BTC_CHG_PCT}} {{BTC_DIR}}
+       _DIR values: text-green | text-red | flat
   ══════════════════════════════════════════════════════════════ -->
   <section class="section">
     <div class="section-title">Section 1 &mdash; Macro Indicators</div>
@@ -574,10 +665,11 @@
        SECTION 2 — MAJOR INDICES
        Tags per symbol (SPY/QQQ/DIA/IWM):
          SYM_PRICE  SYM_CHG_PCT  SYM_CHG_DIR
-         SYM_STATUS  SYM_BADGE_CLASS  SYM_RSI
-         SYM_MA20  SYM_VS_MA20_PCT  SYM_VS_MA20_DIR
-         SYM_MA50  SYM_VS_MA50_PCT  SYM_VS_MA50_DIR
-         SYM_MA200  SYM_VS_MA200_PCT  SYM_VS_MA200_DIR
+         SYM_STATUS  SYM_BADGE_CLASS  SYM_RSI  SYM_RSI_CLASS  SYM_RSI_W
+         SYM_VS_MA20_PCT  SYM_VS_MA20_DIR
+         SYM_VS_MA50_PCT  SYM_VS_MA50_DIR
+         SYM_VS_MA200_PCT SYM_VS_MA200_DIR
+       _DIR values: text-green | text-red | flat
   ══════════════════════════════════════════════════════════════ -->
   <section class="section">
     <div class="section-title">Section 2 &mdash; Major Indices</div>
@@ -604,9 +696,9 @@
             </td>
             <td style="font-weight:600">${{SPY_PRICE}}</td>
             <td><span class="chg-cell {{SPY_CHG_DIR}}-bg">{{SPY_CHG_PCT}}%</span></td>
-            <td>
+            <td class="{{SPY_RSI_CELL_CLASS}}">
               <div class="rsi-wrap">
-                <span>{{SPY_RSI}}</span>
+                <span class="{{SPY_RSI_COLOR}}">{{SPY_RSI}}</span>
                 <div class="rsi-bar"><div class="rsi-fill {{SPY_RSI_CLASS}}" style="width:{{SPY_RSI_W}}"></div></div>
               </div>
             </td>
@@ -623,9 +715,9 @@
             </td>
             <td style="font-weight:600">${{QQQ_PRICE}}</td>
             <td><span class="chg-cell {{QQQ_CHG_DIR}}-bg">{{QQQ_CHG_PCT}}%</span></td>
-            <td>
+            <td class="{{QQQ_RSI_CELL_CLASS}}">
               <div class="rsi-wrap">
-                <span>{{QQQ_RSI}}</span>
+                <span class="{{QQQ_RSI_COLOR}}">{{QQQ_RSI}}</span>
                 <div class="rsi-bar"><div class="rsi-fill {{QQQ_RSI_CLASS}}" style="width:{{QQQ_RSI_W}}"></div></div>
               </div>
             </td>
@@ -642,9 +734,9 @@
             </td>
             <td style="font-weight:600">${{DIA_PRICE}}</td>
             <td><span class="chg-cell {{DIA_CHG_DIR}}-bg">{{DIA_CHG_PCT}}%</span></td>
-            <td>
+            <td class="{{DIA_RSI_CELL_CLASS}}">
               <div class="rsi-wrap">
-                <span>{{DIA_RSI}}</span>
+                <span class="{{DIA_RSI_COLOR}}">{{DIA_RSI}}</span>
                 <div class="rsi-bar"><div class="rsi-fill {{DIA_RSI_CLASS}}" style="width:{{DIA_RSI_W}}"></div></div>
               </div>
             </td>
@@ -661,9 +753,9 @@
             </td>
             <td style="font-weight:600">${{IWM_PRICE}}</td>
             <td><span class="chg-cell {{IWM_CHG_DIR}}-bg">{{IWM_CHG_PCT}}%</span></td>
-            <td>
+            <td class="{{IWM_RSI_CELL_CLASS}}">
               <div class="rsi-wrap">
-                <span>{{IWM_RSI}}</span>
+                <span class="{{IWM_RSI_COLOR}}">{{IWM_RSI}}</span>
                 <div class="rsi-bar"><div class="rsi-fill {{IWM_RSI_CLASS}}" style="width:{{IWM_RSI_W}}"></div></div>
               </div>
             </td>
@@ -679,10 +771,10 @@
 
   <!-- ══════════════════════════════════════════════════════════════
        SECTION 3 — MARKET SENTIMENT
-       Tags: {{FG_SCORE}} {{FG_RATING}} {{FG_CLASS}}
-             {{FG_PREV_CLOSE}} {{FG_PREV_1W}} {{FG_PREV_1M}} {{FG_PREV_1Y}}
-             {{NAAIM_VALUE}} {{NAAIM_DATE}}
-             {{PC_VALUE}} {{PC_RATING}}
+       Tags: FG_SCORE  FG_RATING  FG_CLASS
+             FG_PREV_CLOSE  FG_PREV_1W  FG_PREV_1M  FG_PREV_1Y
+             NAAIM_VALUE  NAAIM_DATE
+             PC_VALUE  PC_RATING  PC_CLASS
   ══════════════════════════════════════════════════════════════ -->
   <section class="section">
     <div class="section-title">Section 3 &mdash; Market Sentiment</div>
@@ -694,10 +786,10 @@
         <div class="sc-value {{FG_CLASS}}">{{FG_SCORE}}</div>
         <div class="sc-rating {{FG_CLASS}}">{{FG_RATING}}</div>
         <div class="sc-detail">
-          <div class="sc-row"><span>Prev Close</span><span style="font-weight:600">{{FG_PREV_CLOSE}}</span></div>
-          <div class="sc-row"><span>1 Week Ago</span><span style="font-weight:600">{{FG_PREV_1W}}</span></div>
-          <div class="sc-row"><span>1 Month Ago</span><span style="font-weight:600">{{FG_PREV_1M}}</span></div>
-          <div class="sc-row"><span>1 Year Ago</span><span style="font-weight:600">{{FG_PREV_1Y}}</span></div>
+          <div class="sc-row"><span>Prev Close</span><span>{{FG_PREV_CLOSE}}</span></div>
+          <div class="sc-row"><span>1 Week Ago</span><span>{{FG_PREV_1W}}</span></div>
+          <div class="sc-row"><span>1 Month Ago</span><span>{{FG_PREV_1M}}</span></div>
+          <div class="sc-row"><span>1 Year Ago</span><span>{{FG_PREV_1Y}}</span></div>
         </div>
       </div>
 
@@ -707,9 +799,13 @@
         <div class="sc-value">{{NAAIM_VALUE}}</div>
         <div class="sc-rating" style="color:var(--text-muted)">Weekly Survey</div>
         <div class="sc-detail">
-          <div class="sc-row"><span>Survey Date</span><span style="font-weight:600">{{NAAIM_DATE}}</span></div>
-          <div class="sc-row"><span>Source</span><span style="font-weight:600;font-size:10px">NAAIM.org</span></div>
-          <div class="sc-row" style="margin-top:6px"><span style="font-size:11px;color:var(--text-muted)">Active managers' equity exposure. &gt;80 = overweight; &lt;40 = underweight.</span></div>
+          <div class="sc-row"><span>Survey Date</span><span>{{NAAIM_DATE}}</span></div>
+          <div class="sc-row"><span>Source</span><span>NAAIM.org</span></div>
+          <div class="sc-row" style="margin-top:6px">
+            <span style="font-size:11px;color:var(--text-muted)">
+              Active managers' equity exposure. &gt;80 = overweight; &lt;40 = underweight.
+            </span>
+          </div>
         </div>
       </div>
 
@@ -719,9 +815,13 @@
         <div class="sc-value {{PC_CLASS}}">{{PC_VALUE}}</div>
         <div class="sc-rating {{PC_CLASS}}">{{PC_RATING}}</div>
         <div class="sc-detail">
-          <div class="sc-row"><span>Threshold</span><span style="font-weight:600">&gt;1.0 = Bearish</span></div>
-          <div class="sc-row"><span>Source</span><span style="font-weight:600;font-size:10px">CNN (5-day avg equity P/C)</span></div>
-          <div class="sc-row" style="margin-top:6px"><span style="font-size:11px;color:var(--text-muted)">High P/C = more puts = fear. Low P/C = complacency.</span></div>
+          <div class="sc-row"><span>Threshold</span><span>&gt;1.0 = Bearish</span></div>
+          <div class="sc-row"><span>Source</span><span>CNN (5-day avg equity P/C)</span></div>
+          <div class="sc-row" style="margin-top:6px">
+            <span style="font-size:11px;color:var(--text-muted)">
+              High P/C = more puts = fear. Low P/C = complacency.
+            </span>
+          </div>
         </div>
       </div>
 
@@ -734,51 +834,43 @@
   <section class="section">
     <div class="section-title">Section 4 &mdash; Market Breadth</div>
 
-    <!-- 4a/b: % Above Moving Averages -->
+    <!-- 4a/b: % Above Moving Averages + Avg Daily Range -->
     <div class="section-subtitle">4A / 4B &mdash; % of Stocks Above Moving Averages</div>
     <div class="breadth-grid">
-      <!-- Table: 4 Indices -->
-      <div>
-        <table class="breadth-table">
-          <thead>
-            <tr>
-              <th>Index</th>
-              <th>Total</th>
-              <th>% &gt; 20MA</th>
-              <th>% &gt; 50MA</th>
-              <th>% &gt; 200MA</th>
-            </tr>
-          </thead>
-          <tbody>
-            {{BREADTH_ROWS}}
-          </tbody>
-        </table>
-      </div>
-      <!-- ADR: Avg Daily Range -->
-      <div>
-        <table class="breadth-table">
-          <thead>
-            <tr>
-              <th>ETF</th>
-              <th>Avg Daily Range %</th>
-            </tr>
-          </thead>
-          <tbody>
-            {{ADR_ROWS}}
-          </tbody>
-        </table>
-      </div>
+      <table class="breadth-table">
+        <thead>
+          <tr>
+            <th>Index</th>
+            <th>Total</th>
+            <th>% &gt; 20MA</th>
+            <th>% &gt; 50MA</th>
+            <th>% &gt; 200MA</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{BREADTH_ROWS}}
+        </tbody>
+      </table>
+      <table class="breadth-table">
+        <thead>
+          <tr>
+            <th>ETF</th>
+            <th>Avg Daily Range %</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{ADR_ROWS}}
+        </tbody>
+      </table>
     </div>
 
-    <!-- 4c: NYSE / NASDAQ Advance-Decline -->
+    <!-- 4c: Advance-Decline -->
     <div class="section-subtitle">4C &mdash; NYSE / NASDAQ Advance-Decline</div>
     <div class="adr-grid">
-      <!-- NASDAQ ADR -->
       <div class="adr-card">
         <div class="adr-title">NASDAQ</div>
         {{NASDAQ_ADR_ROWS}}
       </div>
-      <!-- NYSE ADR -->
       <div class="adr-card">
         <div class="adr-title">NYSE</div>
         {{NYSE_ADR_ROWS}}
@@ -792,20 +884,19 @@
       <img src="assets/img/today/stockbee_mm.png"
            alt="Stockbee Market Monitor"
            onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
-      <div class="img-placeholder">No screenshot available — assets/img/today/stockbee_mm.png</div>
+      <div class="img-placeholder">No screenshot — assets/img/today/stockbee_mm.png</div>
     </div>
 
   </section>
 
   <!-- ══════════════════════════════════════════════════════════════
        SECTION 5 — SECTOR & INDUSTRY
-       Tags: {{SECTOR_ROWS_FULL}} (11 sectors sorted by 1D)
-             {{INDUSTRY_ROWS}} (Top 15 industries)
+       Tags: SECTOR_ROWS_FULL  INDUSTRY_ROWS
   ══════════════════════════════════════════════════════════════ -->
   <section class="section">
     <div class="section-title">Section 5 &mdash; Sector &amp; Industry Performance</div>
 
-    <!-- 5A: 11 Sectors -->
+    <!-- 5A: Sectors sorted by 1D change -->
     <div class="section-subtitle">5A &mdash; Sector ETF Performance (Sorted by 1D Change)</div>
     <div style="overflow-x:auto">
       <table class="data-table">
@@ -849,20 +940,20 @@
       </table>
     </div>
 
-    <!-- Market Heatmap Image -->
+    <!-- Market Heatmap -->
     <div class="img-card">
       <div class="img-label">Market Heatmap (Finviz)</div>
       <img src="assets/img/today/market_heatmap.png"
            alt="Market Heatmap"
            onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
-      <div class="img-placeholder">No screenshot available — assets/img/today/market_heatmap.png</div>
+      <div class="img-placeholder">No screenshot — assets/img/today/market_heatmap.png</div>
     </div>
 
   </section>
 
   <!-- ══════════════════════════════════════════════════════════════
        SECTION 6 — MARKET ANALYSIS (AI-generated)
-       Tag: {{SECTION6_CONTENT}}
+       Tag: SECTION6_CONTENT
   ══════════════════════════════════════════════════════════════ -->
   <section class="section">
     <div class="section-title">Section 6 &mdash; Market Analysis</div>
@@ -873,7 +964,7 @@
 
   <!-- ══════════════════════════════════════════════════════════════
        SECTION 7 — TRADING OUTLOOK & WATCHLIST (AI-generated)
-       Tag: {{SECTION7_CONTENT}}
+       Tag: SECTION7_CONTENT
   ══════════════════════════════════════════════════════════════ -->
   <section class="section">
     <div class="section-title">Section 7 &mdash; Trading Outlook &amp; Watchlist</div>
@@ -890,7 +981,7 @@
     Data: Yahoo Finance · CNN · NAAIM · Finviz · Barchart &nbsp;|&nbsp;
     {{GENERATED_HKT}} HKT &nbsp;/&nbsp; {{GENERATED_ET}} ET
     <br/>
-    <span style="color:#d1d5db">For informational purposes only. Not financial advice.</span>
+    <span style="color:#3a3a3a">For informational purposes only. Not financial advice.</span>
   </footer>
 
 </div>
