@@ -1,0 +1,12 @@
+# Expert Notes — Daily Market Commentary
+# =========================================
+# Add your expert insights, trade ideas, or market commentary below.
+# This file is read automatically by the report generator.
+# When not empty, the content will appear in the "Expert Insights" section of the HTML report.
+# Lines starting with # are comments and will be included as-is.
+#
+# Example:
+#   "Watching for a potential FTD setup. Key levels: SPY 540, QQQ 460.
+#    Tariff uncertainty remains the primary headwind. Prefer defensive sectors."
+#
+# Leave this file empty (or only comments) to hide the Expert Insights section.

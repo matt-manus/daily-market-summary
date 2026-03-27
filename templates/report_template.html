@@ -281,7 +281,35 @@
 
 <div class="page-wrap">
 
-<!-- ═══ SECTION 1 — MACRO INDICATORS ═══════════════════════════════ -->
+<!-- ═══ REGIME BANNER (auto-injected) ═════════════════════ -->
+{{REGIME_BANNER}}
+
+<!-- ═══ CORRECTION CHECKLIST (shown only when SPY < 20MA) ═════ -->
+{{CORRECTION_CHECKLIST}}
+
+<!-- ═══ COACH'S ACTION PLAN (Section 7 — MOST PROMINENT) ══════ -->
+<div class="section" style="
+  border: 2px solid #ff9800;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #0d0a00 0%, #120c00 100%);
+  padding: 20px 24px;
+  margin-bottom: 28px;
+  box-shadow: 0 0 24px rgba(255,152,0,0.12);
+">
+  <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;">
+    <span style="font-size:22px;">&#127919;</span>
+    <div style="font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;
+                color:#ff9800;border-left:3px solid #ff9800;padding-left:10px;">
+      Coach's Action Plan &mdash; Today's Playbook
+    </div>
+  </div>
+  {{S7_CONTENT}}
+</div>
+
+<!-- ═══ EXPERT INSIGHTS (from expert_notes.txt) ══════════ -->
+{{EXPERT_INSIGHTS}}
+
+<!-- ═══ SECTION 1 — MACRO INDICATORS ═════════════════════ -->
 <div class="section">
   <div class="section-title">Section 1 — Macro Indicators</div>
   <div class="macro-grid">
@@ -491,12 +519,7 @@
   {{S6_CONTENT}}
 </div>
 
-<!-- ═══ SECTION 7 — TRADING OUTLOOK & WATCHLIST (AI) ══════════════ -->
-<div class="section">
-  <div class="section-title">Section 7 — Trading Outlook &amp; Watchlist</div>
-  {{S7_CONTENT}}
-</div>
-
+<!-- Section 7 (Coach's Action Plan) is now displayed at the TOP of the report for maximum visibility -->
 
 <!-- ═══ SECTION 8 — EVENT CALENDAR ════════════════════════════════ -->
 <div class="section">
