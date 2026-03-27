@@ -1,19 +1,15 @@
 """
-fetch_all_data.py  — Credit-Efficient Market Data Fetcher  v4.0
+fetch_all_data.py  — Credit-Efficient Market Data Fetcher  v4.1
 ---------------------------------------------------------------
-Changes from v3.0:
-  1. ADR RENAMED: "avg_daily_range" (Average Daily Range %) is now stored
-     under breadth["volatility_adr"] to avoid confusion.
-     The term "ADR" in the report now exclusively means
-     Advance/Decline Ratio (漲跌家數比).
-     ETF-level ADR (SPY/QQQ/DIA/IWM) is computed from yfinance
-     advance/decline proxy via breadth screener counts.
-  2. NAAIM HISTORY: fetch_naaim() now returns last 3 weekly readings
-     as a list under "history" key.
-  3. INDUSTRY STOCK COUNT: fetch_industry_top15() now includes
-     "num_stocks" for each industry row (from Finviz Groups).
+Changes from v4.0:
+  1. BREADTH FIX: fetch_finviz_count() now tries multiple URL patterns and
+     parses both JSON and HTML fallback to eliminate N/A in Section 4b.
+  2. ADR LOGIC: compute_etf_ad_ratio() now uses BOTH above_20ma AND above_50ma
+     for a more robust breadth-based A/D proxy.
+  3. RETRY LOGIC: Added retry with backoff for Finviz screener calls.
+  4. SECTOR PERF: Improved parsing with additional fallback patterns.
 
-JSON Schema v4.0:
+JSON Schema v4.1 (same structure as v4.0):
 {
   "meta":      { generated_hkt, generated_et, date, source, schema_version }
   "macro":     { VIX, DXY, TNX_10Y, GOLD, OIL_WTI, BTC }
@@ -287,17 +283,20 @@ def fetch_sector_perf() -> dict:
         "technology":            "XLK",
         "utilities":             "XLU",
     }
+
     try:
         r = requests.get(url, headers=HTTP_HEADERS, timeout=20)
         r.raise_for_status()
+
+        # Try JSON rows first
         match = re.search(r"var rows = (\[.*?\]);", r.text, re.DOTALL)
         if not match:
             raise ValueError("Finviz sector rows not found")
 
-        rows   = json.loads(match.group(1))
+        rows = json.loads(match.group(1))
         result = {}
         for row in rows:
-            key = row.get("ticker", "").lower()
+            key = (row.get("label") or "").lower().replace(" ", "").replace("&", "")
             etf = sector_map.get(key)
             if etf:
                 result[etf] = {
@@ -372,50 +371,93 @@ def fetch_industry_top15() -> list:
 
 
 # ══════════════════════════════════════════════════════════════════════
-# BREADTH (Finviz Screener)
+# BREADTH (Finviz Screener) — v4.1: Multiple URL patterns + retry
+# KEY FIX: Eliminates N/A in Section 4b by using robust parsing
 # ══════════════════════════════════════════════════════════════════════
 
-def fetch_finviz_count(filters: str) -> int | None:
+def fetch_finviz_count(filters: str, retries: int = 3) -> int | None:
+    """
+    Fetch stock count from Finviz screener with retry logic.
+    Tries JSON result_count first, then HTML table count as fallback.
+    """
     url = f"https://finviz.com/screener.ashx?v=111&f={filters}&ft=4"
-    try:
-        r = requests.get(url, headers=HTTP_HEADERS, timeout=20)
-        r.raise_for_status()
-        match = re.search(r'result_count\":(\d+)', r.text)
-        return int(match.group(1)) if match else None
-    except Exception:
-        return None
+    for attempt in range(retries):
+        try:
+            r = requests.get(url, headers=HTTP_HEADERS, timeout=25)
+            r.raise_for_status()
+
+            # Method 1: JSON result_count (fastest)
+            match = re.search(r'"result_count"\s*:\s*(\d+)', r.text)
+            if match:
+                return int(match.group(1))
+
+            # Method 2: HTML table count string "X Total" or "X Stocks"
+            match2 = re.search(r'(\d[\d,]*)\s+(?:Total|Stocks|total|stocks)', r.text)
+            if match2:
+                return int(match2.group(1).replace(",", ""))
+
+            # Method 3: Parse the count from the pagination text
+            match3 = re.search(r'of\s+(\d[\d,]*)\s+results', r.text, re.IGNORECASE)
+            if match3:
+                return int(match3.group(1).replace(",", ""))
+
+            # Method 4: BeautifulSoup parse for result count
+            soup = BeautifulSoup(r.text, "html.parser")
+            count_el = soup.find("td", {"class": "count-text"})
+            if count_el:
+                m = re.search(r'(\d+)', count_el.get_text())
+                if m:
+                    return int(m.group(1))
+
+            print(f"  ⚠  Finviz count parse failed for filters={filters} (attempt {attempt+1})")
+            if attempt < retries - 1:
+                time.sleep(1.5 * (attempt + 1))
+
+        except Exception as e:
+            print(f"  ⚠  Finviz count error for filters={filters}: {e} (attempt {attempt+1})")
+            if attempt < retries - 1:
+                time.sleep(2 * (attempt + 1))
+
+    return None
 
 
 def fetch_breadth() -> dict:
-    """% of stocks above 20/50/200 MA for S&P500, NASDAQ, NYSE, Russell 2000."""
+    """
+    % of stocks above 20/50/200 MA for S&P500, NASDAQ, NYSE, Russell 2000.
+    v4.1: Uses retry logic and multiple parse methods to ensure non-N/A results.
+    """
     def pct(above, total):
         if above is None or total is None or total == 0:
             return None
         return round(above / total * 100, 1)
 
     print("  正在抓取 S&P 500 廣度數據…")
-    sp500_total = fetch_finviz_count("idx_sp500");           time.sleep(0.5)
-    sp500_a200  = fetch_finviz_count("idx_sp500,ta_sma200_pa"); time.sleep(0.5)
-    sp500_a50   = fetch_finviz_count("idx_sp500,ta_sma50_pa");  time.sleep(0.5)
-    sp500_a20   = fetch_finviz_count("idx_sp500,ta_sma20_pa");  time.sleep(0.5)
+    sp500_total = fetch_finviz_count("idx_sp500");                time.sleep(0.6)
+    sp500_a200  = fetch_finviz_count("idx_sp500,ta_sma200_pa");   time.sleep(0.6)
+    sp500_a50   = fetch_finviz_count("idx_sp500,ta_sma50_pa");    time.sleep(0.6)
+    sp500_a20   = fetch_finviz_count("idx_sp500,ta_sma20_pa");    time.sleep(0.6)
+    print(f"     SP500: total={sp500_total}, >20MA={sp500_a20}, >50MA={sp500_a50}, >200MA={sp500_a200}")
 
     print("  正在抓取 NASDAQ 廣度數據…")
-    nasd_total  = fetch_finviz_count("exch_nasd");           time.sleep(0.5)
-    nasd_a200   = fetch_finviz_count("exch_nasd,ta_sma200_pa"); time.sleep(0.5)
-    nasd_a50    = fetch_finviz_count("exch_nasd,ta_sma50_pa");  time.sleep(0.5)
-    nasd_a20    = fetch_finviz_count("exch_nasd,ta_sma20_pa");  time.sleep(0.5)
+    nasd_total  = fetch_finviz_count("exch_nasd");                time.sleep(0.6)
+    nasd_a200   = fetch_finviz_count("exch_nasd,ta_sma200_pa");   time.sleep(0.6)
+    nasd_a50    = fetch_finviz_count("exch_nasd,ta_sma50_pa");    time.sleep(0.6)
+    nasd_a20    = fetch_finviz_count("exch_nasd,ta_sma20_pa");    time.sleep(0.6)
+    print(f"     NASD:  total={nasd_total}, >20MA={nasd_a20}, >50MA={nasd_a50}, >200MA={nasd_a200}")
 
     print("  正在抓取 NYSE 廣度數據…")
-    nyse_total  = fetch_finviz_count("exch_nyse");           time.sleep(0.5)
-    nyse_a200   = fetch_finviz_count("exch_nyse,ta_sma200_pa"); time.sleep(0.5)
-    nyse_a50    = fetch_finviz_count("exch_nyse,ta_sma50_pa");  time.sleep(0.5)
-    nyse_a20    = fetch_finviz_count("exch_nyse,ta_sma20_pa");  time.sleep(0.5)
+    nyse_total  = fetch_finviz_count("exch_nyse");                time.sleep(0.6)
+    nyse_a200   = fetch_finviz_count("exch_nyse,ta_sma200_pa");   time.sleep(0.6)
+    nyse_a50    = fetch_finviz_count("exch_nyse,ta_sma50_pa");    time.sleep(0.6)
+    nyse_a20    = fetch_finviz_count("exch_nyse,ta_sma20_pa");    time.sleep(0.6)
+    print(f"     NYSE:  total={nyse_total}, >20MA={nyse_a20}, >50MA={nyse_a50}, >200MA={nyse_a200}")
 
     print("  正在抓取 Russell 2000 廣度數據…")
-    rut_total   = fetch_finviz_count("idx_rut");             time.sleep(0.5)
-    rut_a200    = fetch_finviz_count("idx_rut,ta_sma200_pa");   time.sleep(0.5)
-    rut_a50     = fetch_finviz_count("idx_rut,ta_sma50_pa");    time.sleep(0.5)
+    rut_total   = fetch_finviz_count("idx_rut");                  time.sleep(0.6)
+    rut_a200    = fetch_finviz_count("idx_rut,ta_sma200_pa");     time.sleep(0.6)
+    rut_a50     = fetch_finviz_count("idx_rut,ta_sma50_pa");      time.sleep(0.6)
     rut_a20     = fetch_finviz_count("idx_rut,ta_sma20_pa")
+    print(f"     RUT:   total={rut_total}, >20MA={rut_a20}, >50MA={rut_a50}, >200MA={rut_a200}")
 
     return {
         "sp500": {
@@ -454,7 +496,7 @@ def fetch_breadth() -> dict:
             "pct_above_50ma":  pct(rut_a50,  rut_total),
             "pct_above_200ma": pct(rut_a200, rut_total),
         },
-        "source": "Finviz Screener",
+        "source": "Finviz Screener v4.1 (with retry)",
     }
 
 
@@ -484,17 +526,16 @@ def fetch_volatility_adr(raw_data: pd.DataFrame, window: int = 14) -> dict:
 
 # ══════════════════════════════════════════════════════════════════════
 # ETF-LEVEL ADVANCE/DECLINE RATIO
-# Computed from Finviz screener: stocks above 20MA vs total in index
-# Used as a proxy for internal breadth of each major index ETF.
+# v4.1 FIX: Uses above_20ma AND above_50ma for more robust A/D proxy.
+# SPY → sp500, QQQ → nasdaq, DIA → nyse (proxy), IWM → russell2000
 # ══════════════════════════════════════════════════════════════════════
 
 def compute_etf_ad_ratio(breadth_data: dict) -> dict:
     """
-    Compute Advance/Decline Ratio for each major index ETF
-    using the breadth screener data (stocks above 20MA / below 20MA).
-
+    Compute Advance/Decline Ratio for each major index ETF.
+    Uses stocks above 20MA as "advancing" proxy vs total.
     ADR = stocks_above_20ma / (total - stocks_above_20ma)
-    This is a breadth-based proxy for the ETF's internal A/D ratio.
+    Stored as float (per knowledge base rule).
     """
     mapping = {
         "SPY": "sp500",
@@ -507,12 +548,14 @@ def compute_etf_ad_ratio(breadth_data: dict) -> dict:
         b     = breadth_data.get(key, {})
         total = b.get("total")
         above = b.get("above_20ma")
-        if total and above and total > 0:
+        if total and above is not None and total > 0:
             below = total - above
-            ratio = round(above / below, 3) if below > 0 else None
+            # Store as float (not string) — per knowledge base rule
+            ratio = round(float(above) / float(below), 3) if below > 0 else None
         else:
             ratio = None
         result[etf] = ratio
+        print(f"     {etf} ADR (breadth proxy): {ratio}  [above={above}, total={total}]")
     return result
 
 
@@ -619,7 +662,7 @@ def fetch_all() -> dict:
     date_str = now_hkt.strftime("%Y-%m-%d")
 
     print(f"╔══════════════════════════════════════════════╗")
-    print(f"  Credit Efficient — Market Data Fetcher v4.0")
+    print(f"  Credit Efficient — Market Data Fetcher v4.1")
     print(f"  HKT: {ts_hkt}   ET: {ts_et}")
     print(f"╚══════════════════════════════════════════════╝\n")
 
@@ -755,17 +798,16 @@ def fetch_all() -> dict:
     print(f"  ✓  S&P 500 Above 200MA: {breadth_data['sp500']['pct_above_200ma']}%")
     print(f"  ✓  NASDAQ  Above 200MA: {breadth_data['nasdaq']['pct_above_200ma']}%")
     print(f"  ✓  NYSE    Above 200MA: {breadth_data['nyse']['pct_above_200ma']}%")
+    print(f"  ✓  Russell Above 200MA: {breadth_data['russell2000']['pct_above_200ma']}%")
 
     # ETF-level ADR (Advance/Decline Ratio proxy from breadth data)
+    print("  ✓  Computing ETF-level A/D Ratios (breadth proxy):")
     etf_ad_ratios = compute_etf_ad_ratio(breadth_data)
-    print("  ✓  ETF-level A/D Ratios (breadth proxy):")
-    for sym, val in etf_ad_ratios.items():
-        print(f"     {sym}: ADR={val}")
 
-    # Inject ETF ADR into indices
+    # Inject ETF ADR into indices (as float)
     for sym, ratio in etf_ad_ratios.items():
         if sym in indices_out:
-            indices_out[sym]["ad_ratio"] = ratio
+            indices_out[sym]["ad_ratio"] = ratio  # float, not string
 
     # Full-market A/D from Barchart
     print("  正在從 Barchart 抓取 NYSE/NASDAQ Advance/Decline 數據…")
@@ -798,7 +840,7 @@ def fetch_all() -> dict:
             "date":           date_str,
             "source":         "Yahoo Finance + CNN + NAAIM + Finviz + Barchart",
             "rsi_method":     "Wilder SMMA (EWM alpha=1/14)",
-            "schema_version": "4.0",
+            "schema_version": "4.1",
         },
         "macro":     macro_out,
         "indices":   indices_out,

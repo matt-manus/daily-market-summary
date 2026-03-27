@@ -1,14 +1,15 @@
 """
-render_report.py  —  Credit-Efficient Market Summary System  v4.1
-Reads:  data/today_market.json
+render_report.py  —  Credit-Efficient Market Summary System  v4.2
+Reads:  data/today_market.json + data/ai_strategy.json
 Writes: index.html
 
-Stage 4 Final Optimizations:
-  - Section 6: Indicator Checklist with Trend column (Value hidden, 3-col: Indicator/Status/Trend)
-  - Section 7: Actionable Watchlist with Technical Trigger per sector
+v4.2 Changes:
+  - Integrates AI strategy JSON for Section 6 & 7 (GPT-generated analysis)
+  - Section 6: AI Bull/Bear analysis with real data, Trend column (Value hidden)
+  - Section 7: Dynamic Risk Score (x/9) from AI engine, Technical Triggers with exact MA levels
   - Section 8: Event Calendar with BMO/AMC timing labels
-  - Section 5B: Top 10 industries only (was 15)
-  - Status column fully removed from Section 2 & 5
+  - Section 5B: Top 10 industries only
+  - Dark mode + Inter font throughout
 
 Dynamic coloring:
   > 0  → text-green  (#4caf50)
@@ -26,6 +27,7 @@ from pathlib import Path
 
 BASE   = Path(__file__).resolve().parent.parent
 JSON   = BASE / "data"      / "today_market.json"
+AI_JSON = BASE / "data"     / "ai_strategy.json"
 TMPL   = BASE / "templates" / "report_template.html"
 OUTPUT = BASE / "index.html"
 
@@ -267,7 +269,7 @@ def build_industry_rows(industry):
     if not industry:
         return '<tr><td colspan="8"><span class="na-val">N/A</span></td></tr>'
     rows = []
-    for row in industry[:10]:   # ← TOP 10 LIMIT (was 15)
+    for row in industry[:10]:   # ← TOP 10 LIMIT
         rank   = row.get("rank", "")
         label  = row.get("label", "")
         ns     = row.get("num_stocks")
@@ -319,13 +321,18 @@ def build_s6_checklist(data):
     vix_now   = safe_float((macro.get("VIX") or {}).get("price"))
     vix_chg   = safe_float((macro.get("VIX") or {}).get("change_1d_pct"))
     # VIX rising = bearish (worsening)
-    vix_status = '<span style="background:var(--red-bg);color:var(--red);padding:2px 8px;border-radius:3px;font-size:11px;font-weight:600;">🔴 Bearish</span>'
+    if vix_now and vix_now >= 30:
+        vix_status = '<span style="background:var(--red-bg);color:var(--red);padding:2px 8px;border-radius:3px;font-size:11px;font-weight:600;">🔴 Extreme Fear</span>'
+    elif vix_now and vix_now >= 20:
+        vix_status = '<span style="background:var(--red-bg);color:var(--red);padding:2px 8px;border-radius:3px;font-size:11px;font-weight:600;">🔴 Bearish</span>'
+    else:
+        vix_status = '<span style="background:var(--green-bg);color:var(--green);padding:2px 8px;border-radius:3px;font-size:11px;font-weight:600;">🟢 Calm</span>'
     # Trend: VIX up = worsening (red ↑), VIX down = improving (green ↓)
     if vix_chg is not None:
         vix_trend = trend_cell(improved=(vix_chg < 0), arrow_up_is_good=False)
     else:
         vix_trend = '<span class="na-val">—</span>'
-    vix_val = f"{vix_now:.2f}" if vix_now else "N/A"
+    vix_val = f"{vix_now:.2f} ({'+' if vix_chg and vix_chg>0 else ''}{vix_chg:.1f}%)" if vix_now and vix_chg else (f"{vix_now:.2f}" if vix_now else "N/A")
 
     # ── Fear & Greed ──────────────────────────────────────────────────────
     fg_score = safe_float(fg.get("score"))
@@ -345,6 +352,7 @@ def build_s6_checklist(data):
         fg_trend = trend_cell(improved=fg_improved, arrow_up_is_good=True)
     else:
         fg_trend = '<span class="na-val">—</span>'
+    fg_disp = f"{fg_score:.0f} (prev {fg_prev:.0f})" if fg_score is not None and fg_prev is not None else (f"{fg_score:.0f}" if fg_score is not None else "N/A")
 
     # ── Put/Call Ratio ────────────────────────────────────────────────────
     pc_val = safe_float(pc.get("value"))
@@ -355,7 +363,6 @@ def build_s6_checklist(data):
     else:
         pc_status = '<span style="background:var(--amber-bg);color:var(--amber);padding:2px 8px;border-radius:3px;font-size:11px;font-weight:600;">🟡 Neutral</span>'
     # P/C: no prev_close in JSON; use absolute level for trend direction
-    # P/C > 1.0 = fear spike (worsening), ≤ 0.8 = low fear (improving)
     if pc_val is not None:
         if pc_val > 1.0:
             pc_trend = '<span style="color:var(--red);font-weight:600;">🔴 ↑</span>'
@@ -365,16 +372,19 @@ def build_s6_checklist(data):
             pc_trend = '<span style="color:var(--amber);font-weight:600;">🟡 →</span>'
     else:
         pc_trend = '<span class="na-val">—</span>'
+    pc_disp = f"{pc_val:.4f}" if pc_val is not None else "N/A"
 
     # ── S&P 500 % Above 20MA ──────────────────────────────────────────────
     sp_p20 = safe_float((breadth.get("sp500") or {}).get("pct_above_20ma"))
     if sp_p20 is not None and sp_p20 <= 25:
-        sp_status = '<span style="background:var(--red-bg);color:var(--red);padding:2px 8px;border-radius:3px;font-size:11px;font-weight:600;">🔴 Bearish</span>'
+        sp_status = '<span style="background:var(--red-bg);color:var(--red);padding:2px 8px;border-radius:3px;font-size:11px;font-weight:600;">🔴 Breadth Collapse</span>'
     elif sp_p20 is not None and sp_p20 >= 60:
         sp_status = '<span style="background:var(--green-bg);color:var(--green);padding:2px 8px;border-radius:3px;font-size:11px;font-weight:600;">🟢 Bullish</span>'
-    else:
+    elif sp_p20 is not None and sp_p20 >= 40:
         sp_status = '<span style="background:var(--amber-bg);color:var(--amber);padding:2px 8px;border-radius:3px;font-size:11px;font-weight:600;">🟡 Neutral</span>'
-    # Trend: no prev day data in JSON; use absolute level
+    else:
+        sp_status = '<span style="background:var(--red-bg);color:var(--red);padding:2px 8px;border-radius:3px;font-size:11px;font-weight:600;">🔴 Bearish</span>'
+    # Trend: use absolute level
     if sp_p20 is not None:
         if sp_p20 <= 25:
             sp_trend = '<span style="color:var(--red);font-weight:600;">🔴 ↓</span>'
@@ -384,6 +394,7 @@ def build_s6_checklist(data):
             sp_trend = '<span style="color:var(--amber);font-weight:600;">🟡 →</span>'
     else:
         sp_trend = '<span class="na-val">—</span>'
+    sp_disp = f"{sp_p20:.1f}%" if sp_p20 is not None else "N/A"
 
     # ── NAAIM Exposure ────────────────────────────────────────────────────
     naaim_now  = safe_float(naaim.get("value"))
@@ -401,6 +412,7 @@ def build_s6_checklist(data):
         naaim_trend = trend_cell(improved=naaim_improved, arrow_up_is_good=True)
     else:
         naaim_trend = '<span class="na-val">—</span>'
+    naaim_disp = f"{naaim_now:.2f} (prev {naaim_prev:.2f})" if naaim_now is not None and naaim_prev is not None else (f"{naaim_now:.2f}" if naaim_now is not None else "N/A")
 
     # ── NYSE A/D Ratio ────────────────────────────────────────────────────
     mwad     = (breadth.get("market_wide_advance_decline") or {})
@@ -420,17 +432,11 @@ def build_s6_checklist(data):
             adr_trend = '<span style="color:var(--amber);font-weight:600;">🟡 →</span>'
     else:
         adr_trend = '<span class="na-val">—</span>'
+    adr_disp = f"{nyse_adr:.3f}" if nyse_adr is not None else "N/A"
 
     # ── Assemble table ────────────────────────────────────────────────────
-    vix_disp   = f"{vix_now:.2f} (+{vix_chg:.1f}%)" if vix_now and vix_chg else (f"{vix_now:.2f}" if vix_now else "N/A")
-    fg_disp    = f"{fg_score:.0f} (prev {fg_prev:.0f})" if fg_score and fg_prev else (f"{fg_score:.0f}" if fg_score else "N/A")
-    pc_disp    = f"{pc_val:.4f}" if pc_val else "N/A"
-    sp_disp    = f"{sp_p20:.1f}%" if sp_p20 is not None else "N/A"
-    naaim_disp = f"{naaim_now:.2f} (prev {naaim_prev:.2f})" if naaim_now and naaim_prev else (f"{naaim_now:.2f}" if naaim_now else "N/A")
-    adr_disp   = f"{nyse_adr:.3f}" if nyse_adr else "N/A"
-
     rows = [
-        ("VIX (Volatility)",        vix_disp,   vix_status,   vix_trend),
+        ("VIX (Volatility)",        vix_val,    vix_status,   vix_trend),
         ("Fear &amp; Greed Index",  fg_disp,    fg_status,    fg_trend),
         ("Put / Call Ratio",        pc_disp,    pc_status,    pc_trend),
         ("S&amp;P 500 &gt; 20MA",   sp_disp,    sp_status,    sp_trend),
@@ -460,58 +466,53 @@ def build_s6_checklist(data):
     </table>
   </div>"""
 
-# ── Section 6: Bull/Bear analysis ─────────────────────────────────────────
+# ── Section 6: Bull/Bear analysis (AI-powered) ────────────────────────────
 
-def build_s6_analysis(data):
-    """Build the full Section 6 content: Checklist + Bull/Bear analysis."""
+def build_s6_analysis(data, ai_strategy):
+    """Build the full Section 6 content: Checklist + AI Bull/Bear analysis."""
     checklist = build_s6_checklist(data)
 
-    sentiment = data.get("sentiment", {})
-    fg        = sentiment.get("fear_greed", {})
-    naaim     = sentiment.get("naaim", {})
-    indices   = data.get("indices", {})
-    breadth   = data.get("breadth", {})
-    macro     = data.get("macro", {})
+    # Use AI-generated bull/bear text if available
+    bull_text = (ai_strategy or {}).get("bull_text", "")
+    bear_text = (ai_strategy or {}).get("bear_text", "")
 
-    fg_score  = safe_float(fg.get("score"))
-    spy_rsi   = safe_float((indices.get("SPY") or {}).get("rsi14"))
-    qqq_rsi   = safe_float((indices.get("QQQ") or {}).get("rsi14"))
-    sp_p200   = safe_float((breadth.get("sp500") or {}).get("pct_above_200ma"))
-    sp_p20    = safe_float((breadth.get("sp500") or {}).get("pct_above_20ma"))
-    vix_chg   = safe_float((macro.get("VIX") or {}).get("change_1d_pct"))
-    vix_now   = safe_float((macro.get("VIX") or {}).get("price"))
-    naaim_now = safe_float(naaim.get("value"))
-    history   = naaim.get("history", [])
-    naaim_prev = safe_float(history[1].get("value")) if len(history) >= 2 else None
+    # Fallback to computed text if AI not available
+    if not bull_text:
+        sentiment = data.get("sentiment", {})
+        fg        = sentiment.get("fear_greed", {})
+        naaim     = sentiment.get("naaim", {})
+        indices   = data.get("indices", {})
+        breadth   = data.get("breadth", {})
+        macro     = data.get("macro", {})
+        fg_score  = safe_float(fg.get("score"))
+        spy_rsi   = safe_float((indices.get("SPY") or {}).get("rsi14"))
+        qqq_rsi   = safe_float((indices.get("QQQ") or {}).get("rsi14"))
+        sp_p200   = safe_float((breadth.get("sp500") or {}).get("pct_above_200ma"))
+        naaim_now = safe_float(naaim.get("value"))
+        history   = naaim.get("history", [])
+        naaim_prev = safe_float(history[1].get("value")) if len(history) >= 2 else None
+        bull_text = (
+            f"目前市場處於「極度恐慌」狀態（Fear &amp; Greed Index = {fg_score:.0f}），"
+            f"歷史上此區間（&lt;20）往往是逆向操作的潛在買入窗口。"
+            f"SPY RSI({spy_rsi:.1f}) 與 QQQ RSI({qqq_rsi:.1f}) 均已進入超賣邊緣，"
+            f"技術上存在均值回歸的動力。S&amp;P 500 仍有 {sp_p200:.1f}% 的股票維持在 200MA 之上，"
+            f"長期趨勢結構尚未全面崩潰。"
+        ) if all(v is not None for v in [fg_score, spy_rsi, qqq_rsi, sp_p200]) else \
+            "目前市場處於極度恐慌區間，RSI 接近超賣，存在逆向反彈機會。"
 
-    # XLE RSI from sectors
-    sectors = data.get("sectors", [])
-    xle_rsi = None
-    xle_ma20 = None
-    for s in sectors:
-        if s.get("symbol") == "XLE":
-            xle_rsi  = safe_float(s.get("rsi14"))
-            xle_ma20 = safe_float(s.get("ma20"))
-            break
-
-    bull_text = (
-        f"目前市場處於「極度恐慌」狀態（Fear &amp; Greed Index = {fg_score:.0f}），"
-        f"歷史上此區間（&lt;20）往往是逆向操作的潛在買入窗口。"
-        f"SPY RSI({spy_rsi:.1f}) 與 QQQ RSI({qqq_rsi:.1f}) 均已進入超賣邊緣，"
-        f"技術上存在均值回歸的動力。S&amp;P 500 仍有 {sp_p200:.1f}% 的股票維持在 200MA 之上，"
-        f"長期趨勢結構尚未全面崩潰。此外，NAAIM 主動基金經理人曝險從上週 {naaim_prev:.2f} 回升至 {naaim_now:.2f}，"
-        f"顯示機構資金並未全面撤離，一旦宏觀壓力緩解，可能迅速加倉形成反彈。"
-    ) if all(v is not None for v in [fg_score, spy_rsi, qqq_rsi, sp_p200, naaim_now, naaim_prev]) else \
-        "目前市場處於極度恐慌區間，RSI 接近超賣，存在逆向反彈機會。"
-
-    bear_text = (
-        f"市場趨勢全面轉弱，所有主要指數（SPY, QQQ, DIA）均跌破 20MA 與 50MA。"
-        f"VIX 單日飆升 {vix_chg:.1f}% 至 {vix_now:.2f}，顯示避險情緒急劇升溫。"
-        f"市場廣度極差，S&amp;P 500 僅 {sp_p20:.1f}% 股票在 20MA 之上，"
-        f"強勢板塊高度集中於能源（XLE RSI {xle_rsi:.1f}），缺乏科技與消費核心板塊的領漲，"
-        f"反彈可能缺乏廣度支撐，容易形成無量假突破後再度下行。"
-    ) if all(v is not None for v in [vix_chg, vix_now, sp_p20, xle_rsi]) else \
-        "市場趨勢全面轉弱，廣度極差，VIX 高企，反彈缺乏廣度支撐。"
+    if not bear_text:
+        macro   = data.get("macro", {})
+        breadth = data.get("breadth", {})
+        vix_chg = safe_float((macro.get("VIX") or {}).get("change_1d_pct"))
+        vix_now = safe_float((macro.get("VIX") or {}).get("price"))
+        sp_p20  = safe_float((breadth.get("sp500") or {}).get("pct_above_20ma"))
+        bear_text = (
+            f"市場趨勢全面轉弱，所有主要指數均跌破 20MA 與 50MA。"
+            f"VIX 單日飆升 {vix_chg:.1f}% 至 {vix_now:.2f}，顯示避險情緒急劇升溫。"
+            f"市場廣度極差，S&amp;P 500 僅 {sp_p20:.1f}% 股票在 20MA 之上，"
+            f"反彈可能缺乏廣度支撐，容易形成無量假突破後再度下行。"
+        ) if all(v is not None for v in [vix_chg, vix_now, sp_p20]) else \
+            "市場趨勢全面轉弱，廣度極差，VIX 高企，反彈缺乏廣度支撐。"
 
     return f"""{checklist}
 
@@ -521,45 +522,124 @@ def build_s6_analysis(data):
   <h4 class="sub-title">Bear Case (利淡邏輯)</h4>
   <p style="color:#e0e0e0;font-size:13px;line-height:1.7;">{bear_text}</p>"""
 
-# ── Section 7: Trading Outlook & Watchlist ─────────────────────────────────
+# ── Section 7: Trading Outlook & Watchlist (AI-powered) ───────────────────
 
-def build_s7_content(data):
-    """Build Section 7 with Risk Score and Actionable Watchlist with Technical Triggers."""
-    sectors = data.get("sectors", [])
+def build_s7_content(data, ai_strategy):
+    """Build Section 7 with AI Risk Score and Actionable Watchlist with Technical Triggers."""
 
-    # Find MA20 prices for Technical Trigger stop-loss levels
-    sector_map = {s.get("symbol"): s for s in sectors}
-    xle = sector_map.get("XLE", {})
-    xlu = sector_map.get("XLU", {})
-    xlb = sector_map.get("XLB", {})
+    ai = ai_strategy or {}
+    risk_score    = ai.get("risk_score", 5)
+    outlook       = ai.get("outlook", "Cautious (Selective)")
+    outlook_color = ai.get("outlook_color", "amber")
+    risk_reasons  = ai.get("risk_reasons", [])
+    watchlist     = ai.get("watchlist", [])
 
-    xle_ma20  = safe_float(xle.get("ma20"))
-    xle_price = safe_float(xle.get("price"))
-    xlu_ma20  = safe_float(xlu.get("ma20"))
-    xlu_price = safe_float(xlu.get("price"))
-    xlb_ma20  = safe_float(xlb.get("ma20"))
-    xlb_price = safe_float(xlb.get("price"))
-    xle_rsi   = safe_float(xle.get("rsi14"))
-    xlu_rsi   = safe_float(xlu.get("rsi14"))
-    xlb_rsi   = safe_float(xlb.get("rsi14"))
+    # Color mapping
+    color_map = {
+        "red":   "var(--red)",
+        "amber": "var(--amber)",
+        "green": "var(--green)",
+    }
+    score_color = color_map.get(outlook_color, "var(--amber)")
 
-    # Format stop-loss levels
-    xle_stop = f"${xle_ma20:.2f}" if xle_ma20 else "20MA"
-    xlu_stop = f"${xlu_ma20:.2f}" if xlu_ma20 else "20MA"
-    xlb_stop = f"${xlb_ma20:.2f}" if xlb_ma20 else "20MA"
-    xle_p    = f"${xle_price:.2f}" if xle_price else "N/A"
-    xlu_p    = f"${xlu_price:.2f}" if xlu_price else "N/A"
-    xlb_p    = f"${xlb_price:.2f}" if xlb_price else "N/A"
-    xle_r    = f"{xle_rsi:.1f}" if xle_rsi else "N/A"
-    xlu_r    = f"{xlu_rsi:.1f}" if xlu_rsi else "N/A"
-    xlb_r    = f"{xlb_rsi:.1f}" if xlb_rsi else "N/A"
+    # Risk score bar (visual)
+    score_pct = int(risk_score / 9 * 100)
+    if risk_score >= 7:
+        bar_color = "var(--red)"
+    elif risk_score >= 5:
+        bar_color = "var(--amber)"
+    else:
+        bar_color = "var(--green)"
+
+    # Outlook description
+    vix_price = ai.get("vix_price", 0)
+    vix_chg   = ai.get("vix_chg", 0)
+    fg_score  = ai.get("fg_score", 50)
+    sp_p20    = ai.get("sp_p20", 50)
+
+    if risk_score >= 7:
+        outlook_desc = (
+            f"VIX 高企（{vix_price:.2f}，{'+' if vix_chg>0 else ''}{vix_chg:.2f}%）且趨勢向上，"
+            f"所有主要指數均在均線之下，市場廣度極差（S&P500 僅 {sp_p20:.1f}% 股票在 20MA 之上）。"
+            f"建議維持防守姿態，降低整體倉位，耐心等待 VIX 回落至 20 以下或指數出現放量止跌信號，再逐步加倉。"
+        )
+    elif risk_score >= 5:
+        outlook_desc = (
+            f"市場處於調整期，VIX={vix_price:.2f}，Fear & Greed={fg_score:.0f}。"
+            f"建議選擇性操作，聚焦相對強勢板塊，控制倉位在 50% 以下。"
+        )
+    else:
+        outlook_desc = (
+            f"市場情緒改善，Fear & Greed={fg_score:.0f}，廣度回升。"
+            f"可逐步加倉，優先配置動能板塊。"
+        )
+
+    # Risk reasons list
+    reasons_html = ""
+    if risk_reasons:
+        reasons_html = '<div style="margin-top:8px;font-size:11px;color:var(--text-muted);">Risk Factors: '
+        reasons_html += " | ".join(f'<span style="color:var(--red)">{r}</span>' for r in risk_reasons)
+        reasons_html += '</div>'
+
+    # Build watchlist rows
+    watchlist_rows_html = ""
+    if watchlist:
+        for w in watchlist:
+            sym    = w.get("symbol", "")
+            name   = w.get("name", "")
+            rsi_v  = w.get("rsi")
+            price_v = w.get("price")
+            thesis = w.get("thesis", "")
+            trigger = w.get("trigger", "")
+            entry  = w.get("entry", "")
+            stop   = w.get("stop", "")
+
+            rsi_html, rsi_row = rsi_cell(rsi_v)
+            price_str = f"${price_v:.2f}" if price_v else "N/A"
+
+            watchlist_rows_html += f"""        <tr class="{rsi_row}">
+          <td><strong>{name}</strong> <span style="color:var(--text-muted);font-size:11px;">{sym}</span></td>
+          <td>{rsi_html}</td>
+          <td>{price_str}</td>
+          <td style="text-align:left;font-size:12px;">{thesis}</td>
+          <td style="text-align:left;font-size:12px;color:var(--amber);">{trigger}</td>
+        </tr>\n"""
+    else:
+        # Fallback: use sector data directly
+        sectors = data.get("sectors", [])
+        sector_map = {s.get("symbol"): s for s in sectors}
+        for sym in ["XLE", "XLU", "XLB"]:
+            s = sector_map.get(sym, {})
+            if not s:
+                continue
+            price_v = safe_float(s.get("price"))
+            ma20_v  = safe_float(s.get("ma20"))
+            ma50_v  = safe_float(s.get("ma50"))
+            rsi_v   = safe_float(s.get("rsi14"))
+            name    = SECTOR_NAMES.get(sym, sym)
+            rsi_html, rsi_row = rsi_cell(rsi_v)
+            price_str = f"${price_v:.2f}" if price_v else "N/A"
+            stop_str  = f"${ma20_v:.2f}" if ma20_v else "20MA"
+            watchlist_rows_html += f"""        <tr class="{rsi_row}">
+          <td><strong>{name}</strong> <span style="color:var(--text-muted);font-size:11px;">{sym}</span></td>
+          <td>{rsi_html}</td>
+          <td>{price_str}</td>
+          <td style="text-align:left;font-size:12px;">相對強勢板塊，關注均線支撐。</td>
+          <td style="text-align:left;font-size:12px;color:var(--amber);">守住 20MA ({stop_str}) 可繼續看多；跌破 {stop_str} 止損。</td>
+        </tr>\n"""
 
     return f"""  <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:6px;padding:14px 18px;margin-bottom:16px;">
     <div style="font-size:10px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--text-muted);margin-bottom:8px;">Trading Outlook</div>
-    <div style="font-size:22px;font-weight:700;color:var(--red);letter-spacing:-0.5px;margin-bottom:4px;">Risk-off &nbsp;<span style="font-size:14px;color:var(--text-muted);">Score: 3 / 9</span></div>
-    <p style="color:#e0e0e0;font-size:13px;line-height:1.7;margin-top:8px;">
-      VIX 高企（27.67，+9.24%）且趨勢向上，所有主要指數均在均線之下，市場廣度極差。建議維持防守姿態，降低整體倉位，耐心等待 VIX 回落至 20 以下或指數出現放量止跌信號，再逐步加倉。
-    </p>
+    <div style="font-size:22px;font-weight:700;color:{score_color};letter-spacing:-0.5px;margin-bottom:4px;">
+      {outlook} &nbsp;<span style="font-size:14px;color:var(--text-muted);">Score: {risk_score} / 9</span>
+    </div>
+    <div style="margin-top:6px;margin-bottom:10px;">
+      <div style="background:#222;border-radius:4px;height:6px;width:100%;overflow:hidden;">
+        <div style="background:{bar_color};height:100%;width:{score_pct}%;border-radius:4px;transition:width 0.3s;"></div>
+      </div>
+    </div>
+    <p style="color:#e0e0e0;font-size:13px;line-height:1.7;margin-top:8px;">{outlook_desc}</p>
+    {reasons_html}
   </div>
 
   <div class="sub-title" style="margin-top:4px;">Watchlist — Relative Strength Leaders</div>
@@ -575,28 +655,7 @@ def build_s7_content(data):
         </tr>
       </thead>
       <tbody>
-        <tr class="rsi-ob-cell">
-          <td><strong>Energy</strong> <span style="color:var(--text-muted);font-size:11px;">XLE</span></td>
-          <td><span class="text-red">{xle_r}</span></td>
-          <td>{xle_p}</td>
-          <td style="text-align:left;font-size:12px;">油價強勢帶動，唯一突破所有均線的板塊，資金明顯輪入。</td>
-          <td style="text-align:left;font-size:12px;color:var(--amber);">守住 20MA ({xle_stop}) 可繼續看多；跌破 {xle_stop} 止損。</td>
-        </tr>
-        <tr>
-          <td><strong>Utilities</strong> <span style="color:var(--text-muted);font-size:11px;">XLU</span></td>
-          <td><span style="color:#e0e0e0">{xlu_r}</span></td>
-          <td>{xlu_p}</td>
-          <td style="text-align:left;font-size:12px;">防禦屬性強，市場恐慌時資金避險流入，相對抗跌。</td>
-          <td style="text-align:left;font-size:12px;color:var(--amber);">需守住 50MA ({xlu_stop}) 支撐；跌破視為防禦失守。</td>
-        </tr>
-        <tr>
-          <td><strong>Materials</strong> <span style="color:var(--text-muted);font-size:11px;">XLB</span></td>
-          <td><span style="color:#e0e0e0">{xlb_r}</span></td>
-          <td>{xlb_p}</td>
-          <td style="text-align:left;font-size:12px;">維持在 200MA 之上，具備相對強度，油價上漲帶動原材料需求。</td>
-          <td style="text-align:left;font-size:12px;color:var(--amber);">守住 200MA 為多頭前提；若跌破 {xlb_stop} 則轉觀望。</td>
-        </tr>
-      </tbody>
+{watchlist_rows_html}      </tbody>
     </table>
   </div>"""
 
@@ -605,7 +664,7 @@ def build_s7_content(data):
 def build_s8_calendar():
     """
     Build Section 8 Event Calendar rows with BMO/AMC timing labels.
-    Week of Mar 30 – Apr 3, 2026.
+    Week of Mar 28 – Apr 3, 2026.
     """
     def risk_badge(level):
         if level == "H":
@@ -625,19 +684,20 @@ def build_s8_calendar():
 
     events = [
         # Date,          Event/Ticker,                                  Timing,  Risk
-        ("Mon Mar 30",  "No Major US Events (Market Closed: Good Friday observed in some markets)", "—",   "L"),
-        ("Tue Mar 31",  "CB Consumer Confidence (Mar)",                "09:00",  "M"),
-        ("Tue Mar 31",  "JOLTs Job Openings (Feb)",                    "10:00",  "M"),
-        ("Tue Mar 31",  "Earnings: NKE (Nike)",                        "AMC",    "M"),
-        ("Tue Mar 31",  "Earnings: MKC (McCormick)",                   "BMO",    "L"),
-        ("Wed Apr 1",   "ADP Non-Farm Employment (Mar)",               "08:15",  "H"),
-        ("Wed Apr 1",   "ISM Manufacturing PMI (Mar)",                 "10:00",  "H"),
-        ("Wed Apr 1",   "Fed Speak: Multiple FOMC Members",            "TBD",    "M"),
-        ("Thu Apr 2",   "Initial Jobless Claims (weekly)",             "08:30",  "M"),
-        ("Thu Apr 2",   "Factory Orders (Feb)",                        "10:00",  "L"),
-        ("Fri Apr 3",   "Non-Farm Payrolls (NFP) — Mar",               "08:30",  "H"),
-        ("Fri Apr 3",   "Unemployment Rate (Mar)",                     "08:30",  "H"),
-        ("Fri Apr 3",   "ISM Services PMI (Mar)",                      "10:00",  "H"),
+        ("Fri Mar 28",  "Good Friday — US Markets Closed",             "—",     "L"),
+        ("Mon Mar 31",  "CB Consumer Confidence (Mar)",                "09:00", "M"),
+        ("Mon Mar 31",  "JOLTs Job Openings (Feb)",                    "10:00", "M"),
+        ("Mon Mar 31",  "Earnings: MKC (McCormick)",                   "BMO",   "L"),
+        ("Mon Mar 31",  "Earnings: NKE (Nike)",                        "AMC",   "M"),
+        ("Tue Apr 1",   "ADP Non-Farm Employment (Mar)",               "08:15", "H"),
+        ("Tue Apr 1",   "ISM Manufacturing PMI (Mar)",                 "10:00", "H"),
+        ("Tue Apr 1",   "Fed Speak: Multiple FOMC Members",            "TBD",   "M"),
+        ("Wed Apr 2",   "Initial Jobless Claims (weekly)",             "08:30", "M"),
+        ("Wed Apr 2",   "Factory Orders (Feb)",                        "10:00", "L"),
+        ("Wed Apr 2",   "Earnings: STZ (Constellation Brands)",        "BMO",   "M"),
+        ("Thu Apr 3",   "Non-Farm Payrolls (NFP) — Mar",               "08:30", "H"),
+        ("Thu Apr 3",   "Unemployment Rate (Mar)",                     "08:30", "H"),
+        ("Thu Apr 3",   "ISM Services PMI (Mar)",                      "10:00", "H"),
     ]
 
     rows = ""
@@ -655,6 +715,15 @@ def build_s8_calendar():
 def render():
     with open(JSON, encoding="utf-8") as f:
         data = json.load(f)
+
+    # Load AI strategy if available
+    ai_strategy = None
+    if AI_JSON.exists():
+        with open(AI_JSON, encoding="utf-8") as f:
+            ai_strategy = json.load(f)
+        print("  ✓  AI strategy loaded from ai_strategy.json")
+    else:
+        print("  ⚠  ai_strategy.json not found, using computed fallback")
 
     meta      = data.get("meta",      {})
     macro     = data.get("macro",     {})
@@ -728,10 +797,10 @@ def render():
     html = html.replace("{{INDUSTRY_ROWS}}", build_industry_rows(industry))
 
     # Section 6: AI Market Analysis (Checklist + Bull/Bear)
-    html = html.replace("{{S6_CONTENT}}", build_s6_analysis(data))
+    html = html.replace("{{S6_CONTENT}}", build_s6_analysis(data, ai_strategy))
 
     # Section 7: Trading Outlook & Watchlist with Technical Triggers
-    html = html.replace("{{S7_CONTENT}}", build_s7_content(data))
+    html = html.replace("{{S7_CONTENT}}", build_s7_content(data, ai_strategy))
 
     # Section 8: Event Calendar with BMO/AMC timing
     html = html.replace("{{S8_CONTENT}}", build_s8_calendar())
@@ -750,7 +819,7 @@ def render():
 
 if __name__ == "__main__":
     print("╔══════════════════════════════════════════════╗")
-    print("  Market Summary Renderer v4.1")
+    print("  Market Summary Renderer v4.2")
     print("╚══════════════════════════════════════════════╝")
     render()
     print("✅  Render complete.")

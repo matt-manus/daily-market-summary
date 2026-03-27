@@ -1,0 +1,70 @@
+{
+  "risk_score": 7,
+  "risk_reasons": [
+    "VIX=27.4 (>25, high fear)",
+    "SPY RSI=33.2 (<35, oversold)",
+    "QQQ RSI=34.3 (<35, oversold)",
+    "F&G=18 (Extreme Fear)",
+    "SP500 >20MA=18.5% (<25%, breadth collapse)"
+  ],
+  "outlook": "Risk-off (Defensive)",
+  "outlook_color": "red",
+  "bull_text": "當前市場呈現明顯的超賣極值(oversold extreme)與逆向操作(contrarian)機會，S&P 500與NASDAQ的RSI分別降至33.2與34.3，均低於35的超賣門檻，顯示短線修正可能已接近尾聲。Fear & Greed指數僅18.15處於極度恐慌(extreme fear)區域，與前一交易日19.26及一週前17.31相較，恐慌情緒未見明顯緩解，市場情緒背離(divergence)明顯，有利於均值回歸(mean reversion)行情。此外，NAAIM持倉意願由上週60.24提升至68.52，反映機構資金開始調整為較積極的多頭配置，能源板塊(XLE)持續展現相對強勢，RSI高達80.3且價格突破所有重要均線(MA20=$57.95, MA50=$54.33, MA200=$46.32)，提供部分防禦性支撐與輪動方向。",
+  "bear_text": "然而，市場面臨嚴重的宏觀壓制(macro suppression)風險，VIX大幅跳升8.33%至27.44，顯示市場波動性急遽攀升，恐慌情緒高漲。主要指數SPY、QQQ與DIA全面位於20MA、50MA及200MA之下，其中SPY距離20MA下跌3.32%、50MA下跌4.99%，而NASDAQ的跌幅更深，導致趨勢崩潰(trend breakdown)格局明顯。市場廣度(breadth)持續惡化，S&P 500僅18.5%成分股站上20MA，納斯達克也只有27.1%，且NYSE與NASDAQ的Adv/Dec比率分別為0.527及0.52，均低於1，顯示賣壓籠罩。板塊方面，科技(XLK)、通訊服務(XLC)與房地產(XLRE)均RSI低於30且價格下破多條均線，反映板塊集中風險加劇，假突破(false breakout)隱憂加深。",
+  "watchlist": [
+    {
+      "symbol": "XLE",
+      "name": "Energy",
+      "price": 61.52,
+      "rsi": 80.2871,
+      "change_1d": 1.57,
+      "ma20": 57.945,
+      "ma50": 54.3302,
+      "ma200": 46.3233,
+      "status": "ABOVE ALL",
+      "thesis": "唯一突破所有均線的板塊，相對強度領先，資金明顯輪入。RSI=80.3，趨勢最強。",
+      "entry": "守住 20MA ($57.95) 可繼續看多",
+      "stop": "跌破 $57.95 止損",
+      "trigger": "守住 20MA ($57.95) 可繼續看多；跌破 $57.95 止損。"
+    },
+    {
+      "symbol": "XLB",
+      "name": "Materials",
+      "price": 49.09,
+      "rsi": 45.0376,
+      "change_1d": -0.65,
+      "ma20": 49.8205,
+      "ma50": 50.6388,
+      "ma200": 45.9966,
+      "status": "MIXED",
+      "thesis": "防禦屬性強，市場恐慌時相對抗跌。RSI=45.0，需關注 MA 支撐。",
+      "entry": "守住 200MA ($46.00) 支撐",
+      "stop": "跌破 $46.00 止損",
+      "trigger": "守住 200MA ($46.00) 支撐；跌破 $46.00 止損。"
+    },
+    {
+      "symbol": "XLU",
+      "name": "Utilities",
+      "price": 45.33,
+      "rsi": 44.2285,
+      "change_1d": 0.18,
+      "ma20": 46.444,
+      "ma50": 45.1754,
+      "ma200": 43.2155,
+      "status": "MIXED",
+      "thesis": "防禦屬性強，市場恐慌時相對抗跌。RSI=44.2，需關注 MA 支撐。",
+      "entry": "守住 50MA ($45.18) 支撐",
+      "stop": "跌破 $45.18 止損",
+      "trigger": "守住 50MA ($45.18) 支撐；跌破 $45.18 止損。"
+    }
+  ],
+  "vix_price": 27.44,
+  "vix_chg": 8.33,
+  "fg_score": 18.15,
+  "sp_p20": 18.5,
+  "sp_p200": 46.7,
+  "naaim_val": 68.52,
+  "naaim_prev": 60.24,
+  "spy_rsi": 33.1682,
+  "qqq_rsi": 34.2877
+}
