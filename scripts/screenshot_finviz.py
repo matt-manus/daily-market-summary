@@ -39,7 +39,7 @@ def capture_heatmap():
         page.goto(
             "https://finviz.com/map.ashx?t=sec",
             wait_until="domcontentloaded",
-            timeout=30000,
+            timeout=45000,
         )
 
         # Wait for the canvas element
@@ -82,7 +82,9 @@ def capture_heatmap():
         if not canvas_ready:
             print("  ⚠  Canvas pixel check inconclusive — proceeding anyway.")
 
-        page.wait_for_timeout(2000)
+        # Hard 5-second wait to ensure full canvas rendering (stability requirement)
+        print("  Hard 5-second wait for canvas stability…")
+        page.wait_for_timeout(5000)
 
         map_el = page.locator("canvas").first
         if map_el.count() > 0:
@@ -131,9 +133,11 @@ def capture_industry():
         page.goto(
             "https://finviz.com/groups.ashx?g=industry&sg=&o=perf1d&p=d1",
             wait_until="domcontentloaded",
-            timeout=30000,
+            timeout=45000,
         )
-        page.wait_for_timeout(8000)
+        # Hard 5-second wait to ensure charts fully rendered (stability requirement)
+        print("  Hard 5-second wait for chart rendering…")
+        page.wait_for_timeout(5000)
 
         # Use JS to extract all bar data from the FIRST chart (1-day performance)
         bars_json = page.evaluate("""() => {

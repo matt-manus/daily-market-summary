@@ -22,7 +22,7 @@ Dynamic coloring:
   N/A safety: all .get() default to None → rendered as <span class="na-val">N/A</span>
 """
 
-import json, os, re
+import json, os, re, base64
 from pathlib import Path
 
 BASE   = Path(__file__).resolve().parent.parent
@@ -32,6 +32,27 @@ TMPL   = BASE / "templates" / "report_template.html"
 OUTPUT = BASE / "index.html"
 
 # ── Helpers ────────────────────────────────────────────────────────────────
+
+def img_to_base64(img_path: Path) -> str:
+    """
+    Convert an image file to a Base64-encoded data URI string.
+    Returns a data:image/png;base64,... string for direct use in <img src>.
+    Falls back to empty string if file is missing.
+    """
+    try:
+        if not img_path.exists():
+            print(f"  ⚠  Base64 encode: file not found: {img_path}")
+            return ""
+        with open(img_path, "rb") as f:
+            data = f.read()
+        b64 = base64.b64encode(data).decode("utf-8")
+        size_kb = len(data) / 1024
+        print(f"  ✓  Base64 encoded: {img_path.name} ({size_kb:.1f} KB → {len(b64):,} chars)")
+        return f"data:image/png;base64,{b64}"
+    except Exception as e:
+        print(f"  ⚠  Base64 encode error for {img_path}: {e}")
+        return ""
+
 
 def safe_float(val, default=None):
     if val is None: return default
@@ -835,29 +856,45 @@ def render():
     # Section 8: Event Calendar with BMO/AMC timing
     html = html.replace("{{S8_CONTENT}}", build_s8_calendar())
 
-    # ── DEBUG MODE: Verify all image files exist before writing HTML ──
-    print("\n  ── IMAGE PATH VERIFICATION (os.path.exists) ──")
-    img_checks = [
-        ("assets/img/today/stockbee_mm.png",        "Section 4D Stockbee"),
-        ("assets/img/today/industry_performance.png", "Section 5B Industry Chart"),
-        ("assets/img/today/market_heatmap.png",       "Section 5B Market Heatmap"),
-    ]
-    all_images_ok = True
-    for img_path, label in img_checks:
-        full_path = BASE / img_path
-        exists = full_path.exists()
-        size   = full_path.stat().st_size if exists else 0
-        status = f"OK ({size:,} bytes)" if exists else "MISSING"
-        symbol = "✓" if exists else "⚠"
-        print(f"  {symbol}  [{status}] {img_path}  ({label})")
-        if not exists:
-            all_images_ok = False
-            print(f"      ⚠  CRITICAL: {label} image is missing! Run screenshot scripts first.")
-    if all_images_ok:
-        print("  ✓  All image files verified OK")
+    # ── BASE64 IMAGE EMBEDDING (No Path Errors) ───────────────────────────────────────
+    print("\n  ── BASE64 IMAGE EMBEDDING ──")
+    img_stockbee  = BASE / "assets/img/today/stockbee_mm.png"
+    img_industry  = BASE / "assets/img/today/industry_performance.png"
+    img_heatmap   = BASE / "assets/img/today/market_heatmap.png"
+
+    b64_stockbee  = img_to_base64(img_stockbee)
+    b64_industry  = img_to_base64(img_industry)
+    b64_heatmap   = img_to_base64(img_heatmap)
+
+    # Replace <img src> paths with Base64 data URIs
+    if b64_stockbee:
+        html = html.replace(
+            'src="assets/img/today/stockbee_mm.png"',
+            f'src="{b64_stockbee}"'
+        )
+        print("  ✓  Section 4D Stockbee: Base64 injected into HTML")
     else:
-        print("  ⚠  Some images are missing — HTML will have broken img tags!")
-    print("  ── END IMAGE VERIFICATION ──\n")
+        print("  ⚠  Section 4D Stockbee: image missing, keeping path reference")
+
+    if b64_industry:
+        html = html.replace(
+            'src="assets/img/today/industry_performance.png"',
+            f'src="{b64_industry}"'
+        )
+        print("  ✓  Section 5B Industry: Base64 injected into HTML")
+    else:
+        print("  ⚠  Section 5B Industry: image missing, keeping path reference")
+
+    if b64_heatmap:
+        html = html.replace(
+            'src="assets/img/today/market_heatmap.png"',
+            f'src="{b64_heatmap}"'
+        )
+        print("  ✓  Section 5B Heatmap: Base64 injected into HTML")
+    else:
+        print("  ⚠  Section 5B Heatmap: image missing, keeping path reference")
+
+    print("  ── END BASE64 EMBEDDING ──\n")
 
     # Residual check
     leftover = re.findall(r"\{\{[A-Z0-9_]+\}\}", html)

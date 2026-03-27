@@ -916,8 +916,8 @@ def fetch_all() -> dict:
     print("\n[7/8] 抓取市場廣度（Breadth % Above MA）…")
     breadth_data = fetch_breadth()
     print(f"  ✓  S&P 500 Above 200MA: {breadth_data['sp500']['pct_above_200ma']}%")
-    print(f"  ✓  NASDAQ  Above 200MA: {breadth_data['nasdaq']['pct_above_200ma']}%")
-    print(f"  ✓  NYSE    Above 200MA: {breadth_data['nyse']['pct_above_200ma']}%")
+    print(f"  ✓  QQQ (NASDAQ100) Above 200MA: {breadth_data['nasdaq100']['pct_above_200ma']}%")
+    print(f"  ✓  DIA (DJI30) Above 200MA: {breadth_data['dji30']['pct_above_200ma']}%")
     print(f"  ✓  Russell Above 200MA: {breadth_data['russell2000']['pct_above_200ma']}%")
 
     # ── TRUE Index-Level A/D Ratios (v4.2: Finviz + yfinance) ─────────────

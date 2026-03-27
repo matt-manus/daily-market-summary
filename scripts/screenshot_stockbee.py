@@ -54,8 +54,9 @@ def take_screenshot():
             print("  ⚠  Table selector timeout — using time-based fallback.")
             page.wait_for_timeout(5000)
 
-        # Extra wait for JS rendering
-        page.wait_for_timeout(3000)
+        # Hard 5-second wait to ensure full JS rendering (required for stability)
+        print("  Hard 5-second wait for full JS rendering…")
+        page.wait_for_timeout(5000)
 
         # Verify T2108 row is visible by checking page text
         page_text = page.inner_text("body")
