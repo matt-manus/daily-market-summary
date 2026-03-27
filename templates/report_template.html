@@ -13,7 +13,7 @@
 
     /* ─── DARK MODE BASE ─────────────────────────────────────────── */
     body {
-      background-color: #0d0d0d;
+      background-color: #000000;
       color: #e0e0e0;
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
       font-size: 13px;
@@ -224,33 +224,7 @@
     /* ─── SECTION 4: BREADTH ─────────────────────────────────────── */
     .breadth-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
     @media (max-width: 700px) { .breadth-grid { grid-template-columns: 1fr; } }
-    .adr-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      overflow: hidden;
-    }
-    .adr-card-head {
-      background: var(--bg-head);
-      padding: 8px 12px;
-      font-size: 10px;
-      font-weight: 600;
-      letter-spacing: 0.8px;
-      text-transform: uppercase;
-      color: var(--text-label);
-      border-bottom: 1px solid var(--border);
-    }
-    .adr-row {
-      display: flex;
-      justify-content: space-between;
-      padding: 6px 12px;
-      font-size: 12px;
-      border-bottom: 1px solid var(--border-lt);
-      color: var(--text-label);
-    }
-    .adr-row:last-child { border-bottom: none; }
-    .adr-row .adr-val { color: #e0e0e0; font-weight: 500; }
-    .pct-bar-wrap { display: flex; align-items: center; gap: 6px; justify-content: flex-end; }
+                        .pct-bar-wrap { display: flex; align-items: center; gap: 6px; justify-content: flex-end; }
     .pct-bar-track { width: 70px; height: 5px; background: #333; border-radius: 3px; overflow: hidden; }
     .pct-bar-red   { height: 100%; border-radius: 3px; background: var(--red); }
     .pct-bar-amber { height: 100%; border-radius: 3px; background: var(--amber); }
@@ -359,7 +333,7 @@
           <th>vs 50MA</th>
           <th>vs 200MA</th>
           <th>A/D Ratio</th>
-          <th>Status</th>
+          
         </tr>
       </thead>
       <tbody>
@@ -460,8 +434,7 @@
           <th>1M Chg%</th>
           <th>RSI 14</th>
           <th>vs 20MA</th>
-          <th>Status</th>
-        </tr>
+          </tr>
       </thead>
       <tbody>
         {{SECTOR_ROWS}}
@@ -511,6 +484,26 @@
   <div class="section-title">Section 7 — Trading Outlook &amp; Watchlist</div>
   <div class="ai-text-area">
     <span class="ai-placeholder">{{S7_CONTENT}}</span>
+  </div>
+</div>
+
+
+<!-- ═══ SECTION 8 — EVENT CALENDAR ════════════════════════════════ -->
+<div class="section">
+  <div class="section-title">Section 8 — Event Calendar (Mar 30 - Apr 3)</div>
+  <div class="table-wrap">
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Event / Ticker</th>
+          <th>Volatility Risk</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{S8_CONTENT}}
+      </tbody>
+    </table>
   </div>
 </div>
 

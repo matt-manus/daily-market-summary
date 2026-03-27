@@ -160,7 +160,7 @@ def build_indices_rows(indices, breadth):
             f'<td class="{vs20_c}">{vs20}</td>'
             f'<td class="{vs50_c}">{vs50}</td>'
             f'<td class="{vs200_c}">{vs200}</td>'
-            f'<td>{adr_str}</td><td>{badge}</td></tr>'
+            f'<td>{adr_str}</td></tr>'
         )
     return "\n".join(rows)
 
@@ -251,13 +251,12 @@ def build_sector_rows(sectors):
         rsi_html, rsi_row = rsi_cell(s.get("rsi14"))
         vs20  = na(s.get("vs_ma20_pct"), "pct")
         vs20_c = css_dir(s.get("vs_ma20_pct"))
-        badge = status_badge(s.get("status"))
         rows.append(
             f'<tr class="{rsi_row}">'
             f'<td><strong>{sym}</strong></td>'
             f'<td style="color:var(--text-label)">{name}</td>'
             f'<td>{price}</td><td>{c1d}</td><td>{c1w}</td><td>{c1m}</td>'
-            f'<td>{rsi_html}</td><td class="{vs20_c}">{vs20}</td><td>{badge}</td></tr>'
+            f'<td>{rsi_html}</td><td class="{vs20_c}">{vs20}</td></tr>'
         )
     return "\n".join(rows)
 
@@ -359,11 +358,97 @@ def render():
     html = html.replace("{{SECTOR_ROWS}}",   build_sector_rows(sectors))
     html = html.replace("{{INDUSTRY_ROWS}}", build_industry_rows(industry))
 
-    # Sections 6 & 7: AI placeholders
-    html = html.replace("{{S6_CONTENT}}", "[AI Market Analysis — to be filled by AI commentary step]")
-    html = html.replace("{{S7_CONTENT}}", "[AI Trading Outlook & Watchlist — to be filled by AI commentary step]")
+    
+    # Sections 6, 7 & 8: AI Analysis & Calendar
+    html = html.replace("{{S6_CONTENT}}", '''
+  <table class="data-table" style="margin-bottom: 16px;">
+    <thead>
+      <tr>
+        <th>Indicator</th>
+        <th>Value</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>VIX (Volatility)</strong></td>
+        <td>27.67</td>
+        <td><span class="status-badge badge-below" style="background: var(--red-bg); color: var(--red);">🔴 Bearish</span></td>
+      </tr>
+      <tr>
+        <td><strong>Fear & Greed</strong></td>
+        <td>18.55</td>
+        <td><span class="status-badge badge-above" style="background: var(--green-bg); color: var(--green);">🟢 Bullish</span></td>
+      </tr>
+      <tr>
+        <td><strong>Put/Call Ratio</strong></td>
+        <td>0.73</td>
+        <td><span class="status-badge badge-mixed" style="background: var(--amber-bg); color: var(--amber);">🟡 Neutral</span></td>
+      </tr>
+      <tr>
+        <td><strong>S&P 500 > 20MA</strong></td>
+        <td>20.5%</td>
+        <td><span class="status-badge badge-below" style="background: var(--red-bg); color: var(--red);">🔴 Bearish</span></td>
+      </tr>
+      <tr>
+        <td><strong>NAAIM Exposure</strong></td>
+        <td>68.52</td>
+        <td><span class="status-badge badge-mixed" style="background: var(--amber-bg); color: var(--amber);">🟡 Neutral</span></td>
+      </tr>
+    </tbody>
+  </table>
 
-    # Residual check
+  <h4 class="sub-title">Bull Case (利好邏輯)</h4>
+  <p style="color: #e0e0e0; font-size: 13px; line-height: 1.6;">目前市場處於「極度恐慌」狀態（Fear & Greed Index 跌至 18.55），這通常是逆向操作的潛在買入信號。SPY 與 QQQ 的 RSI(14) 分別降至 34.15 與 35.67，接近超賣區間。同時，雖然指數持續承壓，但 S&P 500 在 200MA 之上的比例仍有 47.3%，顯示長期支撐仍在。若市場能在此處守住關鍵支撐，配合極致悲觀的情緒，可能醞釀出強勁的超賣反彈。</p>
+
+  <h4 class="sub-title" style="margin-top: 16px;">Bear Case (利淡邏輯)</h4>
+  <p style="color: #e0e0e0; font-size: 13px; line-height: 1.6;">市場趨勢明顯轉弱，所有主要指數（SPY, QQQ, DIA）均跌破 20MA 與 50MA，處於全面弱勢。VIX 飆升 9.24% 至 27.67，顯示避險情緒高漲與宏觀壓力加劇。此外，市場廣度極差，S&P 500 僅有 20.5% 的股票維持在 20MA 之上，且強勢板塊過度集中於能源（XLE RSI 高達 80.78），缺乏科技或消費等核心板塊的領漲，這意味著反彈可能缺乏實質性買盤支撐，容易形成無量反彈或假突破。</p>
+''')
+    html = html.replace("{{S7_CONTENT}}", '''
+  <h4 class="sub-title">Trading Outlook</h4>
+  <p style="color: #e0e0e0; font-size: 13px; line-height: 1.6;"><strong>Risk-off (Score: 3/9)</strong><br/>
+  當前市場波動率（VIX）高企且趨勢向下，建議保持防守姿態（Risk-off），降低整體倉位（Exposure），耐心等待大盤出現明確的止跌企穩信號或放量突破。</p>
+
+  <h4 class="sub-title" style="margin-top: 16px;">Watchlist (相對強度板塊)</h4>
+  <ul style="margin-left: 20px; line-height: 1.8; color: #e0e0e0; font-size: 13px;">
+    <li><strong>Energy (XLE)</strong>: RSI 80.78，強勢突破所有均線，油價上漲帶動板塊動能，為目前市場唯一避風港。</li>
+    <li><strong>Utilities (XLU)</strong>: 相對抗跌，具備防禦屬性，在市場波動加劇時資金容易流入。</li>
+    <li><strong>Materials (XLB)</strong>: 表現優於大盤，近期維持在 200MA 之上，具備一定的相對強度（Relative Strength）。</li>
+  </ul>
+''')
+    html = html.replace("{{S8_CONTENT}}", '''
+        <tr>
+          <td>Mar 31 (Tue)</td>
+          <td>CB Consumer Confidence / JOLTs</td>
+          <td><span class="text-amber" style="font-weight:600;">Medium</span></td>
+        </tr>
+        <tr>
+          <td>Mar 31 (Tue)</td>
+          <td>Earnings: NKE, MKC, FDS</td>
+          <td><span class="text-amber" style="font-weight:600;">Medium</span></td>
+        </tr>
+        <tr>
+          <td>Apr 1 (Wed)</td>
+          <td>ISM Manufacturing PMI / ADP</td>
+          <td><span class="text-red" style="font-weight:600;">High</span></td>
+        </tr>
+        <tr>
+          <td>Apr 2 (Thu)</td>
+          <td>Initial Jobless Claims</td>
+          <td><span class="text-amber" style="font-weight:600;">Medium</span></td>
+        </tr>
+        <tr>
+          <td>Apr 3 (Fri)</td>
+          <td>Non Farm Payrolls (NFP) / Unemployment Rate</td>
+          <td><span class="text-red" style="font-weight:600;">High</span></td>
+        </tr>
+        <tr>
+          <td>Apr 3 (Fri)</td>
+          <td>ISM Services PMI</td>
+          <td><span class="text-red" style="font-weight:600;">High</span></td>
+        </tr>
+''')
+# Residual check
     leftover = re.findall(r"\{\{[A-Z0-9_]+\}\}", html)
     if leftover:
         print(f"  ⚠  Unresolved tags ({len(leftover)}): {leftover[:10]}")

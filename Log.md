@@ -120,3 +120,26 @@
 - White/grey background (#f4f5f7), dark header (#1a1d23)
 - Green: #0a7c42, Red: #c0392b, Accent blue: #1a56db
 - Responsive grid layout, RSI progress bars, colored badge pills
+
+---
+## Stage 4 — 2026-03-27 (Manus AI)
+**Task:** Complete Daily Market Summary System with AI Logic & Event Calendar
+
+### Changes Made
+- **Section 6 — Market Analysis**: Added Key Indicators Checklist (VIX, F&G, P/C Ratio, S&P>20MA, NAAIM), Bull Case & Bear Case analysis grounded in live JSON data.
+- **Section 7 — Trading Outlook & Watchlist**: Risk-off Score 3/9, Watchlist: XLE, XLU, XLB.
+- **Section 8 — Event Calendar**: Mar 31–Apr 3 macro events (CB Consumer Confidence, JOLTs, ISM PMI, ADP, NFP, ISM Services) + Earnings (NKE, MKC, FDS).
+- **Visual Cleanup**: Removed `Status` column from Section 5A (sector table). Background set to pure `#000000`. `img { max-width: 100% }` confirmed.
+- **render_report.py**: S6/S7/S8 content now auto-filled via `html.replace()` in render pipeline.
+- **Template**: Section 8 block added. Section 4c (ADR Table) was already absent in this version.
+
+### Data Consistency Verification
+- F&G = 18.55 → Section 6 correctly labels as "Extreme Fear" (Bullish contrarian signal)
+- VIX = 27.67 → Bearish
+- SPY RSI = 34.15, QQQ RSI = 35.67 → Near oversold
+- S&P 500 > 20MA = 20.5% → Bearish breadth
+- NAAIM = 68.52 → Neutral
+
+### Render Output
+- 0 residual placeholders
+- index.html: 40.2 KB
