@@ -131,18 +131,25 @@ SECTOR_NAMES = {
     "XLRE": "Real Estate",     "XLU": "Utilities",
     "XLC": "Communication Svcs",
 }
+# Section 4B: ETF-specific breadth (constituents of each index)
+# sp500 → SPY, nasdaq100 (Finviz idx_ndx) → QQQ, nyse → DIA (proxy), russell2000 → IWM
 BREADTH_KEYS = [
-    ("sp500",       "S&P 500",    "SPY"),
-    ("nasdaq",      "NASDAQ",     "QQQ"),
-    ("nyse",        "NYSE",       "DIA"),
-    ("russell2000", "Russell 2000","IWM"),
+    ("sp500",       "S&P 500",     "SPY"),
+    ("nasdaq",      "NASDAQ 100",  "QQQ"),
+    ("russell2000", "Russell 2000", "IWM"),
+    ("nyse",        "NYSE Comp.",   "DIA"),
 ]
 
 # ── Section builders ───────────────────────────────────────────────────────
 
 def build_indices_rows(indices, breadth):
+    """
+    Section 2: Index ETF table.
+    A/D Ratio comes from breadth.index_ad_ratios (real advancing/declining issues),
+    NOT from the old breadth-proxy stored in indices[sym]['ad_ratio'].
+    """
     rows = []
-    vol_adr = (breadth or {}).get("volatility_adr", {})
+    index_ad = (breadth or {}).get("index_ad_ratios", {})
     for sym in ["SPY", "QQQ", "DIA", "IWM"]:
         d = indices.get(sym, {})
         price   = na(d.get("price"), "price")
@@ -154,10 +161,19 @@ def build_indices_rows(indices, breadth):
         vs20_c  = css_dir(d.get("vs_ma20_pct"))
         vs50_c  = css_dir(d.get("vs_ma50_pct"))
         vs200_c = css_dir(d.get("vs_ma200_pct"))
-        adr_f   = safe_float(d.get("ad_ratio"))
+        # Use real index A/D ratio from Finviz/yfinance (index_ad_ratios)
+        iad     = index_ad.get(sym, {})
+        adv     = iad.get("advances")
+        dec     = iad.get("declines")
+        adr_f   = safe_float(iad.get("ad_ratio"))
         adr_c   = adr_color(adr_f)
-        adr_str = (f'<span class="{adr_c}">{adr_f:.3f}</span>'
-                   if adr_f is not None else '<span class="na-val">N/A</span>')
+        if adr_f is not None and adv is not None and dec is not None:
+            adr_str = (f'<span class="{adr_c}">{adr_f:.3f}</span>'
+                       f'<span style="font-size:10px;color:var(--text-muted)"> ({adv}↑/{dec}↓)</span>')
+        elif adr_f is not None:
+            adr_str = f'<span class="{adr_c}">{adr_f:.3f}</span>'
+        else:
+            adr_str = '<span class="na-val">N/A</span>'
         name    = SYM_NAMES.get(sym, "")
         rows.append(
             f'<tr class="{rsi_row}">'
@@ -791,6 +807,7 @@ def render():
 
     # Section 4: Breadth
     html = html.replace("{{BREADTH_ROWS}}", build_breadth_rows(breadth, indices))
+    html = html.replace("{{ADR_CARDS}}",    build_adr_cards(breadth))
 
     # Section 5: Sectors & Industries (Top 10)
     html = html.replace("{{SECTOR_ROWS}}",   build_sector_rows(sectors))

@@ -1,11 +1,11 @@
 {
   "meta": {
-    "generated_hkt": "2026-03-27 12:09",
-    "generated_et": "2026-03-27 00:09",
+    "generated_hkt": "2026-03-27 13:01",
+    "generated_et": "2026-03-27 01:01",
     "date": "2026-03-27",
     "source": "Yahoo Finance + CNN + NAAIM + Finviz + Barchart",
     "rsi_method": "Wilder SMMA (EWM alpha=1/14)",
-    "schema_version": "4.1"
+    "schema_version": "4.2"
   },
   "macro": {
     "VIX": {
@@ -14,9 +14,9 @@
       "change_1d_pct": 8.33
     },
     "DXY": {
-      "price": 99.9,
-      "change_1d": 0.3,
-      "change_1d_pct": 0.3
+      "price": 99.833,
+      "change_1d": -0.067,
+      "change_1d_pct": -0.07
     },
     "TNX_10Y": {
       "price": 4.416,
@@ -24,19 +24,19 @@
       "change_1d_pct": 2.03
     },
     "GOLD": {
-      "price": 4375.5,
-      "change_1d": -174.2998,
-      "change_1d_pct": -3.83
+      "price": 4438.2998,
+      "change_1d": 62.7998,
+      "change_1d_pct": 1.44
     },
     "OIL_WTI": {
-      "price": 94.48,
-      "change_1d": 4.16,
-      "change_1d_pct": 4.61
+      "price": 93.73,
+      "change_1d": -0.75,
+      "change_1d_pct": -0.79
     },
     "BTC": {
-      "price": 68532.2266,
-      "change_1d": -2777.6562,
-      "change_1d_pct": -3.9
+      "price": 68564.6406,
+      "change_1d": -2745.2422,
+      "change_1d_pct": -3.85
     }
   },
   "indices": {
@@ -52,7 +52,15 @@
       "vs_ma200_pct": -1.93,
       "vs20ma": "Red",
       "status": "BELOW ALL",
-      "ad_ratio": 0.227
+      "ad_ratio": 0.589,
+      "ad_detail": {
+        "advances": 186,
+        "declines": 316,
+        "unchanged": 1,
+        "total": 503,
+        "ad_ratio": 0.589,
+        "source": "Finviz screener (S&P 500)"
+      }
     },
     "QQQ": {
       "price": 573.79,
@@ -66,7 +74,15 @@
       "vs_ma200_pct": -3.27,
       "vs20ma": "Red",
       "status": "BELOW ALL",
-      "ad_ratio": 0.372
+      "ad_ratio": 0.485,
+      "ad_detail": {
+        "advances": 33,
+        "declines": 68,
+        "unchanged": 0,
+        "total": 101,
+        "ad_ratio": 0.485,
+        "source": "Finviz screener (NASDAQ 100)"
+      }
     },
     "DIA": {
       "price": 459.31,
@@ -80,7 +96,15 @@
       "vs_ma200_pct": -0.86,
       "vs20ma": "Red",
       "status": "BELOW ALL",
-      "ad_ratio": 0.225
+      "ad_ratio": 0.364,
+      "ad_detail": {
+        "advances": 8,
+        "declines": 22,
+        "unchanged": 0,
+        "total": 30,
+        "ad_ratio": 0.364,
+        "source": "yfinance (DJI 30 components)"
+      }
     },
     "IWM": {
       "price": 247.44,
@@ -94,18 +118,26 @@
       "vs_ma200_pct": 2.74,
       "vs20ma": "Red",
       "status": "MIXED",
-      "ad_ratio": 0.637
+      "ad_ratio": 0.666,
+      "ad_detail": {
+        "advances": 756,
+        "declines": 1135,
+        "unchanged": 39,
+        "total": 1930,
+        "ad_ratio": 0.666,
+        "source": "Finviz screener (Russell 2000)"
+      }
     }
   },
   "sentiment": {
     "fear_greed": {
       "score": 18.15,
       "rating": "extreme fear",
-      "timestamp": "2026-03-26T23:59:46+00:00",
-      "prev_close": 19.26,
-      "prev_1w": 17.31,
-      "prev_1m": 42.17,
-      "prev_1y": 28.89,
+      "timestamp": "2026-03-27T00:00:00+00:00",
+      "prev_close": 18.15,
+      "prev_1w": 16.49,
+      "prev_1m": 38.03,
+      "prev_1y": 28.34,
       "source": "CNN Fear & Greed API"
     },
     "put_call": {
@@ -577,6 +609,40 @@
         "new_52w_lows": 46
       },
       "source": "Barchart.com/stocks/momentum (live)"
+    },
+    "index_ad_ratios": {
+      "SPY": {
+        "advances": 186,
+        "declines": 316,
+        "unchanged": 1,
+        "total": 503,
+        "ad_ratio": 0.589,
+        "source": "Finviz screener (S&P 500)"
+      },
+      "QQQ": {
+        "advances": 33,
+        "declines": 68,
+        "unchanged": 0,
+        "total": 101,
+        "ad_ratio": 0.485,
+        "source": "Finviz screener (NASDAQ 100)"
+      },
+      "IWM": {
+        "advances": 756,
+        "declines": 1135,
+        "unchanged": 39,
+        "total": 1930,
+        "ad_ratio": 0.666,
+        "source": "Finviz screener (Russell 2000)"
+      },
+      "DIA": {
+        "advances": 8,
+        "declines": 22,
+        "unchanged": 0,
+        "total": 30,
+        "ad_ratio": 0.364,
+        "source": "yfinance (DJI 30 components)"
+      }
     },
     "volatility_adr": {
       "SPY": 1.29,

@@ -525,37 +525,129 @@ def fetch_volatility_adr(raw_data: pd.DataFrame, window: int = 14) -> dict:
 
 
 # ══════════════════════════════════════════════════════════════════════
-# ETF-LEVEL ADVANCE/DECLINE RATIO
-# v4.1 FIX: Uses above_20ma AND above_50ma for more robust A/D proxy.
-# SPY → sp500, QQQ → nasdaq, DIA → nyse (proxy), IWM → russell2000
+# INDEX-LEVEL ADVANCE/DECLINE RATIO  (v4.2 — ACCURATE)
+# Source: Finviz screener (today's up/down stocks) for SPY/QQQ/IWM
+#         yfinance 30-component calculation for DIA (Dow Jones)
+# Formula: ADR = advancing / declining  (today's price change)
+# IMPORTANT: This replaces the old breadth-proxy method which was
+#            computing above_20ma/below_20ma — NOT today's A/D.
 # ══════════════════════════════════════════════════════════════════════
 
-def compute_etf_ad_ratio(breadth_data: dict) -> dict:
+# Dow Jones 30 components (as of 2026; WBA replaced by AMGN in 2020)
+DJI_COMPONENTS = [
+    "AAPL", "AMGN", "AXP", "BA",  "CAT", "CRM", "CSCO", "CVX", "DIS", "DOW",
+    "GS",   "HD",   "HON", "IBM", "INTC", "JNJ", "JPM",  "KO",  "MCD", "MMM",
+    "MRK",  "MSFT", "NKE", "PG",  "TRV", "UNH", "V",    "VZ",  "WMT", "SHW",
+]
+
+
+def fetch_index_ad_ratios(close_df: pd.DataFrame) -> dict:
     """
-    Compute Advance/Decline Ratio for each major index ETF.
-    Uses stocks above 20MA as "advancing" proxy vs total.
-    ADR = stocks_above_20ma / (total - stocks_above_20ma)
-    Stored as float (per knowledge base rule).
+    Compute TRUE Advance/Decline Ratio for SPY/QQQ/DIA/IWM.
+
+    Method:
+      SPY (S&P 500, ~503 stocks)  → Finviz screener idx_sp500 up/down today
+      QQQ (NASDAQ 100, ~101 stocks) → Finviz screener idx_ndx up/down today
+      IWM (Russell 2000, ~1930 stocks) → Finviz screener idx_rut up/down today
+      DIA (Dow Jones 30) → yfinance: count up/down among 30 components
+
+    Returns:
+      { "SPY": {advances, declines, unchanged, ad_ratio, source},
+        "QQQ": {...}, "DIA": {...}, "IWM": {...} }
     """
-    mapping = {
-        "SPY": "sp500",
-        "QQQ": "nasdaq",
-        "DIA": "nyse",       # closest available proxy
-        "IWM": "russell2000",
-    }
+
     result = {}
-    for etf, key in mapping.items():
-        b     = breadth_data.get(key, {})
-        total = b.get("total")
-        above = b.get("above_20ma")
-        if total and above is not None and total > 0:
-            below = total - above
-            # Store as float (not string) — per knowledge base rule
-            ratio = round(float(above) / float(below), 3) if below > 0 else None
+
+    # ── SPY / QQQ / IWM via Finviz screener ──────────────────────────────
+    finviz_map = {
+        "SPY": ("idx_sp500", "S&P 500"),
+        "QQQ": ("idx_ndx",   "NASDAQ 100"),
+        "IWM": ("idx_rut",   "Russell 2000"),
+    }
+    for etf, (idx_filter, idx_name) in finviz_map.items():
+        try:
+            total = fetch_finviz_count(idx_filter)
+            time.sleep(0.5)
+            up    = fetch_finviz_count(f"{idx_filter},ta_change_u")
+            time.sleep(0.5)
+            down  = fetch_finviz_count(f"{idx_filter},ta_change_d")
+            time.sleep(0.5)
+
+            if up is not None and down is not None and total is not None:
+                unch  = max(0, total - up - down)
+                ratio = round(float(up) / float(down), 3) if down > 0 else None
+                result[etf] = {
+                    "advances":  up,
+                    "declines":  down,
+                    "unchanged": unch,
+                    "total":     total,
+                    "ad_ratio":  ratio,
+                    "source":    f"Finviz screener ({idx_name})",
+                }
+                print(
+                    f"  ✓  {etf} ({idx_name}): "
+                    f"Adv={up:,}  Dec={down:,}  Unch={unch:,}  "
+                    f"ADR={ratio}  [source: Finviz]"
+                )
+            else:
+                result[etf] = {"ad_ratio": None, "source": "Finviz (parse failed)"}
+                print(f"  ⚠  {etf}: Finviz count parse failed")
+        except Exception as e:
+            result[etf] = {"ad_ratio": None, "source": f"Finviz (error: {e})"}
+            print(f"  ⚠  {etf} Finviz A/D 抓取失敗: {e}")
+
+    # ── DIA (Dow Jones 30) via yfinance ───────────────────────────────────
+    # NOTE: DJI components are NOT in close_df (which only has ETFs).
+    # We download the 30 components separately with a 5-day window.
+    try:
+        import yfinance as _yf
+        dji_raw = _yf.download(
+            DJI_COMPONENTS,
+            period="5d",
+            interval="1d",
+            auto_adjust=True,
+            progress=False,
+        )
+        # Handle both single-ticker and multi-ticker DataFrames
+        if isinstance(dji_raw.columns, pd.MultiIndex):
+            dji_close = dji_raw["Close"]
         else:
-            ratio = None
-        result[etf] = ratio
-        print(f"     {etf} ADR (breadth proxy): {ratio}  [above={above}, total={total}]")
+            dji_close = dji_raw[["Close"]]
+
+        adv = dec = unch = 0
+        missing = []
+        for t in DJI_COMPONENTS:
+            if t in dji_close.columns:
+                s = dji_close[t].dropna()
+                if len(s) >= 2:
+                    chg = float(s.iloc[-1]) - float(s.iloc[-2])
+                    if chg > 0.001:    adv  += 1
+                    elif chg < -0.001: dec  += 1
+                    else:              unch += 1
+                else:
+                    missing.append(t)
+            else:
+                missing.append(t)
+        total = adv + dec + unch
+        ratio = round(float(adv) / float(dec), 3) if dec > 0 else None
+        result["DIA"] = {
+            "advances":  adv,
+            "declines":  dec,
+            "unchanged": unch,
+            "total":     total,
+            "ad_ratio":  ratio,
+            "source":    "yfinance (DJI 30 components)",
+        }
+        print(
+            f"  ✓  DIA (Dow Jones 30): "
+            f"Adv={adv}  Dec={dec}  Unch={unch}  ADR={ratio}  "
+            f"[source: yfinance]"
+            + (f"  Missing: {missing}" if missing else "")
+        )
+    except Exception as e:
+        result["DIA"] = {"ad_ratio": None, "source": f"yfinance (error: {e})"}
+        print(f"  ⚠  DIA yfinance A/D 計算失敗: {e}")
+
     return result
 
 
@@ -800,17 +892,29 @@ def fetch_all() -> dict:
     print(f"  ✓  NYSE    Above 200MA: {breadth_data['nyse']['pct_above_200ma']}%")
     print(f"  ✓  Russell Above 200MA: {breadth_data['russell2000']['pct_above_200ma']}%")
 
-    # ETF-level ADR (Advance/Decline Ratio proxy from breadth data)
-    print("  ✓  Computing ETF-level A/D Ratios (breadth proxy):")
-    etf_ad_ratios = compute_etf_ad_ratio(breadth_data)
+    # ── TRUE Index-Level A/D Ratios (v4.2: Finviz + yfinance) ─────────────
+    print("  正在抓取指數層級 A/D Ratio（SPY/QQQ/DIA/IWM 真實漲跌家數）…")
+    index_ad_data = fetch_index_ad_ratios(close_df)
 
-    # Inject ETF ADR into indices (as float)
-    for sym, ratio in etf_ad_ratios.items():
+    # Inject TRUE ADR into indices (as float) + log for verification
+    print("\n  ══ A/D Ratio 核对日誌 ══")
+    for sym in ["SPY", "QQQ", "DIA", "IWM"]:
+        ad_entry = index_ad_data.get(sym, {})
+        ratio    = ad_entry.get("ad_ratio")
+        adv      = ad_entry.get("advances", "N/A")
+        dec      = ad_entry.get("declines", "N/A")
+        src      = ad_entry.get("source", "unknown")
         if sym in indices_out:
-            indices_out[sym]["ad_ratio"] = ratio  # float, not string
+            indices_out[sym]["ad_ratio"]  = ratio   # float, not string
+            indices_out[sym]["ad_detail"] = ad_entry  # full detail for audit
+        print(
+            f"  [LOG] {sym}: 漲家數={adv}  跌家數={dec}  "
+            f"ADR={ratio}  數據來源={src}"
+        )
+    print("  ══ A/D Ratio 核对日誌結束 ══\n")
 
-    # Full-market A/D from Barchart
-    print("  正在從 Barchart 抓取 NYSE/NASDAQ Advance/Decline 數據…")
+    # Full-market A/D from Barchart (NYSE/NASDAQ exchange-level, for Section 4C)
+    print("  正在從 Barchart 抓取 NYSE/NASDAQ 全市場 Advance/Decline 數據（Section 4C）…")
     ad_data = fetch_barchart_advance_decline()
     if ad_data.get("NYSE"):
         nyse_ad = ad_data["NYSE"]
@@ -828,8 +932,9 @@ def fetch_all() -> dict:
 
     breadth_out = {
         **breadth_data,
-        "market_wide_advance_decline": ad_data,   # Barchart NYSE/NASDAQ A/D
-        "volatility_adr":              vol_adr,   # 14-day Avg Daily Range % (volatility)
+        "market_wide_advance_decline": ad_data,       # Barchart NYSE/NASDAQ A/D (Section 4C)
+        "index_ad_ratios":             index_ad_data, # TRUE index-level A/D (Section 2)
+        "volatility_adr":              vol_adr,       # 14-day Avg Daily Range % (volatility)
     }
 
     # ── 8. Assemble output ───────────────────────────────────────────
@@ -840,7 +945,7 @@ def fetch_all() -> dict:
             "date":           date_str,
             "source":         "Yahoo Finance + CNN + NAAIM + Finviz + Barchart",
             "rsi_method":     "Wilder SMMA (EWM alpha=1/14)",
-            "schema_version": "4.1",
+            "schema_version": "4.2",
         },
         "macro":     macro_out,
         "indices":   indices_out,

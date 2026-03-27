@@ -388,8 +388,9 @@
 <div class="section">
   <div class="section-title">Section 4 — Market Breadth</div>
 
-  <!-- 4B: % Above MA (Section 4a removed — MA distances now in Section 2) -->
-  <div class="sub-title">4B — % of Stocks Above Moving Averages</div>
+  <!-- 4B: % Above MA — SPY/QQQ/DIA/IWM only (ETF-specific breadth) -->
+  <div class="sub-title">4B — % of ETF Constituents Above Moving Averages (SPY / QQQ / DIA / IWM)</div>
+  <div style="font-size:11px;color:var(--text-muted);margin-bottom:8px;">Source: Finviz screener (index-filtered) — shows breadth within each index's own constituent universe</div>
   <div class="table-wrap">
     <table class="data-table">
       <thead>
@@ -408,11 +409,18 @@
     </table>
   </div>
 
+  <!-- 4C: NYSE / NASDAQ Full-Market Advance/Decline (Barchart) -->
+  <div class="sub-title" style="margin-top:20px;">4C — NYSE &amp; NASDAQ Full-Market Advance / Decline Ratio</div>
+  <div style="font-size:11px;color:var(--text-muted);margin-bottom:12px;">Source: Barchart.com — all listed stocks on each exchange (NOT limited to index constituents)</div>
+  <div style="display:flex;gap:16px;flex-wrap:wrap;">
+    {{ADR_CARDS}}
+  </div>
+
   <!-- 4D: Stockbee Market Monitor -->
   <div class="sub-title" style="margin-top:20px;">4D — Stockbee Market Monitor</div>
   <div class="img-block">
     <img src="assets/img/today/stockbee_mm.png" alt="Stockbee Market Monitor" />
-    <div class="img-caption">Stockbee Market Monitor — Momentum Breakdown</div>
+    <div class="img-caption">Stockbee Market Monitor — Momentum Breakdown (T2108 / Up-Down 4%)</div>
   </div>
 </div>
 
