@@ -10,19 +10,19 @@
   "outlook": "Risk-off (Defensive)",
   "outlook_color": "red",
   "bull_points": [
-    "SPY RSI 33.2顯示超賣極値(oversold)",
-    "VIX 27.44高位恐慌具逆向買點(contrarian)",
-    "S&P 46.7%成份股在200MA，均值回歸機會",
-    "Energy Sector RSI 80.3強勢背離，領漲信號"
+    "SPY RSI33.2處於超賣極値，具反向操作機會",
+    "VIX高達27.44，市場恐慌有背離反彈潛力",
+    "S&P 500僅18.5%成分股在20MA下，均值回歸可期",
+    "Energy sector XLE RSI80.3強勢突破，領漲指標明顯"
   ],
   "bear_points": [
-    "SPY、QQQ全面跌破20/50/200MA趨勢崩潰",
-    "S&P 20MA僅18.5%成份股，廣度惡化明顯",
-    "VIX升8.33%，反映宏觀風險持續壓制",
-    "Communication Sector RSI 25.1假突破後續弱勢"
+    "SPY與QQQ均低於20MA以上均線，趨勢崩潰風險高",
+    "Fear & Greed指數18.15持續極度恐懼，宏觀壓制明顯",
+    "S&P 500成分股20MA以上不足25%，廣度惡化顯著",
+    "科技XLK RSI36.5持續下跌，假突破後跌勢延續"
   ],
-  "bull_text": "SPY RSI 33.2顯示超賣極値(oversold) VIX 27.44高位恐慌具逆向買點(contrarian) S&P 46.7%成份股在200MA，均值回歸機會 Energy Sector RSI 80.3強勢背離，領漲信號",
-  "bear_text": "SPY、QQQ全面跌破20/50/200MA趨勢崩潰 S&P 20MA僅18.5%成份股，廣度惡化明顯 VIX升8.33%，反映宏觀風險持續壓制 Communication Sector RSI 25.1假突破後續弱勢",
+  "bull_text": "SPY RSI33.2處於超賣極値，具反向操作機會 VIX高達27.44，市場恐慌有背離反彈潛力 S&P 500僅18.5%成分股在20MA下，均值回歸可期 Energy sector XLE RSI80.3強勢突破，領漲指標明顯",
+  "bear_text": "SPY與QQQ均低於20MA以上均線，趨勢崩潰風險高 Fear & Greed指數18.15持續極度恐懼，宏觀壓制明顯 S&P 500成分股20MA以上不足25%，廣度惡化顯著 科技XLK RSI36.5持續下跌，假突破後跌勢延續",
   "watchlist": [
     {
       "symbol": "XLE",

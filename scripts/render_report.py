@@ -1,7 +1,13 @@
 """
-render_report.py  —  Credit-Efficient Market Summary System  v4.2
+render_report.py  —  Credit-Efficient Market Summary System  v4.3
 Reads:  data/today_market.json + data/ai_strategy.json
-Writes: index.html
+Writes: index.html  +  archive/YYYY-MM-DD.html
+
+v4.3 Changes:
+  - ARCHIVAL SYSTEM: Every render also writes archive/YYYY-MM-DD.html
+  - Archive files use Base64-embedded images (self-contained, permanently readable)
+  - HISTORY ARCHIVE BLOCK: index.html footer shows last 7 archive links
+  - All prior v4.2 features retained
 
 v4.2 Changes:
   - Integrates AI strategy JSON for Section 6 & 7 (GPT-generated analysis)
@@ -23,13 +29,16 @@ Dynamic coloring:
 """
 
 import json, os, re, base64
+from datetime import datetime
 from pathlib import Path
+import pytz
 
-BASE   = Path(__file__).resolve().parent.parent
-JSON   = BASE / "data"      / "today_market.json"
+BASE    = Path(__file__).resolve().parent.parent
+JSON    = BASE / "data"      / "today_market.json"
 AI_JSON = BASE / "data"     / "ai_strategy.json"
-TMPL   = BASE / "templates" / "report_template.html"
-OUTPUT = BASE / "index.html"
+TMPL    = BASE / "templates" / "report_template.html"
+OUTPUT  = BASE / "index.html"
+ARCHIVE = BASE / "archive"
 
 # ── Helpers ────────────────────────────────────────────────────────────────
 
@@ -163,6 +172,53 @@ BREADTH_KEYS = [
     ("dji30",       "Dow Jones 30", "DIA",  "yfinance DJI-30"),
     ("russell2000", "Russell 2000", "IWM",  "Finviz idx_rut"),
 ]
+
+# ── Archive helpers ───────────────────────────────────────────────────────
+
+def get_today_date_str() -> str:
+    """Return today's date in HKT as YYYY-MM-DD string."""
+    hkt = pytz.timezone("Asia/Hong_Kong")
+    return datetime.now(hkt).strftime("%Y-%m-%d")
+
+
+def build_history_archive_block() -> str:
+    """
+    Scan archive/ folder and build an HTML block listing the last 7 reports.
+    Returns a styled <div> section with links to archive/*.html files.
+    """
+    ARCHIVE.mkdir(parents=True, exist_ok=True)
+    # Collect all YYYY-MM-DD.html files, sorted newest first
+    archive_files = sorted(
+        [f for f in ARCHIVE.glob("[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9].html")],
+        reverse=True
+    )[:7]
+
+    if not archive_files:
+        links_html = '<p style="color:var(--text-muted);font-size:12px;">No archived reports yet.</p>'
+    else:
+        links_html = '<div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:12px;">'
+        for f in archive_files:
+            date_str = f.stem  # e.g. "2026-03-27"
+            links_html += (
+                f'<a href="archive/{f.name}" '
+                f'style="display:inline-block;padding:6px 14px;background:var(--bg-card2);'
+                f'border:1px solid var(--border);border-radius:5px;color:var(--blue);'
+                f'text-decoration:none;font-size:12px;font-weight:600;letter-spacing:0.3px;'
+                f'transition:border-color 0.2s;" '
+                f'onmouseover="this.style.borderColor=\'#42a5f5\'" '
+                f'onmouseout="this.style.borderColor=\'var(--border)\'"'
+                f'>{date_str}</a>'
+            )
+        links_html += '</div>'
+
+    return f"""<div class="section" style="border-top:2px solid var(--border);margin-top:24px;">
+  <div class="section-title" style="color:var(--blue);">&#128196; History Archive</div>
+  <p style="color:var(--text-muted);font-size:12px;margin-bottom:4px;">
+    Last {len(archive_files)} archived report(s) — each file is fully self-contained with Base64-embedded images.
+  </p>
+  {links_html}
+</div>"""
+
 
 # ── Section builders ───────────────────────────────────────────────────────
 
@@ -903,14 +959,58 @@ def render():
     else:
         print("  ✓  All template tags resolved (0 residual)")
 
+    # ── HISTORY ARCHIVE BLOCK ──────────────────────────────────────────────
+    # Build archive block BEFORE writing index.html so it reflects existing archives
+    print("\n  ── HISTORY ARCHIVE BLOCK ──")
+    history_block = build_history_archive_block()
+    html = html.replace("{{HISTORY_ARCHIVE_BLOCK}}", history_block)
+    print(f"  ✓  History archive block built ({len(list(ARCHIVE.glob('[0-9]*.html')))} archive file(s) found)")
+
+    # ── WRITE index.html ──────────────────────────────────────────────────
     with open(OUTPUT, "w", encoding="utf-8") as f:
         f.write(html)
     size_kb = OUTPUT.stat().st_size / 1024
     print(f"  ✓  index.html written  ({size_kb:.1f} KB)")
 
+    # ── WRITE ARCHIVE FILE ────────────────────────────────────────────────
+    print("\n  ── ARCHIVE OUTPUT ──")
+    ARCHIVE.mkdir(parents=True, exist_ok=True)
+    today_str  = get_today_date_str()
+    # Use date from JSON meta if available, otherwise use today
+    json_date  = meta.get("date", today_str)
+    # Normalise: use YYYY-MM-DD format (strip any non-date suffix)
+    archive_date = json_date[:10] if json_date and len(json_date) >= 10 else today_str
+    archive_path = ARCHIVE / f"{archive_date}.html"
+
+    # Archive HTML: replace the history block with a back-link note
+    archive_html = html.replace(
+        history_block,
+        f'<div class="section" style="border-top:2px solid var(--border);margin-top:24px;">'
+        f'<div class="section-title" style="color:var(--blue);">&#128196; History Archive</div>'
+        f'<p style="color:var(--text-muted);font-size:12px;">'
+        f'This is an archived report for <strong style="color:#e0e0e0;">{archive_date}</strong>. '
+        f'<a href="../index.html" style="color:var(--blue);">&#8592; Back to Latest Report</a></p>'
+        f'</div>'
+    )
+
+    with open(archive_path, "w", encoding="utf-8") as f:
+        f.write(archive_html)
+    arch_kb = archive_path.stat().st_size / 1024
+    print(f"  ✓  Archive written: archive/{archive_date}.html  ({arch_kb:.1f} KB)")
+
+    # ── RE-WRITE index.html with updated archive block (now includes today) ──
+    # Rebuild the history block now that today's archive exists
+    history_block_updated = build_history_archive_block()
+    html_updated = html.replace(history_block, history_block_updated)
+    with open(OUTPUT, "w", encoding="utf-8") as f:
+        f.write(html_updated)
+    size_kb2 = OUTPUT.stat().st_size / 1024
+    print(f"  ✓  index.html re-written with updated archive links ({size_kb2:.1f} KB)")
+    print(f"  ✓  Archive block now shows {len(list(ARCHIVE.glob('[0-9]*.html')))} link(s)")
+
 if __name__ == "__main__":
     print("╔══════════════════════════════════════════════╗")
-    print("  Market Summary Renderer v4.2")
+    print("  Market Summary Renderer v4.3  (Archival)")
     print("╚══════════════════════════════════════════════╝")
     render()
     print("✅  Render complete.")
