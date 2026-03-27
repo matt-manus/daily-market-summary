@@ -959,32 +959,17 @@ def render():
     else:
         print("  ✓  All template tags resolved (0 residual)")
 
-    # ── HISTORY ARCHIVE BLOCK ──────────────────────────────────────────────
-    # Build archive block BEFORE writing index.html so it reflects existing archives
-    print("\n  ── HISTORY ARCHIVE BLOCK ──")
-    history_block = build_history_archive_block()
-    html = html.replace("{{HISTORY_ARCHIVE_BLOCK}}", history_block)
-    print(f"  ✓  History archive block built ({len(list(ARCHIVE.glob('[0-9]*.html')))} archive file(s) found)")
-
-    # ── WRITE index.html ──────────────────────────────────────────────────
-    with open(OUTPUT, "w", encoding="utf-8") as f:
-        f.write(html)
-    size_kb = OUTPUT.stat().st_size / 1024
-    print(f"  ✓  index.html written  ({size_kb:.1f} KB)")
-
-    # ── WRITE ARCHIVE FILE ────────────────────────────────────────────────
+    # ── WRITE ARCHIVE FILE (before building history block) ───────────────────
+    # Write archive FIRST so the history block can include today's entry
     print("\n  ── ARCHIVE OUTPUT ──")
     ARCHIVE.mkdir(parents=True, exist_ok=True)
-    today_str  = get_today_date_str()
-    # Use date from JSON meta if available, otherwise use today
-    json_date  = meta.get("date", today_str)
-    # Normalise: use YYYY-MM-DD format (strip any non-date suffix)
+    today_str    = get_today_date_str()
+    json_date    = meta.get("date", today_str)
     archive_date = json_date[:10] if json_date and len(json_date) >= 10 else today_str
     archive_path = ARCHIVE / f"{archive_date}.html"
 
-    # Archive HTML: replace the history block with a back-link note
-    archive_html = html.replace(
-        history_block,
+    # Build a temporary archive placeholder (back-link footer)
+    archive_footer = (
         f'<div class="section" style="border-top:2px solid var(--border);margin-top:24px;">'
         f'<div class="section-title" style="color:var(--blue);">&#128196; History Archive</div>'
         f'<p style="color:var(--text-muted);font-size:12px;">'
@@ -992,25 +977,31 @@ def render():
         f'<a href="../index.html" style="color:var(--blue);">&#8592; Back to Latest Report</a></p>'
         f'</div>'
     )
-
+    # Replace the placeholder tag with the archive footer for the archive copy
+    archive_html = html.replace("{{HISTORY_ARCHIVE_BLOCK}}", archive_footer)
     with open(archive_path, "w", encoding="utf-8") as f:
         f.write(archive_html)
     arch_kb = archive_path.stat().st_size / 1024
     print(f"  ✓  Archive written: archive/{archive_date}.html  ({arch_kb:.1f} KB)")
 
-    # ── RE-WRITE index.html with updated archive block (now includes today) ──
-    # Rebuild the history block now that today's archive exists
-    history_block_updated = build_history_archive_block()
-    html_updated = html.replace(history_block, history_block_updated)
+    # ── HISTORY ARCHIVE BLOCK (built AFTER archive file exists) ──────────────
+    # Now today's archive is on disk, so the block will include it
+    print("\n  ── HISTORY ARCHIVE BLOCK ──")
+    history_block = build_history_archive_block()
+    html_with_archive = html.replace("{{HISTORY_ARCHIVE_BLOCK}}", history_block)
+    archive_count = len(list(ARCHIVE.glob('[0-9]*.html')))
+    print(f"  ✓  History archive block built ({archive_count} archive file(s) found)")
+
+    # ── WRITE index.html (with complete archive block) ────────────────────────
     with open(OUTPUT, "w", encoding="utf-8") as f:
-        f.write(html_updated)
-    size_kb2 = OUTPUT.stat().st_size / 1024
-    print(f"  ✓  index.html re-written with updated archive links ({size_kb2:.1f} KB)")
-    print(f"  ✓  Archive block now shows {len(list(ARCHIVE.glob('[0-9]*.html')))} link(s)")
+        f.write(html_with_archive)
+    size_kb = OUTPUT.stat().st_size / 1024
+    print(f"  ✓  index.html written  ({size_kb:.1f} KB)")
+    print(f"  ✓  Archive block shows {archive_count} link(s) in footer")
 
 if __name__ == "__main__":
     print("╔══════════════════════════════════════════════╗")
-    print("  Market Summary Renderer v4.3  (Archival)")
+    print("  Market Summary Renderer v4.4  (Semi-Auto Mode)")
     print("╚══════════════════════════════════════════════╝")
     render()
     print("✅  Render complete.")

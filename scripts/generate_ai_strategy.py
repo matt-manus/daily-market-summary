@@ -23,7 +23,12 @@ BASE = Path(__file__).resolve().parent.parent
 JSON_IN  = BASE / "data" / "today_market.json"
 JSON_OUT = BASE / "data" / "ai_strategy.json"
 
-client = OpenAI()
+try:
+    client = OpenAI()
+    has_openai = True
+except Exception:
+    has_openai = False
+    print("  ⚠  OpenAI API key not found. Will use fallback/manual strategy generation.")
 
 
 def load_data():
@@ -236,18 +241,24 @@ RULES FOR EACH POINT:
 - MAXIMUM 30 Chinese characters per point (English terms don't count)
 - Return ONLY the JSON object, no markdown, no extra text"""
 
-    # Use JSON mode for reliable structured output
-
-    response = client.chat.completions.create(
-        model="gpt-4.1-mini",
-        messages=[{"role": "user", "content": prompt}],
-        temperature=0.7,
-        max_tokens=800,
-        response_format={"type": "json_object"},
-    )
-
-    ai_text = response.choices[0].message.content.strip()
-    print(f"  [DEBUG] Raw AI response: {ai_text[:200]}...")
+    if has_openai:
+        # Use JSON mode for reliable structured output
+        try:
+            response = client.chat.completions.create(
+                model="gpt-4.1-mini",
+                messages=[{"role": "user", "content": prompt}],
+                temperature=0.7,
+                max_tokens=800,
+                response_format={"type": "json_object"},
+            )
+            ai_text = response.choices[0].message.content.strip()
+            print(f"  [DEBUG] Raw AI response: {ai_text[:200]}...")
+        except Exception as e:
+            print(f"  ⚠  OpenAI API call failed: {e}. Falling back to manual mode.")
+            ai_text = "{}"
+    else:
+        print("  ⚠  Skipping OpenAI API call (no key or client). Using empty template for Manus to fill.")
+        ai_text = "{}"
 
     # Parse JSON response with bull_points / bear_points arrays
     bull_points = []

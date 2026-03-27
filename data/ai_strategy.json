@@ -10,19 +10,21 @@
   "outlook": "Risk-off (Defensive)",
   "outlook_color": "red",
   "bull_points": [
-    "SPY RSI 33.2處於超賣極値，具均值回歸潛力",
-    "VIX 28.11高位恐慌，逆向操作價值顯著",
-    "能源板塊XLE RSI 80.3突破均線，產業背離機會",
-    "標普僅18.5%成分股在20MA以下，短期反彈可能"
+    "SPY RSI 33.2 觸及超賣極值 (Oversold Extreme)，歷史均值回歸 (Mean Reversion) 機率顯著上升",
+    "Fear & Greed 17.5 深陷極度恐慌 (Extreme Fear)，逆向指標 (Contrarian Signal) 顯示潛在底部區域",
+    "能源板塊 XLE RSI 80.3 強勢突破所有均線 (ABOVE ALL)，資金輪動 (Sector Rotation) 跡象明確",
+    "IWM 小型股 RSI 43.2 相對強於大型股，顯示內部背離 (Internal Divergence) 支撐反彈動能"
   ],
   "bear_points": [
-    "SPY、QQQ RSI均低於35，趨勢崩潰風險加劇",
-    "標普成分股>20MA僅18.5%，廣度惡化明顯",
-    "多數指數價格均低於20/50/200MA，假突破信號",
-    "TNX 10Y上升2.03%，宏觀壓制風險持續存在"
+    "SPY 跌破 20/50/200MA 三線 (BELOW ALL)，趨勢崩潰 (Trend Breakdown) 結構確立",
+    "S&P500 僅 18.5% 股票在 20MA 之上，廣度惡化 (Breadth Deterioration) 達到歷史警戒水平",
+    "TNX 10Y 收益率 +2.03% 至 4.416%，宏觀壓制 (Macro Suppression) 持續打壓估值",
+    "NYSE A/D Ratio 0.527、NASDAQ A/D Ratio 0.520，全市場下跌廣度確認假突破 (False Breakout) 風險"
   ],
-  "bull_text": "SPY RSI 33.2處於超賣極値，具均值回歸潛力 VIX 28.11高位恐慌，逆向操作價值顯著 能源板塊XLE RSI 80.3突破均線，產業背離機會 標普僅18.5%成分股在20MA以下，短期反彈可能",
-  "bear_text": "SPY、QQQ RSI均低於35，趨勢崩潰風險加劇 標普成分股>20MA僅18.5%，廣度惡化明顯 多數指數價格均低於20/50/200MA，假突破信號 TNX 10Y上升2.03%，宏觀壓制風險持續存在",
+  "bull_text": "SPY RSI 33.2 觸及超賣極值，歷史均值回歸機率顯著上升；Fear & Greed 17.5 深陷極度恐慌，逆向指標顯示潛在底部；能源板塊 XLE RSI 80.3 強勢突破所有均線，資金輪動跡象明確；IWM 小型股相對強於大型股，顯示內部背離支撐反彈動能",
+  "bear_text": "SPY 跌破 20/50/200MA 三線，趨勢崩潰結構確立；S&P500 僅 18.5% 股票在 20MA 之上，廣度惡化達到歷史警戒水平；TNX 10Y 收益率 +2.03% 至 4.416%，宏觀壓制持續打壓估值；NYSE A/D Ratio 0.527，全市場下跌廣度確認假突破風險",
+  "_generated_by": "Manus AI (Semi-Auto Mode) — no OpenAI API key required",
+  "_note": "Bull/Bear Case written by Manus based on real fetched data from today_market.json",
   "watchlist": [
     {
       "symbol": "XLE",
