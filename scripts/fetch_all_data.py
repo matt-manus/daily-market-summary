@@ -438,19 +438,43 @@ def fetch_breadth() -> dict:
     sp500_a20   = fetch_finviz_count("idx_sp500,ta_sma20_pa");    time.sleep(0.6)
     print(f"     SP500: total={sp500_total}, >20MA={sp500_a20}, >50MA={sp500_a50}, >200MA={sp500_a200}")
 
-    print("  正在抓取 NASDAQ 廣度數據…")
-    nasd_total  = fetch_finviz_count("exch_nasd");                time.sleep(0.6)
-    nasd_a200   = fetch_finviz_count("exch_nasd,ta_sma200_pa");   time.sleep(0.6)
-    nasd_a50    = fetch_finviz_count("exch_nasd,ta_sma50_pa");    time.sleep(0.6)
-    nasd_a20    = fetch_finviz_count("exch_nasd,ta_sma20_pa");    time.sleep(0.6)
-    print(f"     NASD:  total={nasd_total}, >20MA={nasd_a20}, >50MA={nasd_a50}, >200MA={nasd_a200}")
+    # ── QQQ: NASDAQ 100 only (idx_ndx ≈ 101 stocks) — NOT the full NASDAQ exchange ──
+    print("  正在抓取 QQQ (NASDAQ 100 = idx_ndx) 廣度數據…")
+    nasd_total  = fetch_finviz_count("idx_ndx");                  time.sleep(0.6)
+    nasd_a200   = fetch_finviz_count("idx_ndx,ta_sma200_pa");     time.sleep(0.6)
+    nasd_a50    = fetch_finviz_count("idx_ndx,ta_sma50_pa");      time.sleep(0.6)
+    nasd_a20    = fetch_finviz_count("idx_ndx,ta_sma20_pa");      time.sleep(0.6)
+    print(f"     QQQ (NASDAQ100): total={nasd_total}, >20MA={nasd_a20}, >50MA={nasd_a50}, >200MA={nasd_a200}")
+    # Sanity check: NASDAQ 100 should have ~100 stocks, NOT 4000+
+    if nasd_total and nasd_total > 500:
+        print(f"     ⚠  SANITY FAIL: nasd_total={nasd_total} > 500 — idx_ndx returned exchange-wide data!")
+        nasd_total = nasd_a20 = nasd_a50 = nasd_a200 = None
 
-    print("  正在抓取 NYSE 廣度數據…")
-    nyse_total  = fetch_finviz_count("exch_nyse");                time.sleep(0.6)
-    nyse_a200   = fetch_finviz_count("exch_nyse,ta_sma200_pa");   time.sleep(0.6)
-    nyse_a50    = fetch_finviz_count("exch_nyse,ta_sma50_pa");    time.sleep(0.6)
-    nyse_a20    = fetch_finviz_count("exch_nyse,ta_sma20_pa");    time.sleep(0.6)
-    print(f"     NYSE:  total={nyse_total}, >20MA={nyse_a20}, >50MA={nyse_a50}, >200MA={nyse_a200}")
+    # ── DIA: Dow Jones 30 via yfinance (exact 30 components) ──
+    print("  正在計算 DIA (Dow Jones 30) 廣度數據 via yfinance…")
+    try:
+        import yfinance as yf
+        dji_tickers = yf.download(DJI_COMPONENTS, period='1y', interval='1d', progress=False)
+        dji_close = dji_tickers['Close'] if 'Close' in dji_tickers else dji_tickers
+        dia_above_20 = dia_above_50 = dia_above_200 = 0
+        dia_valid = 0
+        for sym in DJI_COMPONENTS:
+            if sym not in dji_close.columns: continue
+            s = dji_close[sym].dropna()
+            if len(s) < 200: continue
+            price = float(s.iloc[-1])
+            dia_valid += 1
+            if price > float(s.tail(20).mean()): dia_above_20 += 1
+            if price > float(s.tail(50).mean()): dia_above_50 += 1
+            if price > float(s.tail(200).mean()): dia_above_200 += 1
+        nyse_total = dia_valid
+        nyse_a20   = dia_above_20
+        nyse_a50   = dia_above_50
+        nyse_a200  = dia_above_200
+        print(f"     DIA (DJI30): total={nyse_total}, >20MA={nyse_a20}, >50MA={nyse_a50}, >200MA={nyse_a200}")
+    except Exception as e:
+        print(f"     ⚠  DIA yfinance 計算失敗: {e}")
+        nyse_total = nyse_a20 = nyse_a50 = nyse_a200 = None
 
     print("  正在抓取 Russell 2000 廣度數據…")
     rut_total   = fetch_finviz_count("idx_rut");                  time.sleep(0.6)
@@ -469,7 +493,8 @@ def fetch_breadth() -> dict:
             "pct_above_50ma":  pct(sp500_a50,  sp500_total),
             "pct_above_200ma": pct(sp500_a200, sp500_total),
         },
-        "nasdaq": {
+        # QQQ = NASDAQ 100 index constituents only (idx_ndx, ~101 stocks)
+        "nasdaq100": {
             "total":           nasd_total,
             "above_20ma":      nasd_a20,
             "above_50ma":      nasd_a50,
@@ -477,8 +502,10 @@ def fetch_breadth() -> dict:
             "pct_above_20ma":  pct(nasd_a20,  nasd_total),
             "pct_above_50ma":  pct(nasd_a50,  nasd_total),
             "pct_above_200ma": pct(nasd_a200, nasd_total),
+            "source":          "Finviz idx_ndx (NASDAQ 100 constituents)",
         },
-        "nyse": {
+        # DIA = Dow Jones 30 components only (yfinance, exact 30 stocks)
+        "dji30": {
             "total":           nyse_total,
             "above_20ma":      nyse_a20,
             "above_50ma":      nyse_a50,
@@ -486,6 +513,7 @@ def fetch_breadth() -> dict:
             "pct_above_20ma":  pct(nyse_a20,  nyse_total),
             "pct_above_50ma":  pct(nyse_a50,  nyse_total),
             "pct_above_200ma": pct(nyse_a200, nyse_total),
+            "source":          "yfinance DJI-30 components",
         },
         "russell2000": {
             "total":           rut_total,

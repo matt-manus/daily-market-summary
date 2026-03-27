@@ -131,13 +131,16 @@ SECTOR_NAMES = {
     "XLRE": "Real Estate",     "XLU": "Utilities",
     "XLC": "Communication Svcs",
 }
-# Section 4B: ETF-specific breadth (constituents of each index)
-# sp500 → SPY, nasdaq100 (Finviz idx_ndx) → QQQ, nyse → DIA (proxy), russell2000 → IWM
+# Section 4B: ETF-specific breadth (index constituents only)
+# sp500 → SPY (Finviz idx_sp500, ~503 stocks)
+# nasdaq100 → QQQ (Finviz idx_ndx, ~101 stocks)  — NOT the full NASDAQ exchange
+# dji30 → DIA (yfinance DJI-30 components, exact 30 stocks)
+# russell2000 → IWM (Finviz idx_rut, ~1930 stocks)
 BREADTH_KEYS = [
-    ("sp500",       "S&P 500",     "SPY"),
-    ("nasdaq",      "NASDAQ 100",  "QQQ"),
-    ("russell2000", "Russell 2000", "IWM"),
-    ("nyse",        "NYSE Comp.",   "DIA"),
+    ("sp500",       "S&P 500",      "SPY",  "Finviz idx_sp500"),
+    ("nasdaq100",   "NASDAQ 100",   "QQQ",  "Finviz idx_ndx"),
+    ("dji30",       "Dow Jones 30", "DIA",  "yfinance DJI-30"),
+    ("russell2000", "Russell 2000", "IWM",  "Finviz idx_rut"),
 ]
 
 # ── Section builders ───────────────────────────────────────────────────────
@@ -204,16 +207,20 @@ def build_breadth_rows(breadth, indices):
     if not breadth:
         return '<tr><td colspan="6"><span class="na-val">N/A</span></td></tr>'
     rows = []
-    for key, label, etf in BREADTH_KEYS:
+    for entry in BREADTH_KEYS:
+        # Support both 3-tuple (legacy) and 4-tuple (new with source)
+        key, label, etf = entry[0], entry[1], entry[2]
+        source = entry[3] if len(entry) > 3 else ""
         d     = breadth.get(key, {})
         total = na(d.get("total"), "int")
         p20   = pct_bar_cell(d.get("pct_above_20ma"))
         p50   = pct_bar_cell(d.get("pct_above_50ma"))
         p200  = pct_bar_cell(d.get("pct_above_200ma"))
+        etf_label = f'<strong>{etf}</strong><br><span style="font-size:10px;color:var(--text-muted)">{source}</span>'
         rows.append(
             f'<tr><td><strong>{label}</strong></td><td>{total}</td>'
             f'<td>{p20}</td><td>{p50}</td><td>{p200}</td>'
-            f'<td style="color:var(--text-muted)">{etf}</td></tr>'
+            f'<td>{etf_label}</td></tr>'
         )
     return "\n".join(rows)
 
@@ -485,58 +492,64 @@ def build_s6_checklist(data):
 # ── Section 6: Bull/Bear analysis (AI-powered) ────────────────────────────
 
 def build_s6_analysis(data, ai_strategy):
-    """Build the full Section 6 content: Checklist + AI Bull/Bear analysis."""
+    """Build the full Section 6 content: Checklist + AI Bull/Bear analysis.
+    Bull/Bear are rendered as <ul><li> bullet points (not paragraphs).
+    """
     checklist = build_s6_checklist(data)
+    ai = ai_strategy or {}
 
-    # Use AI-generated bull/bear text if available
-    bull_text = (ai_strategy or {}).get("bull_text", "")
-    bear_text = (ai_strategy or {}).get("bear_text", "")
+    # Prefer new bullet-point arrays; fall back to legacy text
+    bull_points = ai.get("bull_points", [])
+    bear_points = ai.get("bear_points", [])
 
-    # Fallback to computed text if AI not available
-    if not bull_text:
-        sentiment = data.get("sentiment", {})
-        fg        = sentiment.get("fear_greed", {})
-        naaim     = sentiment.get("naaim", {})
-        indices   = data.get("indices", {})
-        breadth   = data.get("breadth", {})
-        macro     = data.get("macro", {})
-        fg_score  = safe_float(fg.get("score"))
-        spy_rsi   = safe_float((indices.get("SPY") or {}).get("rsi14"))
-        qqq_rsi   = safe_float((indices.get("QQQ") or {}).get("rsi14"))
-        sp_p200   = safe_float((breadth.get("sp500") or {}).get("pct_above_200ma"))
-        naaim_now = safe_float(naaim.get("value"))
-        history   = naaim.get("history", [])
-        naaim_prev = safe_float(history[1].get("value")) if len(history) >= 2 else None
-        bull_text = (
-            f"目前市場處於「極度恐慌」狀態（Fear &amp; Greed Index = {fg_score:.0f}），"
-            f"歷史上此區間（&lt;20）往往是逆向操作的潛在買入窗口。"
-            f"SPY RSI({spy_rsi:.1f}) 與 QQQ RSI({qqq_rsi:.1f}) 均已進入超賣邊緣，"
-            f"技術上存在均值回歸的動力。S&amp;P 500 仍有 {sp_p200:.1f}% 的股票維持在 200MA 之上，"
-            f"長期趨勢結構尚未全面崩潰。"
-        ) if all(v is not None for v in [fg_score, spy_rsi, qqq_rsi, sp_p200]) else \
-            "目前市場處於極度恐慌區間，RSI 接近超賣，存在逆向反彈機會。"
+    # If no bullet arrays, convert legacy paragraph text to single-item list
+    if not bull_points:
+        bull_text = ai.get("bull_text", "")
+        if not bull_text:
+            # Compute fallback
+            sentiment = data.get("sentiment", {})
+            fg        = sentiment.get("fear_greed", {})
+            indices   = data.get("indices", {})
+            breadth   = data.get("breadth", {})
+            fg_score  = safe_float(fg.get("score"))
+            spy_rsi   = safe_float((indices.get("SPY") or {}).get("rsi14"))
+            qqq_rsi   = safe_float((indices.get("QQQ") or {}).get("rsi14"))
+            sp_p200   = safe_float((breadth.get("sp500") or {}).get("pct_above_200ma"))
+            bull_text = (
+                f"Fear & Greed={fg_score:.0f} (極度恐恨)，歷史逆向買入窗口"
+                if fg_score is not None else "市場處於極度恐恨區間"
+            )
+        bull_points = [bull_text]
 
-    if not bear_text:
-        macro   = data.get("macro", {})
-        breadth = data.get("breadth", {})
-        vix_chg = safe_float((macro.get("VIX") or {}).get("change_1d_pct"))
-        vix_now = safe_float((macro.get("VIX") or {}).get("price"))
-        sp_p20  = safe_float((breadth.get("sp500") or {}).get("pct_above_20ma"))
-        bear_text = (
-            f"市場趨勢全面轉弱，所有主要指數均跌破 20MA 與 50MA。"
-            f"VIX 單日飆升 {vix_chg:.1f}% 至 {vix_now:.2f}，顯示避險情緒急劇升溫。"
-            f"市場廣度極差，S&amp;P 500 僅 {sp_p20:.1f}% 股票在 20MA 之上，"
-            f"反彈可能缺乏廣度支撐，容易形成無量假突破後再度下行。"
-        ) if all(v is not None for v in [vix_chg, vix_now, sp_p20]) else \
-            "市場趨勢全面轉弱，廣度極差，VIX 高企，反彈缺乏廣度支撐。"
+    if not bear_points:
+        bear_text = ai.get("bear_text", "")
+        if not bear_text:
+            macro   = data.get("macro", {})
+            breadth = data.get("breadth", {})
+            vix_chg = safe_float((macro.get("VIX") or {}).get("change_1d_pct"))
+            vix_now = safe_float((macro.get("VIX") or {}).get("price"))
+            sp_p20  = safe_float((breadth.get("sp500") or {}).get("pct_above_20ma"))
+            bear_text = (
+                f"VIX +{vix_chg:.1f}% 至 {vix_now:.2f}，市場廣度崩潰，僅 {sp_p20:.1f}% 股票在 20MA 之上"
+                if all(v is not None for v in [vix_chg, vix_now, sp_p20]) else "市場趨勢全面轉弱"
+            )
+        bear_points = [bear_text]
+
+    # Render as <ul><li> bullet points
+    def points_to_ul(points, color):
+        items = "".join(f'<li style="margin-bottom:6px;line-height:1.6;">{p}</li>' for p in points if p)
+        return f'<ul style="color:{color};font-size:13px;margin:8px 0 14px 0;padding-left:20px;">{items}</ul>'
+
+    bull_html = points_to_ul(bull_points, "#81c784")  # green tint for bull
+    bear_html = points_to_ul(bear_points, "#ef9a9a")  # red tint for bear
 
     return f"""{checklist}
 
   <h4 class="sub-title">Bull Case (利好邏輯)</h4>
-  <p style="color:#e0e0e0;font-size:13px;line-height:1.7;margin-bottom:14px;">{bull_text}</p>
+  {bull_html}
 
   <h4 class="sub-title">Bear Case (利淡邏輯)</h4>
-  <p style="color:#e0e0e0;font-size:13px;line-height:1.7;">{bear_text}</p>"""
+  {bear_html}"""
 
 # ── Section 7: Trading Outlook & Watchlist (AI-powered) ───────────────────
 
@@ -821,6 +834,30 @@ def render():
 
     # Section 8: Event Calendar with BMO/AMC timing
     html = html.replace("{{S8_CONTENT}}", build_s8_calendar())
+
+    # ── DEBUG MODE: Verify all image files exist before writing HTML ──
+    print("\n  ── IMAGE PATH VERIFICATION (os.path.exists) ──")
+    img_checks = [
+        ("assets/img/today/stockbee_mm.png",        "Section 4D Stockbee"),
+        ("assets/img/today/industry_performance.png", "Section 5B Industry Chart"),
+        ("assets/img/today/market_heatmap.png",       "Section 5B Market Heatmap"),
+    ]
+    all_images_ok = True
+    for img_path, label in img_checks:
+        full_path = BASE / img_path
+        exists = full_path.exists()
+        size   = full_path.stat().st_size if exists else 0
+        status = f"OK ({size:,} bytes)" if exists else "MISSING"
+        symbol = "✓" if exists else "⚠"
+        print(f"  {symbol}  [{status}] {img_path}  ({label})")
+        if not exists:
+            all_images_ok = False
+            print(f"      ⚠  CRITICAL: {label} image is missing! Run screenshot scripts first.")
+    if all_images_ok:
+        print("  ✓  All image files verified OK")
+    else:
+        print("  ⚠  Some images are missing — HTML will have broken img tags!")
+    print("  ── END IMAGE VERIFICATION ──\n")
 
     # Residual check
     leftover = re.findall(r"\{\{[A-Z0-9_]+\}\}", html)

@@ -202,7 +202,7 @@ def generate_analysis(data_summary: str, data: dict) -> dict:
             break
 
     # Generate AI text via OpenAI
-    prompt = f"""You are a top-tier hedge fund strategist at a macro-driven long/short equity fund. 
+    prompt = f"""You are a top-tier hedge fund strategist at a macro-driven long/short equity fund.
 Analyze today's market data and write a professional market analysis in Traditional Chinese (繁體中文) with English technical terms.
 
 TODAY'S MARKET DATA:
@@ -211,61 +211,75 @@ TODAY'S MARKET DATA:
 RISK SCORE COMPUTED: {risk_score}/9
 RISK FACTORS: {', '.join(risk_reasons)}
 
-Write TWO sections:
+You MUST respond with a valid JSON object with EXACTLY this structure:
+{{
+  "bull_points": [
+    "Point 1 (max 30 Chinese characters + English terms)",
+    "Point 2 ...",
+    "Point 3 ...",
+    "Point 4 ..."
+  ],
+  "bear_points": [
+    "Point 1 (max 30 Chinese characters + English terms)",
+    "Point 2 ...",
+    "Point 3 ...",
+    "Point 4 ..."
+  ]
+}}
 
-1. BULL CASE (利好邏輯): 
-   - Apply concepts: 背離 (divergence), 超賣極值 (oversold extreme), 逆向操作 (contrarian), 均值回歸 (mean reversion)
-   - Focus on: Fear & Greed extreme readings, RSI oversold levels, NAAIM positioning changes, any sector showing relative strength
-   - Be specific with numbers from the data
-   - 3-4 sentences, professional hedge fund language
-
-2. BEAR CASE (利淡邏輯):
-   - Apply concepts: 宏觀壓制 (macro suppression), 假突破 (false breakout), 廣度惡化 (breadth deterioration), 趨勢崩潰 (trend breakdown)
-   - Focus on: VIX spike, all indices below MAs, breadth collapse, sector concentration risk
-   - Be specific with numbers from the data
-   - 3-4 sentences, professional hedge fund language
-
-IMPORTANT: 
-- Use exact numbers from the data (RSI values, MA levels, percentages)
+RULES FOR EACH POINT:
+- BULL CASE points: Apply 背離(divergence), 超賣極値(oversold extreme), 逆向(contrarian), 均値回歸(mean reversion)
+- BEAR CASE points: Apply 宏觀壓制(macro suppression), 假突破(false breakout), 廣度惡化(breadth deterioration), 趨勢崩潰(trend breakdown)
+- Each point MUST include specific numbers from the data (RSI, MA levels, percentages, VIX values)
+- Each point must be a complete, standalone insight (no continuation between points)
 - Write in Traditional Chinese with English technical terms in parentheses
-- Be analytical and specific, not generic
-- Format: Just the paragraph text, no headers"""
+- MAXIMUM 30 Chinese characters per point (English terms don't count)
+- Return ONLY the JSON object, no markdown, no extra text"""
+
+    # Use JSON mode for reliable structured output
 
     response = client.chat.completions.create(
         model="gpt-4.1-mini",
         messages=[{"role": "user", "content": prompt}],
         temperature=0.7,
         max_tokens=800,
+        response_format={"type": "json_object"},
     )
 
     ai_text = response.choices[0].message.content.strip()
+    print(f"  [DEBUG] Raw AI response: {ai_text[:200]}...")
 
-    # Parse bull/bear from AI response
+    # Parse JSON response with bull_points / bear_points arrays
+    bull_points = []
+    bear_points = []
+    # Legacy fallback fields
     bull_text = ""
     bear_text = ""
 
-    # Try to split on common separators
-    if "BEAR CASE" in ai_text or "利淡邏輯" in ai_text:
-        parts = ai_text.replace("**BEAR CASE**", "|||").replace("**BULL CASE**", "").replace("BEAR CASE", "|||").replace("利淡邏輯", "|||")
-        split = parts.split("|||")
-        if len(split) >= 2:
-            bull_text = split[0].strip().replace("BULL CASE", "").replace("利好邏輯", "").strip(" :\n")
-            bear_text = split[1].strip().strip(" :\n")
+    try:
+        ai_json = json.loads(ai_text)
+        bull_points = ai_json.get("bull_points", [])
+        bear_points = ai_json.get("bear_points", [])
+        # Also keep legacy text fields for backward compat
+        bull_text = " ".join(bull_points)
+        bear_text = " ".join(bear_points)
+        print(f"  ✓  Parsed {len(bull_points)} bull points, {len(bear_points)} bear points")
+    except json.JSONDecodeError as e:
+        print(f"  ⚠  JSON parse failed: {e}. Falling back to text split.")
+        # Fallback: treat as paragraph text
+        if "BEAR CASE" in ai_text or "利淡邏輯" in ai_text:
+            parts = ai_text.replace("BEAR CASE", "|||").replace("利淡邏輯", "|||")
+            split = parts.split("|||")
+            if len(split) >= 2:
+                bull_text = split[0].strip().replace("BULL CASE", "").replace("利好邏輯", "").strip(" :\n")
+                bear_text = split[1].strip().strip(" :\n")
+            else:
+                bull_text = ai_text
         else:
             bull_text = ai_text
-            bear_text = ""
-    else:
-        # Split roughly in half
-        mid = len(ai_text) // 2
-        # Find a sentence boundary near the middle
-        for i in range(mid, min(mid + 200, len(ai_text))):
-            if ai_text[i] in "。\n":
-                bull_text = ai_text[:i+1].strip()
-                bear_text = ai_text[i+1:].strip()
-                break
-        if not bull_text:
-            bull_text = ai_text
-            bear_text = ""
+        # Convert to single-item lists
+        bull_points = [bull_text] if bull_text else []
+        bear_points = [bear_text] if bear_text else []
 
     # Generate watchlist technical triggers
     watchlist_rows = []
@@ -323,8 +337,10 @@ IMPORTANT:
         "risk_reasons":  risk_reasons,
         "outlook":       outlook,
         "outlook_color": outlook_color,
-        "bull_text":     bull_text,
-        "bear_text":     bear_text,
+        "bull_points":   bull_points,   # NEW: list of bullet-point strings
+        "bear_points":   bear_points,   # NEW: list of bullet-point strings
+        "bull_text":     bull_text,     # Legacy: joined paragraph text
+        "bear_text":     bear_text,     # Legacy: joined paragraph text
         "watchlist":     watchlist_rows,
         "vix_price":     vix_price,
         "vix_chg":       vix_chg,

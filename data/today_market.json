@@ -649,6 +649,26 @@
       "QQQ": 1.47,
       "DIA": 1.35,
       "IWM": 2.03
+    },
+    "nasdaq100": {
+      "total": 101,
+      "above_20ma": 14,
+      "above_50ma": 16,
+      "above_200ma": 44,
+      "pct_above_20ma": 13.9,
+      "pct_above_50ma": 15.8,
+      "pct_above_200ma": 43.6,
+      "source": "Finviz idx_ndx (NASDAQ 100 constituents)"
+    },
+    "dji30": {
+      "total": 30,
+      "above_20ma": 6,
+      "above_50ma": 6,
+      "above_200ma": 16,
+      "pct_above_20ma": 20.0,
+      "pct_above_50ma": 20.0,
+      "pct_above_200ma": 53.3,
+      "source": "yfinance DJI-30 components"
     }
   }
 }
