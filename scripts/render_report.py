@@ -903,6 +903,68 @@ def render():
     html = html.replace("{{SECTOR_ROWS}}",   build_sector_rows(sectors))
     html = html.replace("{{INDUSTRY_ROWS}}", build_industry_rows(industry))
 
+    # ── REGIME BANNER ──────────────────────────────────────────────────────────
+    spy_vs20     = safe_float((indices.get("SPY") or {}).get("vs_ma20_pct"))
+    vix_val_r    = safe_float((macro.get("VIX") or {}).get("price"))
+    fg_score_r   = safe_float((sentiment.get("fear_greed") or {}).get("score"))
+    sp_p20_r     = safe_float((breadth.get("sp500") or {}).get("pct_above_20ma"))
+    if spy_vs20 is not None and spy_vs20 < -3 and vix_val_r is not None and vix_val_r > 25:
+        rc = "#f44336"; rb = "rgba(244,67,54,0.10)"
+        rl = "&#9888; RISK-OFF REGIME &#8212; Defensive Posture Recommended"
+        rs = f"SPY is {spy_vs20:+.1f}% vs 20MA | VIX={vix_val_r:.1f} (Elevated) | F&amp;G={fg_score_r:.0f} (Extreme Fear)"
+    elif spy_vs20 is not None and spy_vs20 > 2:
+        rc = "#4caf50"; rb = "rgba(76,175,80,0.10)"
+        rl = "&#10003; RISK-ON REGIME &#8212; Trend Following Mode"
+        rs = f"SPY is {spy_vs20:+.1f}% vs 20MA | VIX={vix_val_r:.1f} | F&amp;G={fg_score_r:.0f}"
+    else:
+        rc = "#ff9800"; rb = "rgba(255,152,0,0.10)"
+        rl = "&#11035; NEUTRAL REGIME &#8212; Selective / Cautious"
+        rs = f"SPY is {spy_vs20:+.1f}% vs 20MA | VIX={vix_val_r:.1f} | F&amp;G={fg_score_r:.0f}"
+    regime_banner = (
+        f'<div style="background:{rb};border:1px solid {rc};border-radius:8px;'
+        f'padding:14px 20px;margin-bottom:20px;">'
+        f'<div style="font-size:13px;font-weight:700;color:{rc};margin-bottom:4px;">{rl}</div>'
+        f'<div style="font-size:11px;color:#aaa;">{rs}</div></div>'
+    )
+    html = html.replace("{{REGIME_BANNER}}", regime_banner)
+    # ── CORRECTION CHECKLIST ────────────────────────────────────────────────────
+    if spy_vs20 is not None and spy_vs20 < 0:
+        c1 = "&#9989;" if vix_val_r and vix_val_r > 30 else "&#11036;"
+        c2 = "&#9989;" if fg_score_r and fg_score_r < 20 else "&#11036;"
+        c3 = "&#9989;" if sp_p20_r and sp_p20_r < 20 else "&#11036;"
+        c4 = "&#9989;" if spy_vs20 and spy_vs20 < -3 else "&#11036;"
+        correction_html = (
+            '<div style="background:rgba(244,67,54,0.07);border:1px solid #f44336;'
+            'border-radius:8px;padding:14px 20px;margin-bottom:20px;">'
+            '<div style="font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;'
+            'color:#f44336;margin-bottom:10px;">&#128203; Correction Checklist</div>'
+            '<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;font-size:12px;">'
+            f'<div>{c1} VIX &gt; 30 (Panic Level): {vix_val_r:.1f}</div>'
+            f'<div>{c2} F&amp;G &lt; 20 (Extreme Fear): {fg_score_r:.0f}</div>'
+            f'<div>{c3} SP500 &gt;20MA &lt; 20%: {sp_p20_r:.1f}%</div>'
+            f'<div>{c4} SPY &gt;5% below 20MA: {spy_vs20:+.1f}%</div>'
+            '</div></div>'
+        )
+    else:
+        correction_html = ""
+    html = html.replace("{{CORRECTION_CHECKLIST}}", correction_html)
+    # ── EXPERT INSIGHTS ─────────────────────────────────────────────────────────
+    expert_file = BASE / "expert_notes.txt"
+    expert_html = ""
+    if expert_file.exists():
+        with open(expert_file, encoding="utf-8") as ef:
+            notes = ef.read().strip()
+        content_lines = [l for l in notes.splitlines() if l.strip() and not l.strip().startswith("#")]
+        if content_lines:
+            content_text = "<br/>".join(content_lines)
+            expert_html = (
+                '<div style="background:rgba(66,165,245,0.08);border:1px solid #42a5f5;'
+                'border-radius:8px;padding:14px 20px;margin-bottom:20px;">'
+                '<div style="font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;'
+                'color:#42a5f5;margin-bottom:8px;">&#128161; Expert Insights</div>'
+                f'<div style="font-size:12px;color:#ccc;line-height:1.6;">{content_text}</div></div>'
+            )
+    html = html.replace("{{EXPERT_INSIGHTS}}", expert_html)
     # Section 6: AI Market Analysis (Checklist + Bull/Bear)
     html = html.replace("{{S6_CONTENT}}", build_s6_analysis(data, ai_strategy))
 
