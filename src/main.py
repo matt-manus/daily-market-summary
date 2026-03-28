@@ -29,10 +29,11 @@ def main():
     logic_data = regime_filter.process_logic()
     regime_info = logic_data.get("regime_info", {}) if logic_data else {}
     expert_insights = logic_data.get("expert_insights", "") if logic_data else ""
+    checklist_status = logic_data.get("checklist_status", {}) if logic_data else {}
     
     print("\n[4/4] Rendering HTML Report...")
     try:
-        html_generator.render(regime_info=regime_info, expert_insights=expert_insights)
+        html_generator.render(regime_info=regime_info, expert_insights=expert_insights, checklist_status=checklist_status)
     except Exception as e:
         print(f"Error rendering HTML: {e}")
         

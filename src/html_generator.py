@@ -897,7 +897,27 @@ def build_regime_banner(regime_info: dict) -> str:
 </div>"""
 
 
-def render(regime_info: dict = None, expert_insights: str = ""):
+def generate_checklist_html(checklist_status):
+    if not checklist_status:
+        return ""
+        
+    html_content = "<div class='checklist-card' style='background: linear-gradient(135deg, #1a0a0a 0%, #1c1010 100%); border: 2px solid #f44336; border-radius: 10px; padding: 20px 24px; margin-bottom: 28px; box-shadow: 0 0 20px rgba(244,67,54,0.15);'>"
+    html_content += "<h3 style='font-size:16px;font-weight:700;color:#f44336;letter-spacing:0.5px;margin-bottom:16px;display:flex;align-items:center;gap:8px;'><span style='font-size:20px;'>🛡️</span> Market Correction Checklist</h3>"
+    html_content += "<ul style='list-style:none;padding:0;margin:0;'>"
+    
+    for item, status in checklist_status.items():
+        if status == 'Y':
+            icon = "<span style='color: #28a745; font-weight: bold; width: 24px; display: inline-block;'>✅</span>"
+        else:
+            icon = "<span style='color: #dc3545; font-weight: bold; width: 24px; display: inline-block;'>❌</span>"
+        
+        html_content += f"<li style='margin-bottom: 12px; font-size: 13px; color: #e0e0e0; display: flex; align-items: center; padding-bottom: 8px; border-bottom: 1px solid #2a2a2a;'>{icon} <span style='margin-left: 8px;'>{item}</span></li>"
+        
+    html_content += "</ul></div>"
+    return html_content
+
+
+def render(regime_info: dict = None, expert_insights: str = "", checklist_status: dict = None):
     with open(JSON, encoding="utf-8") as f:
         data = json.load(f)
 
@@ -1000,9 +1020,14 @@ def render(regime_info: dict = None, expert_insights: str = ""):
 
     # Inject Correction Checklist if in Correction regime
     if regime_info and regime_info.get("regime") == "Correction":
-        correction_checklist = build_correction_checklist_html()
+        # Use the new dynamic checklist if available, fallback to old static one
+        if checklist_status:
+            correction_checklist = generate_checklist_html(checklist_status)
+            print("  \u2713  Dynamic Correction Checklist injected (SPY < 20MA)")
+        else:
+            correction_checklist = build_correction_checklist_html()
+            print("  \u2713  Static Correction Checklist injected (SPY < 20MA)")
         html = html.replace("{{CORRECTION_CHECKLIST}}", correction_checklist)
-        print("  \u2713  Correction Checklist injected (SPY < 20MA)")
     else:
         html = html.replace("{{CORRECTION_CHECKLIST}}", "")
 

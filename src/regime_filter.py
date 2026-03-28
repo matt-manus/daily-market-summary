@@ -19,6 +19,35 @@ DATA_DIR = BASE_DIR / "data"
 EXPERT_NOTES_PATH = BASE_DIR / "expert_notes.txt"
 
 
+# ─── Checklist Evaluation ────────────────────────────────────────────────────
+
+def evaluate_checklist(market_data):
+    """
+    根據市場數據自動評估 Correction Checklist 的狀態
+    預期 market_data 包含: vix, spy_price, spy_20ma, ad_ratio 等數值
+    """
+    checklist_status = {}
+    
+    # 1. VIX < 20
+    vix_value = market_data.get('vix', 99)
+    checklist_status['VIX < 20 (恐慌消退)'] = 'Y' if vix_value < 20 else 'N'
+    
+    # 2. SPY > 20MA
+    spy_price = market_data.get('spy_price', 0)
+    spy_20ma = market_data.get('spy_20ma', 9999)
+    checklist_status['SPY 突破 20MA (短期趨勢轉強)'] = 'Y' if spy_price > spy_20ma else 'N'
+    
+    # 3. Market Breadth (A/D Ratio > 1.0)
+    ad_ratio = market_data.get('ad_ratio', 0)
+    try:
+        ad_ratio = float(ad_ratio)
+    except (TypeError, ValueError):
+        ad_ratio = 0.0
+    checklist_status['A/D Ratio > 1.0 (內部廣度改善)'] = 'Y' if ad_ratio > 1.0 else 'N'
+    
+    return checklist_status
+
+
 # ─── Regime Determination ──────────────────────────────────────────────────
 
 def determine_regime(data: dict) -> dict:
@@ -205,18 +234,32 @@ def build_correction_checklist_html() -> str:
 def process_logic() -> dict:
     """
     Main entry point for regime_filter.
-    Returns regime_info and expert_insights for use by html_generator.
+    Returns regime_info, expert_insights, and checklist_status for use by html_generator.
     """
     json_path = DATA_DIR / "today_market.json"
     if not json_path.exists():
         print("  ⚠  today_market.json not found.")
-        return {"regime_info": {}, "expert_insights": ""}
+        return {"regime_info": {}, "expert_insights": "", "checklist_status": {}}
 
     with open(json_path, "r", encoding="utf-8") as f:
         data = json.load(f)
 
     regime_info     = determine_regime(data)
     expert_insights = get_expert_insights()
+    
+    # Extract flat market data for checklist
+    vix = data.get("macro", {}).get("VIX", {}).get("price", 99)
+    spy_price = data.get("indices", {}).get("SPY", {}).get("price", 0)
+    spy_20ma = data.get("indices", {}).get("SPY", {}).get("ma20", 9999)
+    ad_ratio = data.get("breadth", {}).get("market_wide_advance_decline", {}).get("NYSE", {}).get("ad_ratio", 0)
+    
+    market_data_flat = {
+        'vix': vix,
+        'spy_price': spy_price,
+        'spy_20ma': spy_20ma,
+        'ad_ratio': ad_ratio
+    }
+    checklist_status = evaluate_checklist(market_data_flat)
 
     print(f"  ✓  Regime detected: {regime_info['regime']} — {regime_info['label']}")
     if expert_insights:
@@ -227,6 +270,7 @@ def process_logic() -> dict:
     return {
         "regime_info":     regime_info,
         "expert_insights": expert_insights,
+        "checklist_status": checklist_status,
     }
 
 

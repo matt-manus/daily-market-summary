@@ -282,10 +282,35 @@
 <div class="page-wrap">
 
 <!-- ═══ REGIME BANNER (auto-injected) ═════════════════════ -->
-{{REGIME_BANNER}}
+<div style="background:rgba(244,67,54,0.08);border:1px solid #f44336;
+  border-radius:8px;padding:14px 18px;margin-bottom:20px;
+  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;">
+  <div>
+    <div style="font-size:15px;font-weight:700;color:#f44336;">⚠ Market Correction</div>
+    <div style="font-size:12px;color:#aaaaaa;margin-top:4px;">SPY ($634.09) is BELOW the 20MA ($664.71), currently -4.61% from 20MA. Defensive posture recommended. See Correction Checklist below.</div>
+  </div>
+  <div style="display:flex;gap:16px;flex-wrap:wrap;">
+    <div style="text-align:center;">
+      <div style="font-size:10px;color:#555;text-transform:uppercase;letter-spacing:0.8px;">SPY</div>
+      <div style="font-size:14px;font-weight:600;color:#e0e0e0;">$634.09</div>
+    </div>
+    <div style="text-align:center;">
+      <div style="font-size:10px;color:#555;text-transform:uppercase;letter-spacing:0.8px;">20MA</div>
+      <div style="font-size:14px;font-weight:600;color:#aaaaaa;">$664.71</div>
+    </div>
+    <div style="text-align:center;">
+      <div style="font-size:10px;color:#555;text-transform:uppercase;letter-spacing:0.8px;">50MA</div>
+      <div style="font-size:14px;font-weight:600;color:#aaaaaa;">$677.89</div>
+    </div>
+    <div style="text-align:center;">
+      <div style="font-size:10px;color:#555;text-transform:uppercase;letter-spacing:0.8px;">vs 20MA</div>
+      <div style="font-size:14px;font-weight:600;color:#f44336;">-4.61%</div>
+    </div>
+  </div>
+</div>
 
 <!-- ═══ CORRECTION CHECKLIST (shown only when SPY < 20MA) ═════ -->
-{{CORRECTION_CHECKLIST}}
+<div class='checklist-card' style='background: linear-gradient(135deg, #1a0a0a 0%, #1c1010 100%); border: 2px solid #f44336; border-radius: 10px; padding: 20px 24px; margin-bottom: 28px; box-shadow: 0 0 20px rgba(244,67,54,0.15);'><h3 style='font-size:16px;font-weight:700;color:#f44336;letter-spacing:0.5px;margin-bottom:16px;display:flex;align-items:center;gap:8px;'><span style='font-size:20px;'>🛡️</span> Market Correction Checklist</h3><ul style='list-style:none;padding:0;margin:0;'><li style='margin-bottom: 12px; font-size: 13px; color: #e0e0e0; display: flex; align-items: center; padding-bottom: 8px; border-bottom: 1px solid #2a2a2a;'><span style='color: #dc3545; font-weight: bold; width: 24px; display: inline-block;'>❌</span> <span style='margin-left: 8px;'>VIX < 20 (恐慌消退)</span></li><li style='margin-bottom: 12px; font-size: 13px; color: #e0e0e0; display: flex; align-items: center; padding-bottom: 8px; border-bottom: 1px solid #2a2a2a;'><span style='color: #dc3545; font-weight: bold; width: 24px; display: inline-block;'>❌</span> <span style='margin-left: 8px;'>SPY 突破 20MA (短期趨勢轉強)</span></li><li style='margin-bottom: 12px; font-size: 13px; color: #e0e0e0; display: flex; align-items: center; padding-bottom: 8px; border-bottom: 1px solid #2a2a2a;'><span style='color: #dc3545; font-weight: bold; width: 24px; display: inline-block;'>❌</span> <span style='margin-left: 8px;'>A/D Ratio > 1.0 (內部廣度改善)</span></li></ul></div>
 
 <!-- ═══ COACH'S ACTION PLAN (Section 7 — MOST PROMINENT) ══════ -->
 <div class="section" style="
@@ -357,7 +382,22 @@
 </div>
 
 <!-- ═══ EXPERT INSIGHTS (from expert_notes.txt) ══════════ -->
-{{EXPERT_INSIGHTS}}
+<div class="section" style="border:2px solid #42a5f5;border-radius:10px;
+  background:linear-gradient(135deg,#0a1628 0%,#0d1a2e 100%);
+  padding:20px 24px;margin-bottom:28px;
+  box-shadow:0 0 20px rgba(66,165,245,0.1);">
+  <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;">
+    <span style="font-size:20px;">&#128161;</span>
+    <div style="font-size:10px;font-weight:600;letter-spacing:1.2px;text-transform:uppercase;
+                color:#42a5f5;border-left:3px solid #42a5f5;padding-left:10px;">
+      Expert Insights
+    </div>
+  </div>
+  <div style="font-size:13px;color:#e0e0e0;line-height:1.8;white-space:pre-wrap;"># Expert Notes — Daily Market Commentary<br/># =========================================<br/># Add your expert insights, trade ideas, or market commentary below.<br/># This file is read automatically by the report generator.<br/># When not empty, the content will appear in the "Expert Insights" section of the HTML report.<br/># Lines starting with # are comments and will be included as-is.<br/>#<br/># Example:<br/>#   "Watching for a potential FTD setup. Key levels: SPY 540, QQQ 460.<br/>#    Tariff uncertainty remains the primary headwind. Prefer defensive sectors."<br/>#<br/># Leave this file empty (or only comments) to hide the Expert Insights section.</div>
+  <div style="margin-top:12px;font-size:10px;color:#555;">
+    Source: expert_notes.txt &mdash; Updated manually by the analyst.
+  </div>
+</div>
 
 <!-- ═══ SECTION 1 — MACRO INDICATORS ═════════════════════ -->
 <div class="section">
