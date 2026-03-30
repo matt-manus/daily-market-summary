@@ -5,12 +5,14 @@ from pathlib import Path
 # Ensure src is in Python path
 sys.path.append(str(Path(__file__).resolve().parent))
 
+from holiday_guard import check_if_trading_day
 import data_fetcher
 import image_agent
 import regime_filter
 import html_generator
 
 def main():
+    check_if_trading_day()
     print("=== Daily Market Summary - Modular Generation ===")
     
     print("\n[1/4] Fetching Market Data...")
