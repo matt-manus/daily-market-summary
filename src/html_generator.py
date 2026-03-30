@@ -898,23 +898,121 @@ def build_regime_banner(regime_info: dict) -> str:
 
 
 def generate_checklist_html(checklist_status):
+    """
+    Legacy static checklist renderer — kept for backward compatibility.
+    Accepts simple {item: 'Y'/'N'} dict.
+    For new RegimeFilter output, use generate_dynamic_checklist_html() instead.
+    """
     if not checklist_status:
         return ""
-        
+
     html_content = "<div class='checklist-card' style='background: linear-gradient(135deg, #1a0a0a 0%, #1c1010 100%); border: 2px solid #f44336; border-radius: 10px; padding: 20px 24px; margin-bottom: 28px; box-shadow: 0 0 20px rgba(244,67,54,0.15);'>"
-    html_content += "<h3 style='font-size:16px;font-weight:700;color:#f44336;letter-spacing:0.5px;margin-bottom:16px;display:flex;align-items:center;gap:8px;'><span style='font-size:20px;'>🛡️</span> Market Correction Checklist</h3>"
+    html_content += "<h3 style='font-size:16px;font-weight:700;color:#f44336;letter-spacing:0.5px;margin-bottom:16px;display:flex;align-items:center;gap:8px;'><span style='font-size:20px;'>\U0001f6e1\ufe0f</span> Market Correction Checklist</h3>"
     html_content += "<ul style='list-style:none;padding:0;margin:0;'>"
-    
+
     for item, status in checklist_status.items():
         if status == 'Y':
-            icon = "<span style='color: #28a745; font-weight: bold; width: 24px; display: inline-block;'>✅</span>"
+            icon = "<span style='color: #28a745; font-weight: bold; width: 24px; display: inline-block;'>\u2705</span>"
         else:
-            icon = "<span style='color: #dc3545; font-weight: bold; width: 24px; display: inline-block;'>❌</span>"
-        
+            icon = "<span style='color: #dc3545; font-weight: bold; width: 24px; display: inline-block;'>\u274c</span>"
+
         html_content += f"<li style='margin-bottom: 12px; font-size: 13px; color: #e0e0e0; display: flex; align-items: center; padding-bottom: 8px; border-bottom: 1px solid #2a2a2a;'>{icon} <span style='margin-left: 8px;'>{item}</span></li>"
-        
+
     html_content += "</ul></div>"
     return html_content
+
+
+def _render_dynamic_checklist(checklist_data: dict) -> str:
+    """
+    Render the active Y/N checklist table with actual value column.
+    Accepts the 'checklist' sub-dict from RegimeFilter.determine_regime().
+    Automatically selects green or red checklist based on active_checklist field.
+    """
+    active = checklist_data.get('active_checklist', 'red')
+    items  = checklist_data.get(f'{active}_checklist', {})
+    total  = checklist_data.get(f'{active}_total', 0)
+    max_items = len(items)
+
+    html = (
+        '<table style="width:100%;border-collapse:collapse;font-size:13px;margin-top:10px;">'
+        '<thead><tr>'
+        '<th style="text-align:left;padding:6px 10px;color:var(--text-muted);font-weight:600;'
+        'border-bottom:1px solid var(--border);">Checklist Item</th>'
+        '<th style="text-align:center;padding:6px 10px;color:var(--text-muted);font-weight:600;'
+        'border-bottom:1px solid var(--border);width:50px;">Y/N</th>'
+        '<th style="text-align:left;padding:6px 10px;color:var(--text-muted);font-weight:600;'
+        'border-bottom:1px solid var(--border);">Actual Value</th>'
+        '</tr></thead><tbody>'
+    )
+
+    for item, info in items.items():
+        yn    = info.get('value', 'N')
+        actual = info.get('actual', '')
+        if yn == 'Y':
+            yn_html = '<span style="color:#4caf50;font-weight:700;">Y</span>'
+            row_bg  = 'background:rgba(76,175,80,0.05);'
+        else:
+            yn_html = '<span style="color:#f44336;font-weight:700;">N</span>'
+            row_bg  = 'background:rgba(244,67,54,0.05);'
+        html += (
+            f'<tr style="{row_bg}">'
+            f'<td style="padding:7px 10px;border-bottom:1px solid #1e1e1e;color:#e0e0e0;">{item}</td>'
+            f'<td style="text-align:center;padding:7px 10px;border-bottom:1px solid #1e1e1e;">{yn_html}</td>'
+            f'<td style="padding:7px 10px;border-bottom:1px solid #1e1e1e;color:#aaaaaa;font-size:12px;">{actual}</td>'
+            f'</tr>'
+        )
+
+    score_color = '#4caf50' if total >= (max_items / 2) else '#f44336'
+    html += (
+        f'<tr><td colspan="3" style="padding:8px 10px;font-weight:700;'
+        f'color:{score_color};border-top:1px solid var(--border);font-size:13px;">'
+        f'\u7e3d\u5206\uff1a{total} / {max_items}</td></tr>'
+        '</tbody></table>'
+    )
+    return html
+
+
+def _add_criteria_modal() -> str:
+    """
+    Return the Criteria Modal HTML + JS snippet.
+    Inject once near the end of the page body.
+    Triggered by showCriteriaModal() JavaScript call.
+    """
+    return '''
+<div id="criteriaModal" style="display:none;position:fixed;top:10%;left:10%;width:80%;
+  background:#1a1a2e;padding:24px 28px;border:2px solid #42a5f5;
+  border-radius:10px;z-index:9999;box-shadow:0 0 40px rgba(66,165,245,0.25);
+  max-height:75vh;overflow-y:auto;">
+  <h2 style="color:#42a5f5;font-size:16px;font-weight:700;margin-bottom:14px;">
+    Regime Engine + Checklist Criteria (Grok v1.1)
+  </h2>
+  <p style="color:#e0e0e0;font-size:13px;margin-bottom:10px;">
+    <strong style="color:#fff;">Regime \u5224\u65b7\u6e96\u5247\uff1a</strong>
+  </p>
+  <ul style="color:#e0e0e0;font-size:13px;line-height:1.9;padding-left:20px;margin-bottom:14px;">
+    <li>\U0001f7e2 <strong>Uptrend</strong>\uff1aVIX &lt; 20 AND SPY &gt; 20MA AND % &gt; 20MA &gt; 40%</li>
+    <li>\U0001f7e1 <strong>Correction</strong>\uff1aVIX 20\u201330 OR SPY \u4ecb\u4e4e 20MA\u201350MA OR % &gt; 20MA 25\u201340%</li>
+    <li>\U0001f534 <strong>Bear Market</strong>\uff1a\u5176\u4ed6\u60c5\u6cc1</li>
+  </ul>
+  <p style="color:#e0e0e0;font-size:13px;margin-bottom:10px;">
+    <strong style="color:#fff;">Checklist \u9805\u76ee\u4f86\u6e90\uff1a</strong>
+    \u4f60\u539f\u672c\u5169\u5f35 Correction Checklist\uff0c\u5df2\u81ea\u52d5\u91cf\u5316
+  </p>
+  <ul style="color:#e0e0e0;font-size:13px;line-height:1.9;padding-left:20px;margin-bottom:18px;">
+    <li><strong>Green Checklist</strong>\uff08\u5e02\u5834\u56de\u6232\u4fe1\u865f\uff09\uff1a\u5171 6 \u9805\uff0c\u6aa2\u67e5 RSI &gt; 50\u3001SPY &gt; 20MA\u3001A/D &gt; 1.0\u3001VIX &lt; 20</li>
+    <li><strong>Red Checklist</strong>\uff08\u5e02\u5834\u60e1\u5316\u4fe1\u865f\uff09\uff1a\u5171 5 \u9805\uff0c\u6aa2\u67e5 RSI &lt; 50\u3001SPY &lt; 20MA\u3001A/D &lt; 1.0\u3001VIX &gt; 20</li>
+    <li><strong>Active Checklist</strong>\uff1a\u4f9d\u636e green_total vs red_total \u81ea\u52d5\u5207\u63db</li>
+  </ul>
+  <button onclick="document.getElementById(\'criteriaModal\').style.display=\'none\'"
+    style="background:#42a5f5;color:#000;border:none;padding:8px 20px;border-radius:5px;
+    font-weight:700;cursor:pointer;font-size:13px;">\u95dc\u9589</button>
+</div>
+<script>
+function showCriteriaModal() {
+    document.getElementById(\'criteriaModal\').style.display = \'block\';
+}
+</script>
+'''
 
 
 def render(regime_info: dict = None, expert_insights: str = "", checklist_status: dict = None):
@@ -1011,25 +1109,84 @@ def render(regime_info: dict = None, expert_insights: str = "", checklist_status
     # Section 8: Event Calendar with BMO/AMC timing
     html = html.replace("{{S8_CONTENT}}", build_s8_calendar())
 
-    # ── REGIME BANNER & CORRECTION CHECKLIST ──────────────────────────────────
-    # Import here to avoid circular imports
-    from regime_filter import build_correction_checklist_html
-
+    # ── REGIME BANNER & DYNAMIC CORRECTION CHECKLIST (v1.2) ─────────────────────
     regime_banner_html = build_regime_banner(regime_info or {})
     html = html.replace("{{REGIME_BANNER}}", regime_banner_html)
 
-    # Inject Correction Checklist if in Correction regime
-    if regime_info and regime_info.get("regime") == "Correction":
-        # Use the new dynamic checklist if available, fallback to old static one
-        if checklist_status:
-            correction_checklist = generate_checklist_html(checklist_status)
-            print("  \u2713  Dynamic Correction Checklist injected (SPY < 20MA)")
+    # Inject Dynamic Checklist for ALL regimes (not just Correction)
+    # checklist_status may be:
+    #   (a) Full RegimeFilter.determine_regime() dict  → use _render_dynamic_checklist()
+    #   (b) Legacy {item: 'Y'/'N'} dict                → fall back to generate_checklist_html()
+    #   (c) None / empty                               → try import fallback, then empty
+    if checklist_status and isinstance(checklist_status, dict):
+        if 'checklist' in checklist_status and 'raw_numbers' in checklist_status:
+            # ── New v1.2 path: full RegimeFilter output ──────────────────────────
+            regime_data = checklist_status
+            raw = regime_data.get('raw_numbers', {})
+            regime_label = regime_data.get('regime', 'N/A')
+            regime_score = regime_data.get('regime_score', 0)
+            active = regime_data['checklist'].get('active_checklist', 'red')
+            active_total = regime_data['checklist'].get(f'{active}_total', 0)
+            max_items = len(regime_data['checklist'].get(f'{active}_checklist', {}))
+
+            dynamic_table = _render_dynamic_checklist(regime_data['checklist'])
+            criteria_modal = _add_criteria_modal()
+
+            correction_checklist = f"""
+<div style="background:linear-gradient(135deg,#0d1117 0%,#111827 100%);
+  border:2px solid #42a5f5;border-radius:10px;padding:20px 24px;
+  margin-bottom:28px;box-shadow:0 0 20px rgba(66,165,245,0.12);">
+  <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:14px;">
+    <div>
+      <div style="font-size:10px;font-weight:600;letter-spacing:1.2px;text-transform:uppercase;
+                  color:#42a5f5;border-left:3px solid #42a5f5;padding-left:10px;">
+        Market Regime &amp; Auto Y/N Checklist
+      </div>
+      <div style="font-size:18px;font-weight:700;color:#e0e0e0;margin-top:6px;">
+        {regime_label} &nbsp;<span style="font-size:13px;color:#aaa;">Score: {regime_score}</span>
+      </div>
+    </div>
+    <a href="#" onclick="showCriteriaModal();return false;"
+      style="font-size:12px;color:#42a5f5;text-decoration:none;border:1px solid #42a5f5;
+      padding:5px 12px;border-radius:5px;font-weight:600;">
+      &#128203; View Criteria (Grok v1.1)
+    </a>
+  </div>
+
+  <!-- 關鍵數據列 -->
+  <div style="background:#0a0a0a;border-radius:6px;padding:10px 14px;margin-bottom:14px;
+    font-size:12px;color:#aaaaaa;display:flex;flex-wrap:wrap;gap:16px;">
+    <span><strong style="color:#e0e0e0;">VIX</strong> = {raw.get('VIX', 'N/A')}</span>
+    <span><strong style="color:#e0e0e0;">SPY vs 20MA</strong> = {raw.get('SPY_vs_20MA', 'N/A')}</span>
+    <span><strong style="color:#e0e0e0;">% Above 20MA</strong> = {raw.get('percent_above_20ma', 'N/A')}%</span>
+    <span><strong style="color:#e0e0e0;">A/D Ratio</strong> = {raw.get('A/D_Ratio', 'N/A')}</span>
+    <span><strong style="color:#e0e0e0;">RSI</strong> = {raw.get('RSI', 'N/A')}</span>
+  </div>
+
+  <!-- Auto Y/N Checklist Table -->
+  <div style="font-size:11px;font-weight:600;letter-spacing:0.8px;text-transform:uppercase;
+    color:#42a5f5;margin-bottom:6px;">Correction Checklist (\u81ea\u52d5\u6253\u5206)</div>
+  {dynamic_table}
+</div>
+{criteria_modal}
+"""
+            print(f"  \u2713  Dynamic Regime Section v1.2 injected ({regime_label}, {active} checklist {active_total}/{max_items})")
+
         else:
-            correction_checklist = build_correction_checklist_html()
-            print("  \u2713  Static Correction Checklist injected (SPY < 20MA)")
-        html = html.replace("{{CORRECTION_CHECKLIST}}", correction_checklist)
+            # ── Legacy path: simple {item: 'Y'/'N'} dict ─────────────────────────
+            correction_checklist = generate_checklist_html(checklist_status)
+            print("  \u2713  Legacy Checklist injected (static Y/N dict)")
     else:
-        html = html.replace("{{CORRECTION_CHECKLIST}}", "")
+        # ── Fallback: try module-level build_correction_checklist_html() ─────────
+        try:
+            from regime_filter import build_correction_checklist_html
+            correction_checklist = build_correction_checklist_html()
+            print("  \u2713  Fallback Static Correction Checklist injected")
+        except (ImportError, AttributeError):
+            correction_checklist = ""
+            print("  \u2139  No checklist data available, skipping")
+
+    html = html.replace("{{CORRECTION_CHECKLIST}}", correction_checklist)
 
     # ── EXPERT INSIGHTS BLOCK ─────────────────────────────────────────────────
     expert_block = build_expert_insights_block(expert_insights or "")
