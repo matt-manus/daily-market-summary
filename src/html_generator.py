@@ -1236,6 +1236,12 @@ def render(regime_info: dict = None, expert_insights: str = "", checklist_status
 
     print("  ── END BASE64 EMBEDDING ──\n")
 
+    # ── CRITERIA MODAL (inject once before </body>) ───────────────────────────
+    # Always inject the modal so the 'View Criteria' link works on every page.
+    # Safe to inject even when checklist is not shown — modal stays hidden (display:none).
+    html = html.replace("</body>", _add_criteria_modal() + "\n</body>")
+    print("  \u2713  Criteria Modal injected before </body>")
+
     # Residual check
     leftover = re.findall(r"\{\{[A-Z0-9_]+\}\}", html)
     if leftover:
