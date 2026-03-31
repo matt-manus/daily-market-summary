@@ -1,8 +1,8 @@
 {
   "meta": {
-    "generated_hkt": "2026-03-31 07:59",
-    "generated_et": "2026-03-30 19:59",
-    "date": "2026-03-31",
+    "generated_hkt": "2026-03-30 21:29",
+    "generated_et": "2026-03-30 21:29",
+    "date": "2026-03-30",
     "source": "Yahoo Finance + CNN + NAAIM + Finviz + Barchart",
     "rsi_method": "Wilder SMMA (EWM alpha=1/14)",
     "schema_version": "4.2"
@@ -14,9 +14,9 @@
       "change_1d_pct": -1.42
     },
     "DXY": {
-      "price": 100.561,
-      "change_1d": 0.411,
-      "change_1d_pct": 0.41
+      "price": 100.386,
+      "change_1d": 0.236,
+      "change_1d_pct": 0.24
     },
     "TNX_10Y": {
       "price": 4.342,
@@ -24,19 +24,19 @@
       "change_1d_pct": -2.21
     },
     "GOLD": {
-      "price": 4544.3999,
-      "change_1d": 52.3999,
-      "change_1d_pct": 1.17
+      "price": 4588.5,
+      "change_1d": 96.5,
+      "change_1d_pct": 2.15
     },
     "OIL_WTI": {
-      "price": 106.64,
-      "change_1d": 7.0,
-      "change_1d_pct": 7.03
+      "price": 103.83,
+      "change_1d": 4.19,
+      "change_1d_pct": 4.21
     },
     "BTC": {
-      "price": 66696.3281,
-      "change_1d": 741.4062,
-      "change_1d_pct": 1.12
+      "price": 67729.2031,
+      "change_1d": 1774.2812,
+      "change_1d_pct": 2.69
     }
   },
   "indices": {
@@ -133,7 +133,7 @@
     "fear_greed": {
       "score": 8.67,
       "rating": "extreme fear",
-      "timestamp": "2026-03-30T23:39:08+00:00",
+      "timestamp": "2026-03-30T23:59:56+00:00",
       "prev_close": 10.22,
       "prev_1w": 14.13,
       "prev_1m": 41.17,
@@ -585,27 +585,27 @@
     "source": "Finviz Screener v4.1 (with retry)",
     "market_wide_advance_decline": {
       "NASDAQ": {
-        "advances": 1262,
-        "declines": 1789,
+        "advances": 1258,
+        "declines": 1786,
         "unchanged": 87,
-        "total_issues": 3138,
+        "total_issues": 3131,
         "pct_advancing": 40.2,
         "pct_declining": 57.0,
-        "adv_vol": 3322780000,
-        "dec_vol": 4419050000,
-        "ad_ratio": 0.705,
+        "adv_vol": 3353870000,
+        "dec_vol": 4492690000,
+        "ad_ratio": 0.704,
         "new_52w_highs": 21,
         "new_52w_lows": 119
       },
       "NYSE": {
-        "advances": 936,
-        "declines": 923,
+        "advances": 934,
+        "declines": 921,
         "unchanged": 27,
-        "total_issues": 1886,
+        "total_issues": 1882,
         "pct_advancing": 49.6,
         "pct_declining": 48.9,
-        "adv_vol": 2451430000,
-        "dec_vol": 2765470000,
+        "adv_vol": 2474160000,
+        "dec_vol": 2798490000,
         "ad_ratio": 1.014,
         "new_52w_highs": 76,
         "new_52w_lows": 77
