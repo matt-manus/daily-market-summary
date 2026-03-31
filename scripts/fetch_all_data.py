@@ -1,13 +1,15 @@
 """
-fetch_all_data.py  — Credit-Efficient Market Data Fetcher  v4.1
+fetch_all_data.py  — Credit-Efficient Market Data Fetcher  v5.0
 ---------------------------------------------------------------
-Changes from v4.0:
-  1. BREADTH FIX: fetch_finviz_count() now tries multiple URL patterns and
-     parses both JSON and HTML fallback to eliminate N/A in Section 4b.
-  2. ADR LOGIC: compute_etf_ad_ratio() now uses BOTH above_20ma AND above_50ma
-     for a more robust breadth-based A/D proxy.
-  3. RETRY LOGIC: Added retry with backoff for Finviz screener calls.
-  4. SECTOR PERF: Improved parsing with additional fallback patterns.
+Changes from v4.1:
+  1. SECTOR EXPANSION: SECTORS dict replaced by INDUSTRY_ETFS with 5 categories
+     and 60 ETFs to support Sector RS (Relative Strength) analysis.
+     Categories:
+       A. Core Industry  (26 tickers) — XL* SPDR + key industry ETFs
+       B. Thematic & Tech (13 tickers) — AI/ARK/Semi/Cyber themes
+       C. Commodities & Power (8 tickers) — Energy/Metals/Nuclear
+       D. Defense & Space  (3 tickers) — ITA, XAR, ROKT
+       E. Macro & Global   (6 tickers) — Bonds, REIT, China, Cannabis
 
 JSON Schema v4.1 (same structure as v4.0):
 {
@@ -66,18 +68,108 @@ MACRO_TICKERS = {
 
 INDEX_ETFS = ["SPY", "QQQ", "DIA", "IWM"]
 
-SECTORS = {
-    "XLF":  "Financials",
+# ─── Sector RS ETF Universe (v5.0) ──────────────────────────────────────────
+# 5 categories / 60 ETFs — used for Relative Strength ranking
+
+# Category A: Core Industry (26 tickers)
+# SPDR XL* sector ETFs + key industry sub-sector ETFs
+CORE_INDUSTRY = {
+    # ── SPDR Sector ETFs ──
     "XLK":  "Technology",
-    "XLE":  "Energy",
+    "XLF":  "Financials",
     "XLI":  "Industrials",
     "XLV":  "Health Care",
-    "XLP":  "Consumer Staples",
     "XLY":  "Consumer Discretionary",
+    "XLP":  "Consumer Staples",
+    "XLE":  "Energy",
     "XLB":  "Materials",
     "XLU":  "Utilities",
     "XLC":  "Communication Services",
     "XLRE": "Real Estate",
+    # ── Industry Sub-Sector ETFs ──
+    "SMH":  "Semiconductors",
+    "IGV":  "Software",
+    "SKYY": "Cloud Computing",
+    "XBI":  "Biotech (Equal Weight)",
+    "IBB":  "Biotech (Market Cap)",
+    "IHI":  "Medical Devices",
+    "KRE":  "Regional Banks",
+    "KBE":  "Banks Broad",
+    "IAI":  "Investment Banking & Brokers",
+    "XRT":  "Retail",
+    "IYT":  "Transportation",
+    "JETS": "Airlines",
+    "XOP":  "Oil & Gas E&P",
+    "XHB":  "Homebuilders",
+    "LIT":  "Lithium & Battery",
+}
+
+# Category B: Thematic & Tech (13 tickers)
+# AI / ARK / Semiconductor / Cybersecurity themes
+THEMATIC_TECH = {
+    "AIQ":  "AI & Big Data",
+    "ARKQ": "ARK Autonomous & Robotics",
+    "ARKK": "ARK Innovation",
+    "BOTZ": "Robotics & AI",
+    "ROBO": "Robotics & Automation",
+    "SOXX": "Semiconductors (iShares)",
+    "CIBR": "Cybersecurity",
+    "BUG":  "Cybersecurity (Global X)",
+    "BLOK": "Blockchain",
+    "FINX": "FinTech",
+    "IPAY": "Digital Payments",
+    "QTUM": "Quantum Computing & ML",
+    "MAGS": "Magnificent 7",
+}
+
+# Category C: Commodities & Power (8 tickers)
+# Energy transition, metals, nuclear
+COMMODITIES_POWER = {
+    "NLR":  "Nuclear Energy",
+    "URA":  "Uranium Mining",
+    "COPX": "Copper Miners",
+    "TAN":  "Solar Energy",
+    "GLD":  "Gold ETF",
+    "SLV":  "Silver ETF",
+    "GDX":  "Gold Miners",
+    "PICK": "Diversified Metals & Mining",
+}
+
+# Category D: Defense & Space (3 tickers)
+DEFENSE_SPACE = {
+    "ITA":  "Aerospace & Defense",
+    "XAR":  "Aerospace & Defense (SPDR)",
+    "ROKT": "Space Exploration",
+}
+
+# Category E: Macro & Global (6 tickers)
+# Bonds, REITs, China, Cannabis
+MACRO_GLOBAL = {
+    "PAVE": "Infrastructure",
+    "TLT":  "20+ Year Treasury Bond",
+    "VNQ":  "Real Estate (Vanguard)",
+    "FXI":  "China Large-Cap",
+    "KWEB": "China Internet",
+    "MSOS": "Cannabis",
+}
+
+# ── Unified SECTORS dict (preserves backward compatibility) ──────────────────
+# All downstream code references SECTORS; this merges all 5 categories.
+SECTORS = {
+    **CORE_INDUSTRY,
+    **THEMATIC_TECH,
+    **COMMODITIES_POWER,
+    **DEFENSE_SPACE,
+    **MACRO_GLOBAL,
+}
+
+# Category metadata — available for RS grouping and display
+SECTOR_CATEGORIES = {
+    "Core Industry":      CORE_INDUSTRY,
+    "Thematic & Tech":    THEMATIC_TECH,
+    "Commodities & Power": COMMODITIES_POWER,
+    "Defense & Space":    DEFENSE_SPACE,
+    "Macro & Global":     MACRO_GLOBAL,
 }
 
 HTTP_HEADERS = {
