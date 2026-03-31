@@ -1,0 +1,17 @@
+# Daily Market Summary — Python Dependencies
+# Generated: 2026-03-31
+# Install: pip install -r requirements.txt
+
+# Data fetching & processing
+yfinance>=1.2.0
+pandas>=2.0.0
+requests>=2.31.0
+pytz>=2024.1
+beautifulsoup4>=4.12.0
+
+# AI strategy generation
+openai>=1.0.0
+
+# Image capture (screenshots)
+playwright>=1.40.0
+Pillow>=10.0.0
