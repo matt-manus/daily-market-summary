@@ -1,5 +1,21 @@
 # Log: Session History
 
+## 2026-03-31 (HKT) / 2026-03-30 (ET) — Force Regenerate
+### Task: 強制重新生成今日報告並 Push 到 GitHub Pages
+- **Actions**:
+  - Deleted `archive/2026-03-30.html` (old report removed per user request)
+  - Executed `python3.11 src/main.py` — fetched latest data, regenerated full report
+  - New archive saved as `archive/2026-03-31.html` (HKT date from `meta.date`)
+  - Updated `index.html` with fresh market data
+  - Committed and pushed to main branch (commit: bbba407)
+- **Key Data (ET: 2026-03-30 19:59)**:
+  - SPY: $631.97 (-0.33%), RSI=27.7, BELOW ALL MAs
+  - QQQ: $558.28 (-0.76%), RSI=28.4, BELOW ALL MAs
+  - VIX: 30.61 (-1.42%) | Fear & Greed: 8.67 (Extreme Fear)
+  - NAAIM: 68.52 (as of 2026-03-25)
+- **Status**: ✅ Force regeneration completed. GitHub Pages updated.
+- **Commit URL**: https://github.com/matt-manus/daily-market-summary/commit/bbba4075729e437eebd48c9a6eda022b408fd838
+
 ## 2026-03-26
 ### Task: System Reconstruction (Credit Efficient Version)
 - **Actions**: 
