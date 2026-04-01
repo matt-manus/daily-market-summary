@@ -205,3 +205,23 @@
 - Playwright `headless_shell` error resolved by running `playwright install chromium`
 - GitHub push required GitHub Connector authentication (previously not logged in)
 - archive/2026-04-01.html generated (2.2MB, base64-embedded images)
+
+## 2026-04-02 (HKT) / 2026-04-01 (ET) — Daily Automated Workflow
+### Task: 每日市場總結自動化工作流程
+- **Actions**:
+  - Confirmed main branch, executed `git pull` — already up to date
+  - Installed requirements.txt — 8 new packages (yfinance 1.2.0, curl-cffi, etc.)
+  - Executed `python3 src/main.py` — holiday_guard triggered: `archive/2026-04-01.html` already exists (NY date 2026-04-01)
+  - System correctly blocked duplicate generation per holiday_guard.py logic
+  - Confirmed GitHub Pages live at: https://matt-manus.github.io/daily-market-summary/
+  - No new commit required — repo already up to date (HEAD: 4608a1d)
+- **Report Status**: ✅ Today's report already published (generated at HKT 08:55)
+- **Key Data (ET: 2026-03-31 20:55)**:
+  - SPY: $650.34 (+2.91%), RSI=42.8, BELOW ALL MAs (vs20MA=-1.56%)
+  - QQQ: $577.18 (+3.39%), RSI=42.4, BELOW ALL
+  - VIX: 25.25 (-17.51%) | Fear & Greed: 14.71 (Extreme Fear)
+  - Regime: 🟡 Correction, Score=55 (4/5 checklist items)
+  - Risk Score: **7/9** (Risk-off Defensive)
+  - Gold: +4.60% ($4,734) | DXY: -0.79% (99.71)
+- **Live Site**: https://matt-manus.github.io/daily-market-summary/
+- **Latest Commit**: 4608a1d
