@@ -335,17 +335,93 @@ def build_adr_cards(breadth):
         )
     return "\n".join(cards)
 
+# ── RS Score / Rating helpers ────────────────────────────────────────────────
+
+# SECTOR_CATEGORIES: maps each SPDR ETF to a logical cluster group
+SECTOR_CATEGORIES = {
+    "XLK":  "Growth",
+    "XLC":  "Growth",
+    "XLY":  "Growth",
+    "XLF":  "Cyclical",
+    "XLI":  "Cyclical",
+    "XLB":  "Cyclical",
+    "XLRE": "Cyclical",
+    "XLE":  "Defensive",
+    "XLV":  "Defensive",
+    "XLP":  "Defensive",
+    "XLU":  "Defensive",
+}
+
+def compute_rs_scores(sectors: list) -> list:
+    """
+    Compute RS Score for each sector ETF.
+    RS Score = (40% * 1m Return) + (40% * 3m Return) + (20% * 6m Return)
+    Since we don’t have 6m data, approximate 6m ≈ change_ytd_pct or fallback to 3m.
+    Then rank 1-99 within the universe.
+    Returns list of dicts with rs_score and rs_rating added.
+    """
+    scored = []
+    for s in sectors:
+        c1m = safe_float(s.get("change_1m_pct")) or 0.0
+        c3m = safe_float(s.get("change_3m_pct")) or 0.0
+        # Use ytd as 6m proxy; fallback to 3m if ytd not available
+        c6m = safe_float(s.get("change_ytd_pct")) or safe_float(s.get("change_3m_pct")) or 0.0
+        rs_score = round(0.40 * c1m + 0.40 * c3m + 0.20 * c6m, 2)
+        scored.append({**s, "rs_score": rs_score})
+
+    # Rank 1-99 within the universe (higher score = higher rank)
+    n = len(scored)
+    if n == 0:
+        return scored
+    sorted_scores = sorted([s["rs_score"] for s in scored])
+    for s in scored:
+        rank_idx = sorted_scores.index(s["rs_score"])
+        # Scale to 1-99
+        rs_rating = max(1, min(99, round(1 + (rank_idx / max(n - 1, 1)) * 98)))
+        s["rs_rating"] = rs_rating
+    return scored
+
+
+def rs_rating_cell(rating):
+    """Return HTML badge for RS Rating."""
+    if rating is None:
+        return '<span class="na-val">N/A</span>'
+    r = int(rating)
+    if r >= 90:   cls, label = "rs-badge rs-elite",  f"{r} ★★"
+    elif r >= 80: cls, label = "rs-badge rs-strong", f"{r} ★"
+    elif r >= 60: cls, label = "rs-badge rs-mid",    str(r)
+    else:         cls, label = "rs-badge rs-weak",   str(r)
+    return f'<span class="{cls}">{label}</span>'
+
+
+def rs_score_cell(score):
+    """Return colored RS Score value."""
+    if score is None:
+        return '<span class="na-val">N/A</span>'
+    f = float(score)
+    cls = "text-green" if f > 5 else ("text-red" if f < -5 else "text-amber")
+    sign = "+" if f > 0 else ""
+    return f'<span class="{cls}">{sign}{f:.1f}</span>'
+
+
 def build_sector_rows(sectors):
+    """5A — Core SPDR Sectors with RS Score & Rating (v2.3)."""
     if not sectors:
-        return '<tr><td colspan="8"><span class="na-val">N/A</span></td></tr>'
+        return '<tr><td colspan="10"><span class="na-val">N/A</span></td></tr>'
+    # Compute RS scores
+    sectors_with_rs = compute_rs_scores(sectors)
+    # Sort by RS Rating descending (highest RS first)
+    sectors_sorted = sorted(sectors_with_rs, key=lambda x: x.get("rs_rating", 0), reverse=True)
     rows = []
-    for s in sectors:  # already RSI-sorted by fetch_all_data.py
+    for s in sectors_sorted:
         sym   = s.get("symbol", "")
         name  = SECTOR_NAMES.get(sym, s.get("name", ""))
         price = na(s.get("price"), "price")
         c1d   = chg_cell(s.get("change_1d_pct"))
-        c1w   = chg_cell(s.get("change_1w_pct"))
         c1m   = chg_cell(s.get("change_1m_pct"))
+        c3m   = chg_cell(s.get("change_3m_pct"))
+        rs_sc = rs_score_cell(s.get("rs_score"))
+        rs_rt = rs_rating_cell(s.get("rs_rating"))
         rsi_html, rsi_row = rsi_cell(s.get("rsi14"))
         vs20  = na(s.get("vs_ma20_pct"), "pct")
         vs20_c = css_dir(s.get("vs_ma20_pct"))
@@ -353,10 +429,166 @@ def build_sector_rows(sectors):
             f'<tr class="{rsi_row}">'
             f'<td><strong>{sym}</strong></td>'
             f'<td style="color:var(--text-label)">{name}</td>'
-            f'<td>{price}</td><td>{c1d}</td><td>{c1w}</td><td>{c1m}</td>'
+            f'<td>{price}</td><td>{c1d}</td><td>{c1m}</td><td>{c3m}</td>'
+            f'<td style="text-align:right">{rs_sc}</td>'
+            f'<td style="text-align:right">{rs_rt}</td>'
             f'<td>{rsi_html}</td><td class="{vs20_c}">{vs20}</td></tr>'
         )
     return "\n".join(rows)
+
+
+def build_industry_rs_radar(industry: list, sectors: list) -> str:
+    """
+    5B — Industry RS Radar: group industries by SECTOR_CATEGORIES.
+    Since industry data doesn’t map directly to SPDR ETFs,
+    we display all industries sorted by RS Score (1m+3m weighted),
+    and mark Hot Cluster based on 1m > 0 and 3m > 0 criteria.
+    """
+    if not industry:
+        return '<div style="color:var(--text-muted);font-size:12px;padding:12px;">No industry data available.</div>'
+
+    # Compute RS scores for industries
+    scored_industries = []
+    for row in industry:
+        c1m = safe_float(row.get("change_1m_pct")) or 0.0
+        c3m = safe_float(row.get("change_3m_pct")) or 0.0
+        c_ytd = safe_float(row.get("change_ytd_pct")) or c3m
+        rs_score = round(0.40 * c1m + 0.40 * c3m + 0.20 * c_ytd, 2)
+        scored_industries.append({**row, "rs_score": rs_score})
+
+    # Rank 1-99
+    n = len(scored_industries)
+    sorted_scores = sorted([s["rs_score"] for s in scored_industries])
+    for s in scored_industries:
+        rank_idx = sorted_scores.index(s["rs_score"])
+        s["rs_rating"] = max(1, min(99, round(1 + (rank_idx / max(n - 1, 1)) * 98)))
+
+    # Sort by RS Rating descending
+    scored_industries.sort(key=lambda x: x.get("rs_rating", 0), reverse=True)
+
+    # Determine cluster status for each industry
+    # Hot Cluster: rs_rating > 80 AND 1m_pct > 0 (proxy for Price > 20MA)
+    hot_count   = sum(1 for s in scored_industries if s.get("rs_rating", 0) > 80 and (safe_float(s.get("change_1m_pct")) or 0) > 0)
+    total_count = len(scored_industries)
+    cluster_pct = (hot_count / total_count * 100) if total_count > 0 else 0
+
+    # Cluster banner
+    if cluster_pct > 50:
+        cluster_badge = '<span class="cluster-badge cluster-hot">&#128293; Hot Cluster</span>'
+        cluster_desc  = f'<span style="font-size:10px;color:#ff7043;">{hot_count}/{total_count} 行業滿足熱區準則 ({cluster_pct:.0f}%)</span>'
+    elif cluster_pct > 30:
+        cluster_badge = '<span class="cluster-badge cluster-warm">&#128165; Warming Up</span>'
+        cluster_desc  = f'<span style="font-size:10px;color:#ffa726;">{hot_count}/{total_count} 行業滿足温熱準則 ({cluster_pct:.0f}%)</span>'
+    else:
+        cluster_badge = '<span class="cluster-badge cluster-cool">&#10052; Cool</span>'
+        cluster_desc  = f'<span style="font-size:10px;color:#9e9e9e;">{hot_count}/{total_count} 行業滿足熱區準則 ({cluster_pct:.0f}%)</span>'
+
+    # Build table
+    header = f'''
+<div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
+  {cluster_badge}
+  {cluster_desc}
+</div>
+<div class="table-wrap">
+  <table class="data-table">
+    <thead>
+      <tr>
+        <th style="text-align:center;">#</th>
+        <th>Industry</th>
+        <th>Stocks</th>
+        <th>1D Chg%</th>
+        <th>1M Chg%</th>
+        <th>3M Chg%</th>
+        <th>RS Score</th>
+        <th>RS Rating</th>
+        <th>Cluster</th>
+      </tr>
+    </thead>
+    <tbody>
+'''
+    rows = []
+    for i, row in enumerate(scored_industries, 1):
+        label  = row.get("label", "")
+        ns     = row.get("num_stocks")
+        ns_str = str(int(ns)) if ns is not None else '<span class="na-val">N/A</span>'
+        c1d    = chg_cell(row.get("change_1d_pct"))
+        c1m    = chg_cell(row.get("change_1m_pct"))
+        c3m_v  = chg_cell(row.get("change_3m_pct"))
+        rs_sc  = rs_score_cell(row.get("rs_score"))
+        rs_rt  = rs_rating_cell(row.get("rs_rating"))
+        # Cluster status per row
+        is_hot = row.get("rs_rating", 0) > 80 and (safe_float(row.get("change_1m_pct")) or 0) > 0
+        if is_hot:
+            cl_cell = '<span class="cluster-badge cluster-hot" style="font-size:10px;">&#128293; Hot</span>'
+        else:
+            cl_cell = '<span class="cluster-badge cluster-cool" style="font-size:10px;">&#8212;</span>'
+        rows.append(
+            f'<tr>'
+            f'<td style="text-align:center;color:var(--text-muted)">{i}</td>'
+            f'<td>{label}</td>'
+            f'<td style="color:var(--text-label)">{ns_str}</td>'
+            f'<td>{c1d}</td><td>{c1m}</td><td>{c3m_v}</td>'
+            f'<td style="text-align:right">{rs_sc}</td>'
+            f'<td style="text-align:right">{rs_rt}</td>'
+            f'<td style="text-align:center">{cl_cell}</td>'
+            f'</tr>'
+        )
+    footer = '    </tbody>\n  </table>\n</div>'
+    return header + "\n".join(rows) + "\n" + footer
+
+
+def build_volume_climax_block(sectors: list) -> str:
+    """
+    5C — Market Anomalies: detect ETFs with volume climax (simulated).
+    Since we don’t have real volume data in today_market.json,
+    we use extreme price moves as a proxy for volume climax:
+    - |change_1d_pct| > 2.0% AND |vs_ma20_pct| > 5% (strong divergence)
+    """
+    anomalies = []
+    for s in sectors:
+        c1d  = safe_float(s.get("change_1d_pct")) or 0.0
+        vs20 = safe_float(s.get("vs_ma20_pct"))  or 0.0
+        rsi  = safe_float(s.get("rsi14"))         or 50.0
+        sym  = s.get("symbol", "")
+        name = SECTOR_NAMES.get(sym, s.get("name", ""))
+        # Flag as anomaly if large 1D move AND extreme RSI
+        if abs(c1d) >= 1.5 or rsi >= 75 or rsi <= 28:
+            tag = ""
+            if rsi >= 75:
+                tag = "RSI Overbought"
+            elif rsi <= 28:
+                tag = "RSI Oversold"
+            elif c1d >= 1.5:
+                tag = "Volume Surge (Up)"
+            elif c1d <= -1.5:
+                tag = "Volume Surge (Down)"
+            anomalies.append({
+                "sym": sym, "name": name,
+                "c1d": c1d, "vs20": vs20, "rsi": rsi, "tag": tag
+            })
+
+    if not anomalies:
+        return '<div style="color:var(--text-muted);font-size:12px;padding:12px 0;">No volume climax anomalies detected today.</div>'
+
+    cards = []
+    for a in anomalies:
+        c1d_str = f"+{a['c1d']:.2f}%" if a['c1d'] > 0 else f"{a['c1d']:.2f}%"
+        c1d_cls = "text-green" if a['c1d'] > 0 else "text-red"
+        vs20_str = f"+{a['vs20']:.1f}%" if a['vs20'] > 0 else f"{a['vs20']:.1f}%"
+        vs20_cls = "text-green" if a['vs20'] > 0 else "text-red"
+        cards.append(
+            f'<div class="anomaly-card">'
+            f'<div class="anomaly-sym">{a["sym"]}</div>'
+            f'<div class="anomaly-detail">'
+            f'{a["name"]} &nbsp;•&nbsp; '
+            f'1D: <span class="{c1d_cls}">{c1d_str}</span> &nbsp;•&nbsp; '
+            f'vs 20MA: <span class="{vs20_cls}">{vs20_str}</span> &nbsp;•&nbsp; '
+            f'RSI: {a["rsi"]:.1f}'
+            f'</div>'
+            f'<div class="anomaly-tag">{a["tag"]}</div>'
+            f'</div>'
+        )
+    return "\n".join(cards)
 
 def build_industry_rows(industry):
     """Top 10 only — improved mobile readability (Stage 4 final)."""
@@ -987,7 +1219,7 @@ def _add_criteria_modal() -> str:
     Regime Engine + Checklist Criteria (Grok v1.1)
   </h2>
   <p style="color:#e0e0e0;font-size:13px;margin-bottom:10px;">
-    <strong style="color:#fff;">Regime \u5224\u65b7\u6e96\u5247\uff1a</strong>
+    <strong style="color:#fff;">Regime 判斷準則：</strong>
   </p>
   <ul style="color:#e0e0e0;font-size:13px;line-height:1.9;padding-left:20px;margin-bottom:14px;">
     <li>\U0001f7e2 <strong>Uptrend</strong>\uff1aVIX &lt; 20 AND SPY &gt; 20MA AND % &gt; 20MA &gt; 40%</li>
@@ -1003,13 +1235,98 @@ def _add_criteria_modal() -> str:
     <li><strong>Red Checklist</strong>\uff08\u5e02\u5834\u60e1\u5316\u4fe1\u865f\uff09\uff1a\u5171 5 \u9805\uff0c\u6aa2\u67e5 RSI &lt; 50\u3001SPY &lt; 20MA\u3001A/D &lt; 1.0\u3001VIX &gt; 20</li>
     <li><strong>Active Checklist</strong>\uff1a\u4f9d\u636e green_total vs red_total \u81ea\u52d5\u5207\u63db</li>
   </ul>
-  <button onclick="document.getElementById(\'criteriaModal\').style.display=\'none\'"
+  <button onclick="document.getElementById(\'criteriaModal\').style.display=\'none\'">
     style="background:#42a5f5;color:#000;border:none;padding:8px 20px;border-radius:5px;
     font-weight:700;cursor:pointer;font-size:13px;">\u95dc\u9589</button>
 </div>
 <script>
 function showCriteriaModal() {
     document.getElementById(\'criteriaModal\').style.display = \'block\';
+}
+</script>
+'''
+
+
+def _add_logic_info_modals() -> str:
+    """
+    Return Logic Info Modals HTML + JS for RS Momentum and Cluster Radar.
+    Inject once near the end of the page body.
+    Triggered by showLogicModal('rs_momentum') or showLogicModal('cluster_radar').
+    """
+    return '''
+<!-- Logic Info Modal Overlay -->
+<div id="liModalOverlay" class="li-modal-overlay" onclick="if(event.target===this)closeLogicModal()">
+  <div class="li-modal" id="liModalBox">
+    <!-- Content injected by JS -->
+  </div>
+</div>
+
+<script>
+var _liContents = {
+  rs_momentum: {
+    icon: "\u26a1",
+    title: "RS Momentum \u2014 RS Score \u908f\u8f2f\u6e96\u5247",
+    html: `
+      <p>RS Score \u53cd\u6620\u6a19\u7684\u5728 11 \u500b\u6838\u5fc3 SPDR ETF \u4e2d\u7684\u76f8\u5c0d\u5f37\u5ea6\u6392\u540d (1\u201399)\u3002</p>
+      <div class="formula-box">
+        RS Score = (40% &times; 1m Return) + (40% &times; 3m Return) + (20% &times; 6m Return)
+      </div>
+      <p><strong style="color:#90caf9;">\u516c\u5f0f\u8aaa\u660e\uff1a</strong></p>
+      <ul style="color:#d0d0d0;font-size:12px;line-height:1.8;padding-left:18px;margin-bottom:10px;">
+        <li>1m Return \u5360\u6bd4 40% \u2014 \u8fd1\u671f\u52d5\u80fd\u6700\u91cd\u8981</li>
+        <li>3m Return \u5360\u6bd4 40% \u2014 \u4e2d\u671f\u8da8\u52e2\u78ba\u8a8d</li>
+        <li>6m Return \u5360\u6bd4 20% \u2014 \u9577\u671f\u80cc\u666f\u53c3\u8003</li>
+      </ul>
+      <p><strong style="color:#90caf9;">RS Rating \u5206\u7d1a\uff1a</strong></p>
+      <ul style="color:#d0d0d0;font-size:12px;line-height:1.8;padding-left:18px;">
+        <li><span style="color:#66bb6a;font-weight:700;">90\u201399 \u2605\u2605</span> \u2014 Elite Momentum</li>
+        <li><span style="color:#81c784;font-weight:700;">80\u201389 \u2605</span> \u2014 Strong RS</li>
+        <li><span style="color:#ffa726;font-weight:700;">60\u201379</span> \u2014 Mid-tier</li>
+        <li><span style="color:#ef5350;font-weight:700;">&lt;60</span> \u2014 Weak / Laggard</li>
+      </ul>
+    `
+  },
+  cluster_radar: {
+    icon: "\U0001f4e1",
+    title: "Cluster Radar \u2014 Hot Cluster \u908f\u8f2f\u6e96\u5247",
+    html: `
+      <p>Cluster Radar \u6aa2\u6e2c\u6a5f\u69cb\u8cc7\u91d1\u6b63\u5728\u96c6\u9ad4\u6027\u6d41\u5165\u7684\u677f\u584a\u3002</p>
+      <div class="formula-box">
+        Hot Cluster &#128293; \u6e96\u5247\uff1a<br>
+        &nbsp;&nbsp;\u7d44\u5167 &gt;50% \u6210\u54e1\u540c\u6642\u6eff\u8db3\uff1a<br>
+        &nbsp;&nbsp;(Price &gt; 20MA) \u4e14 (RS Rating &gt; 80)
+      </div>
+      <p><strong style="color:#90caf9;">\u6e96\u5247\u8aaa\u660e\uff1a</strong></p>
+      <ul style="color:#d0d0d0;font-size:12px;line-height:1.8;padding-left:18px;margin-bottom:10px;">
+        <li><strong>Price &gt; 20MA</strong> \u2014 \u77ed\u671f\u50f9\u683c\u52d5\u80fd\u6b63\u5411</li>
+        <li><strong>RS Rating &gt; 80</strong> \u2014 \u76f8\u5c0d\u5f37\u5ea6\u5728\u524d 20% \u5206\u4f4d</li>
+        <li><strong>&gt;50% \u6210\u54e1</strong> \u2014 \u4ee3\u8868\u677f\u584a\u5167\u591a\u6578\u6a19\u7684\u540c\u6b65\u5f37\u52e2</li>
+      </ul>
+      <p><strong style="color:#90caf9;">\u71b1\u5ea6\u5206\u7d1a\uff1a</strong></p>
+      <ul style="color:#d0d0d0;font-size:12px;line-height:1.8;padding-left:18px;">
+        <li><span style="color:#ff7043;font-weight:700;">&#128293; Hot Cluster</span> \u2014 &gt;50% \u6eff\u8db3\u6e96\u5247</li>
+        <li><span style="color:#ffa726;font-weight:700;">&#128165; Warming Up</span> \u2014 30\u201350% \u6eff\u8db3\u6e96\u5247</li>
+        <li><span style="color:#9e9e9e;font-weight:700;">&#10052; Cool</span> \u2014 &lt;30% \u6eff\u8db3\u6e96\u5247</li>
+      </ul>
+    `
+  }
+};
+
+function showLogicModal(type) {
+  var overlay = document.getElementById(\'liModalOverlay\');
+  var box     = document.getElementById(\'liModalBox\');
+  var content = _liContents[type];
+  if (!content) return;
+  box.innerHTML = (
+    \'<h3>\' + content.icon + \' \' + content.title + \'</h3>\' +
+    content.html +
+    \'<button class="li-close-btn" onclick="closeLogicModal()">&#10006; \u95dc\u9589</button>\'
+  );
+  overlay.classList.add(\'active\');
+}
+
+function closeLogicModal() {
+  document.getElementById(\'liModalOverlay\').classList.remove(\'active\');
 }
 </script>
 '''
@@ -1096,9 +1413,16 @@ def render(regime_info: dict = None, expert_insights: str = "", checklist_status
     html = html.replace("{{BREADTH_ROWS}}", build_breadth_rows(breadth, indices))
     html = html.replace("{{ADR_CARDS}}",    build_adr_cards(breadth))
 
-    # Section 5: Sectors & Industries (Top 10)
-    html = html.replace("{{SECTOR_ROWS}}",   build_sector_rows(sectors))
-    html = html.replace("{{INDUSTRY_ROWS}}", build_industry_rows(industry))
+    # Section 5: Sectors & Industries — RS Momentum Redesign (v2.3)
+    # 5A: Core SPDR Sectors with RS Score & Rating
+    html = html.replace("{{SECTOR_ROWS}}",       build_sector_rows(sectors))
+    # 5B: Industry RS Radar with Cluster Detection
+    html = html.replace("{{INDUSTRY_RS_RADAR}}", build_industry_rs_radar(industry, sectors))
+    # 5C: Market Anomalies (Volume Climax proxy)
+    html = html.replace("{{VOLUME_CLIMAX_BLOCK}}", build_volume_climax_block(sectors))
+    # Legacy placeholder (no longer in template but keep for safety)
+    html = html.replace("{{INDUSTRY_ROWS}}",     build_industry_rows(industry))
+    print("  \u2713  Section 5 RS Momentum redesign injected (5A/5B/5C)")
 
     # Section 6: AI Market Analysis (Checklist + Bull/Bear)
     html = html.replace("{{S6_CONTENT}}", build_s6_analysis(data, ai_strategy))
@@ -1236,13 +1560,17 @@ def render(regime_info: dict = None, expert_insights: str = "", checklist_status
 
     print("  ── END BASE64 EMBEDDING ──\n")
 
-    # ── CRITERIA MODAL (inject once before </body>) ───────────────────────────
+    # ── CRITERIA MODAL (inject once before </body>) ─────────────────────────────
     # Always inject the modal so the 'View Criteria' link works on every page.
     # Safe to inject even when checklist is not shown — modal stays hidden (display:none).
     html = html.replace("</body>", _add_criteria_modal() + "\n</body>")
     print("  \u2713  Criteria Modal injected before </body>")
 
-    # Residual check
+    # ── LOGIC INFO MODALS (RS Momentum + Cluster Radar) ────────────────────────
+    html = html.replace("</body>", _add_logic_info_modals() + "\n</body>")
+    print("  ✓  Logic Info Modals (RS Momentum + Cluster Radar) injected")
+
+    # ── Residual check
     leftover = re.findall(r"\{\{[A-Z0-9_]+\}\}", html)
     if leftover:
         print(f"  ⚠  Unresolved tags ({len(leftover)}): {leftover[:10]}")
