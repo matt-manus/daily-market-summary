@@ -1,0 +1,522 @@
+{
+  "analysis_date": "2026-03-31",
+  "latest_rs": [
+    {
+      "ticker": "AIQ",
+      "sector_category": "Thematic & Tech",
+      "rs_score": -0.07487195215269078,
+      "rs_rating": 31,
+      "above_20ma": false,
+      "volume_climax": false,
+      "is_strong": false
+    },
+    {
+      "ticker": "ARKK",
+      "sector_category": "Thematic & Tech",
+      "rs_score": -0.1349300088284826,
+      "rs_rating": 15,
+      "above_20ma": false,
+      "volume_climax": false,
+      "is_strong": false
+    },
+    {
+      "ticker": "ARKQ",
+      "sector_category": "Thematic & Tech",
+      "rs_score": -0.04545174171357869,
+      "rs_rating": 43,
+      "above_20ma": false,
+      "volume_climax": false,
+      "is_strong": false
+    },
+    {
+      "ticker": "BLOK",
+      "sector_category": "Thematic & Tech",
+      "rs_score": -0.14137876337913127,
+      "rs_rating": 12,
+      "above_20ma": false,
+      "volume_climax": false,
+      "is_strong": false
+    },
+    {
+      "ticker": "BOTZ",
+      "sector_category": "Thematic & Tech",
+      "rs_score": -0.09870251887777362,
+      "rs_rating": 20,
+      "above_20ma": false,
+      "volume_climax": false,
+      "is_strong": false
+    },
+    {
+      "ticker": "BUG",
+      "sector_category": "Thematic & Tech",
+      "rs_score": -0.13795018974457174,
+      "rs_rating": 13,
+      "above_20ma": false,
+      "volume_climax": false,
+      "is_strong": false
+    },
+    {
+      "ticker": "CIBR",
+      "sector_category": "Thematic & Tech",
+      "rs_score": -0.0922220366657039,
+      "rs_rating": 26,
+      "above_20ma": false,
+      "volume_climax": false,
+      "is_strong": false
+    },
+    {
+      "ticker": "COPX",
+      "sector_category": "Commodities & Power",
+      "rs_score": 0.0184184586186725,
+      "rs_rating": 74,
+      "above_20ma": false,
+      "volume_climax": false,
+      "is_strong": false
+    },
+    {
+      "ticker": "FINX",
+      "sector_category": "Thematic & Tech",
+      "rs_score": -0.18238146068083727,
+      "rs_rating": 3,
+      "above_20ma": false,
+      "volume_climax": false,
+      "is_strong": false
+    },
+    {
+      "ticker": "FXI",
+      "sector_category": "Macro & Global",
+      "rs_score": -0.06045296010008265,
+      "rs_rating": 40,
+      "above_20ma": false,
+      "volume_climax": false,
+      "is_strong": false
+    },
+    {
+      "ticker": "GDX",
+      "sector_category": "Commodities & Power",
+      "rs_score": -0.010004511825749463,
+      "rs_rating": 66,
+      "above_20ma": false,
+      "volume_climax": false,
+      "is_strong": false
+    },
+    {
+      "ticker": "GLD",
+      "sector_category": "Commodities & Power",
+      "rs_score": 0.027222343881729574,
+      "rs_rating": 78,
+      "above_20ma": false,
+      "volume_climax": false,
+      "is_strong": false
+    },
+    {
+      "ticker": "IAI",
+      "sector_category": "Core Industry",
+      "rs_score": -0.06940256469620275,
+      "rs_rating": 34,
+      "above_20ma": false,
+      "volume_climax": true,
+      "is_strong": false
+    },
+    {
+      "ticker": "IBB",
+      "sector_category": "Core Industry",
+      "rs_score": 0.02200006209599197,
+      "rs_rating": 76,
+      "above_20ma": true,
+      "volume_climax": false,
+      "is_strong": false
+    },
+    {
+      "ticker": "IGV",
+      "sector_category": "Core Industry",
+      "rs_score": -0.17693820815899902,
+      "rs_rating": 4,
+      "above_20ma": false,
+      "volume_climax": false,
+      "is_strong": false
+    },
+    {
+      "ticker": "IHI",
+      "sector_category": "Core Industry",
+      "rs_score": -0.1209713458518437,
+      "rs_rating": 17,
+      "above_20ma": false,
+      "volume_climax": false,
+      "is_strong": false
+    },
+    {
+      "ticker": "IPAY",
+      "sector_category": "Thematic & Tech",
+      "rs_score": -0.1518961935307132,
+      "rs_rating": 10,
+      "above_20ma": false,
+      "volume_climax": false,
+      "is_strong": false
+    },
+    {
+      "ticker": "ITA",
+      "sector_category": "Defense & Space",
+      "rs_score": -0.03400019412913223,
+      "rs_rating": 48,
+      "above_20ma": false,
+      "volume_climax": false,
+      "is_strong": false
+    },
+    {
+      "ticker": "IYT",
+      "sector_category": "Core Industry",
+      "rs_score": -0.028112934784920537,
+      "rs_rating": 54,
+      "above_20ma": false,
+      "volume_climax": false,
+      "is_strong": false
+    },
+    {
+      "ticker": "JETS",
+      "sector_category": "Core Industry",
+      "rs_score": -0.09484484177298785,
+      "rs_rating": 22,
+      "above_20ma": false,
+      "volume_climax": false,
+      "is_strong": false
+    },
+    {
+      "ticker": "KBE",
+      "sector_category": "Core Industry",
+      "rs_score": -0.022796630252717567,
+      "rs_rating": 59,
+      "above_20ma": true,
+      "volume_climax": false,
+      "is_strong": false
+    },
+    {
+      "ticker": "KRE",
+      "sector_category": "Core Industry",
+      "rs_score": -0.008219804070930349,
+      "rs_rating": 68,
+      "above_20ma": true,
+      "volume_climax": false,
+      "is_strong": false
+    },
+    {
+      "ticker": "KWEB",
+      "sector_category": "Macro & Global",
+      "rs_score": -0.15526221878001642,
+      "rs_rating": 6,
+      "above_20ma": false,
+      "volume_climax": false,
+      "is_strong": false
+    },
+    {
+      "ticker": "LIT",
+      "sector_category": "Core Industry",
+      "rs_score": 0.11295966072080232,
+      "rs_rating": 96,
+      "above_20ma": true,
+      "volume_climax": false,
+      "is_strong": true
+    },
+    {
+      "ticker": "MAGS",
+      "sector_category": "Thematic & Tech",
+      "rs_score": -0.09372377598380445,
+      "rs_rating": 24,
+      "above_20ma": false,
+      "volume_climax": true,
+      "is_strong": false
+    },
+    {
+      "ticker": "MSOS",
+      "sector_category": "Macro & Global",
+      "rs_score": -0.1552446217775816,
+      "rs_rating": 8,
+      "above_20ma": false,
+      "volume_climax": true,
+      "is_strong": false
+    },
+    {
+      "ticker": "NLR",
+      "sector_category": "Commodities & Power",
+      "rs_score": -0.03094163963337473,
+      "rs_rating": 52,
+      "above_20ma": false,
+      "volume_climax": false,
+      "is_strong": false
+    },
+    {
+      "ticker": "PAVE",
+      "sector_category": "Macro & Global",
+      "rs_score": 0.0014052233372671835,
+      "rs_rating": 71,
+      "above_20ma": false,
+      "volume_climax": false,
+      "is_strong": false
+    },
+    {
+      "ticker": "PICK",
+      "sector_category": "Commodities & Power",
+      "rs_score": 0.0531949362029529,
+      "rs_rating": 87,
+      "above_20ma": true,
+      "volume_climax": false,
+      "is_strong": true
+    },
+    {
+      "ticker": "QTUM",
+      "sector_category": "Thematic & Tech",
+      "rs_score": -0.03527538019055152,
+      "rs_rating": 46,
+      "above_20ma": false,
+      "volume_climax": false,
+      "is_strong": false
+    },
+    {
+      "ticker": "ROBO",
+      "sector_category": "Thematic & Tech",
+      "rs_score": -0.04515887428270911,
+      "rs_rating": 45,
+      "above_20ma": false,
+      "volume_climax": false,
+      "is_strong": false
+    },
+    {
+      "ticker": "ROKT",
+      "sector_category": "Defense & Space",
+      "rs_score": 0.10040327582431093,
+      "rs_rating": 94,
+      "above_20ma": false,
+      "volume_climax": false,
+      "is_strong": false
+    },
+    {
+      "ticker": "SKYY",
+      "sector_category": "Core Industry",
+      "rs_score": -0.11008162982584956,
+      "rs_rating": 18,
+      "above_20ma": false,
+      "volume_climax": true,
+      "is_strong": false
+    },
+    {
+      "ticker": "SLV",
+      "sector_category": "Commodities & Power",
+      "rs_score": 0.06770839146936908,
+      "rs_rating": 88,
+      "above_20ma": false,
+      "volume_climax": false,
+      "is_strong": false
+    },
+    {
+      "ticker": "SMH",
+      "sector_category": "Core Industry",
+      "rs_score": 0.03683623677649615,
+      "rs_rating": 82,
+      "above_20ma": false,
+      "volume_climax": false,
+      "is_strong": false
+    },
+    {
+      "ticker": "SOXX",
+      "sector_category": "Thematic & Tech",
+      "rs_score": 0.04942676556283758,
+      "rs_rating": 85,
+      "above_20ma": false,
+      "volume_climax": true,
+      "is_strong": false
+    },
+    {
+      "ticker": "TAN",
+      "sector_category": "Commodities & Power",
+      "rs_score": 0.09417846395000345,
+      "rs_rating": 92,
+      "above_20ma": true,
+      "volume_climax": false,
+      "is_strong": true
+    },
+    {
+      "ticker": "TLT",
+      "sector_category": "Macro & Global",
+      "rs_score": -0.018804973939488413,
+      "rs_rating": 60,
+      "above_20ma": false,
+      "volume_climax": false,
+      "is_strong": false
+    },
+    {
+      "ticker": "URA",
+      "sector_category": "Commodities & Power",
+      "rs_score": -0.00474425830130629,
+      "rs_rating": 69,
+      "above_20ma": false,
+      "volume_climax": false,
+      "is_strong": false
+    },
+    {
+      "ticker": "VNQ",
+      "sector_category": "Macro & Global",
+      "rs_score": -0.024743516691896474,
+      "rs_rating": 55,
+      "above_20ma": false,
+      "volume_climax": false,
+      "is_strong": false
+    },
+    {
+      "ticker": "XAR",
+      "sector_category": "Defense & Space",
+      "rs_score": -0.014143955774807981,
+      "rs_rating": 62,
+      "above_20ma": false,
+      "volume_climax": false,
+      "is_strong": false
+    },
+    {
+      "ticker": "XBI",
+      "sector_category": "Core Industry",
+      "rs_score": 0.07565122602376743,
+      "rs_rating": 90,
+      "above_20ma": true,
+      "volume_climax": true,
+      "is_strong": true
+    },
+    {
+      "ticker": "XHB",
+      "sector_category": "Core Industry",
+      "rs_score": -0.09180060260735823,
+      "rs_rating": 27,
+      "above_20ma": false,
+      "volume_climax": false,
+      "is_strong": false
+    },
+    {
+      "ticker": "XLB",
+      "sector_category": "Core Industry",
+      "rs_score": 0.04225566271160716,
+      "rs_rating": 83,
+      "above_20ma": true,
+      "volume_climax": false,
+      "is_strong": true
+    },
+    {
+      "ticker": "XLC",
+      "sector_category": "Core Industry",
+      "rs_score": -0.05701000008177044,
+      "rs_rating": 41,
+      "above_20ma": false,
+      "volume_climax": false,
+      "is_strong": false
+    },
+    {
+      "ticker": "XLE",
+      "sector_category": "Core Industry",
+      "rs_score": 0.2606223881954384,
+      "rs_rating": 97,
+      "above_20ma": true,
+      "volume_climax": true,
+      "is_strong": true
+    },
+    {
+      "ticker": "XLF",
+      "sector_category": "Core Industry",
+      "rs_score": -0.07026618906863565,
+      "rs_rating": 32,
+      "above_20ma": true,
+      "volume_climax": false,
+      "is_strong": false
+    },
+    {
+      "ticker": "XLI",
+      "sector_category": "Core Industry",
+      "rs_score": -0.011160457154219114,
+      "rs_rating": 64,
+      "above_20ma": false,
+      "volume_climax": false,
+      "is_strong": false
+    },
+    {
+      "ticker": "XLK",
+      "sector_category": "Core Industry",
+      "rs_score": -0.06351568850605387,
+      "rs_rating": 38,
+      "above_20ma": false,
+      "volume_climax": false,
+      "is_strong": false
+    },
+    {
+      "ticker": "XLP",
+      "sector_category": "Core Industry",
+      "rs_score": 0.005783196877225193,
+      "rs_rating": 73,
+      "above_20ma": false,
+      "volume_climax": false,
+      "is_strong": false
+    },
+    {
+      "ticker": "XLRE",
+      "sector_category": "Core Industry",
+      "rs_score": -0.022908627427362816,
+      "rs_rating": 57,
+      "above_20ma": false,
+      "volume_climax": false,
+      "is_strong": false
+    },
+    {
+      "ticker": "XLU",
+      "sector_category": "Core Industry",
+      "rs_score": 0.035392051490335995,
+      "rs_rating": 80,
+      "above_20ma": false,
+      "volume_climax": true,
+      "is_strong": false
+    },
+    {
+      "ticker": "XLV",
+      "sector_category": "Core Industry",
+      "rs_score": -0.033055611161006485,
+      "rs_rating": 50,
+      "above_20ma": false,
+      "volume_climax": false,
+      "is_strong": false
+    },
+    {
+      "ticker": "XLY",
+      "sector_category": "Core Industry",
+      "rs_score": -0.07834028451035448,
+      "rs_rating": 29,
+      "above_20ma": false,
+      "volume_climax": true,
+      "is_strong": false
+    },
+    {
+      "ticker": "XOP",
+      "sector_category": "Core Industry",
+      "rs_score": 0.310606350815973,
+      "rs_rating": 99,
+      "above_20ma": true,
+      "volume_climax": false,
+      "is_strong": true
+    },
+    {
+      "ticker": "XRT",
+      "sector_category": "Core Industry",
+      "rs_score": -0.06628081322568094,
+      "rs_rating": 36,
+      "above_20ma": false,
+      "volume_climax": false,
+      "is_strong": false
+    }
+  ],
+  "hot_clusters": [],
+  "volume_climax_etfs": [
+    "IAI",
+    "MAGS",
+    "MSOS",
+    "SKYY",
+    "SOXX",
+    "XBI",
+    "XLE",
+    "XLU",
+    "XLY"
+  ],
+  "summary": "✅ 分析完成 | 熱門族群：0 個 🔥 | 成交量爆發 ETF：9 個"
+}
