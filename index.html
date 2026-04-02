@@ -431,114 +431,40 @@
     <div class="subtitle">Automated Credit-Efficient System &middot; 2026-04-02</div>
   </div>
   <div class="ts-badges">
-    <div class="ts-badge">HKT <span>2026-04-02 15:04</span></div>
-    <div class="ts-badge">ET <span>2026-04-02 03:04</span></div>
+    <div class="ts-badge">HKT <span>2026-04-02 15:50</span></div>
+    <div class="ts-badge">ET <span>2026-04-02 03:50</span></div>
   </div>
 </div>
 
 <div class="page-wrap">
 
 <!-- ═══ REGIME BANNER (auto-injected) ═════════════════════ -->
-<div style="background:rgba(244,67,54,0.08);border:1px solid #f44336;
-  border-radius:8px;padding:14px 18px;margin-bottom:20px;
-  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;">
-  <div>
-    <div style="font-size:15px;font-weight:700;color:#f44336;">⚠ Market Correction</div>
-    <div style="font-size:12px;color:#aaaaaa;margin-top:4px;">SPY ($655.24) is BELOW the 20MA ($659.27), currently -0.61% from 20MA. Defensive posture recommended.</div>
-  </div>
-  <div style="display:flex;gap:16px;flex-wrap:wrap;">
-    <div style="text-align:center;">
-      <div style="font-size:10px;color:#555;text-transform:uppercase;letter-spacing:0.8px;">SPY</div>
-      <div style="font-size:14px;font-weight:600;color:#e0e0e0;">$655.24</div>
-    </div>
-    <div style="text-align:center;">
-      <div style="font-size:10px;color:#555;text-transform:uppercase;letter-spacing:0.8px;">20MA</div>
-      <div style="font-size:14px;font-weight:600;color:#aaaaaa;">$659.27</div>
-    </div>
-    <div style="text-align:center;">
-      <div style="font-size:10px;color:#555;text-transform:uppercase;letter-spacing:0.8px;">50MA</div>
-      <div style="font-size:14px;font-weight:600;color:#aaaaaa;">$675.52</div>
-    </div>
-    <div style="text-align:center;">
-      <div style="font-size:10px;color:#555;text-transform:uppercase;letter-spacing:0.8px;">vs 20MA</div>
-      <div style="font-size:14px;font-weight:600;color:#f44336;">-0.61%</div>
-    </div>
-  </div>
-</div>
+
 
 <!-- ═══ CORRECTION CHECKLIST (shown only when SPY < 20MA) ═════ -->
 
-<div style="background:linear-gradient(135deg,#0d1117 0%,#111827 100%);
-  border:2px solid #42a5f5;border-radius:10px;padding:20px 24px;
-  margin-bottom:28px;box-shadow:0 0 20px rgba(66,165,245,0.12);">
-  <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:14px;">
+<div id="correction-checklist" style="
+  background:linear-gradient(135deg,#1a0a0a 0%,#1c1010 100%);
+  border:2px solid #f44336;border-radius:10px;
+  padding:20px 24px;margin-bottom:28px;
+  box-shadow:0 0 20px rgba(244,67,54,0.15);">
+  <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px;">
+    <span style="font-size:24px;">🚨</span>
     <div>
-      <div style="font-size:10px;font-weight:600;letter-spacing:1.2px;text-transform:uppercase;
-                  color:#42a5f5;border-left:3px solid #42a5f5;padding-left:10px;">
-        Market Regime &amp; Auto Y/N Checklist
+      <div style="font-size:16px;font-weight:700;color:#f44336;letter-spacing:0.5px;">
+        MARKET CORRECTION MODE ACTIVE
       </div>
-      <div style="font-size:18px;font-weight:700;color:#e0e0e0;margin-top:6px;">
-        🟡 Correction &nbsp;<span style="font-size:13px;color:#aaa;">Score: 55</span>
+      <div style="font-size:11px;color:#aaaaaa;margin-top:2px;">
+        SPY is trading BELOW the 20-Day Moving Average — Defensive Protocol Engaged
       </div>
     </div>
-    <a href="#" onclick="showCriteriaModal();return false;"
-      style="font-size:12px;color:#42a5f5;text-decoration:none;border:1px solid #42a5f5;
-      padding:5px 12px;border-radius:5px;font-weight:600;">
-      &#128203; View Criteria (Grok v1.1)
-    </a>
   </div>
-
-  <!-- 關鍵數據列 -->
-  <div style="background:#0a0a0a;border-radius:6px;padding:10px 14px;margin-bottom:14px;
-    font-size:12px;color:#aaaaaa;display:flex;flex-wrap:wrap;gap:16px;">
-    <span><strong style="color:#e0e0e0;">VIX</strong> = 24.5</span>
-    <span><strong style="color:#e0e0e0;">SPY vs 20MA</strong> = -4.03</span>
-    <span><strong style="color:#e0e0e0;">% Above 20MA</strong> = 45.1%</span>
-    <span><strong style="color:#e0e0e0;">A/D Ratio</strong> = 1.471</span>
-    <span><strong style="color:#e0e0e0;">RSI</strong> = 46.0</span>
+  <div style="font-size:11px;font-weight:600;letter-spacing:1.2px;text-transform:uppercase;
+    color:#f44336;border-left:3px solid #f44336;padding-left:10px;margin-bottom:12px;">
+    Market Correction Checklist
   </div>
-
-  <!-- Auto Y/N Checklist Table -->
-  <div style="font-size:11px;font-weight:600;letter-spacing:0.8px;text-transform:uppercase;
-    color:#42a5f5;margin-bottom:6px;">Correction Checklist (自動打分)</div>
-  <table style="width:100%;border-collapse:collapse;font-size:13px;margin-top:10px;"><thead><tr><th style="text-align:left;padding:6px 10px;color:var(--text-muted);font-weight:600;border-bottom:1px solid var(--border);">Checklist Item</th><th style="text-align:center;padding:6px 10px;color:var(--text-muted);font-weight:600;border-bottom:1px solid var(--border);width:50px;">Y/N</th><th style="text-align:left;padding:6px 10px;color:var(--text-muted);font-weight:600;border-bottom:1px solid var(--border);">Actual Value</th></tr></thead><tbody><tr style="background:rgba(76,175,80,0.05);"><td style="padding:7px 10px;border-bottom:1px solid #1e1e1e;color:#e0e0e0;">Downward momentum 增強</td><td style="text-align:center;padding:7px 10px;border-bottom:1px solid #1e1e1e;"><span style="color:#4caf50;font-weight:700;">Y</span></td><td style="padding:7px 10px;border-bottom:1px solid #1e1e1e;color:#aaaaaa;font-size:12px;">RSI 46.0</td></tr><tr style="background:rgba(76,175,80,0.05);"><td style="padding:7px 10px;border-bottom:1px solid #1e1e1e;color:#e0e0e0;">Top range breakdown</td><td style="text-align:center;padding:7px 10px;border-bottom:1px solid #1e1e1e;"><span style="color:#4caf50;font-weight:700;">Y</span></td><td style="padding:7px 10px;border-bottom:1px solid #1e1e1e;color:#aaaaaa;font-size:12px;">SPY vs 20MA -4.0</td></tr><tr style="background:rgba(76,175,80,0.05);"><td style="padding:7px 10px;border-bottom:1px solid #1e1e1e;color:#e0e0e0;">Technical indicators deteriorating</td><td style="text-align:center;padding:7px 10px;border-bottom:1px solid #1e1e1e;"><span style="color:#4caf50;font-weight:700;">Y</span></td><td style="padding:7px 10px;border-bottom:1px solid #1e1e1e;color:#aaaaaa;font-size:12px;">RSI 46.0</td></tr><tr style="background:rgba(244,67,54,0.05);"><td style="padding:7px 10px;border-bottom:1px solid #1e1e1e;color:#e0e0e0;">Market breadth worsening</td><td style="text-align:center;padding:7px 10px;border-bottom:1px solid #1e1e1e;"><span style="color:#f44336;font-weight:700;">N</span></td><td style="padding:7px 10px;border-bottom:1px solid #1e1e1e;color:#aaaaaa;font-size:12px;">A/D 1.471</td></tr><tr style="background:rgba(76,175,80,0.05);"><td style="padding:7px 10px;border-bottom:1px solid #1e1e1e;color:#e0e0e0;">VIX > 20 或 spike</td><td style="text-align:center;padding:7px 10px;border-bottom:1px solid #1e1e1e;"><span style="color:#4caf50;font-weight:700;">Y</span></td><td style="padding:7px 10px;border-bottom:1px solid #1e1e1e;color:#aaaaaa;font-size:12px;">VIX 24.5</td></tr><tr><td colspan="3" style="padding:8px 10px;font-weight:700;color:#4caf50;border-top:1px solid var(--border);font-size:13px;">總分：4 / 5</td></tr></tbody></table>
+  <div style="display:flex;align-items:flex-start;gap:12px;padding:10px 0;border-bottom:1px solid #2a2a2a;"><div style="min-width:220px;font-weight:600;font-size:13px;color:#e0e0e0;">🔴 Cut losers immediately</div><div style="font-size:12px;color:#aaaaaa;line-height:1.6;">Exit any position down >7-8% from entry. No averaging down.</div></div><div style="display:flex;align-items:flex-start;gap:12px;padding:10px 0;border-bottom:1px solid #2a2a2a;"><div style="min-width:220px;font-weight:600;font-size:13px;color:#e0e0e0;">🔴 Reduce overall exposure</div><div style="font-size:12px;color:#aaaaaa;line-height:1.6;">Scale down to 25-50% invested. Cash is a position.</div></div><div style="display:flex;align-items:flex-start;gap:12px;padding:10px 0;border-bottom:1px solid #2a2a2a;"><div style="min-width:220px;font-weight:600;font-size:13px;color:#e0e0e0;">🟡 Identify true market leaders</div><div style="font-size:12px;color:#aaaaaa;line-height:1.6;">Which stocks are holding up best? These lead the next rally.</div></div><div style="display:flex;align-items:flex-start;gap:12px;padding:10px 0;border-bottom:1px solid #2a2a2a;"><div style="min-width:220px;font-weight:600;font-size:13px;color:#e0e0e0;">🟡 Monitor VIX for capitulation</div><div style="font-size:12px;color:#aaaaaa;line-height:1.6;">VIX spike >35-40 often signals a tradeable low.</div></div><div style="display:flex;align-items:flex-start;gap:12px;padding:10px 0;border-bottom:1px solid #2a2a2a;"><div style="min-width:220px;font-weight:600;font-size:13px;color:#e0e0e0;">🟡 Watch for volume climax</div><div style="font-size:12px;color:#aaaaaa;line-height:1.6;">High-volume selling exhaustion = potential reversal signal.</div></div><div style="display:flex;align-items:flex-start;gap:12px;padding:10px 0;border-bottom:1px solid #2a2a2a;"><div style="min-width:220px;font-weight:600;font-size:13px;color:#e0e0e0;">🟢 Build a watchlist of strong stocks</div><div style="font-size:12px;color:#aaaaaa;line-height:1.6;">Stocks near highs or with tight bases during correction.</div></div><div style="display:flex;align-items:flex-start;gap:12px;padding:10px 0;border-bottom:1px solid #2a2a2a;"><div style="min-width:220px;font-weight:600;font-size:13px;color:#e0e0e0;">🟢 Wait for Follow-Through Day (FTD)</div><div style="font-size:12px;color:#aaaaaa;line-height:1.6;">A strong up day (+1.7%+) on higher volume = confirmed rally.</div></div><div style="display:flex;align-items:flex-start;gap:12px;padding:10px 0;border-bottom:1px solid #2a2a2a;"><div style="min-width:220px;font-weight:600;font-size:13px;color:#e0e0e0;">🟢 Re-enter in small pilot positions</div><div style="font-size:12px;color:#aaaaaa;line-height:1.6;">Start with 25% of normal size, add only if market confirms.</div></div>
 </div>
-
-<div id="criteriaModal" style="display:none;position:fixed;top:10%;left:10%;width:80%;
-  background:#1a1a2e;padding:24px 28px;border:2px solid #42a5f5;
-  border-radius:10px;z-index:9999;box-shadow:0 0 40px rgba(66,165,245,0.25);
-  max-height:75vh;overflow-y:auto;">
-  <h2 style="color:#42a5f5;font-size:16px;font-weight:700;margin-bottom:14px;">
-    Regime Engine + Checklist Criteria (Grok v1.1)
-  </h2>
-  <p style="color:#e0e0e0;font-size:13px;margin-bottom:10px;">
-    <strong style="color:#fff;">Regime 判斷準則：</strong>
-  </p>
-  <ul style="color:#e0e0e0;font-size:13px;line-height:1.9;padding-left:20px;margin-bottom:14px;">
-    <li>🟢 <strong>Uptrend</strong>：VIX &lt; 20 AND SPY &gt; 20MA AND % &gt; 20MA &gt; 40%</li>
-    <li>🟡 <strong>Correction</strong>：VIX 20–30 OR SPY 介乎 20MA–50MA OR % &gt; 20MA 25–40%</li>
-    <li>🔴 <strong>Bear Market</strong>：其他情況</li>
-  </ul>
-  <p style="color:#e0e0e0;font-size:13px;margin-bottom:10px;">
-    <strong style="color:#fff;">Checklist 項目來源：</strong>
-    你原本兩張 Correction Checklist，已自動量化
-  </p>
-  <ul style="color:#e0e0e0;font-size:13px;line-height:1.9;padding-left:20px;margin-bottom:18px;">
-    <li><strong>Green Checklist</strong>（市場回戲信號）：共 6 項，檢查 RSI &gt; 50、SPY &gt; 20MA、A/D &gt; 1.0、VIX &lt; 20</li>
-    <li><strong>Red Checklist</strong>（市場惡化信號）：共 5 項，檢查 RSI &lt; 50、SPY &lt; 20MA、A/D &lt; 1.0、VIX &gt; 20</li>
-    <li><strong>Active Checklist</strong>：依据 green_total vs red_total 自動切換</li>
-  </ul>
-  <button onclick="document.getElementById('criteriaModal').style.display='none'">
-    style="background:#42a5f5;color:#000;border:none;padding:8px 20px;border-radius:5px;
-    font-weight:700;cursor:pointer;font-size:13px;">關閉</button>
-</div>
-<script>
-function showCriteriaModal() {
-    document.getElementById('criteriaModal').style.display = 'block';
-}
-</script>
-
-
 
 <!-- ═══ COACH'S ACTION PLAN (Section 7 — MOST PROMINENT) ══════ -->
 <div class="section" style="
@@ -610,22 +536,7 @@ function showCriteriaModal() {
 </div>
 
 <!-- ═══ EXPERT INSIGHTS (from expert_notes.txt) ══════════ -->
-<div class="section" style="border:2px solid #42a5f5;border-radius:10px;
-  background:linear-gradient(135deg,#0a1628 0%,#0d1a2e 100%);
-  padding:20px 24px;margin-bottom:28px;
-  box-shadow:0 0 20px rgba(66,165,245,0.1);">
-  <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;">
-    <span style="font-size:20px;">&#128161;</span>
-    <div style="font-size:10px;font-weight:600;letter-spacing:1.2px;text-transform:uppercase;
-                color:#42a5f5;border-left:3px solid #42a5f5;padding-left:10px;">
-      Expert Insights
-    </div>
-  </div>
-  <div style="font-size:13px;color:#e0e0e0;line-height:1.8;white-space:pre-wrap;"># Expert Notes — Daily Market Commentary<br/># =========================================<br/># Add your expert insights, trade ideas, or market commentary below.<br/># This file is read automatically by the report generator.<br/># When not empty, the content will appear in the "Expert Insights" section of the HTML report.<br/># Lines starting with # are comments and will be included as-is.<br/>#<br/># Example:<br/>#   "Watching for a potential FTD setup. Key levels: SPY 540, QQQ 460.<br/>#    Tariff uncertainty remains the primary headwind. Prefer defensive sectors."<br/>#<br/># Leave this file empty (or only comments) to hide the Expert Insights section.</div>
-  <div style="margin-top:12px;font-size:10px;color:#555;">
-    Source: expert_notes.txt &mdash; Updated manually by the analyst.
-  </div>
-</div>
+
 
 <!-- ═══ SECTION 1 — MACRO INDICATORS ═════════════════════ -->
 <div class="section">
@@ -633,13 +544,13 @@ function showCriteriaModal() {
   <div class="macro-grid">
     <div class="macro-card">
       <div class="mc-label">VIX</div><div class="mc-sub">Fear Index</div>
-      <div class="mc-price">24.54</div>
-      <div class="mc-chg text-red">-2.81%</div>
+      <div class="mc-price">26.60</div>
+      <div class="mc-chg text-green">+8.39%</div>
     </div>
     <div class="macro-card">
       <div class="mc-label">DXY</div><div class="mc-sub">US Dollar</div>
-      <div class="mc-price">100.052</div>
-      <div class="mc-chg text-green">+0.40%</div>
+      <div class="mc-price">100.169</div>
+      <div class="mc-chg text-green">+0.52%</div>
     </div>
     <div class="macro-card">
       <div class="mc-label">10Y Yield</div><div class="mc-sub">TNX %</div>
@@ -648,18 +559,18 @@ function showCriteriaModal() {
     </div>
     <div class="macro-card">
       <div class="mc-label">Gold</div><div class="mc-sub">USD/oz</div>
-      <div class="mc-price">4,630.90</div>
-      <div class="mc-chg text-red">-3.18%</div>
+      <div class="mc-price">4,660.00</div>
+      <div class="mc-chg text-red">-2.58%</div>
     </div>
     <div class="macro-card">
       <div class="mc-label">WTI Oil</div><div class="mc-sub">USD/bbl</div>
-      <div class="mc-price">106.30</div>
-      <div class="mc-chg text-green">+6.17%</div>
+      <div class="mc-price">106.46</div>
+      <div class="mc-chg text-green">+6.33%</div>
     </div>
     <div class="macro-card">
       <div class="mc-label">Bitcoin</div><div class="mc-sub">USD</div>
-      <div class="mc-price">66,641</div>
-      <div class="mc-chg text-red">-2.11%</div>
+      <div class="mc-price">66,860</div>
+      <div class="mc-chg text-red">-1.79%</div>
     </div>
   </div>
 </div>
@@ -683,7 +594,7 @@ function showCriteriaModal() {
         </tr>
       </thead>
       <tbody>
-        <tr class=""><td><div class="sym-cell"><span class="sym">SPY</span><span class="sym-name">S&P 500 ETF</span></div></td><td>655.24</td><td><span class="chg-pill text-green-bg">+0.75%</span></td><td><div class="rsi-wrap"><span class="">46.0</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:46%"></div></div></div></td><td class="text-red">-0.61%</td><td class="text-red">-3.00%</td><td class="text-red">-0.53%</td><td><span class="text-green">1.493</span><span style="font-size:10px;color:var(--text-muted)"> (300↑/201↓)</span></td></tr>
+        <tr class=""><td><div class="sym-cell"><span class="sym">SPY</span><span class="sym-name">S&P 500 ETF</span></div></td><td>655.24</td><td><span class="chg-pill text-green-bg">+0.75%</span></td><td><div class="rsi-wrap"><span class="">46.0</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:46%"></div></div></div></td><td class="text-red">-0.61%</td><td class="text-red">-3.00%</td><td class="text-red">-0.53%</td><td><span class="text-green">1.505</span><span style="font-size:10px;color:var(--text-muted)"> (301↑/200↓)</span></td></tr>
 <tr class=""><td><div class="sym-cell"><span class="sym">QQQ</span><span class="sym-name">Nasdaq 100 ETF</span></div></td><td>584.31</td><td><span class="chg-pill text-green-bg">+1.24%</span></td><td><div class="rsi-wrap"><span class="">46.5</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:47%"></div></div></div></td><td class="text-red">-0.99%</td><td class="text-red">-3.13%</td><td class="text-red">-1.51%</td><td><span class="text-green">1.525</span><span style="font-size:10px;color:var(--text-muted)"> (61↑/40↓)</span></td></tr>
 <tr class=""><td><div class="sym-cell"><span class="sym">DIA</span><span class="sym-name">Dow Jones ETF</span></div></td><td>465.48</td><td><span class="chg-pill text-green-bg">+0.49%</span></td><td><div class="rsi-wrap"><span class="">46.3</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:46%"></div></div></div></td><td class="text-green">+0.02%</td><td class="text-red">-3.28%</td><td class="text-green">+0.31%</td><td><span class="text-green">1.500</span><span style="font-size:10px;color:var(--text-muted)"> (18↑/12↓)</span></td></tr>
 <tr class=""><td><div class="sym-cell"><span class="sym">IWM</span><span class="sym-name">Russell 2000 ETF</span></div></td><td>249.56</td><td><span class="chg-pill text-green-bg">+0.63%</span></td><td><div class="rsi-wrap"><span class="">48.6</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:49%"></div></div></div></td><td class="text-green">+0.46%</td><td class="text-red">-2.94%</td><td class="text-green">+3.32%</td><td><span class="text-green">1.721</span><span style="font-size:10px;color:var(--text-muted)"> (1201↑/698↓)</span></td></tr>
@@ -699,7 +610,7 @@ function showCriteriaModal() {
 
     <div class="sent-card">
       <div class="sc-label">CNN Fear &amp; Greed Index</div>
-      <div class="sc-value text-red">16</div>
+      <div class="sc-value text-red">14</div>
       <div class="sc-rating text-red">Extreme Fear</div>
       <table class="hist-table">
         <tr><td>Prev Close</td><td>15.71</td></tr>
@@ -758,7 +669,7 @@ function showCriteriaModal() {
         <tr><td><strong>S&P 500</strong></td><td>503</td><td><div class="pct-bar-wrap"><span class="text-amber">45.1%</span><div class="pct-bar-track"><div class="pct-bar-amber" style="width:45%"></div></div></div></td><td><div class="pct-bar-wrap"><span class="text-red">26.2%</span><div class="pct-bar-track"><div class="pct-bar-red" style="width:26%"></div></div></div></td><td><div class="pct-bar-wrap"><span class="text-amber">47.7%</span><div class="pct-bar-track"><div class="pct-bar-amber" style="width:48%"></div></div></div></td><td><strong>SPY</strong><br><span style="font-size:10px;color:var(--text-muted)">Finviz idx_sp500</span></td></tr>
 <tr><td><strong>NASDAQ 100</strong></td><td>101</td><td><div class="pct-bar-wrap"><span class="text-amber">41.6%</span><div class="pct-bar-track"><div class="pct-bar-amber" style="width:42%"></div></div></div></td><td><div class="pct-bar-wrap"><span class="text-red">24.8%</span><div class="pct-bar-track"><div class="pct-bar-red" style="width:25%"></div></div></div></td><td><div class="pct-bar-wrap"><span class="text-amber">43.6%</span><div class="pct-bar-track"><div class="pct-bar-amber" style="width:44%"></div></div></div></td><td><strong>QQQ</strong><br><span style="font-size:10px;color:var(--text-muted)">Finviz idx_ndx</span></td></tr>
 <tr><td><strong>Dow Jones 30</strong></td><td>30</td><td><div class="pct-bar-wrap"><span class="text-amber">40.0%</span><div class="pct-bar-track"><div class="pct-bar-amber" style="width:40%"></div></div></div></td><td><div class="pct-bar-wrap"><span class="text-red">26.7%</span><div class="pct-bar-track"><div class="pct-bar-red" style="width:27%"></div></div></div></td><td><div class="pct-bar-wrap"><span class="text-amber">53.3%</span><div class="pct-bar-track"><div class="pct-bar-amber" style="width:53%"></div></div></div></td><td><strong>DIA</strong><br><span style="font-size:10px;color:var(--text-muted)">yfinance DJI-30</span></td></tr>
-<tr><td><strong>Russell 2000</strong></td><td>1,930</td><td><div class="pct-bar-wrap"><span class="text-amber">54.8%</span><div class="pct-bar-track"><div class="pct-bar-amber" style="width:55%"></div></div></div></td><td><div class="pct-bar-wrap"><span class="text-red">33.5%</span><div class="pct-bar-track"><div class="pct-bar-red" style="width:34%"></div></div></div></td><td><div class="pct-bar-wrap"><span class="text-amber">48.3%</span><div class="pct-bar-track"><div class="pct-bar-amber" style="width:48%"></div></div></div></td><td><strong>IWM</strong><br><span style="font-size:10px;color:var(--text-muted)">Finviz idx_rut</span></td></tr>
+<tr><td><strong>Russell 2000</strong></td><td>1,928</td><td><div class="pct-bar-wrap"><span class="text-amber">54.7%</span><div class="pct-bar-track"><div class="pct-bar-amber" style="width:55%"></div></div></div></td><td><div class="pct-bar-wrap"><span class="text-red">33.5%</span><div class="pct-bar-track"><div class="pct-bar-red" style="width:34%"></div></div></div></td><td><div class="pct-bar-wrap"><span class="text-amber">48.3%</span><div class="pct-bar-track"><div class="pct-bar-amber" style="width:48%"></div></div></div></td><td><strong>IWM</strong><br><span style="font-size:10px;color:var(--text-muted)">Finviz idx_rut</span></td></tr>
       </tbody>
     </table>
   </div>
@@ -785,7 +696,7 @@ function showCriteriaModal() {
 
   <!-- ── 5A: Core SPDR Sectors (11 ETFs) ─────────────────────────── -->
   <div style="display:flex;align-items:center;margin:16px 0 6px;">
-    <div class="sub-title" style="margin:0;">5A — Core Sectors (11 SPDR ETFs)</div>
+    <div class="sub-title" style="margin:0;">5A — Core Market Pulse (11 SPDR ETFs)</div>
     <button class="logic-info-btn" onclick="showLogicModal('rs_momentum')">
       <span class="li-icon">&#9432;</span> Logic Info
     </button>
@@ -812,60 +723,15 @@ function showCriteriaModal() {
       </thead>
       <tbody>
         <tr class=""><td><strong>XLE</strong></td><td style="color:var(--text-label)">Energy</td><td>58.97</td><td><span class="chg-pill text-red-bg">-3.74%</span></td><td><span class="chg-pill text-green-bg">+6.62%</span></td><td><span class="chg-pill text-green-bg">+31.39%</span></td><td style="text-align:right"><span class="text-green">+21.6</span></td><td style="text-align:right"><span class="rs-badge rs-elite">99 ★★</span></td><td><div class="rsi-wrap"><span class="">55.0</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:55%"></div></div></div></td><td class="text-green">+0.50%</td></tr>
-<tr class=""><td><strong>XLB</strong></td><td style="color:var(--text-label)">Materials</td><td>50.46</td><td><span class="chg-pill text-green-bg">+0.98%</span></td><td><span class="chg-pill text-red-bg">-5.07%</span></td><td><span class="chg-pill text-green-bg">+12.85%</span></td><td style="text-align:right"><span class="text-green">+5.9</span></td><td style="text-align:right"><span class="rs-badge rs-elite">97 ★★</span></td><td><div class="rsi-wrap"><span class="">56.2</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:56%"></div></div></div></td><td class="text-green">+2.80%</td></tr>
-<tr class=""><td><strong>XLU</strong></td><td style="color:var(--text-label)">Utilities</td><td>46.11</td><td><span class="chg-pill text-green-bg">+0.48%</span></td><td><span class="chg-pill text-red-bg">-1.86%</span></td><td><span class="chg-pill text-green-bg">+7.05%</span></td><td style="text-align:right"><span class="text-amber">+3.6</span></td><td style="text-align:right"><span class="rs-badge rs-elite">95 ★★</span></td><td><div class="rsi-wrap"><span class="">54.7</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:55%"></div></div></div></td><td class="text-green">+0.34%</td></tr>
-<tr class=""><td><strong>XLI</strong></td><td style="color:var(--text-label)">Industrials</td><td>164.43</td><td><span class="chg-pill text-green-bg">+1.67%</span></td><td><span class="chg-pill text-red-bg">-5.87%</span></td><td><span class="chg-pill text-green-bg">+6.07%</span></td><td style="text-align:right"><span class="text-amber">+1.5</span></td><td style="text-align:right"><span class="rs-badge rs-elite">94 ★★</span></td><td><div class="rsi-wrap"><span class="">47.9</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:48%"></div></div></div></td><td class="text-red">-0.21%</td></tr>
-<tr class=""><td><strong>XLP</strong></td><td style="color:var(--text-label)">Cons. Staples</td><td>81.46</td><td><span class="chg-pill text-red-bg">-0.63%</span></td><td><span class="chg-pill text-red-bg">-5.94%</span></td><td><span class="chg-pill text-green-bg">+5.25%</span></td><td style="text-align:right"><span class="text-amber">+0.9</span></td><td style="text-align:right"><span class="rs-badge rs-elite">92 ★★</span></td><td><div class="rsi-wrap"><span class="">37.0</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:37%"></div></div></div></td><td class="text-red">-1.76%</td></tr>
-<tr class=""><td><strong>LIT</strong></td><td style="color:var(--text-label)">Lithium & Battery</td><td>74.44</td><td><span class="chg-pill text-green-bg">+0.12%</span></td><td><span class="na-val">N/A</span></td><td><span class="na-val">N/A</span></td><td style="text-align:right"><span class="text-amber">0.0</span></td><td style="text-align:right"><span class="rs-badge rs-weak">12</span></td><td><div class="rsi-wrap"><span class="">58.5</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:58%"></div></div></div></td><td class="text-green">+4.79%</td></tr>
-<tr class=""><td><strong>XBI</strong></td><td style="color:var(--text-label)">Biotech (Equal Weight)</td><td>128.55</td><td><span class="chg-pill text-green-bg">+0.64%</span></td><td><span class="na-val">N/A</span></td><td><span class="na-val">N/A</span></td><td style="text-align:right"><span class="text-amber">0.0</span></td><td style="text-align:right"><span class="rs-badge rs-weak">12</span></td><td><div class="rsi-wrap"><span class="">58.0</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:58%"></div></div></div></td><td class="text-green">+4.14%</td></tr>
-<tr class=""><td><strong>XOP</strong></td><td style="color:var(--text-label)">Oil & Gas E&P</td><td>174.85</td><td><span class="chg-pill text-red-bg">-3.84%</span></td><td><span class="na-val">N/A</span></td><td><span class="na-val">N/A</span></td><td style="text-align:right"><span class="text-amber">0.0</span></td><td style="text-align:right"><span class="rs-badge rs-weak">12</span></td><td><div class="rsi-wrap"><span class="">57.4</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:57%"></div></div></div></td><td class="text-green">+1.20%</td></tr>
-<tr class=""><td><strong>IBB</strong></td><td style="color:var(--text-label)">Biotech (Market Cap)</td><td>170.13</td><td><span class="chg-pill text-green-bg">+0.76%</span></td><td><span class="na-val">N/A</span></td><td><span class="na-val">N/A</span></td><td style="text-align:right"><span class="text-amber">0.0</span></td><td style="text-align:right"><span class="rs-badge rs-weak">12</span></td><td><div class="rsi-wrap"><span class="">54.7</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:55%"></div></div></div></td><td class="text-green">+2.42%</td></tr>
-<tr class=""><td><strong>KRE</strong></td><td style="color:var(--text-label)">Regional Banks</td><td>65.85</td><td><span class="chg-pill text-green-bg">+1.07%</span></td><td><span class="na-val">N/A</span></td><td><span class="na-val">N/A</span></td><td style="text-align:right"><span class="text-amber">0.0</span></td><td style="text-align:right"><span class="rs-badge rs-weak">12</span></td><td><div class="rsi-wrap"><span class="">54.1</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:54%"></div></div></div></td><td class="text-green">+3.05%</td></tr>
-<tr class=""><td><strong>PICK</strong></td><td style="color:var(--text-label)">Diversified Metals & Mining</td><td>57.85</td><td><span class="chg-pill text-green-bg">+2.23%</span></td><td><span class="na-val">N/A</span></td><td><span class="na-val">N/A</span></td><td style="text-align:right"><span class="text-amber">0.0</span></td><td style="text-align:right"><span class="rs-badge rs-weak">12</span></td><td><div class="rsi-wrap"><span class="">53.9</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:54%"></div></div></div></td><td class="text-green">+3.58%</td></tr>
-<tr class=""><td><strong>GDX</strong></td><td style="color:var(--text-label)">Gold Miners</td><td>96.01</td><td><span class="chg-pill text-green-bg">+4.62%</span></td><td><span class="na-val">N/A</span></td><td><span class="na-val">N/A</span></td><td style="text-align:right"><span class="text-amber">0.0</span></td><td style="text-align:right"><span class="rs-badge rs-weak">12</span></td><td><div class="rsi-wrap"><span class="">53.4</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:53%"></div></div></div></td><td class="text-green">+4.51%</td></tr>
-<tr class=""><td><strong>KBE</strong></td><td style="color:var(--text-label)">Banks Broad</td><td>60.10</td><td><span class="chg-pill text-green-bg">+0.92%</span></td><td><span class="na-val">N/A</span></td><td><span class="na-val">N/A</span></td><td style="text-align:right"><span class="text-amber">0.0</span></td><td style="text-align:right"><span class="rs-badge rs-weak">12</span></td><td><div class="rsi-wrap"><span class="">52.8</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:53%"></div></div></div></td><td class="text-green">+2.67%</td></tr>
-<tr class=""><td><strong>TAN</strong></td><td style="color:var(--text-label)">Solar Energy</td><td>56.27</td><td><span class="chg-pill text-green-bg">+1.01%</span></td><td><span class="na-val">N/A</span></td><td><span class="na-val">N/A</span></td><td style="text-align:right"><span class="text-amber">0.0</span></td><td style="text-align:right"><span class="rs-badge rs-weak">12</span></td><td><div class="rsi-wrap"><span class="">52.0</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:52%"></div></div></div></td><td class="text-green">+1.62%</td></tr>
-<tr class=""><td><strong>ROKT</strong></td><td style="color:var(--text-label)">Space Exploration</td><td>102.36</td><td><span class="chg-pill text-green-bg">+2.92%</span></td><td><span class="na-val">N/A</span></td><td><span class="na-val">N/A</span></td><td style="text-align:right"><span class="text-amber">0.0</span></td><td style="text-align:right"><span class="rs-badge rs-weak">12</span></td><td><div class="rsi-wrap"><span class="">51.7</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:52%"></div></div></div></td><td class="text-green">+0.70%</td></tr>
-<tr class=""><td><strong>PAVE</strong></td><td style="color:var(--text-label)">Infrastructure</td><td>51.69</td><td><span class="chg-pill text-green-bg">+1.73%</span></td><td><span class="na-val">N/A</span></td><td><span class="na-val">N/A</span></td><td style="text-align:right"><span class="text-amber">0.0</span></td><td style="text-align:right"><span class="rs-badge rs-weak">12</span></td><td><div class="rsi-wrap"><span class="">51.7</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:52%"></div></div></div></td><td class="text-green">+1.70%</td></tr>
-<tr class=""><td><strong>SOXX</strong></td><td style="color:var(--text-label)">Semiconductors (iShares)</td><td>338.54</td><td><span class="chg-pill text-green-bg">+3.01%</span></td><td><span class="na-val">N/A</span></td><td><span class="na-val">N/A</span></td><td style="text-align:right"><span class="text-amber">0.0</span></td><td style="text-align:right"><span class="rs-badge rs-weak">12</span></td><td><div class="rsi-wrap"><span class="">51.1</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:51%"></div></div></div></td><td class="text-green">+1.36%</td></tr>
-<tr class=""><td><strong>SMH</strong></td><td style="color:var(--text-label)">Semiconductors</td><td>391.97</td><td><span class="chg-pill text-green-bg">+2.24%</span></td><td><span class="na-val">N/A</span></td><td><span class="na-val">N/A</span></td><td style="text-align:right"><span class="text-amber">0.0</span></td><td style="text-align:right"><span class="rs-badge rs-weak">12</span></td><td><div class="rsi-wrap"><span class="">50.4</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:50%"></div></div></div></td><td class="text-green">+0.68%</td></tr>
-<tr class=""><td><strong>COPX</strong></td><td style="color:var(--text-label)">Copper Miners</td><td>78.15</td><td><span class="chg-pill text-green-bg">+2.36%</span></td><td><span class="na-val">N/A</span></td><td><span class="na-val">N/A</span></td><td style="text-align:right"><span class="text-amber">0.0</span></td><td style="text-align:right"><span class="rs-badge rs-weak">12</span></td><td><div class="rsi-wrap"><span class="">49.9</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:50%"></div></div></div></td><td class="text-green">+2.23%</td></tr>
-<tr class=""><td><strong>GLD</strong></td><td style="color:var(--text-label)">Gold ETF</td><td>437.82</td><td><span class="chg-pill text-green-bg">+1.75%</span></td><td><span class="na-val">N/A</span></td><td><span class="na-val">N/A</span></td><td style="text-align:right"><span class="text-amber">0.0</span></td><td style="text-align:right"><span class="rs-badge rs-weak">12</span></td><td><div class="rsi-wrap"><span class="">49.4</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:49%"></div></div></div></td><td class="text-red">-0.73%</td></tr>
-<tr class=""><td><strong>IYT</strong></td><td style="color:var(--text-label)">Transportation</td><td>75.27</td><td><span class="chg-pill text-green-bg">+0.90%</span></td><td><span class="na-val">N/A</span></td><td><span class="na-val">N/A</span></td><td style="text-align:right"><span class="text-amber">0.0</span></td><td style="text-align:right"><span class="rs-badge rs-weak">12</span></td><td><div class="rsi-wrap"><span class="">49.0</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:49%"></div></div></div></td><td class="text-green">+1.07%</td></tr>
-<tr class=""><td><strong>URA</strong></td><td style="color:var(--text-label)">Uranium Mining</td><td>49.26</td><td><span class="chg-pill text-green-bg">+1.71%</span></td><td><span class="na-val">N/A</span></td><td><span class="na-val">N/A</span></td><td style="text-align:right"><span class="text-amber">0.0</span></td><td style="text-align:right"><span class="rs-badge rs-weak">12</span></td><td><div class="rsi-wrap"><span class="">49.0</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:49%"></div></div></div></td><td class="text-green">+0.58%</td></tr>
-<tr class=""><td><strong>MSOS</strong></td><td style="color:var(--text-label)">Cannabis</td><td>3.68</td><td><span class="chg-pill text-green-bg">+3.66%</span></td><td><span class="na-val">N/A</span></td><td><span class="na-val">N/A</span></td><td style="text-align:right"><span class="text-amber">0.0</span></td><td style="text-align:right"><span class="rs-badge rs-weak">12</span></td><td><div class="rsi-wrap"><span class="">48.5</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:48%"></div></div></div></td><td class="text-red">-0.76%</td></tr>
-<tr class=""><td><strong>IAI</strong></td><td style="color:var(--text-label)">Investment Banking & Brokers</td><td>164.84</td><td><span class="chg-pill text-green-bg">+0.40%</span></td><td><span class="na-val">N/A</span></td><td><span class="na-val">N/A</span></td><td style="text-align:right"><span class="text-amber">0.0</span></td><td style="text-align:right"><span class="rs-badge rs-weak">12</span></td><td><div class="rsi-wrap"><span class="">48.0</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:48%"></div></div></div></td><td class="text-green">+0.52%</td></tr>
-<tr class=""><td><strong>QTUM</strong></td><td style="color:var(--text-label)">Quantum Computing & ML</td><td>109.29</td><td><span class="chg-pill text-green-bg">+1.85%</span></td><td><span class="na-val">N/A</span></td><td><span class="na-val">N/A</span></td><td style="text-align:right"><span class="text-amber">0.0</span></td><td style="text-align:right"><span class="rs-badge rs-weak">12</span></td><td><div class="rsi-wrap"><span class="">47.7</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:48%"></div></div></div></td><td class="text-red">-0.24%</td></tr>
-<tr class=""><td><strong>SLV</strong></td><td style="color:var(--text-label)">Silver ETF</td><td>68.14</td><td><span class="chg-pill text-green-bg">0.00%</span></td><td><span class="na-val">N/A</span></td><td><span class="na-val">N/A</span></td><td style="text-align:right"><span class="text-amber">0.0</span></td><td style="text-align:right"><span class="rs-badge rs-weak">12</span></td><td><div class="rsi-wrap"><span class="">47.4</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:47%"></div></div></div></td><td class="text-red">-2.03%</td></tr>
-<tr class=""><td><strong>SKYY</strong></td><td style="color:var(--text-label)">Cloud Computing</td><td>110.33</td><td><span class="chg-pill text-green-bg">+0.89%</span></td><td><span class="na-val">N/A</span></td><td><span class="na-val">N/A</span></td><td style="text-align:right"><span class="text-amber">0.0</span></td><td style="text-align:right"><span class="rs-badge rs-weak">12</span></td><td><div class="rsi-wrap"><span class="">47.2</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:47%"></div></div></div></td><td class="text-red">-1.07%</td></tr>
-<tr class=""><td><strong>JETS</strong></td><td style="color:var(--text-label)">Airlines</td><td>25.27</td><td><span class="chg-pill text-green-bg">+2.60%</span></td><td><span class="na-val">N/A</span></td><td><span class="na-val">N/A</span></td><td style="text-align:right"><span class="text-amber">0.0</span></td><td style="text-align:right"><span class="rs-badge rs-weak">12</span></td><td><div class="rsi-wrap"><span class="">47.2</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:47%"></div></div></div></td><td class="text-green">+1.73%</td></tr>
-<tr class=""><td><strong>NLR</strong></td><td style="color:var(--text-label)">Nuclear Energy</td><td>134.36</td><td><span class="chg-pill text-green-bg">+0.88%</span></td><td><span class="na-val">N/A</span></td><td><span class="na-val">N/A</span></td><td style="text-align:right"><span class="text-amber">0.0</span></td><td style="text-align:right"><span class="rs-badge rs-weak">12</span></td><td><div class="rsi-wrap"><span class="">47.0</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:47%"></div></div></div></td><td class="text-red">-0.76%</td></tr>
-<tr class=""><td><strong>ROBO</strong></td><td style="color:var(--text-label)">Robotics & Automation</td><td>70.14</td><td><span class="chg-pill text-green-bg">+2.50%</span></td><td><span class="na-val">N/A</span></td><td><span class="na-val">N/A</span></td><td style="text-align:right"><span class="text-amber">0.0</span></td><td style="text-align:right"><span class="rs-badge rs-weak">12</span></td><td><div class="rsi-wrap"><span class="">46.9</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:47%"></div></div></div></td><td class="text-red">-0.32%</td></tr>
-<tr class=""><td><strong>XAR</strong></td><td style="color:var(--text-label)">Aerospace & Defense (SPDR)</td><td>259.95</td><td><span class="chg-pill text-green-bg">+2.35%</span></td><td><span class="na-val">N/A</span></td><td><span class="na-val">N/A</span></td><td style="text-align:right"><span class="text-amber">0.0</span></td><td style="text-align:right"><span class="rs-badge rs-weak">12</span></td><td><div class="rsi-wrap"><span class="">45.8</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:46%"></div></div></div></td><td class="text-red">-2.37%</td></tr>
-<tr class=""><td><strong>ARKK</strong></td><td style="color:var(--text-label)">ARK Innovation</td><td>68.40</td><td><span class="chg-pill text-green-bg">+1.20%</span></td><td><span class="na-val">N/A</span></td><td><span class="na-val">N/A</span></td><td style="text-align:right"><span class="text-amber">0.0</span></td><td style="text-align:right"><span class="rs-badge rs-weak">12</span></td><td><div class="rsi-wrap"><span class="">45.6</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:46%"></div></div></div></td><td class="text-red">-2.68%</td></tr>
-<tr class=""><td><strong>AIQ</strong></td><td style="color:var(--text-label)">AI & Big Data</td><td>47.34</td><td><span class="chg-pill text-green-bg">+1.44%</span></td><td><span class="na-val">N/A</span></td><td><span class="na-val">N/A</span></td><td style="text-align:right"><span class="text-amber">0.0</span></td><td style="text-align:right"><span class="rs-badge rs-weak">12</span></td><td><div class="rsi-wrap"><span class="">45.6</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:46%"></div></div></div></td><td class="text-red">-1.76%</td></tr>
-<tr class=""><td><strong>ARKQ</strong></td><td style="color:var(--text-label)">ARK Autonomous & Robotics</td><td>114.51</td><td><span class="chg-pill text-green-bg">+1.83%</span></td><td><span class="na-val">N/A</span></td><td><span class="na-val">N/A</span></td><td style="text-align:right"><span class="text-amber">0.0</span></td><td style="text-align:right"><span class="rs-badge rs-weak">12</span></td><td><div class="rsi-wrap"><span class="">45.5</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:46%"></div></div></div></td><td class="text-red">-2.28%</td></tr>
-<tr class=""><td><strong>TLT</strong></td><td style="color:var(--text-label)">20+ Year Treasury Bond</td><td>86.26</td><td><span class="chg-pill text-red-bg">-0.10%</span></td><td><span class="na-val">N/A</span></td><td><span class="na-val">N/A</span></td><td style="text-align:right"><span class="text-amber">0.0</span></td><td style="text-align:right"><span class="rs-badge rs-weak">12</span></td><td><div class="rsi-wrap"><span class="">45.5</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:46%"></div></div></div></td><td class="text-red">-0.54%</td></tr>
-<tr class=""><td><strong>MAGS</strong></td><td style="color:var(--text-label)">Magnificent 7</td><td>58.68</td><td><span class="chg-pill text-green-bg">+1.28%</span></td><td><span class="na-val">N/A</span></td><td><span class="na-val">N/A</span></td><td style="text-align:right"><span class="text-amber">0.0</span></td><td style="text-align:right"><span class="rs-badge rs-weak">12</span></td><td><div class="rsi-wrap"><span class="">45.3</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:45%"></div></div></div></td><td class="text-red">-1.48%</td></tr>
-<tr class=""><td><strong>CIBR</strong></td><td style="color:var(--text-label)">Cybersecurity</td><td>63.15</td><td><span class="chg-pill text-green-bg">+0.75%</span></td><td><span class="na-val">N/A</span></td><td><span class="na-val">N/A</span></td><td style="text-align:right"><span class="text-amber">0.0</span></td><td style="text-align:right"><span class="rs-badge rs-weak">12</span></td><td><div class="rsi-wrap"><span class="">45.3</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:45%"></div></div></div></td><td class="text-red">-1.64%</td></tr>
-<tr class=""><td><strong>XRT</strong></td><td style="color:var(--text-label)">Retail</td><td>80.60</td><td><span class="chg-pill text-green-bg">+0.16%</span></td><td><span class="na-val">N/A</span></td><td><span class="na-val">N/A</span></td><td style="text-align:right"><span class="text-amber">0.0</span></td><td style="text-align:right"><span class="rs-badge rs-weak">12</span></td><td><div class="rsi-wrap"><span class="">45.1</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:45%"></div></div></div></td><td class="text-green">+0.26%</td></tr>
-<tr class=""><td><strong>ITA</strong></td><td style="color:var(--text-label)">Aerospace & Defense</td><td>223.64</td><td><span class="chg-pill text-green-bg">+2.24%</span></td><td><span class="na-val">N/A</span></td><td><span class="na-val">N/A</span></td><td style="text-align:right"><span class="text-amber">0.0</span></td><td style="text-align:right"><span class="rs-badge rs-weak">12</span></td><td><div class="rsi-wrap"><span class="">45.0</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:45%"></div></div></div></td><td class="text-red">-2.14%</td></tr>
-<tr class=""><td><strong>BUG</strong></td><td style="color:var(--text-label)">Cybersecurity (Global X)</td><td>25.34</td><td><span class="chg-pill text-green-bg">+0.92%</span></td><td><span class="na-val">N/A</span></td><td><span class="na-val">N/A</span></td><td style="text-align:right"><span class="text-amber">0.0</span></td><td style="text-align:right"><span class="rs-badge rs-weak">12</span></td><td><div class="rsi-wrap"><span class="">44.7</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:45%"></div></div></div></td><td class="text-red">-2.17%</td></tr>
-<tr class=""><td><strong>VNQ</strong></td><td style="color:var(--text-label)">Real Estate (Vanguard)</td><td>89.02</td><td><span class="chg-pill text-green-bg">+0.36%</span></td><td><span class="na-val">N/A</span></td><td><span class="na-val">N/A</span></td><td style="text-align:right"><span class="text-amber">0.0</span></td><td style="text-align:right"><span class="rs-badge rs-weak">12</span></td><td><div class="rsi-wrap"><span class="">43.3</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:43%"></div></div></div></td><td class="text-red">-1.26%</td></tr>
-<tr class=""><td><strong>FXI</strong></td><td style="color:var(--text-label)">China Large-Cap</td><td>35.56</td><td><span class="chg-pill text-red-bg">-0.95%</span></td><td><span class="na-val">N/A</span></td><td><span class="na-val">N/A</span></td><td style="text-align:right"><span class="text-amber">0.0</span></td><td style="text-align:right"><span class="rs-badge rs-weak">12</span></td><td><div class="rsi-wrap"><span class="">43.0</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:43%"></div></div></div></td><td class="text-red">-0.88%</td></tr>
-<tr class=""><td><strong>BLOK</strong></td><td style="color:var(--text-label)">Blockchain</td><td>49.95</td><td><span class="chg-pill text-green-bg">+0.28%</span></td><td><span class="na-val">N/A</span></td><td><span class="na-val">N/A</span></td><td style="text-align:right"><span class="text-amber">0.0</span></td><td style="text-align:right"><span class="rs-badge rs-weak">12</span></td><td><div class="rsi-wrap"><span class="">42.6</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:43%"></div></div></div></td><td class="text-red">-3.95%</td></tr>
-<tr class=""><td><strong>BOTZ</strong></td><td style="color:var(--text-label)">Robotics & AI</td><td>33.90</td><td><span class="chg-pill text-green-bg">+2.05%</span></td><td><span class="na-val">N/A</span></td><td><span class="na-val">N/A</span></td><td style="text-align:right"><span class="text-amber">0.0</span></td><td style="text-align:right"><span class="rs-badge rs-weak">12</span></td><td><div class="rsi-wrap"><span class="">42.5</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:43%"></div></div></div></td><td class="text-red">-2.19%</td></tr>
-<tr class=""><td><strong>XHB</strong></td><td style="color:var(--text-label)">Homebuilders</td><td>99.21</td><td><span class="chg-pill text-green-bg">+0.50%</span></td><td><span class="na-val">N/A</span></td><td><span class="na-val">N/A</span></td><td style="text-align:right"><span class="text-amber">0.0</span></td><td style="text-align:right"><span class="rs-badge rs-weak">12</span></td><td><div class="rsi-wrap"><span class="">40.9</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:41%"></div></div></div></td><td class="text-red">-1.24%</td></tr>
-<tr class=""><td><strong>IGV</strong></td><td style="color:var(--text-label)">Software</td><td>79.77</td><td><span class="chg-pill text-red-bg">-0.35%</span></td><td><span class="na-val">N/A</span></td><td><span class="na-val">N/A</span></td><td style="text-align:right"><span class="text-amber">0.0</span></td><td style="text-align:right"><span class="rs-badge rs-weak">12</span></td><td><div class="rsi-wrap"><span class="">40.9</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:41%"></div></div></div></td><td class="text-red">-4.23%</td></tr>
-<tr class=""><td><strong>IPAY</strong></td><td style="color:var(--text-label)">Digital Payments</td><td>42.50</td><td><span class="chg-pill text-red-bg">-0.69%</span></td><td><span class="na-val">N/A</span></td><td><span class="na-val">N/A</span></td><td style="text-align:right"><span class="text-amber">0.0</span></td><td style="text-align:right"><span class="rs-badge rs-weak">12</span></td><td><div class="rsi-wrap"><span class="">40.6</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:41%"></div></div></div></td><td class="text-red">-2.43%</td></tr>
-<tr class=""><td><strong>FINX</strong></td><td style="color:var(--text-label)">FinTech</td><td>22.89</td><td><span class="chg-pill text-red-bg">-0.89%</span></td><td><span class="na-val">N/A</span></td><td><span class="na-val">N/A</span></td><td style="text-align:right"><span class="text-amber">0.0</span></td><td style="text-align:right"><span class="rs-badge rs-weak">12</span></td><td><div class="rsi-wrap"><span class="">40.0</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:40%"></div></div></div></td><td class="text-red">-4.84%</td></tr>
-<tr class=""><td><strong>KWEB</strong></td><td style="color:var(--text-label)">China Internet</td><td>28.30</td><td><span class="chg-pill text-red-bg">-0.46%</span></td><td><span class="na-val">N/A</span></td><td><span class="na-val">N/A</span></td><td style="text-align:right"><span class="text-amber">0.0</span></td><td style="text-align:right"><span class="rs-badge rs-weak">12</span></td><td><div class="rsi-wrap"><span class="">36.7</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:37%"></div></div></div></td><td class="text-red">-3.36%</td></tr>
-<tr class=""><td><strong>IHI</strong></td><td style="color:var(--text-label)">Medical Devices</td><td>53.43</td><td><span class="chg-pill text-green-bg">+0.15%</span></td><td><span class="na-val">N/A</span></td><td><span class="na-val">N/A</span></td><td style="text-align:right"><span class="text-amber">0.0</span></td><td style="text-align:right"><span class="rs-badge rs-weak">12</span></td><td><div class="rsi-wrap"><span class="">33.1</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:33%"></div></div></div></td><td class="text-red">-2.83%</td></tr>
-<tr class=""><td><strong>XLRE</strong></td><td style="color:var(--text-label)">Real Estate</td><td>40.95</td><td><span class="chg-pill text-green-bg">+0.29%</span></td><td><span class="chg-pill text-red-bg">-6.46%</span></td><td><span class="chg-pill text-red-bg">-0.57%</span></td><td style="text-align:right"><span class="text-amber">-2.7</span></td><td style="text-align:right"><span class="rs-badge rs-weak">10</span></td><td><div class="rsi-wrap"><span class="">43.9</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:44%"></div></div></div></td><td class="text-red">-1.19%</td></tr>
-<tr class=""><td><strong>XLV</strong></td><td style="color:var(--text-label)">Health Care</td><td>147.73</td><td><span class="chg-pill text-green-bg">+0.76%</span></td><td><span class="chg-pill text-red-bg">-4.27%</span></td><td><span class="chg-pill text-red-bg">-3.96%</span></td><td style="text-align:right"><span class="text-amber">-4.0</span></td><td style="text-align:right"><span class="rs-badge rs-weak">8</span></td><td><div class="rsi-wrap"><span class="">45.5</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:45%"></div></div></div></td><td class="text-red">-0.25%</td></tr>
-<tr class=""><td><strong>XLK</strong></td><td style="color:var(--text-label)">Technology</td><td>134.91</td><td><span class="chg-pill text-green-bg">+1.51%</span></td><td><span class="chg-pill text-red-bg">-2.42%</span></td><td><span class="chg-pill text-red-bg">-6.96%</span></td><td style="text-align:right"><span class="text-red">-5.0</span></td><td style="text-align:right"><span class="rs-badge rs-weak">6</span></td><td><div class="rsi-wrap"><span class="">46.9</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:47%"></div></div></div></td><td class="text-red">-1.08%</td></tr>
-<tr class=""><td><strong>XLF</strong></td><td style="color:var(--text-label)">Financials</td><td>49.44</td><td><span class="chg-pill text-green-bg">+0.14%</span></td><td><span class="chg-pill text-red-bg">-2.97%</span></td><td><span class="chg-pill text-red-bg">-8.37%</span></td><td style="text-align:right"><span class="text-red">-6.1</span></td><td style="text-align:right"><span class="rs-badge rs-weak">5</span></td><td><div class="rsi-wrap"><span class="">46.9</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:47%"></div></div></div></td><td class="text-green">+0.45%</td></tr>
-<tr class=""><td><strong>XLC</strong></td><td style="color:var(--text-label)">Communication Svcs</td><td>111.24</td><td><span class="chg-pill text-green-bg">+0.34%</span></td><td><span class="chg-pill text-red-bg">-4.92%</span></td><td><span class="chg-pill text-red-bg">-7.20%</span></td><td style="text-align:right"><span class="text-red">-6.2</span></td><td style="text-align:right"><span class="rs-badge rs-weak">3</span></td><td><div class="rsi-wrap"><span class="">43.4</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:43%"></div></div></div></td><td class="text-red">-1.73%</td></tr>
+<tr class=""><td><strong>XLB</strong></td><td style="color:var(--text-label)">Materials</td><td>50.46</td><td><span class="chg-pill text-green-bg">+0.98%</span></td><td><span class="chg-pill text-red-bg">-5.07%</span></td><td><span class="chg-pill text-green-bg">+12.85%</span></td><td style="text-align:right"><span class="text-green">+5.9</span></td><td style="text-align:right"><span class="rs-badge rs-strong">89 ★</span></td><td><div class="rsi-wrap"><span class="">56.2</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:56%"></div></div></div></td><td class="text-green">+2.80%</td></tr>
+<tr class=""><td><strong>XLU</strong></td><td style="color:var(--text-label)">Utilities</td><td>46.11</td><td><span class="chg-pill text-green-bg">+0.48%</span></td><td><span class="chg-pill text-red-bg">-1.86%</span></td><td><span class="chg-pill text-green-bg">+7.05%</span></td><td style="text-align:right"><span class="text-amber">+3.6</span></td><td style="text-align:right"><span class="rs-badge rs-mid">79</span></td><td><div class="rsi-wrap"><span class="">54.7</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:55%"></div></div></div></td><td class="text-green">+0.34%</td></tr>
+<tr class=""><td><strong>XLI</strong></td><td style="color:var(--text-label)">Industrials</td><td>164.43</td><td><span class="chg-pill text-green-bg">+1.67%</span></td><td><span class="chg-pill text-red-bg">-5.87%</span></td><td><span class="chg-pill text-green-bg">+6.07%</span></td><td style="text-align:right"><span class="text-amber">+1.5</span></td><td style="text-align:right"><span class="rs-badge rs-mid">70</span></td><td><div class="rsi-wrap"><span class="">47.9</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:48%"></div></div></div></td><td class="text-red">-0.21%</td></tr>
+<tr class=""><td><strong>XLP</strong></td><td style="color:var(--text-label)">Cons. Staples</td><td>81.46</td><td><span class="chg-pill text-red-bg">-0.63%</span></td><td><span class="chg-pill text-red-bg">-5.94%</span></td><td><span class="chg-pill text-green-bg">+5.25%</span></td><td style="text-align:right"><span class="text-amber">+0.9</span></td><td style="text-align:right"><span class="rs-badge rs-mid">60</span></td><td><div class="rsi-wrap"><span class="">37.0</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:37%"></div></div></div></td><td class="text-red">-1.76%</td></tr>
+<tr class=""><td><strong>XLRE</strong></td><td style="color:var(--text-label)">Real Estate</td><td>40.95</td><td><span class="chg-pill text-green-bg">+0.29%</span></td><td><span class="chg-pill text-red-bg">-6.46%</span></td><td><span class="chg-pill text-red-bg">-0.57%</span></td><td style="text-align:right"><span class="text-amber">-2.7</span></td><td style="text-align:right"><span class="rs-badge rs-weak">50</span></td><td><div class="rsi-wrap"><span class="">43.9</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:44%"></div></div></div></td><td class="text-red">-1.19%</td></tr>
+<tr class=""><td><strong>XLV</strong></td><td style="color:var(--text-label)">Health Care</td><td>147.73</td><td><span class="chg-pill text-green-bg">+0.76%</span></td><td><span class="chg-pill text-red-bg">-4.27%</span></td><td><span class="chg-pill text-red-bg">-3.96%</span></td><td style="text-align:right"><span class="text-amber">-4.0</span></td><td style="text-align:right"><span class="rs-badge rs-weak">40</span></td><td><div class="rsi-wrap"><span class="">45.5</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:45%"></div></div></div></td><td class="text-red">-0.25%</td></tr>
+<tr class=""><td><strong>XLK</strong></td><td style="color:var(--text-label)">Technology</td><td>134.91</td><td><span class="chg-pill text-green-bg">+1.51%</span></td><td><span class="chg-pill text-red-bg">-2.42%</span></td><td><span class="chg-pill text-red-bg">-6.96%</span></td><td style="text-align:right"><span class="text-red">-5.0</span></td><td style="text-align:right"><span class="rs-badge rs-weak">30</span></td><td><div class="rsi-wrap"><span class="">46.9</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:47%"></div></div></div></td><td class="text-red">-1.08%</td></tr>
+<tr class=""><td><strong>XLF</strong></td><td style="color:var(--text-label)">Financials</td><td>49.44</td><td><span class="chg-pill text-green-bg">+0.14%</span></td><td><span class="chg-pill text-red-bg">-2.97%</span></td><td><span class="chg-pill text-red-bg">-8.37%</span></td><td style="text-align:right"><span class="text-red">-6.1</span></td><td style="text-align:right"><span class="rs-badge rs-weak">21</span></td><td><div class="rsi-wrap"><span class="">46.9</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:47%"></div></div></div></td><td class="text-green">+0.45%</td></tr>
+<tr class=""><td><strong>XLC</strong></td><td style="color:var(--text-label)">Communication Svcs</td><td>111.24</td><td><span class="chg-pill text-green-bg">+0.34%</span></td><td><span class="chg-pill text-red-bg">-4.92%</span></td><td><span class="chg-pill text-red-bg">-7.20%</span></td><td style="text-align:right"><span class="text-red">-6.2</span></td><td style="text-align:right"><span class="rs-badge rs-weak">11</span></td><td><div class="rsi-wrap"><span class="">43.4</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:43%"></div></div></div></td><td class="text-red">-1.73%</td></tr>
 <tr class=""><td><strong>XLY</strong></td><td style="color:var(--text-label)">Cons. Discretionary</td><td>109.80</td><td><span class="chg-pill text-green-bg">+0.75%</span></td><td><span class="chg-pill text-red-bg">-3.70%</span></td><td><span class="chg-pill text-red-bg">-9.90%</span></td><td style="text-align:right"><span class="text-red">-7.3</span></td><td style="text-align:right"><span class="rs-badge rs-weak">1</span></td><td><div class="rsi-wrap"><span class="">44.9</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:45%"></div></div></div></td><td class="text-red">-0.93%</td></tr>
       </tbody>
     </table>
@@ -873,7 +739,7 @@ function showCriteriaModal() {
 
   <!-- ── 5B: Industry RS Radar ────────────────────────────────────── -->
   <div style="display:flex;align-items:center;margin:20px 0 6px;">
-    <div class="sub-title" style="margin:0;">5B — Industry RS Radar</div>
+    <div class="sub-title" style="margin:0;">5B — Thematic &amp; Sub-Sector Breakdown (45 ETFs)</div>
     <button class="logic-info-btn" onclick="showLogicModal('cluster_radar')">
       <span class="li-icon">&#9432;</span> Logic Info
     </button>
@@ -882,70 +748,184 @@ function showCriteriaModal() {
     <strong>Hot Cluster &#128293;</strong> 準則：組內超過 50% 的成員同時滿足
     (Price &gt; 20MA) 且 (RS Rating &gt; 80)。代表機構資金正在集體性流入該板塊。
   </div>
-  
-<div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
-  <span class="cluster-badge cluster-cool">&#10052; Cool</span>
-  <span style="font-size:10px;color:#9e9e9e;">3/15 行業滿足熱區準則 (20%)</span>
-</div>
-<div class="table-wrap">
-  <table class="data-table">
-    <thead>
-      <tr>
-        <th style="text-align:center;">#</th>
-        <th>Industry</th>
-        <th>Stocks</th>
-        <th>1D Chg%</th>
-        <th>1M Chg%</th>
-        <th>3M Chg%</th>
-        <th>RS Score</th>
-        <th>RS Rating</th>
-        <th>Cluster</th>
-      </tr>
-    </thead>
+  <div style="background:rgba(158,158,158,0.1);border:1px solid #555;border-radius:6px;padding:8px 14px;margin-bottom:12px;font-size:12px;color:#9e9e9e;">&#10052; No Hot Clusters detected today</div>
+<div style="margin-bottom:20px;">
+  <div style="font-size:12px;font-weight:700;letter-spacing:0.8px;text-transform:uppercase;
+    color:#42a5f5;border-left:3px solid #42a5f5;padding-left:10px;
+    margin-bottom:8px;">&#128202; Core Industry</div>
+  <div class="table-wrap">
+  <table class="data-table" style="font-size:12px;">
+    <thead><tr>
+      <th>Symbol</th><th>Name</th>
+      <th>1D%</th><th>1M%</th><th>3M%</th>
+      <th>RS Score</th><th>RS Rating</th><th>Flag</th>
+    </tr></thead>
     <tbody>
-<tr><td style="text-align:center;color:var(--text-muted)">1</td><td>Aluminum</td><td style="color:var(--text-label)">4</td><td><span class="chg-pill text-green-bg">+8.85%</span></td><td><span class="chg-pill text-green-bg">+12.24%</span></td><td><span class="chg-pill text-green-bg">+36.75%</span></td><td style="text-align:right"><span class="text-green">+27.5</span></td><td style="text-align:right"><span class="rs-badge rs-elite">99 ★★</span></td><td style="text-align:center"><span class="cluster-badge cluster-hot" style="font-size:10px;">&#128293; Hot</span></td></tr>
-<tr><td style="text-align:center;color:var(--text-muted)">2</td><td>Semiconductor Equipment & Materials</td><td style="color:var(--text-label)">29</td><td><span class="chg-pill text-green-bg">+3.28%</span></td><td><span class="chg-pill text-green-bg">+1.38%</span></td><td><span class="chg-pill text-green-bg">+29.78%</span></td><td style="text-align:right"><span class="text-green">+18.7</span></td><td style="text-align:right"><span class="rs-badge rs-elite">92 ★★</span></td><td style="text-align:center"><span class="cluster-badge cluster-hot" style="font-size:10px;">&#128293; Hot</span></td></tr>
-<tr><td style="text-align:center;color:var(--text-muted)">3</td><td>Computer Hardware</td><td style="color:var(--text-label)">41</td><td><span class="chg-pill text-green-bg">+4.99%</span></td><td><span class="chg-pill text-green-bg">+8.16%</span></td><td><span class="chg-pill text-green-bg">+24.10%</span></td><td style="text-align:right"><span class="text-green">+18.1</span></td><td style="text-align:right"><span class="rs-badge rs-strong">85 ★</span></td><td style="text-align:center"><span class="cluster-badge cluster-hot" style="font-size:10px;">&#128293; Hot</span></td></tr>
-<tr><td style="text-align:center;color:var(--text-muted)">4</td><td>Electronics & Computer Distribution</td><td style="color:var(--text-label)">8</td><td><span class="chg-pill text-green-bg">+5.68%</span></td><td><span class="chg-pill text-green-bg">+5.60%</span></td><td><span class="chg-pill text-green-bg">+18.09%</span></td><td style="text-align:right"><span class="text-green">+13.5</span></td><td style="text-align:right"><span class="rs-badge rs-mid">78</span></td><td style="text-align:center"><span class="cluster-badge cluster-cool" style="font-size:10px;">&#8212;</span></td></tr>
-<tr><td style="text-align:center;color:var(--text-muted)">5</td><td>Farm & Heavy Construction Machinery</td><td style="color:var(--text-label)">26</td><td><span class="chg-pill text-green-bg">+2.35%</span></td><td><span class="chg-pill text-red-bg">-2.71%</span></td><td><span class="chg-pill text-green-bg">+21.58%</span></td><td style="text-align:right"><span class="text-green">+12.1</span></td><td style="text-align:right"><span class="rs-badge rs-mid">71</span></td><td style="text-align:center"><span class="cluster-badge cluster-cool" style="font-size:10px;">&#8212;</span></td></tr>
-<tr><td style="text-align:center;color:var(--text-muted)">6</td><td>Engineering & Construction</td><td style="color:var(--text-label)">53</td><td><span class="chg-pill text-green-bg">+2.73%</span></td><td><span class="chg-pill text-red-bg">-1.30%</span></td><td><span class="chg-pill text-green-bg">+18.25%</span></td><td style="text-align:right"><span class="text-green">+10.7</span></td><td style="text-align:right"><span class="rs-badge rs-mid">64</span></td><td style="text-align:center"><span class="cluster-badge cluster-cool" style="font-size:10px;">&#8212;</span></td></tr>
-<tr><td style="text-align:center;color:var(--text-muted)">7</td><td>Copper</td><td style="color:var(--text-label)">6</td><td><span class="chg-pill text-green-bg">+3.76%</span></td><td><span class="chg-pill text-red-bg">-11.33%</span></td><td><span class="chg-pill text-green-bg">+20.46%</span></td><td style="text-align:right"><span class="text-green">+8.1</span></td><td style="text-align:right"><span class="rs-badge rs-weak">57</span></td><td style="text-align:center"><span class="cluster-badge cluster-cool" style="font-size:10px;">&#8212;</span></td></tr>
-<tr><td style="text-align:center;color:var(--text-muted)">8</td><td>Silver</td><td style="color:var(--text-label)">6</td><td><span class="chg-pill text-green-bg">+3.21%</span></td><td><span class="chg-pill text-red-bg">-19.46%</span></td><td><span class="chg-pill text-green-bg">+24.46%</span></td><td style="text-align:right"><span class="text-green">+7.4</span></td><td style="text-align:right"><span class="rs-badge rs-weak">50</span></td><td style="text-align:center"><span class="cluster-badge cluster-cool" style="font-size:10px;">&#8212;</span></td></tr>
-<tr><td style="text-align:center;color:var(--text-muted)">9</td><td>Gold</td><td style="color:var(--text-label)">50</td><td><span class="chg-pill text-green-bg">+4.31%</span></td><td><span class="chg-pill text-red-bg">-8.72%</span></td><td><span class="chg-pill text-green-bg">+12.24%</span></td><td style="text-align:right"><span class="text-amber">+4.2</span></td><td style="text-align:right"><span class="rs-badge rs-weak">43</span></td><td style="text-align:center"><span class="cluster-badge cluster-cool" style="font-size:10px;">&#8212;</span></td></tr>
-<tr><td style="text-align:center;color:var(--text-muted)">10</td><td>Metal Fabrication</td><td style="color:var(--text-label)">18</td><td><span class="chg-pill text-green-bg">+2.61%</span></td><td><span class="chg-pill text-red-bg">-6.22%</span></td><td><span class="chg-pill text-green-bg">+9.17%</span></td><td style="text-align:right"><span class="text-amber">+3.3</span></td><td style="text-align:right"><span class="rs-badge rs-weak">36</span></td><td style="text-align:center"><span class="cluster-badge cluster-cool" style="font-size:10px;">&#8212;</span></td></tr>
-<tr><td style="text-align:center;color:var(--text-muted)">11</td><td>Aerospace & Defense</td><td style="color:var(--text-label)">81</td><td><span class="chg-pill text-green-bg">+2.51%</span></td><td><span class="chg-pill text-red-bg">-8.27%</span></td><td><span class="chg-pill text-green-bg">+3.76%</span></td><td style="text-align:right"><span class="text-amber">-0.9</span></td><td style="text-align:right"><span class="rs-badge rs-weak">29</span></td><td style="text-align:center"><span class="cluster-badge cluster-cool" style="font-size:10px;">&#8212;</span></td></tr>
-<tr><td style="text-align:center;color:var(--text-muted)">12</td><td>Textile Manufacturing</td><td style="color:var(--text-label)">5</td><td><span class="chg-pill text-green-bg">+3.22%</span></td><td><span class="chg-pill text-red-bg">-7.78%</span></td><td><span class="chg-pill text-green-bg">+2.60%</span></td><td style="text-align:right"><span class="text-amber">-1.3</span></td><td style="text-align:right"><span class="rs-badge rs-weak">22</span></td><td style="text-align:center"><span class="cluster-badge cluster-cool" style="font-size:10px;">&#8212;</span></td></tr>
-<tr><td style="text-align:center;color:var(--text-muted)">13</td><td>Other Precious Metals & Mining</td><td style="color:var(--text-label)">19</td><td><span class="chg-pill text-green-bg">+2.87%</span></td><td><span class="chg-pill text-red-bg">-11.50%</span></td><td><span class="chg-pill text-green-bg">+3.54%</span></td><td style="text-align:right"><span class="text-amber">-2.1</span></td><td style="text-align:right"><span class="rs-badge rs-weak">15</span></td><td style="text-align:center"><span class="cluster-badge cluster-cool" style="font-size:10px;">&#8212;</span></td></tr>
-<tr><td style="text-align:center;color:var(--text-muted)">14</td><td>Internet Content & Information</td><td style="color:var(--text-label)">73</td><td><span class="chg-pill text-green-bg">+2.42%</span></td><td><span class="chg-pill text-red-bg">-5.35%</span></td><td><span class="chg-pill text-red-bg">-8.87%</span></td><td style="text-align:right"><span class="text-red">-7.4</span></td><td style="text-align:right"><span class="rs-badge rs-weak">8</span></td><td style="text-align:center"><span class="cluster-badge cluster-cool" style="font-size:10px;">&#8212;</span></td></tr>
-<tr><td style="text-align:center;color:var(--text-muted)">15</td><td>Airlines</td><td style="color:var(--text-label)">18</td><td><span class="chg-pill text-green-bg">+2.65%</span></td><td><span class="chg-pill text-red-bg">-6.34%</span></td><td><span class="chg-pill text-red-bg">-11.57%</span></td><td style="text-align:right"><span class="text-red">-9.4</span></td><td style="text-align:right"><span class="rs-badge rs-weak">1</span></td><td style="text-align:center"><span class="cluster-badge cluster-cool" style="font-size:10px;">&#8212;</span></td></tr>
+<tr><td><strong>XOP</strong></td><td style="color:var(--text-label);font-size:11px;">Oil & Gas E&P</td><td><span class="chg-pill text-red-bg">-3.84%</span></td><td><span class="na-val">N/A</span></td><td><span class="na-val">N/A</span></td><td style="text-align:right"><span class="text-amber">+0.3</span></td><td style="text-align:right"><span class="rs-badge rs-elite">99 ★★</span></td><td style="text-align:center;font-size:14px;">&#128293;</td></tr>
+<tr><td><strong>LIT</strong></td><td style="color:var(--text-label);font-size:11px;">Lithium & Battery</td><td><span class="chg-pill text-green-bg">+0.12%</span></td><td><span class="na-val">N/A</span></td><td><span class="na-val">N/A</span></td><td style="text-align:right"><span class="text-amber">+0.1</span></td><td style="text-align:right"><span class="rs-badge rs-elite">96 ★★</span></td><td style="text-align:center;font-size:14px;">&#128293;</td></tr>
+<tr><td><strong>XBI</strong></td><td style="color:var(--text-label);font-size:11px;">Biotech (Equal Wt)</td><td><span class="chg-pill text-green-bg">+0.64%</span></td><td><span class="na-val">N/A</span></td><td><span class="na-val">N/A</span></td><td style="text-align:right"><span class="text-amber">+0.1</span></td><td style="text-align:right"><span class="rs-badge rs-strong">88 ★</span></td><td style="text-align:center;font-size:14px;">&#128293; &#9889;</td></tr>
+<tr><td><strong>SMH</strong></td><td style="color:var(--text-label);font-size:11px;">Semiconductors</td><td><span class="chg-pill text-green-bg">+2.24%</span></td><td><span class="na-val">N/A</span></td><td><span class="na-val">N/A</span></td><td style="text-align:right"><span class="text-amber">+0.1</span></td><td style="text-align:right"><span class="rs-badge rs-strong">83 ★</span></td><td style="text-align:center;font-size:14px;">&#128293;</td></tr>
+<tr><td><strong>IBB</strong></td><td style="color:var(--text-label);font-size:11px;">Biotech (Mkt Cap)</td><td><span class="na-val">N/A</span></td><td><span class="na-val">N/A</span></td><td><span class="na-val">N/A</span></td><td style="text-align:right"><span class="text-amber">+0.0</span></td><td style="text-align:right"><span class="rs-badge rs-mid">71</span></td><td style="text-align:center;font-size:14px;">—</td></tr>
+<tr><td><strong>KRE</strong></td><td style="color:var(--text-label);font-size:11px;">Regional Banks</td><td><span class="chg-pill text-green-bg">+1.07%</span></td><td><span class="na-val">N/A</span></td><td><span class="na-val">N/A</span></td><td style="text-align:right"><span class="text-amber">+0.0</span></td><td style="text-align:right"><span class="rs-badge rs-mid">62</span></td><td style="text-align:center;font-size:14px;">—</td></tr>
+<tr><td><strong>KBE</strong></td><td style="color:var(--text-label);font-size:11px;">Banks Broad</td><td><span class="chg-pill text-green-bg">+0.92%</span></td><td><span class="na-val">N/A</span></td><td><span class="na-val">N/A</span></td><td style="text-align:right"><span class="text-amber">-0.0</span></td><td style="text-align:right"><span class="rs-badge rs-weak">55</span></td><td style="text-align:center;font-size:14px;">—</td></tr>
+<tr><td><strong>IYT</strong></td><td style="color:var(--text-label);font-size:11px;">Transportation</td><td><span class="chg-pill text-green-bg">+0.90%</span></td><td><span class="na-val">N/A</span></td><td><span class="na-val">N/A</span></td><td style="text-align:right"><span class="text-amber">-0.0</span></td><td style="text-align:right"><span class="rs-badge rs-weak">52</span></td><td style="text-align:center;font-size:14px;">&#9889;</td></tr>
+<tr><td><strong>XRT</strong></td><td style="color:var(--text-label);font-size:11px;">Retail</td><td><span class="chg-pill text-green-bg">+0.16%</span></td><td><span class="na-val">N/A</span></td><td><span class="na-val">N/A</span></td><td style="text-align:right"><span class="text-amber">-0.1</span></td><td style="text-align:right"><span class="rs-badge rs-weak">36</span></td><td style="text-align:center;font-size:14px;">—</td></tr>
+<tr><td><strong>IAI</strong></td><td style="color:var(--text-label);font-size:11px;">Investment Banking</td><td><span class="chg-pill text-green-bg">+0.40%</span></td><td><span class="na-val">N/A</span></td><td><span class="na-val">N/A</span></td><td style="text-align:right"><span class="text-amber">-0.1</span></td><td style="text-align:right"><span class="rs-badge rs-weak">34</span></td><td style="text-align:center;font-size:14px;">—</td></tr>
+<tr><td><strong>JETS</strong></td><td style="color:var(--text-label);font-size:11px;">Airlines</td><td><span class="chg-pill text-green-bg">+2.60%</span></td><td><span class="na-val">N/A</span></td><td><span class="na-val">N/A</span></td><td style="text-align:right"><span class="text-amber">-0.1</span></td><td style="text-align:right"><span class="rs-badge rs-weak">31</span></td><td style="text-align:center;font-size:14px;">—</td></tr>
+<tr><td><strong>XHB</strong></td><td style="color:var(--text-label);font-size:11px;">Homebuilders</td><td><span class="chg-pill text-green-bg">+0.50%</span></td><td><span class="na-val">N/A</span></td><td><span class="na-val">N/A</span></td><td style="text-align:right"><span class="text-amber">-0.1</span></td><td style="text-align:right"><span class="rs-badge rs-weak">22</span></td><td style="text-align:center;font-size:14px;">—</td></tr>
+<tr><td><strong>SKYY</strong></td><td style="color:var(--text-label);font-size:11px;">Cloud Computing</td><td><span class="chg-pill text-green-bg">+0.89%</span></td><td><span class="na-val">N/A</span></td><td><span class="na-val">N/A</span></td><td style="text-align:right"><span class="text-amber">-0.1</span></td><td style="text-align:right"><span class="rs-badge rs-weak">18</span></td><td style="text-align:center;font-size:14px;">—</td></tr>
+<tr><td><strong>IHI</strong></td><td style="color:var(--text-label);font-size:11px;">Medical Devices</td><td><span class="chg-pill text-green-bg">+0.15%</span></td><td><span class="na-val">N/A</span></td><td><span class="na-val">N/A</span></td><td style="text-align:right"><span class="text-amber">-0.1</span></td><td style="text-align:right"><span class="rs-badge rs-weak">15</span></td><td style="text-align:center;font-size:14px;">—</td></tr>
+<tr><td><strong>IGV</strong></td><td style="color:var(--text-label);font-size:11px;">Software</td><td><span class="chg-pill text-red-bg">-0.35%</span></td><td><span class="na-val">N/A</span></td><td><span class="na-val">N/A</span></td><td style="text-align:right"><span class="text-amber">-0.2</span></td><td style="text-align:right"><span class="rs-badge rs-weak">4</span></td><td style="text-align:center;font-size:14px;">—</td></tr>
     </tbody>
   </table>
+  </div>
 </div>
 
+<div style="margin-bottom:20px;">
+  <div style="font-size:12px;font-weight:700;letter-spacing:0.8px;text-transform:uppercase;
+    color:#42a5f5;border-left:3px solid #42a5f5;padding-left:10px;
+    margin-bottom:8px;">&#128202; Thematic & Tech</div>
+  <div class="table-wrap">
+  <table class="data-table" style="font-size:12px;">
+    <thead><tr>
+      <th>Symbol</th><th>Name</th>
+      <th>1D%</th><th>1M%</th><th>3M%</th>
+      <th>RS Score</th><th>RS Rating</th><th>Flag</th>
+    </tr></thead>
+    <tbody>
+<tr><td><strong>SOXX</strong></td><td style="color:var(--text-label);font-size:11px;">Semis (iShares)</td><td><span class="chg-pill text-green-bg">+3.01%</span></td><td><span class="na-val">N/A</span></td><td><span class="na-val">N/A</span></td><td style="text-align:right"><span class="text-amber">+0.1</span></td><td style="text-align:right"><span class="rs-badge rs-elite">90 ★★</span></td><td style="text-align:center;font-size:14px;">&#128293;</td></tr>
+<tr><td><strong>QTUM</strong></td><td style="color:var(--text-label);font-size:11px;">Quantum Computing</td><td><span class="chg-pill text-green-bg">+1.85%</span></td><td><span class="na-val">N/A</span></td><td><span class="na-val">N/A</span></td><td style="text-align:right"><span class="text-amber">-0.0</span></td><td style="text-align:right"><span class="rs-badge rs-weak">59</span></td><td style="text-align:center;font-size:14px;">—</td></tr>
+<tr><td><strong>ROBO</strong></td><td style="color:var(--text-label);font-size:11px;">Robotics & Automation</td><td><span class="chg-pill text-green-bg">+2.50%</span></td><td><span class="na-val">N/A</span></td><td><span class="na-val">N/A</span></td><td style="text-align:right"><span class="text-amber">-0.0</span></td><td style="text-align:right"><span class="rs-badge rs-weak">54</span></td><td style="text-align:center;font-size:14px;">—</td></tr>
+<tr><td><strong>ARKQ</strong></td><td style="color:var(--text-label);font-size:11px;">ARK Autonomous</td><td><span class="chg-pill text-green-bg">+1.83%</span></td><td><span class="na-val">N/A</span></td><td><span class="na-val">N/A</span></td><td style="text-align:right"><span class="text-amber">-0.0</span></td><td style="text-align:right"><span class="rs-badge rs-weak">48</span></td><td style="text-align:center;font-size:14px;">—</td></tr>
+<tr><td><strong>AIQ</strong></td><td style="color:var(--text-label);font-size:11px;">AI & Big Data</td><td><span class="chg-pill text-green-bg">+1.44%</span></td><td><span class="na-val">N/A</span></td><td><span class="na-val">N/A</span></td><td style="text-align:right"><span class="text-amber">-0.1</span></td><td style="text-align:right"><span class="rs-badge rs-weak">40</span></td><td style="text-align:center;font-size:14px;">—</td></tr>
+<tr><td><strong>BOTZ</strong></td><td style="color:var(--text-label);font-size:11px;">Robotics & AI</td><td><span class="chg-pill text-green-bg">+2.05%</span></td><td><span class="na-val">N/A</span></td><td><span class="na-val">N/A</span></td><td style="text-align:right"><span class="text-amber">-0.1</span></td><td style="text-align:right"><span class="rs-badge rs-weak">26</span></td><td style="text-align:center;font-size:14px;">—</td></tr>
+<tr><td><strong>MAGS</strong></td><td style="color:var(--text-label);font-size:11px;">Magnificent 7</td><td><span class="chg-pill text-green-bg">+1.28%</span></td><td><span class="na-val">N/A</span></td><td><span class="na-val">N/A</span></td><td style="text-align:right"><span class="text-amber">-0.1</span></td><td style="text-align:right"><span class="rs-badge rs-weak">24</span></td><td style="text-align:center;font-size:14px;">—</td></tr>
+<tr><td><strong>CIBR</strong></td><td style="color:var(--text-label);font-size:11px;">Cybersecurity</td><td><span class="chg-pill text-green-bg">+0.75%</span></td><td><span class="na-val">N/A</span></td><td><span class="na-val">N/A</span></td><td style="text-align:right"><span class="text-amber">-0.1</span></td><td style="text-align:right"><span class="rs-badge rs-weak">20</span></td><td style="text-align:center;font-size:14px;">—</td></tr>
+<tr><td><strong>ARKK</strong></td><td style="color:var(--text-label);font-size:11px;">ARK Innovation</td><td><span class="chg-pill text-green-bg">+1.20%</span></td><td><span class="na-val">N/A</span></td><td><span class="na-val">N/A</span></td><td style="text-align:right"><span class="text-amber">-0.1</span></td><td style="text-align:right"><span class="rs-badge rs-weak">17</span></td><td style="text-align:center;font-size:14px;">—</td></tr>
+<tr><td><strong>BLOK</strong></td><td style="color:var(--text-label);font-size:11px;">Blockchain</td><td><span class="chg-pill text-green-bg">+0.28%</span></td><td><span class="na-val">N/A</span></td><td><span class="na-val">N/A</span></td><td style="text-align:right"><span class="text-amber">-0.1</span></td><td style="text-align:right"><span class="rs-badge rs-weak">13</span></td><td style="text-align:center;font-size:14px;">—</td></tr>
+<tr><td><strong>BUG</strong></td><td style="color:var(--text-label);font-size:11px;">Cybersecurity (Global X)</td><td><span class="chg-pill text-green-bg">+0.92%</span></td><td><span class="na-val">N/A</span></td><td><span class="na-val">N/A</span></td><td style="text-align:right"><span class="text-amber">-0.1</span></td><td style="text-align:right"><span class="rs-badge rs-weak">12</span></td><td style="text-align:center;font-size:14px;">—</td></tr>
+<tr><td><strong>IPAY</strong></td><td style="color:var(--text-label);font-size:11px;">Digital Payments</td><td><span class="chg-pill text-red-bg">-0.69%</span></td><td><span class="na-val">N/A</span></td><td><span class="na-val">N/A</span></td><td style="text-align:right"><span class="text-amber">-0.2</span></td><td style="text-align:right"><span class="rs-badge rs-weak">6</span></td><td style="text-align:center;font-size:14px;">—</td></tr>
+<tr><td><strong>FINX</strong></td><td style="color:var(--text-label);font-size:11px;">FinTech</td><td><span class="chg-pill text-red-bg">-0.89%</span></td><td><span class="na-val">N/A</span></td><td><span class="na-val">N/A</span></td><td style="text-align:right"><span class="text-amber">-0.2</span></td><td style="text-align:right"><span class="rs-badge rs-weak">3</span></td><td style="text-align:center;font-size:14px;">—</td></tr>
+    </tbody>
+  </table>
+  </div>
+</div>
+
+<div style="margin-bottom:20px;">
+  <div style="font-size:12px;font-weight:700;letter-spacing:0.8px;text-transform:uppercase;
+    color:#42a5f5;border-left:3px solid #42a5f5;padding-left:10px;
+    margin-bottom:8px;">&#128202; Commodities & Power</div>
+  <div class="table-wrap">
+  <table class="data-table" style="font-size:12px;">
+    <thead><tr>
+      <th>Symbol</th><th>Name</th>
+      <th>1D%</th><th>1M%</th><th>3M%</th>
+      <th>RS Score</th><th>RS Rating</th><th>Flag</th>
+    </tr></thead>
+    <tbody>
+<tr><td><strong>TAN</strong></td><td style="color:var(--text-label);font-size:11px;">Solar Energy</td><td><span class="chg-pill text-green-bg">+1.01%</span></td><td><span class="na-val">N/A</span></td><td><span class="na-val">N/A</span></td><td style="text-align:right"><span class="text-amber">+0.1</span></td><td style="text-align:right"><span class="rs-badge rs-elite">92 ★★</span></td><td style="text-align:center;font-size:14px;">&#128293;</td></tr>
+<tr><td><strong>PICK</strong></td><td style="color:var(--text-label);font-size:11px;">Diversified Metals</td><td><span class="chg-pill text-green-bg">+2.23%</span></td><td><span class="na-val">N/A</span></td><td><span class="na-val">N/A</span></td><td style="text-align:right"><span class="text-amber">+0.1</span></td><td style="text-align:right"><span class="rs-badge rs-strong">87 ★</span></td><td style="text-align:center;font-size:14px;">&#128293;</td></tr>
+<tr><td><strong>SLV</strong></td><td style="color:var(--text-label);font-size:11px;">Silver ETF</td><td><span class="chg-pill text-green-bg">0.00%</span></td><td><span class="na-val">N/A</span></td><td><span class="na-val">N/A</span></td><td style="text-align:right"><span class="text-amber">+0.1</span></td><td style="text-align:right"><span class="rs-badge rs-strong">85 ★</span></td><td style="text-align:center;font-size:14px;">—</td></tr>
+<tr><td><strong>GDX</strong></td><td style="color:var(--text-label);font-size:11px;">Gold Miners</td><td><span class="chg-pill text-green-bg">+4.62%</span></td><td><span class="na-val">N/A</span></td><td><span class="na-val">N/A</span></td><td style="text-align:right"><span class="text-amber">+0.1</span></td><td style="text-align:right"><span class="rs-badge rs-strong">80 ★</span></td><td style="text-align:center;font-size:14px;">—</td></tr>
+<tr><td><strong>GLD</strong></td><td style="color:var(--text-label);font-size:11px;">Gold ETF</td><td><span class="chg-pill text-green-bg">+1.75%</span></td><td><span class="na-val">N/A</span></td><td><span class="na-val">N/A</span></td><td style="text-align:right"><span class="text-amber">+0.1</span></td><td style="text-align:right"><span class="rs-badge rs-mid">78</span></td><td style="text-align:center;font-size:14px;">—</td></tr>
+<tr><td><strong>COPX</strong></td><td style="color:var(--text-label);font-size:11px;">Copper Miners</td><td><span class="chg-pill text-green-bg">+2.36%</span></td><td><span class="na-val">N/A</span></td><td><span class="na-val">N/A</span></td><td style="text-align:right"><span class="text-amber">+0.1</span></td><td style="text-align:right"><span class="rs-badge rs-mid">76</span></td><td style="text-align:center;font-size:14px;">—</td></tr>
+<tr><td><strong>URA</strong></td><td style="color:var(--text-label);font-size:11px;">Uranium Mining</td><td><span class="chg-pill text-green-bg">+1.71%</span></td><td><span class="na-val">N/A</span></td><td><span class="na-val">N/A</span></td><td style="text-align:right"><span class="text-amber">+0.1</span></td><td style="text-align:right"><span class="rs-badge rs-mid">74</span></td><td style="text-align:center;font-size:14px;">—</td></tr>
+<tr><td><strong>NLR</strong></td><td style="color:var(--text-label);font-size:11px;">Nuclear Energy</td><td><span class="chg-pill text-green-bg">+0.88%</span></td><td><span class="na-val">N/A</span></td><td><span class="na-val">N/A</span></td><td style="text-align:right"><span class="text-amber">+0.0</span></td><td style="text-align:right"><span class="rs-badge rs-mid">64</span></td><td style="text-align:center;font-size:14px;">—</td></tr>
+    </tbody>
+  </table>
+  </div>
+</div>
+
+<div style="margin-bottom:20px;">
+  <div style="font-size:12px;font-weight:700;letter-spacing:0.8px;text-transform:uppercase;
+    color:#42a5f5;border-left:3px solid #42a5f5;padding-left:10px;
+    margin-bottom:8px;">&#128202; Defense & Space</div>
+  <div class="table-wrap">
+  <table class="data-table" style="font-size:12px;">
+    <thead><tr>
+      <th>Symbol</th><th>Name</th>
+      <th>1D%</th><th>1M%</th><th>3M%</th>
+      <th>RS Score</th><th>RS Rating</th><th>Flag</th>
+    </tr></thead>
+    <tbody>
+<tr><td><strong>ROKT</strong></td><td style="color:var(--text-label);font-size:11px;">Space Exploration</td><td><span class="chg-pill text-green-bg">+2.92%</span></td><td><span class="na-val">N/A</span></td><td><span class="na-val">N/A</span></td><td style="text-align:right"><span class="text-amber">+0.1</span></td><td style="text-align:right"><span class="rs-badge rs-elite">94 ★★</span></td><td style="text-align:center;font-size:14px;">&#128293; &#9889;</td></tr>
+<tr><td><strong>XAR</strong></td><td style="color:var(--text-label);font-size:11px;">Aerospace & Defense (SPDR)</td><td><span class="chg-pill text-green-bg">+2.35%</span></td><td><span class="na-val">N/A</span></td><td><span class="na-val">N/A</span></td><td style="text-align:right"><span class="text-amber">+0.0</span></td><td style="text-align:right"><span class="rs-badge rs-mid">68</span></td><td style="text-align:center;font-size:14px;">—</td></tr>
+<tr><td><strong>ITA</strong></td><td style="color:var(--text-label);font-size:11px;">Aerospace & Defense</td><td><span class="chg-pill text-green-bg">+2.24%</span></td><td><span class="na-val">N/A</span></td><td><span class="na-val">N/A</span></td><td style="text-align:right"><span class="text-amber">-0.0</span></td><td style="text-align:right"><span class="rs-badge rs-weak">57</span></td><td style="text-align:center;font-size:14px;">—</td></tr>
+    </tbody>
+  </table>
+  </div>
+</div>
+
+<div style="margin-bottom:20px;">
+  <div style="font-size:12px;font-weight:700;letter-spacing:0.8px;text-transform:uppercase;
+    color:#42a5f5;border-left:3px solid #42a5f5;padding-left:10px;
+    margin-bottom:8px;">&#128202; Macro & Global</div>
+  <div class="table-wrap">
+  <table class="data-table" style="font-size:12px;">
+    <thead><tr>
+      <th>Symbol</th><th>Name</th>
+      <th>1D%</th><th>1M%</th><th>3M%</th>
+      <th>RS Score</th><th>RS Rating</th><th>Flag</th>
+    </tr></thead>
+    <tbody>
+<tr><td><strong>PAVE</strong></td><td style="color:var(--text-label);font-size:11px;">Infrastructure</td><td><span class="chg-pill text-green-bg">+1.73%</span></td><td><span class="na-val">N/A</span></td><td><span class="na-val">N/A</span></td><td style="text-align:right"><span class="text-amber">+0.0</span></td><td style="text-align:right"><span class="rs-badge rs-mid">69</span></td><td style="text-align:center;font-size:14px;">—</td></tr>
+<tr><td><strong>TLT</strong></td><td style="color:var(--text-label);font-size:11px;">20Y Treasury Bond</td><td><span class="chg-pill text-red-bg">-0.10%</span></td><td><span class="na-val">N/A</span></td><td><span class="na-val">N/A</span></td><td style="text-align:right"><span class="text-amber">-0.0</span></td><td style="text-align:right"><span class="rs-badge rs-weak">50</span></td><td style="text-align:center;font-size:14px;">—</td></tr>
+<tr><td><strong>VNQ</strong></td><td style="color:var(--text-label);font-size:11px;">Real Estate (Vanguard)</td><td><span class="chg-pill text-green-bg">+0.36%</span></td><td><span class="na-val">N/A</span></td><td><span class="na-val">N/A</span></td><td style="text-align:right"><span class="text-amber">-0.0</span></td><td style="text-align:right"><span class="rs-badge rs-weak">45</span></td><td style="text-align:center;font-size:14px;">—</td></tr>
+<tr><td><strong>FXI</strong></td><td style="color:var(--text-label);font-size:11px;">China Large-Cap</td><td><span class="chg-pill text-red-bg">-0.95%</span></td><td><span class="na-val">N/A</span></td><td><span class="na-val">N/A</span></td><td style="text-align:right"><span class="text-amber">-0.1</span></td><td style="text-align:right"><span class="rs-badge rs-weak">32</span></td><td style="text-align:center;font-size:14px;">—</td></tr>
+<tr><td><strong>MSOS</strong></td><td style="color:var(--text-label);font-size:11px;">Cannabis</td><td><span class="chg-pill text-green-bg">+3.66%</span></td><td><span class="na-val">N/A</span></td><td><span class="na-val">N/A</span></td><td style="text-align:right"><span class="text-amber">-0.1</span></td><td style="text-align:right"><span class="rs-badge rs-weak">10</span></td><td style="text-align:center;font-size:14px;">—</td></tr>
+<tr><td><strong>KWEB</strong></td><td style="color:var(--text-label);font-size:11px;">China Internet</td><td><span class="chg-pill text-red-bg">-0.46%</span></td><td><span class="na-val">N/A</span></td><td><span class="na-val">N/A</span></td><td style="text-align:right"><span class="text-amber">-0.1</span></td><td style="text-align:right"><span class="rs-badge rs-weak">8</span></td><td style="text-align:center;font-size:14px;">—</td></tr>
+    </tbody>
+  </table>
+  </div>
+</div>
+
+
   <!-- ── 5C: Market Anomalies ─────────────────────────────────────── -->
-  <div class="sub-title" style="margin-top:20px;">5C — Market Anomalies (Volume Climax)</div>
-  <div style="font-size:11px;color:var(--text-muted);margin-bottom:10px;">成交量異常放大 (&gt;2× 20日均量) 的 ETF — 可能代表機構進出場信號</div>
-  <div class="anomaly-card"><div class="anomaly-sym">XOP</div><div class="anomaly-detail">Oil & Gas E&P &nbsp;•&nbsp; 1D: <span class="text-red">-3.84%</span> &nbsp;•&nbsp; vs 20MA: <span class="text-green">+1.2%</span> &nbsp;•&nbsp; RSI: 57.4</div><div class="anomaly-tag">Volume Surge (Down)</div></div>
-<div class="anomaly-card"><div class="anomaly-sym">XLE</div><div class="anomaly-detail">Energy &nbsp;•&nbsp; 1D: <span class="text-red">-3.74%</span> &nbsp;•&nbsp; vs 20MA: <span class="text-green">+0.5%</span> &nbsp;•&nbsp; RSI: 55.0</div><div class="anomaly-tag">Volume Surge (Down)</div></div>
-<div class="anomaly-card"><div class="anomaly-sym">PICK</div><div class="anomaly-detail">Diversified Metals & Mining &nbsp;•&nbsp; 1D: <span class="text-green">+2.23%</span> &nbsp;•&nbsp; vs 20MA: <span class="text-green">+3.6%</span> &nbsp;•&nbsp; RSI: 53.9</div><div class="anomaly-tag">Volume Surge (Up)</div></div>
-<div class="anomaly-card"><div class="anomaly-sym">GDX</div><div class="anomaly-detail">Gold Miners &nbsp;•&nbsp; 1D: <span class="text-green">+4.62%</span> &nbsp;•&nbsp; vs 20MA: <span class="text-green">+4.5%</span> &nbsp;•&nbsp; RSI: 53.4</div><div class="anomaly-tag">Volume Surge (Up)</div></div>
-<div class="anomaly-card"><div class="anomaly-sym">ROKT</div><div class="anomaly-detail">Space Exploration &nbsp;•&nbsp; 1D: <span class="text-green">+2.92%</span> &nbsp;•&nbsp; vs 20MA: <span class="text-green">+0.7%</span> &nbsp;•&nbsp; RSI: 51.7</div><div class="anomaly-tag">Volume Surge (Up)</div></div>
-<div class="anomaly-card"><div class="anomaly-sym">PAVE</div><div class="anomaly-detail">Infrastructure &nbsp;•&nbsp; 1D: <span class="text-green">+1.73%</span> &nbsp;•&nbsp; vs 20MA: <span class="text-green">+1.7%</span> &nbsp;•&nbsp; RSI: 51.7</div><div class="anomaly-tag">Volume Surge (Up)</div></div>
-<div class="anomaly-card"><div class="anomaly-sym">SOXX</div><div class="anomaly-detail">Semiconductors (iShares) &nbsp;•&nbsp; 1D: <span class="text-green">+3.01%</span> &nbsp;•&nbsp; vs 20MA: <span class="text-green">+1.4%</span> &nbsp;•&nbsp; RSI: 51.1</div><div class="anomaly-tag">Volume Surge (Up)</div></div>
-<div class="anomaly-card"><div class="anomaly-sym">SMH</div><div class="anomaly-detail">Semiconductors &nbsp;•&nbsp; 1D: <span class="text-green">+2.24%</span> &nbsp;•&nbsp; vs 20MA: <span class="text-green">+0.7%</span> &nbsp;•&nbsp; RSI: 50.4</div><div class="anomaly-tag">Volume Surge (Up)</div></div>
-<div class="anomaly-card"><div class="anomaly-sym">COPX</div><div class="anomaly-detail">Copper Miners &nbsp;•&nbsp; 1D: <span class="text-green">+2.36%</span> &nbsp;•&nbsp; vs 20MA: <span class="text-green">+2.2%</span> &nbsp;•&nbsp; RSI: 49.9</div><div class="anomaly-tag">Volume Surge (Up)</div></div>
-<div class="anomaly-card"><div class="anomaly-sym">GLD</div><div class="anomaly-detail">Gold ETF &nbsp;•&nbsp; 1D: <span class="text-green">+1.75%</span> &nbsp;•&nbsp; vs 20MA: <span class="text-red">-0.7%</span> &nbsp;•&nbsp; RSI: 49.4</div><div class="anomaly-tag">Volume Surge (Up)</div></div>
-<div class="anomaly-card"><div class="anomaly-sym">URA</div><div class="anomaly-detail">Uranium Mining &nbsp;•&nbsp; 1D: <span class="text-green">+1.71%</span> &nbsp;•&nbsp; vs 20MA: <span class="text-green">+0.6%</span> &nbsp;•&nbsp; RSI: 49.0</div><div class="anomaly-tag">Volume Surge (Up)</div></div>
-<div class="anomaly-card"><div class="anomaly-sym">MSOS</div><div class="anomaly-detail">Cannabis &nbsp;•&nbsp; 1D: <span class="text-green">+3.66%</span> &nbsp;•&nbsp; vs 20MA: <span class="text-red">-0.8%</span> &nbsp;•&nbsp; RSI: 48.5</div><div class="anomaly-tag">Volume Surge (Up)</div></div>
-<div class="anomaly-card"><div class="anomaly-sym">XLI</div><div class="anomaly-detail">Industrials &nbsp;•&nbsp; 1D: <span class="text-green">+1.67%</span> &nbsp;•&nbsp; vs 20MA: <span class="text-red">-0.2%</span> &nbsp;•&nbsp; RSI: 47.9</div><div class="anomaly-tag">Volume Surge (Up)</div></div>
-<div class="anomaly-card"><div class="anomaly-sym">QTUM</div><div class="anomaly-detail">Quantum Computing & ML &nbsp;•&nbsp; 1D: <span class="text-green">+1.85%</span> &nbsp;•&nbsp; vs 20MA: <span class="text-red">-0.2%</span> &nbsp;•&nbsp; RSI: 47.7</div><div class="anomaly-tag">Volume Surge (Up)</div></div>
-<div class="anomaly-card"><div class="anomaly-sym">JETS</div><div class="anomaly-detail">Airlines &nbsp;•&nbsp; 1D: <span class="text-green">+2.60%</span> &nbsp;•&nbsp; vs 20MA: <span class="text-green">+1.7%</span> &nbsp;•&nbsp; RSI: 47.2</div><div class="anomaly-tag">Volume Surge (Up)</div></div>
-<div class="anomaly-card"><div class="anomaly-sym">ROBO</div><div class="anomaly-detail">Robotics & Automation &nbsp;•&nbsp; 1D: <span class="text-green">+2.50%</span> &nbsp;•&nbsp; vs 20MA: <span class="text-red">-0.3%</span> &nbsp;•&nbsp; RSI: 46.9</div><div class="anomaly-tag">Volume Surge (Up)</div></div>
-<div class="anomaly-card"><div class="anomaly-sym">XLK</div><div class="anomaly-detail">Technology &nbsp;•&nbsp; 1D: <span class="text-green">+1.51%</span> &nbsp;•&nbsp; vs 20MA: <span class="text-red">-1.1%</span> &nbsp;•&nbsp; RSI: 46.9</div><div class="anomaly-tag">Volume Surge (Up)</div></div>
-<div class="anomaly-card"><div class="anomaly-sym">XAR</div><div class="anomaly-detail">Aerospace & Defense (SPDR) &nbsp;•&nbsp; 1D: <span class="text-green">+2.35%</span> &nbsp;•&nbsp; vs 20MA: <span class="text-red">-2.4%</span> &nbsp;•&nbsp; RSI: 45.8</div><div class="anomaly-tag">Volume Surge (Up)</div></div>
-<div class="anomaly-card"><div class="anomaly-sym">ARKQ</div><div class="anomaly-detail">ARK Autonomous & Robotics &nbsp;•&nbsp; 1D: <span class="text-green">+1.83%</span> &nbsp;•&nbsp; vs 20MA: <span class="text-red">-2.3%</span> &nbsp;•&nbsp; RSI: 45.5</div><div class="anomaly-tag">Volume Surge (Up)</div></div>
-<div class="anomaly-card"><div class="anomaly-sym">ITA</div><div class="anomaly-detail">Aerospace & Defense &nbsp;•&nbsp; 1D: <span class="text-green">+2.24%</span> &nbsp;•&nbsp; vs 20MA: <span class="text-red">-2.1%</span> &nbsp;•&nbsp; RSI: 45.0</div><div class="anomaly-tag">Volume Surge (Up)</div></div>
-<div class="anomaly-card"><div class="anomaly-sym">BOTZ</div><div class="anomaly-detail">Robotics & AI &nbsp;•&nbsp; 1D: <span class="text-green">+2.05%</span> &nbsp;•&nbsp; vs 20MA: <span class="text-red">-2.2%</span> &nbsp;•&nbsp; RSI: 42.5</div><div class="anomaly-tag">Volume Surge (Up)</div></div>
+  <div class="sub-title" style="margin-top:20px;">5C — Industry RS Leaderboard &amp; Anomalies</div>
+  <div style="font-size:11px;color:var(--text-muted);margin-bottom:10px;">全場最強 Top 10 ETF (56個宇宙) + 成交量爆發警報 (Vol &gt; 1.5× 20日均量)</div>
+  
+<div style="margin-bottom:20px;">
+  <div style="font-size:12px;font-weight:700;letter-spacing:0.8px;text-transform:uppercase;
+    color:#ffd54f;border-left:3px solid #ffd54f;padding-left:10px;margin-bottom:8px;">
+    &#127942; Top 10 RS Leaders (All 56 ETFs)
+  </div>
+  <div class="table-wrap">
+  <table class="data-table" style="font-size:12px;">
+    <thead><tr>
+      <th style="text-align:center;">Rank</th>
+      <th>Symbol</th><th>Name</th><th>Category</th>
+      <th>1D%</th><th>1M%</th><th>3M%</th>
+      <th>RS Score</th><th>RS Rating</th><th>&gt;20MA</th>
+    </tr></thead>
+    <tbody>
+    <tr><td style="text-align:center;font-size:14px;">&#129351;</td><td><strong>XOP</strong></td><td style="color:var(--text-label);font-size:11px;">Oil & Gas E&P</td><td style="font-size:10px;color:#888;">Core Industry</td><td><span class="chg-pill text-red-bg">-3.84%</span></td><td><span class="na-val">N/A</span></td><td><span class="na-val">N/A</span></td><td style="text-align:right"><span class="text-amber">+0.3</span></td><td style="text-align:right"><span class="rs-badge rs-elite">99 ★★</span></td><td style="text-align:center" class="text-green">&#9650;</td></tr>
+<tr><td style="text-align:center;font-size:14px;">&#129352;</td><td><strong>XLE</strong></td><td style="color:var(--text-label);font-size:11px;">Energy</td><td style="font-size:10px;color:#888;">Core Industry</td><td><span class="chg-pill text-red-bg">-3.74%</span></td><td><span class="chg-pill text-green-bg">+6.62%</span></td><td><span class="chg-pill text-green-bg">+31.39%</span></td><td style="text-align:right"><span class="text-amber">+0.2</span></td><td style="text-align:right"><span class="rs-badge rs-elite">97 ★★</span></td><td style="text-align:center" class="text-green">&#9650;</td></tr>
+<tr><td style="text-align:center;font-size:14px;">&#129353;</td><td><strong>LIT</strong></td><td style="color:var(--text-label);font-size:11px;">Lithium & Battery</td><td style="font-size:10px;color:#888;">Core Industry</td><td><span class="chg-pill text-green-bg">+0.12%</span></td><td><span class="na-val">N/A</span></td><td><span class="na-val">N/A</span></td><td style="text-align:right"><span class="text-amber">+0.1</span></td><td style="text-align:right"><span class="rs-badge rs-elite">96 ★★</span></td><td style="text-align:center" class="text-green">&#9650;</td></tr>
+<tr><td style="text-align:center;font-size:14px;">#4</td><td><strong>ROKT</strong></td><td style="color:var(--text-label);font-size:11px;">Space Exploration</td><td style="font-size:10px;color:#888;">Defense & Space</td><td><span class="chg-pill text-green-bg">+2.92%</span></td><td><span class="na-val">N/A</span></td><td><span class="na-val">N/A</span></td><td style="text-align:right"><span class="text-amber">+0.1</span></td><td style="text-align:right"><span class="rs-badge rs-elite">94 ★★</span></td><td style="text-align:center" class="text-green">&#9650;</td></tr>
+<tr><td style="text-align:center;font-size:14px;">#5</td><td><strong>TAN</strong></td><td style="color:var(--text-label);font-size:11px;">Solar Energy</td><td style="font-size:10px;color:#888;">Commodities & Power</td><td><span class="chg-pill text-green-bg">+1.01%</span></td><td><span class="na-val">N/A</span></td><td><span class="na-val">N/A</span></td><td style="text-align:right"><span class="text-amber">+0.1</span></td><td style="text-align:right"><span class="rs-badge rs-elite">92 ★★</span></td><td style="text-align:center" class="text-green">&#9650;</td></tr>
+<tr><td style="text-align:center;font-size:14px;">#6</td><td><strong>SOXX</strong></td><td style="color:var(--text-label);font-size:11px;">Semis (iShares)</td><td style="font-size:10px;color:#888;">Thematic & Tech</td><td><span class="chg-pill text-green-bg">+3.01%</span></td><td><span class="na-val">N/A</span></td><td><span class="na-val">N/A</span></td><td style="text-align:right"><span class="text-amber">+0.1</span></td><td style="text-align:right"><span class="rs-badge rs-elite">90 ★★</span></td><td style="text-align:center" class="text-green">&#9650;</td></tr>
+<tr><td style="text-align:center;font-size:14px;">#7</td><td><strong>XBI</strong></td><td style="color:var(--text-label);font-size:11px;">Biotech (Equal Wt)</td><td style="font-size:10px;color:#888;">Core Industry</td><td><span class="chg-pill text-green-bg">+0.64%</span></td><td><span class="na-val">N/A</span></td><td><span class="na-val">N/A</span></td><td style="text-align:right"><span class="text-amber">+0.1</span></td><td style="text-align:right"><span class="rs-badge rs-strong">88 ★</span></td><td style="text-align:center" class="text-green">&#9650;</td></tr>
+<tr><td style="text-align:center;font-size:14px;">#8</td><td><strong>PICK</strong></td><td style="color:var(--text-label);font-size:11px;">Diversified Metals</td><td style="font-size:10px;color:#888;">Commodities & Power</td><td><span class="chg-pill text-green-bg">+2.23%</span></td><td><span class="na-val">N/A</span></td><td><span class="na-val">N/A</span></td><td style="text-align:right"><span class="text-amber">+0.1</span></td><td style="text-align:right"><span class="rs-badge rs-strong">87 ★</span></td><td style="text-align:center" class="text-green">&#9650;</td></tr>
+<tr><td style="text-align:center;font-size:14px;">#9</td><td><strong>SLV</strong></td><td style="color:var(--text-label);font-size:11px;">Silver ETF</td><td style="font-size:10px;color:#888;">Commodities & Power</td><td><span class="chg-pill text-green-bg">0.00%</span></td><td><span class="na-val">N/A</span></td><td><span class="na-val">N/A</span></td><td style="text-align:right"><span class="text-amber">+0.1</span></td><td style="text-align:right"><span class="rs-badge rs-strong">85 ★</span></td><td style="text-align:center" class="text-red">&#9660;</td></tr>
+<tr><td style="text-align:center;font-size:14px;">#10</td><td><strong>SMH</strong></td><td style="color:var(--text-label);font-size:11px;">Semiconductors</td><td style="font-size:10px;color:#888;">Core Industry</td><td><span class="chg-pill text-green-bg">+2.24%</span></td><td><span class="na-val">N/A</span></td><td><span class="na-val">N/A</span></td><td style="text-align:right"><span class="text-amber">+0.1</span></td><td style="text-align:right"><span class="rs-badge rs-strong">83 ★</span></td><td style="text-align:center" class="text-green">&#9650;</td></tr>
+    </tbody>
+  </table>
+  </div>
+</div>
+
+
+<div style="margin-bottom:12px;">
+  <div style="font-size:12px;font-weight:700;letter-spacing:0.8px;text-transform:uppercase;
+    color:#ef5350;border-left:3px solid #ef5350;padding-left:10px;margin-bottom:8px;">
+    &#9889; Volume Climax &amp; RSI Alerts
+  </div>
+  <div class="anomaly-card"><div class="anomaly-sym">&#9889; IYT</div><div class="anomaly-detail">Transportation &nbsp;•&nbsp; 1D: <span class="text-green">+0.90%</span> &nbsp;•&nbsp; vs 20MA: <span class="text-green">+1.1%</span> &nbsp;•&nbsp; RSI: 49.0</div><div class="anomaly-tag">Volume Climax (Vol &gt; 1.5×20MA)</div></div>
+<div class="anomaly-card"><div class="anomaly-sym">&#9889; ROKT</div><div class="anomaly-detail">Space Exploration &nbsp;•&nbsp; 1D: <span class="text-green">+2.92%</span> &nbsp;•&nbsp; vs 20MA: <span class="text-green">+0.7%</span> &nbsp;•&nbsp; RSI: 51.7</div><div class="anomaly-tag">Volume Climax (Vol &gt; 1.5×20MA)</div></div>
+<div class="anomaly-card"><div class="anomaly-sym">&#9889; XBI</div><div class="anomaly-detail">Biotech (Equal Wt) &nbsp;•&nbsp; 1D: <span class="text-green">+0.64%</span> &nbsp;•&nbsp; vs 20MA: <span class="text-green">+4.1%</span> &nbsp;•&nbsp; RSI: 58.0</div><div class="anomaly-tag">Volume Climax (Vol &gt; 1.5×20MA)</div></div>
+<div class="anomaly-card"><div class="anomaly-sym">&#9889; XLE</div><div class="anomaly-detail">Energy &nbsp;•&nbsp; 1D: <span class="text-red">-3.74%</span> &nbsp;•&nbsp; vs 20MA: <span class="text-green">+0.5%</span> &nbsp;•&nbsp; RSI: 55.0</div><div class="anomaly-tag">Volume Climax (Vol &gt; 1.5×20MA)</div></div>
+<div class="anomaly-card"><div class="anomaly-sym">&#9889; XLP</div><div class="anomaly-detail">Cons. Staples &nbsp;•&nbsp; 1D: <span class="text-red">-0.63%</span> &nbsp;•&nbsp; vs 20MA: <span class="text-red">-1.8%</span> &nbsp;•&nbsp; RSI: 37.0</div><div class="anomaly-tag">Volume Climax (Vol &gt; 1.5×20MA)</div></div>
+</div>
+
 
   <!-- Market Heatmap -->
   <div class="img-block" style="margin-top:16px;">
@@ -968,14 +948,14 @@ function showCriteriaModal() {
       </thead>
       <tbody>
       <tr>
-        <td><strong>VIX (Volatility)</strong><br/><span style="font-size:10px;color:var(--text-muted)">24.54 (-2.8%)</span></td>
+        <td><strong>VIX (Volatility)</strong><br/><span style="font-size:10px;color:var(--text-muted)">26.60 (+8.4%)</span></td>
         <td style="text-align:center"><span style="background:var(--red-bg);color:var(--red);padding:2px 8px;border-radius:3px;font-size:11px;font-weight:600;">🔴 Bearish</span></td>
-        <td style="text-align:center"><span style="color:var(--green);font-weight:600;">🟢 ↓</span></td>
+        <td style="text-align:center"><span style="color:var(--red);font-weight:600;">🔴 ↑</span></td>
       </tr>
       <tr>
-        <td><strong>Fear &amp; Greed Index</strong><br/><span style="font-size:10px;color:var(--text-muted)">16 (prev 16)</span></td>
+        <td><strong>Fear &amp; Greed Index</strong><br/><span style="font-size:10px;color:var(--text-muted)">14 (prev 16)</span></td>
         <td style="text-align:center"><span style="background:var(--green-bg);color:var(--green);padding:2px 8px;border-radius:3px;font-size:11px;font-weight:600;">🟢 Contrarian Buy</span></td>
-        <td style="text-align:center"><span style="color:var(--green);font-weight:600;">🟢 ↑</span></td>
+        <td style="text-align:center"><span style="color:var(--red);font-weight:600;">🔴 ↓</span></td>
       </tr>
       <tr>
         <td><strong>Put / Call Ratio</strong><br/><span style="font-size:10px;color:var(--text-muted)">0.9380</span></td>
@@ -1127,7 +1107,7 @@ function showCriteriaModal() {
 <div class="report-footer">
   Generated by Credit-Efficient Market Summary System &nbsp;|&nbsp;
   Data: Yahoo Finance · CNN · NAAIM · Finviz · Barchart &nbsp;|&nbsp;
-  2026-04-02 15:04 HKT &nbsp;/&nbsp; 2026-04-02 03:04 ET<br/>
+  2026-04-02 15:50 HKT &nbsp;/&nbsp; 2026-04-02 03:50 ET<br/>
   For informational purposes only. Not financial advice.
 </div>
 
