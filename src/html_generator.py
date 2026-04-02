@@ -172,11 +172,27 @@ BREADTH_KEYS = [
 def get_today_date_str() -> str:
     """Return today's NY Trade Date as YYYY-MM-DD string.
     
-    TIMEZONE FIX: Archive filenames and report dates always follow
-    New York calendar (America/New_York), regardless of server timezone.
+    TRADE DATE ENFORCEMENT v3.0:
+    Primary source: today_market.json meta.date (derived from SPY last trade date in fetch_all_data.py).
+    Fallback: NY system time (only if JSON is missing or malformed).
+    NEVER use HKT or server local time.
     """
+    # Primary: read from today_market.json meta.date (SPY-derived)
+    try:
+        if JSON.exists():
+            with open(JSON, encoding="utf-8") as _f:
+                _meta = json.load(_f).get("meta", {})
+            _date = _meta.get("date", "")
+            if _date and len(_date) >= 10:
+                print(f"  [TradeDate] Using JSON meta.date: {_date[:10]} (SPY-derived)")
+                return _date[:10]
+    except Exception as _e:
+        print(f"  [TradeDate] JSON read error: {_e}")
+    # Fallback: NY system time
     ny_tz = pytz.timezone("America/New_York")
-    return datetime.now(ny_tz).strftime("%Y-%m-%d")
+    _fallback = datetime.now(ny_tz).strftime("%Y-%m-%d")
+    print(f"  [TradeDate] Fallback to NY system time: {_fallback}")
+    return _fallback
 
 
 def build_history_archive_block() -> str:
@@ -1697,44 +1713,69 @@ def render(regime_info: dict = None, expert_insights: str = "", checklist_status
     else:
         print("  \u2139  Expert Insights: no content (expert_notes.txt empty)")
 
-    # ── BASE64 IMAGE EMBEDDING (No Path Errors) ───────────────────────────────────────
-    print("\n  ── BASE64 IMAGE EMBEDDING ──")
+    # ── BASE64 IMAGE EMBEDDING (Cache-Busting v3.0) ──────────────────────────────────
+    # Primary: embed as Base64 data URI (always fresh — no browser cache issue)
+    # Fallback: use relative path + ?v=TIMESTAMP for cache-busting
+    import time as _time_mod
+    _cache_ts = str(int(_time_mod.time()))  # Unix timestamp for cache-busting
+    print("\n  ── BASE64 IMAGE EMBEDDING (Cache-Busting v3.0) ──")
     img_stockbee  = BASE / "assets/img/today/stockbee_mm.png"
     img_industry  = BASE / "assets/img/today/industry_performance.png"
     img_heatmap   = BASE / "assets/img/today/market_heatmap.png"
+
+    # Log image paths for audit
+    print(f"  [IMG PATH] stockbee_mm.png   → {img_stockbee.resolve()}")
+    print(f"  [IMG PATH] industry_perf.png → {img_industry.resolve()}")
+    print(f"  [IMG PATH] market_heatmap.png → {img_heatmap.resolve()}")
+    print(f"  [IMG PATH] All images pushed to GitHub at: assets/img/today/")
 
     b64_stockbee  = img_to_base64(img_stockbee)
     b64_industry  = img_to_base64(img_industry)
     b64_heatmap   = img_to_base64(img_heatmap)
 
-    # Replace <img src> paths with Base64 data URIs
+    # Replace <img src> paths with Base64 data URIs (primary)
+    # Fallback: add ?v=TIMESTAMP for cache-busting when Base64 unavailable
     if b64_stockbee:
         html = html.replace(
             'src="assets/img/today/stockbee_mm.png"',
             f'src="{b64_stockbee}"'
         )
-        print("  ✓  Section 4D Stockbee: Base64 injected into HTML")
+        print("  ✓  Section 4D Stockbee: Base64 injected (always fresh)")
     else:
-        print("  ⚠  Section 4D Stockbee: image missing, keeping path reference")
+        # Fallback with cache-buster
+        html = html.replace(
+            'src="assets/img/today/stockbee_mm.png"',
+            f'src="assets/img/today/stockbee_mm.png?v={_cache_ts}"'
+        )
+        print(f"  ⚠  Section 4D Stockbee: image missing, cache-buster added (?v={_cache_ts})")
 
     if b64_industry:
         html = html.replace(
             'src="assets/img/today/industry_performance.png"',
             f'src="{b64_industry}"'
         )
-        print("  ✓  Section 5B Industry: Base64 injected into HTML")
+        print("  ✓  Section 5B Industry: Base64 injected (always fresh)")
     else:
-        print("  ⚠  Section 5B Industry: image missing, keeping path reference")
+        html = html.replace(
+            'src="assets/img/today/industry_performance.png"',
+            f'src="assets/img/today/industry_performance.png?v={_cache_ts}"'
+        )
+        print(f"  ⚠  Section 5B Industry: image missing, cache-buster added (?v={_cache_ts})")
 
     if b64_heatmap:
         html = html.replace(
             'src="assets/img/today/market_heatmap.png"',
             f'src="{b64_heatmap}"'
         )
-        print("  ✓  Section 5B Heatmap: Base64 injected into HTML")
+        print("  ✓  Section 5C Heatmap: Base64 injected (always fresh)")
     else:
-        print("  ⚠  Section 5B Heatmap: image missing, keeping path reference")
+        html = html.replace(
+            'src="assets/img/today/market_heatmap.png"',
+            f'src="assets/img/today/market_heatmap.png?v={_cache_ts}"'
+        )
+        print(f"  ⚠  Section 5C Heatmap: image missing, cache-buster added (?v={_cache_ts})")
 
+    print(f"  [Cache-Busting] Timestamp: {_cache_ts}")
     print("  ── END BASE64 EMBEDDING ──\n")
 
     # ── CRITERIA MODAL (inject once before </body>) ─────────────────────────────
