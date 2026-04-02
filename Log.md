@@ -290,3 +290,47 @@
 ### Commits
 - `4541d2c` - CRITICAL: Complete UI reorg + Trade Date Enforcement
 - `6f1a183` - fix: Re-render with updated Section 5 titles (5A/5B/5C)
+
+---
+
+## 2026-04-02 — 緊急結構化修復（最終通牒）
+
+### 問題診斷
+- 用戶反映格式崩潰、5A/5B 分拆失敗、截圖未更新
+- 實際診斷：格式未崩潰，但 `get_today_date_str()` 仍使用 `datetime.now()` 作為主要來源
+- 圖片 Cache-Busting 機制缺失
+
+### 修復內容
+
+**1. Trade Date Enforcement v3.0**
+- `get_today_date_str()` 改為從 `today_market.json` meta.date 讀取（SPY-derived）
+- 嚴禁使用 `datetime.now()` 作為主要來源
+- Fallback 仍為 NY 系統時間（僅在 JSON 缺失時）
+
+**2. Cache-Busting v3.0**
+- 圖片嵌入策略：Base64 data URI（主要，永遠新鮮）+ `?v=TIMESTAMP` fallback
+- 圖片路徑記錄：render 時打印絕對路徑到 Log
+- 圖片路徑：`assets/img/today/` (GitHub: assets/img/today/)
+  - stockbee_mm.png → /home/ubuntu/daily-market-summary/assets/img/today/stockbee_mm.png
+  - industry_performance.png → /home/ubuntu/daily-market-summary/assets/img/today/industry_performance.png
+  - market_heatmap.png → /home/ubuntu/daily-market-summary/assets/img/today/market_heatmap.png
+
+**3. 5A 嚴格過濾驗證**
+- 代碼：`if ticker in CORE_SPDR_11` 過濾器已存在
+- 驗證：5A 只有 11 個 SPDR ETF（XLK/XLF/XLE/XLV/XLI/XLY/XLP/XLB/XLU/XLC/XLRE）
+- XOP 和 SMH 確認不在 5A 中 ✓
+
+**4. 5B 分組驗證**
+- 5 個分組：Core Industry / Thematic & Tech / Commodities & Power / Defense & Space / Macro & Global
+- 45 個主題 ETF 完整顯示 ✓
+
+**5. 5C Top 10 Leaderboard**
+- 全場 Top 10 RS Leaders（56個宇宙）✓
+- Volume Climax 警報：IYT/ROKT/XBI/XLE/XLP ✓
+
+### Git Commit
+- `2fc5a54` fix: Trade Date v3.0 + Cache-Busting + 5A strict filter verified
+
+### Live 網頁
+- https://matt-manus.github.io/daily-market-summary/
+- 日期：2026-04-02（SPY-derived）✓
