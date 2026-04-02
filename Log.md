@@ -262,3 +262,31 @@
 
 **6. Live URL**: https://matt-manus.github.io/daily-market-summary/
 
+
+---
+
+## 2026-04-02 — 緊急重構：UI 三層分離 + Trade Date Enforcement
+
+### 任務描述
+用戶最後通牒：完全重構 Section 5 三層架構，嚴格分離 5A/5B/5C，修復 Trade Date Bug。
+
+### 完成項目
+
+#### 1. Trade Date Enforcement
+- `scripts/fetch_all_data.py`：從 yfinance 獲取 SPY 最後交易日（`spy.history(period="5d").index[-1]`），不再使用系統時間
+- 所有 archive 命名、JSON meta.date、HTML 標題日期 100% 同步 NY Trade Date
+
+#### 2. UI 三層重組
+- **5A — Core Market Pulse (11 SPDR ETFs)**：嚴格過濾 `CORE_SPDR_11` = {XLK, XLF, XLE, XLV, XLI, XLY, XLP, XLB, XLU, XLC, XLRE}
+- **5B — Thematic & Sub-Sector Breakdown (45 ETFs)**：按 SECTOR_CATEGORIES 分組（Core Industry / Thematic & Tech / Commodities & Power / Defense & Space / Macro & Global），組內按 RS Rating 降序
+- **5C — Industry RS Leaderboard & Anomalies**：全場 Top 10（56 個宇宙）+ Volume Climax 警報（Vol > 1.5× 20MA）
+
+#### 3. 驗證結果
+- 5A 只有 11 個 XL* SPDR ETF ✓（無 XOP、SMH）
+- 5B 5 個分組正確顯示 ✓
+- 5C Top 10 排名：XOP(99)、XLE(97)、LIT(96)、ROKT(94)、TAN(92)、SOXX(90)、XBI(88)、PICK(87)、SLV(85)、SMH(83)
+- Live 網頁：https://matt-manus.github.io/daily-market-summary/
+
+### Commits
+- `4541d2c` - CRITICAL: Complete UI reorg + Trade Date Enforcement
+- `6f1a183` - fix: Re-render with updated Section 5 titles (5A/5B/5C)
