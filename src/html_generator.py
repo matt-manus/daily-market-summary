@@ -170,9 +170,13 @@ BREADTH_KEYS = [
 # ── Archive helpers ───────────────────────────────────────────────────────
 
 def get_today_date_str() -> str:
-    """Return today's date in HKT as YYYY-MM-DD string."""
-    hkt = pytz.timezone("Asia/Hong_Kong")
-    return datetime.now(hkt).strftime("%Y-%m-%d")
+    """Return today's NY Trade Date as YYYY-MM-DD string.
+    
+    TIMEZONE FIX: Archive filenames and report dates always follow
+    New York calendar (America/New_York), regardless of server timezone.
+    """
+    ny_tz = pytz.timezone("America/New_York")
+    return datetime.now(ny_tz).strftime("%Y-%m-%d")
 
 
 def build_history_archive_block() -> str:
