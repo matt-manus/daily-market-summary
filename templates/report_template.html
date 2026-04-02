@@ -253,6 +253,163 @@
     }
     .ai-placeholder { color: var(--text-muted); font-style: italic; font-size: 12px; }
 
+    /* ─── LOGIC INFO BUTTON & MODAL ─────────────────────────────── */
+    .logic-info-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      background: rgba(66,165,245,0.12);
+      border: 1px solid rgba(66,165,245,0.35);
+      border-radius: 4px;
+      padding: 2px 8px;
+      font-size: 10px;
+      font-weight: 600;
+      color: var(--blue);
+      cursor: pointer;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+      margin-left: 8px;
+      vertical-align: middle;
+      transition: background 0.15s;
+      user-select: none;
+    }
+    .logic-info-btn:hover {
+      background: rgba(66,165,245,0.22);
+    }
+    .logic-info-btn .li-icon { font-size: 11px; }
+
+    /* Logic Info Inline Note (below sub-title) */
+    .logic-note {
+      font-size: 10.5px;
+      color: var(--text-muted);
+      background: rgba(66,165,245,0.06);
+      border-left: 2px solid rgba(66,165,245,0.4);
+      border-radius: 0 4px 4px 0;
+      padding: 6px 10px;
+      margin: 6px 0 10px;
+      line-height: 1.6;
+    }
+    .logic-note strong { color: #90caf9; }
+
+    /* Logic Info Modal Overlay */
+    .li-modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.72);
+      z-index: 9990;
+      align-items: center;
+      justify-content: center;
+    }
+    .li-modal-overlay.active { display: flex; }
+    .li-modal {
+      background: #141420;
+      border: 1.5px solid #42a5f5;
+      border-radius: 10px;
+      padding: 26px 28px 22px;
+      max-width: 560px;
+      width: 90%;
+      box-shadow: 0 0 40px rgba(66,165,245,0.2);
+      position: relative;
+    }
+    .li-modal h3 {
+      color: #42a5f5;
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .li-modal p {
+      color: #d0d0d0;
+      font-size: 12.5px;
+      line-height: 1.75;
+      margin-bottom: 10px;
+    }
+    .li-modal .formula-box {
+      background: #0d0d1a;
+      border: 1px solid #2a2a4a;
+      border-radius: 6px;
+      padding: 10px 14px;
+      font-size: 12px;
+      color: #90caf9;
+      font-family: 'Courier New', monospace;
+      margin: 10px 0 14px;
+      line-height: 1.6;
+    }
+    .li-modal .li-close-btn {
+      background: #42a5f5;
+      color: #000;
+      border: none;
+      padding: 7px 20px;
+      border-radius: 5px;
+      font-weight: 700;
+      cursor: pointer;
+      font-size: 12px;
+      margin-top: 6px;
+    }
+    .li-modal .li-close-btn:hover { background: #64b5f6; }
+
+    /* RS Score Rating Badge */
+    .rs-badge {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 3px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+    }
+    .rs-elite  { background: rgba(76,175,80,0.2);  color: #66bb6a; }
+    .rs-strong { background: rgba(76,175,80,0.12); color: #81c784; }
+    .rs-mid    { background: rgba(255,152,0,0.12); color: #ffa726; }
+    .rs-weak   { background: rgba(244,67,54,0.12); color: #ef5350; }
+
+    /* Hot Cluster Badge */
+    .cluster-hot  { background: rgba(255,87,34,0.18); color: #ff7043; border: 1px solid rgba(255,87,34,0.3); }
+    .cluster-warm { background: rgba(255,152,0,0.12); color: #ffa726; border: 1px solid rgba(255,152,0,0.25); }
+    .cluster-cool { background: rgba(100,100,100,0.12); color: #9e9e9e; border: 1px solid rgba(100,100,100,0.2); }
+    .cluster-badge {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 3px;
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    /* Volume Climax Card */
+    .anomaly-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 12px 14px;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .anomaly-sym {
+      font-size: 15px;
+      font-weight: 700;
+      color: #fff;
+      min-width: 52px;
+    }
+    .anomaly-detail {
+      font-size: 11px;
+      color: var(--text-label);
+      flex: 1;
+    }
+    .anomaly-tag {
+      font-size: 10px;
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: 3px;
+      background: rgba(255,152,0,0.15);
+      color: var(--amber);
+      border: 1px solid rgba(255,152,0,0.3);
+    }
+
     /* ─── FOOTER ─────────────────────────────────────────────────── */
     .report-footer {
       margin-top: 36px;
@@ -452,12 +609,21 @@
   </div>
 </div>
 
-<!-- ═══ SECTION 5 — SECTOR & INDUSTRY ═════════════════════════════ -->
+<!-- ═══ SECTION 5 — SECTOR & INDUSTRY RS MOMENTUM ══════════════════ -->
 <div class="section">
-  <div class="section-title">Section 5 — Sector &amp; Industry Performance</div>
+  <div class="section-title">Section 5 — Sector &amp; Industry RS Momentum</div>
 
-  <!-- 5A: Sectors sorted by RSI desc -->
-  <div class="sub-title">5A — Sector ETF Performance (Sorted by RSI High → Low)</div>
+  <!-- ── 5A: Core SPDR Sectors (11 ETFs) ─────────────────────────── -->
+  <div style="display:flex;align-items:center;margin:16px 0 6px;">
+    <div class="sub-title" style="margin:0;">5A — Core Sectors (11 SPDR ETFs)</div>
+    <button class="logic-info-btn" onclick="showLogicModal('rs_momentum')">
+      <span class="li-icon">&#9432;</span> Logic Info
+    </button>
+  </div>
+  <div class="logic-note">
+    <strong>RS Score</strong> = (40% &times; 1m Return) + (40% &times; 3m Return) + (20% &times; 6m Return).
+    反映標的在 11 個核心 SPDR ETF 中的相對強度排名 (1–99)。
+  </div>
   <div class="table-wrap">
     <table class="data-table">
       <thead>
@@ -466,11 +632,13 @@
           <th>Sector</th>
           <th>Price</th>
           <th>1D Chg%</th>
-          <th>1W Chg%</th>
           <th>1M Chg%</th>
+          <th>3M Chg%</th>
+          <th>RS Score</th>
+          <th>RS Rating</th>
           <th>RSI 14</th>
           <th>vs 20MA</th>
-          </tr>
+        </tr>
       </thead>
       <tbody>
         {{SECTOR_ROWS}}
@@ -478,33 +646,23 @@
     </table>
   </div>
 
-  <!-- 5B: Top 10 Industries with num_stocks -->
-  <div class="sub-title" style="margin-top:20px;">5B — Top 10 Industries (by 1D Change)</div>
-  <div class="table-wrap">
-    <table class="data-table">
-      <thead>
-        <tr>
-          <th style="text-align:center;">#</th>
-          <th>Industry</th>
-          <th>Stocks</th>
-          <th>1D Chg%</th>
-          <th>1W Chg%</th>
-          <th>1M Chg%</th>
-          <th>3M Chg%</th>
-          <th>YTD Chg%</th>
-        </tr>
-      </thead>
-      <tbody>
-        {{INDUSTRY_ROWS}}
-      </tbody>
-    </table>
+  <!-- ── 5B: Industry RS Radar ────────────────────────────────────── -->
+  <div style="display:flex;align-items:center;margin:20px 0 6px;">
+    <div class="sub-title" style="margin:0;">5B — Industry RS Radar</div>
+    <button class="logic-info-btn" onclick="showLogicModal('cluster_radar')">
+      <span class="li-icon">&#9432;</span> Logic Info
+    </button>
   </div>
+  <div class="logic-note">
+    <strong>Hot Cluster &#128293;</strong> 準則：組內超過 50% 的成員同時滿足
+    (Price &gt; 20MA) 且 (RS Rating &gt; 80)。代表機構資金正在集體性流入該板塊。
+  </div>
+  {{INDUSTRY_RS_RADAR}}
 
-  <!-- Industry Top 10 Chart (PIL-rendered) -->
-  <div class="img-block" style="margin-top:16px;">
-    <img src="assets/img/today/industry_performance.png" alt="Industry Top 10 Performance" style="max-width:100%;border-radius:8px;" />
-    <div class="img-caption">Industry Top 10 Performance Chart (2026-03-27)</div>
-  </div>
+  <!-- ── 5C: Market Anomalies ─────────────────────────────────────── -->
+  <div class="sub-title" style="margin-top:20px;">5C — Market Anomalies (Volume Climax)</div>
+  <div style="font-size:11px;color:var(--text-muted);margin-bottom:10px;">成交量異常放大 (&gt;2× 20日均量) 的 ETF — 可能代表機構進出場信號</div>
+  {{VOLUME_CLIMAX_BLOCK}}
 
   <!-- Market Heatmap -->
   <div class="img-block" style="margin-top:16px;">

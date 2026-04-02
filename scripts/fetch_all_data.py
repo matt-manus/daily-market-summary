@@ -865,13 +865,16 @@ def fetch_all() -> dict:
     """Fetch all market data and save to data/today_market.json."""
 
     # ── Timestamps ───────────────────────────────────────────────────
-    et_tz   = pytz.timezone("US/Eastern")
+    # TIMEZONE FIX: Always use America/New_York as canonical trade date.
+    # Archive filenames and report dates MUST follow NY calendar, not HKT.
+    ny_tz   = pytz.timezone("America/New_York")  # canonical NY tz
     hkt_tz  = pytz.timezone("Asia/Hong_Kong")
-    now_et  = datetime.now(et_tz)
+    now_et  = datetime.now(ny_tz)
     now_hkt = datetime.now(hkt_tz)
     ts_hkt  = now_hkt.strftime("%Y-%m-%d %H:%M")
     ts_et   = now_et.strftime("%Y-%m-%d %H:%M")
-    date_str = now_hkt.strftime("%Y-%m-%d")
+    # NY Trade Date: archive naming ALWAYS follows New York calendar
+    date_str = now_et.strftime("%Y-%m-%d")
 
     print(f"╔══════════════════════════════════════════════╗")
     print(f"  Credit Efficient — Market Data Fetcher v4.1")

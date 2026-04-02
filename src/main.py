@@ -1,5 +1,6 @@
 import sys
 import os
+import argparse
 from pathlib import Path
 
 # Ensure src is in Python path
@@ -13,7 +14,20 @@ import html_generator
 import rs_engine
 
 def main():
-    check_if_trading_day()
+    # ── CLI Arguments ───────────────────────────────────────────────────
+    parser = argparse.ArgumentParser(description="Daily Market Summary Generator")
+    parser.add_argument(
+        "--force",
+        action="store_true",
+        help="Skip holiday/weekend guard and force report generation (for manual runs)",
+    )
+    args = parser.parse_args()
+
+    # ── Guard: skip on weekends / holidays unless --force ─────────────────
+    if args.force:
+        print("⚡ --force flag detected: skipping holiday/trading-day guard")
+    else:
+        check_if_trading_day()
     print("=== Daily Market Summary - Modular Generation ===")
     
     print("\n[1/5] Fetching Market Data...")
