@@ -225,3 +225,40 @@
   - Gold: +4.60% ($4,734) | DXY: -0.79% (99.71)
 - **Live Site**: https://matt-manus.github.io/daily-market-summary/
 - **Latest Commit**: 4608a1d
+
+---
+
+## 2026-04-02 — Step 2.3 UI 重組 + 時區修復 + 合併上線
+
+### 完成項目
+
+**1. 時區架構修復 (Infrastructure Fix)**
+- `scripts/fetch_all_data.py`: `date_str` 改為 `America/New_York`（原 HKT）
+- `src/html_generator.py`: `get_today_date_str()` 改為 NY 時區
+- `src/main.py`: 新增 `--force` flag（argparse），允許跳過 holiday_guard
+- Bug 根因：HKT 比 NY 快 12-13 小時，深夜 HKT 已是次日但 NY 仍是前一交易日
+
+**2. Archive 清理**
+- 刪除偽檔案 `archive/2026-04-01.html`（生成於 ET 2026-03-31 20:55，應命名為 3/31）
+- 重命名為 `archive/2026-03-31.html`（正確 NY Trade Date）
+
+**3. dev → main 合併**
+- Commit: `50d72ed` merge(dev→main)
+- 包含 Step 2.3 所有變更：RS Engine, UI V2, Logic Modals
+
+**4. Production Run**
+- 執行 `python src/main.py --force`
+- Archive 正確命名為 `2026-04-02.html` ✓
+- Logic Info Modals 注入成功 ✓
+
+**5. 今日 RS Rating 排名（11 SPDR ETFs，NY Trade Date 2026-04-02）**
+| Rank | Symbol | RS Rating | RS Score | 特徵 |
+|------|--------|-----------|----------|------|
+| 1 | XLE Energy | 99 ★★ ELITE | +21.6 | 1M+6.62% 3M+31.39% |
+| 2 | XLB Materials | 89 ★ STRONG | +5.9 | 1M-5.07% 3M+12.85% |
+| 3 | XLU Utilities | 79 | +3.6 | 1M-1.86% 3M+7.05% |
+| 4 | XLI Industrials | 70 | +1.5 | 1M-5.87% 3M+6.07% |
+| 5 | XLP Cons. Staples | 60 | +0.9 | 1M-5.94% 3M+5.25% |
+
+**6. Live URL**: https://matt-manus.github.io/daily-market-summary/
+
