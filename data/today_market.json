@@ -1,7 +1,7 @@
 {
   "meta": {
-    "generated_hkt": "2026-04-02 15:50",
-    "generated_et": "2026-04-02 03:50",
+    "generated_hkt": "2026-04-02 18:20",
+    "generated_et": "2026-04-02 06:20",
     "date": "2026-04-02",
     "source": "Yahoo Finance + CNN + NAAIM + Finviz + Barchart",
     "rsi_method": "Wilder SMMA (EWM alpha=1/14)",
@@ -9,13 +9,13 @@
   },
   "macro": {
     "VIX": {
-      "price": 26.6,
-      "change_1d": 2.06,
-      "change_1d_pct": 8.39
+      "price": 26.51,
+      "change_1d": 1.97,
+      "change_1d_pct": 8.03
     },
     "DXY": {
-      "price": 100.169,
-      "change_1d": 0.519,
+      "price": 100.165,
+      "change_1d": 0.515,
       "change_1d_pct": 0.52
     },
     "TNX_10Y": {
@@ -24,19 +24,19 @@
       "change_1d_pct": 0.19
     },
     "GOLD": {
-      "price": 4660.0,
-      "change_1d": -123.2002,
-      "change_1d_pct": -2.58
+      "price": 4655.0,
+      "change_1d": -128.2002,
+      "change_1d_pct": -2.68
     },
     "OIL_WTI": {
-      "price": 106.46,
-      "change_1d": 6.34,
-      "change_1d_pct": 6.33
+      "price": 107.97,
+      "change_1d": 7.85,
+      "change_1d_pct": 7.84
     },
     "BTC": {
-      "price": 66859.5469,
-      "change_1d": -1219.0078,
-      "change_1d_pct": -1.79
+      "price": 66242.6016,
+      "change_1d": -1835.9531,
+      "change_1d_pct": -2.7
     }
   },
   "indices": {
@@ -133,7 +133,7 @@
     "fear_greed": {
       "score": 13.89,
       "rating": "extreme fear",
-      "timestamp": "2026-04-02T07:33:31+00:00",
+      "timestamp": "2026-04-02T09:49:01+00:00",
       "prev_close": 15.71,
       "prev_1w": 14.92,
       "prev_1m": 34.29,
@@ -279,6 +279,25 @@
       "change_1m_pct": -1.86,
       "change_3m_pct": 7.05,
       "change_ytd_pct": 7.69
+    },
+    {
+      "symbol": "IBB",
+      "name": "Biotech (Market Cap)",
+      "price": 170.13,
+      "change_1d_pct": 0.76,
+      "rsi14": 54.6579,
+      "ma20": 166.1102,
+      "ma50": 170.8093,
+      "ma200": 154.7459,
+      "vs_ma20_pct": 2.42,
+      "vs_ma50_pct": -0.4,
+      "vs_ma200_pct": 9.94,
+      "vs20ma": "Green",
+      "status": "MIXED",
+      "change_1w_pct": null,
+      "change_1m_pct": null,
+      "change_3m_pct": null,
+      "change_ytd_pct": null
     },
     {
       "symbol": "KRE",

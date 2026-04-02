@@ -58,7 +58,7 @@
     {
       "ticker": "CIBR",
       "sector_category": "Thematic & Tech",
-      "rs_score": -0.08688403941614659,
+      "rs_score": -0.08688405624478618,
       "rs_rating": 20,
       "above_20ma": false,
       "volume_climax": false,
@@ -166,7 +166,7 @@
     {
       "ticker": "IYT",
       "sector_category": "Core Industry",
-      "rs_score": -0.015315184476697842,
+      "rs_score": -0.015315161891244645,
       "rs_rating": 52,
       "above_20ma": true,
       "volume_climax": true,
@@ -337,7 +337,7 @@
     {
       "ticker": "TLT",
       "sector_category": "Macro & Global",
-      "rs_score": -0.017471390488429984,
+      "rs_score": -0.017471373141227552,
       "rs_rating": 50,
       "above_20ma": false,
       "volume_climax": false,
@@ -409,7 +409,7 @@
     {
       "ticker": "XLE",
       "sector_category": "Core Industry",
-      "rs_score": 0.2161532987802821,
+      "rs_score": 0.2161532755465618,
       "rs_rating": 97,
       "above_20ma": true,
       "volume_climax": true,
@@ -490,7 +490,7 @@
     {
       "ticker": "XOP",
       "sector_category": "Core Industry",
-      "rs_score": 0.26025152586153844,
+      "rs_score": 0.26025155709029535,
       "rs_rating": 99,
       "above_20ma": true,
       "volume_climax": false,

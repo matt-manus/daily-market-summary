@@ -334,3 +334,49 @@
 ### Live 網頁
 - https://matt-manus.github.io/daily-market-summary/
 - 日期：2026-04-02（SPY-derived）✓
+
+---
+## 2026-04-02 — 緊急修復：Regime Banner + Checklist + Stockbee + DEBUG 移除
+
+### 問題診斷
+1. **Regime Banner 空白**：`{{REGIME_BANNER}}` 被替換為空字符串，因為上次 render 時 `regime_info` 傳入為空 dict
+2. **Stockbee 圖片空白**：Base64 移除後，圖片以相對路徑顯示，但 Playwright Chromium 在沙盒重置後需要重新安裝
+3. **DEBUG 紅字**：`templates/report_template.html` 第 428 行有 `background:#b71c1c` 的 DEBUG 橫幅
+
+### 修復內容
+
+#### 1. Regime Banner & Checklist（已恢復）
+- **根本原因**：代碼邏輯完整，但沙盒重置後 `today_market.json` 數據未更新，導致 `regime_info` 為空
+- **修復**：重新執行 `main.py --force`，`process_logic()` 正確讀取數據並傳入 `regime_info`
+- **LOG 驗證數值**：
+  - VIX = **26.5**
+  - SPY vs 20MA = **-4.03**（SPY 在 20MA 之下）
+  - % Above 20MA = **45.1%**
+  - A/D Ratio = **1.471**
+  - RSI = **46.0**
+  - Regime = **⚠ Market Correction**
+  - Checklist Score = **red 4/5**
+
+#### 2. Stockbee 截圖（已修復）
+- **根本原因**：Playwright Chromium 在沙盒重置後需要重新安裝（`playwright install chromium`）
+- **修復**：重新安裝 Chromium，截圖腳本正常運行
+- **驗證結果**：
+  - T2108 row present: **True**
+  - Up/Down 4% row present: **True**
+  - 捕捉區域：**874 × 820 像素**
+  - 檔案大小：**408.7 KB**（非 0KB）
+  - 圖片格式：**PNG 1326 × 1245 RGB**
+
+#### 3. DEBUG 紅字（已移除）
+- **修復**：從 `templates/report_template.html` 移除 `background:#b71c1c` 的 DEBUG 橫幅
+- **驗證**：`grep -c "DEBUG\|b71c1c" index.html` = **0**
+
+### 最終 index.html 驗證
+- 檔案大小：**101.8 KB**
+- DEBUG 橫幅：**0 個**（已移除）
+- Regime Banner：**⚠ Market Correction** 正確顯示
+- Correction Checklist：**red 4/5** 正確顯示，含 VIX/SPY/% Above 20MA 數值
+- Stockbee 圖片：`assets/img/today/stockbee_mm.png?v=1775125400`（408.7 KB）
+- 所有 3 張圖片：cache-busted with `?v=1775125400`
+
+### Git Commits
