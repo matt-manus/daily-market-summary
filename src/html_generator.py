@@ -1713,70 +1713,34 @@ def render(regime_info: dict = None, expert_insights: str = "", checklist_status
     else:
         print("  \u2139  Expert Insights: no content (expert_notes.txt empty)")
 
-    # ── BASE64 IMAGE EMBEDDING (Cache-Busting v3.0) ──────────────────────────────────
-    # Primary: embed as Base64 data URI (always fresh — no browser cache issue)
-    # Fallback: use relative path + ?v=TIMESTAMP for cache-busting
+    # ── IMAGE CACHE-BUSTING (NO Base64 — standard relative paths + timestamp) ──
     import time as _time_mod
     _cache_ts = str(int(_time_mod.time()))  # Unix timestamp for cache-busting
-    print("\n  ── BASE64 IMAGE EMBEDDING (Cache-Busting v3.0) ──")
+    print(f"\n  ── IMAGE CACHE-BUSTING (no Base64, timestamp={_cache_ts}) ──")
+
+    # Log image paths for audit
     img_stockbee  = BASE / "assets/img/today/stockbee_mm.png"
     img_industry  = BASE / "assets/img/today/industry_performance.png"
     img_heatmap   = BASE / "assets/img/today/market_heatmap.png"
+    print(f"  [IMG PATH] stockbee_mm.png    → {img_stockbee.resolve()} | exists={img_stockbee.exists()} | mtime={img_stockbee.stat().st_mtime if img_stockbee.exists() else 'N/A'}")
+    print(f"  [IMG PATH] industry_perf.png  → {img_industry.resolve()} | exists={img_industry.exists()} | mtime={img_industry.stat().st_mtime if img_industry.exists() else 'N/A'}")
+    print(f"  [IMG PATH] market_heatmap.png → {img_heatmap.resolve()} | exists={img_heatmap.exists()} | mtime={img_heatmap.stat().st_mtime if img_heatmap.exists() else 'N/A'}")
 
-    # Log image paths for audit
-    print(f"  [IMG PATH] stockbee_mm.png   → {img_stockbee.resolve()}")
-    print(f"  [IMG PATH] industry_perf.png → {img_industry.resolve()}")
-    print(f"  [IMG PATH] market_heatmap.png → {img_heatmap.resolve()}")
-    print(f"  [IMG PATH] All images pushed to GitHub at: assets/img/today/")
-
-    b64_stockbee  = img_to_base64(img_stockbee)
-    b64_industry  = img_to_base64(img_industry)
-    b64_heatmap   = img_to_base64(img_heatmap)
-
-    # Replace <img src> paths with Base64 data URIs (primary)
-    # Fallback: add ?v=TIMESTAMP for cache-busting when Base64 unavailable
-    if b64_stockbee:
-        html = html.replace(
-            'src="assets/img/today/stockbee_mm.png"',
-            f'src="{b64_stockbee}"'
-        )
-        print("  ✓  Section 4D Stockbee: Base64 injected (always fresh)")
-    else:
-        # Fallback with cache-buster
-        html = html.replace(
-            'src="assets/img/today/stockbee_mm.png"',
-            f'src="assets/img/today/stockbee_mm.png?v={_cache_ts}"'
-        )
-        print(f"  ⚠  Section 4D Stockbee: image missing, cache-buster added (?v={_cache_ts})")
-
-    if b64_industry:
-        html = html.replace(
-            'src="assets/img/today/industry_performance.png"',
-            f'src="{b64_industry}"'
-        )
-        print("  ✓  Section 5B Industry: Base64 injected (always fresh)")
-    else:
-        html = html.replace(
-            'src="assets/img/today/industry_performance.png"',
-            f'src="assets/img/today/industry_performance.png?v={_cache_ts}"'
-        )
-        print(f"  ⚠  Section 5B Industry: image missing, cache-buster added (?v={_cache_ts})")
-
-    if b64_heatmap:
-        html = html.replace(
-            'src="assets/img/today/market_heatmap.png"',
-            f'src="{b64_heatmap}"'
-        )
-        print("  ✓  Section 5C Heatmap: Base64 injected (always fresh)")
-    else:
-        html = html.replace(
-            'src="assets/img/today/market_heatmap.png"',
-            f'src="assets/img/today/market_heatmap.png?v={_cache_ts}"'
-        )
-        print(f"  ⚠  Section 5C Heatmap: image missing, cache-buster added (?v={_cache_ts})")
-
-    print(f"  [Cache-Busting] Timestamp: {_cache_ts}")
-    print("  ── END BASE64 EMBEDDING ──\n")
+    # Replace all img src with cache-busted relative paths (NO Base64)
+    html = html.replace(
+        'src="assets/img/today/stockbee_mm.png"',
+        f'src="assets/img/today/stockbee_mm.png?v={_cache_ts}"'
+    )
+    html = html.replace(
+        'src="assets/img/today/industry_performance.png"',
+        f'src="assets/img/today/industry_performance.png?v={_cache_ts}"'
+    )
+    html = html.replace(
+        'src="assets/img/today/market_heatmap.png"',
+        f'src="assets/img/today/market_heatmap.png?v={_cache_ts}"'
+    )
+    print(f"  ✓  All 3 images: cache-busted with ?v={_cache_ts} (NO Base64)")
+    print("  ── END IMAGE CACHE-BUSTING ──\n")
 
     # ── CRITERIA MODAL (inject once before </body>) ─────────────────────────────
     # Always inject the modal so the 'View Criteria' link works on every page.
