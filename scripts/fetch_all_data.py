@@ -865,23 +865,19 @@ def fetch_all() -> dict:
     """Fetch all market data and save to data/today_market.json."""
 
     # ── Timestamps ───────────────────────────────────────────────────
-    # TIMEZONE FIX: Always use America/New_York as canonical trade date.
-    # Archive filenames and report dates MUST follow NY calendar, not HKT.
-    ny_tz   = pytz.timezone("America/New_York")  # canonical NY tz
+    ny_tz   = pytz.timezone("America/New_York")
     hkt_tz  = pytz.timezone("Asia/Hong_Kong")
     now_et  = datetime.now(ny_tz)
     now_hkt = datetime.now(hkt_tz)
     ts_hkt  = now_hkt.strftime("%Y-%m-%d %H:%M")
     ts_et   = now_et.strftime("%Y-%m-%d %H:%M")
-    # NY Trade Date: archive naming ALWAYS follows New York calendar
-    date_str = now_et.strftime("%Y-%m-%d")
 
-    print(f"╔══════════════════════════════════════════════╗")
-    print(f"  Credit Efficient — Market Data Fetcher v4.1")
+    print(f"╔════════════════════════════════════════════╗")
+    print(f"  Credit Efficient — Market Data Fetcher v5.1")
     print(f"  HKT: {ts_hkt}   ET: {ts_et}")
-    print(f"╚══════════════════════════════════════════════╝\n")
+    print(f"╚════════════════════════════════════════════╝\n")
 
-    # ── 1. Download all tickers (2y daily) ───────────────────────────
+    # ── 1. Download all tickers (2y daily) ───────────────────────────────────
     all_tickers = list(MACRO_TICKERS.values()) + INDEX_ETFS + list(SECTORS.keys())
     all_tickers = list(dict.fromkeys(all_tickers))
 
@@ -895,6 +891,32 @@ def fetch_all() -> dict:
     )
     close_df = raw["Close"] if isinstance(raw.columns, pd.MultiIndex) else raw[["Close"]]
     print(f"     下載完成，共 {len(close_df)} 個交易日，{close_df.shape[1]} 個標的\n")
+
+    # ── TRADE DATE ENFORCEMENT v2.0 ───────────────────────────────────
+    # NEVER use system clock for archive naming.
+    # Derive date_str from SPY's last trading day in the downloaded data.
+    # This is the ONLY source of truth for all dates.
+    print("  [Trade Date] Deriving last trade date from SPY close data...")
+    try:
+        if "SPY" in close_df.columns:
+            _spy_series = close_df["SPY"].dropna()
+        else:
+            _spy_series = close_df.iloc[:, 0].dropna()
+        _last_idx = _spy_series.index[-1]
+        # Convert pandas Timestamp to NY date string
+        if hasattr(_last_idx, 'tz_convert'):
+            _last_ny = _last_idx.tz_convert(ny_tz)
+        elif hasattr(_last_idx, 'tz_localize'):
+            _last_ny = _last_idx.tz_localize('UTC').tz_convert(ny_tz)
+        else:
+            # naive timestamp — treat as UTC, convert to NY
+            _last_ny = pd.Timestamp(_last_idx).tz_localize('UTC').tz_convert(ny_tz)
+        date_str = _last_ny.strftime("%Y-%m-%d")
+        print(f"  [Trade Date] SPY last trade date: {date_str} ✓")
+    except Exception as _e:
+        date_str = now_et.strftime("%Y-%m-%d")
+        print(f"  [Trade Date] Fallback to NY system time: {date_str} (err: {_e})")
+    # ─────────────────────────────────────────────────────────────────
 
     # ── 2. Macro ─────────────────────────────────────────────────────
     print("[2/8] 處理宏觀指標（Macro）…")

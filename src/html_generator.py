@@ -408,12 +408,24 @@ def rs_score_cell(score):
     return f'<span class="{cls}">{sign}{f:.1f}</span>'
 
 
+# ── Strict 11 SPDR ETF symbols for Section 5A ────────────────────────────────
+CORE_SPDR_11 = {"XLK", "XLF", "XLE", "XLV", "XLI", "XLY", "XLP", "XLB", "XLU", "XLC", "XLRE"}
+
+
 def build_sector_rows(sectors):
-    """5A — Core SPDR Sectors with RS Score & Rating (v2.3)."""
+    """5A — Core Market Pulse: STRICTLY 11 SPDR ETFs only.
+    
+    CRITICAL: Only XLK, XLF, XLE, XLV, XLI, XLY, XLP, XLB, XLU, XLC, XLRE.
+    ANY other symbol (XOP, SMH, IGV, etc.) must be excluded.
+    """
     if not sectors:
         return '<tr><td colspan="10"><span class="na-val">N/A</span></td></tr>'
-    # Compute RS scores
-    sectors_with_rs = compute_rs_scores(sectors)
+    # STRICT FILTER: Only the 11 core SPDR ETFs
+    spdr_only = [s for s in sectors if s.get("symbol", "") in CORE_SPDR_11]
+    if not spdr_only:
+        return '<tr><td colspan="10"><span class="na-val">No SPDR ETF data found</span></td></tr>'
+    # Compute RS scores within this 11-ETF universe
+    sectors_with_rs = compute_rs_scores(spdr_only)
     # Sort by RS Rating descending (highest RS first)
     sectors_sorted = sorted(sectors_with_rs, key=lambda x: x.get("rs_rating", 0), reverse=True)
     rows = []
@@ -441,158 +453,319 @@ def build_sector_rows(sectors):
     return "\n".join(rows)
 
 
+# ── 5B: SECTOR_CATEGORIES grouping (45 non-SPDR ETFs) ────────────────────────────────
+# Category display names and their ETF members
+SECTOR_CATEGORY_GROUPS = {
+    "Core Industry":       ["SMH", "IGV", "SKYY", "XBI", "IBB", "IHI", "KRE", "KBE", "IAI",
+                            "XRT", "IYT", "JETS", "XOP", "XHB", "LIT"],
+    "Thematic & Tech":     ["AIQ", "ARKQ", "ARKK", "BOTZ", "ROBO", "SOXX", "CIBR", "BUG",
+                            "BLOK", "FINX", "IPAY", "QTUM", "MAGS"],
+    "Commodities & Power": ["NLR", "URA", "COPX", "TAN", "GLD", "SLV", "GDX", "PICK"],
+    "Defense & Space":     ["ITA", "XAR", "ROKT"],
+    "Macro & Global":      ["PAVE", "TLT", "VNQ", "FXI", "KWEB", "MSOS"],
+}
+
+# Full name lookup for all 56 ETFs
+ALL_ETF_NAMES = {
+    # Core Industry sub-sectors
+    "SMH": "Semiconductors", "IGV": "Software", "SKYY": "Cloud Computing",
+    "XBI": "Biotech (Equal Wt)", "IBB": "Biotech (Mkt Cap)", "IHI": "Medical Devices",
+    "KRE": "Regional Banks", "KBE": "Banks Broad", "IAI": "Investment Banking",
+    "XRT": "Retail", "IYT": "Transportation", "JETS": "Airlines",
+    "XOP": "Oil & Gas E&P", "XHB": "Homebuilders", "LIT": "Lithium & Battery",
+    # Thematic & Tech
+    "AIQ": "AI & Big Data", "ARKQ": "ARK Autonomous", "ARKK": "ARK Innovation",
+    "BOTZ": "Robotics & AI", "ROBO": "Robotics & Automation", "SOXX": "Semis (iShares)",
+    "CIBR": "Cybersecurity", "BUG": "Cybersecurity (Global X)", "BLOK": "Blockchain",
+    "FINX": "FinTech", "IPAY": "Digital Payments", "QTUM": "Quantum Computing",
+    "MAGS": "Magnificent 7",
+    # Commodities & Power
+    "NLR": "Nuclear Energy", "URA": "Uranium Mining", "COPX": "Copper Miners",
+    "TAN": "Solar Energy", "GLD": "Gold ETF", "SLV": "Silver ETF",
+    "GDX": "Gold Miners", "PICK": "Diversified Metals",
+    # Defense & Space
+    "ITA": "Aerospace & Defense", "XAR": "Aerospace & Defense (SPDR)", "ROKT": "Space Exploration",
+    # Macro & Global
+    "PAVE": "Infrastructure", "TLT": "20Y Treasury Bond", "VNQ": "Real Estate (Vanguard)",
+    "FXI": "China Large-Cap", "KWEB": "China Internet", "MSOS": "Cannabis",
+    # Core SPDR (for reference)
+    **SECTOR_NAMES,
+}
+
+
+def _load_analysis_results() -> dict:
+    """Load analysis_results.json from data/ directory."""
+    ar_path = BASE / "data" / "analysis_results.json"
+    if ar_path.exists():
+        try:
+            with open(ar_path, "r", encoding="utf-8") as f:
+                return json.load(f)
+        except Exception as e:
+            print(f"  ⚠  Failed to load analysis_results.json: {e}")
+    return {}
+
+
 def build_industry_rs_radar(industry: list, sectors: list) -> str:
     """
-    5B — Industry RS Radar: group industries by SECTOR_CATEGORIES.
-    Since industry data doesn’t map directly to SPDR ETFs,
-    we display all industries sorted by RS Score (1m+3m weighted),
-    and mark Hot Cluster based on 1m > 0 and 3m > 0 criteria.
+    5B — Thematic & Sub-Sector Breakdown: 45 non-SPDR ETFs.
+    Grouped by SECTOR_CATEGORIES, sorted by RS Rating within each group.
+    Data sourced from analysis_results.json (rs_engine.py output).
     """
-    if not industry:
-        return '<div style="color:var(--text-muted);font-size:12px;padding:12px;">No industry data available.</div>'
+    # Load RS data from analysis_results.json
+    ar = _load_analysis_results()
+    latest_rs = ar.get("latest_rs", [])
+    hot_clusters = ar.get("hot_clusters", [])
 
-    # Compute RS scores for industries
-    scored_industries = []
-    for row in industry:
-        c1m = safe_float(row.get("change_1m_pct")) or 0.0
-        c3m = safe_float(row.get("change_3m_pct")) or 0.0
-        c_ytd = safe_float(row.get("change_ytd_pct")) or c3m
-        rs_score = round(0.40 * c1m + 0.40 * c3m + 0.20 * c_ytd, 2)
-        scored_industries.append({**row, "rs_score": rs_score})
+    # Build ticker -> RS data lookup
+    rs_lookup = {}
+    for row in latest_rs:
+        ticker = row.get("ticker", "")
+        if ticker:
+            rs_lookup[ticker] = row
 
-    # Rank 1-99
-    n = len(scored_industries)
-    sorted_scores = sorted([s["rs_score"] for s in scored_industries])
-    for s in scored_industries:
-        rank_idx = sorted_scores.index(s["rs_score"])
-        s["rs_rating"] = max(1, min(99, round(1 + (rank_idx / max(n - 1, 1)) * 98)))
+    # Also build from sectors list (today_market.json) for price/RSI/MA data
+    sector_lookup = {s.get("symbol", ""): s for s in sectors}
 
-    # Sort by RS Rating descending
-    scored_industries.sort(key=lambda x: x.get("rs_rating", 0), reverse=True)
-
-    # Determine cluster status for each industry
-    # Hot Cluster: rs_rating > 80 AND 1m_pct > 0 (proxy for Price > 20MA)
-    hot_count   = sum(1 for s in scored_industries if s.get("rs_rating", 0) > 80 and (safe_float(s.get("change_1m_pct")) or 0) > 0)
-    total_count = len(scored_industries)
-    cluster_pct = (hot_count / total_count * 100) if total_count > 0 else 0
-
-    # Cluster banner
-    if cluster_pct > 50:
-        cluster_badge = '<span class="cluster-badge cluster-hot">&#128293; Hot Cluster</span>'
-        cluster_desc  = f'<span style="font-size:10px;color:#ff7043;">{hot_count}/{total_count} 行業滿足熱區準則 ({cluster_pct:.0f}%)</span>'
-    elif cluster_pct > 30:
-        cluster_badge = '<span class="cluster-badge cluster-warm">&#128165; Warming Up</span>'
-        cluster_desc  = f'<span style="font-size:10px;color:#ffa726;">{hot_count}/{total_count} 行業滿足温熱準則 ({cluster_pct:.0f}%)</span>'
+    # Hot cluster summary banner
+    if hot_clusters:
+        hot_names = ", ".join(hot_clusters)
+        cluster_banner = f'<div style="background:rgba(255,112,67,0.1);border:1px solid #ff7043;border-radius:6px;padding:8px 14px;margin-bottom:12px;font-size:12px;color:#ff7043;"><strong>&#128293; Hot Clusters:</strong> {hot_names}</div>'
     else:
-        cluster_badge = '<span class="cluster-badge cluster-cool">&#10052; Cool</span>'
-        cluster_desc  = f'<span style="font-size:10px;color:#9e9e9e;">{hot_count}/{total_count} 行業滿足熱區準則 ({cluster_pct:.0f}%)</span>'
+        cluster_banner = '<div style="background:rgba(158,158,158,0.1);border:1px solid #555;border-radius:6px;padding:8px 14px;margin-bottom:12px;font-size:12px;color:#9e9e9e;">&#10052; No Hot Clusters detected today</div>'
 
-    # Build table
-    header = f'''
-<div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
-  {cluster_badge}
-  {cluster_desc}
-</div>
-<div class="table-wrap">
-  <table class="data-table">
-    <thead>
-      <tr>
-        <th style="text-align:center;">#</th>
-        <th>Industry</th>
-        <th>Stocks</th>
-        <th>1D Chg%</th>
-        <th>1M Chg%</th>
-        <th>3M Chg%</th>
-        <th>RS Score</th>
-        <th>RS Rating</th>
-        <th>Cluster</th>
-      </tr>
-    </thead>
+    # Build grouped sections
+    sections_html = cluster_banner
+
+    for group_name, group_tickers in SECTOR_CATEGORY_GROUPS.items():
+        # Collect ETFs in this group with RS data
+        group_etfs = []
+        for ticker in group_tickers:
+            rs_data = rs_lookup.get(ticker, {})
+            sec_data = sector_lookup.get(ticker, {})
+            rs_score  = safe_float(rs_data.get("rs_score"))
+            rs_rating = safe_float(rs_data.get("rs_rating"))
+            above_20ma = rs_data.get("above_20ma")
+            vol_climax = rs_data.get("volume_climax", False)
+            is_strong  = rs_data.get("is_strong", False)
+            # Fallback: compute from sector data if no RS data
+            if rs_score is None and sec_data:
+                c1m = safe_float(sec_data.get("change_1m_pct")) or 0.0
+                c3m = safe_float(sec_data.get("change_3m_pct")) or 0.0
+                c6m = safe_float(sec_data.get("change_ytd_pct")) or c3m
+                rs_score = round(0.40 * c1m + 0.40 * c3m + 0.20 * c6m, 2)
+            group_etfs.append({
+                "ticker":    ticker,
+                "name":      ALL_ETF_NAMES.get(ticker, ticker),
+                "rs_score":  rs_score,
+                "rs_rating": int(rs_rating) if rs_rating is not None else None,
+                "above_20ma": above_20ma,
+                "vol_climax": vol_climax,
+                "is_strong":  is_strong,
+                "c1d":  safe_float(sec_data.get("change_1d_pct")),
+                "c1m":  safe_float(sec_data.get("change_1m_pct")),
+                "c3m":  safe_float(sec_data.get("change_3m_pct")),
+                "rsi":  safe_float(sec_data.get("rsi14")),
+                "vs20": safe_float(sec_data.get("vs_ma20_pct")),
+            })
+
+        # Sort by RS Rating descending within group
+        group_etfs.sort(key=lambda x: x.get("rs_rating") or 0, reverse=True)
+
+        # Detect if this group is a hot cluster
+        group_key = group_name
+        is_hot_group = any(group_key in hc for hc in hot_clusters)
+        group_icon = "&#128293;" if is_hot_group else "&#128202;"
+        group_color = "#ff7043" if is_hot_group else "#42a5f5"
+
+        # Group header
+        sections_html += f'''
+<div style="margin-bottom:20px;">
+  <div style="font-size:12px;font-weight:700;letter-spacing:0.8px;text-transform:uppercase;
+    color:{group_color};border-left:3px solid {group_color};padding-left:10px;
+    margin-bottom:8px;">{group_icon} {group_name}</div>
+  <div class="table-wrap">
+  <table class="data-table" style="font-size:12px;">
+    <thead><tr>
+      <th>Symbol</th><th>Name</th>
+      <th>1D%</th><th>1M%</th><th>3M%</th>
+      <th>RS Score</th><th>RS Rating</th><th>Flag</th>
+    </tr></thead>
     <tbody>
 '''
-    rows = []
-    for i, row in enumerate(scored_industries, 1):
-        label  = row.get("label", "")
-        ns     = row.get("num_stocks")
-        ns_str = str(int(ns)) if ns is not None else '<span class="na-val">N/A</span>'
-        c1d    = chg_cell(row.get("change_1d_pct"))
-        c1m    = chg_cell(row.get("change_1m_pct"))
-        c3m_v  = chg_cell(row.get("change_3m_pct"))
-        rs_sc  = rs_score_cell(row.get("rs_score"))
-        rs_rt  = rs_rating_cell(row.get("rs_rating"))
-        # Cluster status per row
-        is_hot = row.get("rs_rating", 0) > 80 and (safe_float(row.get("change_1m_pct")) or 0) > 0
-        if is_hot:
-            cl_cell = '<span class="cluster-badge cluster-hot" style="font-size:10px;">&#128293; Hot</span>'
-        else:
-            cl_cell = '<span class="cluster-badge cluster-cool" style="font-size:10px;">&#8212;</span>'
-        rows.append(
-            f'<tr>'
-            f'<td style="text-align:center;color:var(--text-muted)">{i}</td>'
-            f'<td>{label}</td>'
-            f'<td style="color:var(--text-label)">{ns_str}</td>'
-            f'<td>{c1d}</td><td>{c1m}</td><td>{c3m_v}</td>'
-            f'<td style="text-align:right">{rs_sc}</td>'
-            f'<td style="text-align:right">{rs_rt}</td>'
-            f'<td style="text-align:center">{cl_cell}</td>'
-            f'</tr>'
-        )
-    footer = '    </tbody>\n  </table>\n</div>'
-    return header + "\n".join(rows) + "\n" + footer
+        for etf in group_etfs:
+            c1d_html = chg_cell(etf["c1d"]) if etf["c1d"] is not None else '<span class="na-val">N/A</span>'
+            c1m_html = chg_cell(etf["c1m"]) if etf["c1m"] is not None else '<span class="na-val">N/A</span>'
+            c3m_html = chg_cell(etf["c3m"]) if etf["c3m"] is not None else '<span class="na-val">N/A</span>'
+            rs_sc_html = rs_score_cell(etf["rs_score"]) if etf["rs_score"] is not None else '<span class="na-val">N/A</span>'
+            rs_rt_html = rs_rating_cell(etf["rs_rating"]) if etf["rs_rating"] is not None else '<span class="na-val">N/A</span>'
+            # Flag column
+            flags = []
+            if etf["is_strong"]:  flags.append("&#128293;")
+            if etf["vol_climax"]: flags.append("&#9889;")
+            flag_html = " ".join(flags) if flags else "—"
+            sections_html += (
+                f'<tr>'
+                f'<td><strong>{etf["ticker"]}</strong></td>'
+                f'<td style="color:var(--text-label);font-size:11px;">{etf["name"]}</td>'
+                f'<td>{c1d_html}</td><td>{c1m_html}</td><td>{c3m_html}</td>'
+                f'<td style="text-align:right">{rs_sc_html}</td>'
+                f'<td style="text-align:right">{rs_rt_html}</td>'
+                f'<td style="text-align:center;font-size:14px;">{flag_html}</td>'
+                f'</tr>\n'
+            )
+        sections_html += '    </tbody>\n  </table>\n  </div>\n</div>\n'
+
+    return sections_html
 
 
 def build_volume_climax_block(sectors: list) -> str:
     """
-    5C — Market Anomalies: detect ETFs with volume climax (simulated).
-    Since we don’t have real volume data in today_market.json,
-    we use extreme price moves as a proxy for volume climax:
-    - |change_1d_pct| > 2.0% AND |vs_ma20_pct| > 5% (strong divergence)
+    5C — Industry RS Leaderboard & Anomalies.
+    
+    Part 1: Top 10 RS Leaders across all 56 ETFs (from analysis_results.json).
+    Part 2: Volume Climax alerts (real volume data from rs_engine) + RSI extremes.
     """
-    anomalies = []
+    # ── Load RS analysis results ─────────────────────────────────────────────────
+    ar = _load_analysis_results()
+    latest_rs = ar.get("latest_rs", [])
+    volume_climax_etfs = ar.get("volume_climax_etfs", [])
+    sector_lookup = {s.get("symbol", ""): s for s in sectors}
+
+    html_parts = []
+
+    # ── Part 1: Top 10 RS Leaderboard ───────────────────────────────────────────────
+    if latest_rs:
+        # Sort all 56 ETFs by RS Rating descending, take top 10
+        top10 = sorted(
+            [r for r in latest_rs if r.get("rs_rating") is not None],
+            key=lambda x: x.get("rs_rating", 0),
+            reverse=True
+        )[:10]
+
+        leaderboard_rows = []
+        for i, r in enumerate(top10, 1):
+            ticker = r.get("ticker", "")
+            name   = ALL_ETF_NAMES.get(ticker, ticker)
+            cat    = r.get("sector_category", "")
+            rs_sc  = rs_score_cell(r.get("rs_score"))
+            rs_rt  = rs_rating_cell(r.get("rs_rating"))
+            # Get price data from sector_lookup
+            sec    = sector_lookup.get(ticker, {})
+            c1d    = chg_cell(sec.get("change_1d_pct")) if sec else '<span class="na-val">N/A</span>'
+            c1m    = chg_cell(sec.get("change_1m_pct")) if sec else '<span class="na-val">N/A</span>'
+            c3m    = chg_cell(sec.get("change_3m_pct")) if sec else '<span class="na-val">N/A</span>'
+            above20 = r.get("above_20ma")
+            ma_icon = "&#9650;" if above20 else ("&#9660;" if above20 is False else "—")
+            ma_cls  = "text-green" if above20 else ("text-red" if above20 is False else "")
+            medal = ["&#129351;", "&#129352;", "&#129353;"][i-1] if i <= 3 else f"#{i}"
+            leaderboard_rows.append(
+                f'<tr>'
+                f'<td style="text-align:center;font-size:14px;">{medal}</td>'
+                f'<td><strong>{ticker}</strong></td>'
+                f'<td style="color:var(--text-label);font-size:11px;">{name}</td>'
+                f'<td style="font-size:10px;color:#888;">{cat}</td>'
+                f'<td>{c1d}</td><td>{c1m}</td><td>{c3m}</td>'
+                f'<td style="text-align:right">{rs_sc}</td>'
+                f'<td style="text-align:right">{rs_rt}</td>'
+                f'<td style="text-align:center" class="{ma_cls}">{ma_icon}</td>'
+                f'</tr>'
+            )
+
+        html_parts.append(f'''
+<div style="margin-bottom:20px;">
+  <div style="font-size:12px;font-weight:700;letter-spacing:0.8px;text-transform:uppercase;
+    color:#ffd54f;border-left:3px solid #ffd54f;padding-left:10px;margin-bottom:8px;">
+    &#127942; Top 10 RS Leaders (All 56 ETFs)
+  </div>
+  <div class="table-wrap">
+  <table class="data-table" style="font-size:12px;">
+    <thead><tr>
+      <th style="text-align:center;">Rank</th>
+      <th>Symbol</th><th>Name</th><th>Category</th>
+      <th>1D%</th><th>1M%</th><th>3M%</th>
+      <th>RS Score</th><th>RS Rating</th><th>&gt;20MA</th>
+    </tr></thead>
+    <tbody>
+    {chr(10).join(leaderboard_rows)}
+    </tbody>
+  </table>
+  </div>
+</div>
+''')
+    else:
+        html_parts.append('<div style="color:var(--text-muted);font-size:12px;padding:12px 0;">RS Leaderboard: Run rs_engine.py to generate analysis_results.json</div>')
+
+    # ── Part 2: Volume Climax Alerts ───────────────────────────────────────────────
+    # Combine: real volume climax from rs_engine + RSI extremes from today_market.json
+    vol_climax_set = set(volume_climax_etfs)
+
+    # RSI extremes from sectors
+    rsi_anomalies = []
     for s in sectors:
-        c1d  = safe_float(s.get("change_1d_pct")) or 0.0
-        vs20 = safe_float(s.get("vs_ma20_pct"))  or 0.0
-        rsi  = safe_float(s.get("rsi14"))         or 50.0
-        sym  = s.get("symbol", "")
-        name = SECTOR_NAMES.get(sym, s.get("name", ""))
-        # Flag as anomaly if large 1D move AND extreme RSI
-        if abs(c1d) >= 1.5 or rsi >= 75 or rsi <= 28:
-            tag = ""
-            if rsi >= 75:
-                tag = "RSI Overbought"
-            elif rsi <= 28:
-                tag = "RSI Oversold"
-            elif c1d >= 1.5:
-                tag = "Volume Surge (Up)"
-            elif c1d <= -1.5:
-                tag = "Volume Surge (Down)"
-            anomalies.append({
-                "sym": sym, "name": name,
-                "c1d": c1d, "vs20": vs20, "rsi": rsi, "tag": tag
-            })
+        sym = s.get("symbol", "")
+        rsi = safe_float(s.get("rsi14")) or 50.0
+        c1d = safe_float(s.get("change_1d_pct")) or 0.0
+        vs20 = safe_float(s.get("vs_ma20_pct")) or 0.0
+        if rsi >= 75 or rsi <= 28:
+            tag = "RSI Overbought &#128308;" if rsi >= 75 else "RSI Oversold &#128994;"
+            rsi_anomalies.append({"sym": sym, "c1d": c1d, "vs20": vs20, "rsi": rsi, "tag": tag})
 
-    if not anomalies:
-        return '<div style="color:var(--text-muted);font-size:12px;padding:12px 0;">No volume climax anomalies detected today.</div>'
-
-    cards = []
-    for a in anomalies:
-        c1d_str = f"+{a['c1d']:.2f}%" if a['c1d'] > 0 else f"{a['c1d']:.2f}%"
-        c1d_cls = "text-green" if a['c1d'] > 0 else "text-red"
-        vs20_str = f"+{a['vs20']:.1f}%" if a['vs20'] > 0 else f"{a['vs20']:.1f}%"
-        vs20_cls = "text-green" if a['vs20'] > 0 else "text-red"
-        cards.append(
+    # Build Volume Climax cards
+    alert_cards = []
+    for ticker in volume_climax_etfs:
+        sec = sector_lookup.get(ticker, {})
+        c1d  = safe_float(sec.get("change_1d_pct")) or 0.0
+        vs20 = safe_float(sec.get("vs_ma20_pct")) or 0.0
+        rsi  = safe_float(sec.get("rsi14")) or 50.0
+        name = ALL_ETF_NAMES.get(ticker, ticker)
+        c1d_str = f"+{c1d:.2f}%" if c1d > 0 else f"{c1d:.2f}%"
+        c1d_cls = "text-green" if c1d > 0 else "text-red"
+        vs20_str = f"+{vs20:.1f}%" if vs20 > 0 else f"{vs20:.1f}%"
+        vs20_cls = "text-green" if vs20 > 0 else "text-red"
+        alert_cards.append(
             f'<div class="anomaly-card">'
-            f'<div class="anomaly-sym">{a["sym"]}</div>'
+            f'<div class="anomaly-sym">&#9889; {ticker}</div>'
             f'<div class="anomaly-detail">'
-            f'{a["name"]} &nbsp;•&nbsp; '
+            f'{name} &nbsp;•&nbsp; '
             f'1D: <span class="{c1d_cls}">{c1d_str}</span> &nbsp;•&nbsp; '
             f'vs 20MA: <span class="{vs20_cls}">{vs20_str}</span> &nbsp;•&nbsp; '
-            f'RSI: {a["rsi"]:.1f}'
+            f'RSI: {rsi:.1f}'
             f'</div>'
-            f'<div class="anomaly-tag">{a["tag"]}</div>'
+            f'<div class="anomaly-tag">Volume Climax (Vol &gt; 1.5×20MA)</div>'
             f'</div>'
         )
-    return "\n".join(cards)
+    for a in rsi_anomalies:
+        if a["sym"] not in vol_climax_set:  # avoid duplicates
+            c1d_str = f"+{a['c1d']:.2f}%" if a['c1d'] > 0 else f"{a['c1d']:.2f}%"
+            c1d_cls = "text-green" if a['c1d'] > 0 else "text-red"
+            vs20_str = f"+{a['vs20']:.1f}%" if a['vs20'] > 0 else f"{a['vs20']:.1f}%"
+            vs20_cls = "text-green" if a['vs20'] > 0 else "text-red"
+            name = ALL_ETF_NAMES.get(a["sym"], a["sym"])
+            alert_cards.append(
+                f'<div class="anomaly-card">'
+                f'<div class="anomaly-sym">{a["sym"]}</div>'
+                f'<div class="anomaly-detail">'
+                f'{name} &nbsp;•&nbsp; '
+                f'1D: <span class="{c1d_cls}">{c1d_str}</span> &nbsp;•&nbsp; '
+                f'vs 20MA: <span class="{vs20_cls}">{vs20_str}</span> &nbsp;•&nbsp; '
+                f'RSI: {a["rsi"]:.1f}'
+                f'</div>'
+                f'<div class="anomaly-tag">{a["tag"]}</div>'
+                f'</div>'
+            )
+
+    alert_section = '\n'.join(alert_cards) if alert_cards else '<div style="color:var(--text-muted);font-size:12px;padding:8px 0;">No volume climax or RSI extreme anomalies detected today.</div>'
+    html_parts.append(f'''
+<div style="margin-bottom:12px;">
+  <div style="font-size:12px;font-weight:700;letter-spacing:0.8px;text-transform:uppercase;
+    color:#ef5350;border-left:3px solid #ef5350;padding-left:10px;margin-bottom:8px;">
+    &#9889; Volume Climax &amp; RSI Alerts
+  </div>
+  {alert_section}
+</div>
+''')
+
+    return "\n".join(html_parts)
 
 def build_industry_rows(industry):
     """Top 10 only — improved mobile readability (Stage 4 final)."""
