@@ -158,7 +158,7 @@
     .mc-price { font-size: 21px; font-weight: 700; color: #fff; letter-spacing: -0.5px; line-height: 1.1; }
     .mc-chg   { font-size: 12px; font-weight: 500; margin-top: 4px; }
 
-    /* ─── SECTION 2: INDICES ─────────────────────────────────────── */
+    /* ─── SECTION 3: INDICES ─────────────────────────────────────── */
     .sym-cell .sym { font-size: 14px; font-weight: 700; color: #fff; }
     .sym-cell .sym-name { font-size: 10px; color: var(--text-muted); margin-top: 1px; }
     .chg-pill {
@@ -189,7 +189,7 @@
     .badge-below { background: var(--red-bg);   color: var(--red);   }
     .badge-mixed { background: var(--amber-bg); color: var(--amber); }
 
-    /* ─── SECTION 3: SENTIMENT ───────────────────────────────────── */
+    /* ─── SECTION 2: SENTIMENT ───────────────────────────────────── */
     .sentiment-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -224,7 +224,7 @@
     /* ─── SECTION 4: BREADTH ─────────────────────────────────────── */
     .breadth-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
     @media (max-width: 700px) { .breadth-grid { grid-template-columns: 1fr; } }
-                        .pct-bar-wrap { display: flex; align-items: center; gap: 6px; justify-content: flex-end; }
+    .pct-bar-wrap { display: flex; align-items: center; gap: 6px; justify-content: flex-end; }
     .pct-bar-track { width: 70px; height: 5px; background: #333; border-radius: 3px; overflow: hidden; }
     .pct-bar-red   { height: 100%; border-radius: 3px; background: var(--red); }
     .pct-bar-amber { height: 100%; border-radius: 3px; background: var(--amber); }
@@ -240,7 +240,7 @@
     }
     .img-caption { font-size: 10px; color: var(--text-muted); text-align: center; margin-top: 8px; }
 
-    /* ─── SECTIONS 6 & 7: AI TEXT ────────────────────────────────── */
+    /* ─── AI TEXT AREA ───────────────────────────────────────────── */
     .ai-text-area {
       background: var(--bg-card);
       border: 1px solid var(--border);
@@ -252,6 +252,43 @@
       white-space: pre-wrap;
     }
     .ai-placeholder { color: var(--text-muted); font-style: italic; font-size: 12px; }
+
+    /* ─── IMPACT COMMENT PLACEHOLDER (Phase 4 AI) ───────────────── */
+    .impact-comment-placeholder {
+      margin-top: 12px;
+      padding: 10px 14px;
+      background: rgba(66,165,245,0.05);
+      border: 1px dashed rgba(66,165,245,0.25);
+      border-radius: 5px;
+      font-size: 11.5px;
+      color: var(--text-muted);
+      font-style: italic;
+      line-height: 1.6;
+    }
+    .impact-comment-placeholder::before {
+      content: "AI Comment (Phase 4) — ";
+      font-weight: 600;
+      color: rgba(66,165,245,0.5);
+      font-style: normal;
+      font-size: 10px;
+      letter-spacing: 0.6px;
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    /* ─── VISUAL TAGS (vs MA) ────────────────────────────────────── */
+    .vtag {
+      display: inline-block;
+      padding: 2px 7px;
+      border-radius: 3px;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+    }
+    .vtag-above { background: var(--green-bg); color: var(--green); }
+    .vtag-below { background: var(--red-bg);   color: var(--red);   }
+    .vtag-near  { background: var(--amber-bg); color: var(--amber); }
 
     /* ─── LOGIC INFO BUTTON & MODAL ─────────────────────────────── */
     .logic-info-btn {
@@ -273,12 +310,10 @@
       transition: background 0.15s;
       user-select: none;
     }
-    .logic-info-btn:hover {
-      background: rgba(66,165,245,0.22);
-    }
+    .logic-info-btn:hover { background: rgba(66,165,245,0.22); }
     .logic-info-btn .li-icon { font-size: 11px; }
 
-    /* Logic Info Inline Note (below sub-title) */
+    /* Logic Info Inline Note */
     .logic-note {
       font-size: 10.5px;
       color: var(--text-muted);
@@ -428,7 +463,7 @@
 <div class="report-header">
   <div>
     <h1>Daily Market Summary</h1>
-    <div class="subtitle">Automated Credit-Efficient System &middot; {{DATE}}</div>
+    <div class="subtitle">Momentum Swing Trading Coach &middot; {{DATE}}</div>
   </div>
   <div class="ts-badges">
     <div class="ts-badge">HKT <span>{{TS_HKT}}</span></div>
@@ -438,36 +473,17 @@
 
 <div class="page-wrap">
 
-<!-- ═══ REGIME BANNER (auto-injected) ═════════════════════ -->
+<!-- ═══ REGIME BANNER (auto-injected) ═════════════════════════════ -->
 {{REGIME_BANNER}}
 
-<!-- ═══ CORRECTION CHECKLIST (shown only when SPY < 20MA) ═════ -->
-{{CORRECTION_CHECKLIST}}
-
-<!-- ═══ COACH'S ACTION PLAN (Section 7 — MOST PROMINENT) ══════ -->
-<div class="section" style="
-  border: 2px solid #ff9800;
-  border-radius: 10px;
-  background: linear-gradient(135deg, #0d0a00 0%, #120c00 100%);
-  padding: 20px 24px;
-  margin-bottom: 28px;
-  box-shadow: 0 0 24px rgba(255,152,0,0.12);
-">
-  <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;">
-    <span style="font-size:22px;">&#127919;</span>
-    <div style="font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;
-                color:#ff9800;border-left:3px solid #ff9800;padding-left:10px;">
-      Coach's Action Plan &mdash; Today's Playbook
-    </div>
-  </div>
-  {{S7_CONTENT}}
-</div>
-
-<!-- ═══ EXPERT INSIGHTS (from expert_notes.txt) ══════════ -->
+<!-- ═══ EXPERT INSIGHTS (from expert_notes.txt) ═══════════════════ -->
 {{EXPERT_INSIGHTS}}
 
-<!-- ═══ SECTION 1 — MACRO INDICATORS ═════════════════════ -->
-<div class="section">
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- SECTION 1 — MACRO INDICATORS                                   -->
+<!-- Architecture: VIX 必考慮；Oil 視催化作用而定                     -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<div class="section" id="s1-macro">
   <div class="section-title">Section 1 — Macro Indicators</div>
   <div class="macro-grid">
     <div class="macro-card">
@@ -501,36 +517,18 @@
       <div class="mc-chg {{BTC_CHG_CLASS}}">{{BTC_CHG_PCT}}</div>
     </div>
   </div>
-</div>
-
-<!-- ═══ SECTION 2 — MAJOR INDICES (with MA distances + A/D Ratio) ══ -->
-<div class="section">
-  <div class="section-title">Section 2 — Major Indices</div>
-  <div class="table-wrap">
-    <table class="data-table">
-      <thead>
-        <tr>
-          <th>Symbol</th>
-          <th>Price</th>
-          <th>1D Chg%</th>
-          <th>RSI 14</th>
-          <th>vs 20MA</th>
-          <th>vs 50MA</th>
-          <th>vs 200MA</th>
-          <th>A/D Ratio</th>
-          
-        </tr>
-      </thead>
-      <tbody>
-        {{INDICES_ROWS}}
-      </tbody>
-    </table>
+  <!-- Phase 4 AI Comment: 必考慮 VIX；Oil 視催化作用而定 -->
+  <div class="impact-comment-placeholder" id="s1-ai-comment">
+    Macro impact analysis — Context-dependent. VIX level required. Oil catalyst assessment conditional.
   </div>
 </div>
 
-<!-- ═══ SECTION 3 — MARKET SENTIMENT ══════════════════════════════ -->
-<div class="section">
-  <div class="section-title">Section 3 — Market Sentiment</div>
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- SECTION 2 — MARKET SENTIMENT                                   -->
+<!-- Architecture: F&G, NAAIM, Put/Call；寫 Comment 時同時考慮 VIX   -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<div class="section" id="s2-sentiment">
+  <div class="section-title">Section 2 — Market Sentiment</div>
   <div class="sentiment-grid">
 
     <div class="sent-card">
@@ -567,20 +565,59 @@
     </div>
 
   </div>
+  <!-- Phase 4 AI Comment: Sentiment analysis cross-referenced with VIX -->
+  <div class="impact-comment-placeholder" id="s2-ai-comment">
+    Sentiment synthesis — F&amp;G + NAAIM + P/C cross-referenced with VIX context. Trend-first, actionable bias.
+  </div>
 </div>
 
-<!-- ═══ SECTION 4 — MARKET BREADTH ════════════════════════════════ -->
-<div class="section">
-  <div class="section-title">Section 4 — Market Breadth</div>
-
-  <!-- 4B: % Above MA — SPY/QQQ/DIA/IWM only (ETF-specific breadth) -->
-  <div class="sub-title">4B — % of ETF Constituents Above Moving Averages (SPY / QQQ / DIA / IWM)</div>
-  <div style="font-size:11px;color:var(--text-muted);margin-bottom:8px;">Source: Finviz screener (index-filtered) — shows breadth within each index's own constituent universe</div>
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- SECTION 3 — MAJOR INDICES                                      -->
+<!-- Architecture: SPY / QQQ / DIA / IWM；保持現有格式               -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<div class="section" id="s3-indices">
+  <div class="section-title">Section 3 — Major Indices</div>
   <div class="table-wrap">
     <table class="data-table">
       <thead>
         <tr>
-          <th>Index</th>
+          <th>Symbol</th>
+          <th>Price</th>
+          <th>1D Chg%</th>
+          <th>RSI 14</th>
+          <th>vs 20MA</th>
+          <th>vs 50MA</th>
+          <th>vs 200MA</th>
+          <th>A/D Ratio</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{INDICES_ROWS}}
+      </tbody>
+    </table>
+  </div>
+  <!-- Phase 4 AI Comment -->
+  <div class="impact-comment-placeholder" id="s3-ai-comment">
+    Index momentum read — Regime context, MA alignment, breadth confirmation.
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- SECTION 4 — MARKET BREADTH                                     -->
+<!-- Architecture: A/D, % above MA, Stockbee；第一欄改為 "Symbol"   -->
+<!--               整合 Heatmap 至本 Section                         -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<div class="section" id="s4-breadth">
+  <div class="section-title">Section 4 — Market Breadth</div>
+
+  <!-- 4A: % Above MA — Symbol-first layout (first col = "Symbol") -->
+  <div class="sub-title">4A — % of Index Constituents Above Moving Averages</div>
+  <div style="font-size:11px;color:var(--text-muted);margin-bottom:8px;">Source: Finviz screener (index-filtered) — breadth within each index's own constituent universe</div>
+  <div class="table-wrap">
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Symbol</th>
           <th>Total</th>
           <th>% &gt; 20MA</th>
           <th>% &gt; 50MA</th>
@@ -594,27 +631,42 @@
     </table>
   </div>
 
-  <!-- 4C: NYSE / NASDAQ Full-Market Advance/Decline (Barchart) -->
-  <div class="sub-title" style="margin-top:20px;">4C — NYSE &amp; NASDAQ Full-Market Advance / Decline Ratio</div>
+  <!-- 4B: NYSE / NASDAQ Full-Market Advance/Decline -->
+  <div class="sub-title" style="margin-top:20px;">4B — NYSE &amp; NASDAQ Full-Market Advance / Decline Ratio</div>
   <div style="font-size:11px;color:var(--text-muted);margin-bottom:12px;">Source: Barchart.com — all listed stocks on each exchange (NOT limited to index constituents)</div>
   <div style="display:flex;gap:16px;flex-wrap:wrap;">
     {{ADR_CARDS}}
   </div>
 
-  <!-- 4D: Stockbee Market Monitor -->
-  <div class="sub-title" style="margin-top:20px;">4D — Stockbee Market Monitor</div>
+  <!-- 4C: Stockbee Market Monitor -->
+  <div class="sub-title" style="margin-top:20px;">4C — Stockbee Market Monitor</div>
   <div class="img-block">
     <img src="assets/img/today/stockbee_mm.png" alt="Stockbee Market Monitor" />
     <div class="img-caption">Stockbee Market Monitor — Momentum Breakdown (T2108 / Up-Down 4%)</div>
   </div>
+
+  <!-- 4D: Market Heatmap (moved here from Sector section) -->
+  <div class="sub-title" style="margin-top:20px;">4D — Market Heatmap</div>
+  <div class="img-block">
+    <img src="assets/img/today/market_heatmap.png" alt="Market Heatmap (Finviz)" />
+    <div class="img-caption">Market Heatmap (Finviz) — Size = Market Cap, Color = 1D Performance</div>
+  </div>
+
+  <!-- Phase 4 AI Comment -->
+  <div class="impact-comment-placeholder" id="s4-ai-comment">
+    Breadth assessment — A/D ratio, % above MA thresholds, Stockbee momentum pulse. Context-dependent interpretation.
+  </div>
 </div>
 
-<!-- ═══ SECTION 5 — SECTOR & INDUSTRY RS MOMENTUM ══════════════════ -->
-<div class="section">
-  <div class="section-title">Section 5 — Sector &amp; Industry RS Momentum</div>
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- SECTION 5 — SECTOR RS MOMENTUM                                 -->
+<!-- Architecture: Core Sectors；移除 Description；                  -->
+<!--               改用 Visual Tags (綠點/紅字) 顯示 vs MA           -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<div class="section" id="s5-sector">
+  <div class="section-title">Section 5 — Sector RS Momentum</div>
 
-  <!-- ── 5A: Core SPDR Sectors (11 ETFs) ─────────────────────────── -->
-  <div style="display:flex;align-items:center;margin:16px 0 6px;">
+  <div style="display:flex;align-items:center;margin:0 0 6px;">
     <div class="sub-title" style="margin:0;">5A — Core Market Pulse (11 SPDR ETFs)</div>
     <button class="logic-info-btn" onclick="showLogicModal('rs_momentum')">
       <span class="li-icon">&#9432;</span> Logic Info
@@ -622,7 +674,8 @@
   </div>
   <div class="logic-note">
     <strong>RS Score</strong> = (40% &times; 1m Return) + (40% &times; 3m Return) + (20% &times; 6m Return).
-    反映標的在 11 個核心 SPDR ETF 中的相對強度排名 (1–99)。
+    Relative strength rank (1–99) within 11 core SPDR ETFs.
+    <strong>vs MA</strong> shown as visual tags: <span class="vtag vtag-above">ABOVE</span> <span class="vtag vtag-near">NEAR</span> <span class="vtag vtag-below">BELOW</span>
   </div>
   <div class="table-wrap">
     <table class="data-table">
@@ -646,42 +699,104 @@
     </table>
   </div>
 
-  <!-- ── 5B: Industry RS Radar ────────────────────────────────────── -->
-  <div style="display:flex;align-items:center;margin:20px 0 6px;">
-    <div class="sub-title" style="margin:0;">5B — Thematic &amp; Sub-Sector Breakdown (45 ETFs)</div>
+  <!-- Phase 4 AI Comment -->
+  <div class="impact-comment-placeholder" id="s5-ai-comment">
+    Sector rotation read — Leading vs lagging sectors, RS momentum divergence, actionable rotation signals.
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- SECTION 6 — SUB-SECTOR BREAKDOWN                               -->
+<!-- Architecture: Sub-sector ETFs；改用 Visual Tags；               -->
+<!--               依據 etf_correlation_map.json 進行分組             -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<div class="section" id="s6-subsector">
+  <div class="section-title">Section 6 — Sub-Sector Breakdown</div>
+
+  <div style="display:flex;align-items:center;margin:0 0 6px;">
+    <div class="sub-title" style="margin:0;">6A — Thematic &amp; Sub-Sector Radar (45 ETFs, grouped by etf_correlation_map)</div>
     <button class="logic-info-btn" onclick="showLogicModal('cluster_radar')">
       <span class="li-icon">&#9432;</span> Logic Info
     </button>
   </div>
   <div class="logic-note">
-    <strong>Hot Cluster &#128293;</strong> 準則：組內超過 50% 的成員同時滿足
-    (Price &gt; 20MA) 且 (RS Rating &gt; 80)。代表機構資金正在集體性流入該板塊。
+    <strong>Hot Cluster &#128293;</strong> Criteria: &gt;50% of cluster members simultaneously satisfy
+    (Price &gt; 20MA) AND (RS Rating &gt; 80). Indicates institutional capital flowing into the cluster.
+    <strong>vs MA</strong> displayed as visual tags: <span class="vtag vtag-above">ABOVE</span> <span class="vtag vtag-near">NEAR</span> <span class="vtag vtag-below">BELOW</span>
   </div>
   {{INDUSTRY_RS_RADAR}}
 
-  <!-- ── 5C: Market Anomalies ─────────────────────────────────────── -->
-  <div class="sub-title" style="margin-top:20px;">5C — Industry RS Leaderboard &amp; Anomalies</div>
-  <div style="font-size:11px;color:var(--text-muted);margin-bottom:10px;">全場最強 Top 10 ETF (56個宇宙) + 成交量爆發警報 (Vol &gt; 1.5× 20日均量)</div>
-  {{VOLUME_CLIMAX_BLOCK}}
-
-  <!-- Market Heatmap -->
-  <div class="img-block" style="margin-top:16px;">
-    <img src="assets/img/today/market_heatmap.png" alt="Market Heatmap (Finviz)" />
-    <div class="img-caption">Market Heatmap (Finviz)</div>
+  <!-- Phase 4 AI Comment -->
+  <div class="impact-comment-placeholder" id="s6-ai-comment">
+    Sub-sector cluster analysis — Hot clusters, warming themes, capital flow direction. Grouped by correlation map.
   </div>
 </div>
 
-<!-- ═══ SECTION 6 — MARKET ANALYSIS (AI) ══════════════════════════ -->
-<div class="section">
-  <div class="section-title">Section 6 — Market Analysis</div>
-  {{S6_CONTENT}}
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- SECTION 7 — INDUSTRY RS LEADERBOARD                            -->
+<!-- Architecture: RS Leaderboard；欄位 align 返 Sector/Sub-sector   -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<div class="section" id="s7-industry">
+  <div class="section-title">Section 7 — Industry RS Leaderboard</div>
+
+  <div class="sub-title">7A — Top RS Leaders &amp; Volume Anomalies (56-ETF Universe)</div>
+  <div style="font-size:11px;color:var(--text-muted);margin-bottom:10px;">Top 10 ETFs by RS Score + Volume Surge Alert (Vol &gt; 1.5&times; 20-day avg) — columns aligned with Sections 5 &amp; 6</div>
+  {{VOLUME_CLIMAX_BLOCK}}
+
+  <!-- Phase 4 AI Comment -->
+  <div class="impact-comment-placeholder" id="s7-ai-comment">
+    Industry leadership — Top RS movers, volume confirmation, actionable entry context.
+  </div>
 </div>
 
-<!-- Section 7 (Coach's Action Plan) is now displayed at the TOP of the report for maximum visibility -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- SECTION 8 — SUMMARY (Bull/Bear, Regime, Checklist)             -->
+<!-- Architecture: 維持於底部，作為 Build-up 閱讀流嘅總結            -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<div class="section" id="s8-summary">
+  <div class="section-title">Section 8 — Market Summary &amp; Regime</div>
 
-<!-- ═══ SECTION 8 — EVENT CALENDAR ════════════════════════════════ -->
-<div class="section">
-  <div class="section-title">Section 8 — Event Calendar (Mar 28 - Apr 3, 2026)</div>
+  <!-- Correction Checklist (shown when SPY < 20MA) -->
+  {{CORRECTION_CHECKLIST}}
+
+  <!-- Coach's Action Plan -->
+  <div style="
+    border: 2px solid #ff9800;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #0d0a00 0%, #120c00 100%);
+    padding: 20px 24px;
+    margin-bottom: 16px;
+    box-shadow: 0 0 24px rgba(255,152,0,0.12);
+  ">
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;">
+      <span style="font-size:22px;">&#127919;</span>
+      <div style="font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;
+                  color:#ff9800;border-left:3px solid #ff9800;padding-left:10px;">
+        Coach's Action Plan &mdash; Today's Playbook
+      </div>
+    </div>
+    {{S7_CONTENT}}
+  </div>
+
+  <!-- Market Analysis (AI) -->
+  <div class="sub-title">8B — Market Analysis</div>
+  {{S6_CONTENT}}
+
+  <!-- Phase 4 AI Comment -->
+  <div class="impact-comment-placeholder" id="s8-ai-comment">
+    Bull/Bear regime synthesis — Checklist status, regime classification, actionable bias for next session.
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- SECTION 9 — EVENT CALENDAR                                     -->
+<!-- Architecture: 3-star events only；Python Strict Filtering      -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<div class="section" id="s9-events">
+  <div class="section-title">Section 9 — Event Calendar (3-Star Events Only)</div>
+  <div style="font-size:11px;color:var(--text-muted);margin-bottom:10px;">
+    Strict filter: &#9733;&#9733;&#9733; high-impact events only. Low/medium impact events excluded.
+  </div>
   <div class="table-wrap">
     <table class="data-table">
       <thead>
@@ -697,15 +812,19 @@
       </tbody>
     </table>
   </div>
+  <!-- Phase 4 AI Comment -->
+  <div class="impact-comment-placeholder" id="s9-ai-comment">
+    Event risk assessment — Upcoming catalysts, expected volatility windows, positioning implications.
+  </div>
 </div>
 
-<!-- ═══ HISTORY ARCHIVE ════════════════════════════════════════ -->
+<!-- ═══ HISTORY ARCHIVE ════════════════════════════════════════════ -->
 {{HISTORY_ARCHIVE_BLOCK}}
 
 <!-- FOOTER -->
 <div class="report-footer">
-  Generated by Credit-Efficient Market Summary System &nbsp;|&nbsp;
-  Data: Yahoo Finance · CNN · NAAIM · Finviz · Barchart &nbsp;|&nbsp;
+  Momentum Swing Trading Coach &nbsp;|&nbsp;
+  Data: Yahoo Finance &middot; CNN &middot; NAAIM &middot; Finviz &middot; Barchart &nbsp;|&nbsp;
   {{TS_HKT}} HKT &nbsp;/&nbsp; {{TS_ET}} ET<br/>
   For informational purposes only. Not financial advice.
 </div>
