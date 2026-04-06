@@ -107,12 +107,28 @@
       margin: 16px 0 10px;
     }
 
-    /* ─── TABLE BASE ─────────────────────────────────────────────── */
+    /* ─── DATA WARNING BANNER ─────────────────────────────────────────────── */
+    .data-warning-banner {
+      display: none;
+      background: rgba(255,152,0,0.12);
+      border: 1px solid rgba(255,152,0,0.4);
+      border-radius: 6px;
+      padding: 10px 16px;
+      margin-bottom: 16px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--amber);
+      line-height: 1.5;
+    }
+    .data-warning-banner.active { display: block; }
+
+    /* ─── TABLE BASE ───────────────────────────────────────────────────── */
     .table-wrap {
       background: var(--bg-card);
       border: 1px solid var(--border);
       border-radius: 6px;
-      overflow: hidden;
+      overflow-x: auto;   /* KEY FIX: 手機横向滚動 */
+      -webkit-overflow-scrolling: touch;
     }
     .data-table { width: 100%; border-collapse: collapse; font-size: 12.5px; }
     .data-table th {
@@ -445,7 +461,21 @@
       border: 1px solid rgba(255,152,0,0.3);
     }
 
-    /* ─── FOOTER ─────────────────────────────────────────────────── */
+    /* ─── MOBILE RESPONSIVE ─────────────────────────────────────────────────── */
+    /* 手機上隱藏次要欄位（RSI / MA / 1M% / 3M%） */
+    @media (max-width: 600px) {
+      .hide-on-mobile { display: none !important; }
+      .data-table { font-size: 11.5px; }
+      .data-table td, .data-table th { padding: 7px 8px; }
+      .mc-price { font-size: 17px; }
+      .page-wrap { padding: 0 10px 36px; }
+      .report-header { padding: 12px 14px 10px; }
+      .report-header h1 { font-size: 16px; }
+      .li-modal { padding: 18px 16px 16px; }
+      .li-modal p { font-size: 12px; }
+    }
+
+    /* ─── FOOTER ────────────────────────────────────────────────────────────────── */
     .report-footer {
       margin-top: 36px;
       padding-top: 16px;
@@ -473,10 +503,13 @@
 
 <div class="page-wrap">
 
-<!-- ═══ REGIME BANNER (auto-injected) ═════════════════════════════ -->
+<!-- ═══ DATA WARNING BANNER (auto-injected by html_generator) ═══════════════ -->
+{{DATA_WARNING_BANNER}}
+
+<!-- ═══ REGIME BANNER (auto-injected) ═════════════════════════════════ -->
 {{REGIME_BANNER}}
 
-<!-- ═══ EXPERT INSIGHTS (from expert_notes.txt) ═══════════════════ -->
+<!-- ═══ EXPERT INSIGHTS (from expert_notes.txt) ═══════════════ -->
 {{EXPERT_INSIGHTS}}
 
 <!-- ═══════════════════════════════════════════════════════════════ -->
@@ -583,11 +616,11 @@
         <tr>
           <th>Symbol</th>
           <th>Price</th>
-          <th>1D Chg%</th>
-          <th>RSI 14</th>
+          <th class="hide-on-mobile">1D Chg%</th>
+          <th class="hide-on-mobile">RSI 14</th>
           <th>vs 20MA</th>
-          <th>vs 50MA</th>
-          <th>vs 200MA</th>
+          <th class="hide-on-mobile">vs 50MA</th>
+          <th class="hide-on-mobile">vs 200MA</th>
           <th>A/D Ratio</th>
         </tr>
       </thead>
@@ -620,9 +653,9 @@
           <th>Symbol</th>
           <th>Total</th>
           <th>% &gt; 20MA</th>
-          <th>% &gt; 50MA</th>
-          <th>% &gt; 200MA</th>
-          <th>ETF</th>
+          <th class="hide-on-mobile">% &gt; 50MA</th>
+          <th class="hide-on-mobile">% &gt; 200MA</th>
+          <th class="hide-on-mobile">ETF</th>
         </tr>
       </thead>
       <tbody>
@@ -684,12 +717,12 @@
           <th>Symbol</th>
           <th>Sector</th>
           <th>Price</th>
-          <th>1D Chg%</th>
+          <th class="hide-on-mobile">1D Chg%</th>
           <th>1M Chg%</th>
-          <th>3M Chg%</th>
-          <th>RS Score</th>
+          <th class="hide-on-mobile">3M Chg%</th>
+          <th class="hide-on-mobile">RS Score</th>
           <th>RS Rating</th>
-          <th>RSI 14</th>
+          <th class="hide-on-mobile">RSI 14</th>
           <th>vs 20MA</th>
         </tr>
       </thead>

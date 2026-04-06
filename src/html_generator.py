@@ -1626,6 +1626,20 @@ def render(regime_info: dict = None, expert_insights: str = "", checklist_status
     # Section 8: Event Calendar with BMO/AMC timing
     html = html.replace("{{S8_CONTENT}}", build_s8_calendar())
 
+    # ── DATA WARNING BANNER (Grok v5.1) ────────────────────────────────────────────
+    _data_status   = data.get("data_status", "fresh")
+    _data_warnings = data.get("data_warnings", [])
+    if _data_status == "warning" and _data_warnings:
+        _warn_text = " | ".join(_data_warnings)
+        _warning_banner_html = (
+            f'<div class="data-warning-banner active">'
+            f'⚠️ Data Stale / Warning: {_warn_text} — Please check source data'
+            f'</div>'
+        )
+    else:
+        _warning_banner_html = '<div class="data-warning-banner"></div>'
+    html = html.replace("{{DATA_WARNING_BANNER}}", _warning_banner_html)
+
     # ── REGIME BANNER & DYNAMIC CORRECTION CHECKLIST (v1.2) ─────────────────────
     regime_banner_html = build_regime_banner(regime_info or {})
     html = html.replace("{{REGIME_BANNER}}", regime_banner_html)
