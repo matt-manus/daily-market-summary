@@ -2034,33 +2034,46 @@ SUBSECTOR_CATEGORY = {
 
 
 def build_core_etf_rows(data):
-    """Section 5 — 11 Core SPDR ETFs, ranked by RSI 14 descending."""
-    # Build lookup from sectors list
+    """Section 5 — Core Sector ETF (rank by RSI 14) — visual version with RSI bar + css_dir"""
+    # Build lookup from sectors list (key: vs_ma20_pct / vs_ma50_pct / vs_ma200_pct)
     sector_map = {s.get("symbol", "").upper(): s for s in data.get("sectors", [])}
+    # Also support pre-built core_etf key (uses vs_20ma / vs_50ma / vs_200ma)
+    core_list = data.get("core_etf", [])
+    if not core_list:
+        # Derive from sectors
+        items = []
+        for sym in CORE_11_SPDR:
+            s = sector_map.get(sym)
+            if s:
+                # Normalise key names
+                items.append({
+                    "symbol":        s.get("symbol", sym),
+                    "change_1d_pct": s.get("change_1d_pct"),
+                    "vs_20ma":       s.get("vs_ma20_pct"),
+                    "vs_50ma":       s.get("vs_ma50_pct"),
+                    "vs_200ma":      s.get("vs_ma200_pct"),
+                    "rsi14":         s.get("rsi14"),
+                })
+        core_list = sorted(items, key=lambda x: x.get("rsi14") or 0, reverse=True)
     rows = []
-    # Collect the 11 SPDR ETFs with their RSI
-    items = []
-    for sym in CORE_11_SPDR:
-        s = sector_map.get(sym)
-        if s:
-            items.append(s)
-    # Sort by RSI 14 descending
-    items.sort(key=lambda x: x.get("rsi14") or 0, reverse=True)
-    for s in items:
-        sym    = s.get("symbol", "")
-        chg    = chg_cell(s.get("change_1d_pct"))
-        ma20   = na(s.get("vs_ma20_pct"), "pct")
-        ma50   = na(s.get("vs_ma50_pct"), "pct")
-        ma200  = na(s.get("vs_ma200_pct"), "pct")
-        rsi    = na(s.get("rsi14"), dec=1)
+    for item in core_list:
+        symbol       = item.get("symbol", "")
+        chg          = chg_cell(item.get("change_1d_pct"))
+        ma20_val     = item.get("vs_20ma")
+        ma50_val     = item.get("vs_50ma")
+        ma200_val    = item.get("vs_200ma")
+        ma20         = na(ma20_val, "pct")
+        ma50         = na(ma50_val, "pct")
+        ma200        = na(ma200_val, "pct")
+        rsi_bar, _   = rsi_cell(item.get("rsi14"))
         rows.append(f"""
         <tr>
-            <td><strong>{sym}</strong></td>
+            <td><strong>{symbol}</strong></td>
             <td>{chg}</td>
-            <td class="hide-on-mobile">{ma20}</td>
-            <td class="hide-on-mobile">{ma50}</td>
-            <td class="hide-on-mobile">{ma200}</td>
-            <td>{rsi}</td>
+            <td class="hide-on-mobile {css_dir(ma20_val)}">{ma20}</td>
+            <td class="hide-on-mobile {css_dir(ma50_val)}">{ma50}</td>
+            <td class="hide-on-mobile {css_dir(ma200_val)}">{ma200}</td>
+            <td>{rsi_bar}</td>
         </tr>""")
     if not rows:
         return '<tr><td colspan="6"><span class="na-val">No core ETF data available</span></td></tr>'
@@ -2068,16 +2081,52 @@ def build_core_etf_rows(data):
 
 
 def build_subsector_rows(data):
-    """Section 6 — Sub-Sector ETFs (9 groups), ranked by RSI 14 within each group."""
+    """Section 6 — Sub-Sector ETFs (9 groups) — visual version with RSI bar + css_dir"""
     sector_map = {s.get("symbol", "").upper(): s for s in data.get("sectors", [])}
-    # Group by category
+    # Support pre-built subsector key or derive from sectors
+    subsector_list = data.get("subsector", [])
+    if subsector_list:
+        # Use pre-built list directly
+        rows = []
+        for item in subsector_list:
+            symbol    = item.get("symbol", "")
+            core_etf  = item.get("core_etf", "-")
+            chg       = chg_cell(item.get("change_1d_pct"))
+            ma20_val  = item.get("vs_20ma")
+            ma50_val  = item.get("vs_50ma")
+            ma200_val = item.get("vs_200ma")
+            ma20      = na(ma20_val, "pct")
+            ma50      = na(ma50_val, "pct")
+            ma200     = na(ma200_val, "pct")
+            rsi_bar, _ = rsi_cell(item.get("rsi14"))
+            rows.append(f"""
+        <tr>
+            <td><strong>{symbol}</strong></td>
+            <td>{core_etf}</td>
+            <td>{chg}</td>
+            <td class="hide-on-mobile {css_dir(ma20_val)}">{ma20}</td>
+            <td class="hide-on-mobile {css_dir(ma50_val)}">{ma50}</td>
+            <td class="hide-on-mobile {css_dir(ma200_val)}">{ma200}</td>
+            <td>{rsi_bar}</td>
+        </tr>""")
+        if not rows:
+            return '<tr><td colspan="7"><span class="na-val">No sub-sector data available</span></td></tr>'
+        return "\n".join(rows)
+    # Derive from sectors (group by SUBSECTOR_CATEGORY)
     groups = {}
     for sym, s in sector_map.items():
         if sym in CORE_11_SPDR:
-            continue  # skip core ETFs (already in Section 5)
+            continue
         cat = SUBSECTOR_CATEGORY.get(sym, "Misc")
-        groups.setdefault(cat, []).append(s)
-    # Sort within each group by RSI descending
+        groups.setdefault(cat, []).append({
+            "symbol":        s.get("symbol", sym),
+            "core_etf":      SUBSECTOR_CORE_MAP.get(sym, "-"),
+            "change_1d_pct": s.get("change_1d_pct"),
+            "vs_20ma":       s.get("vs_ma20_pct"),
+            "vs_50ma":       s.get("vs_ma50_pct"),
+            "vs_200ma":      s.get("vs_ma200_pct"),
+            "rsi14":         s.get("rsi14"),
+        })
     category_order = [
         "Tech, AI & Robotics", "Cybersecurity", "FinTech",
         "Healthcare & Biotech", "Financial", "Energy & Materials",
@@ -2089,25 +2138,27 @@ def build_subsector_rows(data):
         if not items:
             continue
         items.sort(key=lambda x: x.get("rsi14") or 0, reverse=True)
-        # Category header row
         rows.append(f'<tr class="group-header"><td colspan="7"><strong>{cat}</strong></td></tr>')
-        for s in items:
-            sym    = s.get("symbol", "")
-            core   = SUBSECTOR_CORE_MAP.get(sym, "-")
-            chg    = chg_cell(s.get("change_1d_pct"))
-            ma20   = na(s.get("vs_ma20_pct"), "pct")
-            ma50   = na(s.get("vs_ma50_pct"), "pct")
-            ma200  = na(s.get("vs_ma200_pct"), "pct")
-            rsi    = na(s.get("rsi14"), dec=1)
+        for item in items:
+            symbol    = item.get("symbol", "")
+            core_etf  = item.get("core_etf", "-")
+            chg       = chg_cell(item.get("change_1d_pct"))
+            ma20_val  = item.get("vs_20ma")
+            ma50_val  = item.get("vs_50ma")
+            ma200_val = item.get("vs_200ma")
+            ma20      = na(ma20_val, "pct")
+            ma50      = na(ma50_val, "pct")
+            ma200     = na(ma200_val, "pct")
+            rsi_bar, _ = rsi_cell(item.get("rsi14"))
             rows.append(f"""
         <tr>
-            <td><strong>{sym}</strong></td>
-            <td><span class="tag">{core}</span></td>
+            <td><strong>{symbol}</strong></td>
+            <td><span class=\"tag\">{core_etf}</span></td>
             <td>{chg}</td>
-            <td class="hide-on-mobile">{ma20}</td>
-            <td class="hide-on-mobile">{ma50}</td>
-            <td class="hide-on-mobile">{ma200}</td>
-            <td>{rsi}</td>
+            <td class="hide-on-mobile {css_dir(ma20_val)}">{ma20}</td>
+            <td class="hide-on-mobile {css_dir(ma50_val)}">{ma50}</td>
+            <td class="hide-on-mobile {css_dir(ma200_val)}">{ma200}</td>
+            <td>{rsi_bar}</td>
         </tr>""")
     if not rows:
         return '<tr><td colspan="7"><span class="na-val">No sub-sector data available</span></td></tr>'
