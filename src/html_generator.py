@@ -1,7 +1,14 @@
 """
-html_generator.py  —  Credit-Efficient Market Summary System  v5.2
+html_generator.py  —  Credit-Efficient Market Summary System  v5.3
 -----------------------------------------------------------------
 Updated for Gemini Emergency Fix (Step 2).
+
+New in v5.3 (Gemini Emergency Reorg Step 2):
+  - Section 5 (SPDR ETFs): added vs 50MA + vs 200MA columns
+  - Section 7 (RS Leaderboard): added vs 20MA/50MA/200MA + Sector ETF columns
+  - Added SPDR_ETF_MAP constant and get_spdr_etf() helper
+  - build_sector_rows: 10-col → 12-col (+ vs 50MA, vs 200MA)
+  - build_volume_climax_block leaderboard: + vs MA cols + Sector ETF col
 
 New in v5.2 (Gemini Emergency Reorg Step 1):
   - Section 3: removed A/D Ratio column (moved to Section 4A)
@@ -462,6 +469,26 @@ def rs_score_cell(score):
 # ── Strict 11 SPDR ETF symbols for Section 5A ────────────────────────────────
 CORE_SPDR_11 = {"XLK", "XLF", "XLE", "XLV", "XLI", "XLY", "XLP", "XLB", "XLU", "XLC", "XLRE"}
 
+# ── 11 Core SPDR ETF Sector Mapping (v5.3) ───────────────────────────────────
+SPDR_ETF_MAP = {
+    "XLK":  "Technology",      "XLY":  "Consumer Disc.",  "XLP":  "Consumer Stap.",
+    "XLE":  "Energy",          "XLF":  "Financials",       "XLI":  "Industrials",
+    "XLB":  "Materials",       "XLRE": "Real Estate",      "XLU":  "Utilities",
+    "XLV":  "Health Care",     "XLC":  "Communication"
+}
+
+def get_spdr_etf(symbol: str) -> str:
+    """Map a ticker to its SPDR sector ETF label. Returns '-' if not found."""
+    sym = symbol.upper()
+    # Direct SPDR match
+    if sym in SPDR_ETF_MAP:
+        return f'<span style="font-size:11px;color:#aaa">{sym}</span>'
+    # Lookup via SECTOR_CATEGORIES mapping
+    for cat_etfs in SECTOR_CATEGORY_GROUPS.values() if 'SECTOR_CATEGORY_GROUPS' in dir() else []:
+        if sym in cat_etfs:
+            pass  # category found but no SPDR mapping
+    return '<span style="font-size:11px;color:#555">—</span>'
+
 
 def build_sector_rows(sectors):
     """5A — Core Market Pulse: STRICTLY 11 SPDR ETFs only.
@@ -490,8 +517,12 @@ def build_sector_rows(sectors):
         rs_sc = rs_score_cell(s.get("rs_score"))
         rs_rt = rs_rating_cell(s.get("rs_rating"))
         rsi_html, rsi_row = rsi_cell(s.get("rsi14"))
-        vs20  = na(s.get("vs_ma20_pct"), "pct")
-        vs20_c = css_dir(s.get("vs_ma20_pct"))
+        vs20   = na(s.get("vs_ma20_pct"),  "pct")
+        vs50   = na(s.get("vs_ma50_pct"),  "pct")
+        vs200  = na(s.get("vs_ma200_pct"), "pct")
+        vs20_c  = css_dir(s.get("vs_ma20_pct"))
+        vs50_c  = css_dir(s.get("vs_ma50_pct"))
+        vs200_c = css_dir(s.get("vs_ma200_pct"))
         rows.append(
             f'<tr class="{rsi_row}">'
             f'<td><strong>{sym}</strong></td>'
@@ -499,7 +530,10 @@ def build_sector_rows(sectors):
             f'<td>{price}</td><td>{c1d}</td><td>{c1m}</td><td>{c3m}</td>'
             f'<td style="text-align:right">{rs_sc}</td>'
             f'<td style="text-align:right">{rs_rt}</td>'
-            f'<td>{rsi_html}</td><td class="{vs20_c}">{vs20}</td></tr>'
+            f'<td>{rsi_html}</td>'
+            f'<td class="{vs20_c}">{vs20}</td>'
+            f'<td class="hide-on-mobile {vs50_c}">{vs50}</td>'
+            f'<td class="hide-on-mobile {vs200_c}">{vs200}</td></tr>'
         )
     return "\n".join(rows)
 
@@ -701,13 +735,19 @@ def build_volume_climax_block(sectors: list) -> str:
             rs_sc  = rs_score_cell(r.get("rs_score"))
             rs_rt  = rs_rating_cell(r.get("rs_rating"))
             # Get price data from sector_lookup
-            sec    = sector_lookup.get(ticker, {})
-            c1d    = chg_cell(sec.get("change_1d_pct")) if sec else '<span class="na-val">N/A</span>'
-            c1m    = chg_cell(sec.get("change_1m_pct")) if sec else '<span class="na-val">N/A</span>'
-            c3m    = chg_cell(sec.get("change_3m_pct")) if sec else '<span class="na-val">N/A</span>'
-            above20 = r.get("above_20ma")
-            ma_icon = "&#9650;" if above20 else ("&#9660;" if above20 is False else "—")
-            ma_cls  = "text-green" if above20 else ("text-red" if above20 is False else "")
+            sec     = sector_lookup.get(ticker, {})
+            c1d     = chg_cell(sec.get("change_1d_pct")) if sec else '<span class="na-val">N/A</span>'
+            c1m     = chg_cell(sec.get("change_1m_pct")) if sec else '<span class="na-val">N/A</span>'
+            c3m     = chg_cell(sec.get("change_3m_pct")) if sec else '<span class="na-val">N/A</span>'
+            # vs MA columns (v5.3)
+            vs20    = na(sec.get("vs_ma20_pct"),  "pct") if sec else '<span class="na-val">N/A</span>'
+            vs50    = na(sec.get("vs_ma50_pct"),  "pct") if sec else '<span class="na-val">N/A</span>'
+            vs200   = na(sec.get("vs_ma200_pct"), "pct") if sec else '<span class="na-val">N/A</span>'
+            vs20_c  = css_dir(sec.get("vs_ma20_pct"))  if sec else ""
+            vs50_c  = css_dir(sec.get("vs_ma50_pct"))  if sec else ""
+            vs200_c = css_dir(sec.get("vs_ma200_pct")) if sec else ""
+            # Sector ETF mapping (v5.3)
+            spdr_label = SPDR_ETF_MAP.get(ticker, "—")
             medal = ["&#129351;", "&#129352;", "&#129353;"][i-1] if i <= 3 else f"#{i}"
             leaderboard_rows.append(
                 f'<tr>'
@@ -718,7 +758,10 @@ def build_volume_climax_block(sectors: list) -> str:
                 f'<td>{c1d}</td><td>{c1m}</td><td>{c3m}</td>'
                 f'<td style="text-align:right">{rs_sc}</td>'
                 f'<td style="text-align:right">{rs_rt}</td>'
-                f'<td style="text-align:center" class="{ma_cls}">{ma_icon}</td>'
+                f'<td class="hide-on-mobile {vs20_c}">{vs20}</td>'
+                f'<td class="hide-on-mobile {vs50_c}">{vs50}</td>'
+                f'<td class="hide-on-mobile {vs200_c}">{vs200}</td>'
+                f'<td style="font-size:11px;color:#aaa;">{spdr_label}</td>'
                 f'</tr>'
             )
 
@@ -734,7 +777,11 @@ def build_volume_climax_block(sectors: list) -> str:
       <th style="text-align:center;">Rank</th>
       <th>Symbol</th><th>Name</th><th>Category</th>
       <th>1D%</th><th>1M%</th><th>3M%</th>
-      <th>RS Score</th><th>RS Rating</th><th>&gt;20MA</th>
+      <th>RS Score</th><th>RS Rating</th>
+      <th class="hide-on-mobile">vs 20MA</th>
+      <th class="hide-on-mobile">vs 50MA</th>
+      <th class="hide-on-mobile">vs 200MA</th>
+      <th>Sector ETF</th>
     </tr></thead>
     <tbody>
     {chr(10).join(leaderboard_rows)}
@@ -1850,7 +1897,7 @@ def render(regime_info: dict = None, expert_insights: str = "", checklist_status
 
 if __name__ == "__main__":
     print("╔══════════════════════════════════════════════╗")
-    print("  Market Summary Renderer v5.2  (Semi-Auto Mode)")
+    print("  Market Summary Renderer v5.3  (Semi-Auto Mode)")
     print("╚══════════════════════════════════════════════╝")
     render()
     print("✅  Render complete.")
