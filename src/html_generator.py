@@ -2150,8 +2150,8 @@ def build_subsector_boxes(data):
                 <td>{rsi_bar}</td>
             </tr>"""
         html_parts.append(f"""
-        <div class=\"category-box\">
-            <div class=\"category-title\">{category}</div>
+        <div class=\"section\">
+            <div class=\"section-title\">{category}</div>
             <div class=\"table-wrap\">
                 <table class=\"data-table\">
                     <thead>

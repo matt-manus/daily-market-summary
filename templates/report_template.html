@@ -505,43 +505,9 @@
       }
     }
 
-    /* Section 6 — Category boxes */
-    #subsector-boxes {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 16px;
-    }
-    .category-box {
-      flex: 1 1 420px;
-      min-width: 320px;
-      background: #1a1a2e;
-      border: 1px solid #2a2a4a;
-      border-radius: 10px;
-      overflow: hidden;
-    }
-    .category-title {
-      background: #252545;
-      color: #a0a8d0;
-      font-size: 0.78rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      padding: 8px 14px;
-      border-bottom: 1px solid #2a2a4a;
-      position: sticky;
-      top: 0;
-      z-index: 2;
-    }
-    .category-box .table-wrap {
-      overflow-x: auto;
-    }
-    @media (max-width: 600px) {
-      #subsector-boxes {
-        flex-direction: column;
-      }
-      .category-box {
-        min-width: 0;
-      }
+    /* Section 6 — subsector-boxes: full-width stacked, inherits .section style */
+    #subsector-boxes .section {
+      margin-bottom: 0;
     }
   </style>
 </head>
