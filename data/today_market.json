@@ -1507,5 +1507,583 @@
       "DIA": 1.29,
       "IWM": 2.0
     }
-  }
+  },
+  "thematic": [
+    {
+      "symbol": "LIT",
+      "price": 74.44,
+      "vs_20ma": 4.79,
+      "vs_50ma": 3.08,
+      "vs_200ma": 27.44
+    },
+    {
+      "symbol": "XBI",
+      "price": 128.55,
+      "vs_20ma": 4.14,
+      "vs_50ma": 2.73,
+      "vs_200ma": 18.86
+    },
+    {
+      "symbol": "XOP",
+      "price": 174.85,
+      "vs_20ma": 1.2,
+      "vs_50ma": 12.13,
+      "vs_200ma": 29.85
+    },
+    {
+      "symbol": "XLB",
+      "price": 50.46,
+      "vs_20ma": 2.8,
+      "vs_50ma": -0.13,
+      "vs_200ma": 9.88
+    },
+    {
+      "symbol": "XLE",
+      "price": 58.97,
+      "vs_20ma": 0.5,
+      "vs_50ma": 7.0,
+      "vs_200ma": 27.05
+    },
+    {
+      "symbol": "XLU",
+      "price": 46.11,
+      "vs_20ma": 0.34,
+      "vs_50ma": 2.2,
+      "vs_200ma": 7.11
+    },
+    {
+      "symbol": "IBB",
+      "price": 170.13,
+      "vs_20ma": 2.42,
+      "vs_50ma": -0.4,
+      "vs_200ma": 9.94
+    },
+    {
+      "symbol": "KRE",
+      "price": 65.85,
+      "vs_20ma": 3.05,
+      "vs_50ma": -2.23,
+      "vs_200ma": 3.9
+    },
+    {
+      "symbol": "PICK",
+      "price": 57.85,
+      "vs_20ma": 3.58,
+      "vs_50ma": -1.69,
+      "vs_200ma": 21.67
+    },
+    {
+      "symbol": "GDX",
+      "price": 96.01,
+      "vs_20ma": 4.51,
+      "vs_50ma": -3.58,
+      "vs_200ma": 24.07
+    },
+    {
+      "symbol": "KBE",
+      "price": 60.1,
+      "vs_20ma": 2.67,
+      "vs_50ma": -2.71,
+      "vs_200ma": 1.87
+    },
+    {
+      "symbol": "TAN",
+      "price": 56.27,
+      "vs_20ma": 1.62,
+      "vs_50ma": -0.06,
+      "vs_200ma": 19.66
+    },
+    {
+      "symbol": "ROKT",
+      "price": 102.36,
+      "vs_20ma": 0.7,
+      "vs_50ma": 0.55,
+      "vs_200ma": 24.62
+    },
+    {
+      "symbol": "PAVE",
+      "price": 51.69,
+      "vs_20ma": 1.7,
+      "vs_50ma": -1.6,
+      "vs_200ma": 7.37
+    },
+    {
+      "symbol": "SOXX",
+      "price": 338.54,
+      "vs_20ma": 1.36,
+      "vs_50ma": -1.63,
+      "vs_200ma": 16.34
+    },
+    {
+      "symbol": "SMH",
+      "price": 391.97,
+      "vs_20ma": 0.68,
+      "vs_50ma": -1.83,
+      "vs_200ma": 14.31
+    },
+    {
+      "symbol": "COPX",
+      "price": 78.15,
+      "vs_20ma": 2.23,
+      "vs_50ma": -6.66,
+      "vs_200ma": 24.17
+    },
+    {
+      "symbol": "GLD",
+      "price": 437.82,
+      "vs_20ma": -0.73,
+      "vs_50ma": -3.77,
+      "vs_200ma": 15.71
+    },
+    {
+      "symbol": "IYT",
+      "price": 75.27,
+      "vs_20ma": 1.07,
+      "vs_50ma": -3.0,
+      "vs_200ma": 3.34
+    },
+    {
+      "symbol": "URA",
+      "price": 49.26,
+      "vs_20ma": 0.58,
+      "vs_50ma": -5.77,
+      "vs_200ma": 8.68
+    },
+    {
+      "symbol": "MSOS",
+      "price": 3.68,
+      "vs_20ma": -0.76,
+      "vs_50ma": -6.47,
+      "vs_200ma": -9.47
+    },
+    {
+      "symbol": "IAI",
+      "price": 164.84,
+      "vs_20ma": 0.52,
+      "vs_50ma": -3.73,
+      "vs_200ma": -4.75
+    },
+    {
+      "symbol": "XLI",
+      "price": 164.43,
+      "vs_20ma": -0.21,
+      "vs_50ma": -2.52,
+      "vs_200ma": 5.42
+    },
+    {
+      "symbol": "QTUM",
+      "price": 109.29,
+      "vs_20ma": -0.24,
+      "vs_50ma": -3.9,
+      "vs_200ma": 3.78
+    },
+    {
+      "symbol": "SLV",
+      "price": 68.14,
+      "vs_20ma": -2.03,
+      "vs_50ma": -10.14,
+      "vs_200ma": 29.35
+    },
+    {
+      "symbol": "SKYY",
+      "price": 110.33,
+      "vs_20ma": -1.07,
+      "vs_50ma": -2.89,
+      "vs_200ma": -11.72
+    },
+    {
+      "symbol": "JETS",
+      "price": 25.27,
+      "vs_20ma": 1.73,
+      "vs_50ma": -7.67,
+      "vs_200ma": -2.42
+    },
+    {
+      "symbol": "NLR",
+      "price": 134.36,
+      "vs_20ma": -0.76,
+      "vs_50ma": -6.11,
+      "vs_200ma": 3.49
+    },
+    {
+      "symbol": "XLF",
+      "price": 49.44,
+      "vs_20ma": 0.45,
+      "vs_50ma": -3.31,
+      "vs_200ma": -5.4
+    },
+    {
+      "symbol": "ROBO",
+      "price": 70.14,
+      "vs_20ma": -0.32,
+      "vs_50ma": -4.58,
+      "vs_200ma": 3.79
+    },
+    {
+      "symbol": "XLK",
+      "price": 134.91,
+      "vs_20ma": -1.08,
+      "vs_50ma": -3.36,
+      "vs_200ma": -2.27
+    },
+    {
+      "symbol": "XAR",
+      "price": 259.95,
+      "vs_20ma": -2.37,
+      "vs_50ma": -4.86,
+      "vs_200ma": 8.1
+    },
+    {
+      "symbol": "ARKK",
+      "price": 68.4,
+      "vs_20ma": -2.68,
+      "vs_50ma": -5.49,
+      "vs_200ma": -11.58
+    },
+    {
+      "symbol": "AIQ",
+      "price": 47.34,
+      "vs_20ma": -1.76,
+      "vs_50ma": -4.67,
+      "vs_200ma": -2.33
+    },
+    {
+      "symbol": "ARKQ",
+      "price": 114.51,
+      "vs_20ma": -2.28,
+      "vs_50ma": -5.88,
+      "vs_200ma": 3.45
+    },
+    {
+      "symbol": "TLT",
+      "price": 86.26,
+      "vs_20ma": -0.54,
+      "vs_50ma": -1.3,
+      "vs_200ma": -0.29
+    },
+    {
+      "symbol": "XLV",
+      "price": 147.73,
+      "vs_20ma": -0.25,
+      "vs_50ma": -3.4,
+      "vs_200ma": 2.22
+    },
+    {
+      "symbol": "MAGS",
+      "price": 58.68,
+      "vs_20ma": -1.48,
+      "vs_50ma": -5.19,
+      "vs_200ma": -4.97
+    },
+    {
+      "symbol": "CIBR",
+      "price": 63.15,
+      "vs_20ma": -1.64,
+      "vs_50ma": -3.85,
+      "vs_200ma": -12.08
+    },
+    {
+      "symbol": "XRT",
+      "price": 80.6,
+      "vs_20ma": 0.26,
+      "vs_50ma": -4.79,
+      "vs_200ma": -3.58
+    },
+    {
+      "symbol": "ITA",
+      "price": 223.64,
+      "vs_20ma": -2.14,
+      "vs_50ma": -4.32,
+      "vs_200ma": 5.86
+    },
+    {
+      "symbol": "XLY",
+      "price": 109.8,
+      "vs_20ma": -0.93,
+      "vs_50ma": -4.79,
+      "vs_200ma": -5.07
+    },
+    {
+      "symbol": "BUG",
+      "price": 25.34,
+      "vs_20ma": -2.17,
+      "vs_50ma": -5.25,
+      "vs_200ma": -20.78
+    },
+    {
+      "symbol": "XLRE",
+      "price": 40.95,
+      "vs_20ma": -1.19,
+      "vs_50ma": -2.26,
+      "vs_200ma": -0.01
+    },
+    {
+      "symbol": "XLC",
+      "price": 111.24,
+      "vs_20ma": -1.73,
+      "vs_50ma": -3.39,
+      "vs_200ma": -1.39
+    },
+    {
+      "symbol": "VNQ",
+      "price": 89.02,
+      "vs_20ma": -1.26,
+      "vs_50ma": -2.41,
+      "vs_200ma": 0.13
+    },
+    {
+      "symbol": "FXI",
+      "price": 35.56,
+      "vs_20ma": -0.88,
+      "vs_50ma": -5.38,
+      "vs_200ma": -7.41
+    },
+    {
+      "symbol": "BLOK",
+      "price": 49.95,
+      "vs_20ma": -3.95,
+      "vs_50ma": -8.63,
+      "vs_200ma": -16.55
+    },
+    {
+      "symbol": "BOTZ",
+      "price": 33.9,
+      "vs_20ma": -2.19,
+      "vs_50ma": -7.54,
+      "vs_200ma": -3.97
+    },
+    {
+      "symbol": "XHB",
+      "price": 99.21,
+      "vs_20ma": -1.24,
+      "vs_50ma": -8.93,
+      "vs_200ma": -7.58
+    },
+    {
+      "symbol": "IGV",
+      "price": 79.77,
+      "vs_20ma": -4.23,
+      "vs_50ma": -6.13,
+      "vs_200ma": -22.82
+    },
+    {
+      "symbol": "IPAY",
+      "price": 42.504,
+      "vs_20ma": -2.43,
+      "vs_50ma": -6.92,
+      "vs_200ma": -20.27
+    },
+    {
+      "symbol": "FINX",
+      "price": 22.895,
+      "vs_20ma": -4.84,
+      "vs_50ma": -7.85,
+      "vs_200ma": -25.06
+    },
+    {
+      "symbol": "XLP",
+      "price": 81.46,
+      "vs_20ma": -1.76,
+      "vs_50ma": -3.97,
+      "vs_200ma": 1.93
+    },
+    {
+      "symbol": "KWEB",
+      "price": 28.3,
+      "vs_20ma": -3.36,
+      "vs_50ma": -11.13,
+      "vs_200ma": -18.51
+    },
+    {
+      "symbol": "IHI",
+      "price": 53.43,
+      "vs_20ma": -2.83,
+      "vs_50ma": -7.2,
+      "vs_200ma": -11.64
+    }
+  ],
+  "rs_leaders": [
+    {
+      "symbol": "XOP",
+      "price": 174.85,
+      "vs_20ma": 1.2,
+      "vs_50ma": 12.13,
+      "vs_200ma": 29.85,
+      "rs_score": 0.26025155709029535,
+      "rs_rating": 99
+    },
+    {
+      "symbol": "XLE",
+      "price": 58.97,
+      "vs_20ma": 0.5,
+      "vs_50ma": 7.0,
+      "vs_200ma": 27.05,
+      "rs_score": 0.2161532755465618,
+      "rs_rating": 97
+    },
+    {
+      "symbol": "LIT",
+      "price": 74.44,
+      "vs_20ma": 4.79,
+      "vs_50ma": 3.08,
+      "vs_200ma": 27.44,
+      "rs_score": 0.14030515008849564,
+      "rs_rating": 96
+    },
+    {
+      "symbol": "ROKT",
+      "price": 102.36,
+      "vs_20ma": 0.7,
+      "vs_50ma": 0.55,
+      "vs_200ma": 24.62,
+      "rs_score": 0.13506125797691904,
+      "rs_rating": 94
+    },
+    {
+      "symbol": "TAN",
+      "price": 56.27,
+      "vs_20ma": 1.62,
+      "vs_50ma": -0.06,
+      "vs_200ma": 19.66,
+      "rs_score": 0.1255917308340897,
+      "rs_rating": 92
+    },
+    {
+      "symbol": "SOXX",
+      "price": 338.54,
+      "vs_20ma": 1.36,
+      "vs_50ma": -1.63,
+      "vs_200ma": 16.34,
+      "rs_score": 0.09937312082716132,
+      "rs_rating": 90
+    },
+    {
+      "symbol": "XBI",
+      "price": 128.55,
+      "vs_20ma": 4.14,
+      "vs_50ma": 2.73,
+      "vs_200ma": 18.86,
+      "rs_score": 0.09641056638938911,
+      "rs_rating": 88
+    },
+    {
+      "symbol": "PICK",
+      "price": 57.85,
+      "vs_20ma": 3.58,
+      "vs_50ma": -1.69,
+      "vs_200ma": 21.67,
+      "rs_score": 0.09479595694884982,
+      "rs_rating": 87
+    },
+    {
+      "symbol": "SLV",
+      "price": 68.14,
+      "vs_20ma": -2.03,
+      "vs_50ma": -10.14,
+      "vs_200ma": 29.35,
+      "rs_score": 0.08174221328003864,
+      "rs_rating": 85
+    },
+    {
+      "symbol": "SMH",
+      "price": 391.97,
+      "vs_20ma": 0.68,
+      "vs_50ma": -1.83,
+      "vs_200ma": 14.31,
+      "rs_score": 0.07343971063070578,
+      "rs_rating": 83
+    }
+  ],
+  "laggards": [
+    {
+      "symbol": "FINX",
+      "price": 22.895,
+      "vs_20ma": -4.84,
+      "vs_50ma": -7.85,
+      "vs_200ma": -25.06,
+      "rs_score": -0.1839624994790732,
+      "rs_rating": 3
+    },
+    {
+      "symbol": "IGV",
+      "price": 79.77,
+      "vs_20ma": -4.23,
+      "vs_50ma": -6.13,
+      "vs_200ma": -22.82,
+      "rs_score": -0.18373292736888142,
+      "rs_rating": 4
+    },
+    {
+      "symbol": "IPAY",
+      "price": 42.504,
+      "vs_20ma": -2.43,
+      "vs_50ma": -6.92,
+      "vs_200ma": -20.27,
+      "rs_score": -0.15154144899352526,
+      "rs_rating": 6
+    },
+    {
+      "symbol": "KWEB",
+      "price": 28.3,
+      "vs_20ma": -3.36,
+      "vs_50ma": -11.13,
+      "vs_200ma": -18.51,
+      "rs_score": -0.14815821175819738,
+      "rs_rating": 8
+    },
+    {
+      "symbol": "MSOS",
+      "price": 3.68,
+      "vs_20ma": -0.76,
+      "vs_50ma": -6.47,
+      "vs_200ma": -9.47,
+      "rs_score": -0.14166567376256967,
+      "rs_rating": 10
+    },
+    {
+      "symbol": "BUG",
+      "price": 25.34,
+      "vs_20ma": -2.17,
+      "vs_50ma": -5.25,
+      "vs_200ma": -20.78,
+      "rs_score": -0.13326456790055952,
+      "rs_rating": 12
+    },
+    {
+      "symbol": "BLOK",
+      "price": 49.95,
+      "vs_20ma": -3.95,
+      "vs_50ma": -8.63,
+      "vs_200ma": -16.55,
+      "rs_score": -0.12336061000784021,
+      "rs_rating": 13
+    },
+    {
+      "symbol": "IHI",
+      "price": 53.43,
+      "vs_20ma": -2.83,
+      "vs_50ma": -7.2,
+      "vs_200ma": -11.64,
+      "rs_score": -0.11801412495078421,
+      "rs_rating": 15
+    },
+    {
+      "symbol": "ARKK",
+      "price": 68.4,
+      "vs_20ma": -2.68,
+      "vs_50ma": -5.49,
+      "vs_200ma": -11.58,
+      "rs_score": -0.11149567018233528,
+      "rs_rating": 17
+    },
+    {
+      "symbol": "SKYY",
+      "price": 110.33,
+      "vs_20ma": -1.07,
+      "vs_50ma": -2.89,
+      "vs_200ma": -11.72,
+      "rs_score": -0.09820592728295913,
+      "rs_rating": 18
+    }
+  ]
 }

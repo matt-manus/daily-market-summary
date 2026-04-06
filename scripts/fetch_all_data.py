@@ -1216,15 +1216,17 @@ def fetch_all() -> dict:
             print(f"  ✓  T2108 (dynamic): {t2108_status}%")
         else:
             print("  ⚠  T2108 數據無法取得，已設為 None")
-
-    # ── 新增：驗證與防呆層（Grok v5.1）────────────────────────────────────
+    # ── 新增：驗證與防呵層（Grok v5.1）──────────────────────────────────
     output = validate_and_clean_data(output)
     print(f"  ✓  data_status = {output.get('data_status')}")
     if output.get("data_warnings"):
         for w in output["data_warnings"]:
             print(f"  ⚠  [data_warning] {w}")
 
-    # ── Save JSON ────────────────────────────────────────────
+    # ── Step 3: 注入 Section 5/6/7 MA 數據 ────────────────────────────────
+    output = enrich_sections_with_ma(output)   # Step 3: 注入 thematic/rs_leaders/laggards
+
+    # ── Save JSON ────────────────────────────────────────────────────────
     abs_path = os.path.abspath(OUTPUT_PATH)
     os.makedirs(os.path.dirname(abs_path), exist_ok=True)
     with open(abs_path, "w", encoding="utf-8") as f:
@@ -1234,6 +1236,110 @@ def fetch_all() -> dict:
     print(f"\n✅  JSON 已儲存至 {abs_path}  ({size_kb:.1f} KB)")
     print(f"    Schema version: {output['meta']['schema_version']}")
     print(f"    Sectors: {len(sector_rows)}  |  Industries: {len(industry_out)}")
+    return output
+
+
+# ── Step 3 新增：20/50/200MA 高效計算（Gemini 指令）────────────────────────
+
+def calculate_ma(ticker: str):
+    """一次過抓取 400 天數據，計算 20/50/200MA（高效，避免重複呼叫）"""
+    try:
+        import yfinance as yf
+        from datetime import datetime, timedelta
+        end = datetime.now()
+        start = end - timedelta(days=400)
+        df = yf.download(ticker, start=start, end=end, progress=False, auto_adjust=True)
+        if len(df) < 200:
+            return None, None, None, None
+        price = float(df['Close'].iloc[-1])
+        ma20  = float(df['Close'].rolling(20).mean().iloc[-1])
+        ma50  = float(df['Close'].rolling(50).mean().iloc[-1])
+        ma200 = float(df['Close'].rolling(200).mean().iloc[-1])
+        return price, ma20, ma50, ma200
+    except Exception as e:
+        print(f"  Warning: MA calculation failed for {ticker}: {e}")
+        return None, None, None, None
+
+
+def enrich_sections_with_ma(output: dict) -> dict:
+    """為 Section 5/6/7 注入 vs_20ma / vs_50ma / vs_200ma
+
+    策略：優先從現有 sectors 數據派生（零額外 API 呼叫），
+    若 sectors 缺少某 ticker 才 fallback 到 yfinance。
+    """
+    # Build a lookup map from sectors: ticker -> {price, vs_20ma, vs_50ma, vs_200ma}
+    sector_map = {}
+    for s in output.get("sectors", []):
+        sym = s.get("symbol", "").upper()
+        if sym:
+            sector_map[sym] = {
+                "price":    s.get("price"),
+                "vs_20ma":  s.get("vs_ma20_pct"),
+                "vs_50ma":  s.get("vs_ma50_pct"),
+                "vs_200ma": s.get("vs_ma200_pct"),
+            }
+
+    # Load analysis_results.json for RS scores
+    _ar_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "data", "analysis_results.json")
+    rs_list = []
+    try:
+        with open(_ar_path, encoding="utf-8") as _f:
+            _ar = json.load(_f)
+        rs_list = sorted(_ar.get("latest_rs", []), key=lambda x: x.get("rs_score", 0), reverse=True)
+    except Exception as e:
+        print(f"  Warning: Could not load analysis_results.json: {e}")
+
+    def _enrich(ticker: str) -> dict:
+        """Return enriched item dict for a ticker."""
+        sym = ticker.upper()
+        if sym in sector_map:
+            item = {"symbol": sym}
+            item.update(sector_map[sym])
+            return item
+        # Fallback: yfinance
+        price, ma20, ma50, ma200 = calculate_ma(sym)
+        item = {"symbol": sym}
+        if price is not None:
+            item["price"] = round(price, 2)
+            if ma20:  item["vs_20ma"]  = round((price - ma20)  / ma20  * 100, 2)
+            if ma50:  item["vs_50ma"]  = round((price - ma50)  / ma50  * 100, 2)
+            if ma200: item["vs_200ma"] = round((price - ma200) / ma200 * 100, 2)
+        return item
+
+    # ── Section 5: Thematic — all 56 ETFs from sectors ──
+    thematic = []
+    for s in output.get("sectors", []):
+        sym = s.get("symbol", "").upper()
+        thematic.append({
+            "symbol":   sym,
+            "price":    s.get("price"),
+            "vs_20ma":  s.get("vs_ma20_pct"),
+            "vs_50ma":  s.get("vs_ma50_pct"),
+            "vs_200ma": s.get("vs_ma200_pct"),
+        })
+    output["thematic"] = thematic
+
+    # ── Section 6: Top 10 RS Leaders ──
+    rs_leaders = []
+    for r in rs_list[:10]:
+        ticker = r.get("ticker", "")
+        item = _enrich(ticker)
+        item["rs_score"]  = r.get("rs_score")
+        item["rs_rating"] = r.get("rs_rating")
+        rs_leaders.append(item)
+    output["rs_leaders"] = rs_leaders
+
+    # ── Section 7: Bottom 10 Laggards ──
+    laggards = []
+    for r in rs_list[-10:][::-1]:  # weakest first
+        ticker = r.get("ticker", "")
+        item = _enrich(ticker)
+        item["rs_score"]  = r.get("rs_score")
+        item["rs_rating"] = r.get("rs_rating")
+        laggards.append(item)
+    output["laggards"] = laggards
+
+    print(f"  ✓  Step 3: thematic={len(thematic)}, rs_leaders={len(rs_leaders)}, laggards={len(laggards)} enriched")
     return output
 
 
