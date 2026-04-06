@@ -1,7 +1,13 @@
 """
-html_generator.py  —  Credit-Efficient Market Summary System  v5.1
+html_generator.py  —  Credit-Efficient Market Summary System  v5.2
 -----------------------------------------------------------------
 Updated for Gemini Emergency Fix (Step 2).
+
+New in v5.2 (Gemini Emergency Reorg Step 1):
+  - Section 3: removed A/D Ratio column (moved to Section 4A)
+  - Section 4A: removed ETF column, added A/D Ratio column
+  - build_indices_rows: 7-col → 6-col (no A/D)
+  - build_breadth_rows: ETF removed, A/D Ratio added from index_ad_ratios
 
 New in v5.1:
   - Full 9-section architecture enforced
@@ -289,8 +295,7 @@ def build_indices_rows(indices, breadth):
             f'<td class="hide-on-mobile">{rsi_html}</td>'
             f'<td class="hide-on-mobile {vs20_c}">{vs20}</td>'
             f'<td class="hide-on-mobile {vs50_c}">{vs50}</td>'
-            f'<td class="hide-on-mobile {vs200_c}">{vs200}</td>'
-            f'<td class="hide-on-mobile">{adr_str}</td></tr>'
+            f'<td class="hide-on-mobile {vs200_c}">{vs200}</td></tr>'
         )
     return "\n".join(rows)
 
@@ -308,25 +313,40 @@ def build_naaim_history(naaim):
     return "\n".join(rows)
 
 def build_breadth_rows(breadth, indices):
+    """Section 4A — Index Breadth (v5.2: ETF col removed, A/D Ratio added)."""
     if not breadth:
         return '<tr><td colspan="6"><span class="na-val">N/A</span></td></tr>'
     rows = []
+    # ETF ticker used as key to look up index_ad_ratios
+    ETF_TO_ADR_KEY = {"SPY": "SPY", "QQQ": "QQQ", "DIA": "DIA", "IWM": "IWM"}
+    index_ad = breadth.get("index_ad_ratios", {})
     for entry in BREADTH_KEYS:
-        # Support both 3-tuple (legacy) and 4-tuple (new with source)
         key, label, etf = entry[0], entry[1], entry[2]
-        source = entry[3] if len(entry) > 3 else ""
         d     = breadth.get(key, {})
         total = na(d.get("total"), "int")
         p20   = pct_bar_cell(d.get("pct_above_20ma"))
         p50   = pct_bar_cell(d.get("pct_above_50ma"))
         p200  = pct_bar_cell(d.get("pct_above_200ma"))
-        etf_label = f'<strong>{etf}</strong><br><span style="font-size:10px;color:var(--text-muted)">{source}</span>'
+        # A/D Ratio from index_ad_ratios (same source as Section 3 used to use)
+        adr_key = ETF_TO_ADR_KEY.get(etf, etf)
+        iad   = index_ad.get(adr_key, {})
+        adr_f = safe_float(iad.get("ad_ratio"))
+        adv   = iad.get("advances")
+        dec   = iad.get("declines")
+        adr_c = adr_color(adr_f)
+        if adr_f is not None and adv is not None and dec is not None:
+            adr_str = (f'<span class="{adr_c}">{adr_f:.3f}</span>'
+                       f'<span style="font-size:10px;color:var(--text-muted)"> ({adv}↑/{dec}↓)</span>')
+        elif adr_f is not None:
+            adr_str = f'<span class="{adr_c}">{adr_f:.3f}</span>'
+        else:
+            adr_str = '<span class="na-val">N/A</span>'
         rows.append(
             f'<tr><td><strong>{label}</strong></td><td>{total}</td>'
             f'<td>{p20}</td>'
             f'<td class="hide-on-mobile">{p50}</td>'
             f'<td class="hide-on-mobile">{p200}</td>'
-            f'<td class="hide-on-mobile">{etf_label}</td></tr>'
+            f'<td>{adr_str}</td></tr>'
         )
     return "\n".join(rows)
 
@@ -1830,7 +1850,7 @@ def render(regime_info: dict = None, expert_insights: str = "", checklist_status
 
 if __name__ == "__main__":
     print("╔══════════════════════════════════════════════╗")
-    print("  Market Summary Renderer v5.1  (Semi-Auto Mode)")
+    print("  Market Summary Renderer v5.2  (Semi-Auto Mode)")
     print("╚══════════════════════════════════════════════╝")
     render()
     print("✅  Render complete.")
