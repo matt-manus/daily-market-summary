@@ -107,12 +107,28 @@
       margin: 16px 0 10px;
     }
 
-    /* ─── TABLE BASE ─────────────────────────────────────────────── */
+    /* ─── DATA WARNING BANNER ─────────────────────────────────────────────── */
+    .data-warning-banner {
+      display: none;
+      background: rgba(255,152,0,0.12);
+      border: 1px solid rgba(255,152,0,0.4);
+      border-radius: 6px;
+      padding: 10px 16px;
+      margin-bottom: 16px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--amber);
+      line-height: 1.5;
+    }
+    .data-warning-banner.active { display: block; }
+
+    /* ─── TABLE BASE ───────────────────────────────────────────────────── */
     .table-wrap {
       background: var(--bg-card);
       border: 1px solid var(--border);
       border-radius: 6px;
-      overflow: hidden;
+      overflow-x: auto;   /* KEY FIX: 手機横向滚動 */
+      -webkit-overflow-scrolling: touch;
     }
     .data-table { width: 100%; border-collapse: collapse; font-size: 12.5px; }
     .data-table th {
@@ -158,7 +174,7 @@
     .mc-price { font-size: 21px; font-weight: 700; color: #fff; letter-spacing: -0.5px; line-height: 1.1; }
     .mc-chg   { font-size: 12px; font-weight: 500; margin-top: 4px; }
 
-    /* ─── SECTION 2: INDICES ─────────────────────────────────────── */
+    /* ─── SECTION 3: INDICES ─────────────────────────────────────── */
     .sym-cell .sym { font-size: 14px; font-weight: 700; color: #fff; }
     .sym-cell .sym-name { font-size: 10px; color: var(--text-muted); margin-top: 1px; }
     .chg-pill {
@@ -189,7 +205,7 @@
     .badge-below { background: var(--red-bg);   color: var(--red);   }
     .badge-mixed { background: var(--amber-bg); color: var(--amber); }
 
-    /* ─── SECTION 3: SENTIMENT ───────────────────────────────────── */
+    /* ─── SECTION 2: SENTIMENT ───────────────────────────────────── */
     .sentiment-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -224,7 +240,7 @@
     /* ─── SECTION 4: BREADTH ─────────────────────────────────────── */
     .breadth-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
     @media (max-width: 700px) { .breadth-grid { grid-template-columns: 1fr; } }
-                        .pct-bar-wrap { display: flex; align-items: center; gap: 6px; justify-content: flex-end; }
+    .pct-bar-wrap { display: flex; align-items: center; gap: 6px; justify-content: flex-end; }
     .pct-bar-track { width: 70px; height: 5px; background: #333; border-radius: 3px; overflow: hidden; }
     .pct-bar-red   { height: 100%; border-radius: 3px; background: var(--red); }
     .pct-bar-amber { height: 100%; border-radius: 3px; background: var(--amber); }
@@ -240,7 +256,7 @@
     }
     .img-caption { font-size: 10px; color: var(--text-muted); text-align: center; margin-top: 8px; }
 
-    /* ─── SECTIONS 6 & 7: AI TEXT ────────────────────────────────── */
+    /* ─── AI TEXT AREA ───────────────────────────────────────────── */
     .ai-text-area {
       background: var(--bg-card);
       border: 1px solid var(--border);
@@ -252,6 +268,43 @@
       white-space: pre-wrap;
     }
     .ai-placeholder { color: var(--text-muted); font-style: italic; font-size: 12px; }
+
+    /* ─── IMPACT COMMENT PLACEHOLDER (Phase 4 AI) ───────────────── */
+    .impact-comment-placeholder {
+      margin-top: 12px;
+      padding: 10px 14px;
+      background: rgba(66,165,245,0.05);
+      border: 1px dashed rgba(66,165,245,0.25);
+      border-radius: 5px;
+      font-size: 11.5px;
+      color: var(--text-muted);
+      font-style: italic;
+      line-height: 1.6;
+    }
+    .impact-comment-placeholder::before {
+      content: "AI Comment (Phase 4) — ";
+      font-weight: 600;
+      color: rgba(66,165,245,0.5);
+      font-style: normal;
+      font-size: 10px;
+      letter-spacing: 0.6px;
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    /* ─── VISUAL TAGS (vs MA) ────────────────────────────────────── */
+    .vtag {
+      display: inline-block;
+      padding: 2px 7px;
+      border-radius: 3px;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+    }
+    .vtag-above { background: var(--green-bg); color: var(--green); }
+    .vtag-below { background: var(--red-bg);   color: var(--red);   }
+    .vtag-near  { background: var(--amber-bg); color: var(--amber); }
 
     /* ─── LOGIC INFO BUTTON & MODAL ─────────────────────────────── */
     .logic-info-btn {
@@ -273,12 +326,10 @@
       transition: background 0.15s;
       user-select: none;
     }
-    .logic-info-btn:hover {
-      background: rgba(66,165,245,0.22);
-    }
+    .logic-info-btn:hover { background: rgba(66,165,245,0.22); }
     .logic-info-btn .li-icon { font-size: 11px; }
 
-    /* Logic Info Inline Note (below sub-title) */
+    /* Logic Info Inline Note */
     .logic-note {
       font-size: 10.5px;
       color: var(--text-muted);
@@ -410,7 +461,21 @@
       border: 1px solid rgba(255,152,0,0.3);
     }
 
-    /* ─── FOOTER ─────────────────────────────────────────────────── */
+    /* ─── MOBILE RESPONSIVE ─────────────────────────────────────────────────── */
+    /* 手機上隱藏次要欄位（RSI / MA / 1M% / 3M%） */
+    @media (max-width: 600px) {
+      .hide-on-mobile { display: none !important; }
+      .data-table { font-size: 11.5px; }
+      .data-table td, .data-table th { padding: 7px 8px; }
+      .mc-price { font-size: 17px; }
+      .page-wrap { padding: 0 10px 36px; }
+      .report-header { padding: 12px 14px 10px; }
+      .report-header h1 { font-size: 16px; }
+      .li-modal { padding: 18px 16px 16px; }
+      .li-modal p { font-size: 12px; }
+    }
+
+    /* ─── FOOTER ────────────────────────────────────────────────────────────────── */
     .report-footer {
       margin-top: 36px;
       padding-top: 16px;
@@ -420,6 +485,25 @@
       color: var(--text-muted);
       line-height: 1.8;
     }
+
+    /* Mobile Table Column Hiding - Fixed Alignment (Grok v5.1) */
+    @media (max-width: 600px) {
+      .hide-on-mobile {
+        display: none !important;
+      }
+
+      .table-wrap {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: thin;
+      }
+
+      .data-table th,
+      .data-table td {
+        white-space: nowrap;
+        padding: 8px 6px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -428,7 +512,7 @@
 <div class="report-header">
   <div>
     <h1>Daily Market Summary</h1>
-    <div class="subtitle">Automated Credit-Efficient System &middot; 2026-04-02</div>
+    <div class="subtitle">Momentum Swing Trading Coach &middot; 2026-04-02</div>
   </div>
   <div class="ts-badges">
     <div class="ts-badge">HKT <span>2026-04-02 18:20</span></div>
@@ -438,197 +522,20 @@
 
 <div class="page-wrap">
 
-<!-- ═══ REGIME BANNER (auto-injected) ═════════════════════ -->
-<div style="background:rgba(244,67,54,0.08);border:1px solid #f44336;
-  border-radius:8px;padding:14px 18px;margin-bottom:20px;
-  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;">
-  <div>
-    <div style="font-size:15px;font-weight:700;color:#f44336;">⚠ Market Correction</div>
-    <div style="font-size:12px;color:#aaaaaa;margin-top:4px;">SPY ($655.24) is BELOW the 20MA ($659.27), currently -0.61% from 20MA. Defensive posture recommended.</div>
-  </div>
-  <div style="display:flex;gap:16px;flex-wrap:wrap;">
-    <div style="text-align:center;">
-      <div style="font-size:10px;color:#555;text-transform:uppercase;letter-spacing:0.8px;">SPY</div>
-      <div style="font-size:14px;font-weight:600;color:#e0e0e0;">$655.24</div>
-    </div>
-    <div style="text-align:center;">
-      <div style="font-size:10px;color:#555;text-transform:uppercase;letter-spacing:0.8px;">20MA</div>
-      <div style="font-size:14px;font-weight:600;color:#aaaaaa;">$659.27</div>
-    </div>
-    <div style="text-align:center;">
-      <div style="font-size:10px;color:#555;text-transform:uppercase;letter-spacing:0.8px;">50MA</div>
-      <div style="font-size:14px;font-weight:600;color:#aaaaaa;">$675.52</div>
-    </div>
-    <div style="text-align:center;">
-      <div style="font-size:10px;color:#555;text-transform:uppercase;letter-spacing:0.8px;">vs 20MA</div>
-      <div style="font-size:14px;font-weight:600;color:#f44336;">-0.61%</div>
-    </div>
-  </div>
-</div>
+<!-- ═══ DATA WARNING BANNER (auto-injected by html_generator) ═══════════════ -->
+<div class="data-warning-banner"></div>
 
-<!-- ═══ CORRECTION CHECKLIST (shown only when SPY < 20MA) ═════ -->
-
-<div style="background:linear-gradient(135deg,#0d1117 0%,#111827 100%);
-  border:2px solid #42a5f5;border-radius:10px;padding:20px 24px;
-  margin-bottom:28px;box-shadow:0 0 20px rgba(66,165,245,0.12);">
-  <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:14px;">
-    <div>
-      <div style="font-size:10px;font-weight:600;letter-spacing:1.2px;text-transform:uppercase;
-                  color:#42a5f5;border-left:3px solid #42a5f5;padding-left:10px;">
-        Market Regime &amp; Auto Y/N Checklist
-      </div>
-      <div style="font-size:18px;font-weight:700;color:#e0e0e0;margin-top:6px;">
-        🟡 Correction &nbsp;<span style="font-size:13px;color:#aaa;">Score: 55</span>
-      </div>
-    </div>
-    <a href="#" onclick="showCriteriaModal();return false;"
-      style="font-size:12px;color:#42a5f5;text-decoration:none;border:1px solid #42a5f5;
-      padding:5px 12px;border-radius:5px;font-weight:600;">
-      &#128203; View Criteria (Grok v1.1)
-    </a>
-  </div>
-
-  <!-- 關鍵數據列 -->
-  <div style="background:#0a0a0a;border-radius:6px;padding:10px 14px;margin-bottom:14px;
-    font-size:12px;color:#aaaaaa;display:flex;flex-wrap:wrap;gap:16px;">
-    <span><strong style="color:#e0e0e0;">VIX</strong> = 26.5</span>
-    <span><strong style="color:#e0e0e0;">SPY vs 20MA</strong> = -4.03</span>
-    <span><strong style="color:#e0e0e0;">% Above 20MA</strong> = 45.1%</span>
-    <span><strong style="color:#e0e0e0;">A/D Ratio</strong> = 1.471</span>
-    <span><strong style="color:#e0e0e0;">RSI</strong> = 46.0</span>
-  </div>
-
-  <!-- Auto Y/N Checklist Table -->
-  <div style="font-size:11px;font-weight:600;letter-spacing:0.8px;text-transform:uppercase;
-    color:#42a5f5;margin-bottom:6px;">Correction Checklist (自動打分)</div>
-  <table style="width:100%;border-collapse:collapse;font-size:13px;margin-top:10px;"><thead><tr><th style="text-align:left;padding:6px 10px;color:var(--text-muted);font-weight:600;border-bottom:1px solid var(--border);">Checklist Item</th><th style="text-align:center;padding:6px 10px;color:var(--text-muted);font-weight:600;border-bottom:1px solid var(--border);width:50px;">Y/N</th><th style="text-align:left;padding:6px 10px;color:var(--text-muted);font-weight:600;border-bottom:1px solid var(--border);">Actual Value</th></tr></thead><tbody><tr style="background:rgba(76,175,80,0.05);"><td style="padding:7px 10px;border-bottom:1px solid #1e1e1e;color:#e0e0e0;">Downward momentum 增強</td><td style="text-align:center;padding:7px 10px;border-bottom:1px solid #1e1e1e;"><span style="color:#4caf50;font-weight:700;">Y</span></td><td style="padding:7px 10px;border-bottom:1px solid #1e1e1e;color:#aaaaaa;font-size:12px;">RSI 46.0</td></tr><tr style="background:rgba(76,175,80,0.05);"><td style="padding:7px 10px;border-bottom:1px solid #1e1e1e;color:#e0e0e0;">Top range breakdown</td><td style="text-align:center;padding:7px 10px;border-bottom:1px solid #1e1e1e;"><span style="color:#4caf50;font-weight:700;">Y</span></td><td style="padding:7px 10px;border-bottom:1px solid #1e1e1e;color:#aaaaaa;font-size:12px;">SPY vs 20MA -4.0</td></tr><tr style="background:rgba(76,175,80,0.05);"><td style="padding:7px 10px;border-bottom:1px solid #1e1e1e;color:#e0e0e0;">Technical indicators deteriorating</td><td style="text-align:center;padding:7px 10px;border-bottom:1px solid #1e1e1e;"><span style="color:#4caf50;font-weight:700;">Y</span></td><td style="padding:7px 10px;border-bottom:1px solid #1e1e1e;color:#aaaaaa;font-size:12px;">RSI 46.0</td></tr><tr style="background:rgba(244,67,54,0.05);"><td style="padding:7px 10px;border-bottom:1px solid #1e1e1e;color:#e0e0e0;">Market breadth worsening</td><td style="text-align:center;padding:7px 10px;border-bottom:1px solid #1e1e1e;"><span style="color:#f44336;font-weight:700;">N</span></td><td style="padding:7px 10px;border-bottom:1px solid #1e1e1e;color:#aaaaaa;font-size:12px;">A/D 1.471</td></tr><tr style="background:rgba(76,175,80,0.05);"><td style="padding:7px 10px;border-bottom:1px solid #1e1e1e;color:#e0e0e0;">VIX > 20 或 spike</td><td style="text-align:center;padding:7px 10px;border-bottom:1px solid #1e1e1e;"><span style="color:#4caf50;font-weight:700;">Y</span></td><td style="padding:7px 10px;border-bottom:1px solid #1e1e1e;color:#aaaaaa;font-size:12px;">VIX 26.5</td></tr><tr><td colspan="3" style="padding:8px 10px;font-weight:700;color:#4caf50;border-top:1px solid var(--border);font-size:13px;">總分：4 / 5</td></tr></tbody></table>
-</div>
-
-<div id="criteriaModal" style="display:none;position:fixed;top:10%;left:10%;width:80%;
-  background:#1a1a2e;padding:24px 28px;border:2px solid #42a5f5;
-  border-radius:10px;z-index:9999;box-shadow:0 0 40px rgba(66,165,245,0.25);
-  max-height:75vh;overflow-y:auto;">
-  <h2 style="color:#42a5f5;font-size:16px;font-weight:700;margin-bottom:14px;">
-    Regime Engine + Checklist Criteria (Grok v1.1)
-  </h2>
-  <p style="color:#e0e0e0;font-size:13px;margin-bottom:10px;">
-    <strong style="color:#fff;">Regime 判斷準則：</strong>
-  </p>
-  <ul style="color:#e0e0e0;font-size:13px;line-height:1.9;padding-left:20px;margin-bottom:14px;">
-    <li>🟢 <strong>Uptrend</strong>：VIX &lt; 20 AND SPY &gt; 20MA AND % &gt; 20MA &gt; 40%</li>
-    <li>🟡 <strong>Correction</strong>：VIX 20–30 OR SPY 介乎 20MA–50MA OR % &gt; 20MA 25–40%</li>
-    <li>🔴 <strong>Bear Market</strong>：其他情況</li>
-  </ul>
-  <p style="color:#e0e0e0;font-size:13px;margin-bottom:10px;">
-    <strong style="color:#fff;">Checklist 項目來源：</strong>
-    你原本兩張 Correction Checklist，已自動量化
-  </p>
-  <ul style="color:#e0e0e0;font-size:13px;line-height:1.9;padding-left:20px;margin-bottom:18px;">
-    <li><strong>Green Checklist</strong>（市場回戲信號）：共 6 項，檢查 RSI &gt; 50、SPY &gt; 20MA、A/D &gt; 1.0、VIX &lt; 20</li>
-    <li><strong>Red Checklist</strong>（市場惡化信號）：共 5 項，檢查 RSI &lt; 50、SPY &lt; 20MA、A/D &lt; 1.0、VIX &gt; 20</li>
-    <li><strong>Active Checklist</strong>：依据 green_total vs red_total 自動切換</li>
-  </ul>
-  <button onclick="document.getElementById('criteriaModal').style.display='none'">
-    style="background:#42a5f5;color:#000;border:none;padding:8px 20px;border-radius:5px;
-    font-weight:700;cursor:pointer;font-size:13px;">關閉</button>
-</div>
-<script>
-function showCriteriaModal() {
-    document.getElementById('criteriaModal').style.display = 'block';
-}
-</script>
+<!-- ═══ REGIME BANNER (auto-injected) ═════════════════════════════════ -->
 
 
+<!-- ═══ EXPERT INSIGHTS (from expert_notes.txt) ═══════════════ -->
 
-<!-- ═══ COACH'S ACTION PLAN (Section 7 — MOST PROMINENT) ══════ -->
-<div class="section" style="
-  border: 2px solid #ff9800;
-  border-radius: 10px;
-  background: linear-gradient(135deg, #0d0a00 0%, #120c00 100%);
-  padding: 20px 24px;
-  margin-bottom: 28px;
-  box-shadow: 0 0 24px rgba(255,152,0,0.12);
-">
-  <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;">
-    <span style="font-size:22px;">&#127919;</span>
-    <div style="font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;
-                color:#ff9800;border-left:3px solid #ff9800;padding-left:10px;">
-      Coach's Action Plan &mdash; Today's Playbook
-    </div>
-  </div>
-    <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:6px;padding:14px 18px;margin-bottom:16px;">
-    <div style="font-size:10px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--text-muted);margin-bottom:8px;">Trading Outlook</div>
-    <div style="font-size:22px;font-weight:700;color:var(--red);letter-spacing:-0.5px;margin-bottom:4px;">
-      Risk-off (Defensive) &nbsp;<span style="font-size:14px;color:var(--text-muted);">Score: 7 / 9</span>
-    </div>
-    <div style="margin-top:6px;margin-bottom:10px;">
-      <div style="background:#222;border-radius:4px;height:6px;width:100%;overflow:hidden;">
-        <div style="background:var(--red);height:100%;width:77%;border-radius:4px;transition:width 0.3s;"></div>
-      </div>
-    </div>
-    <p style="color:#e0e0e0;font-size:13px;line-height:1.7;margin-top:8px;">VIX 高企（28.93，-5.49%）且趨勢向上，所有主要指數均在均線之下，市場廣度極差（S&P500 僅 17.9% 股票在 20MA 之上）。建議維持防守姿態，降低整體倉位，耐心等待 VIX 回落至 20 以下或指數出現放量止跌信號，再逐步加倉。</p>
-    <div style="margin-top:8px;font-size:11px;color:var(--text-muted);">Risk Factors: <span style="color:var(--red)">VIX=28.9 (>25, high fear)</span> | <span style="color:var(--red)">SPY RSI=27.7 (<35, oversold)</span> | <span style="color:var(--red)">QQQ RSI=28.9 (<35, oversold)</span> | <span style="color:var(--red)">F&G=13 (Extreme Fear)</span> | <span style="color:var(--red)">SP500 >20MA=17.9% (<25%, breadth collapse)</span></div>
-  </div>
 
-  <div class="sub-title" style="margin-top:4px;">Watchlist — Relative Strength Leaders</div>
-  <div class="table-wrap">
-    <table class="data-table">
-      <thead>
-        <tr>
-          <th style="text-align:left">Sector / ETF</th>
-          <th>RSI</th>
-          <th>Price</th>
-          <th style="text-align:left">Thesis</th>
-          <th style="text-align:left">Technical Trigger</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr class="rsi-ob-cell">
-          <td><strong>Energy</strong> <span style="color:var(--text-muted);font-size:11px;">XLE</span></td>
-          <td><div class="rsi-wrap"><span class="text-red">77.4</span><div class="rsi-track"><div class="rsi-fill rsi-ob" style="width:77%"></div></div></div></td>
-          <td>$61.96</td>
-          <td style="text-align:left;font-size:12px;">唯一突破所有均線的板塊，相對強度領先，資金明顯輪入。RSI=77.4，趨勢最強。</td>
-          <td style="text-align:left;font-size:12px;color:var(--amber);">守住 20MA ($58.26) 可繼續看多；跌破 $58.26 止損。</td>
-        </tr>
-        <tr class="">
-          <td><strong>Utilities</strong> <span style="color:var(--text-muted);font-size:11px;">XLU</span></td>
-          <td><div class="rsi-wrap"><span class="">52.8</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:53%"></div></div></div></td>
-          <td>$45.92</td>
-          <td style="text-align:left;font-size:12px;">防禦屬性強，市場恐慌時相對抗跌。RSI=52.8，需關注 MA 支撐。</td>
-          <td style="text-align:left;font-size:12px;color:var(--amber);">守住 50MA ($44.99) 支撐；跌破 $44.99 止損。</td>
-        </tr>
-        <tr class="">
-          <td><strong>Materials</strong> <span style="color:var(--text-muted);font-size:11px;">XLB</span></td>
-          <td><div class="rsi-wrap"><span class="">46.6</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:47%"></div></div></div></td>
-          <td>$49.09</td>
-          <td style="text-align:left;font-size:12px;">防禦屬性強，市場恐慌時相對抗跌。RSI=46.6，需關注 MA 支撐。</td>
-          <td style="text-align:left;font-size:12px;color:var(--amber);">守住 200MA ($45.85) 支撐；跌破 $45.85 止損。</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</div>
-
-<!-- ═══ EXPERT INSIGHTS (from expert_notes.txt) ══════════ -->
-<div class="section" style="border:2px solid #42a5f5;border-radius:10px;
-  background:linear-gradient(135deg,#0a1628 0%,#0d1a2e 100%);
-  padding:20px 24px;margin-bottom:28px;
-  box-shadow:0 0 20px rgba(66,165,245,0.1);">
-  <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;">
-    <span style="font-size:20px;">&#128161;</span>
-    <div style="font-size:10px;font-weight:600;letter-spacing:1.2px;text-transform:uppercase;
-                color:#42a5f5;border-left:3px solid #42a5f5;padding-left:10px;">
-      Expert Insights
-    </div>
-  </div>
-  <div style="font-size:13px;color:#e0e0e0;line-height:1.8;white-space:pre-wrap;"># Expert Notes — Daily Market Commentary<br/># =========================================<br/># Add your expert insights, trade ideas, or market commentary below.<br/># This file is read automatically by the report generator.<br/># When not empty, the content will appear in the "Expert Insights" section of the HTML report.<br/># Lines starting with # are comments and will be included as-is.<br/>#<br/># Example:<br/>#   "Watching for a potential FTD setup. Key levels: SPY 540, QQQ 460.<br/>#    Tariff uncertainty remains the primary headwind. Prefer defensive sectors."<br/>#<br/># Leave this file empty (or only comments) to hide the Expert Insights section.</div>
-  <div style="margin-top:12px;font-size:10px;color:#555;">
-    Source: expert_notes.txt &mdash; Updated manually by the analyst.
-  </div>
-</div>
-
-<!-- ═══ SECTION 1 — MACRO INDICATORS ═════════════════════ -->
-<div class="section">
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- SECTION 1 — MACRO INDICATORS                                   -->
+<!-- Architecture: VIX 必考慮；Oil 視催化作用而定                     -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<div class="section" id="s1-macro">
   <div class="section-title">Section 1 — Macro Indicators</div>
   <div class="macro-grid">
     <div class="macro-card">
@@ -662,39 +569,18 @@ function showCriteriaModal() {
       <div class="mc-chg text-red">-2.70%</div>
     </div>
   </div>
-</div>
-
-<!-- ═══ SECTION 2 — MAJOR INDICES (with MA distances + A/D Ratio) ══ -->
-<div class="section">
-  <div class="section-title">Section 2 — Major Indices</div>
-  <div class="table-wrap">
-    <table class="data-table">
-      <thead>
-        <tr>
-          <th>Symbol</th>
-          <th>Price</th>
-          <th>1D Chg%</th>
-          <th>RSI 14</th>
-          <th>vs 20MA</th>
-          <th>vs 50MA</th>
-          <th>vs 200MA</th>
-          <th>A/D Ratio</th>
-          
-        </tr>
-      </thead>
-      <tbody>
-        <tr class=""><td><div class="sym-cell"><span class="sym">SPY</span><span class="sym-name">S&P 500 ETF</span></div></td><td>655.24</td><td><span class="chg-pill text-green-bg">+0.75%</span></td><td><div class="rsi-wrap"><span class="">46.0</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:46%"></div></div></div></td><td class="text-red">-0.61%</td><td class="text-red">-3.00%</td><td class="text-red">-0.53%</td><td><span class="text-green">1.505</span><span style="font-size:10px;color:var(--text-muted)"> (301↑/200↓)</span></td></tr>
-<tr class=""><td><div class="sym-cell"><span class="sym">QQQ</span><span class="sym-name">Nasdaq 100 ETF</span></div></td><td>584.31</td><td><span class="chg-pill text-green-bg">+1.24%</span></td><td><div class="rsi-wrap"><span class="">46.5</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:47%"></div></div></div></td><td class="text-red">-0.99%</td><td class="text-red">-3.13%</td><td class="text-red">-1.51%</td><td><span class="text-green">1.525</span><span style="font-size:10px;color:var(--text-muted)"> (61↑/40↓)</span></td></tr>
-<tr class=""><td><div class="sym-cell"><span class="sym">DIA</span><span class="sym-name">Dow Jones ETF</span></div></td><td>465.48</td><td><span class="chg-pill text-green-bg">+0.49%</span></td><td><div class="rsi-wrap"><span class="">46.3</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:46%"></div></div></div></td><td class="text-green">+0.02%</td><td class="text-red">-3.28%</td><td class="text-green">+0.31%</td><td><span class="text-green">1.500</span><span style="font-size:10px;color:var(--text-muted)"> (18↑/12↓)</span></td></tr>
-<tr class=""><td><div class="sym-cell"><span class="sym">IWM</span><span class="sym-name">Russell 2000 ETF</span></div></td><td>249.56</td><td><span class="chg-pill text-green-bg">+0.63%</span></td><td><div class="rsi-wrap"><span class="">48.6</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:49%"></div></div></div></td><td class="text-green">+0.46%</td><td class="text-red">-2.94%</td><td class="text-green">+3.32%</td><td><span class="text-green">1.721</span><span style="font-size:10px;color:var(--text-muted)"> (1201↑/698↓)</span></td></tr>
-      </tbody>
-    </table>
+  <!-- Phase 4 AI Comment: 必考慮 VIX；Oil 視催化作用而定 -->
+  <div class="impact-comment-placeholder" id="s1-ai-comment">
+    Macro impact analysis — Context-dependent. VIX level required. Oil catalyst assessment conditional.
   </div>
 </div>
 
-<!-- ═══ SECTION 3 — MARKET SENTIMENT ══════════════════════════════ -->
-<div class="section">
-  <div class="section-title">Section 3 — Market Sentiment</div>
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- SECTION 2 — MARKET SENTIMENT                                   -->
+<!-- Architecture: F&G, NAAIM, Put/Call；寫 Comment 時同時考慮 VIX   -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<div class="section" id="s2-sentiment">
+  <div class="section-title">Section 2 — Market Sentiment</div>
   <div class="sentiment-grid">
 
     <div class="sent-card">
@@ -733,58 +619,115 @@ function showCriteriaModal() {
     </div>
 
   </div>
+  <!-- Phase 4 AI Comment: Sentiment analysis cross-referenced with VIX -->
+  <div class="impact-comment-placeholder" id="s2-ai-comment">
+    Sentiment synthesis — F&amp;G + NAAIM + P/C cross-referenced with VIX context. Trend-first, actionable bias.
+  </div>
 </div>
 
-<!-- ═══ SECTION 4 — MARKET BREADTH ════════════════════════════════ -->
-<div class="section">
-  <div class="section-title">Section 4 — Market Breadth</div>
-
-  <!-- 4B: % Above MA — SPY/QQQ/DIA/IWM only (ETF-specific breadth) -->
-  <div class="sub-title">4B — % of ETF Constituents Above Moving Averages (SPY / QQQ / DIA / IWM)</div>
-  <div style="font-size:11px;color:var(--text-muted);margin-bottom:8px;">Source: Finviz screener (index-filtered) — shows breadth within each index's own constituent universe</div>
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- SECTION 3 — MAJOR INDICES                                      -->
+<!-- Architecture: SPY / QQQ / DIA / IWM；保持現有格式               -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- ==================== SECTION 3 — MAJOR INDICES (FIXED) ==================== -->
+<div class="section" id="s3-indices">
+  <div class="section-title">Section 3 — Major Indices</div>
   <div class="table-wrap">
     <table class="data-table">
       <thead>
         <tr>
-          <th>Index</th>
-          <th>Total</th>
-          <th>% &gt; 20MA</th>
-          <th>% &gt; 50MA</th>
-          <th>% &gt; 200MA</th>
-          <th>ETF</th>
+          <th>Symbol</th>
+          <th>Price</th>
+          <th class="hide-on-mobile">1D Chg%</th>
+          <th class="hide-on-mobile">RSI 14</th>
+          <th class="hide-on-mobile">vs 20MA</th>
+          <th class="hide-on-mobile">vs 50MA</th>
+          <th class="hide-on-mobile">vs 200MA</th>
+          <th class="hide-on-mobile">A/D Ratio</th>
         </tr>
       </thead>
       <tbody>
-        <tr><td><strong>S&P 500</strong></td><td>503</td><td><div class="pct-bar-wrap"><span class="text-amber">45.1%</span><div class="pct-bar-track"><div class="pct-bar-amber" style="width:45%"></div></div></div></td><td><div class="pct-bar-wrap"><span class="text-red">26.2%</span><div class="pct-bar-track"><div class="pct-bar-red" style="width:26%"></div></div></div></td><td><div class="pct-bar-wrap"><span class="text-amber">47.7%</span><div class="pct-bar-track"><div class="pct-bar-amber" style="width:48%"></div></div></div></td><td><strong>SPY</strong><br><span style="font-size:10px;color:var(--text-muted)">Finviz idx_sp500</span></td></tr>
-<tr><td><strong>NASDAQ 100</strong></td><td>101</td><td><div class="pct-bar-wrap"><span class="text-amber">41.6%</span><div class="pct-bar-track"><div class="pct-bar-amber" style="width:42%"></div></div></div></td><td><div class="pct-bar-wrap"><span class="text-red">24.8%</span><div class="pct-bar-track"><div class="pct-bar-red" style="width:25%"></div></div></div></td><td><div class="pct-bar-wrap"><span class="text-amber">43.6%</span><div class="pct-bar-track"><div class="pct-bar-amber" style="width:44%"></div></div></div></td><td><strong>QQQ</strong><br><span style="font-size:10px;color:var(--text-muted)">Finviz idx_ndx</span></td></tr>
-<tr><td><strong>Dow Jones 30</strong></td><td>30</td><td><div class="pct-bar-wrap"><span class="text-amber">40.0%</span><div class="pct-bar-track"><div class="pct-bar-amber" style="width:40%"></div></div></div></td><td><div class="pct-bar-wrap"><span class="text-red">26.7%</span><div class="pct-bar-track"><div class="pct-bar-red" style="width:27%"></div></div></div></td><td><div class="pct-bar-wrap"><span class="text-amber">53.3%</span><div class="pct-bar-track"><div class="pct-bar-amber" style="width:53%"></div></div></div></td><td><strong>DIA</strong><br><span style="font-size:10px;color:var(--text-muted)">yfinance DJI-30</span></td></tr>
-<tr><td><strong>Russell 2000</strong></td><td>1,928</td><td><div class="pct-bar-wrap"><span class="text-amber">54.7%</span><div class="pct-bar-track"><div class="pct-bar-amber" style="width:55%"></div></div></div></td><td><div class="pct-bar-wrap"><span class="text-red">33.5%</span><div class="pct-bar-track"><div class="pct-bar-red" style="width:34%"></div></div></div></td><td><div class="pct-bar-wrap"><span class="text-amber">48.3%</span><div class="pct-bar-track"><div class="pct-bar-amber" style="width:48%"></div></div></div></td><td><strong>IWM</strong><br><span style="font-size:10px;color:var(--text-muted)">Finviz idx_rut</span></td></tr>
+        <tr class=""><td><div class="sym-cell"><span class="sym">SPY</span><span class="sym-name">S&P 500 ETF</span></div></td><td>655.24</td><td class="hide-on-mobile"><span class="chg-pill text-green-bg">+0.75%</span></td><td class="hide-on-mobile"><div class="rsi-wrap"><span class="">46.0</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:46%"></div></div></div></td><td class="hide-on-mobile text-red">-0.61%</td><td class="hide-on-mobile text-red">-3.00%</td><td class="hide-on-mobile text-red">-0.53%</td><td class="hide-on-mobile"><span class="text-green">1.505</span><span style="font-size:10px;color:var(--text-muted)"> (301↑/200↓)</span></td></tr>
+<tr class=""><td><div class="sym-cell"><span class="sym">QQQ</span><span class="sym-name">Nasdaq 100 ETF</span></div></td><td>584.31</td><td class="hide-on-mobile"><span class="chg-pill text-green-bg">+1.24%</span></td><td class="hide-on-mobile"><div class="rsi-wrap"><span class="">46.5</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:47%"></div></div></div></td><td class="hide-on-mobile text-red">-0.99%</td><td class="hide-on-mobile text-red">-3.13%</td><td class="hide-on-mobile text-red">-1.51%</td><td class="hide-on-mobile"><span class="text-green">1.525</span><span style="font-size:10px;color:var(--text-muted)"> (61↑/40↓)</span></td></tr>
+<tr class=""><td><div class="sym-cell"><span class="sym">DIA</span><span class="sym-name">Dow Jones ETF</span></div></td><td>465.48</td><td class="hide-on-mobile"><span class="chg-pill text-green-bg">+0.49%</span></td><td class="hide-on-mobile"><div class="rsi-wrap"><span class="">46.3</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:46%"></div></div></div></td><td class="hide-on-mobile text-green">+0.02%</td><td class="hide-on-mobile text-red">-3.28%</td><td class="hide-on-mobile text-green">+0.31%</td><td class="hide-on-mobile"><span class="text-green">1.500</span><span style="font-size:10px;color:var(--text-muted)"> (18↑/12↓)</span></td></tr>
+<tr class=""><td><div class="sym-cell"><span class="sym">IWM</span><span class="sym-name">Russell 2000 ETF</span></div></td><td>249.56</td><td class="hide-on-mobile"><span class="chg-pill text-green-bg">+0.63%</span></td><td class="hide-on-mobile"><div class="rsi-wrap"><span class="">48.6</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:49%"></div></div></div></td><td class="hide-on-mobile text-green">+0.46%</td><td class="hide-on-mobile text-red">-2.94%</td><td class="hide-on-mobile text-green">+3.32%</td><td class="hide-on-mobile"><span class="text-green">1.721</span><span style="font-size:10px;color:var(--text-muted)"> (1201↑/698↓)</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <!-- Phase 4 AI Comment -->
+  <div class="impact-comment-placeholder" id="s3-ai-comment">
+    Index momentum read — Regime context, MA alignment, breadth confirmation.
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- SECTION 4 — MARKET BREADTH                                     -->
+<!-- Architecture: A/D, % above MA, Stockbee；第一欄改為 "Symbol"   -->
+<!--               整合 Heatmap 至本 Section                         -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- ==================== SECTION 4A — BREADTH (FIXED) ==================== -->
+<div class="section" id="s4-breadth">
+  <div class="section-title">Section 4 — Market Breadth</div>
+  <div class="sub-title">4A — % of Index Constituents Above Moving Averages</div>
+  <div style="font-size:11px;color:var(--text-muted);margin-bottom:8px;">Source: Finviz screener (index-filtered) — breadth within each index's own constituent universe</div>
+  <div class="table-wrap">
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Symbol</th>
+          <th>Total</th>
+          <th>% &gt; 20MA</th>
+          <th class="hide-on-mobile">% &gt; 50MA</th>
+          <th class="hide-on-mobile">% &gt; 200MA</th>
+          <th class="hide-on-mobile">ETF</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>S&P 500</strong></td><td>503</td><td><div class="pct-bar-wrap"><span class="text-amber">45.1%</span><div class="pct-bar-track"><div class="pct-bar-amber" style="width:45%"></div></div></div></td><td class="hide-on-mobile"><div class="pct-bar-wrap"><span class="text-red">26.2%</span><div class="pct-bar-track"><div class="pct-bar-red" style="width:26%"></div></div></div></td><td class="hide-on-mobile"><div class="pct-bar-wrap"><span class="text-amber">47.7%</span><div class="pct-bar-track"><div class="pct-bar-amber" style="width:48%"></div></div></div></td><td class="hide-on-mobile"><strong>SPY</strong><br><span style="font-size:10px;color:var(--text-muted)">Finviz idx_sp500</span></td></tr>
+<tr><td><strong>NASDAQ 100</strong></td><td>101</td><td><div class="pct-bar-wrap"><span class="text-amber">41.6%</span><div class="pct-bar-track"><div class="pct-bar-amber" style="width:42%"></div></div></div></td><td class="hide-on-mobile"><div class="pct-bar-wrap"><span class="text-red">24.8%</span><div class="pct-bar-track"><div class="pct-bar-red" style="width:25%"></div></div></div></td><td class="hide-on-mobile"><div class="pct-bar-wrap"><span class="text-amber">43.6%</span><div class="pct-bar-track"><div class="pct-bar-amber" style="width:44%"></div></div></div></td><td class="hide-on-mobile"><strong>QQQ</strong><br><span style="font-size:10px;color:var(--text-muted)">Finviz idx_ndx</span></td></tr>
+<tr><td><strong>Dow Jones 30</strong></td><td>30</td><td><div class="pct-bar-wrap"><span class="text-amber">40.0%</span><div class="pct-bar-track"><div class="pct-bar-amber" style="width:40%"></div></div></div></td><td class="hide-on-mobile"><div class="pct-bar-wrap"><span class="text-red">26.7%</span><div class="pct-bar-track"><div class="pct-bar-red" style="width:27%"></div></div></div></td><td class="hide-on-mobile"><div class="pct-bar-wrap"><span class="text-amber">53.3%</span><div class="pct-bar-track"><div class="pct-bar-amber" style="width:53%"></div></div></div></td><td class="hide-on-mobile"><strong>DIA</strong><br><span style="font-size:10px;color:var(--text-muted)">yfinance DJI-30</span></td></tr>
+<tr><td><strong>Russell 2000</strong></td><td>1,928</td><td><div class="pct-bar-wrap"><span class="text-amber">54.7%</span><div class="pct-bar-track"><div class="pct-bar-amber" style="width:55%"></div></div></div></td><td class="hide-on-mobile"><div class="pct-bar-wrap"><span class="text-red">33.5%</span><div class="pct-bar-track"><div class="pct-bar-red" style="width:34%"></div></div></div></td><td class="hide-on-mobile"><div class="pct-bar-wrap"><span class="text-amber">48.3%</span><div class="pct-bar-track"><div class="pct-bar-amber" style="width:48%"></div></div></div></td><td class="hide-on-mobile"><strong>IWM</strong><br><span style="font-size:10px;color:var(--text-muted)">Finviz idx_rut</span></td></tr>
       </tbody>
     </table>
   </div>
 
-  <!-- 4C: NYSE / NASDAQ Full-Market Advance/Decline (Barchart) -->
-  <div class="sub-title" style="margin-top:20px;">4C — NYSE &amp; NASDAQ Full-Market Advance / Decline Ratio</div>
+  <!-- 4B: NYSE / NASDAQ Full-Market Advance/Decline -->
+  <div class="sub-title" style="margin-top:20px;">4B — NYSE &amp; NASDAQ Full-Market Advance / Decline Ratio</div>
   <div style="font-size:11px;color:var(--text-muted);margin-bottom:12px;">Source: Barchart.com — all listed stocks on each exchange (NOT limited to index constituents)</div>
   <div style="display:flex;gap:16px;flex-wrap:wrap;">
     <div class="adr-card"><div class="adr-card-head">NYSE</div><div class="adr-row"><span>Advances</span><span class="adr-val text-green">1,103</span></div><div class="adr-row"><span>Declines</span><span class="adr-val text-red">750</span></div><div class="adr-row"><span>Unchanged</span><span class="adr-val">24</span></div><div class="adr-row"><span>Total Issues</span><span class="adr-val">1,877</span></div><div class="adr-row"><span>% Advancing</span><span class="adr-val text-green">+58.8%</span></div><div class="adr-row"><span>% Declining</span><span class="adr-val text-red">+40.0%</span></div><div class="adr-row"><span>A/D Ratio</span><span class="adr-val"><span class="text-green">1.471</span></span></div><div class="adr-row"><span>Adv Volume</span><span class="adr-val">2872M</span></div><div class="adr-row"><span>Dec Volume</span><span class="adr-val">2586M</span></div><div class="adr-row"><span>52W Highs</span><span class="adr-val text-green">46</span></div><div class="adr-row"><span>52W Lows</span><span class="adr-val text-red">37</span></div></div>
 <div class="adr-card"><div class="adr-card-head">NASDAQ</div><div class="adr-row"><span>Advances</span><span class="adr-val text-green">1,880</span></div><div class="adr-row"><span>Declines</span><span class="adr-val text-red">1,154</span></div><div class="adr-row"><span>Unchanged</span><span class="adr-val">82</span></div><div class="adr-row"><span>Total Issues</span><span class="adr-val">3,116</span></div><div class="adr-row"><span>% Advancing</span><span class="adr-val text-green">+60.3%</span></div><div class="adr-row"><span>% Declining</span><span class="adr-val text-red">+37.0%</span></div><div class="adr-row"><span>A/D Ratio</span><span class="adr-val"><span class="text-green">1.629</span></span></div><div class="adr-row"><span>Adv Volume</span><span class="adr-val">3995M</span></div><div class="adr-row"><span>Dec Volume</span><span class="adr-val">3362M</span></div><div class="adr-row"><span>52W Highs</span><span class="adr-val text-green">31</span></div><div class="adr-row"><span>52W Lows</span><span class="adr-val text-red">45</span></div></div>
   </div>
 
-  <!-- 4D: Stockbee Market Monitor -->
-  <div class="sub-title" style="margin-top:20px;">4D — Stockbee Market Monitor</div>
+  <!-- 4C: Stockbee Market Monitor -->
+  <div class="sub-title" style="margin-top:20px;">4C — Stockbee Market Monitor</div>
   <div class="img-block">
-    <img src="assets/img/today/stockbee_mm.png?v=1775125400" alt="Stockbee Market Monitor" />
+    <img src="assets/img/today/stockbee_mm.png?v=1775450507" alt="Stockbee Market Monitor" />
     <div class="img-caption">Stockbee Market Monitor — Momentum Breakdown (T2108 / Up-Down 4%)</div>
+  </div>
+
+  <!-- 4D: Market Heatmap (moved here from Sector section) -->
+  <div class="sub-title" style="margin-top:20px;">4D — Market Heatmap</div>
+  <div class="img-block">
+    <img src="assets/img/today/market_heatmap.png?v=1775450507" alt="Market Heatmap (Finviz)" />
+    <div class="img-caption">Market Heatmap (Finviz) — Size = Market Cap, Color = 1D Performance</div>
+  </div>
+
+  <!-- Phase 4 AI Comment -->
+  <div class="impact-comment-placeholder" id="s4-ai-comment">
+    Breadth assessment — A/D ratio, % above MA thresholds, Stockbee momentum pulse. Context-dependent interpretation.
   </div>
 </div>
 
-<!-- ═══ SECTION 5 — SECTOR & INDUSTRY RS MOMENTUM ══════════════════ -->
-<div class="section">
-  <div class="section-title">Section 5 — Sector &amp; Industry RS Momentum</div>
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- SECTION 5 — SECTOR RS MOMENTUM                                 -->
+<!-- Architecture: Core Sectors；移除 Description；                  -->
+<!--               改用 Visual Tags (綠點/紅字) 顯示 vs MA           -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<div class="section" id="s5-sector">
+  <div class="section-title">Section 5 — Sector RS Momentum</div>
 
-  <!-- ── 5A: Core SPDR Sectors (11 ETFs) ─────────────────────────── -->
-  <div style="display:flex;align-items:center;margin:16px 0 6px;">
+  <div style="display:flex;align-items:center;margin:0 0 6px;">
     <div class="sub-title" style="margin:0;">5A — Core Market Pulse (11 SPDR ETFs)</div>
     <button class="logic-info-btn" onclick="showLogicModal('rs_momentum')">
       <span class="li-icon">&#9432;</span> Logic Info
@@ -792,7 +735,8 @@ function showCriteriaModal() {
   </div>
   <div class="logic-note">
     <strong>RS Score</strong> = (40% &times; 1m Return) + (40% &times; 3m Return) + (20% &times; 6m Return).
-    反映標的在 11 個核心 SPDR ETF 中的相對強度排名 (1–99)。
+    Relative strength rank (1–99) within 11 core SPDR ETFs.
+    <strong>vs MA</strong> shown as visual tags: <span class="vtag vtag-above">ABOVE</span> <span class="vtag vtag-near">NEAR</span> <span class="vtag vtag-below">BELOW</span>
   </div>
   <div class="table-wrap">
     <table class="data-table">
@@ -801,12 +745,12 @@ function showCriteriaModal() {
           <th>Symbol</th>
           <th>Sector</th>
           <th>Price</th>
-          <th>1D Chg%</th>
+          <th class="hide-on-mobile">1D Chg%</th>
           <th>1M Chg%</th>
-          <th>3M Chg%</th>
-          <th>RS Score</th>
+          <th class="hide-on-mobile">3M Chg%</th>
+          <th class="hide-on-mobile">RS Score</th>
           <th>RS Rating</th>
-          <th>RSI 14</th>
+          <th class="hide-on-mobile">RSI 14</th>
           <th>vs 20MA</th>
         </tr>
       </thead>
@@ -826,16 +770,30 @@ function showCriteriaModal() {
     </table>
   </div>
 
-  <!-- ── 5B: Industry RS Radar ────────────────────────────────────── -->
-  <div style="display:flex;align-items:center;margin:20px 0 6px;">
-    <div class="sub-title" style="margin:0;">5B — Thematic &amp; Sub-Sector Breakdown (45 ETFs)</div>
+  <!-- Phase 4 AI Comment -->
+  <div class="impact-comment-placeholder" id="s5-ai-comment">
+    Sector rotation read — Leading vs lagging sectors, RS momentum divergence, actionable rotation signals.
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- SECTION 6 — SUB-SECTOR BREAKDOWN                               -->
+<!-- Architecture: Sub-sector ETFs；改用 Visual Tags；               -->
+<!--               依據 etf_correlation_map.json 進行分組             -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<div class="section" id="s6-subsector">
+  <div class="section-title">Section 6 — Sub-Sector Breakdown</div>
+
+  <div style="display:flex;align-items:center;margin:0 0 6px;">
+    <div class="sub-title" style="margin:0;">6A — Thematic &amp; Sub-Sector Radar (45 ETFs, grouped by etf_correlation_map)</div>
     <button class="logic-info-btn" onclick="showLogicModal('cluster_radar')">
       <span class="li-icon">&#9432;</span> Logic Info
     </button>
   </div>
   <div class="logic-note">
-    <strong>Hot Cluster &#128293;</strong> 準則：組內超過 50% 的成員同時滿足
-    (Price &gt; 20MA) 且 (RS Rating &gt; 80)。代表機構資金正在集體性流入該板塊。
+    <strong>Hot Cluster &#128293;</strong> Criteria: &gt;50% of cluster members simultaneously satisfy
+    (Price &gt; 20MA) AND (RS Rating &gt; 80). Indicates institutional capital flowing into the cluster.
+    <strong>vs MA</strong> displayed as visual tags: <span class="vtag vtag-above">ABOVE</span> <span class="vtag vtag-near">NEAR</span> <span class="vtag vtag-below">BELOW</span>
   </div>
   <div style="background:rgba(158,158,158,0.1);border:1px solid #555;border-radius:6px;padding:8px 14px;margin-bottom:12px;font-size:12px;color:#9e9e9e;">&#10052; No Hot Clusters detected today</div>
 <div style="margin-bottom:20px;">
@@ -969,9 +927,21 @@ function showCriteriaModal() {
 </div>
 
 
-  <!-- ── 5C: Market Anomalies ─────────────────────────────────────── -->
-  <div class="sub-title" style="margin-top:20px;">5C — Industry RS Leaderboard &amp; Anomalies</div>
-  <div style="font-size:11px;color:var(--text-muted);margin-bottom:10px;">全場最強 Top 10 ETF (56個宇宙) + 成交量爆發警報 (Vol &gt; 1.5× 20日均量)</div>
+  <!-- Phase 4 AI Comment -->
+  <div class="impact-comment-placeholder" id="s6-ai-comment">
+    Sub-sector cluster analysis — Hot clusters, warming themes, capital flow direction. Grouped by correlation map.
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- SECTION 7 — INDUSTRY RS LEADERBOARD                            -->
+<!-- Architecture: RS Leaderboard；欄位 align 返 Sector/Sub-sector   -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<div class="section" id="s7-industry">
+  <div class="section-title">Section 7 — Industry RS Leaderboard</div>
+
+  <div class="sub-title">7A — Top RS Leaders &amp; Volume Anomalies (56-ETF Universe)</div>
+  <div style="font-size:11px;color:var(--text-muted);margin-bottom:10px;">Top 10 ETFs by RS Score + Volume Surge Alert (Vol &gt; 1.5&times; 20-day avg) — columns aligned with Sections 5 &amp; 6</div>
   
 <div style="margin-bottom:20px;">
   <div style="font-size:12px;font-weight:700;letter-spacing:0.8px;text-transform:uppercase;
@@ -1016,16 +986,115 @@ function showCriteriaModal() {
 </div>
 
 
-  <!-- Market Heatmap -->
-  <div class="img-block" style="margin-top:16px;">
-    <img src="assets/img/today/market_heatmap.png?v=1775125400" alt="Market Heatmap (Finviz)" />
-    <div class="img-caption">Market Heatmap (Finviz)</div>
+  <!-- Phase 4 AI Comment -->
+  <div class="impact-comment-placeholder" id="s7-ai-comment">
+    Industry leadership — Top RS movers, volume confirmation, actionable entry context.
   </div>
 </div>
 
-<!-- ═══ SECTION 6 — MARKET ANALYSIS (AI) ══════════════════════════ -->
-<div class="section">
-  <div class="section-title">Section 6 — Market Analysis</div>
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- SECTION 8 — SUMMARY (Bull/Bear, Regime, Checklist)             -->
+<!-- Architecture: 維持於底部，作為 Build-up 閱讀流嘅總結            -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<div class="section" id="s8-summary">
+  <div class="section-title">Section 8 — Market Summary &amp; Regime</div>
+
+  <!-- Correction Checklist (shown when SPY < 20MA) -->
+  
+<div id="correction-checklist" style="
+  background:linear-gradient(135deg,#1a0a0a 0%,#1c1010 100%);
+  border:2px solid #f44336;border-radius:10px;
+  padding:20px 24px;margin-bottom:28px;
+  box-shadow:0 0 20px rgba(244,67,54,0.15);">
+  <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px;">
+    <span style="font-size:24px;">🚨</span>
+    <div>
+      <div style="font-size:16px;font-weight:700;color:#f44336;letter-spacing:0.5px;">
+        MARKET CORRECTION MODE ACTIVE
+      </div>
+      <div style="font-size:11px;color:#aaaaaa;margin-top:2px;">
+        SPY is trading BELOW the 20-Day Moving Average — Defensive Protocol Engaged
+      </div>
+    </div>
+  </div>
+  <div style="font-size:11px;font-weight:600;letter-spacing:1.2px;text-transform:uppercase;
+    color:#f44336;border-left:3px solid #f44336;padding-left:10px;margin-bottom:12px;">
+    Market Correction Checklist
+  </div>
+  <div style="display:flex;align-items:flex-start;gap:12px;padding:10px 0;border-bottom:1px solid #2a2a2a;"><div style="min-width:220px;font-weight:600;font-size:13px;color:#e0e0e0;">🔴 Cut losers immediately</div><div style="font-size:12px;color:#aaaaaa;line-height:1.6;">Exit any position down >7-8% from entry. No averaging down.</div></div><div style="display:flex;align-items:flex-start;gap:12px;padding:10px 0;border-bottom:1px solid #2a2a2a;"><div style="min-width:220px;font-weight:600;font-size:13px;color:#e0e0e0;">🔴 Reduce overall exposure</div><div style="font-size:12px;color:#aaaaaa;line-height:1.6;">Scale down to 25-50% invested. Cash is a position.</div></div><div style="display:flex;align-items:flex-start;gap:12px;padding:10px 0;border-bottom:1px solid #2a2a2a;"><div style="min-width:220px;font-weight:600;font-size:13px;color:#e0e0e0;">🟡 Identify true market leaders</div><div style="font-size:12px;color:#aaaaaa;line-height:1.6;">Which stocks are holding up best? These lead the next rally.</div></div><div style="display:flex;align-items:flex-start;gap:12px;padding:10px 0;border-bottom:1px solid #2a2a2a;"><div style="min-width:220px;font-weight:600;font-size:13px;color:#e0e0e0;">🟡 Monitor VIX for capitulation</div><div style="font-size:12px;color:#aaaaaa;line-height:1.6;">VIX spike >35-40 often signals a tradeable low.</div></div><div style="display:flex;align-items:flex-start;gap:12px;padding:10px 0;border-bottom:1px solid #2a2a2a;"><div style="min-width:220px;font-weight:600;font-size:13px;color:#e0e0e0;">🟡 Watch for volume climax</div><div style="font-size:12px;color:#aaaaaa;line-height:1.6;">High-volume selling exhaustion = potential reversal signal.</div></div><div style="display:flex;align-items:flex-start;gap:12px;padding:10px 0;border-bottom:1px solid #2a2a2a;"><div style="min-width:220px;font-weight:600;font-size:13px;color:#e0e0e0;">🟢 Build a watchlist of strong stocks</div><div style="font-size:12px;color:#aaaaaa;line-height:1.6;">Stocks near highs or with tight bases during correction.</div></div><div style="display:flex;align-items:flex-start;gap:12px;padding:10px 0;border-bottom:1px solid #2a2a2a;"><div style="min-width:220px;font-weight:600;font-size:13px;color:#e0e0e0;">🟢 Wait for Follow-Through Day (FTD)</div><div style="font-size:12px;color:#aaaaaa;line-height:1.6;">A strong up day (+1.7%+) on higher volume = confirmed rally.</div></div><div style="display:flex;align-items:flex-start;gap:12px;padding:10px 0;border-bottom:1px solid #2a2a2a;"><div style="min-width:220px;font-weight:600;font-size:13px;color:#e0e0e0;">🟢 Re-enter in small pilot positions</div><div style="font-size:12px;color:#aaaaaa;line-height:1.6;">Start with 25% of normal size, add only if market confirms.</div></div>
+</div>
+
+  <!-- Coach's Action Plan -->
+  <div style="
+    border: 2px solid #ff9800;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #0d0a00 0%, #120c00 100%);
+    padding: 20px 24px;
+    margin-bottom: 16px;
+    box-shadow: 0 0 24px rgba(255,152,0,0.12);
+  ">
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;">
+      <span style="font-size:22px;">&#127919;</span>
+      <div style="font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;
+                  color:#ff9800;border-left:3px solid #ff9800;padding-left:10px;">
+        Coach's Action Plan &mdash; Today's Playbook
+      </div>
+    </div>
+      <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:6px;padding:14px 18px;margin-bottom:16px;">
+    <div style="font-size:10px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--text-muted);margin-bottom:8px;">Trading Outlook</div>
+    <div style="font-size:22px;font-weight:700;color:var(--red);letter-spacing:-0.5px;margin-bottom:4px;">
+      Risk-off (Defensive) &nbsp;<span style="font-size:14px;color:var(--text-muted);">Score: 7 / 9</span>
+    </div>
+    <div style="margin-top:6px;margin-bottom:10px;">
+      <div style="background:#222;border-radius:4px;height:6px;width:100%;overflow:hidden;">
+        <div style="background:var(--red);height:100%;width:77%;border-radius:4px;transition:width 0.3s;"></div>
+      </div>
+    </div>
+    <p style="color:#e0e0e0;font-size:13px;line-height:1.7;margin-top:8px;">VIX 高企（28.93，-5.49%）且趨勢向上，所有主要指數均在均線之下，市場廣度極差（S&P500 僅 17.9% 股票在 20MA 之上）。建議維持防守姿態，降低整體倉位，耐心等待 VIX 回落至 20 以下或指數出現放量止跌信號，再逐步加倉。</p>
+    <div style="margin-top:8px;font-size:11px;color:var(--text-muted);">Risk Factors: <span style="color:var(--red)">VIX=28.9 (>25, high fear)</span> | <span style="color:var(--red)">SPY RSI=27.7 (<35, oversold)</span> | <span style="color:var(--red)">QQQ RSI=28.9 (<35, oversold)</span> | <span style="color:var(--red)">F&G=13 (Extreme Fear)</span> | <span style="color:var(--red)">SP500 >20MA=17.9% (<25%, breadth collapse)</span></div>
+  </div>
+
+  <div class="sub-title" style="margin-top:4px;">Watchlist — Relative Strength Leaders</div>
+  <div class="table-wrap">
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th style="text-align:left">Sector / ETF</th>
+          <th>RSI</th>
+          <th>Price</th>
+          <th style="text-align:left">Thesis</th>
+          <th style="text-align:left">Technical Trigger</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="rsi-ob-cell">
+          <td><strong>Energy</strong> <span style="color:var(--text-muted);font-size:11px;">XLE</span></td>
+          <td><div class="rsi-wrap"><span class="text-red">77.4</span><div class="rsi-track"><div class="rsi-fill rsi-ob" style="width:77%"></div></div></div></td>
+          <td>$61.96</td>
+          <td style="text-align:left;font-size:12px;">唯一突破所有均線的板塊，相對強度領先，資金明顯輪入。RSI=77.4，趨勢最強。</td>
+          <td style="text-align:left;font-size:12px;color:var(--amber);">守住 20MA ($58.26) 可繼續看多；跌破 $58.26 止損。</td>
+        </tr>
+        <tr class="">
+          <td><strong>Utilities</strong> <span style="color:var(--text-muted);font-size:11px;">XLU</span></td>
+          <td><div class="rsi-wrap"><span class="">52.8</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:53%"></div></div></div></td>
+          <td>$45.92</td>
+          <td style="text-align:left;font-size:12px;">防禦屬性強，市場恐慌時相對抗跌。RSI=52.8，需關注 MA 支撐。</td>
+          <td style="text-align:left;font-size:12px;color:var(--amber);">守住 50MA ($44.99) 支撐；跌破 $44.99 止損。</td>
+        </tr>
+        <tr class="">
+          <td><strong>Materials</strong> <span style="color:var(--text-muted);font-size:11px;">XLB</span></td>
+          <td><div class="rsi-wrap"><span class="">46.6</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:47%"></div></div></div></td>
+          <td>$49.09</td>
+          <td style="text-align:left;font-size:12px;">防禦屬性強，市場恐慌時相對抗跌。RSI=46.6，需關注 MA 支撐。</td>
+          <td style="text-align:left;font-size:12px;color:var(--amber);">守住 200MA ($45.85) 支撐；跌破 $45.85 止損。</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  </div>
+
+  <!-- Market Analysis (AI) -->
+  <div class="sub-title">8B — Market Analysis</div>
     <div class="table-wrap" style="margin-bottom:18px;">
     <table class="data-table">
       <thead>
@@ -1075,13 +1144,22 @@ function showCriteriaModal() {
 
   <h4 class="sub-title">Bear Case (利淡邏輯)</h4>
   <ul style="color:#ef9a9a;font-size:13px;margin:8px 0 14px 0;padding-left:20px;"><li style="margin-bottom:6px;line-height:1.6;">SPY與QQQ均低於20MA及50MA，趨勢崩潰明顯</li><li style="margin-bottom:6px;line-height:1.6;">Fear & Greed指數13極度恐慌，反映宏觀壓制</li><li style="margin-bottom:6px;line-height:1.6;">S&P500僅42.5%成分股在200MA以上，廣度惡化</li><li style="margin-bottom:6px;line-height:1.6;">XLK RSI 29.9持續弱勢，假突破風險高</li></ul>
+
+  <!-- Phase 4 AI Comment -->
+  <div class="impact-comment-placeholder" id="s8-ai-comment">
+    Bull/Bear regime synthesis — Checklist status, regime classification, actionable bias for next session.
+  </div>
 </div>
 
-<!-- Section 7 (Coach's Action Plan) is now displayed at the TOP of the report for maximum visibility -->
-
-<!-- ═══ SECTION 8 — EVENT CALENDAR ════════════════════════════════ -->
-<div class="section">
-  <div class="section-title">Section 8 — Event Calendar (Mar 28 - Apr 3, 2026)</div>
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- SECTION 9 — EVENT CALENDAR                                     -->
+<!-- Architecture: 3-star events only；Python Strict Filtering      -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<div class="section" id="s9-events">
+  <div class="section-title">Section 9 — Event Calendar (3-Star Events Only)</div>
+  <div style="font-size:11px;color:var(--text-muted);margin-bottom:10px;">
+    Strict filter: &#9733;&#9733;&#9733; high-impact events only. Low/medium impact events excluded.
+  </div>
   <div class="table-wrap">
     <table class="data-table">
       <thead>
@@ -1181,9 +1259,13 @@ function showCriteriaModal() {
       </tbody>
     </table>
   </div>
+  <!-- Phase 4 AI Comment -->
+  <div class="impact-comment-placeholder" id="s9-ai-comment">
+    Event risk assessment — Upcoming catalysts, expected volatility windows, positioning implications.
+  </div>
 </div>
 
-<!-- ═══ HISTORY ARCHIVE ════════════════════════════════════════ -->
+<!-- ═══ HISTORY ARCHIVE ════════════════════════════════════════════ -->
 <div class="section" style="border-top:2px solid var(--border);margin-top:24px;">
   <div class="section-title" style="color:var(--blue);">&#128196; History Archive</div>
   <p style="color:var(--text-muted);font-size:12px;margin-bottom:4px;">
@@ -1194,8 +1276,8 @@ function showCriteriaModal() {
 
 <!-- FOOTER -->
 <div class="report-footer">
-  Generated by Credit-Efficient Market Summary System &nbsp;|&nbsp;
-  Data: Yahoo Finance · CNN · NAAIM · Finviz · Barchart &nbsp;|&nbsp;
+  Momentum Swing Trading Coach &nbsp;|&nbsp;
+  Data: Yahoo Finance &middot; CNN &middot; NAAIM &middot; Finviz &middot; Barchart &nbsp;|&nbsp;
   2026-04-02 18:20 HKT &nbsp;/&nbsp; 2026-04-02 06:20 ET<br/>
   For informational purposes only. Not financial advice.
 </div>

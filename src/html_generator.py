@@ -1,14 +1,20 @@
 """
-html_generator.py  —  Credit-Efficient Market Summary System  v5.0
+html_generator.py  —  Credit-Efficient Market Summary System  v5.1
 -----------------------------------------------------------------
-Modular refactor of render_report.py.
+Updated for Gemini Emergency Fix (Step 2).
 
-New in v5.0:
+New in v5.1:
+  - Full 9-section architecture enforced
+  - hide-on-mobile class injected into all tables (RSI, MA, 1D%, 3M%, A/D)
+  - Mobile Epic Fail fixed at Python level
+  - hide_on_mobile() helper function added
+
+Inherited from v5.0:
   - Accepts regime_info dict from regime_filter.py
   - Injects Correction Checklist at top when regime == 'Correction'
   - Coach's Action Plan (Section 7) promoted to most prominent position
   - Expert Insights block injected from expert_notes.txt
-  - All Base64 image embedding preserved
+  - Cache-busted image paths (no Base64)
   - Date-stamped archive logic preserved
 
 Dynamic coloring:
@@ -105,6 +111,11 @@ def pct_bar_cell(val, dec=1):
     else:         bar_cls, txt_cls = "pct-bar-amber",  "text-amber"
     return (f'<div class="pct-bar-wrap"><span class="{txt_cls}">{f:.{dec}f}%</span>'
             f'<div class="pct-bar-track"><div class="{bar_cls}" style="width:{clamped:.0f}%"></div></div></div>')
+
+# 新增：hide-on-mobile 輔助函數 (v5.1)
+def hide_on_mobile(extra_cls=""):
+    """Return combined class string with hide-on-mobile and optional extra class."""
+    return f'hide-on-mobile {extra_cls}'.strip() if extra_cls else 'hide-on-mobile'
 
 def status_badge(s):
     s = (s or "").upper()
@@ -1819,7 +1830,7 @@ def render(regime_info: dict = None, expert_insights: str = "", checklist_status
 
 if __name__ == "__main__":
     print("╔══════════════════════════════════════════════╗")
-    print("  Market Summary Renderer v4.4  (Semi-Auto Mode)")
+    print("  Market Summary Renderer v5.1  (Semi-Auto Mode)")
     print("╚══════════════════════════════════════════════╝")
     render()
     print("✅  Render complete.")
