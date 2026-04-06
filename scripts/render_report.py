@@ -926,8 +926,22 @@ def render():
         f'<div style="font-size:13px;font-weight:700;color:{rc};margin-bottom:4px;">{rl}</div>'
         f'<div style="font-size:11px;color:#aaa;">{rs}</div></div>'
     )
+    # ── DATA WARNING BANNER (Grok v5.1) ─────────────────────────────────────────
+    _data_status   = data.get("data_status", "fresh")
+    _data_warnings = data.get("data_warnings", [])
+    if _data_status == "warning" and _data_warnings:
+        _warn_text = " | ".join(_data_warnings)
+        _warning_banner_html = (
+            f'<div class="data-warning-banner active">'
+            f'⚠️ Data Stale / Warning: {_warn_text} — Please check source data'
+            f'</div>'
+        )
+    else:
+        _warning_banner_html = '<div class="data-warning-banner"></div>'
+    html = html.replace("{{DATA_WARNING_BANNER}}", _warning_banner_html)
+
     html = html.replace("{{REGIME_BANNER}}", regime_banner)
-    # ── CORRECTION CHECKLIST ────────────────────────────────────────────────────
+    # ── CORRECTION CHECKLIST ──────────────────────────────────────────────────────────────────
     if spy_vs20 is not None and spy_vs20 < 0:
         c1 = "&#9989;" if vix_val_r and vix_val_r > 30 else "&#11036;"
         c2 = "&#9989;" if fg_score_r and fg_score_r < 20 else "&#11036;"
