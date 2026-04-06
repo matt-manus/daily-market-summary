@@ -1697,7 +1697,12 @@ def render(regime_info: dict = None, expert_insights: str = "", checklist_status
     html = html.replace("{{VOLUME_CLIMAX_BLOCK}}", build_volume_climax_block(sectors))
     # Legacy placeholder (no longer in template but keep for safety)
     html = html.replace("{{INDUSTRY_ROWS}}",     build_industry_rows(industry))
-    print("  \u2713  Section 5 RS Momentum redesign injected (5A/5B/5C)")
+    print("  ✓  Section 5 RS Momentum redesign injected (5A/5B/5C)")
+    # Step 2 Reorg: Section 5/6/7 趨勢化 — Thematic / RS Leaders / Laggards
+    html = html.replace("{{THEMATIC_ROWS}}",    build_thematic_rows(data))
+    html = html.replace("{{RS_LEADERS_ROWS}}",  build_rs_leaders_rows(data))
+    html = html.replace("{{LAGGARDS_ROWS}}",    build_laggards_rows(data))
+    print("  ✓  Step 2 Section 5/6/7 Thematic/RS Leaders/Laggards injected")
 
     # Section 6: AI Market Analysis (Checklist + Bull/Bear)
     html = html.replace("{{S6_CONTENT}}", build_s6_analysis(data, ai_strategy))
@@ -1894,6 +1899,81 @@ def render(regime_info: dict = None, expert_insights: str = "", checklist_status
     size_kb = OUTPUT.stat().st_size / 1024
     print(f"  ✓  index.html written  ({size_kb:.1f} KB)")
     print(f"  ✓  Archive block shows {archive_count} link(s) in footer")
+
+# ── Step 2 新增：Section 5/6/7 趨勢化 build functions ──────────────────────
+
+def build_thematic_rows(data):
+    """Section 5 — Thematic & Sub-Sector (uses data['thematic'] list)"""
+    rows = []
+    for item in data.get("thematic", []):
+        symbol = item.get("symbol", "")
+        price  = na(item.get("price"), "price")
+        ma20   = na(item.get("vs_20ma"),  "pct")
+        ma50   = na(item.get("vs_50ma"),  "pct")
+        ma200  = na(item.get("vs_200ma"), "pct")
+        rows.append(
+            f'<tr>'
+            f'<td>{symbol}</td>'
+            f'<td>{price}</td>'
+            f'<td class="hide-on-mobile {css_dir(item.get("vs_20ma"))}">{ma20}</td>'
+            f'<td class="hide-on-mobile {css_dir(item.get("vs_50ma"))}">{ma50}</td>'
+            f'<td class="hide-on-mobile {css_dir(item.get("vs_200ma"))}">{ma200}</td>'
+            f'</tr>'
+        )
+    if not rows:
+        return '<tr><td colspan="5"><span class="na-val">No thematic data — run fetch_all_data.py Step 3</span></td></tr>'
+    return "\n".join(rows)
+
+
+def build_rs_leaders_rows(data):
+    """Section 6 — Top RS Leaders (uses data['rs_leaders'] list)"""
+    rows = []
+    for item in data.get("rs_leaders", []):
+        symbol     = item.get("symbol", "")
+        price      = na(item.get("price"), "price")
+        ma20       = na(item.get("vs_20ma"),  "pct")
+        ma50       = na(item.get("vs_50ma"),  "pct")
+        ma200      = na(item.get("vs_200ma"), "pct")
+        sector_etf = SPDR_ETF_MAP.get(symbol.upper(), "—")
+        rows.append(
+            f'<tr>'
+            f'<td><strong>{symbol}</strong></td>'
+            f'<td>{price}</td>'
+            f'<td class="hide-on-mobile {css_dir(item.get("vs_20ma"))}">{ma20}</td>'
+            f'<td class="hide-on-mobile {css_dir(item.get("vs_50ma"))}">{ma50}</td>'
+            f'<td class="hide-on-mobile {css_dir(item.get("vs_200ma"))}">{ma200}</td>'
+            f'<td style="font-size:11px;color:#aaa;">{sector_etf}</td>'
+            f'</tr>'
+        )
+    if not rows:
+        return '<tr><td colspan="6"><span class="na-val">No RS leaders data — run fetch_all_data.py Step 3</span></td></tr>'
+    return "\n".join(rows)
+
+
+def build_laggards_rows(data):
+    """Section 7 — Laggards / Weakest (uses data['laggards'] list)"""
+    rows = []
+    for item in data.get("laggards", []):
+        symbol     = item.get("symbol", "")
+        price      = na(item.get("price"), "price")
+        ma20       = na(item.get("vs_20ma"),  "pct")
+        ma50       = na(item.get("vs_50ma"),  "pct")
+        ma200      = na(item.get("vs_200ma"), "pct")
+        sector_etf = SPDR_ETF_MAP.get(symbol.upper(), "—")
+        rows.append(
+            f'<tr>'
+            f'<td><strong>{symbol}</strong></td>'
+            f'<td>{price}</td>'
+            f'<td class="hide-on-mobile {css_dir(item.get("vs_20ma"))}">{ma20}</td>'
+            f'<td class="hide-on-mobile {css_dir(item.get("vs_50ma"))}">{ma50}</td>'
+            f'<td class="hide-on-mobile {css_dir(item.get("vs_200ma"))}">{ma200}</td>'
+            f'<td style="font-size:11px;color:#aaa;">{sector_etf}</td>'
+            f'</tr>'
+        )
+    if not rows:
+        return '<tr><td colspan="6"><span class="na-val">No laggards data — run fetch_all_data.py Step 3</span></td></tr>'
+    return "\n".join(rows)
+
 
 if __name__ == "__main__":
     print("╔══════════════════════════════════════════════╗")
