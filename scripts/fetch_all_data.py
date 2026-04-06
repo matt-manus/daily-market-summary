@@ -56,6 +56,114 @@ import requests
 import yfinance as yf
 from bs4 import BeautifulSoup
 
+# ─── 新增：動態 T2108 抓取（取代硬編碼） ─────────────────────────────────────
+def fetch_dynamic_t2108() -> dict:
+    """
+    從 stockbee_mm.json 讀取最新 T2108（由 fetch_stockbee_data.py 動態抓取）。
+    若 JSON 不存在或解析失敗 → 返回 None（由 validate_and_clean_data 轉為 "-" + warning）。
+    嚴禁顯示過期日期：若 data_stale == True，t2108 強制設為 None。
+    """
+    import os as _os
+    _JSON_PATH = _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), "..", "data", "stockbee_mm.json")
+    try:
+        if not _os.path.exists(_JSON_PATH):
+            raise FileNotFoundError(f"stockbee_mm.json not found at {_JSON_PATH}")
+        with open(_JSON_PATH, encoding="utf-8") as _f:
+            raw = json.load(_f)
+        # 若是 error payload（list with error_code），直接返回 stale
+        if isinstance(raw, list) and raw and raw[0].get("error_code"):
+            raise ValueError(f"stockbee_mm.json contains error: {raw[0].get('error')}")
+        # 嘗試從 JSON 中解析 T2108 欄位
+        t2108_val = None
+        latest_date = None
+        if isinstance(raw, list):
+            for row in raw:
+                if isinstance(row, dict):
+                    for k, v in row.items():
+                        if "t2108" in str(k).lower():
+                            try:
+                                t2108_val = float(str(v).replace("%", "").strip())
+                                latest_date = row.get("last_success_time", "")[:10]
+                            except (ValueError, TypeError):
+                                pass
+        return {
+            "source": "Stockbee Market Monitor (dynamic via stockbee_mm.json)",
+            "latest_date": latest_date,
+            "t2108": t2108_val,
+            "data_stale": t2108_val is None,
+        }
+    except Exception as e:
+        print(f"  [WARNING] Dynamic T2108 fetch failed: {e}")
+        return {
+            "source": "Stockbee Market Monitor (failed)",
+            "latest_date": None,
+            "t2108": None,
+            "data_stale": True,
+        }
+
+
+# ─── 新增：數據驗證與防呆核心函數 ─────────────────────────────────────────────
+def validate_and_clean_data(data: dict) -> dict:
+    """
+    1. 遍歷整個 JSON 字典，將所有 None / NaN / 無效值 → "-"
+    2. 偵測關鍵數據是否缺失或過時 → 設定 data_status
+    3. 新增 top-level 字段：last_updated_hkt + data_status
+    """
+    if not isinstance(data, dict):
+        return data
+
+    def clean_value(v):
+        if v is None:
+            return "-"
+        try:
+            if isinstance(v, float) and pd.isna(v):
+                return "-"
+        except Exception:
+            pass
+        if isinstance(v, dict):
+            return {k: clean_value(val) for k, val in v.items()}
+        if isinstance(v, list):
+            return [clean_value(item) for item in v]
+        return v
+
+    cleaned = clean_value(data)
+
+    # ── 關鍵數據完整性檢查 ──
+    status = "fresh"
+    warnings = []
+
+    indices = cleaned.get("indices", {})
+    for ticker in ["SPY", "QQQ", "DIA", "IWM"]:
+        price = indices.get(ticker, {}).get("price")
+        if price in ["-", None, 0]:
+            warnings.append(f"{ticker} price missing")
+            status = "warning"
+
+    t2108_val = cleaned.get("stockbee_mm", {}).get("t2108")
+    if t2108_val in ["-", None]:
+        warnings.append("T2108 missing or stale")
+        # T2108 缺失降為 warning 但不阻斷（非核心交易數據）
+        if status == "fresh":
+            status = "warning"
+
+    fg = cleaned.get("sentiment", {}).get("fear_greed", {})
+    if fg.get("score") in ["-", None]:
+        warnings.append("Fear & Greed missing")
+        status = "warning"
+
+    cleaned["data_status"] = status
+    if warnings:
+        cleaned["data_warnings"] = warnings
+
+    hk_tz = pytz.timezone("Asia/Hong_Kong")
+    ts_hkt = datetime.now(hk_tz).strftime("%Y-%m-%d %H:%M:%S HKT")
+    cleaned["last_updated_hkt"] = ts_hkt
+    if isinstance(cleaned.get("meta"), dict):
+        cleaned["meta"]["last_updated_hkt"] = ts_hkt
+
+    return cleaned
+
+
 # ─── 配置區 ────────────────────────────────────────────────────────────────────
 MACRO_TICKERS = {
     "VIX":     "^VIX",
@@ -1100,7 +1208,23 @@ def fetch_all() -> dict:
         "breadth":   breadth_out,
     }
 
-    # ── Save JSON ────────────────────────────────────────────────────
+    # ── 新增：動態 T2108 注入（取代硬編碼）────────────────────────────────────
+    if "stockbee_mm" not in output:
+        output["stockbee_mm"] = fetch_dynamic_t2108()
+        t2108_status = output["stockbee_mm"].get("t2108")
+        if t2108_status is not None:
+            print(f"  ✓  T2108 (dynamic): {t2108_status}%")
+        else:
+            print("  ⚠  T2108 數據無法取得，已設為 None")
+
+    # ── 新增：驗證與防呆層（Grok v5.1）────────────────────────────────────
+    output = validate_and_clean_data(output)
+    print(f"  ✓  data_status = {output.get('data_status')}")
+    if output.get("data_warnings"):
+        for w in output["data_warnings"]:
+            print(f"  ⚠  [data_warning] {w}")
+
+    # ── Save JSON ────────────────────────────────────────────
     abs_path = os.path.abspath(OUTPUT_PATH)
     os.makedirs(os.path.dirname(abs_path), exist_ok=True)
     with open(abs_path, "w", encoding="utf-8") as f:
