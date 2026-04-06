@@ -504,6 +504,45 @@
         padding: 8px 6px;
       }
     }
+
+    /* Section 6 — Category boxes */
+    #subsector-boxes {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .category-box {
+      flex: 1 1 420px;
+      min-width: 320px;
+      background: #1a1a2e;
+      border: 1px solid #2a2a4a;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .category-title {
+      background: #252545;
+      color: #a0a8d0;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 8px 14px;
+      border-bottom: 1px solid #2a2a4a;
+      position: sticky;
+      top: 0;
+      z-index: 2;
+    }
+    .category-box .table-wrap {
+      overflow-x: auto;
+    }
+    @media (max-width: 600px) {
+      #subsector-boxes {
+        flex-direction: column;
+      }
+      .category-box {
+        min-width: 0;
+      }
+    }
   </style>
 </head>
 <body>
@@ -701,14 +740,14 @@
   <!-- 4C: Stockbee Market Monitor -->
   <div class="sub-title" style="margin-top:20px;">4C — Stockbee Market Monitor</div>
   <div class="img-block">
-    <img src="assets/img/today/stockbee_mm.png?v=1775485127" alt="Stockbee Market Monitor" />
+    <img src="assets/img/today/stockbee_mm.png?v=1775486729" alt="Stockbee Market Monitor" />
     <div class="img-caption">Stockbee Market Monitor — Momentum Breakdown (T2108 / Up-Down 4%)</div>
   </div>
 
   <!-- 4D: Market Heatmap (moved here from Sector section) -->
   <div class="sub-title" style="margin-top:20px;">4D — Market Heatmap</div>
   <div class="img-block">
-    <img src="assets/img/today/market_heatmap.png?v=1775485127" alt="Market Heatmap (Finviz)" />
+    <img src="assets/img/today/market_heatmap.png?v=1775486729" alt="Market Heatmap (Finviz)" />
     <div class="img-caption">Market Heatmap (Finviz) — Size = Market Cap, Color = 1D Performance</div>
   </div>
 
@@ -848,483 +887,598 @@
 <!-- ═══════════════════════════════════════════════════════════════ -->
 <!-- SECTION 6 — SUB-SECTOR ETFs (9 groups + Core ETF mapping)      -->
 <!-- ═══════════════════════════════════════════════════════════════ -->
-<!-- Section 6 — Sub-Sector ETFs (grouped + Core ETF mapping) -->
+<!-- Section 6 — Sub-Sector ETFs (分開 box，每組獨立 header) -->
 <div class="section" id="s6-subsector">
   <div class="section-title">Section 6 — Sub-Sector ETFs</div>
-  <div class="table-wrap">
-    <table class="data-table">
-      <thead>
-        <tr>
-          <th>Symbol</th>
-          <th>Core ETF</th>
-          <th>1D Change%</th>
-          <th class="hide-on-mobile">vs 20MA</th>
-          <th class="hide-on-mobile">vs 50MA</th>
-          <th class="hide-on-mobile">vs 200MA</th>
-          <th>RSI 14</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr class="group-header"><td colspan="7"><strong>Tech, AI & Robotics</strong></td></tr>
+  <div id="subsector-boxes">
+    
+        <div class="category-box">
+            <div class="category-title">Tech, AI & Robotics</div>
+            <div class="table-wrap">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Symbol</th>
+                            <th>Core ETF</th>
+                            <th>1D Change%</th>
+                            <th class="hide-on-mobile">vs 20MA</th>
+                            <th class="hide-on-mobile">vs 50MA</th>
+                            <th class="hide-on-mobile">vs 200MA</th>
+                            <th>RSI 14</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+            <tr>
+                <td><strong>SOXX</strong></td>
+                <td><span class="tag">XLK</span></td>
+                <td><span class="chg-pill text-green-bg">+3.01%</span></td>
+                <td class="hide-on-mobile text-green">+1.36%</td>
+                <td class="hide-on-mobile text-red">-1.63%</td>
+                <td class="hide-on-mobile text-green">+16.34%</td>
+                <td><div class="rsi-wrap"><span class="">51.1</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:51%"></div></div></div></td>
+            </tr>
+            <tr>
+                <td><strong>SMH</strong></td>
+                <td><span class="tag">XLK</span></td>
+                <td><span class="chg-pill text-green-bg">+2.24%</span></td>
+                <td class="hide-on-mobile text-green">+0.68%</td>
+                <td class="hide-on-mobile text-red">-1.83%</td>
+                <td class="hide-on-mobile text-green">+14.31%</td>
+                <td><div class="rsi-wrap"><span class="">50.4</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:50%"></div></div></div></td>
+            </tr>
+            <tr>
+                <td><strong>SKYY</strong></td>
+                <td><span class="tag">XLK</span></td>
+                <td><span class="chg-pill text-green-bg">+0.89%</span></td>
+                <td class="hide-on-mobile text-red">-1.07%</td>
+                <td class="hide-on-mobile text-red">-2.89%</td>
+                <td class="hide-on-mobile text-red">-11.72%</td>
+                <td><div class="rsi-wrap"><span class="">47.2</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:47%"></div></div></div></td>
+            </tr>
+            <tr>
+                <td><strong>ROBO</strong></td>
+                <td><span class="tag">-</span></td>
+                <td><span class="chg-pill text-green-bg">+2.50%</span></td>
+                <td class="hide-on-mobile text-red">-0.32%</td>
+                <td class="hide-on-mobile text-red">-4.58%</td>
+                <td class="hide-on-mobile text-green">+3.79%</td>
+                <td><div class="rsi-wrap"><span class="">46.9</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:47%"></div></div></div></td>
+            </tr>
+            <tr>
+                <td><strong>AIQ</strong></td>
+                <td><span class="tag">XLK</span></td>
+                <td><span class="chg-pill text-green-bg">+1.44%</span></td>
+                <td class="hide-on-mobile text-red">-1.76%</td>
+                <td class="hide-on-mobile text-red">-4.67%</td>
+                <td class="hide-on-mobile text-red">-2.33%</td>
+                <td><div class="rsi-wrap"><span class="">45.6</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:46%"></div></div></div></td>
+            </tr>
+            <tr>
+                <td><strong>ARKQ</strong></td>
+                <td><span class="tag">XLK</span></td>
+                <td><span class="chg-pill text-green-bg">+1.83%</span></td>
+                <td class="hide-on-mobile text-red">-2.28%</td>
+                <td class="hide-on-mobile text-red">-5.88%</td>
+                <td class="hide-on-mobile text-green">+3.45%</td>
+                <td><div class="rsi-wrap"><span class="">45.5</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:46%"></div></div></div></td>
+            </tr>
+            <tr>
+                <td><strong>BOTZ</strong></td>
+                <td><span class="tag">XLK</span></td>
+                <td><span class="chg-pill text-green-bg">+2.05%</span></td>
+                <td class="hide-on-mobile text-red">-2.19%</td>
+                <td class="hide-on-mobile text-red">-7.54%</td>
+                <td class="hide-on-mobile text-red">-3.97%</td>
+                <td><div class="rsi-wrap"><span class="">42.5</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:43%"></div></div></div></td>
+            </tr>
+            <tr>
+                <td><strong>IGV</strong></td>
+                <td><span class="tag">-</span></td>
+                <td><span class="chg-pill text-red-bg">-0.35%</span></td>
+                <td class="hide-on-mobile text-red">-4.23%</td>
+                <td class="hide-on-mobile text-red">-6.13%</td>
+                <td class="hide-on-mobile text-red">-22.82%</td>
+                <td><div class="rsi-wrap"><span class="">40.9</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:41%"></div></div></div></td>
+            </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
 
-        <tr>
-            <td><strong>SOXX</strong></td>
-            <td><span class="tag">XLK</span></td>
-            <td><span class="chg-pill text-green-bg">+3.01%</span></td>
-            <td class="hide-on-mobile text-green">+1.36%</td>
-            <td class="hide-on-mobile text-red">-1.63%</td>
-            <td class="hide-on-mobile text-green">+16.34%</td>
-            <td><div class="rsi-wrap"><span class="">51.1</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:51%"></div></div></div></td>
-        </tr>
+        <div class="category-box">
+            <div class="category-title">Cybersecurity</div>
+            <div class="table-wrap">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Symbol</th>
+                            <th>Core ETF</th>
+                            <th>1D Change%</th>
+                            <th class="hide-on-mobile">vs 20MA</th>
+                            <th class="hide-on-mobile">vs 50MA</th>
+                            <th class="hide-on-mobile">vs 200MA</th>
+                            <th>RSI 14</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+            <tr>
+                <td><strong>CIBR</strong></td>
+                <td><span class="tag">XLK</span></td>
+                <td><span class="chg-pill text-green-bg">+0.75%</span></td>
+                <td class="hide-on-mobile text-red">-1.64%</td>
+                <td class="hide-on-mobile text-red">-3.85%</td>
+                <td class="hide-on-mobile text-red">-12.08%</td>
+                <td><div class="rsi-wrap"><span class="">45.3</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:45%"></div></div></div></td>
+            </tr>
+            <tr>
+                <td><strong>BUG</strong></td>
+                <td><span class="tag">XLK</span></td>
+                <td><span class="chg-pill text-green-bg">+0.92%</span></td>
+                <td class="hide-on-mobile text-red">-2.17%</td>
+                <td class="hide-on-mobile text-red">-5.25%</td>
+                <td class="hide-on-mobile text-red">-20.78%</td>
+                <td><div class="rsi-wrap"><span class="">44.7</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:45%"></div></div></div></td>
+            </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
 
-        <tr>
-            <td><strong>SMH</strong></td>
-            <td><span class="tag">XLK</span></td>
-            <td><span class="chg-pill text-green-bg">+2.24%</span></td>
-            <td class="hide-on-mobile text-green">+0.68%</td>
-            <td class="hide-on-mobile text-red">-1.83%</td>
-            <td class="hide-on-mobile text-green">+14.31%</td>
-            <td><div class="rsi-wrap"><span class="">50.4</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:50%"></div></div></div></td>
-        </tr>
+        <div class="category-box">
+            <div class="category-title">FinTech</div>
+            <div class="table-wrap">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Symbol</th>
+                            <th>Core ETF</th>
+                            <th>1D Change%</th>
+                            <th class="hide-on-mobile">vs 20MA</th>
+                            <th class="hide-on-mobile">vs 50MA</th>
+                            <th class="hide-on-mobile">vs 200MA</th>
+                            <th>RSI 14</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+            <tr>
+                <td><strong>IPAY</strong></td>
+                <td><span class="tag">XLF</span></td>
+                <td><span class="chg-pill text-red-bg">-0.69%</span></td>
+                <td class="hide-on-mobile text-red">-2.43%</td>
+                <td class="hide-on-mobile text-red">-6.92%</td>
+                <td class="hide-on-mobile text-red">-20.27%</td>
+                <td><div class="rsi-wrap"><span class="">40.6</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:41%"></div></div></div></td>
+            </tr>
+            <tr>
+                <td><strong>FINX</strong></td>
+                <td><span class="tag">XLF</span></td>
+                <td><span class="chg-pill text-red-bg">-0.89%</span></td>
+                <td class="hide-on-mobile text-red">-4.84%</td>
+                <td class="hide-on-mobile text-red">-7.85%</td>
+                <td class="hide-on-mobile text-red">-25.06%</td>
+                <td><div class="rsi-wrap"><span class="">40.0</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:40%"></div></div></div></td>
+            </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
 
-        <tr>
-            <td><strong>QTUM</strong></td>
-            <td><span class="tag">XLK</span></td>
-            <td><span class="chg-pill text-green-bg">+1.85%</span></td>
-            <td class="hide-on-mobile text-red">-0.24%</td>
-            <td class="hide-on-mobile text-red">-3.90%</td>
-            <td class="hide-on-mobile text-green">+3.78%</td>
-            <td><div class="rsi-wrap"><span class="">47.7</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:48%"></div></div></div></td>
-        </tr>
+        <div class="category-box">
+            <div class="category-title">Healthcare & Biotech</div>
+            <div class="table-wrap">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Symbol</th>
+                            <th>Core ETF</th>
+                            <th>1D Change%</th>
+                            <th class="hide-on-mobile">vs 20MA</th>
+                            <th class="hide-on-mobile">vs 50MA</th>
+                            <th class="hide-on-mobile">vs 200MA</th>
+                            <th>RSI 14</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+            <tr>
+                <td><strong>XBI</strong></td>
+                <td><span class="tag">XLV</span></td>
+                <td><span class="chg-pill text-green-bg">+0.64%</span></td>
+                <td class="hide-on-mobile text-green">+4.14%</td>
+                <td class="hide-on-mobile text-green">+2.73%</td>
+                <td class="hide-on-mobile text-green">+18.86%</td>
+                <td><div class="rsi-wrap"><span class="">58.0</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:58%"></div></div></div></td>
+            </tr>
+            <tr>
+                <td><strong>MSOS</strong></td>
+                <td><span class="tag">-</span></td>
+                <td><span class="chg-pill text-green-bg">+3.66%</span></td>
+                <td class="hide-on-mobile text-red">-0.76%</td>
+                <td class="hide-on-mobile text-red">-6.47%</td>
+                <td class="hide-on-mobile text-red">-9.47%</td>
+                <td><div class="rsi-wrap"><span class="">48.5</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:48%"></div></div></div></td>
+            </tr>
+            <tr>
+                <td><strong>ARKK</strong></td>
+                <td><span class="tag">-</span></td>
+                <td><span class="chg-pill text-green-bg">+1.20%</span></td>
+                <td class="hide-on-mobile text-red">-2.68%</td>
+                <td class="hide-on-mobile text-red">-5.49%</td>
+                <td class="hide-on-mobile text-red">-11.58%</td>
+                <td><div class="rsi-wrap"><span class="">45.6</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:46%"></div></div></div></td>
+            </tr>
+            <tr>
+                <td><strong>IHI</strong></td>
+                <td><span class="tag">-</span></td>
+                <td><span class="chg-pill text-green-bg">+0.15%</span></td>
+                <td class="hide-on-mobile text-red">-2.83%</td>
+                <td class="hide-on-mobile text-red">-7.20%</td>
+                <td class="hide-on-mobile text-red">-11.64%</td>
+                <td><div class="rsi-wrap"><span class="">33.1</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:33%"></div></div></div></td>
+            </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
 
-        <tr>
-            <td><strong>SKYY</strong></td>
-            <td><span class="tag">XLK</span></td>
-            <td><span class="chg-pill text-green-bg">+0.89%</span></td>
-            <td class="hide-on-mobile text-red">-1.07%</td>
-            <td class="hide-on-mobile text-red">-2.89%</td>
-            <td class="hide-on-mobile text-red">-11.72%</td>
-            <td><div class="rsi-wrap"><span class="">47.2</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:47%"></div></div></div></td>
-        </tr>
+        <div class="category-box">
+            <div class="category-title">Financial</div>
+            <div class="table-wrap">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Symbol</th>
+                            <th>Core ETF</th>
+                            <th>1D Change%</th>
+                            <th class="hide-on-mobile">vs 20MA</th>
+                            <th class="hide-on-mobile">vs 50MA</th>
+                            <th class="hide-on-mobile">vs 200MA</th>
+                            <th>RSI 14</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+            <tr>
+                <td><strong>KRE</strong></td>
+                <td><span class="tag">XLF</span></td>
+                <td><span class="chg-pill text-green-bg">+1.07%</span></td>
+                <td class="hide-on-mobile text-green">+3.05%</td>
+                <td class="hide-on-mobile text-red">-2.23%</td>
+                <td class="hide-on-mobile text-green">+3.90%</td>
+                <td><div class="rsi-wrap"><span class="">54.1</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:54%"></div></div></div></td>
+            </tr>
+            <tr>
+                <td><strong>KBE</strong></td>
+                <td><span class="tag">XLF</span></td>
+                <td><span class="chg-pill text-green-bg">+0.92%</span></td>
+                <td class="hide-on-mobile text-green">+2.67%</td>
+                <td class="hide-on-mobile text-red">-2.71%</td>
+                <td class="hide-on-mobile text-green">+1.87%</td>
+                <td><div class="rsi-wrap"><span class="">52.8</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:53%"></div></div></div></td>
+            </tr>
+            <tr>
+                <td><strong>IAI</strong></td>
+                <td><span class="tag">XLF</span></td>
+                <td><span class="chg-pill text-green-bg">+0.40%</span></td>
+                <td class="hide-on-mobile text-green">+0.52%</td>
+                <td class="hide-on-mobile text-red">-3.73%</td>
+                <td class="hide-on-mobile text-red">-4.75%</td>
+                <td><div class="rsi-wrap"><span class="">48.0</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:48%"></div></div></div></td>
+            </tr>
+            <tr>
+                <td><strong>BLOK</strong></td>
+                <td><span class="tag">XLF</span></td>
+                <td><span class="chg-pill text-green-bg">+0.28%</span></td>
+                <td class="hide-on-mobile text-red">-3.95%</td>
+                <td class="hide-on-mobile text-red">-8.63%</td>
+                <td class="hide-on-mobile text-red">-16.55%</td>
+                <td><div class="rsi-wrap"><span class="">42.6</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:43%"></div></div></div></td>
+            </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
 
-        <tr>
-            <td><strong>AIQ</strong></td>
-            <td><span class="tag">XLK</span></td>
-            <td><span class="chg-pill text-green-bg">+1.44%</span></td>
-            <td class="hide-on-mobile text-red">-1.76%</td>
-            <td class="hide-on-mobile text-red">-4.67%</td>
-            <td class="hide-on-mobile text-red">-2.33%</td>
-            <td><div class="rsi-wrap"><span class="">45.6</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:46%"></div></div></div></td>
-        </tr>
+        <div class="category-box">
+            <div class="category-title">Energy & Materials</div>
+            <div class="table-wrap">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Symbol</th>
+                            <th>Core ETF</th>
+                            <th>1D Change%</th>
+                            <th class="hide-on-mobile">vs 20MA</th>
+                            <th class="hide-on-mobile">vs 50MA</th>
+                            <th class="hide-on-mobile">vs 200MA</th>
+                            <th>RSI 14</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+            <tr>
+                <td><strong>LIT</strong></td>
+                <td><span class="tag">XLB</span></td>
+                <td><span class="chg-pill text-green-bg">+0.12%</span></td>
+                <td class="hide-on-mobile text-green">+4.79%</td>
+                <td class="hide-on-mobile text-green">+3.08%</td>
+                <td class="hide-on-mobile text-green">+27.44%</td>
+                <td><div class="rsi-wrap"><span class="">58.5</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:58%"></div></div></div></td>
+            </tr>
+            <tr>
+                <td><strong>XOP</strong></td>
+                <td><span class="tag">XLE</span></td>
+                <td><span class="chg-pill text-red-bg">-3.84%</span></td>
+                <td class="hide-on-mobile text-green">+1.20%</td>
+                <td class="hide-on-mobile text-green">+12.13%</td>
+                <td class="hide-on-mobile text-green">+29.85%</td>
+                <td><div class="rsi-wrap"><span class="">57.4</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:57%"></div></div></div></td>
+            </tr>
+            <tr>
+                <td><strong>PICK</strong></td>
+                <td><span class="tag">XLB</span></td>
+                <td><span class="chg-pill text-green-bg">+2.23%</span></td>
+                <td class="hide-on-mobile text-green">+3.58%</td>
+                <td class="hide-on-mobile text-red">-1.69%</td>
+                <td class="hide-on-mobile text-green">+21.67%</td>
+                <td><div class="rsi-wrap"><span class="">53.9</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:54%"></div></div></div></td>
+            </tr>
+            <tr>
+                <td><strong>COPX</strong></td>
+                <td><span class="tag">XLB</span></td>
+                <td><span class="chg-pill text-green-bg">+2.36%</span></td>
+                <td class="hide-on-mobile text-green">+2.23%</td>
+                <td class="hide-on-mobile text-red">-6.66%</td>
+                <td class="hide-on-mobile text-green">+24.17%</td>
+                <td><div class="rsi-wrap"><span class="">49.9</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:50%"></div></div></div></td>
+            </tr>
+            <tr>
+                <td><strong>GLD</strong></td>
+                <td><span class="tag">XLB</span></td>
+                <td><span class="chg-pill text-green-bg">+1.75%</span></td>
+                <td class="hide-on-mobile text-red">-0.73%</td>
+                <td class="hide-on-mobile text-red">-3.77%</td>
+                <td class="hide-on-mobile text-green">+15.71%</td>
+                <td><div class="rsi-wrap"><span class="">49.4</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:49%"></div></div></div></td>
+            </tr>
+            <tr>
+                <td><strong>SLV</strong></td>
+                <td><span class="tag">XLB</span></td>
+                <td><span class="chg-pill text-green-bg">0.00%</span></td>
+                <td class="hide-on-mobile text-red">-2.03%</td>
+                <td class="hide-on-mobile text-red">-10.14%</td>
+                <td class="hide-on-mobile text-green">+29.35%</td>
+                <td><div class="rsi-wrap"><span class="">47.4</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:47%"></div></div></div></td>
+            </tr>
+            <tr>
+                <td><strong>NLR</strong></td>
+                <td><span class="tag">XLE</span></td>
+                <td><span class="chg-pill text-green-bg">+0.88%</span></td>
+                <td class="hide-on-mobile text-red">-0.76%</td>
+                <td class="hide-on-mobile text-red">-6.11%</td>
+                <td class="hide-on-mobile text-green">+3.49%</td>
+                <td><div class="rsi-wrap"><span class="">47.0</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:47%"></div></div></div></td>
+            </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
 
-        <tr>
-            <td><strong>BOTZ</strong></td>
-            <td><span class="tag">XLK</span></td>
-            <td><span class="chg-pill text-green-bg">+2.05%</span></td>
-            <td class="hide-on-mobile text-red">-2.19%</td>
-            <td class="hide-on-mobile text-red">-7.54%</td>
-            <td class="hide-on-mobile text-red">-3.97%</td>
-            <td><div class="rsi-wrap"><span class="">42.5</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:43%"></div></div></div></td>
-        </tr>
-<tr class="group-header"><td colspan="7"><strong>Cybersecurity</strong></td></tr>
+        <div class="category-box">
+            <div class="category-title">Industrial & Infrastructure</div>
+            <div class="table-wrap">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Symbol</th>
+                            <th>Core ETF</th>
+                            <th>1D Change%</th>
+                            <th class="hide-on-mobile">vs 20MA</th>
+                            <th class="hide-on-mobile">vs 50MA</th>
+                            <th class="hide-on-mobile">vs 200MA</th>
+                            <th>RSI 14</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+            <tr>
+                <td><strong>ROKT</strong></td>
+                <td><span class="tag">XLI</span></td>
+                <td><span class="chg-pill text-green-bg">+2.92%</span></td>
+                <td class="hide-on-mobile text-green">+0.70%</td>
+                <td class="hide-on-mobile text-green">+0.55%</td>
+                <td class="hide-on-mobile text-green">+24.62%</td>
+                <td><div class="rsi-wrap"><span class="">51.7</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:52%"></div></div></div></td>
+            </tr>
+            <tr>
+                <td><strong>PAVE</strong></td>
+                <td><span class="tag">XLI</span></td>
+                <td><span class="chg-pill text-green-bg">+1.73%</span></td>
+                <td class="hide-on-mobile text-green">+1.70%</td>
+                <td class="hide-on-mobile text-red">-1.60%</td>
+                <td class="hide-on-mobile text-green">+7.37%</td>
+                <td><div class="rsi-wrap"><span class="">51.7</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:52%"></div></div></div></td>
+            </tr>
+            <tr>
+                <td><strong>COPX</strong></td>
+                <td><span class="tag">XLB</span></td>
+                <td><span class="chg-pill text-green-bg">+2.36%</span></td>
+                <td class="hide-on-mobile text-green">+2.23%</td>
+                <td class="hide-on-mobile text-red">-6.66%</td>
+                <td class="hide-on-mobile text-green">+24.17%</td>
+                <td><div class="rsi-wrap"><span class="">49.9</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:50%"></div></div></div></td>
+            </tr>
+            <tr>
+                <td><strong>JETS</strong></td>
+                <td><span class="tag">XLI</span></td>
+                <td><span class="chg-pill text-green-bg">+2.60%</span></td>
+                <td class="hide-on-mobile text-green">+1.73%</td>
+                <td class="hide-on-mobile text-red">-7.67%</td>
+                <td class="hide-on-mobile text-red">-2.42%</td>
+                <td><div class="rsi-wrap"><span class="">47.2</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:47%"></div></div></div></td>
+            </tr>
+            <tr>
+                <td><strong>XHB</strong></td>
+                <td><span class="tag">-</span></td>
+                <td><span class="chg-pill text-green-bg">+0.50%</span></td>
+                <td class="hide-on-mobile text-red">-1.24%</td>
+                <td class="hide-on-mobile text-red">-8.93%</td>
+                <td class="hide-on-mobile text-red">-7.58%</td>
+                <td><div class="rsi-wrap"><span class="">40.9</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:41%"></div></div></div></td>
+            </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
 
-        <tr>
-            <td><strong>CIBR</strong></td>
-            <td><span class="tag">XLK</span></td>
-            <td><span class="chg-pill text-green-bg">+0.75%</span></td>
-            <td class="hide-on-mobile text-red">-1.64%</td>
-            <td class="hide-on-mobile text-red">-3.85%</td>
-            <td class="hide-on-mobile text-red">-12.08%</td>
-            <td><div class="rsi-wrap"><span class="">45.3</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:45%"></div></div></div></td>
-        </tr>
+        <div class="category-box">
+            <div class="category-title">Real Estate & Bonds</div>
+            <div class="table-wrap">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Symbol</th>
+                            <th>Core ETF</th>
+                            <th>1D Change%</th>
+                            <th class="hide-on-mobile">vs 20MA</th>
+                            <th class="hide-on-mobile">vs 50MA</th>
+                            <th class="hide-on-mobile">vs 200MA</th>
+                            <th>RSI 14</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+            <tr>
+                <td><strong>TLT</strong></td>
+                <td><span class="tag">-</span></td>
+                <td><span class="chg-pill text-red-bg">-0.10%</span></td>
+                <td class="hide-on-mobile text-red">-0.54%</td>
+                <td class="hide-on-mobile text-red">-1.30%</td>
+                <td class="hide-on-mobile text-red">-0.29%</td>
+                <td><div class="rsi-wrap"><span class="">45.5</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:46%"></div></div></div></td>
+            </tr>
+            <tr>
+                <td><strong>XLRE</strong></td>
+                <td><span class="tag">XLRE</span></td>
+                <td><span class="chg-pill text-green-bg">+0.29%</span></td>
+                <td class="hide-on-mobile text-red">-1.19%</td>
+                <td class="hide-on-mobile text-red">-2.26%</td>
+                <td class="hide-on-mobile text-red">-0.01%</td>
+                <td><div class="rsi-wrap"><span class="">43.9</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:44%"></div></div></div></td>
+            </tr>
+            <tr>
+                <td><strong>VNQ</strong></td>
+                <td><span class="tag">-</span></td>
+                <td><span class="chg-pill text-green-bg">+0.36%</span></td>
+                <td class="hide-on-mobile text-red">-1.26%</td>
+                <td class="hide-on-mobile text-red">-2.41%</td>
+                <td class="hide-on-mobile text-green">+0.13%</td>
+                <td><div class="rsi-wrap"><span class="">43.3</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:43%"></div></div></div></td>
+            </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
 
-        <tr>
-            <td><strong>BUG</strong></td>
-            <td><span class="tag">XLK</span></td>
-            <td><span class="chg-pill text-green-bg">+0.92%</span></td>
-            <td class="hide-on-mobile text-red">-2.17%</td>
-            <td class="hide-on-mobile text-red">-5.25%</td>
-            <td class="hide-on-mobile text-red">-20.78%</td>
-            <td><div class="rsi-wrap"><span class="">44.7</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:45%"></div></div></div></td>
-        </tr>
-<tr class="group-header"><td colspan="7"><strong>FinTech</strong></td></tr>
+        <div class="category-box">
+            <div class="category-title">Space & Defense</div>
+            <div class="table-wrap">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Symbol</th>
+                            <th>Core ETF</th>
+                            <th>1D Change%</th>
+                            <th class="hide-on-mobile">vs 20MA</th>
+                            <th class="hide-on-mobile">vs 50MA</th>
+                            <th class="hide-on-mobile">vs 200MA</th>
+                            <th>RSI 14</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+            <tr>
+                <td><strong>ROKT</strong></td>
+                <td><span class="tag">XLI</span></td>
+                <td><span class="chg-pill text-green-bg">+2.92%</span></td>
+                <td class="hide-on-mobile text-green">+0.70%</td>
+                <td class="hide-on-mobile text-green">+0.55%</td>
+                <td class="hide-on-mobile text-green">+24.62%</td>
+                <td><div class="rsi-wrap"><span class="">51.7</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:52%"></div></div></div></td>
+            </tr>
+            <tr>
+                <td><strong>XAR</strong></td>
+                <td><span class="tag">-</span></td>
+                <td><span class="chg-pill text-green-bg">+2.35%</span></td>
+                <td class="hide-on-mobile text-red">-2.37%</td>
+                <td class="hide-on-mobile text-red">-4.86%</td>
+                <td class="hide-on-mobile text-green">+8.10%</td>
+                <td><div class="rsi-wrap"><span class="">45.8</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:46%"></div></div></div></td>
+            </tr>
+            <tr>
+                <td><strong>ITA</strong></td>
+                <td><span class="tag">-</span></td>
+                <td><span class="chg-pill text-green-bg">+2.24%</span></td>
+                <td class="hide-on-mobile text-red">-2.14%</td>
+                <td class="hide-on-mobile text-red">-4.32%</td>
+                <td class="hide-on-mobile text-green">+5.86%</td>
+                <td><div class="rsi-wrap"><span class="">45.0</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:45%"></div></div></div></td>
+            </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
 
-        <tr>
-            <td><strong>IPAY</strong></td>
-            <td><span class="tag">XLF</span></td>
-            <td><span class="chg-pill text-red-bg">-0.69%</span></td>
-            <td class="hide-on-mobile text-red">-2.43%</td>
-            <td class="hide-on-mobile text-red">-6.92%</td>
-            <td class="hide-on-mobile text-red">-20.27%</td>
-            <td><div class="rsi-wrap"><span class="">40.6</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:41%"></div></div></div></td>
-        </tr>
-
-        <tr>
-            <td><strong>FINX</strong></td>
-            <td><span class="tag">XLF</span></td>
-            <td><span class="chg-pill text-red-bg">-0.89%</span></td>
-            <td class="hide-on-mobile text-red">-4.84%</td>
-            <td class="hide-on-mobile text-red">-7.85%</td>
-            <td class="hide-on-mobile text-red">-25.06%</td>
-            <td><div class="rsi-wrap"><span class="">40.0</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:40%"></div></div></div></td>
-        </tr>
-<tr class="group-header"><td colspan="7"><strong>Healthcare & Biotech</strong></td></tr>
-
-        <tr>
-            <td><strong>XBI</strong></td>
-            <td><span class="tag">XLV</span></td>
-            <td><span class="chg-pill text-green-bg">+0.64%</span></td>
-            <td class="hide-on-mobile text-green">+4.14%</td>
-            <td class="hide-on-mobile text-green">+2.73%</td>
-            <td class="hide-on-mobile text-green">+18.86%</td>
-            <td><div class="rsi-wrap"><span class="">58.0</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:58%"></div></div></div></td>
-        </tr>
-
-        <tr>
-            <td><strong>IBB</strong></td>
-            <td><span class="tag">XLV</span></td>
-            <td><span class="chg-pill text-green-bg">+0.76%</span></td>
-            <td class="hide-on-mobile text-green">+2.42%</td>
-            <td class="hide-on-mobile text-red">-0.40%</td>
-            <td class="hide-on-mobile text-green">+9.94%</td>
-            <td><div class="rsi-wrap"><span class="">54.7</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:55%"></div></div></div></td>
-        </tr>
-<tr class="group-header"><td colspan="7"><strong>Financial</strong></td></tr>
-
-        <tr>
-            <td><strong>KRE</strong></td>
-            <td><span class="tag">XLF</span></td>
-            <td><span class="chg-pill text-green-bg">+1.07%</span></td>
-            <td class="hide-on-mobile text-green">+3.05%</td>
-            <td class="hide-on-mobile text-red">-2.23%</td>
-            <td class="hide-on-mobile text-green">+3.90%</td>
-            <td><div class="rsi-wrap"><span class="">54.1</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:54%"></div></div></div></td>
-        </tr>
-
-        <tr>
-            <td><strong>KBE</strong></td>
-            <td><span class="tag">XLF</span></td>
-            <td><span class="chg-pill text-green-bg">+0.92%</span></td>
-            <td class="hide-on-mobile text-green">+2.67%</td>
-            <td class="hide-on-mobile text-red">-2.71%</td>
-            <td class="hide-on-mobile text-green">+1.87%</td>
-            <td><div class="rsi-wrap"><span class="">52.8</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:53%"></div></div></div></td>
-        </tr>
-
-        <tr>
-            <td><strong>IAI</strong></td>
-            <td><span class="tag">XLF</span></td>
-            <td><span class="chg-pill text-green-bg">+0.40%</span></td>
-            <td class="hide-on-mobile text-green">+0.52%</td>
-            <td class="hide-on-mobile text-red">-3.73%</td>
-            <td class="hide-on-mobile text-red">-4.75%</td>
-            <td><div class="rsi-wrap"><span class="">48.0</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:48%"></div></div></div></td>
-        </tr>
-
-        <tr>
-            <td><strong>BLOK</strong></td>
-            <td><span class="tag">XLF</span></td>
-            <td><span class="chg-pill text-green-bg">+0.28%</span></td>
-            <td class="hide-on-mobile text-red">-3.95%</td>
-            <td class="hide-on-mobile text-red">-8.63%</td>
-            <td class="hide-on-mobile text-red">-16.55%</td>
-            <td><div class="rsi-wrap"><span class="">42.6</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:43%"></div></div></div></td>
-        </tr>
-<tr class="group-header"><td colspan="7"><strong>Energy & Materials</strong></td></tr>
-
-        <tr>
-            <td><strong>LIT</strong></td>
-            <td><span class="tag">XLB</span></td>
-            <td><span class="chg-pill text-green-bg">+0.12%</span></td>
-            <td class="hide-on-mobile text-green">+4.79%</td>
-            <td class="hide-on-mobile text-green">+3.08%</td>
-            <td class="hide-on-mobile text-green">+27.44%</td>
-            <td><div class="rsi-wrap"><span class="">58.5</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:58%"></div></div></div></td>
-        </tr>
-
-        <tr>
-            <td><strong>XOP</strong></td>
-            <td><span class="tag">XLE</span></td>
-            <td><span class="chg-pill text-red-bg">-3.84%</span></td>
-            <td class="hide-on-mobile text-green">+1.20%</td>
-            <td class="hide-on-mobile text-green">+12.13%</td>
-            <td class="hide-on-mobile text-green">+29.85%</td>
-            <td><div class="rsi-wrap"><span class="">57.4</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:57%"></div></div></div></td>
-        </tr>
-
-        <tr>
-            <td><strong>PICK</strong></td>
-            <td><span class="tag">XLB</span></td>
-            <td><span class="chg-pill text-green-bg">+2.23%</span></td>
-            <td class="hide-on-mobile text-green">+3.58%</td>
-            <td class="hide-on-mobile text-red">-1.69%</td>
-            <td class="hide-on-mobile text-green">+21.67%</td>
-            <td><div class="rsi-wrap"><span class="">53.9</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:54%"></div></div></div></td>
-        </tr>
-
-        <tr>
-            <td><strong>GDX</strong></td>
-            <td><span class="tag">XLB</span></td>
-            <td><span class="chg-pill text-green-bg">+4.62%</span></td>
-            <td class="hide-on-mobile text-green">+4.51%</td>
-            <td class="hide-on-mobile text-red">-3.58%</td>
-            <td class="hide-on-mobile text-green">+24.07%</td>
-            <td><div class="rsi-wrap"><span class="">53.4</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:53%"></div></div></div></td>
-        </tr>
-
-        <tr>
-            <td><strong>TAN</strong></td>
-            <td><span class="tag">XLE</span></td>
-            <td><span class="chg-pill text-green-bg">+1.01%</span></td>
-            <td class="hide-on-mobile text-green">+1.62%</td>
-            <td class="hide-on-mobile text-red">-0.06%</td>
-            <td class="hide-on-mobile text-green">+19.66%</td>
-            <td><div class="rsi-wrap"><span class="">52.0</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:52%"></div></div></div></td>
-        </tr>
-
-        <tr>
-            <td><strong>GLD</strong></td>
-            <td><span class="tag">XLB</span></td>
-            <td><span class="chg-pill text-green-bg">+1.75%</span></td>
-            <td class="hide-on-mobile text-red">-0.73%</td>
-            <td class="hide-on-mobile text-red">-3.77%</td>
-            <td class="hide-on-mobile text-green">+15.71%</td>
-            <td><div class="rsi-wrap"><span class="">49.4</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:49%"></div></div></div></td>
-        </tr>
-
-        <tr>
-            <td><strong>URA</strong></td>
-            <td><span class="tag">XLE</span></td>
-            <td><span class="chg-pill text-green-bg">+1.71%</span></td>
-            <td class="hide-on-mobile text-green">+0.58%</td>
-            <td class="hide-on-mobile text-red">-5.77%</td>
-            <td class="hide-on-mobile text-green">+8.68%</td>
-            <td><div class="rsi-wrap"><span class="">49.0</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:49%"></div></div></div></td>
-        </tr>
-
-        <tr>
-            <td><strong>SLV</strong></td>
-            <td><span class="tag">XLB</span></td>
-            <td><span class="chg-pill text-green-bg">0.00%</span></td>
-            <td class="hide-on-mobile text-red">-2.03%</td>
-            <td class="hide-on-mobile text-red">-10.14%</td>
-            <td class="hide-on-mobile text-green">+29.35%</td>
-            <td><div class="rsi-wrap"><span class="">47.4</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:47%"></div></div></div></td>
-        </tr>
-
-        <tr>
-            <td><strong>NLR</strong></td>
-            <td><span class="tag">XLE</span></td>
-            <td><span class="chg-pill text-green-bg">+0.88%</span></td>
-            <td class="hide-on-mobile text-red">-0.76%</td>
-            <td class="hide-on-mobile text-red">-6.11%</td>
-            <td class="hide-on-mobile text-green">+3.49%</td>
-            <td><div class="rsi-wrap"><span class="">47.0</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:47%"></div></div></div></td>
-        </tr>
-<tr class="group-header"><td colspan="7"><strong>Industrial & Infrastructure</strong></td></tr>
-
-        <tr>
-            <td><strong>ROKT</strong></td>
-            <td><span class="tag">XLI</span></td>
-            <td><span class="chg-pill text-green-bg">+2.92%</span></td>
-            <td class="hide-on-mobile text-green">+0.70%</td>
-            <td class="hide-on-mobile text-green">+0.55%</td>
-            <td class="hide-on-mobile text-green">+24.62%</td>
-            <td><div class="rsi-wrap"><span class="">51.7</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:52%"></div></div></div></td>
-        </tr>
-
-        <tr>
-            <td><strong>PAVE</strong></td>
-            <td><span class="tag">XLI</span></td>
-            <td><span class="chg-pill text-green-bg">+1.73%</span></td>
-            <td class="hide-on-mobile text-green">+1.70%</td>
-            <td class="hide-on-mobile text-red">-1.60%</td>
-            <td class="hide-on-mobile text-green">+7.37%</td>
-            <td><div class="rsi-wrap"><span class="">51.7</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:52%"></div></div></div></td>
-        </tr>
-
-        <tr>
-            <td><strong>COPX</strong></td>
-            <td><span class="tag">XLB</span></td>
-            <td><span class="chg-pill text-green-bg">+2.36%</span></td>
-            <td class="hide-on-mobile text-green">+2.23%</td>
-            <td class="hide-on-mobile text-red">-6.66%</td>
-            <td class="hide-on-mobile text-green">+24.17%</td>
-            <td><div class="rsi-wrap"><span class="">49.9</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:50%"></div></div></div></td>
-        </tr>
-
-        <tr>
-            <td><strong>IYT</strong></td>
-            <td><span class="tag">XLI</span></td>
-            <td><span class="chg-pill text-green-bg">+0.90%</span></td>
-            <td class="hide-on-mobile text-green">+1.07%</td>
-            <td class="hide-on-mobile text-red">-3.00%</td>
-            <td class="hide-on-mobile text-green">+3.34%</td>
-            <td><div class="rsi-wrap"><span class="">49.0</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:49%"></div></div></div></td>
-        </tr>
-
-        <tr>
-            <td><strong>JETS</strong></td>
-            <td><span class="tag">XLI</span></td>
-            <td><span class="chg-pill text-green-bg">+2.60%</span></td>
-            <td class="hide-on-mobile text-green">+1.73%</td>
-            <td class="hide-on-mobile text-red">-7.67%</td>
-            <td class="hide-on-mobile text-red">-2.42%</td>
-            <td><div class="rsi-wrap"><span class="">47.2</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:47%"></div></div></div></td>
-        </tr>
-<tr class="group-header"><td colspan="7"><strong>Misc</strong></td></tr>
-
-        <tr>
-            <td><strong>MSOS</strong></td>
-            <td><span class="tag">-</span></td>
-            <td><span class="chg-pill text-green-bg">+3.66%</span></td>
-            <td class="hide-on-mobile text-red">-0.76%</td>
-            <td class="hide-on-mobile text-red">-6.47%</td>
-            <td class="hide-on-mobile text-red">-9.47%</td>
-            <td><div class="rsi-wrap"><span class="">48.5</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:48%"></div></div></div></td>
-        </tr>
-
-        <tr>
-            <td><strong>ROBO</strong></td>
-            <td><span class="tag">-</span></td>
-            <td><span class="chg-pill text-green-bg">+2.50%</span></td>
-            <td class="hide-on-mobile text-red">-0.32%</td>
-            <td class="hide-on-mobile text-red">-4.58%</td>
-            <td class="hide-on-mobile text-green">+3.79%</td>
-            <td><div class="rsi-wrap"><span class="">46.9</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:47%"></div></div></div></td>
-        </tr>
-
-        <tr>
-            <td><strong>XAR</strong></td>
-            <td><span class="tag">-</span></td>
-            <td><span class="chg-pill text-green-bg">+2.35%</span></td>
-            <td class="hide-on-mobile text-red">-2.37%</td>
-            <td class="hide-on-mobile text-red">-4.86%</td>
-            <td class="hide-on-mobile text-green">+8.10%</td>
-            <td><div class="rsi-wrap"><span class="">45.8</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:46%"></div></div></div></td>
-        </tr>
-
-        <tr>
-            <td><strong>ARKK</strong></td>
-            <td><span class="tag">-</span></td>
-            <td><span class="chg-pill text-green-bg">+1.20%</span></td>
-            <td class="hide-on-mobile text-red">-2.68%</td>
-            <td class="hide-on-mobile text-red">-5.49%</td>
-            <td class="hide-on-mobile text-red">-11.58%</td>
-            <td><div class="rsi-wrap"><span class="">45.6</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:46%"></div></div></div></td>
-        </tr>
-
-        <tr>
-            <td><strong>ARKQ</strong></td>
-            <td><span class="tag">XLK</span></td>
-            <td><span class="chg-pill text-green-bg">+1.83%</span></td>
-            <td class="hide-on-mobile text-red">-2.28%</td>
-            <td class="hide-on-mobile text-red">-5.88%</td>
-            <td class="hide-on-mobile text-green">+3.45%</td>
-            <td><div class="rsi-wrap"><span class="">45.5</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:46%"></div></div></div></td>
-        </tr>
-
-        <tr>
-            <td><strong>TLT</strong></td>
-            <td><span class="tag">-</span></td>
-            <td><span class="chg-pill text-red-bg">-0.10%</span></td>
-            <td class="hide-on-mobile text-red">-0.54%</td>
-            <td class="hide-on-mobile text-red">-1.30%</td>
-            <td class="hide-on-mobile text-red">-0.29%</td>
-            <td><div class="rsi-wrap"><span class="">45.5</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:46%"></div></div></div></td>
-        </tr>
-
-        <tr>
-            <td><strong>MAGS</strong></td>
-            <td><span class="tag">-</span></td>
-            <td><span class="chg-pill text-green-bg">+1.28%</span></td>
-            <td class="hide-on-mobile text-red">-1.48%</td>
-            <td class="hide-on-mobile text-red">-5.19%</td>
-            <td class="hide-on-mobile text-red">-4.97%</td>
-            <td><div class="rsi-wrap"><span class="">45.3</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:45%"></div></div></div></td>
-        </tr>
-
-        <tr>
-            <td><strong>XRT</strong></td>
-            <td><span class="tag">-</span></td>
-            <td><span class="chg-pill text-green-bg">+0.16%</span></td>
-            <td class="hide-on-mobile text-green">+0.26%</td>
-            <td class="hide-on-mobile text-red">-4.79%</td>
-            <td class="hide-on-mobile text-red">-3.58%</td>
-            <td><div class="rsi-wrap"><span class="">45.1</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:45%"></div></div></div></td>
-        </tr>
-
-        <tr>
-            <td><strong>ITA</strong></td>
-            <td><span class="tag">-</span></td>
-            <td><span class="chg-pill text-green-bg">+2.24%</span></td>
-            <td class="hide-on-mobile text-red">-2.14%</td>
-            <td class="hide-on-mobile text-red">-4.32%</td>
-            <td class="hide-on-mobile text-green">+5.86%</td>
-            <td><div class="rsi-wrap"><span class="">45.0</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:45%"></div></div></div></td>
-        </tr>
-
-        <tr>
-            <td><strong>VNQ</strong></td>
-            <td><span class="tag">-</span></td>
-            <td><span class="chg-pill text-green-bg">+0.36%</span></td>
-            <td class="hide-on-mobile text-red">-1.26%</td>
-            <td class="hide-on-mobile text-red">-2.41%</td>
-            <td class="hide-on-mobile text-green">+0.13%</td>
-            <td><div class="rsi-wrap"><span class="">43.3</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:43%"></div></div></div></td>
-        </tr>
-
-        <tr>
-            <td><strong>FXI</strong></td>
-            <td><span class="tag">-</span></td>
-            <td><span class="chg-pill text-red-bg">-0.95%</span></td>
-            <td class="hide-on-mobile text-red">-0.88%</td>
-            <td class="hide-on-mobile text-red">-5.38%</td>
-            <td class="hide-on-mobile text-red">-7.41%</td>
-            <td><div class="rsi-wrap"><span class="">43.0</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:43%"></div></div></div></td>
-        </tr>
-
-        <tr>
-            <td><strong>XHB</strong></td>
-            <td><span class="tag">-</span></td>
-            <td><span class="chg-pill text-green-bg">+0.50%</span></td>
-            <td class="hide-on-mobile text-red">-1.24%</td>
-            <td class="hide-on-mobile text-red">-8.93%</td>
-            <td class="hide-on-mobile text-red">-7.58%</td>
-            <td><div class="rsi-wrap"><span class="">40.9</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:41%"></div></div></div></td>
-        </tr>
-
-        <tr>
-            <td><strong>IGV</strong></td>
-            <td><span class="tag">-</span></td>
-            <td><span class="chg-pill text-red-bg">-0.35%</span></td>
-            <td class="hide-on-mobile text-red">-4.23%</td>
-            <td class="hide-on-mobile text-red">-6.13%</td>
-            <td class="hide-on-mobile text-red">-22.82%</td>
-            <td><div class="rsi-wrap"><span class="">40.9</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:41%"></div></div></div></td>
-        </tr>
-
-        <tr>
-            <td><strong>KWEB</strong></td>
-            <td><span class="tag">-</span></td>
-            <td><span class="chg-pill text-red-bg">-0.46%</span></td>
-            <td class="hide-on-mobile text-red">-3.36%</td>
-            <td class="hide-on-mobile text-red">-11.13%</td>
-            <td class="hide-on-mobile text-red">-18.51%</td>
-            <td><div class="rsi-wrap"><span class="">36.7</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:37%"></div></div></div></td>
-        </tr>
-
-        <tr>
-            <td><strong>IHI</strong></td>
-            <td><span class="tag">-</span></td>
-            <td><span class="chg-pill text-green-bg">+0.15%</span></td>
-            <td class="hide-on-mobile text-red">-2.83%</td>
-            <td class="hide-on-mobile text-red">-7.20%</td>
-            <td class="hide-on-mobile text-red">-11.64%</td>
-            <td><div class="rsi-wrap"><span class="">33.1</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:33%"></div></div></div></td>
-        </tr>
-      </tbody>
-    </table>
+        <div class="category-box">
+            <div class="category-title">Misc</div>
+            <div class="table-wrap">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Symbol</th>
+                            <th>Core ETF</th>
+                            <th>1D Change%</th>
+                            <th class="hide-on-mobile">vs 20MA</th>
+                            <th class="hide-on-mobile">vs 50MA</th>
+                            <th class="hide-on-mobile">vs 200MA</th>
+                            <th>RSI 14</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+            <tr>
+                <td><strong>MSOS</strong></td>
+                <td><span class="tag">-</span></td>
+                <td><span class="chg-pill text-green-bg">+3.66%</span></td>
+                <td class="hide-on-mobile text-red">-0.76%</td>
+                <td class="hide-on-mobile text-red">-6.47%</td>
+                <td class="hide-on-mobile text-red">-9.47%</td>
+                <td><div class="rsi-wrap"><span class="">48.5</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:48%"></div></div></div></td>
+            </tr>
+            <tr>
+                <td><strong>ROBO</strong></td>
+                <td><span class="tag">-</span></td>
+                <td><span class="chg-pill text-green-bg">+2.50%</span></td>
+                <td class="hide-on-mobile text-red">-0.32%</td>
+                <td class="hide-on-mobile text-red">-4.58%</td>
+                <td class="hide-on-mobile text-green">+3.79%</td>
+                <td><div class="rsi-wrap"><span class="">46.9</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:47%"></div></div></div></td>
+            </tr>
+            <tr>
+                <td><strong>XAR</strong></td>
+                <td><span class="tag">-</span></td>
+                <td><span class="chg-pill text-green-bg">+2.35%</span></td>
+                <td class="hide-on-mobile text-red">-2.37%</td>
+                <td class="hide-on-mobile text-red">-4.86%</td>
+                <td class="hide-on-mobile text-green">+8.10%</td>
+                <td><div class="rsi-wrap"><span class="">45.8</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:46%"></div></div></div></td>
+            </tr>
+            <tr>
+                <td><strong>BLOK</strong></td>
+                <td><span class="tag">XLF</span></td>
+                <td><span class="chg-pill text-green-bg">+0.28%</span></td>
+                <td class="hide-on-mobile text-red">-3.95%</td>
+                <td class="hide-on-mobile text-red">-8.63%</td>
+                <td class="hide-on-mobile text-red">-16.55%</td>
+                <td><div class="rsi-wrap"><span class="">42.6</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:43%"></div></div></div></td>
+            </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
   </div>
 </div>
 

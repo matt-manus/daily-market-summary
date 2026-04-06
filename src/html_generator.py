@@ -1700,7 +1700,8 @@ def render(regime_info: dict = None, expert_insights: str = "", checklist_status
     print("  ✓  Section 5 RS Momentum redesign injected (5A/5B/5C)")
     # Step 4 Re-design: Section 5 = Core ETF (11 SPDR, RSI-ranked) / Section 6 = Sub-Sector (9 groups)
     html = html.replace("{{CORE_ETF_ROWS}}",   build_core_etf_rows(data))
-    html = html.replace("{{SUBSECTOR_ROWS}}",  build_subsector_rows(data))
+    html = html.replace("{{SUBSECTOR_ROWS}}",  build_subsector_rows(data))  # legacy fallback
+    html = html.replace("{{SUBSECTOR_BOXES}}", build_subsector_boxes(data))
     print("  ✓  Step 4 Section 5 Core ETF + Section 6 Sub-Sector injected")
 
     # Section 6: AI Market Analysis (Checklist + Bull/Bear)
@@ -2080,8 +2081,102 @@ def build_core_etf_rows(data):
     return "\n".join(rows)
 
 
+# ── Section 6 最終版：10 組分類 + 獨立 box ───────────────────────────────────────────────
+
+SUBSECTOR_GROUPS = {
+    "Tech, AI & Robotics":        ["SOXX", "SMH", "IGV", "ROBO", "BOTZ", "ARKQ", "SKYY", "AIQ"],
+    "Cybersecurity":               ["CIBR", "HACK", "BUG"],
+    "FinTech":                     ["FINX", "IPAY"],
+    "Healthcare & Biotech":        ["XBI", "IHI", "ARKK", "MSOS"],
+    "Financial":                   ["KBE", "KRE", "IAI", "BLOK"],
+    "Energy & Materials":          ["XOP", "LIT", "PICK", "COPX", "SLV", "GLD", "NLR"],
+    "Industrial & Infrastructure": ["ROKT", "PAVE", "JETS", "COPX", "XHB", "IFRA"],
+    "Real Estate & Bonds":         ["XLRE", "TLT", "VNQ"],
+    "Space & Defense":             ["ROKT", "XAR", "ITA"],
+    "Misc":                        ["MSOS", "ROBO", "XAR", "BLOK"],
+}
+
+
+def build_subsector_boxes(data):
+    """Section 6 — 每個 category 獨立 box + header"""
+    # Build lookup from sectors list (normalise key names)
+    sector_map = {}
+    for s in data.get("sectors", []):
+        sym = s.get("symbol", "").upper()
+        sector_map[sym] = {
+            "symbol":        s.get("symbol", sym),
+            "core_etf":      SUBSECTOR_CORE_MAP.get(sym, "-"),
+            "change_1d_pct": s.get("change_1d_pct"),
+            "vs_20ma":       s.get("vs_ma20_pct"),
+            "vs_50ma":       s.get("vs_ma50_pct"),
+            "vs_200ma":      s.get("vs_ma200_pct"),
+            "rsi14":         s.get("rsi14"),
+        }
+    # Also merge pre-built subsector list (uses vs_20ma keys directly)
+    for item in data.get("subsector", []):
+        sym = item.get("symbol", "").upper()
+        if sym and sym not in sector_map:
+            sector_map[sym] = item
+
+    html_parts = []
+    for category, tickers in SUBSECTOR_GROUPS.items():
+        if not tickers:
+            continue
+        items = [sector_map[t] for t in tickers if t in sector_map]
+        if not items:
+            continue
+        # Sort within group by RSI 14 descending
+        items.sort(key=lambda x: safe_float(x.get("rsi14")) or 0, reverse=True)
+        rows = ""
+        for item in items:
+            symbol    = item.get("symbol", "")
+            core_etf  = item.get("core_etf", "-")
+            chg       = chg_cell(item.get("change_1d_pct"))
+            ma20_val  = item.get("vs_20ma")
+            ma50_val  = item.get("vs_50ma")
+            ma200_val = item.get("vs_200ma")
+            ma20      = na(ma20_val, "pct")
+            ma50      = na(ma50_val, "pct")
+            ma200     = na(ma200_val, "pct")
+            rsi_bar, _ = rsi_cell(item.get("rsi14"))
+            rows += f"""
+            <tr>
+                <td><strong>{symbol}</strong></td>
+                <td><span class=\"tag\">{core_etf}</span></td>
+                <td>{chg}</td>
+                <td class=\"hide-on-mobile {css_dir(ma20_val)}\">{ma20}</td>
+                <td class=\"hide-on-mobile {css_dir(ma50_val)}\">{ma50}</td>
+                <td class=\"hide-on-mobile {css_dir(ma200_val)}\">{ma200}</td>
+                <td>{rsi_bar}</td>
+            </tr>"""
+        html_parts.append(f"""
+        <div class=\"category-box\">
+            <div class=\"category-title\">{category}</div>
+            <div class=\"table-wrap\">
+                <table class=\"data-table\">
+                    <thead>
+                        <tr>
+                            <th>Symbol</th>
+                            <th>Core ETF</th>
+                            <th>1D Change%</th>
+                            <th class=\"hide-on-mobile\">vs 20MA</th>
+                            <th class=\"hide-on-mobile\">vs 50MA</th>
+                            <th class=\"hide-on-mobile\">vs 200MA</th>
+                            <th>RSI 14</th>
+                        </tr>
+                    </thead>
+                    <tbody>{rows}
+                    </tbody>
+                </table>
+            </div>
+        </div>""")
+    if not html_parts:
+        return '<div class="na-val">No sub-sector data available</div>'
+    return "\n".join(html_parts)
+
+
 def build_subsector_rows(data):
-    """Section 6 — Sub-Sector ETFs (9 groups) — visual version with RSI bar + css_dir"""
+    """Section 6 — Sub-Sector ETFs (9 groups) — visual version with RSI bar + css_dir (legacy fallback)"""
     sector_map = {s.get("symbol", "").upper(): s for s in data.get("sectors", [])}
     # Support pre-built subsector key or derive from sectors
     subsector_list = data.get("subsector", [])
