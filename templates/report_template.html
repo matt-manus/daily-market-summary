@@ -714,74 +714,51 @@
 <!-- Architecture: Core Sectors；移除 Description；                  -->
 <!--               改用 Visual Tags (綠點/紅字) 顯示 vs MA           -->
 <!-- ═══════════════════════════════════════════════════════════════ -->
-<!-- SECTION 5 — THEMATIC & SUB-SECTOR (Step 2 Reorg)               -->
+<!-- SECTION 5 — CORE SECTOR ETF (11 SPDR, rank by RSI 14)          -->
 <!-- ═══════════════════════════════════════════════════════════════ -->
-<!-- Section 5 — Thematic & Sub-Sector (趨勢化) -->
-<div class="section" id="s5-thematic">
-  <div class="section-title">Section 5 — Thematic &amp; Sub-Sector</div>
+<!-- Section 5 — Core Sector ETF (rank by RSI 14) -->
+<div class="section" id="s5-core-etf">
+  <div class="section-title">Section 5 — Core Sector ETF (rank by RSI 14)</div>
   <div class="table-wrap">
     <table class="data-table">
       <thead>
         <tr>
           <th>Symbol</th>
-          <th>Price</th>
+          <th>1D Change%</th>
           <th class="hide-on-mobile">vs 20MA</th>
           <th class="hide-on-mobile">vs 50MA</th>
           <th class="hide-on-mobile">vs 200MA</th>
+          <th>RSI 14</th>
         </tr>
       </thead>
       <tbody>
-        {{THEMATIC_ROWS}}
+        {{CORE_ETF_ROWS}}
       </tbody>
     </table>
   </div>
 </div>
 
 <!-- ═══════════════════════════════════════════════════════════════ -->
-<!-- SECTION 6 — TOP RS LEADERS (Step 2 Reorg)                      -->
+<!-- SECTION 6 — SUB-SECTOR ETFs (9 groups + Core ETF mapping)      -->
 <!-- ═══════════════════════════════════════════════════════════════ -->
-<!-- Section 6 — Top RS Leaders (趨勢化 + Sector ETF) -->
-<div class="section" id="s6-rs-leaders">
-  <div class="section-title">Section 6 — Top RS Leaders</div>
+<!-- Section 6 — Sub-Sector ETFs (grouped + Core ETF mapping) -->
+<div class="section" id="s6-subsector">
+  <div class="section-title">Section 6 — Sub-Sector ETFs</div>
   <div class="table-wrap">
     <table class="data-table">
       <thead>
         <tr>
           <th>Symbol</th>
-          <th>Price</th>
+          <th>Core ETF</th>
+          <th>1D Change%</th>
           <th class="hide-on-mobile">vs 20MA</th>
           <th class="hide-on-mobile">vs 50MA</th>
           <th class="hide-on-mobile">vs 200MA</th>
-          <th>Sector ETF</th>
+          <th>RSI 14</th>
         </tr>
       </thead>
       <tbody>
-        {{RS_LEADERS_ROWS}}
-      </tbody>
-    </table>
-  </div>
-</div>
-
-<!-- ═══════════════════════════════════════════════════════════════ -->
-<!-- SECTION 7 — LAGGARDS / WEAKEST (Step 2 Reorg)                  -->
-<!-- ═══════════════════════════════════════════════════════════════ -->
-<!-- Section 7 — Laggards / Weakest (趨勢化 + Sector ETF) -->
-<div class="section" id="s7-laggards">
-  <div class="section-title">Section 7 — Laggards / Weakest</div>
-  <div class="table-wrap">
-    <table class="data-table">
-      <thead>
-        <tr>
-          <th>Symbol</th>
-          <th>Price</th>
-          <th class="hide-on-mobile">vs 20MA</th>
-          <th class="hide-on-mobile">vs 50MA</th>
-          <th class="hide-on-mobile">vs 200MA</th>
-          <th>Sector ETF</th>
-        </tr>
-      </thead>
-      <tbody>
-        {{LAGGARDS_ROWS}}
+        {{SUBSECTOR_ROWS}}
       </tbody>
     </table>
   </div>

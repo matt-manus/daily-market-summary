@@ -1698,11 +1698,10 @@ def render(regime_info: dict = None, expert_insights: str = "", checklist_status
     # Legacy placeholder (no longer in template but keep for safety)
     html = html.replace("{{INDUSTRY_ROWS}}",     build_industry_rows(industry))
     print("  ✓  Section 5 RS Momentum redesign injected (5A/5B/5C)")
-    # Step 2 Reorg: Section 5/6/7 趨勢化 — Thematic / RS Leaders / Laggards
-    html = html.replace("{{THEMATIC_ROWS}}",    build_thematic_rows(data))
-    html = html.replace("{{RS_LEADERS_ROWS}}",  build_rs_leaders_rows(data))
-    html = html.replace("{{LAGGARDS_ROWS}}",    build_laggards_rows(data))
-    print("  ✓  Step 2 Section 5/6/7 Thematic/RS Leaders/Laggards injected")
+    # Step 4 Re-design: Section 5 = Core ETF (11 SPDR, RSI-ranked) / Section 6 = Sub-Sector (9 groups)
+    html = html.replace("{{CORE_ETF_ROWS}}",   build_core_etf_rows(data))
+    html = html.replace("{{SUBSECTOR_ROWS}}",  build_subsector_rows(data))
+    print("  ✓  Step 4 Section 5 Core ETF + Section 6 Sub-Sector injected")
 
     # Section 6: AI Market Analysis (Checklist + Bull/Bear)
     html = html.replace("{{S6_CONTENT}}", build_s6_analysis(data, ai_strategy))
@@ -1975,9 +1974,149 @@ def build_laggards_rows(data):
     return "\n".join(rows)
 
 
+# ── Step 4 新增：Section 5 Core ETF + Section 6 Sub-Sector 函數 ─────────────────────
+
+# 11 Core SPDR ETFs
+CORE_11_SPDR = ["XLB", "XLC", "XLE", "XLF", "XLI", "XLK", "XLP", "XLRE", "XLU", "XLV", "XLY"]
+
+# Sub-sector → Core SPDR mapping (9 組分類)
+SUBSECTOR_CORE_MAP = {
+    # Tech, AI & Robotics
+    "SOXX": "XLK", "SMH": "XLK", "QTUM": "XLK", "BOTZ": "XLK", "ROBT": "XLK",
+    "AIQ":  "XLK", "IRBO": "XLK", "SKYY": "XLK", "CLOU": "XLK", "WCLD": "XLK",
+    # Cybersecurity
+    "HACK": "XLK", "CIBR": "XLK", "BUG":  "XLK",
+    # FinTech
+    "FINX": "XLF", "IPAY": "XLF", "ARKF": "XLF",
+    # Healthcare & Biotech
+    "XBI":  "XLV", "IBB":  "XLV", "ARKG": "XLV", "GNOM": "XLV",
+    # Financial
+    "KRE":  "XLF", "KBE":  "XLF", "IAI":  "XLF", "BLOK": "XLF",
+    # Energy & Materials
+    "XOP":  "XLE", "OIH":  "XLE", "LIT":  "XLB", "GDX":  "XLB",
+    "SLV":  "XLB", "GLD":  "XLB", "PICK": "XLB", "URA":  "XLE",
+    "TAN":  "XLE", "ICLN": "XLE",
+    # Industrial & Infrastructure
+    "PAVE": "XLI", "ROKT": "XLI", "JETS": "XLI", "COPX": "XLB",
+    # Real Estate & Bonds
+    "XLRE": "XLRE", "IYT": "XLI", "XLU":  "XLU",
+    # Misc
+    "MSOS": "-", "KWEB": "-", "ARKK": "-", "ARKG": "XLV",
+    "ARKW": "XLK", "ARKQ": "XLK", "ARKX": "XLI",
+    "NLR":  "XLE", "XLF":  "XLF", "XLB":  "XLB",
+    "XLI":  "XLI", "XLP":  "XLP", "XLC":  "XLC", "XLY":  "XLY",
+    "XLK":  "XLK", "XLE":  "XLE", "XLV":  "XLV",
+}
+
+# Sub-sector 9-group category labels
+SUBSECTOR_CATEGORY = {
+    "SOXX": "Tech, AI & Robotics", "SMH": "Tech, AI & Robotics", "QTUM": "Tech, AI & Robotics",
+    "BOTZ": "Tech, AI & Robotics", "ROBT": "Tech, AI & Robotics", "AIQ": "Tech, AI & Robotics",
+    "IRBO": "Tech, AI & Robotics", "SKYY": "Tech, AI & Robotics", "CLOU": "Tech, AI & Robotics",
+    "WCLD": "Tech, AI & Robotics",
+    "HACK": "Cybersecurity", "CIBR": "Cybersecurity", "BUG": "Cybersecurity",
+    "FINX": "FinTech", "IPAY": "FinTech", "ARKF": "FinTech",
+    "XBI": "Healthcare & Biotech", "IBB": "Healthcare & Biotech",
+    "ARKG": "Healthcare & Biotech", "GNOM": "Healthcare & Biotech",
+    "KRE": "Financial", "KBE": "Financial", "IAI": "Financial", "BLOK": "Financial",
+    "XOP": "Energy & Materials", "OIH": "Energy & Materials", "LIT": "Energy & Materials",
+    "GDX": "Energy & Materials", "SLV": "Energy & Materials", "GLD": "Energy & Materials",
+    "PICK": "Energy & Materials", "URA": "Energy & Materials",
+    "TAN": "Energy & Materials", "ICLN": "Energy & Materials",
+    "PAVE": "Industrial & Infrastructure", "ROKT": "Industrial & Infrastructure",
+    "JETS": "Industrial & Infrastructure", "COPX": "Industrial & Infrastructure",
+    "IYT": "Industrial & Infrastructure",
+    "XLRE": "Real Estate & Bonds", "XLU": "Real Estate & Bonds",
+    "MSOS": "Misc", "KWEB": "Misc", "ARKK": "Misc",
+    "ARKW": "Misc", "ARKQ": "Misc", "ARKX": "Misc",
+    "NLR": "Energy & Materials",
+}
+
+
+def build_core_etf_rows(data):
+    """Section 5 — 11 Core SPDR ETFs, ranked by RSI 14 descending."""
+    # Build lookup from sectors list
+    sector_map = {s.get("symbol", "").upper(): s for s in data.get("sectors", [])}
+    rows = []
+    # Collect the 11 SPDR ETFs with their RSI
+    items = []
+    for sym in CORE_11_SPDR:
+        s = sector_map.get(sym)
+        if s:
+            items.append(s)
+    # Sort by RSI 14 descending
+    items.sort(key=lambda x: x.get("rsi14") or 0, reverse=True)
+    for s in items:
+        sym    = s.get("symbol", "")
+        chg    = chg_cell(s.get("change_1d_pct"))
+        ma20   = na(s.get("vs_ma20_pct"), "pct")
+        ma50   = na(s.get("vs_ma50_pct"), "pct")
+        ma200  = na(s.get("vs_ma200_pct"), "pct")
+        rsi    = na(s.get("rsi14"), dec=1)
+        rows.append(f"""
+        <tr>
+            <td><strong>{sym}</strong></td>
+            <td>{chg}</td>
+            <td class="hide-on-mobile">{ma20}</td>
+            <td class="hide-on-mobile">{ma50}</td>
+            <td class="hide-on-mobile">{ma200}</td>
+            <td>{rsi}</td>
+        </tr>""")
+    if not rows:
+        return '<tr><td colspan="6"><span class="na-val">No core ETF data available</span></td></tr>'
+    return "\n".join(rows)
+
+
+def build_subsector_rows(data):
+    """Section 6 — Sub-Sector ETFs (9 groups), ranked by RSI 14 within each group."""
+    sector_map = {s.get("symbol", "").upper(): s for s in data.get("sectors", [])}
+    # Group by category
+    groups = {}
+    for sym, s in sector_map.items():
+        if sym in CORE_11_SPDR:
+            continue  # skip core ETFs (already in Section 5)
+        cat = SUBSECTOR_CATEGORY.get(sym, "Misc")
+        groups.setdefault(cat, []).append(s)
+    # Sort within each group by RSI descending
+    category_order = [
+        "Tech, AI & Robotics", "Cybersecurity", "FinTech",
+        "Healthcare & Biotech", "Financial", "Energy & Materials",
+        "Industrial & Infrastructure", "Real Estate & Bonds", "Misc"
+    ]
+    rows = []
+    for cat in category_order:
+        items = groups.get(cat, [])
+        if not items:
+            continue
+        items.sort(key=lambda x: x.get("rsi14") or 0, reverse=True)
+        # Category header row
+        rows.append(f'<tr class="group-header"><td colspan="7"><strong>{cat}</strong></td></tr>')
+        for s in items:
+            sym    = s.get("symbol", "")
+            core   = SUBSECTOR_CORE_MAP.get(sym, "-")
+            chg    = chg_cell(s.get("change_1d_pct"))
+            ma20   = na(s.get("vs_ma20_pct"), "pct")
+            ma50   = na(s.get("vs_ma50_pct"), "pct")
+            ma200  = na(s.get("vs_ma200_pct"), "pct")
+            rsi    = na(s.get("rsi14"), dec=1)
+            rows.append(f"""
+        <tr>
+            <td><strong>{sym}</strong></td>
+            <td><span class="tag">{core}</span></td>
+            <td>{chg}</td>
+            <td class="hide-on-mobile">{ma20}</td>
+            <td class="hide-on-mobile">{ma50}</td>
+            <td class="hide-on-mobile">{ma200}</td>
+            <td>{rsi}</td>
+        </tr>""")
+    if not rows:
+        return '<tr><td colspan="7"><span class="na-val">No sub-sector data available</span></td></tr>'
+    return "\n".join(rows)
+
+
 if __name__ == "__main__":
-    print("╔══════════════════════════════════════════════╗")
-    print("  Market Summary Renderer v5.3  (Semi-Auto Mode)")
-    print("╚══════════════════════════════════════════════╝")
+    print("╔════════════════════════════════════════════╗")
+    print("  Market Summary Renderer v5.4  (Semi-Auto Mode)")
+    print("╚════════════════════════════════════════════╝")
     render()
     print("✅  Render complete.")
