@@ -485,6 +485,25 @@
       color: var(--text-muted);
       line-height: 1.8;
     }
+
+    /* Mobile Table Column Hiding - Fixed Alignment (Grok v5.1) */
+    @media (max-width: 600px) {
+      .hide-on-mobile {
+        display: none !important;
+      }
+
+      .table-wrap {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: thin;
+      }
+
+      .data-table th,
+      .data-table td {
+        white-space: nowrap;
+        padding: 8px 6px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -608,6 +627,7 @@
 <!-- SECTION 3 — MAJOR INDICES                                      -->
 <!-- Architecture: SPY / QQQ / DIA / IWM；保持現有格式               -->
 <!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- ==================== SECTION 3 — MAJOR INDICES (FIXED) ==================== -->
 <div class="section" id="s3-indices">
   <div class="section-title">Section 3 — Major Indices</div>
   <div class="table-wrap">
@@ -618,10 +638,10 @@
           <th>Price</th>
           <th class="hide-on-mobile">1D Chg%</th>
           <th class="hide-on-mobile">RSI 14</th>
-          <th>vs 20MA</th>
+          <th class="hide-on-mobile">vs 20MA</th>
           <th class="hide-on-mobile">vs 50MA</th>
           <th class="hide-on-mobile">vs 200MA</th>
-          <th>A/D Ratio</th>
+          <th class="hide-on-mobile">A/D Ratio</th>
         </tr>
       </thead>
       <tbody>
@@ -640,10 +660,9 @@
 <!-- Architecture: A/D, % above MA, Stockbee；第一欄改為 "Symbol"   -->
 <!--               整合 Heatmap 至本 Section                         -->
 <!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- ==================== SECTION 4A — BREADTH (FIXED) ==================== -->
 <div class="section" id="s4-breadth">
   <div class="section-title">Section 4 — Market Breadth</div>
-
-  <!-- 4A: % Above MA — Symbol-first layout (first col = "Symbol") -->
   <div class="sub-title">4A — % of Index Constituents Above Moving Averages</div>
   <div style="font-size:11px;color:var(--text-muted);margin-bottom:8px;">Source: Finviz screener (index-filtered) — breadth within each index's own constituent universe</div>
   <div class="table-wrap">

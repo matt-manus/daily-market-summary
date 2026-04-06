@@ -273,11 +273,13 @@ def build_indices_rows(indices, breadth):
             f'<tr class="{rsi_row}">'
             f'<td><div class="sym-cell"><span class="sym">{sym}</span>'
             f'<span class="sym-name">{name}</span></div></td>'
-            f'<td>{price}</td><td>{chg}</td><td>{rsi_html}</td>'
-            f'<td class="{vs20_c}">{vs20}</td>'
-            f'<td class="{vs50_c}">{vs50}</td>'
-            f'<td class="{vs200_c}">{vs200}</td>'
-            f'<td>{adr_str}</td></tr>'
+            f'<td>{price}</td>'
+            f'<td class="hide-on-mobile">{chg}</td>'
+            f'<td class="hide-on-mobile">{rsi_html}</td>'
+            f'<td class="hide-on-mobile {vs20_c}">{vs20}</td>'
+            f'<td class="hide-on-mobile {vs50_c}">{vs50}</td>'
+            f'<td class="hide-on-mobile {vs200_c}">{vs200}</td>'
+            f'<td class="hide-on-mobile">{adr_str}</td></tr>'
         )
     return "\n".join(rows)
 
@@ -310,8 +312,10 @@ def build_breadth_rows(breadth, indices):
         etf_label = f'<strong>{etf}</strong><br><span style="font-size:10px;color:var(--text-muted)">{source}</span>'
         rows.append(
             f'<tr><td><strong>{label}</strong></td><td>{total}</td>'
-            f'<td>{p20}</td><td>{p50}</td><td>{p200}</td>'
-            f'<td>{etf_label}</td></tr>'
+            f'<td>{p20}</td>'
+            f'<td class="hide-on-mobile">{p50}</td>'
+            f'<td class="hide-on-mobile">{p200}</td>'
+            f'<td class="hide-on-mobile">{etf_label}</td></tr>'
         )
     return "\n".join(rows)
 
