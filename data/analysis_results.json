@@ -58,7 +58,7 @@
     {
       "ticker": "CIBR",
       "sector_category": "Thematic & Tech",
-      "rs_score": -0.07829594631412984,
+      "rs_score": -0.07829596293621449,
       "rs_rating": 22,
       "above_20ma": true,
       "volume_climax": false,
@@ -265,7 +265,7 @@
     {
       "ticker": "QTUM",
       "sector_category": "Thematic & Tech",
-      "rs_score": -0.0050176168009699925,
+      "rs_score": -0.00501760245074454,
       "rs_rating": 52,
       "above_20ma": true,
       "volume_climax": false,
@@ -319,7 +319,7 @@
     {
       "ticker": "SOXX",
       "sector_category": "Thematic & Tech",
-      "rs_score": 0.09162664915201699,
+      "rs_score": 0.09162667573040004,
       "rs_rating": 90,
       "above_20ma": true,
       "volume_climax": false,
@@ -337,7 +337,7 @@
     {
       "ticker": "TLT",
       "sector_category": "Macro & Global",
-      "rs_score": -0.007508717938605126,
+      "rs_score": -0.0075087536365975975,
       "rs_rating": 50,
       "above_20ma": true,
       "volume_climax": false,
@@ -355,7 +355,7 @@
     {
       "ticker": "VNQ",
       "sector_category": "Macro & Global",
-      "rs_score": 0.0012870897848580318,
+      "rs_score": 0.0012870724956399746,
       "rs_rating": 57,
       "above_20ma": true,
       "volume_climax": false,
@@ -364,7 +364,7 @@
     {
       "ticker": "XAR",
       "sector_category": "Defense & Space",
-      "rs_score": 0.021442159104891355,
+      "rs_score": 0.021442173322813306,
       "rs_rating": 66,
       "above_20ma": false,
       "volume_climax": false,
@@ -400,7 +400,7 @@
     {
       "ticker": "XLC",
       "sector_category": "Core Industry",
-      "rs_score": -0.0445418784574005,
+      "rs_score": -0.04454189119543116,
       "rs_rating": 36,
       "above_20ma": false,
       "volume_climax": false,
@@ -427,7 +427,7 @@
     {
       "ticker": "XLI",
       "sector_category": "Core Industry",
-      "rs_score": 0.01654900300429798,
+      "rs_score": 0.016548981612631318,
       "rs_rating": 64,
       "above_20ma": true,
       "volume_climax": false,
@@ -463,7 +463,7 @@
     {
       "ticker": "XLU",
       "sector_category": "Core Industry",
-      "rs_score": 0.040395763512865335,
+      "rs_score": 0.040395782287243304,
       "rs_rating": 76,
       "above_20ma": true,
       "volume_climax": false,
@@ -490,7 +490,7 @@
     {
       "ticker": "XOP",
       "sector_category": "Core Industry",
-      "rs_score": 0.2712503713527388,
+      "rs_score": 0.27125033921179686,
       "rs_rating": 99,
       "above_20ma": true,
       "volume_climax": false,

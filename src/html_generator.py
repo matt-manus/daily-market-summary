@@ -2084,16 +2084,22 @@ def build_core_etf_rows(data):
 # ── Section 6 最終版：10 組分類 + 獨立 box ───────────────────────────────────────────────
 
 SUBSECTOR_GROUPS = {
-    "Tech, AI & Robotics":        ["SOXX", "SMH", "IGV", "ROBO", "BOTZ", "ARKQ", "SKYY", "AIQ"],
-    "Cybersecurity":               ["CIBR", "HACK", "BUG"],
-    "FinTech":                     ["FINX", "IPAY"],
-    "Healthcare & Biotech":        ["XBI", "IHI", "ARKK", "MSOS"],
-    "Financial":                   ["KBE", "KRE", "IAI", "BLOK"],
-    "Energy & Materials":          ["XOP", "LIT", "PICK", "COPX", "SLV", "GLD", "NLR"],
-    "Industrial & Infrastructure": ["ROKT", "PAVE", "JETS", "COPX", "XHB", "IFRA"],
-    "Real Estate & Bonds":         ["XLRE", "TLT", "VNQ"],
-    "Space & Defense":             ["ROKT", "XAR", "ITA"],
-    "Misc":                        ["MSOS", "ROBO", "XAR", "BLOK"],
+    "Semiconductors":              ["SMH", "SOXX"],
+    "Software & Cloud":            ["IGV", "SKYY"],
+    "AI, Robotics & Innovation":   ["ROBO", "ARKQ", "AIQ", "BOTZ", "MAGS", "ARKK", "QTUM"],
+    "Cyber & Blockchain":          ["CIBR", "BUG", "BLOK"],
+    "FinTech & Payments":          ["IPAY", "FINX"],
+    "Biotech":                     ["XBI", "IBB"],
+    "Medical Devices":             ["IHI"],
+    "Banking & Capital Markets":   ["KRE", "KBE", "IAI"],
+    "Traditional Energy":          ["XOP", "OIH"],
+    "Clean Energy & Power":        ["TAN", "NLR", "URA"],
+    "Precious & Base Metals":      ["GDX", "GLD", "SLV", "COPX", "PICK", "LIT"],
+    "Aerospace & Defense":         ["ITA", "XAR", "ROKT"],
+    "Transport & Infrastructure":  ["IYT", "JETS", "PAVE"],
+    "Consumer & Housing":          ["XRT", "XHB", "ITB"],
+    "China Equities":              ["FXI", "KWEB"],
+    "Macro & Alternatives":        ["VNQ", "TLT", "MSOS"],
 }
 
 
