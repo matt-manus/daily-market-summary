@@ -1,6 +1,7 @@
 # fetch_stockbee_data.py
 # Phase 3: 最終版 - click "2026" + 先找 Frame 1 + frame.wait_for_selector("table.waffle")
-# Grok 撰寫 | 待 Gemini 審核 | Manus 部署至 dev
+# Grok 撰寫 | Gemini 邏輯審核 v2 | Manus 部署至 dev
+# v3 修正：Gemini + Grok Hybrid Header + 徹底 1-column offset 修正
 
 from playwright.sync_api import sync_playwright
 from datetime import datetime
@@ -41,7 +42,7 @@ def fetch_stockbee_data():
             if not frame:
                 raise ValueError("Frame 1 (iframe) not found")
             
-            # 在 frame 內等待 waffle table（關鍵修正）
+            # 在 frame 內等待 waffle table
             frame.wait_for_selector("table.waffle", timeout=15000)
             print("DEBUG: Frame 1 內 waffle table 已出現")
             
@@ -60,12 +61,39 @@ def fetch_stockbee_data():
             rows = table.find_all("tr")
             print(f"DEBUG: waffle table 共有 {len(rows)} 行 tr")
             
-            # header
-            headers = [th.get_text(strip=True) for th in rows[0].find_all(["th", "td"])]
+            # ── Grok v3 + Gemini 聯合：Hybrid Header + 徹底 1-column offset 修正 ──
+            headers = []
+            start_row_idx = 2
+            
+            # 掃描頭 10 行，尋找真正包含 "t2108" 嘅 Header Row
+            for idx, row in enumerate(rows[:10]):
+                tds = row.find_all(["th", "td"])
+                row_texts = [td.get_text(strip=True) for td in tds]
+                if any("t2108" in t.lower() for t in row_texts):
+                    # 先建 raw headers（空字串補 col_i）
+                    raw_headers = [t if t else f"col_{i:02d}" for i, t in enumerate(row_texts)]
+                    
+                    # === 徹底修正 offset：捨棄第一格 row number label "2" ===
+                    if raw_headers and (raw_headers[0].strip().isdigit() or raw_headers[0].strip() in ["", "1", "2", "3"]):
+                        headers = raw_headers[1:]   # 直接 shift，讓 "Date" 成為第一個 key
+                        print(f"DEBUG: 偵測到 1-column offset，已移除第一格 '{raw_headers[0]}' → headers 已對齊")
+                    else:
+                        headers = raw_headers
+                    
+                    start_row_idx = idx + 1
+                    print(f"DEBUG: 成功於行 {idx} 找到 Header Row（修正後）: {headers}")
+                    break
+            
+            # Fallback：如果搵唔到 T2108，就用純位置索引
+            if not headers:
+                print("DEBUG: 找不到包含 T2108 的 Header，啟用純位置索引 Fallback")
+                headers = [f"col_{i:02d}" for i in range(100)]
+                start_row_idx = 2
             
             data = []
-            row_idx = 0
-            for row in rows[2:]:
+            # 由正確的 start_row_idx 開始抓數據
+            for row_offset, row in enumerate(rows[start_row_idx:]):
+                actual_row_idx = start_row_idx + row_offset  # 用於 Playwright locator 精準定位
                 tds = row.find_all("td")
                 if len(tds) < 5:
                     continue
@@ -73,11 +101,12 @@ def fetch_stockbee_data():
                 row_data = {}
                 color_map = {}
                 for i, td in enumerate(tds):
-                    col_name = headers[i] if i < len(headers) else f"col_{i}"
+                    col_name = headers[i] if i < len(headers) else f"col_{i:02d}"
                     value = td.get_text(strip=True)
                     
+                    # 抓取背景顏色（Playwright 真實渲染）
                     try:
-                        cell_element = frame.locator("table tr").nth(row_idx + 2).locator("td").nth(i)
+                        cell_element = frame.locator("table tr").nth(actual_row_idx).locator("td").nth(i)
                         bg_color = cell_element.evaluate("el => window.getComputedStyle(el).backgroundColor")
                     except:
                         bg_color = td.get("style", "")
@@ -97,7 +126,6 @@ def fetch_stockbee_data():
                 row_data["colors"] = color_map
                 row_data["last_success_time"] = datetime.now().isoformat()
                 data.append(row_data)
-                row_idx += 1
             
             browser.close()
             
@@ -112,7 +140,8 @@ def fetch_stockbee_data():
                 "file": JSON_FILE,
                 "data_stale": False,
                 "debug_frames": len(frames),
-                "debug_rows": len(rows)
+                "debug_rows": len(rows),
+                "header_found": bool(headers)
             }
             
     except Exception as e:
