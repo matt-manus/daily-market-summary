@@ -58,6 +58,15 @@ def fetch_stockbee_data():
             with open(DEBUG_HTML, "w", encoding="utf-8") as f:
                 f.write(str(table))
             
+            # ── Grok 新增：自動截圖 waffle table（每次 fetch 覆蓋最新） ──
+            png_path = os.path.join("assets", "img", "today", "stockbee_mm.png")
+            os.makedirs(os.path.dirname(png_path), exist_ok=True)
+            try:
+                frame.locator("table.waffle").screenshot(path=png_path)
+                print(f"DEBUG: \u2705 Stockbee table screenshot \u5df2\u66f4\u65b0 \u2192 {png_path}")
+            except Exception as e:
+                print(f"DEBUG: \u26a0\ufe0f Screenshot failed (but data still saved): {e}")
+            
             rows = table.find_all("tr")
             print(f"DEBUG: waffle table 共有 {len(rows)} 行 tr")
             
