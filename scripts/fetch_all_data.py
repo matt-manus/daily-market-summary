@@ -73,23 +73,50 @@ def fetch_dynamic_t2108() -> dict:
         # 若是 error payload（list with error_code），直接返回 stale
         if isinstance(raw, list) and raw and raw[0].get("error_code"):
             raise ValueError(f"stockbee_mm.json contains error: {raw[0].get('error')}")
-        # 嘗試從 JSON 中解析 T2108 欄位
+        # 嘗試從 JSON 中解析 T2108, Up 4%+, Down 4%+（Grok v1 + Gemini 聯合版）
         t2108_val = None
+        up_4_val = None
+        down_4_val = None
         latest_date = None
+        
         if isinstance(raw, list):
+            # 第一筆通常是空白 Header 行，所以掃描頭幾筆尋找有效數據
             for row in raw:
-                if isinstance(row, dict):
-                    for k, v in row.items():
-                        if "t2108" in str(k).lower():
-                            try:
-                                t2108_val = float(str(v).replace("%", "").strip())
-                                latest_date = row.get("last_success_time", "")[:10]
-                            except (ValueError, TypeError):
-                                pass
+                if isinstance(row, dict) and row.get("T2108") and str(row.get("T2108")).strip() != "":
+                    try:
+                        # 清洗並轉換數值
+                        raw_t2108 = str(row.get("T2108", "")).replace("%", "").replace(",", "").strip()
+                        if raw_t2108:
+                            t2108_val = float(raw_t2108)
+                        
+                        raw_up = str(row.get("Number of stocks up 4% plus today", "")).replace(",", "").strip()
+                        if raw_up:
+                            up_4_val = int(raw_up)
+                        
+                        raw_down = str(row.get("Number of stocks down 4% plus today", "")).replace(",", "").strip()
+                        if raw_down:
+                            down_4_val = int(raw_down)
+                        
+                        # 日期欄位
+                        latest_date = row.get("Date", "").strip()
+                        
+                        print(f"  DEBUG: 成功提取最新 Stockbee 數據 → Date={latest_date}, T2108={t2108_val}, Up4%+={up_4_val}, Down4%+={down_4_val}")
+                    except (ValueError, TypeError) as e:
+                        print(f"  [WARNING] 數據格式轉換失敗: {e}")
+                        pass
+                    
+                    break  # 成功抓到最新一筆就停止
+
+        # 舊版 fallback（保持兼容）
+        if t2108_val is None:
+            print("  DEBUG: 未能從 stockbee_mm.json 提取 T2108，繼續使用 fallback")
+
         return {
             "source": "Stockbee Market Monitor (dynamic via stockbee_mm.json)",
             "latest_date": latest_date,
             "t2108": t2108_val,
+            "up_4_plus": up_4_val,
+            "down_4_plus": down_4_val,
             "data_stale": t2108_val is None,
         }
     except Exception as e:
