@@ -899,6 +899,41 @@ def render():
     html = html.replace("{{BREADTH_ROWS}}", build_breadth_rows(breadth, indices))
     html = html.replace("{{ADR_CARDS}}",    build_adr_cards(breadth))
 
+    # ── Section 4C: Stockbee Dynamic Summary (Grok v2 + Gemini) ──────────────────
+    s_mm = data.get("stockbee_mm", {})
+    t2108_val = s_mm.get("t2108", "-")
+    up_4 = s_mm.get("up_4_plus", "-")
+    down_4 = s_mm.get("down_4_plus", "-")
+    sb_date = s_mm.get("latest_date", "-")
+
+    # T2108 顏色標記
+    t2108_class = ""
+    if isinstance(t2108_val, (int, float)):
+        if t2108_val <= 20:
+            t2108_class = "color: #10b981;"   # green-500 超賣
+        elif t2108_val >= 80:
+            t2108_class = "color: #ef4444;"   # red-500 超買
+
+    sb_summary_html = f'''
+    <div class="stockbee-summary">
+        <div class="stat">
+            <div class="label">T2108</div>
+            <div class="value" style="{t2108_class}">{t2108_val}%</div>
+        </div>
+        <div class="stat">
+            <div class="label">Up 4%+</div>
+            <div class="value" style="color: #10b981;">{up_4}</div>
+        </div>
+        <div class="stat">
+            <div class="label">Down 4%+</div>
+            <div class="value" style="color: #ef4444;">{down_4}</div>
+        </div>
+    </div>
+    <div class="date">Last Data: {sb_date}</div>
+    '''
+
+    html = html.replace("{{STOCKBEE_DYNAMIC_SUMMARY}}", sb_summary_html)
+
     # Section 5: Sectors & Industries (Top 10)
     html = html.replace("{{SECTOR_ROWS}}",   build_sector_rows(sectors))
     html = html.replace("{{INDUSTRY_ROWS}}", build_industry_rows(industry))

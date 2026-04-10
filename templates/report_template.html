@@ -509,6 +509,41 @@
     #subsector-boxes .section {
       margin-bottom: 0;
     }
+
+    /* ─── SECTION 4C: STOCKBEE DYNAMIC SUMMARY (Grok + Gemini) ────────────────── */
+    .stockbee-summary {
+      margin: 14px 0 8px 0;
+      padding: 12px 20px;
+      background: #1f2937;
+      border-radius: 8px;
+      border: 1px solid #374151;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      font-size: 0.95rem;
+      color: #e5e7eb;
+    }
+    .stockbee-summary .stat {
+      text-align: center;
+      min-width: 90px;
+    }
+    .stockbee-summary .label {
+      font-size: 0.75rem;
+      color: #9ca3af;
+      margin-bottom: 3px;
+      letter-spacing: 0.5px;
+    }
+    .stockbee-summary .value {
+      font-size: 1.4rem;
+      font-weight: 700;
+    }
+    .stockbee-summary .date {
+      margin-top: 8px;
+      font-size: 0.75rem;
+      color: #6b7280;
+      text-align: right;
+      font-style: italic;
+    }
   </style>
 </head>
 <body>
@@ -698,6 +733,10 @@
   <div class="sub-title" style="margin-top:20px;">4C — Stockbee Market Monitor</div>
   <div class="img-block">
     <img src="assets/img/today/stockbee_mm.png" alt="Stockbee Market Monitor" />
+    
+    <!-- Grok + Gemini 聯合：動態 Dashboard Summary -->
+    {{STOCKBEE_DYNAMIC_SUMMARY}}
+    
     <div class="img-caption">Stockbee Market Monitor — Momentum Breakdown (T2108 / Up-Down 4%)</div>
   </div>
 
