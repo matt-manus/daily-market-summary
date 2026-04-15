@@ -834,6 +834,12 @@ def render():
             print("  ⚠  Error:", heatmap_result.stderr.strip())
     print("  ── END HEATMAP FETCH ──\n")
     # ── End Phase 3.9 ──────────────────────────────────────────────────────────
+    # ── Phase 3.95: Fix Date Logic ──────────────────────────────────────────
+    _hk_tz = pytz.timezone('Asia/Hong_Kong')
+    _today_hk = datetime.now(_hk_tz)
+    _archive_date_str = _today_hk.strftime("%Y-%m-%d")   # 永遠用今日 HKT 日期
+    print(f"\ud83d\udcc5 Phase 3.95 使用 HKT 日期生成 Archive: archive/{_archive_date_str}.html")
+    # ── End Phase 3.95 ──────────────────────────────────────────────────────────
     with open(JSON, encoding="utf-8") as f:
         data = json.load(f)
 
@@ -976,11 +982,27 @@ def render():
         f'<div style="font-size:13px;font-weight:700;color:{rc};margin-bottom:4px;">{rl}</div>'
         f'<div style="font-size:11px;color:#aaa;">{rs}</div></div>'
     )
-    # ── DATA WARNING BANNER (Grok v5.1) ─────────────────────────────────────────
+    # ── DATA WARNING BANNER (Phase 3.95: 48-hour Heatmap Rule) ───────────────────
     _data_status   = data.get("data_status", "fresh")
     _data_warnings = data.get("data_warnings", [])
-    if _data_status == "warning" and _data_warnings:
-        _warn_text = " | ".join(_data_warnings)
+    # Phase 3.95: Override stale check with 48-hour heatmap image freshness rule
+    _heatmap_img_path = BASE / "assets" / "images" / "market_heatmap.png"
+    _hk_tz_banner = pytz.timezone('Asia/Hong_Kong')
+    _show_stale_banner = False
+    if _heatmap_img_path.exists():
+        _img_mtime = datetime.fromtimestamp(_heatmap_img_path.stat().st_mtime, tz=_hk_tz_banner)
+        _hours_old = (datetime.now(_hk_tz_banner) - _img_mtime).total_seconds() / 3600
+        if _hours_old > 48:
+            _show_stale_banner = True
+            print(f"  ⚠  Heatmap 已超過 48 小時（{_hours_old:.1f}h），Stale Banner 顯示")
+        else:
+            print(f"  ✓  Heatmap 新鮮（{_hours_old:.1f}h < 48h），Stale Banner 隱藏")
+    else:
+        # Fallback to original data_status logic if no heatmap image
+        _show_stale_banner = (_data_status == "warning" and bool(_data_warnings))
+        print(f"  ⚠  Heatmap 圖片不存在，使用原有 data_status 邏輯")
+    if _show_stale_banner:
+        _warn_text = " | ".join(_data_warnings) if _data_warnings else "Heatmap data older than 48 hours"
         _warning_banner_html = (
             f'<div class="data-warning-banner active">'
             f'⚠️ Data Stale / Warning: {_warn_text} — Please check source data'
@@ -989,7 +1011,6 @@ def render():
     else:
         _warning_banner_html = '<div class="data-warning-banner"></div>'
     html = html.replace("{{DATA_WARNING_BANNER}}", _warning_banner_html)
-
     html = html.replace("{{REGIME_BANNER}}", regime_banner)
     # ── CORRECTION CHECKLIST ──────────────────────────────────────────────────────────────────
     if spy_vs20 is not None and spy_vs20 < 0:
@@ -1089,9 +1110,8 @@ def render():
     # Write archive FIRST so the history block can include today's entry
     print("\n  ── ARCHIVE OUTPUT ──")
     ARCHIVE.mkdir(parents=True, exist_ok=True)
-    today_str    = get_today_date_str()
-    json_date    = meta.get("date", today_str)
-    archive_date = json_date[:10] if json_date and len(json_date) >= 10 else today_str
+    # Phase 3.95: Always use today's HKT date for archive filename (override JSON meta.date)
+    archive_date = _archive_date_str   # 來自 Phase 3.95 block，永遠用今日 HKT
     archive_path = ARCHIVE / f"{archive_date}.html"
 
     # Build a temporary archive placeholder (back-link footer)
