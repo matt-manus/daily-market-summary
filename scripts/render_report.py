@@ -838,7 +838,7 @@ def render():
     _hk_tz = pytz.timezone('Asia/Hong_Kong')
     _today_hk = datetime.now(_hk_tz)
     _archive_date_str = _today_hk.strftime("%Y-%m-%d")   # 永遠用今日 HKT 日期
-    print(f"\ud83d\udcc5 Phase 3.95 使用 HKT 日期生成 Archive: archive/{_archive_date_str}.html")
+    print(f"[Phase 3.95] Archive date (HKT): archive/{_archive_date_str}.html")
     # ── End Phase 3.95 ──────────────────────────────────────────────────────────
     with open(JSON, encoding="utf-8") as f:
         data = json.load(f)
