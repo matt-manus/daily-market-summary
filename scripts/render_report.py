@@ -28,7 +28,7 @@ Dynamic coloring:
   N/A safety: all .get() default to None → rendered as <span class="na-val">N/A</span>
 """
 
-import json, os, re, base64
+import json, os, re, base64, subprocess
 from datetime import datetime
 from pathlib import Path
 import pytz
@@ -819,6 +819,21 @@ def build_s8_calendar():
 # ── Main ───────────────────────────────────────────────────────────────────
 
 def render():
+    # ── Phase 3.9: Auto-fetch Finviz Heatmap before rendering ──────────────────
+    print("\n  ── PHASE 3.9: HEATMAP FETCH ──")
+    heatmap_script = str(BASE / "scripts" / "fetch_finviz_heatmap.py")
+    heatmap_result = subprocess.run(
+        ["python3", heatmap_script], capture_output=True, text=True, cwd=str(BASE)
+    )
+    print(heatmap_result.stdout.strip())
+    if heatmap_result.returncode == 0:
+        print("  ✓  fetch_finviz_heatmap.py 完成")
+    else:
+        print("  ⚠  fetch_finviz_heatmap.py 失敗，使用舊圖繼續")
+        if heatmap_result.stderr:
+            print("  ⚠  Error:", heatmap_result.stderr.strip())
+    print("  ── END HEATMAP FETCH ──\n")
+    # ── End Phase 3.9 ──────────────────────────────────────────────────────────
     with open(JSON, encoding="utf-8") as f:
         data = json.load(f)
 
@@ -1112,7 +1127,7 @@ def render():
 
 if __name__ == "__main__":
     print("╔══════════════════════════════════════════════╗")
-    print("  Market Summary Renderer v4.4  (Semi-Auto Mode)")
+    print("  Market Summary Renderer v4.4  (Phase 3.9)   ")
     print("╚══════════════════════════════════════════════╝")
     render()
     print("✅  Render complete.")
