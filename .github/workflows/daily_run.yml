@@ -1,10 +1,11 @@
-# Trial run - Phase 3.95
 name: Daily Market Report
 
 on:
   schedule:
     - cron: '05 23 * * 1-5'     # UTC 23:05 = HKT 早上 07:05（星期二至六）
   workflow_dispatch:            # 允許手動觸發測試
+  push:                         # ← 臨時加入，幫助 GitHub 立刻認這個 workflow
+    branches: [ dev ]
 
 jobs:
   update-report:
