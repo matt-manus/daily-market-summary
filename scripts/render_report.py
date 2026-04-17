@@ -834,6 +834,21 @@ def render():
             print("  ⚠  Error:", heatmap_result.stderr.strip())
     print("  ── END HEATMAP FETCH ──\n")
     # ── End Phase 3.9 ──────────────────────────────────────────────────────────
+    # ── PHASE 3.9: STOCKBEE FETCH (T2108 + waffle chart) ──
+    print("  ── PHASE 3.9: STOCKBEE FETCH ──")
+    stockbee_script = str(BASE / "fetch_stockbee_data.py")
+    stockbee_result = subprocess.run(
+        ["python3", stockbee_script], capture_output=True, text=True, cwd=str(BASE)
+    )
+    if stockbee_result.stdout.strip():
+        print(stockbee_result.stdout.strip())
+    if stockbee_result.returncode == 0:
+        print("  \u2713  fetch_stockbee_data.py \u5b8c\u6210\uff08stockbee_mm.png \u5df2\u66f4\u65b0\uff09")
+    else:
+        print("  \u26a0  Stockbee fetch \u5931\u6557\uff0c\u4f7f\u7528\u820a\u5716\uff08\u4f46\u7e7c\u7e8c\u751f\u6210\uff09")
+        if stockbee_result.stderr:
+            print("  \u26a0  Error:", stockbee_result.stderr.strip())
+    print("  ── END STOCKBEE FETCH ──\n")
     # ── Phase 3.95: Fix Date Logic ──────────────────────────────────────────
     _hk_tz = pytz.timezone('Asia/Hong_Kong')
     _today_hk = datetime.now(_hk_tz)
@@ -1075,9 +1090,9 @@ def render():
             'src="assets/img/today/stockbee_mm.png"',
             f'src="{b64_stockbee}"'
         )
-        print("  ✓  Section 4D Stockbee: Base64 injected into HTML")
+        print("  ✓  Section 4C Stockbee: Base64 injected into HTML")
     else:
-        print("  ⚠  Section 4D Stockbee: image missing, keeping path reference")
+        print("  ⚠  Section 4C Stockbee: image missing, keeping path reference")
 
     if b64_industry:
         html = html.replace(
