@@ -1,12 +1,12 @@
 {
   "meta": {
-    "generated_hkt": "2026-04-18 22:52",
-    "generated_et": "2026-04-18 10:52",
+    "generated_hkt": "2026-04-19 00:05",
+    "generated_et": "2026-04-18 12:05",
     "date": "2026-04-18",
     "source": "Yahoo Finance + CNN + NAAIM + Finviz + Barchart",
     "rsi_method": "Wilder SMMA (EWM alpha=1/14)",
     "schema_version": "4.2",
-    "last_updated_hkt": "2026-04-18 22:52:57 HKT"
+    "last_updated_hkt": "2026-04-19 00:06:37 HKT"
   },
   "macro": {
     "VIX": {
@@ -35,9 +35,9 @@
       "change_1d_pct": -11.45
     },
     "BTC": {
-      "price": 76268.5703,
-      "change_1d": -858.3047,
-      "change_1d_pct": -1.11
+      "price": 76098.7891,
+      "change_1d": -1028.0859,
+      "change_1d_pct": -1.33
     }
   },
   "indices": {
@@ -1510,15 +1510,16 @@
     }
   },
   "stockbee_mm": {
-    "source": "Stockbee Market Monitor (dynamic via stockbee_mm.json)",
-    "latest_date": "4/17/2026",
-    "t2108": 62.94,
-    "up_4_plus": 622,
-    "down_4_plus": 142,
-    "data_stale": false
+    "source": "Stockbee Market Monitor (failed)",
+    "latest_date": "-",
+    "t2108": "-",
+    "data_stale": true
   },
-  "data_status": "fresh",
-  "last_updated_hkt": "2026-04-18 22:52:57 HKT",
+  "data_status": "warning",
+  "data_warnings": [
+    "T2108 missing or stale"
+  ],
+  "last_updated_hkt": "2026-04-19 00:06:37 HKT",
   "thematic": [
     {
       "symbol": "SOXX",
