@@ -995,53 +995,7 @@ def render():
         _warning_banner_html = '<div class="data-warning-banner"></div>'
     html = html.replace("{{DATA_WARNING_BANNER}}", _warning_banner_html)
 
-    html = html.replace("{{REGIME_BANNER}}", regime_banner)
-    # ── CORRECTION CHECKLIST ──────────────────────────────────────────────────────────────────
-    if spy_vs20 is not None and spy_vs20 < 0:
-        c1 = "&#9989;" if vix_val_r and vix_val_r > 30 else "&#11036;"
-        c2 = "&#9989;" if fg_score_r and fg_score_r < 20 else "&#11036;"
-        c3 = "&#9989;" if sp_p20_r and sp_p20_r < 20 else "&#11036;"
-        c4 = "&#9989;" if spy_vs20 and spy_vs20 < -3 else "&#11036;"
-        correction_html = (
-            '<div style="background:rgba(244,67,54,0.07);border:1px solid #f44336;'
-            'border-radius:8px;padding:14px 20px;margin-bottom:20px;">'
-            '<div style="font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;'
-            'color:#f44336;margin-bottom:10px;">&#128203; Correction Checklist</div>'
-            '<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;font-size:12px;">'
-            f'<div>{c1} VIX &gt; 30 (Panic Level): {vix_val_r:.1f}</div>'
-            f'<div>{c2} F&amp;G &lt; 20 (Extreme Fear): {fg_score_r:.0f}</div>'
-            f'<div>{c3} SP500 &gt;20MA &lt; 20%: {sp_p20_r:.1f}%</div>'
-            f'<div>{c4} SPY &gt;5% below 20MA: {spy_vs20:+.1f}%</div>'
-            '</div></div>'
-        )
-    else:
-        correction_html = ""
-    html = html.replace("{{CORRECTION_CHECKLIST}}", correction_html)
-    # ── EXPERT INSIGHTS ─────────────────────────────────────────────────────────
-    expert_file = BASE / "expert_notes.txt"
-    expert_html = ""
-    if expert_file.exists():
-        with open(expert_file, encoding="utf-8") as ef:
-            notes = ef.read().strip()
-        content_lines = [l for l in notes.splitlines() if l.strip() and not l.strip().startswith("#")]
-        if content_lines:
-            content_text = "<br/>".join(content_lines)
-            expert_html = (
-                '<div style="background:rgba(66,165,245,0.08);border:1px solid #42a5f5;'
-                'border-radius:8px;padding:14px 20px;margin-bottom:20px;">'
-                '<div style="font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;'
-                'color:#42a5f5;margin-bottom:8px;">&#128161; Expert Insights</div>'
-                f'<div style="font-size:12px;color:#ccc;line-height:1.6;">{content_text}</div></div>'
-            )
-    html = html.replace("{{EXPERT_INSIGHTS}}", expert_html)
-    # Section 6: AI Market Analysis (Checklist + Bull/Bear)
-    html = html.replace("{{S6_CONTENT}}", build_s6_analysis(data, ai_strategy))
-
-    # Section 7: Trading Outlook & Watchlist with Technical Triggers
-    html = html.replace("{{S7_CONTENT}}", build_s7_content(data, ai_strategy))
-
-    # Section 8: Event Calendar with BMO/AMC timing
-    html = html.replace("{{S8_CONTENT}}", build_s8_calendar())
+    # REGIME_BANNER, CORRECTION_CHECKLIST, EXPERT_INSIGHTS, S6/S7/S8 removed (Section 7 & 8 deleted)
 
     # ── BASE64 IMAGE EMBEDDING (No Path Errors) ───────────────────────────────────────
     print("\n  ── BASE64 IMAGE EMBEDDING ──")

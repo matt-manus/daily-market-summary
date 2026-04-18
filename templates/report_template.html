@@ -564,13 +564,6 @@
 
 <!-- ═══ DATA WARNING BANNER (auto-injected by html_generator) ═══════════════ -->
 {{DATA_WARNING_BANNER}}
-
-<!-- ═══ REGIME BANNER (auto-injected) ═════════════════════════════════ -->
-{{REGIME_BANNER}}
-
-<!-- ═══ EXPERT INSIGHTS (from expert_notes.txt) ═══════════════ -->
-{{EXPERT_INSIGHTS}}
-
 <!-- ═══════════════════════════════════════════════════════════════ -->
 <!-- SECTION 1 — MACRO INDICATORS                                   -->
 <!-- Architecture: VIX 必考慮；Oil 視催化作用而定                     -->
@@ -793,74 +786,7 @@
   </div>
 </div>
 
-<!-- ═══════════════════════════════════════════════════════════════ -->
-<!-- SECTION 8 — SUMMARY (Bull/Bear, Regime, Checklist)             -->
-<!-- Architecture: 維持於底部，作為 Build-up 閱讀流嘅總結            -->
-<!-- ═══════════════════════════════════════════════════════════════ -->
-<div class="section" id="s7-market-summary">
-  <div class="section-title">Section 7 — Market Summary &amp; Regime</div>
 
-  <!-- Correction Checklist (shown when SPY < 20MA) -->
-  {{CORRECTION_CHECKLIST}}
-
-  <!-- Coach's Action Plan -->
-  <div style="
-    border: 2px solid #ff9800;
-    border-radius: 10px;
-    background: linear-gradient(135deg, #0d0a00 0%, #120c00 100%);
-    padding: 20px 24px;
-    margin-bottom: 16px;
-    box-shadow: 0 0 24px rgba(255,152,0,0.12);
-  ">
-    <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;">
-      <span style="font-size:22px;">&#127919;</span>
-      <div style="font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;
-                  color:#ff9800;border-left:3px solid #ff9800;padding-left:10px;">
-        Coach's Action Plan &mdash; Today's Playbook
-      </div>
-    </div>
-    {{S7_CONTENT}}
-  </div>
-
-  <!-- Market Analysis (AI) -->
-  <div class="sub-title">8B — Market Analysis</div>
-  {{S6_CONTENT}}
-
-  <!-- Phase 4 AI Comment -->
-  <div class="impact-comment-placeholder" id="s8-ai-comment">
-    Bull/Bear regime synthesis — Checklist status, regime classification, actionable bias for next session.
-  </div>
-</div>
-
-<!-- ═══════════════════════════════════════════════════════════════ -->
-<!-- SECTION 9 — EVENT CALENDAR                                     -->
-<!-- Architecture: 3-star events only；Python Strict Filtering      -->
-<!-- ═══════════════════════════════════════════════════════════════ -->
-<div class="section" id="s8-event-calendar">
-  <div class="section-title">Section 8 — Event Calendar (3-Star Events Only)</div>
-  <div style="font-size:11px;color:var(--text-muted);margin-bottom:10px;">
-    Strict filter: &#9733;&#9733;&#9733; high-impact events only. Low/medium impact events excluded.
-  </div>
-  <div class="table-wrap">
-    <table class="data-table">
-      <thead>
-        <tr>
-          <th>Date</th>
-          <th>Event / Ticker</th>
-          <th style="text-align:center">Timing</th>
-          <th style="text-align:center">Volatility Risk</th>
-        </tr>
-      </thead>
-      <tbody>
-        {{S8_CONTENT}}
-      </tbody>
-    </table>
-  </div>
-  <!-- Phase 4 AI Comment -->
-  <div class="impact-comment-placeholder" id="s9-ai-comment">
-    Event risk assessment — Upcoming catalysts, expected volatility windows, positioning implications.
-  </div>
-</div>
 
 <!-- ═══ HISTORY ARCHIVE ════════════════════════════════════════════ -->
 {{HISTORY_ARCHIVE_BLOCK}}
