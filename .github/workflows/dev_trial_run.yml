@@ -4,7 +4,7 @@ on:
   push:
     branches: [ dev-3.9 ]
   schedule:
-    - cron: '0 2 * * *'     # 每日香港時間早上 10:00 運行 (UTC 02:00)
+    - cron: '0 23 * * *'     # 每日香港時間早上 7:00 (UTC 23:00)
   workflow_dispatch:        # 手動觸發
 
 jobs:
