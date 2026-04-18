@@ -1114,6 +1114,54 @@ def render():
 
     print("  ── END BASE64 EMBEDDING ──\n")
 
+    # ── PHASE 3.9: STOCKBEE DYNAMIC SUMMARY ──
+    print("  ── PHASE 3.9: STOCKBEE DYNAMIC SUMMARY ──")
+    json_path = BASE / "data/stockbee_mm.json"
+    summary_html = '<div class="stockbee-summary-wrap">'
+
+    if json_path.exists():
+        try:
+            with open(json_path, "r", encoding="utf-8") as f:
+                sb_data = json.load(f)
+            if sb_data and isinstance(sb_data, list) and len(sb_data) > 0:
+                latest = sb_data[0]  # 最新一行（已排除空行）
+                t2108 = latest.get("T2108", "-")
+                up4 = latest.get("Number of stocks up 4% plus today", "-")
+                down4 = latest.get("Number of stocks down 4% plus today", "-")
+                last_date = latest.get("Date", "N/A")
+                # T2108 顏色
+                try:
+                    t2108_f = float(str(t2108).replace("%", "").replace(",", "").strip())
+                    if t2108_f <= 20:
+                        t2108_style = "color: #10b981;"
+                    elif t2108_f >= 80:
+                        t2108_style = "color: #ef4444;"
+                    else:
+                        t2108_style = ""
+                except (ValueError, TypeError):
+                    t2108_style = ""
+                summary_html += f'''
+                    <div class="stat"><div class="label">T2108</div><div class="value" style="{t2108_style}">{t2108}%</div></div>
+                    <div class="stat"><div class="label">Up 4%+</div><div class="value" style="color: #10b981;">{up4}</div></div>
+                    <div class="stat"><div class="label">Down 4%+</div><div class="value" style="color: #ef4444;">{down4}</div></div>
+                    <div class="date">Last Data: {last_date}</div>
+                '''
+                print(f"  \u2713  STOCKBEE_DYNAMIC_SUMMARY: T2108={t2108}, Up4%+={up4}, Down4%+={down4}, Date={last_date}")
+            else:
+                summary_html += "<span>&#9888;&#65039; No Stockbee data available</span>"
+                print("  \u26a0  STOCKBEE_DYNAMIC_SUMMARY: sb_data empty")
+        except Exception as e:
+            summary_html += f"<span>&#9888;&#65039; JSON read error: {e}</span>"
+            print(f"  \u26a0  STOCKBEE_DYNAMIC_SUMMARY error: {e}")
+    else:
+        summary_html += "<span>&#9888;&#65039; stockbee_mm.json not found</span>"
+        print("  \u26a0  STOCKBEE_DYNAMIC_SUMMARY: json_path not found")
+
+    summary_html += '</div>'
+    html = html.replace("{{STOCKBEE_DYNAMIC_SUMMARY}}", summary_html)
+    print("  \u2713  {{STOCKBEE_DYNAMIC_SUMMARY}} \u5df2\u6ce8\u5165\uff08T2108 + Up/Down 4% + Last Data\uff09")
+    print("  ── END STOCKBEE DYNAMIC SUMMARY ──\n")
+
     # Residual check
     leftover = re.findall(r"\{\{[A-Z0-9_]+\}\}", html)
     if leftover:
