@@ -32,6 +32,8 @@ import json, os, re, base64
 from datetime import datetime
 from pathlib import Path
 import pytz
+import sys; sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parent.parent))
+from src.html_generator import build_core_etf_rows, build_subsector_boxes
 
 BASE    = Path(__file__).resolve().parent.parent
 JSON    = BASE / "data"      / "today_market.json"
@@ -902,6 +904,10 @@ def render():
     # Section 5: Sectors & Industries (Top 10)
     html = html.replace("{{SECTOR_ROWS}}",   build_sector_rows(sectors))
     html = html.replace("{{INDUSTRY_ROWS}}", build_industry_rows(industry))
+
+    # Section 5 & 6 — Core ETF + Subsector Boxes（從 src/html_generator.py 呼叫）
+    html = html.replace("{{CORE_ETF_ROWS}}",   build_core_etf_rows(data))
+    html = html.replace("{{SUBSECTOR_BOXES}}", build_subsector_boxes(data))
 
     # ── REGIME BANNER ──────────────────────────────────────────────────────────
     spy_vs20     = safe_float((indices.get("SPY") or {}).get("vs_ma20_pct"))
