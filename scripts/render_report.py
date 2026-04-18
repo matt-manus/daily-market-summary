@@ -28,7 +28,7 @@ Dynamic coloring:
   N/A safety: all .get() default to None → rendered as <span class="na-val">N/A</span>
 """
 
-import json, os, re, base64, subprocess
+import json, os, re, base64
 from datetime import datetime
 from pathlib import Path
 import pytz
@@ -819,42 +819,6 @@ def build_s8_calendar():
 # ── Main ───────────────────────────────────────────────────────────────────
 
 def render():
-    # ── Phase 3.9: Auto-fetch Finviz Heatmap before rendering ──────────────────
-    print("\n  ── PHASE 3.9: HEATMAP FETCH ──")
-    heatmap_script = str(BASE / "scripts" / "fetch_finviz_heatmap.py")
-    heatmap_result = subprocess.run(
-        ["python3", heatmap_script], capture_output=True, text=True, cwd=str(BASE)
-    )
-    print(heatmap_result.stdout.strip())
-    if heatmap_result.returncode == 0:
-        print("  ✓  fetch_finviz_heatmap.py 完成")
-    else:
-        print("  ⚠  fetch_finviz_heatmap.py 失敗，使用舊圖繼續")
-        if heatmap_result.stderr:
-            print("  ⚠  Error:", heatmap_result.stderr.strip())
-    print("  ── END HEATMAP FETCH ──\n")
-    # ── End Phase 3.9 ──────────────────────────────────────────────────────────
-    # ── PHASE 3.9: STOCKBEE FETCH (T2108 + waffle chart) ──
-    print("  ── PHASE 3.9: STOCKBEE FETCH ──")
-    stockbee_script = str(BASE / "fetch_stockbee_data.py")
-    stockbee_result = subprocess.run(
-        ["python3", stockbee_script], capture_output=True, text=True, cwd=str(BASE)
-    )
-    if stockbee_result.stdout.strip():
-        print(stockbee_result.stdout.strip())
-    if stockbee_result.returncode == 0:
-        print("  \u2713  fetch_stockbee_data.py \u5b8c\u6210\uff08stockbee_mm.png \u5df2\u66f4\u65b0\uff09")
-    else:
-        print("  \u26a0  Stockbee fetch \u5931\u6557\uff0c\u4f7f\u7528\u820a\u5716\uff08\u4f46\u7e7c\u7e8c\u751f\u6210\uff09")
-        if stockbee_result.stderr:
-            print("  \u26a0  Error:", stockbee_result.stderr.strip())
-    print("  ── END STOCKBEE FETCH ──\n")
-    # ── Phase 3.95: Fix Date Logic ──────────────────────────────────────────
-    _hk_tz = pytz.timezone('Asia/Hong_Kong')
-    _today_hk = datetime.now(_hk_tz)
-    _archive_date_str = _today_hk.strftime("%Y-%m-%d")   # 永遠用今日 HKT 日期
-    print(f"[Phase 3.95] Archive date (HKT): archive/{_archive_date_str}.html")
-    # ── End Phase 3.95 ──────────────────────────────────────────────────────────
     with open(JSON, encoding="utf-8") as f:
         data = json.load(f)
 
@@ -935,56 +899,6 @@ def render():
     html = html.replace("{{BREADTH_ROWS}}", build_breadth_rows(breadth, indices))
     html = html.replace("{{ADR_CARDS}}",    build_adr_cards(breadth))
 
-    # ── Section 4C: Stockbee Dynamic Summary — 直接讀 stockbee_mm.json（Step 8 修復） ──
-    _sb_json = BASE / "data/stockbee_mm.json"
-    t2108_val = "-"
-    up_4 = "-"
-    down_4 = "-"
-    sb_date = "-"
-    if _sb_json.exists():
-        try:
-            with open(_sb_json, "r", encoding="utf-8") as _f:
-                _sb_raw = json.load(_f)
-            if _sb_raw and isinstance(_sb_raw, list) and len(_sb_raw) > 0:
-                _latest = _sb_raw[0]
-                t2108_val = _latest.get("T2108", "-")
-                up_4 = _latest.get("Number of stocks up 4% plus today", "-")
-                down_4 = _latest.get("Number of stocks down 4% plus today", "-")
-                sb_date = _latest.get("Date", "-")
-                print(f"  ✓  Section 4C data: T2108={t2108_val}, Up4%+={up_4}, Down4%+={down_4}, Date={sb_date}")
-        except Exception as _e:
-            print(f"  ⚠  Section 4C JSON read error: {_e}")
-    else:
-        print("  ⚠  Section 4C: stockbee_mm.json not found")
-    # T2108 顏色標記
-    t2108_class = ""
-    try:
-        _t2108_f = float(str(t2108_val).replace("%", "").replace(",", "").strip())
-        if _t2108_f <= 20:
-            t2108_class = "color: #10b981;"
-        elif _t2108_f >= 80:
-            t2108_class = "color: #ef4444;"
-    except (ValueError, TypeError):
-        pass
-    sb_summary_html = f'''
-    <div class="stockbee-summary">
-        <div class="stat">
-            <div class="label">T2108</div>
-            <div class="value" style="{t2108_class}">{t2108_val}%</div>
-        </div>
-        <div class="stat">
-            <div class="label">Up 4%+</div>
-            <div class="value" style="color: #10b981;">{up_4}</div>
-        </div>
-        <div class="stat">
-            <div class="label">Down 4%+</div>
-            <div class="value" style="color: #ef4444;">{down_4}</div>
-        </div>
-    </div>
-    <div class="date">Last Data: {sb_date}</div>
-    '''
-    html = html.replace("{{STOCKBEE_DYNAMIC_SUMMARY}}", sb_summary_html)
-
     # Section 5: Sectors & Industries (Top 10)
     html = html.replace("{{SECTOR_ROWS}}",   build_sector_rows(sectors))
     html = html.replace("{{INDUSTRY_ROWS}}", build_industry_rows(industry))
@@ -1012,27 +926,11 @@ def render():
         f'<div style="font-size:13px;font-weight:700;color:{rc};margin-bottom:4px;">{rl}</div>'
         f'<div style="font-size:11px;color:#aaa;">{rs}</div></div>'
     )
-    # ── DATA WARNING BANNER (Phase 3.95: 48-hour Heatmap Rule) ───────────────────
+    # ── DATA WARNING BANNER (Grok v5.1) ─────────────────────────────────────────
     _data_status   = data.get("data_status", "fresh")
     _data_warnings = data.get("data_warnings", [])
-    # Phase 3.95: Override stale check with 48-hour heatmap image freshness rule
-    _heatmap_img_path = BASE / "assets" / "images" / "market_heatmap.png"
-    _hk_tz_banner = pytz.timezone('Asia/Hong_Kong')
-    _show_stale_banner = False
-    if _heatmap_img_path.exists():
-        _img_mtime = datetime.fromtimestamp(_heatmap_img_path.stat().st_mtime, tz=_hk_tz_banner)
-        _hours_old = (datetime.now(_hk_tz_banner) - _img_mtime).total_seconds() / 3600
-        if _hours_old > 48:
-            _show_stale_banner = True
-            print(f"  ⚠  Heatmap 已超過 48 小時（{_hours_old:.1f}h），Stale Banner 顯示")
-        else:
-            print(f"  ✓  Heatmap 新鮮（{_hours_old:.1f}h < 48h），Stale Banner 隱藏")
-    else:
-        # Fallback to original data_status logic if no heatmap image
-        _show_stale_banner = (_data_status == "warning" and bool(_data_warnings))
-        print(f"  ⚠  Heatmap 圖片不存在，使用原有 data_status 邏輯")
-    if _show_stale_banner:
-        _warn_text = " | ".join(_data_warnings) if _data_warnings else "Heatmap data older than 48 hours"
+    if _data_status == "warning" and _data_warnings:
+        _warn_text = " | ".join(_data_warnings)
         _warning_banner_html = (
             f'<div class="data-warning-banner active">'
             f'⚠️ Data Stale / Warning: {_warn_text} — Please check source data'
@@ -1041,6 +939,7 @@ def render():
     else:
         _warning_banner_html = '<div class="data-warning-banner"></div>'
     html = html.replace("{{DATA_WARNING_BANNER}}", _warning_banner_html)
+
     html = html.replace("{{REGIME_BANNER}}", regime_banner)
     # ── CORRECTION CHECKLIST ──────────────────────────────────────────────────────────────────
     if spy_vs20 is not None and spy_vs20 < 0:
@@ -1105,9 +1004,9 @@ def render():
             'src="assets/img/today/stockbee_mm.png"',
             f'src="{b64_stockbee}"'
         )
-        print("  ✓  Section 4C Stockbee: Base64 injected into HTML")
+        print("  ✓  Section 4D Stockbee: Base64 injected into HTML")
     else:
-        print("  ⚠  Section 4C Stockbee: image missing, keeping path reference")
+        print("  ⚠  Section 4D Stockbee: image missing, keeping path reference")
 
     if b64_industry:
         html = html.replace(
@@ -1129,54 +1028,6 @@ def render():
 
     print("  ── END BASE64 EMBEDDING ──\n")
 
-    # ── PHASE 3.9: STOCKBEE DYNAMIC SUMMARY ──
-    print("  ── PHASE 3.9: STOCKBEE DYNAMIC SUMMARY ──")
-    json_path = BASE / "data/stockbee_mm.json"
-    summary_html = '<div class="stockbee-summary-wrap">'
-
-    if json_path.exists():
-        try:
-            with open(json_path, "r", encoding="utf-8") as f:
-                sb_data = json.load(f)
-            if sb_data and isinstance(sb_data, list) and len(sb_data) > 0:
-                latest = sb_data[0]  # 最新一行（已排除空行）
-                t2108 = latest.get("T2108", "-")
-                up4 = latest.get("Number of stocks up 4% plus today", "-")
-                down4 = latest.get("Number of stocks down 4% plus today", "-")
-                last_date = latest.get("Date", "N/A")
-                # T2108 顏色
-                try:
-                    t2108_f = float(str(t2108).replace("%", "").replace(",", "").strip())
-                    if t2108_f <= 20:
-                        t2108_style = "color: #10b981;"
-                    elif t2108_f >= 80:
-                        t2108_style = "color: #ef4444;"
-                    else:
-                        t2108_style = ""
-                except (ValueError, TypeError):
-                    t2108_style = ""
-                summary_html += f'''
-                    <div class="stat"><div class="label">T2108</div><div class="value" style="{t2108_style}">{t2108}%</div></div>
-                    <div class="stat"><div class="label">Up 4%+</div><div class="value" style="color: #10b981;">{up4}</div></div>
-                    <div class="stat"><div class="label">Down 4%+</div><div class="value" style="color: #ef4444;">{down4}</div></div>
-                    <div class="date">Last Data: {last_date}</div>
-                '''
-                print(f"  \u2713  STOCKBEE_DYNAMIC_SUMMARY: T2108={t2108}, Up4%+={up4}, Down4%+={down4}, Date={last_date}")
-            else:
-                summary_html += "<span>&#9888;&#65039; No Stockbee data available</span>"
-                print("  \u26a0  STOCKBEE_DYNAMIC_SUMMARY: sb_data empty")
-        except Exception as e:
-            summary_html += f"<span>&#9888;&#65039; JSON read error: {e}</span>"
-            print(f"  \u26a0  STOCKBEE_DYNAMIC_SUMMARY error: {e}")
-    else:
-        summary_html += "<span>&#9888;&#65039; stockbee_mm.json not found</span>"
-        print("  \u26a0  STOCKBEE_DYNAMIC_SUMMARY: json_path not found")
-
-    summary_html += '</div>'
-    html = html.replace("{{STOCKBEE_DYNAMIC_SUMMARY}}", summary_html)
-    print("  \u2713  {{STOCKBEE_DYNAMIC_SUMMARY}} \u5df2\u6ce8\u5165\uff08T2108 + Up/Down 4% + Last Data\uff09")
-    print("  ── END STOCKBEE DYNAMIC SUMMARY ──\n")
-
     # Residual check
     leftover = re.findall(r"\{\{[A-Z0-9_]+\}\}", html)
     if leftover:
@@ -1188,8 +1039,9 @@ def render():
     # Write archive FIRST so the history block can include today's entry
     print("\n  ── ARCHIVE OUTPUT ──")
     ARCHIVE.mkdir(parents=True, exist_ok=True)
-    # Phase 3.95: Always use today's HKT date for archive filename (override JSON meta.date)
-    archive_date = _archive_date_str   # 來自 Phase 3.95 block，永遠用今日 HKT
+    today_str    = get_today_date_str()
+    json_date    = meta.get("date", today_str)
+    archive_date = json_date[:10] if json_date and len(json_date) >= 10 else today_str
     archive_path = ARCHIVE / f"{archive_date}.html"
 
     # Build a temporary archive placeholder (back-link footer)
@@ -1225,7 +1077,7 @@ def render():
 
 if __name__ == "__main__":
     print("╔══════════════════════════════════════════════╗")
-    print("  Market Summary Renderer v4.4  (Phase 3.9)   ")
+    print("  Market Summary Renderer v4.4  (Semi-Auto Mode)")
     print("╚══════════════════════════════════════════════╝")
     render()
     print("✅  Render complete.")
