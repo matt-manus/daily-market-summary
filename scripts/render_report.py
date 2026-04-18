@@ -901,6 +901,55 @@ def render():
     html = html.replace("{{BREADTH_ROWS}}", build_breadth_rows(breadth, indices))
     html = html.replace("{{ADR_CARDS}}",    build_adr_cards(breadth))
 
+    # Section 4C — Stockbee Dynamic Summary (T2108 + Up/Down 4%)
+    _sb_json = BASE / "data/stockbee_mm.json"
+    t2108_val = "-"
+    up_4 = "-"
+    down_4 = "-"
+    sb_date = "-"
+    if _sb_json.exists():
+        try:
+            with open(_sb_json, "r", encoding="utf-8") as _f:
+                _sb_raw = json.load(_f)
+            if _sb_raw and isinstance(_sb_raw, list) and len(_sb_raw) > 0:
+                _latest = _sb_raw[0]
+                t2108_val = _latest.get("T2108", "-")
+                up_4 = _latest.get("Number of stocks up 4% plus today", "-")
+                down_4 = _latest.get("Number of stocks down 4% plus today", "-")
+                sb_date = _latest.get("Date", "-")
+                print(f"  \u2713  Section 4C data: T2108={t2108_val}, Up4%+={up_4}, Down4%+={down_4}, Date={sb_date}")
+        except Exception as _e:
+            print(f"  \u26a0  Section 4C JSON read error: {_e}")
+    else:
+        print("  \u26a0  Section 4C: stockbee_mm.json not found")
+    t2108_class = ""
+    try:
+        _t2108_f = float(str(t2108_val).replace("%", "").replace(",", "").strip())
+        if _t2108_f <= 20:
+            t2108_class = "color: #10b981;"
+        elif _t2108_f >= 80:
+            t2108_class = "color: #ef4444;"
+    except (ValueError, TypeError):
+        pass
+    sb_summary_html = f'''
+    <div class="stockbee-summary">
+        <div class="stat">
+            <div class="label">T2108</div>
+            <div class="value" style="{t2108_class}">{t2108_val}%</div>
+        </div>
+        <div class="stat">
+            <div class="label">Up 4%+</div>
+            <div class="value" style="color: #10b981;">{up_4}</div>
+        </div>
+        <div class="stat">
+            <div class="label">Down 4%+</div>
+            <div class="value" style="color: #ef4444;">{down_4}</div>
+        </div>
+    </div>
+    <div class="date">Last Data: {sb_date}</div>
+    '''
+    html = html.replace("{{STOCKBEE_DYNAMIC_SUMMARY}}", sb_summary_html)
+
     # Section 5: Sectors & Industries (Top 10)
     html = html.replace("{{SECTOR_ROWS}}",   build_sector_rows(sectors))
     html = html.replace("{{INDUSTRY_ROWS}}", build_industry_rows(industry))
