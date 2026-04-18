@@ -99,42 +99,48 @@ def fetch_stockbee_data():
                 headers = [f"col_{i:02d}" for i in range(100)]
                 start_row_idx = 2
             
+            # ── Grok v4 + Gemini 聯合：徹底防呆解析（跳過 freezebar 空行） ──
             data = []
-            # 由正確的 start_row_idx 開始抓數據
             for row_offset, row in enumerate(rows[start_row_idx:]):
-                actual_row_idx = start_row_idx + row_offset  # 用於 Playwright locator 精準定位
+                actual_row_idx = start_row_idx + row_offset
                 tds = row.find_all("td")
                 if len(tds) < 5:
                     continue
-                
+
+                # === 新增防呆：跳過任何沒有 Date 的空行 / freezebar ===
+                date_td = tds[0].get_text(strip=True) if tds else ""
+                if not date_td or not any(c.isdigit() for c in date_td):  # 空 or 非日期
+                    print(f"DEBUG: 跳過空行 / freezebar（Date='{date_td}'）")
+                    continue
+
                 row_data = {}
                 color_map = {}
                 for i, td in enumerate(tds):
                     col_name = headers[i] if i < len(headers) else f"col_{i:02d}"
                     value = td.get_text(strip=True)
-                    
-                    # 抓取背景顏色（Playwright 真實渲染）
+
+                    # 顏色抓取（保留原有）
                     try:
                         cell_element = frame.locator("table tr").nth(actual_row_idx).locator("td").nth(i)
                         bg_color = cell_element.evaluate("el => window.getComputedStyle(el).backgroundColor")
                     except:
                         bg_color = td.get("style", "")
-                    
+
                     if any(x in str(bg_color).lower() for x in ["rgb(0, 128, 0)", "rgb(0, 255, 0)", "#0f0", "green"]):
                         color = "green"
                     elif any(x in str(bg_color).lower() for x in ["rgb(255, 0, 0)", "rgb(220, 20, 60)", "#f00", "red"]):
                         color = "red"
-                    elif "rgb(0, 0, 0)" in str(bg_color).lower():
-                        color = "black"
                     else:
                         color = "none"
-                    
+
                     row_data[col_name] = value
                     color_map[col_name] = color
-                
+
                 row_data["colors"] = color_map
                 row_data["last_success_time"] = datetime.now().isoformat()
                 data.append(row_data)
+
+            print(f"DEBUG: 最終有效數據筆數: {len(data)}（已排除所有空行）")
             
             browser.close()
             
