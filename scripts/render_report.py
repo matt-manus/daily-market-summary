@@ -995,7 +995,28 @@ def render():
         _warning_banner_html = '<div class="data-warning-banner"></div>'
     html = html.replace("{{DATA_WARNING_BANNER}}", _warning_banner_html)
 
-    # REGIME_BANNER, CORRECTION_CHECKLIST, EXPERT_INSIGHTS, S6/S7/S8 removed (Section 7 & 8 deleted)
+    html = html.replace("{{REGIME_BANNER}}", regime_banner)
+
+    # ── EXPERT INSIGHTS ─────────────────────────────────────────────────────────
+    expert_file = BASE / "expert_notes.txt"
+    expert_html = ""
+    if expert_file.exists():
+        with open(expert_file, encoding="utf-8") as ef:
+            notes = ef.read().strip()
+        content_lines = [l for l in notes.splitlines() if l.strip() and not l.strip().startswith("#")]
+        if content_lines:
+            content_text = "<br/>".join(content_lines)
+            expert_html = (
+                '<div style="background:rgba(66,165,245,0.08);border:1px solid #42a5f5;'
+                'border-radius:8px;padding:14px 20px;margin-bottom:20px;">'
+                '<div style="font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;'
+                'color:#42a5f5;margin-bottom:8px;">&#128161; Expert Insights</div>'
+                f'<div style="font-size:12px;color:#ccc;line-height:1.6;">{content_text}</div></div>'
+            )
+    html = html.replace("{{EXPERT_INSIGHTS}}", expert_html)
+
+    # Section 8B: AI Market Analysis (Bull/Bear Checklist)
+    html = html.replace("{{S6_CONTENT}}", build_s6_analysis(data, ai_strategy))
 
     # ── BASE64 IMAGE EMBEDDING (No Path Errors) ───────────────────────────────────────
     print("\n  ── BASE64 IMAGE EMBEDDING ──")
