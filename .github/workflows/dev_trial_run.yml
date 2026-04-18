@@ -1,0 +1,39 @@
+name: Dev-3.9 Trial Run (Daily Automatic Pipeline )
+
+on:
+  push:
+    branches: [ dev-3.9 ]
+  schedule:
+    - cron: '0 2 * * *'     # 每日香港時間早上 10:00 運行 (UTC 02:00)
+  workflow_dispatch:        # 手動觸發
+
+jobs:
+  trial-run:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout dev-3.9
+        uses: actions/checkout@v4
+        with:
+          ref: dev-3.9
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+          playwright install chromium
+
+      - name: Run Full Pipeline
+        run: python scripts/full_pipeline.py
+
+      - name: Commit & Push latest report (if changed)
+        run: |
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "actions@github.com"
+          git add index.html assets/img/today/ archive/
+          git commit -m "Auto update: Full Pipeline run (dev-3.9)" || echo "No changes"
+          git push
