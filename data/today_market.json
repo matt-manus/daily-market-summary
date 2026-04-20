@@ -1,23 +1,23 @@
 {
   "meta": {
-    "generated_hkt": "2026-04-19 00:05",
-    "generated_et": "2026-04-18 12:05",
-    "date": "2026-04-18",
+    "generated_hkt": "2026-04-20 19:19",
+    "generated_et": "2026-04-20 07:19",
+    "date": "2026-04-20",
     "source": "Yahoo Finance + CNN + NAAIM + Finviz + Barchart",
     "rsi_method": "Wilder SMMA (EWM alpha=1/14)",
     "schema_version": "4.2",
-    "last_updated_hkt": "2026-04-19 00:06:37 HKT"
+    "last_updated_hkt": "2026-04-20 19:19:27 HKT"
   },
   "macro": {
     "VIX": {
-      "price": 17.48,
-      "change_1d": -0.46,
-      "change_1d_pct": -2.56
+      "price": 19.52,
+      "change_1d": 2.04,
+      "change_1d_pct": 11.67
     },
     "DXY": {
-      "price": 98.1,
-      "change_1d": -0.12,
-      "change_1d_pct": -0.12
+      "price": 98.2,
+      "change_1d": 0.1,
+      "change_1d_pct": 0.1
     },
     "TNX_10Y": {
       "price": 4.246,
@@ -25,19 +25,19 @@
       "change_1d_pct": -1.46
     },
     "GOLD": {
-      "price": 4857.6001,
-      "change_1d": 72.2002,
-      "change_1d_pct": 1.51
+      "price": 4812.3999,
+      "change_1d": -45.2002,
+      "change_1d_pct": -0.93
     },
     "OIL_WTI": {
-      "price": 83.85,
-      "change_1d": -10.84,
-      "change_1d_pct": -11.45
+      "price": 87.48,
+      "change_1d": 3.63,
+      "change_1d_pct": 4.33
     },
     "BTC": {
-      "price": 76098.7891,
-      "change_1d": -1028.0859,
-      "change_1d_pct": -1.33
+      "price": 75219.0234,
+      "change_1d": 1362.6718,
+      "change_1d_pct": 1.85
     }
   },
   "indices": {
@@ -134,10 +134,10 @@
     "fear_greed": {
       "score": 68.09,
       "rating": "greed",
-      "timestamp": "2026-04-17T23:59:39+00:00",
-      "prev_close": 62.2,
-      "prev_1w": 36.57,
-      "prev_1m": 20.69,
+      "timestamp": "2026-04-20T11:02:46+00:00",
+      "prev_close": 68.09,
+      "prev_1w": 42.71,
+      "prev_1m": 15.63,
       "prev_1y": 16.06,
       "source": "CNN Fear & Greed API"
     },
@@ -1335,7 +1335,7 @@
     {
       "rank": 10,
       "label": "Rental & Leasing Services",
-      "num_stocks": 22,
+      "num_stocks": 21,
       "change_1d_pct": 4.13,
       "change_1w_pct": 7.2,
       "change_1m_pct": 17.02,
@@ -1390,7 +1390,7 @@
     {
       "rank": 15,
       "label": "Home Improvement Retail",
-      "num_stocks": 6,
+      "num_stocks": 5,
       "change_1d_pct": 3.68,
       "change_1w_pct": 3.44,
       "change_1m_pct": 6.44,
@@ -1510,16 +1510,15 @@
     }
   },
   "stockbee_mm": {
-    "source": "Stockbee Market Monitor (failed)",
-    "latest_date": "-",
-    "t2108": "-",
-    "data_stale": true
+    "source": "Stockbee Market Monitor (dynamic via stockbee_mm.json)",
+    "latest_date": "4/17/2026",
+    "t2108": 62.94,
+    "up_4_plus": 622,
+    "down_4_plus": 142,
+    "data_stale": false
   },
-  "data_status": "warning",
-  "data_warnings": [
-    "T2108 missing or stale"
-  ],
-  "last_updated_hkt": "2026-04-19 00:06:37 HKT",
+  "data_status": "fresh",
+  "last_updated_hkt": "2026-04-20 19:19:27 HKT",
   "thematic": [
     {
       "symbol": "SOXX",
