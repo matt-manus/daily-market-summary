@@ -1,15 +1,20 @@
-name: Dev-3.9 Trial Run (Daily Automatic Pipeline )
+name: Dev-3.9 Trial Run (Daily Automatic Pipeline)
 
 on:
   push:
     branches: [ dev-3.9 ]
   schedule:
     - cron: '0 23 * * *'     # 每日香港時間早上 7:00 (UTC 23:00)
-  workflow_dispatch:        # 手動觸發
+  workflow_dispatch:
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
 jobs:
   trial-run:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
 
     steps:
       - name: Checkout dev-3.9
@@ -30,10 +35,10 @@ jobs:
       - name: Run Full Pipeline
         run: python scripts/full_pipeline.py
 
-      - name: Commit & Push latest report (if changed)
+      - name: Commit and Push changes (if any)
         run: |
-          git config --global user.name "GitHub Actions"
-          git config --global user.email "actions@github.com"
-          git add index.html assets/img/today/ archive/
-          git commit -m "Auto update: Full Pipeline run (dev-3.9)" || echo "No changes"
-          git push
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add index.html assets/img/today/ archive/ data/
+          git diff --quiet && git diff --staged --quiet || \
+          (git commit -m "Auto-update market data & screenshots [skip ci]" && git push origin dev-3.9)
