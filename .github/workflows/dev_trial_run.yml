@@ -2,7 +2,7 @@ name: Dev-3.9 Trial Run (Daily Automatic Pipeline)
 
 on:
   push:
-    branches: [main]
+    branches: [ main ]
   schedule:
     - cron: '0 23 * * *'     # 每日香港時間早上 7:00 (UTC 23:00)
   workflow_dispatch:
@@ -17,10 +17,10 @@ jobs:
       contents: write
 
     steps:
-      - name: Checkout dev-3.9
+      - name: Checkout main
         uses: actions/checkout@v4
         with:
-          ref: dev-3.9
+          ref: main
 
       - name: Set up Python
         uses: actions/setup-python@v5
