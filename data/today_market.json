@@ -1,23 +1,23 @@
 {
   "meta": {
-    "generated_hkt": "2026-04-24 16:06",
-    "generated_et": "2026-04-24 04:06",
+    "generated_hkt": "2026-04-24 16:10",
+    "generated_et": "2026-04-24 04:10",
     "date": "2026-04-24",
     "source": "Yahoo Finance + CNN + NAAIM + Finviz + Barchart",
     "rsi_method": "Wilder SMMA (EWM alpha=1/14)",
     "schema_version": "4.2",
-    "last_updated_hkt": "2026-04-24 16:06:46 HKT"
+    "last_updated_hkt": "2026-04-24 16:10:31 HKT"
   },
   "macro": {
     "VIX": {
-      "price": 18.95,
-      "change_1d": -0.36,
-      "change_1d_pct": -1.86
+      "price": 18.98,
+      "change_1d": -0.33,
+      "change_1d_pct": -1.71
     },
     "DXY": {
-      "price": 98.786,
-      "change_1d": -0.014,
-      "change_1d_pct": -0.01
+      "price": 98.771,
+      "change_1d": -0.029,
+      "change_1d_pct": -0.03
     },
     "TNX_10Y": {
       "price": 4.323,
@@ -25,19 +25,19 @@
       "change_1d_pct": 0.68
     },
     "GOLD": {
-      "price": 4705.7002,
-      "change_1d": 0.6001,
-      "change_1d_pct": 0.01
+      "price": 4709.8999,
+      "change_1d": 4.7998,
+      "change_1d_pct": 0.1
     },
     "OIL_WTI": {
-      "price": 96.59,
-      "change_1d": 0.74,
-      "change_1d_pct": 0.77
+      "price": 96.77,
+      "change_1d": 0.92,
+      "change_1d_pct": 0.96
     },
     "BTC": {
-      "price": 77611.3672,
-      "change_1d": -657.5859,
-      "change_1d_pct": -0.84
+      "price": 77683.6719,
+      "change_1d": -585.2812,
+      "change_1d_pct": -0.75
     }
   },
   "indices": {
@@ -134,7 +134,7 @@
     "fear_greed": {
       "score": 66.69,
       "rating": "greed",
-      "timestamp": "2026-04-24T07:49:01+00:00",
+      "timestamp": "2026-04-24T07:54:01+00:00",
       "prev_close": 66.31,
       "prev_1w": 67.97,
       "prev_1m": 18.2,
@@ -1512,13 +1512,13 @@
   "stockbee_mm": {
     "source": "Stockbee Market Monitor (dynamic via stockbee_mm.json)",
     "latest_date": "4/23/2026",
-    "t2108": 58.7,
-    "up_4_plus": 154,
-    "down_4_plus": 489,
+    "t2108": 59.03,
+    "up_4_plus": 157,
+    "down_4_plus": 496,
     "data_stale": false
   },
   "data_status": "fresh",
-  "last_updated_hkt": "2026-04-24 16:06:46 HKT",
+  "last_updated_hkt": "2026-04-24 16:10:31 HKT",
   "thematic": [
     {
       "symbol": "SOXX",
