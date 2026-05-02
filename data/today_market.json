@@ -1,12 +1,12 @@
 {
   "meta": {
-    "generated_hkt": "2026-05-02 07:55",
-    "generated_et": "2026-05-01 19:55",
-    "date": "2026-05-01",
+    "generated_hkt": "2026-05-03 07:50",
+    "generated_et": "2026-05-02 19:50",
+    "date": "2026-05-02",
     "source": "Yahoo Finance + CNN + NAAIM + Finviz + Barchart",
     "rsi_method": "Wilder SMMA (EWM alpha=1/14)",
     "schema_version": "4.2",
-    "last_updated_hkt": "2026-05-02 07:55:42 HKT"
+    "last_updated_hkt": "2026-05-03 07:50:57 HKT"
   },
   "macro": {
     "VIX": {
@@ -15,8 +15,8 @@
       "change_1d_pct": 0.59
     },
     "DXY": {
-      "price": 98.211,
-      "change_1d": 0.131,
+      "price": 98.21,
+      "change_1d": 0.13,
       "change_1d_pct": 0.13
     },
     "TNX_10Y": {
@@ -25,19 +25,19 @@
       "change_1d_pct": -0.27
     },
     "GOLD": {
-      "price": 4625.6001,
-      "change_1d": 10.8999,
-      "change_1d_pct": 0.24
+      "price": 4629.8999,
+      "change_1d": 15.1997,
+      "change_1d_pct": 0.33
     },
     "OIL_WTI": {
-      "price": 102.5,
-      "change_1d": -2.57,
-      "change_1d_pct": -2.45
+      "price": 101.94,
+      "change_1d": -3.13,
+      "change_1d_pct": -2.98
     },
     "BTC": {
-      "price": 78151.5234,
-      "change_1d": 1847.2031,
-      "change_1d_pct": 2.42
+      "price": 78671.5,
+      "change_1d": 492.5,
+      "change_1d_pct": 0.63
     }
   },
   "indices": {
@@ -119,13 +119,13 @@
       "vs_ma200_pct": 12.99,
       "vs20ma": "Green",
       "status": "ABOVE ALL",
-      "ad_ratio": 1.775,
+      "ad_ratio": 1.772,
       "ad_detail": {
-        "advances": 1205,
+        "advances": 1203,
         "declines": 679,
-        "unchanged": 34,
-        "total": 1918,
-        "ad_ratio": 1.775,
+        "unchanged": 32,
+        "total": 1914,
+        "ad_ratio": 1.772,
         "source": "Finviz screener (Russell 2000)"
       }
     }
@@ -134,7 +134,7 @@
     "fear_greed": {
       "score": 66.6,
       "rating": "greed",
-      "timestamp": "2026-05-01T23:37:02+00:00",
+      "timestamp": "2026-05-01T23:59:39+00:00",
       "prev_close": 66.6,
       "prev_1w": 66.03,
       "prev_1m": 13.77,
@@ -422,7 +422,7 @@
       "rsi14": 60.9187,
       "ma20": 65.92,
       "ma50": 64.6768,
-      "ma200": 70.9893,
+      "ma200": 70.9891,
       "vs_ma20_pct": 4.31,
       "vs_ma50_pct": 6.31,
       "vs_ma200_pct": -3.14,
@@ -512,9 +512,9 @@
     {
       "symbol": "IPAY",
       "name": "Digital Payments",
-      "price": 47.6179,
+      "price": 47.618,
       "change_1d_pct": 1.06,
-      "rsi14": 59.7895,
+      "rsi14": 59.7899,
       "ma20": 46.3546,
       "ma50": 44.9508,
       "ma200": 51.9996,
@@ -1137,6 +1137,25 @@
       "change_ytd_pct": "-"
     },
     {
+      "symbol": "TLT",
+      "name": "20+ Year Treasury Bond",
+      "price": 85.61,
+      "change_1d_pct": 0.36,
+      "rsi14": 43.4434,
+      "ma20": 86.2344,
+      "ma50": 86.7909,
+      "ma200": 86.4945,
+      "vs_ma20_pct": -0.72,
+      "vs_ma50_pct": -1.36,
+      "vs_ma200_pct": -1.02,
+      "vs20ma": "Red",
+      "status": "BELOW ALL",
+      "change_1w_pct": "-",
+      "change_1m_pct": "-",
+      "change_3m_pct": "-",
+      "change_ytd_pct": "-"
+    },
+    {
       "symbol": "GLD",
       "name": "Gold ETF",
       "price": 423.18,
@@ -1169,25 +1188,6 @@
       "vs_ma200_pct": 0.4,
       "vs20ma": "Red",
       "status": "MIXED",
-      "change_1w_pct": "-",
-      "change_1m_pct": "-",
-      "change_3m_pct": "-",
-      "change_ytd_pct": "-"
-    },
-    {
-      "symbol": "TLT",
-      "name": "20+ Year Treasury Bond",
-      "price": 85.61,
-      "change_1d_pct": -0.01,
-      "rsi14": 39.6305,
-      "ma20": 86.537,
-      "ma50": 87.1051,
-      "ma200": 86.8123,
-      "vs_ma20_pct": -1.07,
-      "vs_ma50_pct": -1.72,
-      "vs_ma200_pct": -1.38,
-      "vs20ma": "Red",
-      "status": "BELOW ALL",
       "change_1w_pct": "-",
       "change_1m_pct": "-",
       "change_3m_pct": "-",
@@ -1258,7 +1258,7 @@
     {
       "rank": 3,
       "label": "Software - Application",
-      "num_stocks": 225,
+      "num_stocks": 223,
       "change_1d_pct": 3.11,
       "change_1w_pct": 2.32,
       "change_1m_pct": 3.81,
@@ -1280,7 +1280,7 @@
     {
       "rank": 5,
       "label": "Computer Hardware",
-      "num_stocks": 40,
+      "num_stocks": 39,
       "change_1d_pct": 2.95,
       "change_1w_pct": 8.05,
       "change_1m_pct": 46.81,
@@ -1313,7 +1313,7 @@
     {
       "rank": 8,
       "label": "Software - Infrastructure",
-      "num_stocks": 170,
+      "num_stocks": 168,
       "change_1d_pct": 2.57,
       "change_1w_pct": -0.95,
       "change_1m_pct": 11.94,
@@ -1335,7 +1335,7 @@
     {
       "rank": 10,
       "label": "Electrical Equipment & Parts",
-      "num_stocks": 49,
+      "num_stocks": 48,
       "change_1d_pct": 1.47,
       "change_1w_pct": 6.46,
       "change_1m_pct": 37.58,
@@ -1430,39 +1430,39 @@
       "source": "yfinance DJI-30 components"
     },
     "russell2000": {
-      "total": 1918,
-      "above_20ma": 1252,
-      "above_50ma": 1386,
-      "above_200ma": 1173,
-      "pct_above_20ma": 65.3,
+      "total": 1914,
+      "above_20ma": 1251,
+      "above_50ma": 1384,
+      "above_200ma": 1171,
+      "pct_above_20ma": 65.4,
       "pct_above_50ma": 72.3,
       "pct_above_200ma": 61.2
     },
     "source": "Finviz Screener v4.1 (with retry)",
     "market_wide_advance_decline": {
       "NASDAQ": {
-        "advances": 1879,
-        "declines": 1144,
+        "advances": 1880,
+        "declines": 1142,
         "unchanged": 81,
-        "total_issues": 3104,
-        "pct_advancing": 60.5,
-        "pct_declining": 36.9,
-        "adv_vol": 4206080000,
-        "dec_vol": 2060980000,
-        "ad_ratio": 1.642,
+        "total_issues": 3103,
+        "pct_advancing": 60.6,
+        "pct_declining": 36.8,
+        "adv_vol": 4235710000,
+        "dec_vol": 2073610000,
+        "ad_ratio": 1.646,
         "new_52w_highs": 122,
         "new_52w_lows": 22
       },
       "NYSE": {
-        "advances": 823,
+        "advances": 822,
         "declines": 1017,
-        "unchanged": 42,
+        "unchanged": 43,
         "total_issues": 1882,
         "pct_advancing": 43.7,
         "pct_declining": 54.0,
-        "adv_vol": 2263920000,
-        "dec_vol": 2412550000,
-        "ad_ratio": 0.809,
+        "adv_vol": 2284780000,
+        "dec_vol": 2434860000,
+        "ad_ratio": 0.808,
         "new_52w_highs": 125,
         "new_52w_lows": 15
       },
@@ -1486,11 +1486,11 @@
         "source": "Finviz screener (NASDAQ 100)"
       },
       "IWM": {
-        "advances": 1205,
+        "advances": 1203,
         "declines": 679,
-        "unchanged": 34,
-        "total": 1918,
-        "ad_ratio": 1.775,
+        "unchanged": 32,
+        "total": 1914,
+        "ad_ratio": 1.772,
         "source": "Finviz screener (Russell 2000)"
       },
       "DIA": {
@@ -1511,14 +1511,14 @@
   },
   "stockbee_mm": {
     "source": "Stockbee Market Monitor (dynamic via stockbee_mm.json)",
-    "latest_date": "4/30/2026",
-    "t2108": 59.79,
-    "up_4_plus": 552,
-    "down_4_plus": 116,
+    "latest_date": "5/1/2026",
+    "t2108": 58.67,
+    "up_4_plus": 339,
+    "down_4_plus": 120,
     "data_stale": false
   },
   "data_status": "fresh",
-  "last_updated_hkt": "2026-05-02 07:55:42 HKT",
+  "last_updated_hkt": "2026-05-03 07:50:57 HKT",
   "thematic": [
     {
       "symbol": "SMH",
@@ -1648,7 +1648,7 @@
     },
     {
       "symbol": "IPAY",
-      "price": 47.6179,
+      "price": 47.618,
       "vs_20ma": 2.73,
       "vs_50ma": 5.93,
       "vs_200ma": -8.43
@@ -1878,6 +1878,13 @@
       "vs_200ma": 3.95
     },
     {
+      "symbol": "TLT",
+      "price": 85.61,
+      "vs_20ma": -0.72,
+      "vs_50ma": -1.36,
+      "vs_200ma": -1.02
+    },
+    {
       "symbol": "GLD",
       "price": 423.18,
       "vs_20ma": -2.3,
@@ -1890,13 +1897,6 @@
       "vs_20ma": -3.76,
       "vs_50ma": -5.84,
       "vs_200ma": 0.4
-    },
-    {
-      "symbol": "TLT",
-      "price": 85.61,
-      "vs_20ma": -1.07,
-      "vs_50ma": -1.72,
-      "vs_200ma": -1.38
     },
     {
       "symbol": "GDX",
@@ -2044,7 +2044,7 @@
     },
     {
       "symbol": "IPAY",
-      "price": 47.6179,
+      "price": 47.618,
       "vs_20ma": 2.73,
       "vs_50ma": 5.93,
       "vs_200ma": -8.43,
