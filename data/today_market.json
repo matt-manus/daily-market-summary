@@ -1,12 +1,12 @@
 {
   "meta": {
-    "generated_hkt": "2026-05-09 07:58",
-    "generated_et": "2026-05-08 19:58",
-    "date": "2026-05-08",
+    "generated_hkt": "2026-05-10 07:53",
+    "generated_et": "2026-05-09 19:53",
+    "date": "2026-05-09",
     "source": "Yahoo Finance + CNN + NAAIM + Finviz + Barchart",
     "rsi_method": "Wilder SMMA (EWM alpha=1/14)",
     "schema_version": "4.2",
-    "last_updated_hkt": "2026-05-09 07:58:52 HKT"
+    "last_updated_hkt": "2026-05-10 07:54:08 HKT"
   },
   "macro": {
     "VIX": {
@@ -15,9 +15,9 @@
       "change_1d_pct": 0.64
     },
     "DXY": {
-      "price": 97.843,
-      "change_1d": -0.407,
-      "change_1d_pct": -0.41
+      "price": 97.84,
+      "change_1d": -0.41,
+      "change_1d_pct": -0.42
     },
     "TNX_10Y": {
       "price": 4.364,
@@ -25,19 +25,19 @@
       "change_1d_pct": -0.64
     },
     "GOLD": {
-      "price": 4723.7002,
-      "change_1d": 23.9004,
-      "change_1d_pct": 0.51
+      "price": 4720.3999,
+      "change_1d": 20.6001,
+      "change_1d_pct": 0.44
     },
     "OIL_WTI": {
-      "price": 94.68,
-      "change_1d": -0.13,
-      "change_1d_pct": -0.14
+      "price": 95.42,
+      "change_1d": 0.61,
+      "change_1d_pct": 0.64
     },
     "BTC": {
-      "price": 80201.4375,
-      "change_1d": 191.4453,
-      "change_1d_pct": 0.24
+      "price": 80661.9766,
+      "change_1d": 475.211,
+      "change_1d_pct": 0.59
     }
   },
   "indices": {
@@ -97,13 +97,13 @@
       "vs_ma200_pct": 5.37,
       "vs20ma": "Green",
       "status": "ABOVE ALL",
-      "ad_ratio": 0.579,
+      "ad_ratio": 0.667,
       "ad_detail": {
-        "advances": 11,
-        "declines": 19,
+        "advances": 12,
+        "declines": 18,
         "unchanged": 0,
         "total": 30,
-        "ad_ratio": 0.579,
+        "ad_ratio": 0.667,
         "source": "yfinance (DJI 30 components)"
       }
     },
@@ -119,13 +119,13 @@
       "vs_ma200_pct": 14.26,
       "vs20ma": "Green",
       "status": "ABOVE ALL",
-      "ad_ratio": 1.226,
+      "ad_ratio": 1.225,
       "ad_detail": {
         "advances": 1036,
-        "declines": 845,
+        "declines": 846,
         "unchanged": 29,
-        "total": 1910,
-        "ad_ratio": 1.226,
+        "total": 1911,
+        "ad_ratio": 1.225,
         "source": "Finviz screener (Russell 2000)"
       }
     }
@@ -134,7 +134,7 @@
     "fear_greed": {
       "score": 66.91,
       "rating": "greed",
-      "timestamp": "2026-05-08T23:39:49+00:00",
+      "timestamp": "2026-05-08T23:59:55+00:00",
       "prev_close": 67.57,
       "prev_1w": 71.17,
       "prev_1m": 29.17,
@@ -289,7 +289,7 @@
       "rsi14": 74.3064,
       "ma20": 67.938,
       "ma50": 65.6061,
-      "ma200": 70.9364,
+      "ma200": 70.9363,
       "vs_ma20_pct": 10.87,
       "vs_ma50_pct": 14.81,
       "vs_ma200_pct": 6.18,
@@ -745,7 +745,7 @@
       "rsi14": 55.5623,
       "ma20": 63.972,
       "ma50": 61.3239,
-      "ma200": 60.0159,
+      "ma200": 60.0158,
       "vs_ma20_pct": 0.12,
       "vs_ma50_pct": 4.45,
       "vs_ma200_pct": 6.72,
@@ -1264,38 +1264,38 @@
       "source": "yfinance DJI-30 components"
     },
     "russell2000": {
-      "total": 1910,
-      "above_20ma": 1113,
-      "above_50ma": 1335,
+      "total": 1911,
+      "above_20ma": 1114,
+      "above_50ma": 1336,
       "above_200ma": 1170,
       "pct_above_20ma": 58.3,
       "pct_above_50ma": 69.9,
-      "pct_above_200ma": 61.3
+      "pct_above_200ma": 61.2
     },
     "source": "Finviz Screener v4.1 (with retry)",
     "market_wide_advance_decline": {
       "NASDAQ": {
-        "advances": 1495,
-        "declines": 1548,
-        "unchanged": 62,
-        "total_issues": 3105,
+        "advances": 1493,
+        "declines": 1546,
+        "unchanged": 63,
+        "total_issues": 3102,
         "pct_advancing": 48.1,
-        "pct_declining": 49.9,
-        "adv_vol": 5535400000,
-        "dec_vol": 2874960000,
+        "pct_declining": 49.8,
+        "adv_vol": 5602860000,
+        "dec_vol": 2923610000,
         "ad_ratio": 0.966,
         "new_52w_highs": 127,
         "new_52w_lows": 44
       },
       "NYSE": {
-        "advances": 943,
-        "declines": 905,
+        "advances": 942,
+        "declines": 904,
         "unchanged": 31,
-        "total_issues": 1879,
+        "total_issues": 1877,
         "pct_advancing": 50.2,
         "pct_declining": 48.2,
-        "adv_vol": 2591780000,
-        "dec_vol": 2558800000,
+        "adv_vol": 2628440000,
+        "dec_vol": 2610920000,
         "ad_ratio": 1.042,
         "new_52w_highs": 73,
         "new_52w_lows": 45
@@ -1321,18 +1321,18 @@
       },
       "IWM": {
         "advances": 1036,
-        "declines": 845,
+        "declines": 846,
         "unchanged": 29,
-        "total": 1910,
-        "ad_ratio": 1.226,
+        "total": 1911,
+        "ad_ratio": 1.225,
         "source": "Finviz screener (Russell 2000)"
       },
       "DIA": {
-        "advances": 11,
-        "declines": 19,
+        "advances": 12,
+        "declines": 18,
         "unchanged": 0,
         "total": 30,
-        "ad_ratio": 0.579,
+        "ad_ratio": 0.667,
         "source": "yfinance (DJI 30 components)"
       }
     },
@@ -1345,14 +1345,14 @@
   },
   "stockbee_mm": {
     "source": "Stockbee Market Monitor (dynamic via stockbee_mm.json)",
-    "latest_date": "5/7/2026",
-    "t2108": 56.63,
-    "up_4_plus": 309,
-    "down_4_plus": 372,
+    "latest_date": "5/8/2026",
+    "t2108": 56.54,
+    "up_4_plus": 316,
+    "down_4_plus": 229,
     "data_stale": false
   },
   "data_status": "fresh",
-  "last_updated_hkt": "2026-05-09 07:58:52 HKT",
+  "last_updated_hkt": "2026-05-10 07:54:08 HKT",
   "thematic": [
     {
       "symbol": "XLK",
