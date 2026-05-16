@@ -1,12 +1,12 @@
 {
   "meta": {
-    "generated_hkt": "2026-05-16 07:56",
-    "generated_et": "2026-05-15 19:56",
-    "date": "2026-05-15",
+    "generated_hkt": "2026-05-17 07:56",
+    "generated_et": "2026-05-16 19:56",
+    "date": "2026-05-16",
     "source": "Yahoo Finance + CNN + NAAIM + Finviz + Barchart",
     "rsi_method": "Wilder SMMA (EWM alpha=1/14)",
     "schema_version": "4.2",
-    "last_updated_hkt": "2026-05-16 07:57:04 HKT"
+    "last_updated_hkt": "2026-05-17 07:56:58 HKT"
   },
   "macro": {
     "VIX": {
@@ -25,19 +25,19 @@
       "change_1d_pct": 3.0
     },
     "GOLD": {
-      "price": 4543.6001,
-      "change_1d": -134.5,
-      "change_1d_pct": -2.88
+      "price": 4555.7998,
+      "change_1d": -122.3003,
+      "change_1d_pct": -2.61
     },
     "OIL_WTI": {
-      "price": 101.16,
-      "change_1d": -0.01,
-      "change_1d_pct": -0.01
+      "price": 105.42,
+      "change_1d": 4.25,
+      "change_1d_pct": 4.2
     },
     "BTC": {
-      "price": 79066.7969,
-      "change_1d": -1984.4531,
-      "change_1d_pct": -2.45
+      "price": 78145.9531,
+      "change_1d": -919.7266,
+      "change_1d_pct": -1.16
     }
   },
   "indices": {
@@ -87,14 +87,14 @@
     },
     "DIA": {
       "price": 495.37,
-      "change_1d_pct": -1.08,
-      "rsi14": 55.7792,
-      "ma20": 494.5585,
-      "ma50": 479.6967,
-      "ma200": 472.2378,
-      "vs_ma20_pct": 0.16,
-      "vs_ma50_pct": 3.27,
-      "vs_ma200_pct": 4.9,
+      "change_1d_pct": -1.03,
+      "rsi14": 56.1482,
+      "ma20": 494.2996,
+      "ma50": 479.4378,
+      "ma200": 471.9789,
+      "vs_ma20_pct": 0.22,
+      "vs_ma50_pct": 3.32,
+      "vs_ma200_pct": 4.96,
       "vs20ma": "Green",
       "status": "ABOVE ALL",
       "ad_ratio": 0.667,
@@ -123,8 +123,8 @@
       "ad_detail": {
         "advances": 358,
         "declines": 1518,
-        "unchanged": 30,
-        "total": 1906,
+        "unchanged": 27,
+        "total": 1903,
         "ad_ratio": 0.236,
         "source": "Finviz screener (Russell 2000)"
       }
@@ -134,7 +134,7 @@
     "fear_greed": {
       "score": 62.91,
       "rating": "greed",
-      "timestamp": "2026-05-15T23:40:12+00:00",
+      "timestamp": "2026-05-15T23:59:54+00:00",
       "prev_close": 66.14,
       "prev_1w": 66.69,
       "prev_1m": 56.2,
@@ -436,15 +436,15 @@
     {
       "symbol": "ROKT",
       "name": "Space Exploration",
-      "price": 117.566,
-      "change_1d_pct": -3.47,
-      "rsi14": 58.8524,
-      "ma20": 113.2318,
+      "price": 117.57,
+      "change_1d_pct": -3.46,
+      "rsi14": 58.86,
+      "ma20": 113.232,
       "ma50": 108.1433,
       "ma200": 89.3884,
       "vs_ma20_pct": 3.83,
-      "vs_ma50_pct": 8.71,
-      "vs_ma200_pct": 31.52,
+      "vs_ma50_pct": 8.72,
+      "vs_ma200_pct": 31.53,
       "vs20ma": "Green",
       "status": "ABOVE ALL",
       "change_1w_pct": "-",
@@ -1264,10 +1264,10 @@
       "source": "yfinance DJI-30 components"
     },
     "russell2000": {
-      "total": 1906,
-      "above_20ma": 624,
-      "above_50ma": 989,
-      "above_200ma": 1014,
+      "total": 1903,
+      "above_20ma": 622,
+      "above_50ma": 987,
+      "above_200ma": 1012,
       "pct_above_20ma": 32.7,
       "pct_above_50ma": 51.9,
       "pct_above_200ma": 53.2
@@ -1275,28 +1275,28 @@
     "source": "Finviz Screener v4.1 (with retry)",
     "market_wide_advance_decline": {
       "NASDAQ": {
-        "advances": 725,
+        "advances": 724,
         "declines": 2304,
-        "unchanged": 69,
-        "total_issues": 3098,
+        "unchanged": 66,
+        "total_issues": 3094,
         "pct_advancing": 23.4,
-        "pct_declining": 74.4,
-        "adv_vol": 2797250000,
-        "dec_vol": 5468430000,
-        "ad_ratio": 0.315,
+        "pct_declining": 74.5,
+        "adv_vol": 2820080000,
+        "dec_vol": 5555860000,
+        "ad_ratio": 0.314,
         "new_52w_highs": 38,
         "new_52w_lows": 63
       },
       "NYSE": {
-        "advances": 458,
-        "declines": 1388,
+        "advances": 457,
+        "declines": 1387,
         "unchanged": 31,
-        "total_issues": 1877,
+        "total_issues": 1875,
         "pct_advancing": 24.4,
-        "pct_declining": 73.9,
-        "adv_vol": 1535570000,
-        "dec_vol": 3925860000,
-        "ad_ratio": 0.33,
+        "pct_declining": 74.0,
+        "adv_vol": 1547050000,
+        "dec_vol": 3963440000,
+        "ad_ratio": 0.329,
         "new_52w_highs": 33,
         "new_52w_lows": 63
       },
@@ -1322,8 +1322,8 @@
       "IWM": {
         "advances": 358,
         "declines": 1518,
-        "unchanged": 30,
-        "total": 1906,
+        "unchanged": 27,
+        "total": 1903,
         "ad_ratio": 0.236,
         "source": "Finviz screener (Russell 2000)"
       },
@@ -1345,14 +1345,14 @@
   },
   "stockbee_mm": {
     "source": "Stockbee Market Monitor (dynamic via stockbee_mm.json)",
-    "latest_date": "5/14/2026",
-    "t2108": 47.14,
-    "up_4_plus": 337,
-    "down_4_plus": 216,
+    "latest_date": "5/15/2026",
+    "t2108": 39.34,
+    "up_4_plus": 145,
+    "down_4_plus": 494,
     "data_stale": false
   },
   "data_status": "fresh",
-  "last_updated_hkt": "2026-05-16 07:57:04 HKT",
+  "last_updated_hkt": "2026-05-17 07:56:58 HKT",
   "thematic": [
     {
       "symbol": "CIBR",
@@ -1454,10 +1454,10 @@
     },
     {
       "symbol": "ROKT",
-      "price": 117.566,
+      "price": 117.57,
       "vs_20ma": 3.83,
-      "vs_50ma": 8.71,
-      "vs_200ma": 31.52
+      "vs_50ma": 8.72,
+      "vs_200ma": 31.53
     },
     {
       "symbol": "XLP",
@@ -1777,10 +1777,10 @@
     },
     {
       "symbol": "ROKT",
-      "price": 117.566,
+      "price": 117.57,
       "vs_20ma": 3.83,
-      "vs_50ma": 8.71,
-      "vs_200ma": 31.52,
+      "vs_50ma": 8.72,
+      "vs_200ma": 31.53,
       "rs_score": 0.17549942529078488,
       "rs_rating": 94
     },
