@@ -1,43 +1,43 @@
 {
   "meta": {
-    "generated_hkt": "2026-05-22 08:39",
-    "generated_et": "2026-05-21 20:39",
-    "date": "2026-05-21",
+    "generated_hkt": "2026-05-22 20:46",
+    "generated_et": "2026-05-22 08:46",
+    "date": "2026-05-22",
     "source": "Yahoo Finance + CNN + NAAIM + Finviz + Barchart",
     "rsi_method": "Wilder SMMA (EWM alpha=1/14)",
     "schema_version": "4.2",
-    "last_updated_hkt": "2026-05-22 08:39:27 HKT"
+    "last_updated_hkt": "2026-05-22 20:46:50 HKT"
   },
   "macro": {
     "VIX": {
-      "price": 16.76,
-      "change_1d": -0.68,
-      "change_1d_pct": -3.9
+      "price": 16.82,
+      "change_1d": 0.06,
+      "change_1d_pct": 0.36
     },
     "DXY": {
-      "price": 99.238,
-      "change_1d": 0.128,
-      "change_1d_pct": 0.13
+      "price": 99.331,
+      "change_1d": 0.141,
+      "change_1d_pct": 0.14
     },
     "TNX_10Y": {
-      "price": 4.586,
-      "change_1d": 0.014,
-      "change_1d_pct": 0.31
+      "price": 4.552,
+      "change_1d": -0.034,
+      "change_1d_pct": -0.74
     },
     "GOLD": {
-      "price": 4535.6001,
-      "change_1d": 4.3003,
-      "change_1d_pct": 0.09
+      "price": 4516.7998,
+      "change_1d": -23.0,
+      "change_1d_pct": -0.51
     },
     "OIL_WTI": {
-      "price": 98.11,
-      "change_1d": -0.15,
-      "change_1d_pct": -0.15
+      "price": 96.64,
+      "change_1d": 0.29,
+      "change_1d_pct": 0.3
     },
     "BTC": {
-      "price": 77418.7891,
-      "change_1d": -38.9843,
-      "change_1d_pct": -0.05
+      "price": 77362.3672,
+      "change_1d": -176.8047,
+      "change_1d_pct": -0.23
     }
   },
   "indices": {
@@ -53,13 +53,13 @@
       "vs_ma200_pct": 9.93,
       "vs20ma": "Green",
       "status": "ABOVE ALL",
-      "ad_ratio": 1.349,
+      "ad_ratio": 1.354,
       "ad_detail": {
-        "advances": 286,
+        "advances": 287,
         "declines": 212,
         "unchanged": 4,
-        "total": 502,
-        "ad_ratio": 1.349,
+        "total": 503,
+        "ad_ratio": 1.354,
         "source": "Finviz screener (S&P 500)"
       }
     },
@@ -132,13 +132,13 @@
   },
   "sentiment": {
     "fear_greed": {
-      "score": 58.31,
+      "score": 58.03,
       "rating": "greed",
-      "timestamp": "2026-05-21T23:59:41+00:00",
-      "prev_close": 60.91,
-      "prev_1w": 65.91,
-      "prev_1m": 67.57,
-      "prev_1y": 66.23,
+      "timestamp": "2026-05-22T12:31:01+00:00",
+      "prev_close": 58.2,
+      "prev_1w": 63.23,
+      "prev_1m": 68.46,
+      "prev_1y": 66.8,
       "source": "CNN Fear & Greed API"
     },
     "put_call": {
@@ -1006,9 +1006,9 @@
     {
       "symbol": "FINX",
       "name": "FinTech",
-      "price": 24.8831,
+      "price": 24.883,
       "change_1d_pct": -0.65,
-      "rsi14": 46.574,
+      "rsi14": 46.573,
       "ma20": 25.4136,
       "ma50": 24.6999,
       "ma200": 29.0279,
@@ -1235,13 +1235,13 @@
   "industry": [],
   "breadth": {
     "sp500": {
-      "total": 502,
-      "above_20ma": 252,
-      "above_50ma": 271,
-      "above_200ma": 277,
-      "pct_above_20ma": 50.2,
-      "pct_above_50ma": 54.0,
-      "pct_above_200ma": 55.2
+      "total": 503,
+      "above_20ma": 253,
+      "above_50ma": 272,
+      "above_200ma": 278,
+      "pct_above_20ma": 50.3,
+      "pct_above_50ma": 54.1,
+      "pct_above_200ma": 55.3
     },
     "nasdaq100": {
       "total": 101,
@@ -1304,11 +1304,11 @@
     },
     "index_ad_ratios": {
       "SPY": {
-        "advances": 286,
+        "advances": 287,
         "declines": 212,
         "unchanged": 4,
-        "total": 502,
-        "ad_ratio": 1.349,
+        "total": 503,
+        "ad_ratio": 1.354,
         "source": "Finviz screener (S&P 500)"
       },
       "QQQ": {
@@ -1352,7 +1352,7 @@
     "data_stale": false
   },
   "data_status": "fresh",
-  "last_updated_hkt": "2026-05-22 08:39:27 HKT",
+  "last_updated_hkt": "2026-05-22 20:46:50 HKT",
   "thematic": [
     {
       "symbol": "CIBR",
@@ -1664,7 +1664,7 @@
     },
     {
       "symbol": "FINX",
-      "price": 24.8831,
+      "price": 24.883,
       "vs_20ma": -2.09,
       "vs_50ma": 0.74,
       "vs_200ma": -14.28
@@ -1851,7 +1851,7 @@
     },
     {
       "symbol": "FINX",
-      "price": 24.8831,
+      "price": 24.883,
       "vs_20ma": -2.09,
       "vs_50ma": 0.74,
       "vs_200ma": -14.28,
