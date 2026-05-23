@@ -1,12 +1,12 @@
 {
   "meta": {
-    "generated_hkt": "2026-05-23 06:49",
-    "generated_et": "2026-05-22 18:49",
+    "generated_hkt": "2026-05-23 10:01",
+    "generated_et": "2026-05-22 22:01",
     "date": "2026-05-22",
     "source": "Yahoo Finance + CNN + NAAIM + Finviz + Barchart",
     "rsi_method": "Wilder SMMA (EWM alpha=1/14)",
     "schema_version": "4.2",
-    "last_updated_hkt": "2026-05-23 06:50:26 HKT"
+    "last_updated_hkt": "2026-05-23 10:01:52 HKT"
   },
   "macro": {
     "VIX": {
@@ -35,9 +35,9 @@
       "change_1d_pct": 0.67
     },
     "BTC": {
-      "price": 75664.0234,
-      "change_1d": -1875.1485,
-      "change_1d_pct": -2.42
+      "price": 75385.8125,
+      "change_1d": -2153.3594,
+      "change_1d_pct": -2.78
     }
   },
   "indices": {
@@ -134,7 +134,7 @@
     "fear_greed": {
       "score": 58.57,
       "rating": "greed",
-      "timestamp": "2026-05-22T22:31:46+00:00",
+      "timestamp": "2026-05-22T23:59:54+00:00",
       "prev_close": 58.2,
       "prev_1w": 63.23,
       "prev_1m": 68.46,
@@ -147,10 +147,23 @@
       "source": "CNN Fear & Greed (5-day avg equity P/C ratio)"
     },
     "naaim": {
-      "value": "-",
-      "date": "-",
-      "history": [],
-      "source": "NAAIM (failed)"
+      "value": 82.02,
+      "date": "2026-05-20",
+      "history": [
+        {
+          "date": "2026-05-20",
+          "value": 82.02
+        },
+        {
+          "date": "2026-05-13",
+          "value": 77.34
+        },
+        {
+          "date": "2026-05-06",
+          "value": 96.67
+        }
+      ],
+      "source": "NAAIM Exposure Index (weekly)"
     }
   },
   "sectors": [
@@ -1262,29 +1275,29 @@
     "source": "Finviz Screener v4.1 (with retry)",
     "market_wide_advance_decline": {
       "NASDAQ": {
-        "advances": 1608,
-        "declines": 1375,
-        "unchanged": 109,
-        "total_issues": 3092,
-        "pct_advancing": 52.0,
-        "pct_declining": 44.5,
-        "adv_vol": 4445700000,
-        "dec_vol": 2695390000,
-        "ad_ratio": 1.169,
-        "new_52w_highs": 116,
+        "advances": 1610,
+        "declines": 1371,
+        "unchanged": 106,
+        "total_issues": 3087,
+        "pct_advancing": 52.2,
+        "pct_declining": 44.4,
+        "adv_vol": 4467560000,
+        "dec_vol": 2722090000,
+        "ad_ratio": 1.174,
+        "new_52w_highs": 114,
         "new_52w_lows": 23
       },
       "NYSE": {
-        "advances": 1052,
+        "advances": 1051,
         "declines": 791,
         "unchanged": 29,
-        "total_issues": 1872,
+        "total_issues": 1871,
         "pct_advancing": 56.2,
         "pct_declining": 42.3,
-        "adv_vol": 2955800000,
-        "dec_vol": 1874840000,
-        "ad_ratio": 1.33,
-        "new_52w_highs": 60,
+        "adv_vol": 2982510000,
+        "dec_vol": 1897180000,
+        "ad_ratio": 1.329,
+        "new_52w_highs": 59,
         "new_52w_lows": 15
       },
       "source": "Barchart.com/stocks/momentum (live)"
@@ -1339,7 +1352,7 @@
     "data_stale": false
   },
   "data_status": "fresh",
-  "last_updated_hkt": "2026-05-23 06:50:26 HKT",
+  "last_updated_hkt": "2026-05-23 10:01:52 HKT",
   "thematic": [
     {
       "symbol": "CIBR",
