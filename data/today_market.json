@@ -1,23 +1,23 @@
 {
   "meta": {
-    "generated_hkt": "2026-05-25 06:46",
-    "generated_et": "2026-05-24 18:46",
-    "date": "2026-05-24",
+    "generated_hkt": "2026-05-26 06:50",
+    "generated_et": "2026-05-25 18:50",
+    "date": "2026-05-25",
     "source": "Yahoo Finance + CNN + NAAIM + Finviz + Barchart",
     "rsi_method": "Wilder SMMA (EWM alpha=1/14)",
     "schema_version": "4.2",
-    "last_updated_hkt": "2026-05-25 06:46:26 HKT"
+    "last_updated_hkt": "2026-05-26 06:51:16 HKT"
   },
   "macro": {
     "VIX": {
-      "price": 16.7,
-      "change_1d": -0.06,
-      "change_1d_pct": -0.36
+      "price": 16.59,
+      "change_1d": -0.11,
+      "change_1d_pct": -0.66
     },
     "DXY": {
-      "price": 99.011,
-      "change_1d": -0.309,
-      "change_1d_pct": -0.31
+      "price": 99.239,
+      "change_1d": -0.081,
+      "change_1d_pct": -0.08
     },
     "TNX_10Y": {
       "price": 4.558,
@@ -25,19 +25,19 @@
       "change_1d_pct": -0.61
     },
     "GOLD": {
-      "price": 4523.2002,
-      "change_1d": 2.2002,
-      "change_1d_pct": 0.05
+      "price": 4574.7002,
+      "change_1d": 53.7002,
+      "change_1d_pct": 1.19
     },
     "OIL_WTI": {
-      "price": 96.6,
-      "change_1d": 0.0,
-      "change_1d_pct": 0.0
+      "price": 90.45,
+      "change_1d": -6.15,
+      "change_1d_pct": -6.37
     },
     "BTC": {
-      "price": 76733.6016,
-      "change_1d": 60.2344,
-      "change_1d_pct": 0.08
+      "price": 77166.9062,
+      "change_1d": 185.7812,
+      "change_1d_pct": 0.24
     }
   },
   "indices": {
@@ -1352,7 +1352,7 @@
     "data_stale": false
   },
   "data_status": "fresh",
-  "last_updated_hkt": "2026-05-25 06:46:26 HKT",
+  "last_updated_hkt": "2026-05-26 06:51:16 HKT",
   "thematic": [
     {
       "symbol": "CIBR",
