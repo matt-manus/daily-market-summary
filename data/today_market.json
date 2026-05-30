@@ -1,12 +1,12 @@
 {
   "meta": {
-    "generated_hkt": "2026-05-30 07:02",
-    "generated_et": "2026-05-29 19:02",
-    "date": "2026-05-29",
+    "generated_hkt": "2026-05-31 06:45",
+    "generated_et": "2026-05-30 18:45",
+    "date": "2026-05-30",
     "source": "Yahoo Finance + CNN + NAAIM + Finviz + Barchart",
     "rsi_method": "Wilder SMMA (EWM alpha=1/14)",
     "schema_version": "4.2",
-    "last_updated_hkt": "2026-05-30 07:03:16 HKT"
+    "last_updated_hkt": "2026-05-31 06:46:14 HKT"
   },
   "macro": {
     "VIX": {
@@ -15,9 +15,9 @@
       "change_1d_pct": -2.67
     },
     "DXY": {
-      "price": 98.942,
-      "change_1d": -0.078,
-      "change_1d_pct": -0.08
+      "price": 98.91,
+      "change_1d": -0.11,
+      "change_1d_pct": -0.11
     },
     "TNX_10Y": {
       "price": 4.453,
@@ -25,19 +25,19 @@
       "change_1d_pct": -0.04
     },
     "GOLD": {
-      "price": 4569.8999,
-      "change_1d": 70.6001,
-      "change_1d_pct": 1.57
+      "price": 4560.5,
+      "change_1d": 61.2002,
+      "change_1d_pct": 1.36
     },
     "OIL_WTI": {
-      "price": 87.76,
-      "change_1d": -1.14,
-      "change_1d_pct": -1.28
+      "price": 87.36,
+      "change_1d": -1.54,
+      "change_1d_pct": -1.73
     },
     "BTC": {
-      "price": 73326.8594,
-      "change_1d": -209.6953,
-      "change_1d_pct": -0.29
+      "price": 73696.0,
+      "change_1d": 323.4766,
+      "change_1d_pct": 0.44
     }
   },
   "indices": {
@@ -123,8 +123,8 @@
       "ad_detail": {
         "advances": 685,
         "declines": 1174,
-        "unchanged": 41,
-        "total": 1900,
+        "unchanged": 39,
+        "total": 1898,
         "ad_ratio": 0.583,
         "source": "Finviz screener (Russell 2000)"
       }
@@ -134,7 +134,7 @@
     "fear_greed": {
       "score": 60.17,
       "rating": "greed",
-      "timestamp": "2026-05-29T22:42:47+00:00",
+      "timestamp": "2026-05-29T23:59:54+00:00",
       "prev_close": 60.23,
       "prev_1w": 58.97,
       "prev_1m": 66.23,
@@ -740,9 +740,9 @@
     {
       "symbol": "IPAY",
       "name": "Digital Payments",
-      "price": 46.3549,
+      "price": 46.355,
       "change_1d_pct": 1.72,
-      "rsi14": 55.5463,
+      "rsi14": 55.5471,
       "ma20": 45.916,
       "ma50": 45.3344,
       "ma200": 50.8147,
@@ -1264,10 +1264,10 @@
       "source": "yfinance DJI-30 components"
     },
     "russell2000": {
-      "total": 1900,
-      "above_20ma": 1146,
-      "above_50ma": 1221,
-      "above_200ma": 1145,
+      "total": 1898,
+      "above_20ma": 1145,
+      "above_50ma": 1220,
+      "above_200ma": 1144,
       "pct_above_20ma": 60.3,
       "pct_above_50ma": 64.3,
       "pct_above_200ma": 60.3
@@ -1275,15 +1275,15 @@
     "source": "Finviz Screener v4.1 (with retry)",
     "market_wide_advance_decline": {
       "NASDAQ": {
-        "advances": 1349,
+        "advances": 1342,
         "declines": 1680,
-        "unchanged": 97,
-        "total_issues": 3126,
-        "pct_advancing": 43.2,
-        "pct_declining": 53.7,
-        "adv_vol": 6190660000,
-        "dec_vol": 4542560000,
-        "ad_ratio": 0.803,
+        "unchanged": 95,
+        "total_issues": 3117,
+        "pct_advancing": 43.1,
+        "pct_declining": 53.9,
+        "adv_vol": 6247320000,
+        "dec_vol": 4566960000,
+        "ad_ratio": 0.799,
         "new_52w_highs": 97,
         "new_52w_lows": 12
       },
@@ -1294,8 +1294,8 @@
         "total_issues": 1885,
         "pct_advancing": 37.7,
         "pct_declining": 60.6,
-        "adv_vol": 3744450000,
-        "dec_vol": 4108870000,
+        "adv_vol": 3789770000,
+        "dec_vol": 4153450000,
         "ad_ratio": 0.622,
         "new_52w_highs": 63,
         "new_52w_lows": 29
@@ -1322,8 +1322,8 @@
       "IWM": {
         "advances": 685,
         "declines": 1174,
-        "unchanged": 41,
-        "total": 1900,
+        "unchanged": 39,
+        "total": 1898,
         "ad_ratio": 0.583,
         "source": "Finviz screener (Russell 2000)"
       },
@@ -1339,20 +1339,20 @@
     "volatility_adr": {
       "SPY": 0.79,
       "QQQ": 1.3,
-      "DIA": 0.84,
+      "DIA": 0.85,
       "IWM": 1.46
     }
   },
   "stockbee_mm": {
     "source": "Stockbee Market Monitor (dynamic via stockbee_mm.json)",
-    "latest_date": "5/28/2026",
-    "t2108": 48.88,
-    "up_4_plus": 451,
-    "down_4_plus": 95,
+    "latest_date": "5/29/2026",
+    "t2108": 45.75,
+    "up_4_plus": 329,
+    "down_4_plus": 216,
     "data_stale": false
   },
   "data_status": "fresh",
-  "last_updated_hkt": "2026-05-30 07:03:16 HKT",
+  "last_updated_hkt": "2026-05-31 06:46:14 HKT",
   "thematic": [
     {
       "symbol": "CIBR",
@@ -1566,7 +1566,7 @@
     },
     {
       "symbol": "IPAY",
-      "price": 46.3549,
+      "price": 46.355,
       "vs_20ma": 0.96,
       "vs_50ma": 2.25,
       "vs_200ma": -8.78
@@ -1878,7 +1878,7 @@
     },
     {
       "symbol": "IPAY",
-      "price": 46.3549,
+      "price": 46.355,
       "vs_20ma": 0.96,
       "vs_50ma": 2.25,
       "vs_200ma": -8.78,
