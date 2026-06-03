@@ -1,12 +1,12 @@
 {
   "meta": {
-    "generated_hkt": "2026-06-03 07:26",
-    "generated_et": "2026-06-02 19:26",
+    "generated_hkt": "2026-06-03 08:42",
+    "generated_et": "2026-06-02 20:42",
     "date": "2026-06-02",
     "source": "Yahoo Finance + CNN + NAAIM + Finviz + Barchart",
     "rsi_method": "Wilder SMMA (EWM alpha=1/14)",
     "schema_version": "4.2",
-    "last_updated_hkt": "2026-06-03 07:27:05 HKT"
+    "last_updated_hkt": "2026-06-03 08:42:34 HKT"
   },
   "macro": {
     "VIX": {
@@ -15,9 +15,9 @@
       "change_1d_pct": -1.74
     },
     "DXY": {
-      "price": 99.224,
-      "change_1d": 0.024,
-      "change_1d_pct": 0.02
+      "price": 99.239,
+      "change_1d": 0.039,
+      "change_1d_pct": 0.04
     },
     "TNX_10Y": {
       "price": 4.455,
@@ -25,19 +25,19 @@
       "change_1d_pct": -0.45
     },
     "GOLD": {
-      "price": 4504.0,
-      "change_1d": 28.7998,
-      "change_1d_pct": 0.64
+      "price": 4510.1001,
+      "change_1d": 34.8999,
+      "change_1d_pct": 0.78
     },
     "OIL_WTI": {
-      "price": 94.81,
-      "change_1d": 2.65,
-      "change_1d_pct": 2.88
+      "price": 94.65,
+      "change_1d": 2.49,
+      "change_1d_pct": 2.7
     },
     "BTC": {
-      "price": 66212.9219,
-      "change_1d": -5106.8515,
-      "change_1d_pct": -7.16
+      "price": 66940.8906,
+      "change_1d": -4378.8828,
+      "change_1d_pct": -6.14
     }
   },
   "indices": {
@@ -134,7 +134,7 @@
     "fear_greed": {
       "score": 57.03,
       "rating": "greed",
-      "timestamp": "2026-06-02T23:07:31+00:00",
+      "timestamp": "2026-06-02T23:59:49+00:00",
       "prev_close": 59.09,
       "prev_1w": 60.91,
       "prev_1m": 71.17,
@@ -1274,9 +1274,33 @@
     },
     "source": "Finviz Screener v4.1 (with retry)",
     "market_wide_advance_decline": {
-      "NYSE": "-",
-      "NASDAQ": "-",
-      "source": "Barchart (failed: 403 Client Error: Forbidden for url: https://www.barchart.com/stocks/momentum)"
+      "NASDAQ": {
+        "advances": 1243,
+        "declines": 1795,
+        "unchanged": 77,
+        "total_issues": 3115,
+        "pct_advancing": 39.9,
+        "pct_declining": 57.6,
+        "adv_vol": 3644170000,
+        "dec_vol": 4969900000,
+        "ad_ratio": 0.692,
+        "new_52w_highs": 116,
+        "new_52w_lows": 43
+      },
+      "NYSE": {
+        "advances": 1065,
+        "declines": 791,
+        "unchanged": 29,
+        "total_issues": 1885,
+        "pct_advancing": 56.5,
+        "pct_declining": 42.0,
+        "adv_vol": 2944600000,
+        "dec_vol": 2851870000,
+        "ad_ratio": 1.346,
+        "new_52w_highs": 98,
+        "new_52w_lows": 34
+      },
+      "source": "Barchart.com/stocks/momentum (live)"
     },
     "index_ad_ratios": {
       "SPY": {
@@ -1321,14 +1345,14 @@
   },
   "stockbee_mm": {
     "source": "Stockbee Market Monitor (dynamic via stockbee_mm.json)",
-    "latest_date": "6/1/2026",
-    "t2108": 43.86,
-    "up_4_plus": 416,
-    "down_4_plus": 218,
+    "latest_date": "6/2/2026",
+    "t2108": 45.59,
+    "up_4_plus": 292,
+    "down_4_plus": 295,
     "data_stale": false
   },
   "data_status": "fresh",
-  "last_updated_hkt": "2026-06-03 07:27:05 HKT",
+  "last_updated_hkt": "2026-06-03 08:42:34 HKT",
   "thematic": [
     {
       "symbol": "CIBR",
