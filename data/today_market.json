@@ -1,23 +1,23 @@
 {
   "meta": {
-    "generated_hkt": "2026-06-12 07:13",
-    "generated_et": "2026-06-11 19:13",
+    "generated_hkt": "2026-06-12 10:29",
+    "generated_et": "2026-06-11 22:29",
     "date": "2026-06-11",
     "source": "Yahoo Finance + CNN + NAAIM + Finviz + Barchart",
     "rsi_method": "Wilder SMMA (EWM alpha=1/14)",
     "schema_version": "4.2",
-    "last_updated_hkt": "2026-06-12 07:13:57 HKT"
+    "last_updated_hkt": "2026-06-12 10:29:48 HKT"
   },
   "macro": {
     "VIX": {
-      "price": 22.22,
-      "change_1d": 2.35,
-      "change_1d_pct": 11.83
+      "price": 19.44,
+      "change_1d": -2.78,
+      "change_1d_pct": -12.51
     },
     "DXY": {
-      "price": 99.95,
-      "change_1d": 0.04,
-      "change_1d_pct": 0.04
+      "price": 99.802,
+      "change_1d": -0.148,
+      "change_1d_pct": -0.15
     },
     "TNX_10Y": {
       "price": 4.463,
@@ -25,19 +25,19 @@
       "change_1d_pct": -1.74
     },
     "GOLD": {
-      "price": 4252.7998,
-      "change_1d": 144.5996,
-      "change_1d_pct": 3.52
+      "price": 4213.0,
+      "change_1d": 104.7998,
+      "change_1d_pct": 2.55
     },
     "OIL_WTI": {
-      "price": 85.83,
-      "change_1d": -4.2,
-      "change_1d_pct": -4.67
+      "price": 86.84,
+      "change_1d": -3.19,
+      "change_1d_pct": -3.54
     },
     "BTC": {
-      "price": 63330.6484,
-      "change_1d": 1881.3593,
-      "change_1d_pct": 3.06
+      "price": 63463.4297,
+      "change_1d": 2014.1406,
+      "change_1d_pct": 3.28
     }
   },
   "indices": {
@@ -134,7 +134,7 @@
     "fear_greed": {
       "score": 29.69,
       "rating": "fear",
-      "timestamp": "2026-06-11T22:57:40+00:00",
+      "timestamp": "2026-06-11T23:59:42+00:00",
       "prev_close": 27.46,
       "prev_1w": 53.89,
       "prev_1m": 66.63,
@@ -1276,27 +1276,27 @@
     "market_wide_advance_decline": {
       "NASDAQ": {
         "advances": 2097,
-        "declines": 944,
-        "unchanged": 78,
-        "total_issues": 3119,
-        "pct_advancing": 67.2,
-        "pct_declining": 30.3,
-        "adv_vol": 6260410000,
-        "dec_vol": 2337690000,
-        "ad_ratio": 2.221,
+        "declines": 939,
+        "unchanged": 76,
+        "total_issues": 3112,
+        "pct_advancing": 67.4,
+        "pct_declining": 30.2,
+        "adv_vol": 6336040000,
+        "dec_vol": 2390980000,
+        "ad_ratio": 2.233,
         "new_52w_highs": 141,
         "new_52w_lows": 71
       },
       "NYSE": {
-        "advances": 1309,
-        "declines": 543,
+        "advances": 1308,
+        "declines": 542,
         "unchanged": 28,
-        "total_issues": 1880,
+        "total_issues": 1878,
         "pct_advancing": 69.6,
         "pct_declining": 28.9,
-        "adv_vol": 4121280000,
-        "dec_vol": 1393690000,
-        "ad_ratio": 2.411,
+        "adv_vol": 4166290000,
+        "dec_vol": 1400520000,
+        "ad_ratio": 2.413,
         "new_52w_highs": 114,
         "new_52w_lows": 44
       },
@@ -1345,14 +1345,14 @@
   },
   "stockbee_mm": {
     "source": "Stockbee Market Monitor (dynamic via stockbee_mm.json)",
-    "latest_date": "6/10/2026",
-    "t2108": 41.97,
-    "up_4_plus": 214,
-    "down_4_plus": 236,
+    "latest_date": "6/11/2026",
+    "t2108": 46.49,
+    "up_4_plus": 685,
+    "down_4_plus": 114,
     "data_stale": false
   },
   "data_status": "fresh",
-  "last_updated_hkt": "2026-06-12 07:13:57 HKT",
+  "last_updated_hkt": "2026-06-12 10:29:48 HKT",
   "thematic": [
     {
       "symbol": "XRT",
