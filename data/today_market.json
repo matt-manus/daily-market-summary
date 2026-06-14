@@ -1,12 +1,12 @@
 {
   "meta": {
-    "generated_hkt": "2026-06-14 06:53",
-    "generated_et": "2026-06-13 18:53",
-    "date": "2026-06-13",
+    "generated_hkt": "2026-06-15 06:58",
+    "generated_et": "2026-06-14 18:58",
+    "date": "2026-06-14",
     "source": "Yahoo Finance + CNN + NAAIM + Finviz + Barchart",
     "rsi_method": "Wilder SMMA (EWM alpha=1/14)",
     "schema_version": "4.2",
-    "last_updated_hkt": "2026-06-14 06:53:29 HKT"
+    "last_updated_hkt": "2026-06-15 06:59:00 HKT"
   },
   "macro": {
     "VIX": {
@@ -15,9 +15,9 @@
       "change_1d_pct": -9.05
     },
     "DXY": {
-      "price": 99.75,
-      "change_1d": -0.11,
-      "change_1d_pct": -0.11
+      "price": 99.47,
+      "change_1d": -0.28,
+      "change_1d_pct": -0.28
     },
     "TNX_10Y": {
       "price": 4.487,
@@ -25,19 +25,19 @@
       "change_1d_pct": 0.54
     },
     "GOLD": {
-      "price": 4215.0,
-      "change_1d": 124.7,
-      "change_1d_pct": 3.05
+      "price": 4310.3999,
+      "change_1d": 95.3999,
+      "change_1d_pct": 2.26
     },
     "OIL_WTI": {
-      "price": 84.88,
-      "change_1d": -2.83,
-      "change_1d_pct": -3.23
+      "price": 81.26,
+      "change_1d": -3.62,
+      "change_1d_pct": -4.26
     },
     "BTC": {
-      "price": 64471.9609,
-      "change_1d": 928.7617,
-      "change_1d_pct": 1.46
+      "price": 65337.5703,
+      "change_1d": 916.2461,
+      "change_1d_pct": 1.42
     }
   },
   "indices": {
@@ -90,7 +90,7 @@
       "change_1d_pct": 0.73,
       "rsi14": 59.0661,
       "ma20": 506.3465,
-      "ma50": 495.6567,
+      "ma50": 495.6566,
       "ma200": 478.2484,
       "vs_ma20_pct": 1.33,
       "vs_ma50_pct": 3.51,
@@ -1347,12 +1347,12 @@
     "source": "Stockbee Market Monitor (dynamic via stockbee_mm.json)",
     "latest_date": "6/12/2026",
     "t2108": 50.19,
-    "up_4_plus": 201,
-    "down_4_plus": 177,
+    "up_4_plus": 204,
+    "down_4_plus": 181,
     "data_stale": false
   },
   "data_status": "fresh",
-  "last_updated_hkt": "2026-06-14 06:53:29 HKT",
+  "last_updated_hkt": "2026-06-15 06:59:00 HKT",
   "thematic": [
     {
       "symbol": "KRE",
