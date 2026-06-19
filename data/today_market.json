@@ -1,58 +1,58 @@
 {
   "meta": {
-    "generated_hkt": "2026-06-19 07:28",
-    "generated_et": "2026-06-18 19:28",
-    "date": "2026-06-18",
+    "generated_hkt": "2026-06-20 06:42",
+    "generated_et": "2026-06-19 18:42",
+    "date": "2026-06-19",
     "source": "Yahoo Finance + CNN + NAAIM + Finviz + Barchart",
     "rsi_method": "Wilder SMMA (EWM alpha=1/14)",
     "schema_version": "4.2",
-    "last_updated_hkt": "2026-06-19 07:28:32 HKT"
+    "last_updated_hkt": "2026-06-20 06:43:14 HKT"
   },
   "macro": {
     "VIX": {
-      "price": 16.4,
-      "change_1d": -2.04,
-      "change_1d_pct": -11.06
+      "price": 16.78,
+      "change_1d": 0.38,
+      "change_1d_pct": 2.32
     },
     "DXY": {
-      "price": 100.814,
-      "change_1d": 0.724,
-      "change_1d_pct": 0.72
+      "price": 100.849,
+      "change_1d": -0.001,
+      "change_1d_pct": -0.0
     },
     "TNX_10Y": {
-      "price": 4.451,
-      "change_1d": -0.036,
-      "change_1d_pct": -0.8
+      "price": 4.487,
+      "change_1d": 0.024,
+      "change_1d_pct": 0.54
     },
     "GOLD": {
-      "price": 4214.5,
-      "change_1d": -144.3999,
-      "change_1d_pct": -3.31
+      "price": 4172.8999,
+      "change_1d": -51.2002,
+      "change_1d_pct": -1.21
     },
     "OIL_WTI": {
-      "price": 75.29,
-      "change_1d": -1.5,
-      "change_1d_pct": -1.95
+      "price": 76.54,
+      "change_1d": -0.06,
+      "change_1d_pct": -0.08
     },
     "BTC": {
-      "price": 62803.8984,
-      "change_1d": -2796.7422,
-      "change_1d_pct": -4.26
+      "price": 63253.0586,
+      "change_1d": 356.5859,
+      "change_1d_pct": 0.57
     }
   },
   "indices": {
     "SPY": {
       "price": 746.74,
-      "change_1d_pct": 0.78,
-      "rsi14": 54.1237,
-      "ma20": 747.0775,
-      "ma50": 729.6588,
-      "ma200": 686.2411,
-      "vs_ma20_pct": -0.05,
-      "vs_ma50_pct": 2.34,
-      "vs_ma200_pct": 8.82,
-      "vs20ma": "Red",
-      "status": "MIXED",
+      "change_1d_pct": 1.04,
+      "rsi14": 55.1452,
+      "ma20": 745.2537,
+      "ma50": 727.8222,
+      "ma200": 684.4873,
+      "vs_ma20_pct": 0.2,
+      "vs_ma50_pct": 2.6,
+      "vs_ma200_pct": 9.09,
+      "vs20ma": "Green",
+      "status": "ABOVE ALL",
       "ad_ratio": 1.109,
       "ad_detail": {
         "advances": 264,
@@ -87,14 +87,14 @@
     },
     "DIA": {
       "price": 515.52,
-      "change_1d_pct": -0.15,
-      "rsi14": 58.2041,
-      "ma20": 510.6015,
-      "ma50": 499.5899,
-      "ma200": 479.5973,
-      "vs_ma20_pct": 0.96,
-      "vs_ma50_pct": 3.19,
-      "vs_ma200_pct": 7.49,
+      "change_1d_pct": 0.12,
+      "rsi14": 59.5563,
+      "ma20": 509.2821,
+      "ma50": 498.2584,
+      "ma200": 478.2991,
+      "vs_ma20_pct": 1.22,
+      "vs_ma50_pct": 3.46,
+      "vs_ma200_pct": 7.78,
       "vs20ma": "Green",
       "status": "ABOVE ALL",
       "ad_ratio": 0.765,
@@ -132,12 +132,12 @@
   },
   "sentiment": {
     "fear_greed": {
-      "score": 37.51,
+      "score": 37.26,
       "rating": "fear",
-      "timestamp": "2026-06-18T23:09:45+00:00",
-      "prev_close": 32.66,
-      "prev_1w": 31.57,
-      "prev_1m": 61.54,
+      "timestamp": "2026-06-19T00:59:47+00:00",
+      "prev_close": 37.51,
+      "prev_1w": 35.51,
+      "prev_1m": 59.37,
       "prev_1y": 54.29,
       "source": "CNN Fear & Greed API"
     },
@@ -284,11 +284,11 @@
     {
       "symbol": "QTUM",
       "name": "Quantum Computing & ML",
-      "price": 167.965,
-      "change_1d_pct": 3.39,
-      "rsi14": 62.3979,
-      "ma20": 160.0127,
-      "ma50": 144.4513,
+      "price": 167.97,
+      "change_1d_pct": 3.4,
+      "rsi14": 62.4013,
+      "ma20": 160.013,
+      "ma50": 144.4514,
       "ma200": 118.8374,
       "vs_ma20_pct": 4.97,
       "vs_ma50_pct": 16.28,
@@ -1275,28 +1275,28 @@
     "source": "Finviz Screener v4.1 (with retry)",
     "market_wide_advance_decline": {
       "NASDAQ": {
-        "advances": 1856,
-        "declines": 1193,
+        "advances": 1857,
+        "declines": 1187,
         "unchanged": 75,
-        "total_issues": 3124,
-        "pct_advancing": 59.4,
-        "pct_declining": 38.2,
-        "adv_vol": 13055200000,
-        "dec_vol": 4312570000,
-        "ad_ratio": 1.556,
+        "total_issues": 3119,
+        "pct_advancing": 59.5,
+        "pct_declining": 38.1,
+        "adv_vol": 13442270000,
+        "dec_vol": 4467460000,
+        "ad_ratio": 1.564,
         "new_52w_highs": 114,
         "new_52w_lows": 70
       },
       "NYSE": {
         "advances": 1142,
-        "declines": 723,
+        "declines": 721,
         "unchanged": 19,
-        "total_issues": 1884,
-        "pct_advancing": 60.6,
-        "pct_declining": 38.4,
-        "adv_vol": 4544730000,
-        "dec_vol": 4523900000,
-        "ad_ratio": 1.58,
+        "total_issues": 1882,
+        "pct_advancing": 60.7,
+        "pct_declining": 38.3,
+        "adv_vol": 4604550000,
+        "dec_vol": 4594630000,
+        "ad_ratio": 1.584,
         "new_52w_highs": 94,
         "new_52w_lows": 58
       },
@@ -1345,14 +1345,14 @@
   },
   "stockbee_mm": {
     "source": "Stockbee Market Monitor (dynamic via stockbee_mm.json)",
-    "latest_date": "6/17/2026",
-    "t2108": 42.92,
-    "up_4_plus": 275,
-    "down_4_plus": 328,
+    "latest_date": "6/18/2026",
+    "t2108": 44.21,
+    "up_4_plus": 573,
+    "down_4_plus": 230,
     "data_stale": false
   },
   "data_status": "fresh",
-  "last_updated_hkt": "2026-06-19 07:28:32 HKT",
+  "last_updated_hkt": "2026-06-20 06:43:14 HKT",
   "thematic": [
     {
       "symbol": "JETS",
@@ -1398,7 +1398,7 @@
     },
     {
       "symbol": "QTUM",
-      "price": 167.965,
+      "price": 167.97,
       "vs_20ma": 4.97,
       "vs_50ma": 16.28,
       "vs_200ma": 41.34
