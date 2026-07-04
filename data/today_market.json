@@ -1,18 +1,18 @@
 {
   "meta": {
-    "generated_hkt": "2026-07-04 06:53",
-    "generated_et": "2026-07-03 18:53",
-    "date": "2026-07-03",
+    "generated_hkt": "2026-07-05 06:45",
+    "generated_et": "2026-07-04 18:45",
+    "date": "2026-07-04",
     "source": "Yahoo Finance + CNN + NAAIM + Finviz + Barchart",
     "rsi_method": "Wilder SMMA (EWM alpha=1/14)",
     "schema_version": "4.2",
-    "last_updated_hkt": "2026-07-04 06:54:01 HKT"
+    "last_updated_hkt": "2026-07-05 06:45:51 HKT"
   },
   "macro": {
     "VIX": {
-      "price": 15.81,
-      "change_1d": -0.34,
-      "change_1d_pct": -2.11
+      "price": 16.15,
+      "change_1d": -0.44,
+      "change_1d_pct": -2.65
     },
     "DXY": {
       "price": 100.857,
@@ -20,9 +20,9 @@
       "change_1d_pct": -0.0
     },
     "TNX_10Y": {
-      "price": 4.372,
-      "change_1d": -0.02,
-      "change_1d_pct": -0.46
+      "price": 4.485,
+      "change_1d": "-",
+      "change_1d_pct": "-"
     },
     "GOLD": {
       "price": 4187.2998,
@@ -35,9 +35,9 @@
       "change_1d_pct": 0.13
     },
     "BTC": {
-      "price": 62530.5195,
-      "change_1d": 1045.2187,
-      "change_1d_pct": 1.7
+      "price": 63145.9883,
+      "change_1d": 601.7891,
+      "change_1d_pct": 0.96
     }
   },
   "indices": {
@@ -757,25 +757,6 @@
       "change_ytd_pct": "-"
     },
     {
-      "symbol": "TLT",
-      "name": "20+ Year Treasury Bond",
-      "price": 85.51,
-      "change_1d_pct": -0.01,
-      "rsi14": 48.2485,
-      "ma20": 85.7748,
-      "ma50": 85.0863,
-      "ma200": 86.1077,
-      "vs_ma20_pct": -0.31,
-      "vs_ma50_pct": 0.5,
-      "vs_ma200_pct": -0.69,
-      "vs20ma": "Red",
-      "status": "MIXED",
-      "change_1w_pct": "-",
-      "change_1m_pct": "-",
-      "change_3m_pct": "-",
-      "change_ytd_pct": "-"
-    },
-    {
       "symbol": "PAVE",
       "name": "Infrastructure",
       "price": 57.15,
@@ -806,6 +787,25 @@
       "vs_ma20_pct": -0.64,
       "vs_ma50_pct": -1.18,
       "vs_ma200_pct": 12.52,
+      "vs20ma": "Red",
+      "status": "MIXED",
+      "change_1w_pct": "-",
+      "change_1m_pct": "-",
+      "change_3m_pct": "-",
+      "change_ytd_pct": "-"
+    },
+    {
+      "symbol": "TLT",
+      "name": "20+ Year Treasury Bond",
+      "price": 85.51,
+      "change_1d_pct": -0.01,
+      "rsi14": 47.6631,
+      "ma20": 85.7748,
+      "ma50": 85.2659,
+      "ma200": 86.4077,
+      "vs_ma20_pct": -0.31,
+      "vs_ma50_pct": 0.29,
+      "vs_ma200_pct": -1.04,
       "vs20ma": "Red",
       "status": "MIXED",
       "change_1w_pct": "-",
@@ -1347,12 +1347,12 @@
     "source": "Stockbee Market Monitor (dynamic via stockbee_mm.json)",
     "latest_date": "7/2/2026",
     "t2108": 51.95,
-    "up_4_plus": 264,
-    "down_4_plus": 352,
+    "up_4_plus": 272,
+    "down_4_plus": 375,
     "data_stale": false
   },
   "data_status": "fresh",
-  "last_updated_hkt": "2026-07-04 06:54:01 HKT",
+  "last_updated_hkt": "2026-07-05 06:45:51 HKT",
   "thematic": [
     {
       "symbol": "IBB",
@@ -1572,13 +1572,6 @@
       "vs_200ma": 0.83
     },
     {
-      "symbol": "TLT",
-      "price": 85.51,
-      "vs_20ma": -0.31,
-      "vs_50ma": 0.5,
-      "vs_200ma": -0.69
-    },
-    {
       "symbol": "PAVE",
       "price": 57.15,
       "vs_20ma": -1.16,
@@ -1591,6 +1584,13 @@
       "vs_20ma": -0.64,
       "vs_50ma": -1.18,
       "vs_200ma": 12.52
+    },
+    {
+      "symbol": "TLT",
+      "price": 85.51,
+      "vs_20ma": -0.31,
+      "vs_50ma": 0.29,
+      "vs_200ma": -1.04
     },
     {
       "symbol": "QTUM",
