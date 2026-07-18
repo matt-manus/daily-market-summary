@@ -1,12 +1,12 @@
 {
   "meta": {
-    "generated_hkt": "2026-07-18 06:37",
-    "generated_et": "2026-07-17 18:37",
-    "date": "2026-07-17",
+    "generated_hkt": "2026-07-19 06:37",
+    "generated_et": "2026-07-18 18:37",
+    "date": "2026-07-18",
     "source": "Yahoo Finance + CNN + NAAIM + Finviz + Barchart",
     "rsi_method": "Wilder SMMA (EWM alpha=1/14)",
     "schema_version": "4.2",
-    "last_updated_hkt": "2026-07-18 06:37:58 HKT"
+    "last_updated_hkt": "2026-07-19 06:38:03 HKT"
   },
   "macro": {
     "VIX": {
@@ -15,8 +15,8 @@
       "change_1d_pct": 12.19
     },
     "DXY": {
-      "price": 100.755,
-      "change_1d": 0.025,
+      "price": 100.75,
+      "change_1d": 0.02,
       "change_1d_pct": 0.02
     },
     "TNX_10Y": {
@@ -25,19 +25,19 @@
       "change_1d_pct": -0.61
     },
     "GOLD": {
-      "price": 4023.0,
-      "change_1d": 37.3999,
-      "change_1d_pct": 0.94
+      "price": 4012.7,
+      "change_1d": 27.0999,
+      "change_1d_pct": 0.68
     },
     "OIL_WTI": {
-      "price": 81.77,
-      "change_1d": 2.82,
-      "change_1d_pct": 3.57
+      "price": 82.49,
+      "change_1d": 3.54,
+      "change_1d_pct": 4.48
     },
     "BTC": {
-      "price": 63884.8086,
-      "change_1d": 95.5274,
-      "change_1d_pct": 0.15
+      "price": 64668.6406,
+      "change_1d": 769.1797,
+      "change_1d_pct": 1.2
     }
   },
   "indices": {
@@ -87,14 +87,14 @@
     },
     "DIA": {
       "price": 520.81,
-      "change_1d_pct": -0.77,
-      "rsi14": 52.2518,
-      "ma20": 522.5565,
-      "ma50": 511.5016,
-      "ma200": 484.8691,
-      "vs_ma20_pct": -0.33,
-      "vs_ma50_pct": 1.82,
-      "vs_ma200_pct": 7.41,
+      "change_1d_pct": -0.74,
+      "rsi14": 52.4804,
+      "ma20": 522.4155,
+      "ma50": 511.3594,
+      "ma200": 484.7322,
+      "vs_ma20_pct": -0.31,
+      "vs_ma50_pct": 1.85,
+      "vs_ma200_pct": 7.44,
       "vs20ma": "Red",
       "status": "MIXED",
       "ad_ratio": 0.364,
@@ -134,7 +134,7 @@
     "fear_greed": {
       "score": 37.06,
       "rating": "fear",
-      "timestamp": "2026-07-17T22:21:06+00:00",
+      "timestamp": "2026-07-17T23:59:50+00:00",
       "prev_close": 41.69,
       "prev_1w": 46.83,
       "prev_1m": 32.94,
@@ -265,9 +265,9 @@
     {
       "symbol": "IPAY",
       "name": "Digital Payments",
-      "price": 49.2808,
+      "price": 49.281,
       "change_1d_pct": -1.57,
-      "rsi14": 62.8692,
+      "rsi14": 62.8705,
       "ma20": 47.0905,
       "ma50": 45.8034,
       "ma200": 48.739,
@@ -1275,28 +1275,28 @@
     "source": "Finviz Screener v4.1 (with retry)",
     "market_wide_advance_decline": {
       "NASDAQ": {
-        "advances": 1101,
-        "declines": 1937,
-        "unchanged": 78,
-        "total_issues": 3116,
+        "advances": 1100,
+        "declines": 1932,
+        "unchanged": 82,
+        "total_issues": 3114,
         "pct_advancing": 35.3,
-        "pct_declining": 62.2,
-        "adv_vol": 2045080000,
-        "dec_vol": 4335670000,
-        "ad_ratio": 0.568,
+        "pct_declining": 62.0,
+        "adv_vol": 2066480000,
+        "dec_vol": 4374040000,
+        "ad_ratio": 0.569,
         "new_52w_highs": 85,
         "new_52w_lows": 67
       },
       "NYSE": {
-        "advances": 587,
-        "declines": 1271,
+        "advances": 586,
+        "declines": 1270,
         "unchanged": 18,
-        "total_issues": 1876,
+        "total_issues": 1874,
         "pct_advancing": 31.3,
         "pct_declining": 67.8,
-        "adv_vol": 1584940000,
-        "dec_vol": 3524590000,
-        "ad_ratio": 0.462,
+        "adv_vol": 1603970000,
+        "dec_vol": 3562730000,
+        "ad_ratio": 0.461,
         "new_52w_highs": 134,
         "new_52w_lows": 15
       },
@@ -1345,14 +1345,14 @@
   },
   "stockbee_mm": {
     "source": "Stockbee Market Monitor (dynamic via stockbee_mm.json)",
-    "latest_date": "7/16/2026",
-    "t2108": 56.29,
-    "up_4_plus": 251,
-    "down_4_plus": 509,
+    "latest_date": "7/17/2026",
+    "t2108": 56.57,
+    "up_4_plus": 254,
+    "down_4_plus": 516,
     "data_stale": false
   },
   "data_status": "fresh",
-  "last_updated_hkt": "2026-07-18 06:37:58 HKT",
+  "last_updated_hkt": "2026-07-19 06:38:03 HKT",
   "thematic": [
     {
       "symbol": "XLF",
@@ -1391,7 +1391,7 @@
     },
     {
       "symbol": "IPAY",
-      "price": 49.2808,
+      "price": 49.281,
       "vs_20ma": 4.65,
       "vs_50ma": 7.59,
       "vs_200ma": 1.11
@@ -1878,7 +1878,7 @@
     },
     {
       "symbol": "IPAY",
-      "price": 49.2808,
+      "price": 49.281,
       "vs_20ma": 4.65,
       "vs_50ma": 7.59,
       "vs_200ma": 1.11,
