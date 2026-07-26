@@ -1,12 +1,12 @@
 {
   "meta": {
-    "generated_hkt": "2026-07-26 06:42",
-    "generated_et": "2026-07-25 18:42",
-    "date": "2026-07-25",
+    "generated_hkt": "2026-07-27 06:48",
+    "generated_et": "2026-07-26 18:48",
+    "date": "2026-07-26",
     "source": "Yahoo Finance + CNN + NAAIM + Finviz + Barchart",
     "rsi_method": "Wilder SMMA (EWM alpha=1/14)",
     "schema_version": "4.2",
-    "last_updated_hkt": "2026-07-26 06:42:47 HKT"
+    "last_updated_hkt": "2026-07-27 06:48:56 HKT"
   },
   "macro": {
     "VIX": {
@@ -15,9 +15,9 @@
       "change_1d_pct": 12.38
     },
     "DXY": {
-      "price": 101.43,
-      "change_1d": 0.29,
-      "change_1d_pct": 0.29
+      "price": 101.302,
+      "change_1d": -0.128,
+      "change_1d_pct": -0.13
     },
     "TNX_10Y": {
       "price": 4.703,
@@ -25,19 +25,19 @@
       "change_1d_pct": 0.99
     },
     "GOLD": {
-      "price": 4067.6001,
-      "change_1d": 21.0,
-      "change_1d_pct": 0.52
+      "price": 4093.7,
+      "change_1d": 26.0999,
+      "change_1d_pct": 0.64
     },
     "OIL_WTI": {
-      "price": 89.31,
-      "change_1d": -2.88,
-      "change_1d_pct": -3.12
+      "price": 84.47,
+      "change_1d": -4.84,
+      "change_1d_pct": -5.42
     },
     "BTC": {
-      "price": 64321.2812,
-      "change_1d": 222.7851,
-      "change_1d_pct": 0.35
+      "price": 65388.8008,
+      "change_1d": 1076.9883,
+      "change_1d_pct": 1.67
     }
   },
   "indices": {
@@ -1346,13 +1346,13 @@
   "stockbee_mm": {
     "source": "Stockbee Market Monitor (dynamic via stockbee_mm.json)",
     "latest_date": "7/24/2026",
-    "t2108": 50.95,
-    "up_4_plus": 139,
-    "down_4_plus": 337,
+    "t2108": 51.0,
+    "up_4_plus": 144,
+    "down_4_plus": 349,
     "data_stale": false
   },
   "data_status": "fresh",
-  "last_updated_hkt": "2026-07-26 06:42:47 HKT",
+  "last_updated_hkt": "2026-07-27 06:48:56 HKT",
   "thematic": [
     {
       "symbol": "XOP",
