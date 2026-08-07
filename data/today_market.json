@@ -1,12 +1,12 @@
 {
   "meta": {
-    "generated_hkt": "2026-08-07 09:09",
-    "generated_et": "2026-08-06 21:09",
+    "generated_hkt": "2026-08-07 09:27",
+    "generated_et": "2026-08-06 21:27",
     "date": "2026-08-06",
     "source": "Yahoo Finance + CNN + NAAIM + Finviz + Barchart",
     "rsi_method": "Wilder SMMA (EWM alpha=1/14)",
     "schema_version": "4.2",
-    "last_updated_hkt": "2026-08-07 09:10:16 HKT"
+    "last_updated_hkt": "2026-08-07 09:27:56 HKT"
   },
   "macro": {
     "VIX": {
@@ -15,9 +15,9 @@
       "change_1d_pct": -4.17
     },
     "DXY": {
-      "price": 99.983,
-      "change_1d": 0.293,
-      "change_1d_pct": 0.29
+      "price": 99.96,
+      "change_1d": 0.27,
+      "change_1d_pct": 0.27
     },
     "TNX_10Y": {
       "price": 4.67,
@@ -25,19 +25,19 @@
       "change_1d_pct": 1.15
     },
     "GOLD": {
-      "price": 4290.5,
-      "change_1d": 44.7002,
-      "change_1d_pct": 1.05
+      "price": 4304.0,
+      "change_1d": 58.2002,
+      "change_1d_pct": 1.37
     },
     "OIL_WTI": {
-      "price": 77.94,
-      "change_1d": 2.72,
-      "change_1d_pct": 3.62
+      "price": 77.86,
+      "change_1d": 2.64,
+      "change_1d_pct": 3.51
     },
     "BTC": {
-      "price": 64312.5391,
-      "change_1d": -284.9609,
-      "change_1d_pct": -0.44
+      "price": 64327.0391,
+      "change_1d": -270.4609,
+      "change_1d_pct": -0.42
     }
   },
   "indices": {
@@ -1261,33 +1261,9 @@
     },
     "source": "Finviz Screener v4.1 (with retry)",
     "market_wide_advance_decline": {
-      "NASDAQ": {
-        "advances": 1389,
-        "declines": 1639,
-        "unchanged": 81,
-        "total_issues": 3109,
-        "pct_advancing": 44.7,
-        "pct_declining": 52.7,
-        "adv_vol": 4141860000,
-        "dec_vol": 3862860000,
-        "ad_ratio": 0.847,
-        "new_52w_highs": 98,
-        "new_52w_lows": 29
-      },
-      "NYSE": {
-        "advances": 724,
-        "declines": 1124,
-        "unchanged": 23,
-        "total_issues": 1871,
-        "pct_advancing": 38.7,
-        "pct_declining": 60.1,
-        "adv_vol": 1982780000,
-        "dec_vol": 3254730000,
-        "ad_ratio": 0.644,
-        "new_52w_highs": 90,
-        "new_52w_lows": 22
-      },
-      "source": "Barchart.com/stocks/momentum (live)"
+      "NYSE": "-",
+      "NASDAQ": "-",
+      "source": "Barchart (failed: 403 Client Error: Forbidden for url: https://www.barchart.com/stocks/momentum)"
     },
     "index_ad_ratios": {
       "SPY": {
@@ -1332,14 +1308,14 @@
   },
   "stockbee_mm": {
     "source": "Stockbee Market Monitor (dynamic via stockbee_mm.json)",
-    "latest_date": "8/5/2026",
-    "t2108": 54.47,
-    "up_4_plus": 257,
-    "down_4_plus": 202,
+    "latest_date": "8/6/2026",
+    "t2108": 51.55,
+    "up_4_plus": 299,
+    "down_4_plus": 277,
     "data_stale": false
   },
   "data_status": "fresh",
-  "last_updated_hkt": "2026-08-07 09:10:16 HKT",
+  "last_updated_hkt": "2026-08-07 09:27:56 HKT",
   "thematic": [
     {
       "symbol": "SKYY",
