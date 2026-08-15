@@ -1,12 +1,12 @@
 {
   "meta": {
-    "generated_hkt": "2026-08-15 06:11",
-    "generated_et": "2026-08-14 18:11",
-    "date": "2026-08-14",
+    "generated_hkt": "2026-08-16 06:09",
+    "generated_et": "2026-08-15 18:09",
+    "date": "2026-08-15",
     "source": "Yahoo Finance + CNN + NAAIM + Finviz + Barchart",
     "rsi_method": "Wilder SMMA (EWM alpha=1/14)",
     "schema_version": "4.2",
-    "last_updated_hkt": "2026-08-15 06:11:49 HKT"
+    "last_updated_hkt": "2026-08-16 06:09:42 HKT"
   },
   "macro": {
     "VIX": {
@@ -15,9 +15,9 @@
       "change_1d_pct": -2.6
     },
     "DXY": {
-      "price": 99.636,
-      "change_1d": -0.324,
-      "change_1d_pct": -0.32
+      "price": 99.67,
+      "change_1d": -0.29,
+      "change_1d_pct": -0.29
     },
     "TNX_10Y": {
       "price": 4.696,
@@ -25,9 +25,9 @@
       "change_1d_pct": 1.19
     },
     "GOLD": {
-      "price": 4432.0,
-      "change_1d": 68.3999,
-      "change_1d_pct": 1.57
+      "price": 4380.3999,
+      "change_1d": 16.7998,
+      "change_1d_pct": 0.38
     },
     "OIL_WTI": {
       "price": 82.4,
@@ -35,9 +35,9 @@
       "change_1d_pct": 1.42
     },
     "BTC": {
-      "price": 62815.7109,
-      "change_1d": -586.461,
-      "change_1d_pct": -0.92
+      "price": 63083.8281,
+      "change_1d": 108.2343,
+      "change_1d_pct": 0.17
     }
   },
   "indices": {
@@ -97,13 +97,13 @@
       "vs_ma200_pct": 9.18,
       "vs20ma": "Green",
       "status": "ABOVE ALL",
-      "ad_ratio": 0.812,
+      "ad_ratio": 0.933,
       "ad_detail": {
-        "advances": 13,
-        "declines": 16,
+        "advances": 14,
+        "declines": 15,
         "unchanged": 1,
         "total": 30,
-        "ad_ratio": 0.812,
+        "ad_ratio": 0.933,
         "source": "yfinance (DJI 30 components)"
       }
     },
@@ -123,8 +123,8 @@
       "ad_detail": {
         "advances": 1038,
         "declines": 875,
-        "unchanged": 38,
-        "total": 1951,
+        "unchanged": 37,
+        "total": 1950,
         "ad_ratio": 1.186,
         "source": "Finviz screener (Russell 2000)"
       }
@@ -134,7 +134,7 @@
     "fear_greed": {
       "score": 64.97,
       "rating": "greed",
-      "timestamp": "2026-08-14T21:53:32+00:00",
+      "timestamp": "2026-08-14T23:59:53+00:00",
       "prev_close": 66.14,
       "prev_1w": 64.43,
       "prev_1m": 41.06,
@@ -271,12 +271,12 @@
     {
       "symbol": "ROKT",
       "name": "Space Exploration",
-      "price": 122.686,
+      "price": 122.69,
       "change_1d_pct": 1.32,
-      "rsi14": 65.4583,
-      "ma20": 113.8393,
-      "ma50": 115.4033,
-      "ma200": 102.7543,
+      "rsi14": 65.464,
+      "ma20": 113.8395,
+      "ma50": 115.4034,
+      "ma200": 102.7544,
       "vs_ma20_pct": 7.77,
       "vs_ma50_pct": 6.31,
       "vs_ma200_pct": 19.4,
@@ -328,15 +328,15 @@
     {
       "symbol": "ITA",
       "name": "Aerospace & Defense",
-      "price": 253.215,
+      "price": 253.22,
       "change_1d_pct": 1.41,
-      "rsi14": 64.0398,
-      "ma20": 243.9368,
-      "ma50": 239.7537,
+      "rsi14": 64.0451,
+      "ma20": 243.937,
+      "ma50": 239.7538,
       "ma200": 227.4562,
-      "vs_ma20_pct": 3.8,
-      "vs_ma50_pct": 5.61,
-      "vs_ma200_pct": 11.32,
+      "vs_ma20_pct": 3.81,
+      "vs_ma50_pct": 5.62,
+      "vs_ma200_pct": 11.33,
       "vs20ma": "Green",
       "status": "ABOVE ALL",
       "change_1w_pct": "-",
@@ -744,6 +744,25 @@
       "change_ytd_pct": "-"
     },
     {
+      "symbol": "XLC",
+      "name": "Communication Services",
+      "price": 112.95,
+      "change_1d_pct": 0.36,
+      "rsi14": 57.76,
+      "ma20": 109.915,
+      "ma50": 110.0178,
+      "ma200": 113.6771,
+      "vs_ma20_pct": 2.76,
+      "vs_ma50_pct": 2.67,
+      "vs_ma200_pct": -0.64,
+      "vs20ma": "Green",
+      "status": "MIXED",
+      "change_1w_pct": "-",
+      "change_1m_pct": "-",
+      "change_3m_pct": "-",
+      "change_ytd_pct": "-"
+    },
+    {
       "symbol": "COPX",
       "name": "Copper Miners",
       "price": 85.7,
@@ -993,15 +1012,15 @@
     {
       "symbol": "IYT",
       "name": "Transportation",
-      "price": 87.435,
-      "change_1d_pct": -0.8,
-      "rsi14": 52.8126,
-      "ma20": 87.0522,
-      "ma50": 86.6577,
+      "price": 87.44,
+      "change_1d_pct": -0.79,
+      "rsi14": 52.8395,
+      "ma20": 87.0525,
+      "ma50": 86.6578,
       "ma200": 79.2703,
-      "vs_ma20_pct": 0.44,
+      "vs_ma20_pct": 0.45,
       "vs_ma50_pct": 0.9,
-      "vs_ma200_pct": 10.3,
+      "vs_ma200_pct": 10.31,
       "vs20ma": "Green",
       "status": "ABOVE ALL",
       "change_1w_pct": "-",
@@ -1232,39 +1251,39 @@
       "source": "yfinance DJI-30 components"
     },
     "russell2000": {
-      "total": 1951,
+      "total": 1950,
       "above_20ma": 1294,
       "above_50ma": 1241,
       "above_200ma": 1320,
-      "pct_above_20ma": 66.3,
+      "pct_above_20ma": 66.4,
       "pct_above_50ma": 63.6,
       "pct_above_200ma": 67.7
     },
     "source": "Finviz Screener v4.1 (with retry)",
     "market_wide_advance_decline": {
       "NASDAQ": {
-        "advances": 1536,
-        "declines": 1487,
-        "unchanged": 101,
-        "total_issues": 3124,
-        "pct_advancing": 49.2,
-        "pct_declining": 47.6,
-        "adv_vol": 3471990000,
-        "dec_vol": 2764370000,
-        "ad_ratio": 1.033,
-        "new_52w_highs": 76,
-        "new_52w_lows": 24
+        "advances": 1531,
+        "declines": 1489,
+        "unchanged": 102,
+        "total_issues": 3122,
+        "pct_advancing": 49.0,
+        "pct_declining": 47.7,
+        "adv_vol": 3507690000,
+        "dec_vol": 2792150000,
+        "ad_ratio": 1.028,
+        "new_52w_highs": 80,
+        "new_52w_lows": 26
       },
       "NYSE": {
-        "advances": 1035,
+        "advances": 1034,
         "declines": 806,
         "unchanged": 30,
-        "total_issues": 1871,
+        "total_issues": 1870,
         "pct_advancing": 55.3,
         "pct_declining": 43.1,
-        "adv_vol": 2292410000,
-        "dec_vol": 1713400000,
-        "ad_ratio": 1.284,
+        "adv_vol": 2330080000,
+        "dec_vol": 1734180000,
+        "ad_ratio": 1.283,
         "new_52w_highs": 58,
         "new_52w_lows": 11
       },
@@ -1290,17 +1309,17 @@
       "IWM": {
         "advances": 1038,
         "declines": 875,
-        "unchanged": 38,
-        "total": 1951,
+        "unchanged": 37,
+        "total": 1950,
         "ad_ratio": 1.186,
         "source": "Finviz screener (Russell 2000)"
       },
       "DIA": {
-        "advances": 13,
-        "declines": 16,
+        "advances": 14,
+        "declines": 15,
         "unchanged": 1,
         "total": 30,
-        "ad_ratio": 0.812,
+        "ad_ratio": 0.933,
         "source": "yfinance (DJI 30 components)"
       }
     },
@@ -1313,14 +1332,14 @@
   },
   "stockbee_mm": {
     "source": "Stockbee Market Monitor (dynamic via stockbee_mm.json)",
-    "latest_date": "8/13/2026",
-    "t2108": 54.6,
-    "up_4_plus": 340,
-    "down_4_plus": 163,
+    "latest_date": "8/14/2026",
+    "t2108": 54.26,
+    "up_4_plus": 232,
+    "down_4_plus": 142,
     "data_stale": false
   },
   "data_status": "fresh",
-  "last_updated_hkt": "2026-08-15 06:11:49 HKT",
+  "last_updated_hkt": "2026-08-16 06:09:42 HKT",
   "thematic": [
     {
       "symbol": "SKYY",
@@ -1366,7 +1385,7 @@
     },
     {
       "symbol": "ROKT",
-      "price": 122.686,
+      "price": 122.69,
       "vs_20ma": 7.77,
       "vs_50ma": 6.31,
       "vs_200ma": 19.4
@@ -1387,10 +1406,10 @@
     },
     {
       "symbol": "ITA",
-      "price": 253.215,
-      "vs_20ma": 3.8,
-      "vs_50ma": 5.61,
-      "vs_200ma": 11.32
+      "price": 253.22,
+      "vs_20ma": 3.81,
+      "vs_50ma": 5.62,
+      "vs_200ma": 11.33
     },
     {
       "symbol": "IGV",
@@ -1540,6 +1559,13 @@
       "vs_200ma": 19.97
     },
     {
+      "symbol": "XLC",
+      "price": 112.95,
+      "vs_20ma": 2.76,
+      "vs_50ma": 2.67,
+      "vs_200ma": -0.64
+    },
+    {
       "symbol": "COPX",
       "price": 85.7,
       "vs_20ma": 4.58,
@@ -1632,10 +1658,10 @@
     },
     {
       "symbol": "IYT",
-      "price": 87.435,
-      "vs_20ma": 0.44,
+      "price": 87.44,
+      "vs_20ma": 0.45,
       "vs_50ma": 0.9,
-      "vs_200ma": 10.3
+      "vs_200ma": 10.31
     },
     {
       "symbol": "VNQ",
@@ -1738,7 +1764,7 @@
     },
     {
       "symbol": "ROKT",
-      "price": 122.686,
+      "price": 122.69,
       "vs_20ma": 7.77,
       "vs_50ma": 6.31,
       "vs_200ma": 19.4,
