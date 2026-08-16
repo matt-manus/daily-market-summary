@@ -1,12 +1,12 @@
 {
   "meta": {
-    "generated_hkt": "2026-08-16 06:09",
-    "generated_et": "2026-08-15 18:09",
-    "date": "2026-08-15",
+    "generated_hkt": "2026-08-17 06:09",
+    "generated_et": "2026-08-16 18:09",
+    "date": "2026-08-16",
     "source": "Yahoo Finance + CNN + NAAIM + Finviz + Barchart",
     "rsi_method": "Wilder SMMA (EWM alpha=1/14)",
     "schema_version": "4.2",
-    "last_updated_hkt": "2026-08-16 06:09:42 HKT"
+    "last_updated_hkt": "2026-08-17 06:10:03 HKT"
   },
   "macro": {
     "VIX": {
@@ -25,9 +25,9 @@
       "change_1d_pct": 1.19
     },
     "GOLD": {
-      "price": 4380.3999,
-      "change_1d": 16.7998,
-      "change_1d_pct": 0.38
+      "price": 4437.2998,
+      "change_1d": 73.6997,
+      "change_1d_pct": 1.69
     },
     "OIL_WTI": {
       "price": 82.4,
@@ -35,9 +35,9 @@
       "change_1d_pct": 1.42
     },
     "BTC": {
-      "price": 63083.8281,
-      "change_1d": 108.2343,
-      "change_1d_pct": 0.17
+      "price": 62849.1992,
+      "change_1d": -175.1211,
+      "change_1d_pct": -0.28
     }
   },
   "indices": {
@@ -1331,15 +1331,16 @@
     }
   },
   "stockbee_mm": {
-    "source": "Stockbee Market Monitor (dynamic via stockbee_mm.json)",
-    "latest_date": "8/14/2026",
-    "t2108": 54.26,
-    "up_4_plus": 232,
-    "down_4_plus": 142,
-    "data_stale": false
+    "source": "Stockbee Market Monitor (failed)",
+    "latest_date": "-",
+    "t2108": "-",
+    "data_stale": true
   },
-  "data_status": "fresh",
-  "last_updated_hkt": "2026-08-16 06:09:42 HKT",
+  "data_status": "warning",
+  "data_warnings": [
+    "T2108 missing or stale"
+  ],
+  "last_updated_hkt": "2026-08-17 06:10:03 HKT",
   "thematic": [
     {
       "symbol": "SKYY",
