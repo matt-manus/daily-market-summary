@@ -1,12 +1,12 @@
 {
   "meta": {
-    "generated_hkt": "2026-08-27 07:39",
-    "generated_et": "2026-08-26 19:39",
+    "generated_hkt": "2026-08-27 10:22",
+    "generated_et": "2026-08-26 22:22",
     "date": "2026-08-26",
     "source": "Yahoo Finance + CNN + NAAIM + Finviz + Barchart",
     "rsi_method": "Wilder SMMA (EWM alpha=1/14)",
     "schema_version": "4.2",
-    "last_updated_hkt": "2026-08-27 07:39:42 HKT"
+    "last_updated_hkt": "2026-08-27 10:22:34 HKT"
   },
   "macro": {
     "VIX": {
@@ -15,9 +15,9 @@
       "change_1d_pct": -1.55
     },
     "DXY": {
-      "price": 99.134,
-      "change_1d": 0.214,
-      "change_1d_pct": 0.22
+      "price": 99.112,
+      "change_1d": 0.192,
+      "change_1d_pct": 0.19
     },
     "TNX_10Y": {
       "price": 4.664,
@@ -25,19 +25,19 @@
       "change_1d_pct": 0.54
     },
     "GOLD": {
-      "price": 4675.6001,
-      "change_1d": 37.5,
-      "change_1d_pct": 0.81
+      "price": 4693.8999,
+      "change_1d": 55.7998,
+      "change_1d_pct": 1.2
     },
     "OIL_WTI": {
-      "price": 81.83,
-      "change_1d": -0.53,
-      "change_1d_pct": -0.64
+      "price": 81.67,
+      "change_1d": -0.69,
+      "change_1d_pct": -0.84
     },
     "BTC": {
-      "price": 78975.0781,
-      "change_1d": 410.1015,
-      "change_1d_pct": 0.52
+      "price": 78820.5781,
+      "change_1d": 255.6015,
+      "change_1d_pct": 0.33
     }
   },
   "indices": {
@@ -134,7 +134,7 @@
     "fear_greed": {
       "score": 55.17,
       "rating": "greed",
-      "timestamp": "2026-08-26T23:18:47+00:00",
+      "timestamp": "2026-08-26T23:59:58+00:00",
       "prev_close": 58.8,
       "prev_1w": 57.2,
       "prev_1m": 41.34,
@@ -1262,28 +1262,28 @@
     "source": "Finviz Screener v4.1 (with retry)",
     "market_wide_advance_decline": {
       "NASDAQ": {
-        "advances": 1248,
-        "declines": 1793,
-        "unchanged": 96,
-        "total_issues": 3137,
+        "advances": 1247,
+        "declines": 1794,
+        "unchanged": 94,
+        "total_issues": 3135,
         "pct_advancing": 39.8,
         "pct_declining": 57.2,
-        "adv_vol": 2597250000,
-        "dec_vol": 3442140000,
-        "ad_ratio": 0.696,
+        "adv_vol": 2625040000,
+        "dec_vol": 3524820000,
+        "ad_ratio": 0.695,
         "new_52w_highs": 49,
         "new_52w_lows": 26
       },
       "NYSE": {
-        "advances": 886,
+        "advances": 887,
         "declines": 952,
-        "unchanged": 33,
+        "unchanged": 32,
         "total_issues": 1871,
         "pct_advancing": 47.4,
         "pct_declining": 50.9,
-        "adv_vol": 1769740000,
-        "dec_vol": 2213200000,
-        "ad_ratio": 0.931,
+        "adv_vol": 1786630000,
+        "dec_vol": 2231970000,
+        "ad_ratio": 0.932,
         "new_52w_highs": 33,
         "new_52w_lows": 12
       },
@@ -1339,7 +1339,7 @@
     "data_stale": false
   },
   "data_status": "fresh",
-  "last_updated_hkt": "2026-08-27 07:39:42 HKT",
+  "last_updated_hkt": "2026-08-27 10:22:34 HKT",
   "thematic": [
     {
       "symbol": "GDX",
