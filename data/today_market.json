@@ -1,12 +1,12 @@
 {
   "meta": {
-    "generated_hkt": "2026-08-28 06:55",
-    "generated_et": "2026-08-27 18:55",
+    "generated_hkt": "2026-08-28 07:05",
+    "generated_et": "2026-08-27 19:05",
     "date": "2026-08-27",
     "source": "Yahoo Finance + CNN + NAAIM + Finviz + Barchart",
     "rsi_method": "Wilder SMMA (EWM alpha=1/14)",
     "schema_version": "4.2",
-    "last_updated_hkt": "2026-08-28 06:55:55 HKT"
+    "last_updated_hkt": "2026-08-28 07:06:17 HKT"
   },
   "macro": {
     "VIX": {
@@ -25,19 +25,19 @@
       "change_1d_pct": 0.17
     },
     "GOLD": {
-      "price": 4660.6001,
-      "change_1d": 62.3999,
-      "change_1d_pct": 1.36
+      "price": 4662.7002,
+      "change_1d": 64.5,
+      "change_1d_pct": 1.4
     },
     "OIL_WTI": {
-      "price": 83.62,
-      "change_1d": 1.39,
-      "change_1d_pct": 1.69
+      "price": 83.61,
+      "change_1d": 1.38,
+      "change_1d_pct": 1.68
     },
     "BTC": {
-      "price": 80263.9766,
-      "change_1d": 1236.5547,
-      "change_1d_pct": 1.56
+      "price": 80253.2031,
+      "change_1d": 1225.7812,
+      "change_1d_pct": 1.55
     }
   },
   "indices": {
@@ -134,7 +134,7 @@
     "fear_greed": {
       "score": 58.17,
       "rating": "greed",
-      "timestamp": "2026-08-27T22:36:05+00:00",
+      "timestamp": "2026-08-27T22:46:09+00:00",
       "prev_close": 55.17,
       "prev_1w": 53.06,
       "prev_1m": 37.63,
@@ -1339,7 +1339,7 @@
     "data_stale": false
   },
   "data_status": "fresh",
-  "last_updated_hkt": "2026-08-28 06:55:55 HKT",
+  "last_updated_hkt": "2026-08-28 07:06:17 HKT",
   "thematic": [
     {
       "symbol": "GDX",
