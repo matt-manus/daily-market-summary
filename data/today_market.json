@@ -1,12 +1,12 @@
 {
   "meta": {
-    "generated_hkt": "2026-08-28 07:05",
-    "generated_et": "2026-08-27 19:05",
-    "date": "2026-08-27",
+    "generated_hkt": "2026-08-28 13:52",
+    "generated_et": "2026-08-28 01:52",
+    "date": "2026-08-28",
     "source": "Yahoo Finance + CNN + NAAIM + Finviz + Barchart",
     "rsi_method": "Wilder SMMA (EWM alpha=1/14)",
     "schema_version": "4.2",
-    "last_updated_hkt": "2026-08-28 07:06:17 HKT"
+    "last_updated_hkt": "2026-08-28 13:52:26 HKT"
   },
   "macro": {
     "VIX": {
@@ -15,9 +15,9 @@
       "change_1d_pct": -4.6
     },
     "DXY": {
-      "price": 99.129,
-      "change_1d": -0.041,
-      "change_1d_pct": -0.04
+      "price": 99.201,
+      "change_1d": 0.041,
+      "change_1d_pct": 0.04
     },
     "TNX_10Y": {
       "price": 4.672,
@@ -25,19 +25,19 @@
       "change_1d_pct": 0.17
     },
     "GOLD": {
-      "price": 4662.7002,
-      "change_1d": 64.5,
-      "change_1d_pct": 1.4
+      "price": 4627.7998,
+      "change_1d": 18.0996,
+      "change_1d_pct": 0.39
     },
     "OIL_WTI": {
-      "price": 83.61,
-      "change_1d": 1.38,
-      "change_1d_pct": 1.68
+      "price": 83.06,
+      "change_1d": -0.47,
+      "change_1d_pct": -0.56
     },
     "BTC": {
-      "price": 80253.2031,
-      "change_1d": 1225.7812,
-      "change_1d_pct": 1.55
+      "price": 79808.2734,
+      "change_1d": 780.8515,
+      "change_1d_pct": 0.99
     }
   },
   "indices": {
@@ -132,13 +132,13 @@
   },
   "sentiment": {
     "fear_greed": {
-      "score": 58.17,
+      "score": 57.91,
       "rating": "greed",
-      "timestamp": "2026-08-27T22:46:09+00:00",
-      "prev_close": 55.17,
-      "prev_1w": 53.06,
-      "prev_1m": 37.63,
-      "prev_1y": 59.11,
+      "timestamp": "2026-08-28T00:00:00+00:00",
+      "prev_close": 58.17,
+      "prev_1w": 54.51,
+      "prev_1m": 37.89,
+      "prev_1y": 64.43,
       "source": "CNN Fear & Greed API"
     },
     "put_call": {
@@ -204,25 +204,6 @@
       "vs_ma20_pct": 7.69,
       "vs_ma50_pct": 15.4,
       "vs_ma200_pct": 17.76,
-      "vs20ma": "Green",
-      "status": "ABOVE ALL",
-      "change_1w_pct": "-",
-      "change_1m_pct": "-",
-      "change_3m_pct": "-",
-      "change_ytd_pct": "-"
-    },
-    {
-      "symbol": "IBB",
-      "name": "Biotech (Market Cap)",
-      "price": 214.8,
-      "change_1d_pct": -0.2,
-      "rsi14": 68.8537,
-      "ma20": 202.4215,
-      "ma50": 193.8586,
-      "ma200": 176.0087,
-      "vs_ma20_pct": 6.12,
-      "vs_ma50_pct": 10.8,
-      "vs_ma200_pct": 22.04,
       "vs20ma": "Green",
       "status": "ABOVE ALL",
       "change_1w_pct": "-",
@@ -366,9 +347,9 @@
     {
       "symbol": "FINX",
       "name": "FinTech",
-      "price": 27.8612,
+      "price": 27.861,
       "change_1d_pct": 0.84,
-      "rsi14": 63.6193,
+      "rsi14": 63.6179,
       "ma20": 26.6587,
       "ma50": 25.84,
       "ma200": 26.3306,
@@ -423,9 +404,9 @@
     {
       "symbol": "IPAY",
       "name": "Digital Payments",
-      "price": 52.4288,
+      "price": 52.429,
       "change_1d_pct": -0.17,
-      "rsi14": 62.452,
+      "rsi14": 62.4539,
       "ma20": 51.4129,
       "ma50": 49.1841,
       "ma200": 47.9957,
@@ -993,13 +974,13 @@
     {
       "symbol": "ROKT",
       "name": "Space Exploration",
-      "price": 112.633,
-      "change_1d_pct": 0.48,
-      "rsi14": 43.0662,
-      "ma20": 117.0251,
+      "price": 112.63,
+      "change_1d_pct": 0.47,
+      "rsi14": 43.0582,
+      "ma20": 117.025,
       "ma50": 114.4387,
       "ma200": 104.5712,
-      "vs_ma20_pct": -3.75,
+      "vs_ma20_pct": -3.76,
       "vs_ma50_pct": -1.58,
       "vs_ma200_pct": 7.71,
       "vs20ma": "Red",
@@ -1262,28 +1243,28 @@
     "source": "Finviz Screener v4.1 (with retry)",
     "market_wide_advance_decline": {
       "NASDAQ": {
-        "advances": 1483,
-        "declines": 1552,
-        "unchanged": 81,
-        "total_issues": 3116,
-        "pct_advancing": 47.6,
-        "pct_declining": 49.8,
-        "adv_vol": 4193610000,
-        "dec_vol": 1982270000,
-        "ad_ratio": 0.956,
+        "advances": 1481,
+        "declines": 1557,
+        "unchanged": 82,
+        "total_issues": 3120,
+        "pct_advancing": 47.5,
+        "pct_declining": 49.9,
+        "adv_vol": 4259410000,
+        "dec_vol": 2052210000,
+        "ad_ratio": 0.951,
         "new_52w_highs": 52,
         "new_52w_lows": 30
       },
       "NYSE": {
-        "advances": 719,
+        "advances": 718,
         "declines": 1119,
         "unchanged": 34,
-        "total_issues": 1872,
+        "total_issues": 1871,
         "pct_advancing": 38.4,
         "pct_declining": 59.8,
-        "adv_vol": 1957200000,
-        "dec_vol": 2274580000,
-        "ad_ratio": 0.643,
+        "adv_vol": 1995980000,
+        "dec_vol": 2334900000,
+        "ad_ratio": 0.642,
         "new_52w_highs": 34,
         "new_52w_lows": 23
       },
@@ -1339,7 +1320,7 @@
     "data_stale": false
   },
   "data_status": "fresh",
-  "last_updated_hkt": "2026-08-28 07:06:17 HKT",
+  "last_updated_hkt": "2026-08-28 13:52:26 HKT",
   "thematic": [
     {
       "symbol": "GDX",
@@ -1361,13 +1342,6 @@
       "vs_20ma": 7.69,
       "vs_50ma": 15.4,
       "vs_200ma": 17.76
-    },
-    {
-      "symbol": "IBB",
-      "price": 214.8,
-      "vs_20ma": 6.12,
-      "vs_50ma": 10.8,
-      "vs_200ma": 22.04
     },
     {
       "symbol": "SKYY",
@@ -1420,7 +1394,7 @@
     },
     {
       "symbol": "FINX",
-      "price": 27.8612,
+      "price": 27.861,
       "vs_20ma": 4.51,
       "vs_50ma": 7.82,
       "vs_200ma": 5.81
@@ -1441,7 +1415,7 @@
     },
     {
       "symbol": "IPAY",
-      "price": 52.4288,
+      "price": 52.429,
       "vs_20ma": 1.98,
       "vs_50ma": 6.6,
       "vs_200ma": 9.24
@@ -1651,8 +1625,8 @@
     },
     {
       "symbol": "ROKT",
-      "price": 112.633,
-      "vs_20ma": -3.75,
+      "price": 112.63,
+      "vs_20ma": -3.76,
       "vs_50ma": -1.58,
       "vs_200ma": 7.71
     },
@@ -1764,8 +1738,8 @@
     },
     {
       "symbol": "ROKT",
-      "price": 112.633,
-      "vs_20ma": -3.75,
+      "price": 112.63,
+      "vs_20ma": -3.76,
       "vs_50ma": -1.58,
       "vs_200ma": 7.71,
       "rs_score": 0.17549942529078488,
@@ -1838,7 +1812,7 @@
     },
     {
       "symbol": "FINX",
-      "price": 27.8612,
+      "price": 27.861,
       "vs_20ma": 4.51,
       "vs_50ma": 7.82,
       "vs_200ma": 5.81,
@@ -1865,7 +1839,7 @@
     },
     {
       "symbol": "IPAY",
-      "price": 52.4288,
+      "price": 52.429,
       "vs_20ma": 1.98,
       "vs_50ma": 6.6,
       "vs_200ma": 9.24,
