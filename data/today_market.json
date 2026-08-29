@@ -1,12 +1,12 @@
 {
   "meta": {
-    "generated_hkt": "2026-08-29 09:30",
-    "generated_et": "2026-08-28 21:30",
+    "generated_hkt": "2026-08-29 11:25",
+    "generated_et": "2026-08-28 23:25",
     "date": "2026-08-28",
     "source": "Yahoo Finance + CNN + NAAIM + Finviz + Barchart",
     "rsi_method": "Wilder SMMA (EWM alpha=1/14)",
     "schema_version": "4.2",
-    "last_updated_hkt": "2026-08-29 09:31:02 HKT"
+    "last_updated_hkt": "2026-08-29 11:25:35 HKT"
   },
   "macro": {
     "VIX": {
@@ -35,9 +35,9 @@
       "change_1d_pct": -0.11
     },
     "BTC": {
-      "price": 77798.3281,
-      "change_1d": -2459.211,
-      "change_1d_pct": -3.06
+      "price": 77675.5078,
+      "change_1d": -2582.0313,
+      "change_1d_pct": -3.22
     }
   },
   "indices": {
@@ -1315,7 +1315,7 @@
     "data_stale": false
   },
   "data_status": "fresh",
-  "last_updated_hkt": "2026-08-29 09:31:02 HKT",
+  "last_updated_hkt": "2026-08-29 11:25:35 HKT",
   "thematic": [
     {
       "symbol": "IGV",
