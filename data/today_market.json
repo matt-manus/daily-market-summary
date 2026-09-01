@@ -1,12 +1,12 @@
 {
   "meta": {
-    "generated_hkt": "2026-09-01 13:07",
-    "generated_et": "2026-09-01 01:07",
+    "generated_hkt": "2026-09-01 13:26",
+    "generated_et": "2026-09-01 01:26",
     "date": "2026-09-01",
     "source": "Yahoo Finance + CNN + NAAIM + Finviz + Barchart",
     "rsi_method": "Wilder SMMA (EWM alpha=1/14)",
     "schema_version": "4.2",
-    "last_updated_hkt": "2026-09-01 13:07:45 HKT"
+    "last_updated_hkt": "2026-09-01 13:27:00 HKT"
   },
   "macro": {
     "VIX": {
@@ -15,9 +15,9 @@
       "change_1d_pct": 2.83
     },
     "DXY": {
-      "price": 99.522,
-      "change_1d": 0.092,
-      "change_1d_pct": 0.09
+      "price": 99.498,
+      "change_1d": 0.068,
+      "change_1d_pct": 0.07
     },
     "TNX_10Y": {
       "price": 4.758,
@@ -25,19 +25,19 @@
       "change_1d_pct": 1.84
     },
     "GOLD": {
-      "price": 4475.3999,
-      "change_1d": 44.2998,
-      "change_1d_pct": 1.0
+      "price": 4477.1001,
+      "change_1d": 46.0,
+      "change_1d_pct": 1.04
     },
     "OIL_WTI": {
-      "price": 87.02,
-      "change_1d": 1.26,
-      "change_1d_pct": 1.47
+      "price": 86.92,
+      "change_1d": 1.16,
+      "change_1d_pct": 1.35
     },
     "BTC": {
-      "price": 78884.9922,
-      "change_1d": 1217.4219,
-      "change_1d_pct": 1.57
+      "price": 78820.6406,
+      "change_1d": 1153.0703,
+      "change_1d_pct": 1.48
     }
   },
   "indices": {
@@ -1315,7 +1315,7 @@
     "data_stale": false
   },
   "data_status": "fresh",
-  "last_updated_hkt": "2026-09-01 13:07:45 HKT",
+  "last_updated_hkt": "2026-09-01 13:27:00 HKT",
   "thematic": [
     {
       "symbol": "IGV",
