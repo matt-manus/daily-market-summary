@@ -38,5 +38,18 @@ def main():
     print("\n🎉 Full Pipeline 執行完成！")
     print(f"報告已更新至 {datetime.now(hkt).strftime('%Y-%m-%d %H:%M')} HKT")
 
+# === 強制注入最新時間戳到 index.html，解決 Git zero-diff 問題 ===
+    try:
+        now_str = datetime.now(hkt).strftime('%Y-%m-%d %H:%M:%S')
+        if os.path.exists("index.html"):
+            with open("index.html", "r", encoding="utf-8") as f:
+                content = f.read()
+            # 在 HTML 檔案末尾附加一個隱藏的時間戳註解
+            with open("index.html", "w", encoding="utf-8") as f:
+                f.write(content + f"\n<!-- Build Timestamp: {now_str} HKT -->")
+            print(f"✅ 已強制注入時間戳 ({now_str} HKT) 到 index.html")
+    except Exception as e:
+        print(f"⚠️ 注入時間戳失敗: {e}")
+
 if __name__ == "__main__":
     main()
