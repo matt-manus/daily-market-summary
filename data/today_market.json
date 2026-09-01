@@ -1,12 +1,12 @@
 {
   "meta": {
-    "generated_hkt": "2026-09-01 08:11",
-    "generated_et": "2026-08-31 20:11",
+    "generated_hkt": "2026-09-01 08:52",
+    "generated_et": "2026-08-31 20:52",
     "date": "2026-08-31",
     "source": "Yahoo Finance + CNN + NAAIM + Finviz + Barchart",
     "rsi_method": "Wilder SMMA (EWM alpha=1/14)",
     "schema_version": "4.2",
-    "last_updated_hkt": "2026-09-01 08:11:40 HKT"
+    "last_updated_hkt": "2026-09-01 08:52:57 HKT"
   },
   "macro": {
     "VIX": {
@@ -15,9 +15,9 @@
       "change_1d_pct": 3.4
     },
     "DXY": {
-      "price": 99.422,
-      "change_1d": -0.278,
-      "change_1d_pct": -0.28
+      "price": 99.373,
+      "change_1d": -0.327,
+      "change_1d_pct": -0.33
     },
     "TNX_10Y": {
       "price": 4.758,
@@ -25,19 +25,19 @@
       "change_1d_pct": 0.81
     },
     "GOLD": {
-      "price": 4498.2998,
-      "change_1d": 20.1997,
-      "change_1d_pct": 0.45
+      "price": 4504.1001,
+      "change_1d": 26.0,
+      "change_1d_pct": 0.58
     },
     "OIL_WTI": {
-      "price": 86.54,
-      "change_1d": 3.14,
-      "change_1d_pct": 3.76
+      "price": 86.6,
+      "change_1d": 3.2,
+      "change_1d_pct": 3.84
     },
     "BTC": {
-      "price": 78763.0078,
-      "change_1d": 932.7187,
-      "change_1d_pct": 1.2
+      "price": 78711.7812,
+      "change_1d": 881.4921,
+      "change_1d_pct": 1.13
     }
   },
   "indices": {
@@ -134,7 +134,7 @@
     "fear_greed": {
       "score": 49.71,
       "rating": "neutral",
-      "timestamp": "2026-08-31T23:55:23+00:00",
+      "timestamp": "2026-08-31T23:59:43+00:00",
       "prev_close": 54.43,
       "prev_1w": 56.09,
       "prev_1m": 45.23,
@@ -1308,14 +1308,14 @@
   },
   "stockbee_mm": {
     "source": "Stockbee Market Monitor (dynamic via stockbee_mm.json)",
-    "latest_date": "8/28/2026",
-    "t2108": 41.91,
-    "up_4_plus": 84,
-    "down_4_plus": 382,
+    "latest_date": "8/31/2026",
+    "t2108": 38.9,
+    "up_4_plus": 131,
+    "down_4_plus": 156,
     "data_stale": false
   },
   "data_status": "fresh",
-  "last_updated_hkt": "2026-09-01 08:11:40 HKT",
+  "last_updated_hkt": "2026-09-01 08:52:57 HKT",
   "thematic": [
     {
       "symbol": "IGV",
