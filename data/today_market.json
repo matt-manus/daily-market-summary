@@ -1,12 +1,12 @@
 {
   "meta": {
-    "generated_hkt": "2026-09-05 07:31",
-    "generated_et": "2026-09-04 19:31",
-    "date": "2026-09-04",
+    "generated_hkt": "2026-09-06 07:26",
+    "generated_et": "2026-09-05 19:26",
+    "date": "2026-09-05",
     "source": "Yahoo Finance + CNN + NAAIM + Finviz + Barchart",
     "rsi_method": "Wilder SMMA (EWM alpha=1/14)",
     "schema_version": "4.2",
-    "last_updated_hkt": "2026-09-05 07:31:44 HKT"
+    "last_updated_hkt": "2026-09-06 07:26:35 HKT"
   },
   "macro": {
     "VIX": {
@@ -15,8 +15,8 @@
       "change_1d_pct": 1.47
     },
     "DXY": {
-      "price": 99.157,
-      "change_1d": 0.157,
+      "price": 99.16,
+      "change_1d": 0.16,
       "change_1d_pct": 0.16
     },
     "TNX_10Y": {
@@ -25,19 +25,19 @@
       "change_1d_pct": 0.46
     },
     "GOLD": {
-      "price": 4477.2002,
-      "change_1d": -14.5,
-      "change_1d_pct": -0.32
+      "price": 4429.7998,
+      "change_1d": -61.9004,
+      "change_1d_pct": -1.38
     },
     "OIL_WTI": {
-      "price": 91.22,
-      "change_1d": -0.08,
-      "change_1d_pct": -0.09
+      "price": 91.48,
+      "change_1d": 0.18,
+      "change_1d_pct": 0.2
     },
     "BTC": {
-      "price": 79707.8438,
-      "change_1d": -1563.8984,
-      "change_1d_pct": -1.92
+      "price": 79779.3828,
+      "change_1d": 107.414,
+      "change_1d_pct": 0.13
     }
   },
   "indices": {
@@ -47,7 +47,7 @@
       "rsi14": 55.6401,
       "ma20": 769.053,
       "ma50": 756.8572,
-      "ma200": 709.8686,
+      "ma200": 709.8685,
       "vs_ma20_pct": 0.15,
       "vs_ma50_pct": 1.76,
       "vs_ma200_pct": 8.5,
@@ -123,8 +123,8 @@
       "ad_detail": {
         "advances": 1185,
         "declines": 713,
-        "unchanged": 47,
-        "total": 1945,
+        "unchanged": 46,
+        "total": 1944,
         "ad_ratio": 1.662,
         "source": "Finviz screener (Russell 2000)"
       }
@@ -134,7 +134,7 @@
     "fear_greed": {
       "score": 41.86,
       "rating": "fear",
-      "timestamp": "2026-09-04T23:13:44+00:00",
+      "timestamp": "2026-09-04T23:59:43+00:00",
       "prev_close": 35.23,
       "prev_1w": 52.31,
       "prev_1m": 59.97,
@@ -1164,14 +1164,14 @@
     {
       "symbol": "ROKT",
       "name": "Space Exploration",
-      "price": 108.819,
-      "change_1d_pct": 0.28,
-      "rsi14": 36.9459,
-      "ma20": 114.9074,
+      "price": 108.82,
+      "change_1d_pct": 0.29,
+      "rsi14": 36.9495,
+      "ma20": 114.9075,
       "ma50": 113.7628,
-      "ma200": 105.5293,
+      "ma200": 105.5294,
       "vs_ma20_pct": -5.3,
-      "vs_ma50_pct": -4.35,
+      "vs_ma50_pct": -4.34,
       "vs_ma200_pct": 3.12,
       "vs20ma": "Red",
       "status": "MIXED",
@@ -1251,11 +1251,11 @@
       "source": "yfinance DJI-30 components"
     },
     "russell2000": {
-      "total": 1945,
-      "above_20ma": 935,
-      "above_50ma": 973,
-      "above_200ma": 1210,
-      "pct_above_20ma": 48.1,
+      "total": 1944,
+      "above_20ma": 934,
+      "above_50ma": 972,
+      "above_200ma": 1209,
+      "pct_above_20ma": 48.0,
       "pct_above_50ma": 50.0,
       "pct_above_200ma": 62.2
     },
@@ -1285,8 +1285,8 @@
       "IWM": {
         "advances": 1185,
         "declines": 713,
-        "unchanged": 47,
-        "total": 1945,
+        "unchanged": 46,
+        "total": 1944,
         "ad_ratio": 1.662,
         "source": "Finviz screener (Russell 2000)"
       },
@@ -1309,13 +1309,13 @@
   "stockbee_mm": {
     "source": "Stockbee Market Monitor (dynamic via stockbee_mm.json)",
     "latest_date": "9/3/2026",
-    "t2108": 40.89,
-    "up_4_plus": 244,
-    "down_4_plus": 110,
+    "t2108": 41.12,
+    "up_4_plus": 251,
+    "down_4_plus": 112,
     "data_stale": false
   },
   "data_status": "fresh",
-  "last_updated_hkt": "2026-09-05 07:31:44 HKT",
+  "last_updated_hkt": "2026-09-06 07:26:35 HKT",
   "thematic": [
     {
       "symbol": "MSOS",
@@ -1690,9 +1690,9 @@
     },
     {
       "symbol": "ROKT",
-      "price": 108.819,
+      "price": 108.82,
       "vs_20ma": -5.3,
-      "vs_50ma": -4.35,
+      "vs_50ma": -4.34,
       "vs_200ma": 3.12
     },
     {
@@ -1740,9 +1740,9 @@
     },
     {
       "symbol": "ROKT",
-      "price": 108.819,
+      "price": 108.82,
       "vs_20ma": -5.3,
-      "vs_50ma": -4.35,
+      "vs_50ma": -4.34,
       "vs_200ma": 3.12,
       "rs_score": 0.17549942529078488,
       "rs_rating": 94
