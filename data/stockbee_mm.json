@@ -1,21 +1,21 @@
 [
   {
-    "Date": "9/15/2026",
-    "Number of stocks up 4% plus today": "130",
-    "Number of stocks down 4% plus today": "304",
-    "5 day ratio": "0.57",
-    "10 day  ratio": "0.80",
-    "Number of stocks up 25% plus in a quarter": "1034",
-    "Number of stocks down 25% + in a quarter": "1285",
-    "Number of stocks up 25% + in a month": "61",
-    "Number of stocks down 25% + in a month": "178",
-    "Number of stocks up 50% + in a month": "12",
-    "Number of stocks down 50% + in a month": "25",
-    "Number of stocks up 13% + in 34 days": "1171",
-    "Number of stocks down 13% + in 34 days": "2010",
+    "Date": "9/16/2026",
+    "Number of stocks up 4% plus today": "165",
+    "Number of stocks down 4% plus today": "243",
+    "5 day ratio": "0.65",
+    "10 day  ratio": "0.86",
+    "Number of stocks up 25% plus in a quarter": "989",
+    "Number of stocks down 25% + in a quarter": "1311",
+    "Number of stocks up 25% + in a month": "56",
+    "Number of stocks down 25% + in a month": "149",
+    "Number of stocks up 50% + in a month": "16",
+    "Number of stocks down 50% + in a month": "24",
+    "Number of stocks up 13% + in 34 days": "1033",
+    "Number of stocks down 13% + in 34 days": "2052",
     "Worden Common stock universe": "6550",
-    "T2108": "27.25",
-    "S&P": "7,586.14",
+    "T2108": "24.42",
+    "S&P": "7,552.79",
     "colors": {
       "Date": "none",
       "Number of stocks up 4% plus today": "none",
@@ -34,7 +34,44 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:02.442629"
+    "last_success_time": "2026-09-16T23:58:08.121699"
+  },
+  {
+    "Date": "9/15/2026",
+    "Number of stocks up 4% plus today": "134",
+    "Number of stocks down 4% plus today": "316",
+    "5 day ratio": "0.57",
+    "10 day  ratio": "0.80",
+    "Number of stocks up 25% plus in a quarter": "1034",
+    "Number of stocks down 25% + in a quarter": "1286",
+    "Number of stocks up 25% + in a month": "61",
+    "Number of stocks down 25% + in a month": "178",
+    "Number of stocks up 50% + in a month": "12",
+    "Number of stocks down 50% + in a month": "25",
+    "Number of stocks up 13% + in 34 days": "1172",
+    "Number of stocks down 13% + in 34 days": "2011",
+    "Worden Common stock universe": "6550",
+    "T2108": "27.53",
+    "S&P": "7,585.73",
+    "colors": {
+      "Date": "none",
+      "Number of stocks up 4% plus today": "none",
+      "Number of stocks down 4% plus today": "none",
+      "5 day ratio": "none",
+      "10 day  ratio": "none",
+      "Number of stocks up 25% plus in a quarter": "none",
+      "Number of stocks down 25% + in a quarter": "none",
+      "Number of stocks up 25% + in a month": "none",
+      "Number of stocks down 25% + in a month": "none",
+      "Number of stocks up 50% + in a month": "none",
+      "Number of stocks down 50% + in a month": "green",
+      "Number of stocks up 13% + in 34 days": "none",
+      "Number of stocks down 13% + in 34 days": "none",
+      "Worden Common stock universe": "none",
+      "T2108": "none",
+      "S&P": "none"
+    },
+    "last_success_time": "2026-09-16T23:58:08.219722"
   },
   {
     "Date": "9/14/2026",
@@ -71,7 +108,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:02.534182"
+    "last_success_time": "2026-09-16T23:58:08.317852"
   },
   {
     "Date": "9/11/2026",
@@ -108,7 +145,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:02.627687"
+    "last_success_time": "2026-09-16T23:58:08.418164"
   },
   {
     "Date": "9/10/2026",
@@ -145,7 +182,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:02.718452"
+    "last_success_time": "2026-09-16T23:58:08.510782"
   },
   {
     "Date": "9/9/2026",
@@ -182,7 +219,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:02.806542"
+    "last_success_time": "2026-09-16T23:58:08.603459"
   },
   {
     "Date": "9/8/2026",
@@ -219,7 +256,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:02.895186"
+    "last_success_time": "2026-09-16T23:58:08.713361"
   },
   {
     "Date": "9/4/2026",
@@ -256,7 +293,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:02.978955"
+    "last_success_time": "2026-09-16T23:58:08.804436"
   },
   {
     "Date": "9/3/2026",
@@ -293,7 +330,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:03.081146"
+    "last_success_time": "2026-09-16T23:58:08.897719"
   },
   {
     "Date": "9/2/2026",
@@ -330,7 +367,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:03.164057"
+    "last_success_time": "2026-09-16T23:58:08.987766"
   },
   {
     "Date": "9/1/2026",
@@ -367,7 +404,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:03.250608"
+    "last_success_time": "2026-09-16T23:58:09.081277"
   },
   {
     "Date": "8/31/2026",
@@ -404,7 +441,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:03.338007"
+    "last_success_time": "2026-09-16T23:58:09.175904"
   },
   {
     "Date": "8/28/2026",
@@ -441,7 +478,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:03.418532"
+    "last_success_time": "2026-09-16T23:58:09.267382"
   },
   {
     "Date": "8/27/2026",
@@ -478,7 +515,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:03.497493"
+    "last_success_time": "2026-09-16T23:58:09.358999"
   },
   {
     "Date": "8/26/2026",
@@ -515,7 +552,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:03.580049"
+    "last_success_time": "2026-09-16T23:58:09.448823"
   },
   {
     "Date": "8/25/2026",
@@ -552,7 +589,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:03.662204"
+    "last_success_time": "2026-09-16T23:58:09.540510"
   },
   {
     "Date": "8/24/2026",
@@ -589,7 +626,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:03.744788"
+    "last_success_time": "2026-09-16T23:58:09.628072"
   },
   {
     "Date": "8/21/2026",
@@ -626,7 +663,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:03.826078"
+    "last_success_time": "2026-09-16T23:58:09.714455"
   },
   {
     "Date": "8/20/2026",
@@ -663,7 +700,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:03.907219"
+    "last_success_time": "2026-09-16T23:58:09.812362"
   },
   {
     "Date": "8/19/2026",
@@ -700,7 +737,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:03.989447"
+    "last_success_time": "2026-09-16T23:58:09.906520"
   },
   {
     "Date": "8/18/2026",
@@ -737,7 +774,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:04.090025"
+    "last_success_time": "2026-09-16T23:58:09.995678"
   },
   {
     "Date": "8/17/2026",
@@ -774,7 +811,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:04.168480"
+    "last_success_time": "2026-09-16T23:58:10.086021"
   },
   {
     "Date": "8/14/2026",
@@ -811,7 +848,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:04.245206"
+    "last_success_time": "2026-09-16T23:58:10.175639"
   },
   {
     "Date": "8/13/2026",
@@ -848,7 +885,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:04.326316"
+    "last_success_time": "2026-09-16T23:58:10.266011"
   },
   {
     "Date": "8/12/2026",
@@ -885,7 +922,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:04.405219"
+    "last_success_time": "2026-09-16T23:58:10.353164"
   },
   {
     "Date": "8/11/2026",
@@ -922,7 +959,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:04.482074"
+    "last_success_time": "2026-09-16T23:58:10.443443"
   },
   {
     "Date": "8/10/2026",
@@ -959,7 +996,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:04.559855"
+    "last_success_time": "2026-09-16T23:58:10.530804"
   },
   {
     "Date": "8/7/2026",
@@ -996,7 +1033,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:04.638891"
+    "last_success_time": "2026-09-16T23:58:10.622234"
   },
   {
     "Date": "8/6/2026",
@@ -1033,7 +1070,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:04.719074"
+    "last_success_time": "2026-09-16T23:58:10.714355"
   },
   {
     "Date": "8/5/2026",
@@ -1070,7 +1107,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:04.801193"
+    "last_success_time": "2026-09-16T23:58:10.805742"
   },
   {
     "Date": "8/4/2026",
@@ -1107,7 +1144,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:04.881087"
+    "last_success_time": "2026-09-16T23:58:10.892540"
   },
   {
     "Date": "8/3/2026",
@@ -1144,7 +1181,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:04.967154"
+    "last_success_time": "2026-09-16T23:58:10.977685"
   },
   {
     "Date": "7/31/2026",
@@ -1181,7 +1218,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:05.051224"
+    "last_success_time": "2026-09-16T23:58:11.066284"
   },
   {
     "Date": "7/30/2026",
@@ -1218,7 +1255,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:05.135135"
+    "last_success_time": "2026-09-16T23:58:11.155992"
   },
   {
     "Date": "7/29/2026",
@@ -1255,7 +1292,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:05.215658"
+    "last_success_time": "2026-09-16T23:58:11.246524"
   },
   {
     "Date": "7/28/2026",
@@ -1292,7 +1329,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:05.295730"
+    "last_success_time": "2026-09-16T23:58:11.333407"
   },
   {
     "Date": "7/27/2026",
@@ -1329,7 +1366,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:05.376900"
+    "last_success_time": "2026-09-16T23:58:11.432100"
   },
   {
     "Date": "7/24/2026",
@@ -1366,7 +1403,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:05.457657"
+    "last_success_time": "2026-09-16T23:58:11.516034"
   },
   {
     "Date": "7/23/2026",
@@ -1403,7 +1440,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:05.551372"
+    "last_success_time": "2026-09-16T23:58:11.600476"
   },
   {
     "Date": "7/22/2026",
@@ -1440,7 +1477,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:05.627578"
+    "last_success_time": "2026-09-16T23:58:11.682516"
   },
   {
     "Date": "7/21/2026",
@@ -1477,7 +1514,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:05.704317"
+    "last_success_time": "2026-09-16T23:58:11.765886"
   },
   {
     "Date": "7/20/2026",
@@ -1514,7 +1551,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:05.780760"
+    "last_success_time": "2026-09-16T23:58:11.848593"
   },
   {
     "Date": "7/17/2026",
@@ -1551,7 +1588,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:05.860266"
+    "last_success_time": "2026-09-16T23:58:11.930602"
   },
   {
     "Date": "7/16/2026",
@@ -1588,7 +1625,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:05.939340"
+    "last_success_time": "2026-09-16T23:58:12.011104"
   },
   {
     "Date": "7/15/2026",
@@ -1625,7 +1662,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:06.015519"
+    "last_success_time": "2026-09-16T23:58:12.091823"
   },
   {
     "Date": "7/14/2026",
@@ -1662,7 +1699,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:06.092234"
+    "last_success_time": "2026-09-16T23:58:12.175087"
   },
   {
     "Date": "7/13/2026",
@@ -1699,7 +1736,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:06.169541"
+    "last_success_time": "2026-09-16T23:58:12.257714"
   },
   {
     "Date": "7/10/2026",
@@ -1736,7 +1773,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:06.248877"
+    "last_success_time": "2026-09-16T23:58:12.343816"
   },
   {
     "Date": "7/9/2026",
@@ -1773,7 +1810,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:06.325290"
+    "last_success_time": "2026-09-16T23:58:12.427652"
   },
   {
     "Date": "7/8/2026",
@@ -1810,7 +1847,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:06.403560"
+    "last_success_time": "2026-09-16T23:58:12.518853"
   },
   {
     "Date": "7/7/2026",
@@ -1847,7 +1884,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:06.482663"
+    "last_success_time": "2026-09-16T23:58:12.601135"
   },
   {
     "Date": "7/6/2026",
@@ -1884,7 +1921,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:06.578269"
+    "last_success_time": "2026-09-16T23:58:12.682032"
   },
   {
     "Date": "7/2/2026",
@@ -1921,7 +1958,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:06.651875"
+    "last_success_time": "2026-09-16T23:58:12.764402"
   },
   {
     "Date": "7/1/2026",
@@ -1958,7 +1995,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:06.726356"
+    "last_success_time": "2026-09-16T23:58:12.845488"
   },
   {
     "Date": "6/30/2026",
@@ -1995,7 +2032,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:06.799824"
+    "last_success_time": "2026-09-16T23:58:12.946500"
   },
   {
     "Date": "6/29/2026",
@@ -2032,7 +2069,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:06.873498"
+    "last_success_time": "2026-09-16T23:58:13.028016"
   },
   {
     "Date": "6/26/2026",
@@ -2069,7 +2106,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:06.947986"
+    "last_success_time": "2026-09-16T23:58:13.109418"
   },
   {
     "Date": "6/25/2026",
@@ -2106,7 +2143,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:07.023297"
+    "last_success_time": "2026-09-16T23:58:13.188801"
   },
   {
     "Date": "6/24/2026",
@@ -2143,7 +2180,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:07.099471"
+    "last_success_time": "2026-09-16T23:58:13.268629"
   },
   {
     "Date": "6/23/2026",
@@ -2180,7 +2217,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:07.175619"
+    "last_success_time": "2026-09-16T23:58:13.352878"
   },
   {
     "Date": "6/22/2026",
@@ -2217,7 +2254,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:07.252864"
+    "last_success_time": "2026-09-16T23:58:13.436794"
   },
   {
     "Date": "6/18/2026",
@@ -2254,7 +2291,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:07.331757"
+    "last_success_time": "2026-09-16T23:58:13.517675"
   },
   {
     "Date": "6/17/2026",
@@ -2291,7 +2328,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:07.406606"
+    "last_success_time": "2026-09-16T23:58:13.602311"
   },
   {
     "Date": "6/16/2026",
@@ -2328,7 +2365,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:07.483564"
+    "last_success_time": "2026-09-16T23:58:13.687870"
   },
   {
     "Date": "6/15/2026",
@@ -2365,7 +2402,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:07.560366"
+    "last_success_time": "2026-09-16T23:58:13.771359"
   },
   {
     "Date": "6/12/2026",
@@ -2402,7 +2439,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:07.637239"
+    "last_success_time": "2026-09-16T23:58:13.856671"
   },
   {
     "Date": "6/11/2026",
@@ -2439,7 +2476,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:07.715101"
+    "last_success_time": "2026-09-16T23:58:13.944742"
   },
   {
     "Date": "6/10/2026",
@@ -2476,7 +2513,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:07.794187"
+    "last_success_time": "2026-09-16T23:58:14.033291"
   },
   {
     "Date": "6/9/2026",
@@ -2513,7 +2550,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:07.872841"
+    "last_success_time": "2026-09-16T23:58:14.125797"
   },
   {
     "Date": "6/8/2026",
@@ -2550,7 +2587,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:07.956205"
+    "last_success_time": "2026-09-16T23:58:14.218176"
   },
   {
     "Date": "6/5/2026",
@@ -2587,7 +2624,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:08.034481"
+    "last_success_time": "2026-09-16T23:58:14.307303"
   },
   {
     "Date": "6/4/2026",
@@ -2624,7 +2661,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:08.110558"
+    "last_success_time": "2026-09-16T23:58:14.395805"
   },
   {
     "Date": "6/3/2026",
@@ -2661,7 +2698,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:08.189148"
+    "last_success_time": "2026-09-16T23:58:14.487906"
   },
   {
     "Date": "6/2/2026",
@@ -2698,7 +2735,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:08.267974"
+    "last_success_time": "2026-09-16T23:58:14.575903"
   },
   {
     "Date": "6/1/2026",
@@ -2735,7 +2772,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:08.345850"
+    "last_success_time": "2026-09-16T23:58:14.666549"
   },
   {
     "Date": "5/29/2026",
@@ -2772,7 +2809,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:08.432272"
+    "last_success_time": "2026-09-16T23:58:14.751944"
   },
   {
     "Date": "5/28/2026",
@@ -2809,7 +2846,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:08.511767"
+    "last_success_time": "2026-09-16T23:58:14.833739"
   },
   {
     "Date": "5/27/2026",
@@ -2846,7 +2883,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:08.589412"
+    "last_success_time": "2026-09-16T23:58:14.918508"
   },
   {
     "Date": "5/26/2026",
@@ -2883,7 +2920,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:08.687526"
+    "last_success_time": "2026-09-16T23:58:15.004899"
   },
   {
     "Date": "5/22/2026",
@@ -2920,7 +2957,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:08.762166"
+    "last_success_time": "2026-09-16T23:58:15.091226"
   },
   {
     "Date": "5/21/2026",
@@ -2957,7 +2994,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:08.835792"
+    "last_success_time": "2026-09-16T23:58:15.179473"
   },
   {
     "Date": "5/20/2026",
@@ -2994,7 +3031,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:08.910922"
+    "last_success_time": "2026-09-16T23:58:15.289168"
   },
   {
     "Date": "5/19/2026",
@@ -3031,7 +3068,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:08.984372"
+    "last_success_time": "2026-09-16T23:58:15.372794"
   },
   {
     "Date": "5/18/2026",
@@ -3068,7 +3105,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:09.058284"
+    "last_success_time": "2026-09-16T23:58:15.454670"
   },
   {
     "Date": "5/15/2026",
@@ -3105,7 +3142,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:09.133210"
+    "last_success_time": "2026-09-16T23:58:15.539308"
   },
   {
     "Date": "5/14/2026",
@@ -3142,7 +3179,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:09.205680"
+    "last_success_time": "2026-09-16T23:58:15.625683"
   },
   {
     "Date": "5/13/2026",
@@ -3179,7 +3216,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:09.279300"
+    "last_success_time": "2026-09-16T23:58:15.712888"
   },
   {
     "Date": "5/12/2026",
@@ -3216,7 +3253,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:09.354728"
+    "last_success_time": "2026-09-16T23:58:15.799111"
   },
   {
     "Date": "5/11/2026",
@@ -3253,7 +3290,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:09.432251"
+    "last_success_time": "2026-09-16T23:58:15.888627"
   },
   {
     "Date": "5/8/2026",
@@ -3290,7 +3327,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:09.510659"
+    "last_success_time": "2026-09-16T23:58:15.979714"
   },
   {
     "Date": "5/7/2026",
@@ -3327,7 +3364,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:09.589283"
+    "last_success_time": "2026-09-16T23:58:16.076847"
   },
   {
     "Date": "5/6/2026",
@@ -3364,7 +3401,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:09.667034"
+    "last_success_time": "2026-09-16T23:58:16.164879"
   },
   {
     "Date": "5/5/2026",
@@ -3401,7 +3438,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:09.742286"
+    "last_success_time": "2026-09-16T23:58:16.253757"
   },
   {
     "Date": "5/4/2026",
@@ -3438,7 +3475,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:09.818390"
+    "last_success_time": "2026-09-16T23:58:16.344122"
   },
   {
     "Date": "5/1/2026",
@@ -3475,7 +3512,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:09.895071"
+    "last_success_time": "2026-09-16T23:58:16.429856"
   },
   {
     "Date": "4/30/2026",
@@ -3512,7 +3549,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:09.971693"
+    "last_success_time": "2026-09-16T23:58:16.516688"
   },
   {
     "Date": "4/29/2026",
@@ -3549,7 +3586,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:10.050409"
+    "last_success_time": "2026-09-16T23:58:16.601725"
   },
   {
     "Date": "4/28/2026",
@@ -3586,7 +3623,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:10.125569"
+    "last_success_time": "2026-09-16T23:58:16.684338"
   },
   {
     "Date": "4/27/2026",
@@ -3623,7 +3660,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:10.200165"
+    "last_success_time": "2026-09-16T23:58:16.768449"
   },
   {
     "Date": "4/24/2026",
@@ -3660,7 +3697,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:10.280629"
+    "last_success_time": "2026-09-16T23:58:16.861183"
   },
   {
     "Date": "4/23/2026",
@@ -3697,7 +3734,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:10.354771"
+    "last_success_time": "2026-09-16T23:58:16.946504"
   },
   {
     "Date": "4/22/2026",
@@ -3734,7 +3771,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:10.428618"
+    "last_success_time": "2026-09-16T23:58:17.034514"
   },
   {
     "Date": "4/21/2026",
@@ -3771,7 +3808,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:10.503403"
+    "last_success_time": "2026-09-16T23:58:17.123580"
   },
   {
     "Date": "4/20/2026",
@@ -3808,7 +3845,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:10.577521"
+    "last_success_time": "2026-09-16T23:58:17.210950"
   },
   {
     "Date": "4/17/2026",
@@ -3845,7 +3882,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:10.652350"
+    "last_success_time": "2026-09-16T23:58:17.297276"
   },
   {
     "Date": "4/16/2026",
@@ -3882,7 +3919,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:10.732269"
+    "last_success_time": "2026-09-16T23:58:17.383585"
   },
   {
     "Date": "4/15/2026",
@@ -3919,7 +3956,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:10.809687"
+    "last_success_time": "2026-09-16T23:58:17.467438"
   },
   {
     "Date": "4/14/2026",
@@ -3956,7 +3993,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:10.884065"
+    "last_success_time": "2026-09-16T23:58:17.555573"
   },
   {
     "Date": "4/13/2026",
@@ -3993,7 +4030,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:10.957974"
+    "last_success_time": "2026-09-16T23:58:17.643050"
   },
   {
     "Date": "4/10/2026",
@@ -4030,7 +4067,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:11.037306"
+    "last_success_time": "2026-09-16T23:58:17.734887"
   },
   {
     "Date": "4/9/2026",
@@ -4067,7 +4104,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:11.136240"
+    "last_success_time": "2026-09-16T23:58:17.822567"
   },
   {
     "Date": "4/8/2026",
@@ -4104,7 +4141,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:11.210769"
+    "last_success_time": "2026-09-16T23:58:17.907626"
   },
   {
     "Date": "4/7/2026",
@@ -4141,7 +4178,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:11.284853"
+    "last_success_time": "2026-09-16T23:58:17.995605"
   },
   {
     "Date": "4/6/2026",
@@ -4178,7 +4215,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:11.359034"
+    "last_success_time": "2026-09-16T23:58:18.080982"
   },
   {
     "Date": "4/2/2026",
@@ -4215,7 +4252,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:11.431497"
+    "last_success_time": "2026-09-16T23:58:18.185134"
   },
   {
     "Date": "4/1/2026",
@@ -4252,7 +4289,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:11.505576"
+    "last_success_time": "2026-09-16T23:58:18.267645"
   },
   {
     "Date": "3/31/2026",
@@ -4289,7 +4326,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:11.578761"
+    "last_success_time": "2026-09-16T23:58:18.352328"
   },
   {
     "Date": "3/30/2026",
@@ -4326,7 +4363,7 @@
       "T2108": "green",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:11.651197"
+    "last_success_time": "2026-09-16T23:58:18.435296"
   },
   {
     "Date": "3/27/2026",
@@ -4363,7 +4400,7 @@
       "T2108": "green",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:11.727266"
+    "last_success_time": "2026-09-16T23:58:18.517093"
   },
   {
     "Date": "3/26/2026",
@@ -4400,7 +4437,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:11.802928"
+    "last_success_time": "2026-09-16T23:58:18.599661"
   },
   {
     "Date": "3/25/2026",
@@ -4437,7 +4474,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:11.879615"
+    "last_success_time": "2026-09-16T23:58:18.681623"
   },
   {
     "Date": "3/24/2026",
@@ -4474,7 +4511,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:11.954760"
+    "last_success_time": "2026-09-16T23:58:18.768376"
   },
   {
     "Date": "3/23/2026",
@@ -4511,7 +4548,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:12.033113"
+    "last_success_time": "2026-09-16T23:58:18.855671"
   },
   {
     "Date": "3/20/2026",
@@ -4548,7 +4585,7 @@
       "T2108": "green",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:12.109065"
+    "last_success_time": "2026-09-16T23:58:18.944393"
   },
   {
     "Date": "3/19/2026",
@@ -4585,7 +4622,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:12.183619"
+    "last_success_time": "2026-09-16T23:58:19.034930"
   },
   {
     "Date": "3/18/2026",
@@ -4622,7 +4659,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:12.260365"
+    "last_success_time": "2026-09-16T23:58:19.118039"
   },
   {
     "Date": "3/17/2026",
@@ -4659,7 +4696,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:12.336640"
+    "last_success_time": "2026-09-16T23:58:19.202351"
   },
   {
     "Date": "3/16/2026",
@@ -4696,7 +4733,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:12.414145"
+    "last_success_time": "2026-09-16T23:58:19.284440"
   },
   {
     "Date": "3/13/2026",
@@ -4733,7 +4770,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:12.490545"
+    "last_success_time": "2026-09-16T23:58:19.364744"
   },
   {
     "Date": "3/12/2026",
@@ -4770,7 +4807,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:12.570816"
+    "last_success_time": "2026-09-16T23:58:19.446438"
   },
   {
     "Date": "3/11/2026",
@@ -4807,7 +4844,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:12.648727"
+    "last_success_time": "2026-09-16T23:58:19.526609"
   },
   {
     "Date": "3/10/2026",
@@ -4844,7 +4881,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:12.725081"
+    "last_success_time": "2026-09-16T23:58:19.606986"
   },
   {
     "Date": "3/9/2026",
@@ -4881,7 +4918,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:12.800624"
+    "last_success_time": "2026-09-16T23:58:19.685449"
   },
   {
     "Date": "3/6/2026",
@@ -4918,7 +4955,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:12.878140"
+    "last_success_time": "2026-09-16T23:58:19.771485"
   },
   {
     "Date": "3/5/2026",
@@ -4955,7 +4992,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:12.955599"
+    "last_success_time": "2026-09-16T23:58:19.850352"
   },
   {
     "Date": "3/4/2026",
@@ -4992,7 +5029,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:13.030436"
+    "last_success_time": "2026-09-16T23:58:19.928593"
   },
   {
     "Date": "3/3/2026",
@@ -5029,7 +5066,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:13.106311"
+    "last_success_time": "2026-09-16T23:58:20.009932"
   },
   {
     "Date": "3/2/2026",
@@ -5066,7 +5103,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:13.181340"
+    "last_success_time": "2026-09-16T23:58:20.091713"
   },
   {
     "Date": "2/27/2026",
@@ -5103,7 +5140,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:13.260509"
+    "last_success_time": "2026-09-16T23:58:20.170897"
   },
   {
     "Date": "2/26/2026",
@@ -5140,7 +5177,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:13.335990"
+    "last_success_time": "2026-09-16T23:58:20.249622"
   },
   {
     "Date": "2/25/2026",
@@ -5177,7 +5214,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:13.412861"
+    "last_success_time": "2026-09-16T23:58:20.328449"
   },
   {
     "Date": "2/24/2026",
@@ -5214,7 +5251,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:13.489173"
+    "last_success_time": "2026-09-16T23:58:20.408389"
   },
   {
     "Date": "2/23/2026",
@@ -5251,7 +5288,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:13.564282"
+    "last_success_time": "2026-09-16T23:58:20.489456"
   },
   {
     "Date": "2/20/2026",
@@ -5288,7 +5325,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:13.639204"
+    "last_success_time": "2026-09-16T23:58:20.567583"
   },
   {
     "Date": "2/19/2026",
@@ -5325,7 +5362,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:13.715656"
+    "last_success_time": "2026-09-16T23:58:20.647653"
   },
   {
     "Date": "2/18/2026",
@@ -5362,7 +5399,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:13.794913"
+    "last_success_time": "2026-09-16T23:58:20.728973"
   },
   {
     "Date": "2/17/2026",
@@ -5399,7 +5436,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:13.872401"
+    "last_success_time": "2026-09-16T23:58:20.809137"
   },
   {
     "Date": "2/13/2026",
@@ -5436,7 +5473,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:13.953704"
+    "last_success_time": "2026-09-16T23:58:20.890447"
   },
   {
     "Date": "2/12/2026",
@@ -5473,7 +5510,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:14.030729"
+    "last_success_time": "2026-09-16T23:58:20.970559"
   },
   {
     "Date": "2/11/2026",
@@ -5510,7 +5547,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:14.127900"
+    "last_success_time": "2026-09-16T23:58:21.055006"
   },
   {
     "Date": "2/10/2026",
@@ -5547,7 +5584,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:14.205585"
+    "last_success_time": "2026-09-16T23:58:21.141886"
   },
   {
     "Date": "2/9/2026",
@@ -5584,7 +5621,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:14.281776"
+    "last_success_time": "2026-09-16T23:58:21.226308"
   },
   {
     "Date": "2/6/2026",
@@ -5621,7 +5658,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:14.358297"
+    "last_success_time": "2026-09-16T23:58:21.309479"
   },
   {
     "Date": "2/5/2026",
@@ -5658,7 +5695,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:14.433392"
+    "last_success_time": "2026-09-16T23:58:21.391810"
   },
   {
     "Date": "2/4/2026",
@@ -5695,7 +5732,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:14.509678"
+    "last_success_time": "2026-09-16T23:58:21.495842"
   },
   {
     "Date": "2/3/2026",
@@ -5732,7 +5769,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:14.586646"
+    "last_success_time": "2026-09-16T23:58:21.576560"
   },
   {
     "Date": "2/2/2026",
@@ -5769,7 +5806,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:14.662462"
+    "last_success_time": "2026-09-16T23:58:21.661581"
   },
   {
     "Date": "1/30/2026",
@@ -5806,7 +5843,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:14.738867"
+    "last_success_time": "2026-09-16T23:58:21.742628"
   },
   {
     "Date": "1/29/2026",
@@ -5843,7 +5880,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:14.815477"
+    "last_success_time": "2026-09-16T23:58:21.825189"
   },
   {
     "Date": "1/28/2026",
@@ -5880,7 +5917,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:14.893452"
+    "last_success_time": "2026-09-16T23:58:21.905898"
   },
   {
     "Date": "1/27/2026",
@@ -5917,7 +5954,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:14.970279"
+    "last_success_time": "2026-09-16T23:58:21.985441"
   },
   {
     "Date": "1/26/2026",
@@ -5954,7 +5991,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:15.047860"
+    "last_success_time": "2026-09-16T23:58:22.065871"
   },
   {
     "Date": "1/23/2026",
@@ -5991,7 +6028,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:15.123917"
+    "last_success_time": "2026-09-16T23:58:22.147109"
   },
   {
     "Date": "1/22/2026",
@@ -6028,7 +6065,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:15.199694"
+    "last_success_time": "2026-09-16T23:58:22.227661"
   },
   {
     "Date": "1/21/2026",
@@ -6065,7 +6102,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:15.275590"
+    "last_success_time": "2026-09-16T23:58:22.315865"
   },
   {
     "Date": "1/20/2026",
@@ -6102,7 +6139,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:15.357928"
+    "last_success_time": "2026-09-16T23:58:22.396057"
   },
   {
     "Date": "1/16/2026",
@@ -6139,7 +6176,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:15.432670"
+    "last_success_time": "2026-09-16T23:58:22.477181"
   },
   {
     "Date": "1/15/2026",
@@ -6176,7 +6213,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:15.507605"
+    "last_success_time": "2026-09-16T23:58:22.558608"
   },
   {
     "Date": "1/14/2026",
@@ -6213,7 +6250,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:15.587380"
+    "last_success_time": "2026-09-16T23:58:22.640818"
   },
   {
     "Date": "1/13/2026",
@@ -6250,7 +6287,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:15.664433"
+    "last_success_time": "2026-09-16T23:58:22.723758"
   },
   {
     "Date": "1/12/2026",
@@ -6287,7 +6324,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:15.740220"
+    "last_success_time": "2026-09-16T23:58:22.808484"
   },
   {
     "Date": "1/9/2026",
@@ -6324,7 +6361,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:15.816776"
+    "last_success_time": "2026-09-16T23:58:22.894182"
   },
   {
     "Date": "1/8/2026",
@@ -6361,7 +6398,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:15.891008"
+    "last_success_time": "2026-09-16T23:58:22.979831"
   },
   {
     "Date": "1/7/2026",
@@ -6398,7 +6435,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:15.967205"
+    "last_success_time": "2026-09-16T23:58:23.070278"
   },
   {
     "Date": "1/6/2026",
@@ -6435,7 +6472,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:16.042962"
+    "last_success_time": "2026-09-16T23:58:23.158069"
   },
   {
     "Date": "1/5/2026",
@@ -6472,7 +6509,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:16.119406"
+    "last_success_time": "2026-09-16T23:58:23.242084"
   },
   {
     "Date": "1/2/2026",
@@ -6509,7 +6546,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:16.194978"
+    "last_success_time": "2026-09-16T23:58:23.327152"
   },
   {
     "Date": "12/31/2025",
@@ -6546,7 +6583,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:16.274620"
+    "last_success_time": "2026-09-16T23:58:23.414002"
   },
   {
     "Date": "12/30/2025",
@@ -6583,7 +6620,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:16.350261"
+    "last_success_time": "2026-09-16T23:58:23.498983"
   },
   {
     "Date": "12/29/2025",
@@ -6620,7 +6657,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:16.426612"
+    "last_success_time": "2026-09-16T23:58:23.580870"
   },
   {
     "Date": "12/26/2025",
@@ -6657,7 +6694,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:16.501546"
+    "last_success_time": "2026-09-16T23:58:23.663094"
   },
   {
     "Date": "12/24/2025",
@@ -6694,7 +6731,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:16.579113"
+    "last_success_time": "2026-09-16T23:58:23.749630"
   },
   {
     "Date": "12/23/2025",
@@ -6731,7 +6768,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:16.655779"
+    "last_success_time": "2026-09-16T23:58:23.836890"
   },
   {
     "Date": "12/22/2025",
@@ -6768,7 +6805,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:16.731139"
+    "last_success_time": "2026-09-16T23:58:23.918995"
   },
   {
     "Date": "12/19/2025",
@@ -6805,7 +6842,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:16.807009"
+    "last_success_time": "2026-09-16T23:58:24.001275"
   },
   {
     "Date": "12/18/2025",
@@ -6842,6 +6879,6 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-09-15T23:49:16.883166"
+    "last_success_time": "2026-09-16T23:58:24.084302"
   }
 ]
