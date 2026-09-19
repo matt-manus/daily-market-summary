@@ -1,12 +1,12 @@
 {
   "meta": {
-    "generated_hkt": "2026-09-19 07:43",
-    "generated_et": "2026-09-18 19:43",
-    "date": "2026-09-18",
+    "generated_hkt": "2026-09-20 07:45",
+    "generated_et": "2026-09-19 19:45",
+    "date": "2026-09-19",
     "source": "Yahoo Finance + CNN + NAAIM + Finviz + Barchart",
     "rsi_method": "Wilder SMMA (EWM alpha=1/14)",
     "schema_version": "4.2",
-    "last_updated_hkt": "2026-09-19 07:44:23 HKT"
+    "last_updated_hkt": "2026-09-20 07:45:26 HKT"
   },
   "macro": {
     "VIX": {
@@ -15,9 +15,9 @@
       "change_1d_pct": -4.08
     },
     "DXY": {
-      "price": 100.215,
-      "change_1d": -0.005,
-      "change_1d_pct": -0.0
+      "price": 100.22,
+      "change_1d": 0.0,
+      "change_1d_pct": 0.0
     },
     "TNX_10Y": {
       "price": 4.998,
@@ -25,32 +25,32 @@
       "change_1d_pct": 1.03
     },
     "GOLD": {
-      "price": 4415.8999,
-      "change_1d": 16.1997,
-      "change_1d_pct": 0.37
+      "price": 4424.8999,
+      "change_1d": 25.1997,
+      "change_1d_pct": 0.57
     },
     "OIL_WTI": {
-      "price": 95.47,
-      "change_1d": -6.44,
-      "change_1d_pct": -6.32
+      "price": 100.3,
+      "change_1d": -1.61,
+      "change_1d_pct": -1.58
     },
     "BTC": {
-      "price": 80895.5625,
-      "change_1d": 4491.7891,
-      "change_1d_pct": 5.88
+      "price": 81246.8672,
+      "change_1d": 345.4063,
+      "change_1d_pct": 0.43
     }
   },
   "indices": {
     "SPY": {
       "price": 761.69,
-      "change_1d_pct": -0.12,
-      "rsi14": 49.1998,
-      "ma20": 764.3035,
-      "ma50": 759.731,
-      "ma200": 714.2446,
-      "vs_ma20_pct": -0.34,
-      "vs_ma50_pct": 0.26,
-      "vs_ma200_pct": 6.64,
+      "change_1d_pct": 0.13,
+      "rsi14": 50.852,
+      "ma20": 762.5046,
+      "ma50": 757.8868,
+      "ma200": 712.4848,
+      "vs_ma20_pct": -0.11,
+      "vs_ma50_pct": 0.5,
+      "vs_ma200_pct": 6.91,
       "vs20ma": "Red",
       "status": "MIXED",
       "ad_ratio": 0.451,
@@ -87,14 +87,14 @@
     },
     "DIA": {
       "price": 515.88,
-      "change_1d_pct": -0.48,
-      "rsi14": 37.7647,
-      "ma20": 528.019,
-      "ma50": 528.1527,
-      "ma200": 498.7955,
-      "vs_ma20_pct": -2.3,
-      "vs_ma50_pct": -2.32,
-      "vs_ma200_pct": 3.43,
+      "change_1d_pct": -0.25,
+      "rsi14": 38.7584,
+      "ma20": 526.8641,
+      "ma50": 526.9619,
+      "ma200": 497.6544,
+      "vs_ma20_pct": -2.08,
+      "vs_ma50_pct": -2.1,
+      "vs_ma200_pct": 3.66,
       "vs20ma": "Red",
       "status": "MIXED",
       "ad_ratio": 0.364,
@@ -134,7 +134,7 @@
     "fear_greed": {
       "score": 29.11,
       "rating": "fear",
-      "timestamp": "2026-09-18T23:27:22+00:00",
+      "timestamp": "2026-09-18T23:59:51+00:00",
       "prev_close": 28.69,
       "prev_1w": 32.69,
       "prev_1m": 54.63,
@@ -1223,12 +1223,12 @@
   "breadth": {
     "sp500": {
       "total": 503,
-      "above_20ma": 96,
-      "above_50ma": 140,
-      "above_200ma": 247,
-      "pct_above_20ma": 19.1,
-      "pct_above_50ma": 27.8,
-      "pct_above_200ma": 49.1
+      "above_20ma": 99,
+      "above_50ma": 143,
+      "above_200ma": 250,
+      "pct_above_20ma": 19.7,
+      "pct_above_50ma": 28.4,
+      "pct_above_200ma": 49.7
     },
     "nasdaq100": {
       "total": 101,
@@ -1308,14 +1308,14 @@
   },
   "stockbee_mm": {
     "source": "Stockbee Market Monitor (dynamic via stockbee_mm.json)",
-    "latest_date": "9/17/2026",
-    "t2108": 25.8,
-    "up_4_plus": 374,
-    "down_4_plus": 85,
+    "latest_date": "9/18/2026",
+    "t2108": 23.68,
+    "up_4_plus": 251,
+    "down_4_plus": 232,
     "data_stale": false
   },
   "data_status": "fresh",
-  "last_updated_hkt": "2026-09-19 07:44:23 HKT",
+  "last_updated_hkt": "2026-09-20 07:45:26 HKT",
   "thematic": [
     {
       "symbol": "ARKK",
