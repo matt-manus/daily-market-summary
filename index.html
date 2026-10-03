@@ -208,7 +208,7 @@
     /* ─── SECTION 2: SENTIMENT ───────────────────────────────────── */
     .sentiment-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr);
       gap: 12px;
     }
     @media (max-width: 700px) { .sentiment-grid { grid-template-columns: 1fr; } }
@@ -226,17 +226,6 @@
     .hist-table td { padding: 3px 0; font-size: 11px; color: var(--text-label); border-bottom: 1px solid var(--border-lt); }
     .hist-table td:last-child { text-align: right; color: #e0e0e0; font-weight: 500; }
     .hist-table tr:last-child td { border-bottom: none; }
-    .naaim-hist-row {
-      display: flex;
-      justify-content: space-between;
-      padding: 3px 0;
-      font-size: 11px;
-      border-bottom: 1px solid var(--border-lt);
-      color: var(--text-label);
-    }
-    .naaim-hist-row:last-child { border-bottom: none; }
-    .naaim-hist-row .nh-val { color: #e0e0e0; font-weight: 500; }
-
     /* ─── SECTION 4: BREADTH ─────────────────────────────────────── */
     .breadth-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
     @media (max-width: 700px) { .breadth-grid { grid-template-columns: 1fr; } }
@@ -505,10 +494,6 @@
       }
     }
 
-    /* Section 6 — subsector-boxes: full-width stacked, inherits .section style */
-    #subsector-boxes .section {
-      margin-bottom: 0;
-    }
   </style>
 </head>
 <body>
@@ -582,7 +567,7 @@
 
 <!-- ═══════════════════════════════════════════════════════════════ -->
 <!-- SECTION 2 — MARKET SENTIMENT                                   -->
-<!-- Architecture: F&G, NAAIM, Put/Call；寫 Comment 時同時考慮 VIX   -->
+<!-- Architecture: F&G, Put/Call；寫 Comment 時同時考慮 VIX          -->
 <!-- ═══════════════════════════════════════════════════════════════ -->
 <div class="section" id="s2-sentiment">
   <div class="section-title">Section 2 — Market Sentiment</div>
@@ -601,16 +586,6 @@
     </div>
 
     <div class="sent-card">
-      <div class="sc-label">NAAIM Exposure Index</div>
-      <div class="sc-value" style="color:#e0e0e0"><span class="na-val">N/A</span></div>
-      <div class="sc-rating text-muted">Weekly Survey</div>
-      <div class="sc-sub">Latest: -</div>
-      <div style="font-size:9px;color:var(--text-muted);letter-spacing:0.6px;text-transform:uppercase;margin:8px 0 4px;">3-Week History</div>
-      <div class="naaim-hist-row"><span>No history</span></div>
-      <div style="margin-top:10px;font-size:10px;color:var(--text-muted);">Active managers' equity exposure. &gt;80 = overweight; &lt;40 = underweight.</div>
-    </div>
-
-    <div class="sent-card">
       <div class="sc-label">Put / Call Ratio</div>
       <div class="sc-value text-green">0.67</div>
       <div class="sc-rating text-green">Bullish (Low Fear)</div>
@@ -626,7 +601,7 @@
   </div>
   <!-- Phase 4 AI Comment: Sentiment analysis cross-referenced with VIX -->
   <div class="impact-comment-placeholder" id="s2-ai-comment">
-    Sentiment synthesis — F&amp;G + NAAIM + P/C cross-referenced with VIX context. Trend-first, actionable bias.
+    Sentiment synthesis — F&amp;G + P/C cross-referenced with VIX context. Trend-first, actionable bias.
   </div>
 </div>
 
@@ -697,7 +672,7 @@
 
   <!-- 4B: NYSE / NASDAQ Full-Market Advance/Decline -->
   <div class="sub-title" style="margin-top:20px;">4B — NYSE &amp; NASDAQ Full-Market Advance / Decline Ratio</div>
-  <div style="font-size:12px;color:var(--text-muted);margin-bottom:12px;max-width:820px;line-height:1.45;">Issue counts were not found for 2026-10-02. The Reuters close story gives ratios only: NYSE advancing issues outnumbered decliners by 1.67-to-1, and Nasdaq by 1.34-to-1. Intraday ratios were different and were not used. Source: https://www.moneycontrol.com/news/business/markets/equities-close-higher-as-softer-jobs-data-quiets-rate-hike-expectations-14043628.html (Reuters, published 2026-10-03 08:01 IST). Counts are not shown.</div>
+<div style="font-size:12px;color:var(--text-muted);margin-bottom:12px;max-width:820px;line-height:1.45;">Issue counts were not found. Close ratios only, not counts: advancing issues outnumbered decliners by a 1.67-to-1 ratio on the NYSE and by a 1.34-to-1 ratio on the Nasdaq. Source: https://www.moneycontrol.com/news/business/markets/equities-close-higher-as-softer-jobs-data-quiets-rate-hike-expectations-14043628.html published 2026-10-03 08:01 IST.</div>
 
   <!-- 4C: Stockbee Market Monitor -->
   <div class="sub-title" style="margin-top:20px;">4C — Stockbee Market Monitor</div>
@@ -848,847 +823,209 @@
 </div>
 
 <!-- ═══════════════════════════════════════════════════════════════ -->
-<!-- SECTION 6 — SUB-SECTOR ETFs (9 groups + Core ETF mapping)      -->
-<!-- ═══════════════════════════════════════════════════════════════ -->
-<!-- Section 6 — Sub-Sector ETFs (分開 box，每組獨立 header) -->
-<div class="section" id="s6-subsector">
-  <div class="section-title">Section 6 — Sub-Sector ETFs</div>
-  <div id="subsector-boxes">
-<div style="font-size:11px;color:var(--text-muted);margin:0 0 8px;">Source: Yahoo Finance chart API, adjusted daily close, session 2026-10-02. Listed symbols only; none added or removed.</div>
-
-        <div class="section">
-            <div class="section-title">Semiconductors</div>
-            <div class="table-wrap">
-                <table class="data-table">
-                    <thead>
-                        <tr>
-                            <th>Symbol</th>
-                            <th>Core ETF</th>
-                            <th>1D Change%</th>
-                            <th class="hide-on-mobile">vs 20MA</th>
-                            <th class="hide-on-mobile">vs 50MA</th>
-                            <th class="hide-on-mobile">vs 200MA</th>
-                            <th>RSI 14</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-            <tr>
-                <td><strong>SMH</strong></td>
-                <td><span class="tag">XLK</span></td>
-                <td><span class="chg-pill text-green-bg">+2.07%</span></td>
-                <td class="hide-on-mobile text-green">+7.95%</td>
-                <td class="hide-on-mobile text-green">+10.66%</td>
-                <td class="hide-on-mobile text-green">+26.25%</td>
-                <td><div class="rsi-wrap"><span class="">68.6</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:69%"></div></div></div></td>
-            </tr>
-            <tr>
-                <td><strong>SOXX</strong></td>
-                <td><span class="tag">XLK</span></td>
-                <td><span class="chg-pill text-green-bg">+2.18%</span></td>
-                <td class="hide-on-mobile text-green">+8.33%</td>
-                <td class="hide-on-mobile text-green">+11.21%</td>
-                <td class="hide-on-mobile text-green">+29.51%</td>
-                <td><div class="rsi-wrap"><span class="">66.6</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:67%"></div></div></div></td>
-            </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-
-        <div class="section">
-            <div class="section-title">Software & Cloud</div>
-            <div class="table-wrap">
-                <table class="data-table">
-                    <thead>
-                        <tr>
-                            <th>Symbol</th>
-                            <th>Core ETF</th>
-                            <th>1D Change%</th>
-                            <th class="hide-on-mobile">vs 20MA</th>
-                            <th class="hide-on-mobile">vs 50MA</th>
-                            <th class="hide-on-mobile">vs 200MA</th>
-                            <th>RSI 14</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-            <tr>
-                <td><strong>SKYY</strong></td>
-                <td><span class="tag">XLK</span></td>
-                <td><span class="chg-pill text-green-bg">+0.71%</span></td>
-                <td class="hide-on-mobile text-green">+2.94%</td>
-                <td class="hide-on-mobile text-green">+5.90%</td>
-                <td class="hide-on-mobile text-green">+26.64%</td>
-                <td><div class="rsi-wrap"><span class="">60.9</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:61%"></div></div></div></td>
-            </tr>
-            <tr>
-                <td><strong>IGV</strong></td>
-                <td><span class="tag">-</span></td>
-                <td><span class="chg-pill text-green-bg">+0.18%</span></td>
-                <td class="hide-on-mobile text-green">+2.88%</td>
-                <td class="hide-on-mobile text-green">+5.29%</td>
-                <td class="hide-on-mobile text-green">+15.84%</td>
-                <td><div class="rsi-wrap"><span class="">59.1</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:59%"></div></div></div></td>
-            </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-
-        <div class="section">
-            <div class="section-title">AI, Robotics & Innovation</div>
-            <div class="table-wrap">
-                <table class="data-table">
-                    <thead>
-                        <tr>
-                            <th>Symbol</th>
-                            <th>Core ETF</th>
-                            <th>1D Change%</th>
-                            <th class="hide-on-mobile">vs 20MA</th>
-                            <th class="hide-on-mobile">vs 50MA</th>
-                            <th class="hide-on-mobile">vs 200MA</th>
-                            <th>RSI 14</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-            <tr>
-                <td><strong>QTUM</strong></td>
-                <td><span class="tag">XLK</span></td>
-                <td><span class="chg-pill text-green-bg">+1.83%</span></td>
-                <td class="hide-on-mobile text-green">+4.53%</td>
-                <td class="hide-on-mobile text-green">+5.15%</td>
-                <td class="hide-on-mobile text-green">+16.37%</td>
-                <td><div class="rsi-wrap"><span class="">62.8</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:63%"></div></div></div></td>
-            </tr>
-            <tr>
-                <td><strong>MAGS</strong></td>
-                <td><span class="tag">-</span></td>
-                <td><span class="chg-pill text-green-bg">+1.61%</span></td>
-                <td class="hide-on-mobile text-green">+2.33%</td>
-                <td class="hide-on-mobile text-green">+5.56%</td>
-                <td class="hide-on-mobile text-green">+10.44%</td>
-                <td><div class="rsi-wrap"><span class="">62.8</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:63%"></div></div></div></td>
-            </tr>
-            <tr>
-                <td><strong>ROBO</strong></td>
-                <td><span class="tag">-</span></td>
-                <td><span class="chg-pill text-green-bg">+2.23%</span></td>
-                <td class="hide-on-mobile text-green">+3.92%</td>
-                <td class="hide-on-mobile text-green">+2.65%</td>
-                <td class="hide-on-mobile text-green">+5.74%</td>
-                <td><div class="rsi-wrap"><span class="">61.5</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:62%"></div></div></div></td>
-            </tr>
-            <tr>
-                <td><strong>AIQ</strong></td>
-                <td><span class="tag">XLK</span></td>
-                <td><span class="chg-pill text-green-bg">+0.85%</span></td>
-                <td class="hide-on-mobile text-green">+2.24%</td>
-                <td class="hide-on-mobile text-green">+4.75%</td>
-                <td class="hide-on-mobile text-green">+15.54%</td>
-                <td><div class="rsi-wrap"><span class="">60.5</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:60%"></div></div></div></td>
-            </tr>
-            <tr>
-                <td><strong>ARKK</strong></td>
-                <td><span class="tag">-</span></td>
-                <td><span class="chg-pill text-green-bg">+1.41%</span></td>
-                <td class="hide-on-mobile text-green">+2.61%</td>
-                <td class="hide-on-mobile text-green">+8.20%</td>
-                <td class="hide-on-mobile text-green">+15.52%</td>
-                <td><div class="rsi-wrap"><span class="">58.4</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:58%"></div></div></div></td>
-            </tr>
-            <tr>
-                <td><strong>BOTZ</strong></td>
-                <td><span class="tag">XLK</span></td>
-                <td><span class="chg-pill text-green-bg">+1.69%</span></td>
-                <td class="hide-on-mobile text-green">+2.08%</td>
-                <td class="hide-on-mobile text-green">+0.74%</td>
-                <td class="hide-on-mobile text-red">-2.24%</td>
-                <td><div class="rsi-wrap"><span class="">56.1</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:56%"></div></div></div></td>
-            </tr>
-            <tr>
-                <td><strong>ARKQ</strong></td>
-                <td><span class="tag">XLK</span></td>
-                <td><span class="chg-pill text-green-bg">+2.51%</span></td>
-                <td class="hide-on-mobile text-green">+1.66%</td>
-                <td class="hide-on-mobile text-green">+1.63%</td>
-                <td class="hide-on-mobile text-red">-0.07%</td>
-                <td><div class="rsi-wrap"><span class="">54.6</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:55%"></div></div></div></td>
-            </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-
-        <div class="section">
-            <div class="section-title">Cyber & Blockchain</div>
-            <div class="table-wrap">
-                <table class="data-table">
-                    <thead>
-                        <tr>
-                            <th>Symbol</th>
-                            <th>Core ETF</th>
-                            <th>1D Change%</th>
-                            <th class="hide-on-mobile">vs 20MA</th>
-                            <th class="hide-on-mobile">vs 50MA</th>
-                            <th class="hide-on-mobile">vs 200MA</th>
-                            <th>RSI 14</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-            <tr>
-                <td><strong>CIBR</strong></td>
-                <td><span class="tag">XLK</span></td>
-                <td><span class="chg-pill text-green-bg">+0.89%</span></td>
-                <td class="hide-on-mobile text-green">+4.52%</td>
-                <td class="hide-on-mobile text-green">+7.49%</td>
-                <td class="hide-on-mobile text-green">+31.13%</td>
-                <td><div class="rsi-wrap"><span class="">63.0</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:63%"></div></div></div></td>
-            </tr>
-            <tr>
-                <td><strong>BUG</strong></td>
-                <td><span class="tag">XLK</span></td>
-                <td><span class="chg-pill text-green-bg">+0.95%</span></td>
-                <td class="hide-on-mobile text-green">+5.55%</td>
-                <td class="hide-on-mobile text-green">+10.92%</td>
-                <td class="hide-on-mobile text-green">+40.44%</td>
-                <td><div class="rsi-wrap"><span class="">62.4</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:62%"></div></div></div></td>
-            </tr>
-            <tr>
-                <td><strong>BLOK</strong></td>
-                <td><span class="tag">XLF</span></td>
-                <td><span class="chg-pill text-green-bg">+0.75%</span></td>
-                <td class="hide-on-mobile text-red">-2.71%</td>
-                <td class="hide-on-mobile text-red">-0.35%</td>
-                <td class="hide-on-mobile text-green">+3.19%</td>
-                <td><div class="rsi-wrap"><span class="">45.9</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:46%"></div></div></div></td>
-            </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-
-        <div class="section">
-            <div class="section-title">FinTech & Payments</div>
-            <div class="table-wrap">
-                <table class="data-table">
-                    <thead>
-                        <tr>
-                            <th>Symbol</th>
-                            <th>Core ETF</th>
-                            <th>1D Change%</th>
-                            <th class="hide-on-mobile">vs 20MA</th>
-                            <th class="hide-on-mobile">vs 50MA</th>
-                            <th class="hide-on-mobile">vs 200MA</th>
-                            <th>RSI 14</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-            <tr>
-                <td><strong>FINX</strong></td>
-                <td><span class="tag">XLF</span></td>
-                <td><span class="chg-pill text-red-bg">-0.13%</span></td>
-                <td class="hide-on-mobile text-red">-4.79%</td>
-                <td class="hide-on-mobile text-red">-6.95%</td>
-                <td class="hide-on-mobile text-red">-5.72%</td>
-                <td><div class="rsi-wrap"><span class="">35.6</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:36%"></div></div></div></td>
-            </tr>
-            <tr>
-                <td><strong>IPAY</strong></td>
-                <td><span class="tag">XLF</span></td>
-                <td><span class="chg-pill text-red-bg">-0.11%</span></td>
-                <td class="hide-on-mobile text-red">-3.64%</td>
-                <td class="hide-on-mobile text-red">-7.04%</td>
-                <td class="hide-on-mobile text-red">-2.56%</td>
-                <td><div class="rsi-wrap"><span class="">34.3</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:34%"></div></div></div></td>
-            </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-
-        <div class="section">
-            <div class="section-title">Biotech</div>
-            <div class="table-wrap">
-                <table class="data-table">
-                    <thead>
-                        <tr>
-                            <th>Symbol</th>
-                            <th>Core ETF</th>
-                            <th>1D Change%</th>
-                            <th class="hide-on-mobile">vs 20MA</th>
-                            <th class="hide-on-mobile">vs 50MA</th>
-                            <th class="hide-on-mobile">vs 200MA</th>
-                            <th>RSI 14</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-            <tr>
-                <td><strong>IBB</strong></td>
-                <td><span class="tag">XLV</span></td>
-                <td><span class="chg-pill text-red-bg">-0.33%</span></td>
-                <td class="hide-on-mobile text-red">-0.78%</td>
-                <td class="hide-on-mobile text-green">+0.75%</td>
-                <td class="hide-on-mobile text-green">+13.42%</td>
-                <td><div class="rsi-wrap"><span class="">47.3</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:47%"></div></div></div></td>
-            </tr>
-            <tr>
-                <td><strong>XBI</strong></td>
-                <td><span class="tag">XLV</span></td>
-                <td><span class="chg-pill text-red-bg">-0.05%</span></td>
-                <td class="hide-on-mobile text-red">-1.80%</td>
-                <td class="hide-on-mobile text-red">-2.29%</td>
-                <td class="hide-on-mobile text-green">+11.31%</td>
-                <td><div class="rsi-wrap"><span class="">43.5</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:44%"></div></div></div></td>
-            </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-
-        <div class="section">
-            <div class="section-title">Medical Devices</div>
-            <div class="table-wrap">
-                <table class="data-table">
-                    <thead>
-                        <tr>
-                            <th>Symbol</th>
-                            <th>Core ETF</th>
-                            <th>1D Change%</th>
-                            <th class="hide-on-mobile">vs 20MA</th>
-                            <th class="hide-on-mobile">vs 50MA</th>
-                            <th class="hide-on-mobile">vs 200MA</th>
-                            <th>RSI 14</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-            <tr>
-                <td><strong>IHI</strong></td>
-                <td><span class="tag">-</span></td>
-                <td><span class="chg-pill text-red-bg">-0.39%</span></td>
-                <td class="hide-on-mobile text-red">-2.24%</td>
-                <td class="hide-on-mobile text-red">-5.36%</td>
-                <td class="hide-on-mobile text-red">-7.17%</td>
-                <td><div class="rsi-wrap"><span class="">34.2</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:34%"></div></div></div></td>
-            </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-
-        <div class="section">
-            <div class="section-title">Banking & Capital Markets</div>
-            <div class="table-wrap">
-                <table class="data-table">
-                    <thead>
-                        <tr>
-                            <th>Symbol</th>
-                            <th>Core ETF</th>
-                            <th>1D Change%</th>
-                            <th class="hide-on-mobile">vs 20MA</th>
-                            <th class="hide-on-mobile">vs 50MA</th>
-                            <th class="hide-on-mobile">vs 200MA</th>
-                            <th>RSI 14</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-            <tr>
-                <td><strong>KRE</strong></td>
-                <td><span class="tag">XLF</span></td>
-                <td><span class="chg-pill text-green-bg">+1.19%</span></td>
-                <td class="hide-on-mobile text-red">-1.66%</td>
-                <td class="hide-on-mobile text-red">-4.35%</td>
-                <td class="hide-on-mobile text-green">+1.36%</td>
-                <td><div class="rsi-wrap"><span class="">41.0</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:41%"></div></div></div></td>
-            </tr>
-            <tr>
-                <td><strong>KBE</strong></td>
-                <td><span class="tag">XLF</span></td>
-                <td><span class="chg-pill text-green-bg">+1.13%</span></td>
-                <td class="hide-on-mobile text-red">-2.43%</td>
-                <td class="hide-on-mobile text-red">-5.24%</td>
-                <td class="hide-on-mobile text-green">+0.31%</td>
-                <td><div class="rsi-wrap"><span class="">37.5</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:38%"></div></div></div></td>
-            </tr>
-            <tr>
-                <td><strong>IAI</strong></td>
-                <td><span class="tag">XLF</span></td>
-                <td><span class="chg-pill text-red-bg">-0.23%</span></td>
-                <td class="hide-on-mobile text-red">-4.43%</td>
-                <td class="hide-on-mobile text-red">-6.29%</td>
-                <td class="hide-on-mobile text-red">-2.10%</td>
-                <td><div class="rsi-wrap"><span class="">30.8</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:31%"></div></div></div></td>
-            </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-
-        <div class="section">
-            <div class="section-title">Traditional Energy</div>
-            <div class="table-wrap">
-                <table class="data-table">
-                    <thead>
-                        <tr>
-                            <th>Symbol</th>
-                            <th>Core ETF</th>
-                            <th>1D Change%</th>
-                            <th class="hide-on-mobile">vs 20MA</th>
-                            <th class="hide-on-mobile">vs 50MA</th>
-                            <th class="hide-on-mobile">vs 200MA</th>
-                            <th>RSI 14</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-            <tr>
-                <td><strong>XOP</strong></td>
-                <td><span class="tag">XLE</span></td>
-                <td><span class="chg-pill text-green-bg">+0.34%</span></td>
-                <td class="hide-on-mobile text-red">-1.45%</td>
-                <td class="hide-on-mobile text-green">+1.31%</td>
-                <td class="hide-on-mobile text-green">+13.90%</td>
-                <td><div class="rsi-wrap"><span class="">50.4</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:50%"></div></div></div></td>
-            </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-
-        <div class="section">
-            <div class="section-title">Clean Energy & Power</div>
-            <div class="table-wrap">
-                <table class="data-table">
-                    <thead>
-                        <tr>
-                            <th>Symbol</th>
-                            <th>Core ETF</th>
-                            <th>1D Change%</th>
-                            <th class="hide-on-mobile">vs 20MA</th>
-                            <th class="hide-on-mobile">vs 50MA</th>
-                            <th class="hide-on-mobile">vs 200MA</th>
-                            <th>RSI 14</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-            <tr>
-                <td><strong>TAN</strong></td>
-                <td><span class="tag">XLE</span></td>
-                <td><span class="chg-pill text-green-bg">+2.28%</span></td>
-                <td class="hide-on-mobile text-red">-3.23%</td>
-                <td class="hide-on-mobile text-red">-8.78%</td>
-                <td class="hide-on-mobile text-red">-19.73%</td>
-                <td><div class="rsi-wrap"><span class="">40.9</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:41%"></div></div></div></td>
-            </tr>
-            <tr>
-                <td><strong>URA</strong></td>
-                <td><span class="tag">XLE</span></td>
-                <td><span class="chg-pill text-green-bg">+0.51%</span></td>
-                <td class="hide-on-mobile text-red">-6.21%</td>
-                <td class="hide-on-mobile text-red">-7.99%</td>
-                <td class="hide-on-mobile text-red">-17.22%</td>
-                <td><div class="rsi-wrap"><span class="">37.7</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:38%"></div></div></div></td>
-            </tr>
-            <tr>
-                <td><strong>NLR</strong></td>
-                <td><span class="tag">XLE</span></td>
-                <td><span class="chg-pill text-red-bg">-0.01%</span></td>
-                <td class="hide-on-mobile text-red">-6.64%</td>
-                <td class="hide-on-mobile text-red">-9.40%</td>
-                <td class="hide-on-mobile text-red">-20.38%</td>
-                <td><div class="rsi-wrap"><span class="">34.7</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:35%"></div></div></div></td>
-            </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-
-        <div class="section">
-            <div class="section-title">Precious & Base Metals</div>
-            <div class="table-wrap">
-                <table class="data-table">
-                    <thead>
-                        <tr>
-                            <th>Symbol</th>
-                            <th>Core ETF</th>
-                            <th>1D Change%</th>
-                            <th class="hide-on-mobile">vs 20MA</th>
-                            <th class="hide-on-mobile">vs 50MA</th>
-                            <th class="hide-on-mobile">vs 200MA</th>
-                            <th>RSI 14</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-            <tr>
-                <td><strong>COPX</strong></td>
-                <td><span class="tag">XLB</span></td>
-                <td><span class="chg-pill text-green-bg">+3.01%</span></td>
-                <td class="hide-on-mobile text-red">-1.70%</td>
-                <td class="hide-on-mobile text-red">-1.54%</td>
-                <td class="hide-on-mobile text-green">+3.93%</td>
-                <td><div class="rsi-wrap"><span class="">47.1</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:47%"></div></div></div></td>
-            </tr>
-            <tr>
-                <td><strong>PICK</strong></td>
-                <td><span class="tag">XLB</span></td>
-                <td><span class="chg-pill text-green-bg">+1.94%</span></td>
-                <td class="hide-on-mobile text-red">-2.43%</td>
-                <td class="hide-on-mobile text-red">-3.20%</td>
-                <td class="hide-on-mobile text-green">+1.12%</td>
-                <td><div class="rsi-wrap"><span class="">42.9</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:43%"></div></div></div></td>
-            </tr>
-            <tr>
-                <td><strong>GDX</strong></td>
-                <td><span class="tag">XLB</span></td>
-                <td><span class="chg-pill text-green-bg">+1.20%</span></td>
-                <td class="hide-on-mobile text-red">-6.27%</td>
-                <td class="hide-on-mobile text-red">-4.00%</td>
-                <td class="hide-on-mobile text-red">-3.62%</td>
-                <td><div class="rsi-wrap"><span class="">41.0</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:41%"></div></div></div></td>
-            </tr>
-            <tr>
-                <td><strong>LIT</strong></td>
-                <td><span class="tag">XLB</span></td>
-                <td><span class="chg-pill text-green-bg">+1.55%</span></td>
-                <td class="hide-on-mobile text-red">-1.63%</td>
-                <td class="hide-on-mobile text-red">-4.06%</td>
-                <td class="hide-on-mobile text-red">-7.17%</td>
-                <td><div class="rsi-wrap"><span class="">40.6</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:41%"></div></div></div></td>
-            </tr>
-            <tr>
-                <td><strong>SLV</strong></td>
-                <td><span class="tag">XLB</span></td>
-                <td><span class="chg-pill text-red-bg">-0.51%</span></td>
-                <td class="hide-on-mobile text-red">-5.20%</td>
-                <td class="hide-on-mobile text-red">-5.20%</td>
-                <td class="hide-on-mobile text-red">-16.95%</td>
-                <td><div class="rsi-wrap"><span class="">40.2</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:40%"></div></div></div></td>
-            </tr>
-            <tr>
-                <td><strong>GLD</strong></td>
-                <td><span class="tag">XLB</span></td>
-                <td><span class="chg-pill text-red-bg">-0.68%</span></td>
-                <td class="hide-on-mobile text-red">-3.32%</td>
-                <td class="hide-on-mobile text-red">-4.08%</td>
-                <td class="hide-on-mobile text-red">-8.65%</td>
-                <td><div class="rsi-wrap"><span class="">38.8</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:39%"></div></div></div></td>
-            </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-
-        <div class="section">
-            <div class="section-title">Aerospace & Defense</div>
-            <div class="table-wrap">
-                <table class="data-table">
-                    <thead>
-                        <tr>
-                            <th>Symbol</th>
-                            <th>Core ETF</th>
-                            <th>1D Change%</th>
-                            <th class="hide-on-mobile">vs 20MA</th>
-                            <th class="hide-on-mobile">vs 50MA</th>
-                            <th class="hide-on-mobile">vs 200MA</th>
-                            <th>RSI 14</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-            <tr>
-                <td><strong>ROKT</strong></td>
-                <td><span class="tag">XLI</span></td>
-                <td><span class="chg-pill text-green-bg">+0.75%</span></td>
-                <td class="hide-on-mobile text-red">-0.76%</td>
-                <td class="hide-on-mobile text-red">-5.03%</td>
-                <td class="hide-on-mobile text-red">-2.31%</td>
-                <td><div class="rsi-wrap"><span class="">41.3</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:41%"></div></div></div></td>
-            </tr>
-            <tr>
-                <td><strong>XAR</strong></td>
-                <td><span class="tag">-</span></td>
-                <td><span class="chg-pill text-green-bg">+0.64%</span></td>
-                <td class="hide-on-mobile text-red">-3.22%</td>
-                <td class="hide-on-mobile text-red">-10.58%</td>
-                <td class="hide-on-mobile text-red">-12.80%</td>
-                <td><div class="rsi-wrap"><span class="text-green">28.2</span><div class="rsi-track"><div class="rsi-fill rsi-os" style="width:28%"></div></div></div></td>
-            </tr>
-            <tr>
-                <td><strong>ITA</strong></td>
-                <td><span class="tag">-</span></td>
-                <td><span class="chg-pill text-red-bg">-0.12%</span></td>
-                <td class="hide-on-mobile text-red">-3.14%</td>
-                <td class="hide-on-mobile text-red">-9.90%</td>
-                <td class="hide-on-mobile text-red">-9.68%</td>
-                <td><div class="rsi-wrap"><span class="text-green">26.5</span><div class="rsi-track"><div class="rsi-fill rsi-os" style="width:27%"></div></div></div></td>
-            </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-
-        <div class="section">
-            <div class="section-title">Transport & Infrastructure</div>
-            <div class="table-wrap">
-                <table class="data-table">
-                    <thead>
-                        <tr>
-                            <th>Symbol</th>
-                            <th>Core ETF</th>
-                            <th>1D Change%</th>
-                            <th class="hide-on-mobile">vs 20MA</th>
-                            <th class="hide-on-mobile">vs 50MA</th>
-                            <th class="hide-on-mobile">vs 200MA</th>
-                            <th>RSI 14</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-            <tr>
-                <td><strong>PAVE</strong></td>
-                <td><span class="tag">XLI</span></td>
-                <td><span class="chg-pill text-green-bg">+1.58%</span></td>
-                <td class="hide-on-mobile text-green">+0.89%</td>
-                <td class="hide-on-mobile text-red">-2.88%</td>
-                <td class="hide-on-mobile text-red">-0.76%</td>
-                <td><div class="rsi-wrap"><span class="">49.3</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:49%"></div></div></div></td>
-            </tr>
-            <tr>
-                <td><strong>JETS</strong></td>
-                <td><span class="tag">XLI</span></td>
-                <td><span class="chg-pill text-green-bg">+0.18%</span></td>
-                <td class="hide-on-mobile text-red">-0.68%</td>
-                <td class="hide-on-mobile text-red">-5.42%</td>
-                <td class="hide-on-mobile text-red">-1.42%</td>
-                <td><div class="rsi-wrap"><span class="">43.0</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:43%"></div></div></div></td>
-            </tr>
-            <tr>
-                <td><strong>IYT</strong></td>
-                <td><span class="tag">XLI</span></td>
-                <td><span class="chg-pill text-green-bg">+1.47%</span></td>
-                <td class="hide-on-mobile text-red">-0.49%</td>
-                <td class="hide-on-mobile text-red">-4.45%</td>
-                <td class="hide-on-mobile text-red">-0.90%</td>
-                <td><div class="rsi-wrap"><span class="">42.9</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:43%"></div></div></div></td>
-            </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-
-        <div class="section">
-            <div class="section-title">Consumer & Housing</div>
-            <div class="table-wrap">
-                <table class="data-table">
-                    <thead>
-                        <tr>
-                            <th>Symbol</th>
-                            <th>Core ETF</th>
-                            <th>1D Change%</th>
-                            <th class="hide-on-mobile">vs 20MA</th>
-                            <th class="hide-on-mobile">vs 50MA</th>
-                            <th class="hide-on-mobile">vs 200MA</th>
-                            <th>RSI 14</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-            <tr>
-                <td><strong>XRT</strong></td>
-                <td><span class="tag">-</span></td>
-                <td><span class="chg-pill text-green-bg">+0.01%</span></td>
-                <td class="hide-on-mobile text-red">-0.80%</td>
-                <td class="hide-on-mobile text-red">-4.47%</td>
-                <td class="hide-on-mobile text-red">-3.22%</td>
-                <td><div class="rsi-wrap"><span class="">41.9</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:42%"></div></div></div></td>
-            </tr>
-            <tr>
-                <td><strong>XHB</strong></td>
-                <td><span class="tag">-</span></td>
-                <td><span class="chg-pill text-red-bg">-0.08%</span></td>
-                <td class="hide-on-mobile text-red">-0.91%</td>
-                <td class="hide-on-mobile text-red">-5.85%</td>
-                <td class="hide-on-mobile text-red">-8.24%</td>
-                <td><div class="rsi-wrap"><span class="">41.5</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:41%"></div></div></div></td>
-            </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-
-        <div class="section">
-            <div class="section-title">China Equities</div>
-            <div class="table-wrap">
-                <table class="data-table">
-                    <thead>
-                        <tr>
-                            <th>Symbol</th>
-                            <th>Core ETF</th>
-                            <th>1D Change%</th>
-                            <th class="hide-on-mobile">vs 20MA</th>
-                            <th class="hide-on-mobile">vs 50MA</th>
-                            <th class="hide-on-mobile">vs 200MA</th>
-                            <th>RSI 14</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-            <tr>
-                <td><strong>FXI</strong></td>
-                <td><span class="tag">-</span></td>
-                <td><span class="chg-pill text-red-bg">-2.15%</span></td>
-                <td class="hide-on-mobile text-red">-3.46%</td>
-                <td class="hide-on-mobile text-red">-5.53%</td>
-                <td class="hide-on-mobile text-red">-7.98%</td>
-                <td><div class="rsi-wrap"><span class="">34.1</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:34%"></div></div></div></td>
-            </tr>
-            <tr>
-                <td><strong>KWEB</strong></td>
-                <td><span class="tag">-</span></td>
-                <td><span class="chg-pill text-red-bg">-1.93%</span></td>
-                <td class="hide-on-mobile text-red">-3.46%</td>
-                <td class="hide-on-mobile text-red">-8.90%</td>
-                <td class="hide-on-mobile text-red">-18.06%</td>
-                <td><div class="rsi-wrap"><span class="">33.2</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:33%"></div></div></div></td>
-            </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-
-        <div class="section">
-            <div class="section-title">Macro & Alternatives</div>
-            <div class="table-wrap">
-                <table class="data-table">
-                    <thead>
-                        <tr>
-                            <th>Symbol</th>
-                            <th>Core ETF</th>
-                            <th>1D Change%</th>
-                            <th class="hide-on-mobile">vs 20MA</th>
-                            <th class="hide-on-mobile">vs 50MA</th>
-                            <th class="hide-on-mobile">vs 200MA</th>
-                            <th>RSI 14</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-            <tr>
-                <td><strong>MSOS</strong></td>
-                <td><span class="tag">-</span></td>
-                <td><span class="chg-pill text-red-bg">-2.83%</span></td>
-                <td class="hide-on-mobile text-red">-10.02%</td>
-                <td class="hide-on-mobile text-red">-5.46%</td>
-                <td class="hide-on-mobile text-red">-1.24%</td>
-                <td><div class="rsi-wrap"><span class="">37.2</span><div class="rsi-track"><div class="rsi-fill rsi-neu" style="width:37%"></div></div></div></td>
-            </tr>
-            <tr>
-                <td><strong>TLT</strong></td>
-                <td><span class="tag">-</span></td>
-                <td><span class="chg-pill text-red-bg">-0.30%</span></td>
-                <td class="hide-on-mobile text-red">-3.16%</td>
-                <td class="hide-on-mobile text-red">-4.52%</td>
-                <td class="hide-on-mobile text-red">-7.46%</td>
-                <td><div class="rsi-wrap"><span class="text-green">27.0</span><div class="rsi-track"><div class="rsi-fill rsi-os" style="width:27%"></div></div></div></td>
-            </tr>
-            <tr>
-                <td><strong>VNQ</strong></td>
-                <td><span class="tag">-</span></td>
-                <td><span class="chg-pill text-green-bg">+0.37%</span></td>
-                <td class="hide-on-mobile text-red">-2.99%</td>
-                <td class="hide-on-mobile text-red">-6.21%</td>
-                <td class="hide-on-mobile text-red">-3.49%</td>
-                <td><div class="rsi-wrap"><span class="text-green">26.2</span><div class="rsi-track"><div class="rsi-fill rsi-os" style="width:26%"></div></div></div></td>
-            </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-  </div>
-</div>
-
-<!-- ═══════════════════════════════════════════════════════════════ -->
-<!-- SECTION 7 — MOMENTUM STOCK BREADTH (Yahoo universe, not Massive) -->
+<!-- SECTION 7 — MOMENTUM STOCK BREADTH (Yahoo Finance) -->
 <!-- ═══════════════════════════════════════════════════════════════ -->
 <div class="section" id="s7-momentum-breadth">
   <div class="section-title">Section 7 — Momentum Stock Breadth</div>
   <div style="font-size:12px;color:var(--text-muted);margin-bottom:10px;max-width:820px;line-height:1.45;">
-    Yahoo universe for Friday 2026-10-02. Not the Massive tape, and not the user's 2,490-name tape.
-    US common stocks plus ADRs, no ETFs, close at least $5, volume at least 300,000.
-    Source: verified Yahoo scan log (SOURCES.txt). No individual names.
+    Yahoo Finance daily bars, session 2026-10-02.
+    Universe: 2,136 US common stocks and ADRs, no ETFs, close at least $5, volume at least 300,000.
+    The readings and the momentum rule are the verified scan recorded in /workspace/market-monitor/SOURCES.txt
+    (tag <span style="font-family:monospace;">[breadth 4% and averages]</span>).
+    Share-of-universe percents for the 4% moves, and the 29.2% label on the 50-day EMA, are the figures printed in
+    /workspace/market-monitor/index.html.
+    The industry table is copied from that same file.
+    Industry labels and the excess definition are in SOURCES.txt
+    (tag <span style="font-family:monospace;">[breadth industry]</span>).
+    Those files do not list individual stock names, so none are listed here.
   </div>
   <div class="table-wrap">
     <table class="data-table">
-      <thead><tr><th>Reading</th><th>Value</th></tr></thead>
+      <thead><tr><th>Reading</th><th>Value</th><th>Source</th></tr></thead>
       <tbody>
-        <tr><td>Universe</td><td>2,136</td></tr>
-        <tr><td>Up 4% or more</td><td>143</td></tr>
-        <tr><td>Down 4% or more</td><td>60</td></tr>
-        <tr><td>Above 20-day EMA</td><td>29.8% (635 / 2,130)</td></tr>
-        <tr><td>Above 50-day SMA</td><td>26.9% (570 / 2,120)</td></tr>
-        <tr><td>Momentum share</td><td>8.6% (183 / 2,136)</td></tr>
+        <tr><td>Universe</td><td>2,136</td><td>Yahoo Finance. SOURCES.txt</td></tr>
+        <tr><td>Up 4% or more</td><td>143 (6.7% of 2,136)</td><td>Yahoo Finance. Count in SOURCES.txt. 6.7% as printed in market-monitor/index.html</td></tr>
+        <tr><td>Down 4% or more</td><td>60 (2.8% of 2,136)</td><td>Yahoo Finance. Count in SOURCES.txt. 2.8% as printed in market-monitor/index.html</td></tr>
+        <tr><td>Above 20-day EMA</td><td>29.8% (635 / 2,130)</td><td>Yahoo Finance. SOURCES.txt</td></tr>
+        <tr><td>Above 50-day SMA</td><td>26.9% (570 / 2,120)</td><td>Yahoo Finance. SOURCES.txt</td></tr>
+        <tr><td>Above 50-day EMA</td><td>620 / 2,120 (29.2% in the monitor page)</td><td>Yahoo Finance. Count in SOURCES.txt. 29.2% as printed in market-monitor/index.html</td></tr>
+        <tr><td>Momentum share</td><td>8.6% (183 / 2,136)</td><td>Yahoo Finance. SOURCES.txt</td></tr>
+        <tr><td>Not evaluable for momentum</td><td>20 (in the universe, not counted as momentum)</td><td>Yahoo Finance. SOURCES.txt</td></tr>
+        <tr><td>ADR-flagged names in this universe</td><td>115</td><td>Yahoo Finance. SOURCES.txt</td></tr>
       </tbody>
     </table>
   </div>
+  <div style="font-size:12px;color:var(--text-muted);margin:12px 0;max-width:820px;line-height:1.45;">
+    Definitions from SOURCES.txt, same scan: EMA seeded with an SMA. A 4% move is close divided by the prior close, minus 1.
+    Above means strictly greater. A 50-day high breakout is a close above the max of the prior 50 highs.
+    ATR is Wilder 14. Quarterly gain is close divided by the close 63 sessions earlier, minus 1.
+    Momentum requires (close at least the 50-day EMA plus ATR14, or a 50-day high breakout)
+    and dollar volume (close times volume) at least 5,000,000
+    and a quarterly gain of at least 20%.
+    Excess is that industry's momentum penetration minus the universe momentum share.
+    Industry labels are the NASDAQ screener industry field joined by symbol.
+  </div>
+  <div class="sub-title" style="margin-top:8px;">Industry breakdown</div>
+  <div style="font-size:12px;color:var(--text-muted);margin-bottom:8px;max-width:820px;line-height:1.45;">
+    147 industries. Momentum-name counts sum to 183. Copied from /workspace/market-monitor/index.html.
+    52 industries have at least one momentum name; 95 have zero. Source of the prices: Yahoo Finance daily bars, session 2026-10-02.
+  </div>
+  <div class="table-wrap">
+  <table class="data-table">
+    <thead><tr><th>Industry</th><th>Momentum names</th><th>Share of momentum</th><th>Industry pool</th><th>Share of that pool</th><th>Excess</th></tr></thead>
+    <tbody>
+      <tr><td>Computer Software: Prepackaged Software</td><td>32</td><td>17.5%</td><td>117</td><td>27.4%</td><td>+18.8%</td></tr>
+      <tr><td>Biotechnology: Pharmaceutical Preparations</td><td>11</td><td>6.0%</td><td>160</td><td>6.9%</td><td>-1.7%</td></tr>
+      <tr><td>Biotechnology: Biological Products (No Diagnostic Substances)</td><td>10</td><td>5.5%</td><td>58</td><td>17.2%</td><td>+8.7%</td></tr>
+      <tr><td>Industrial Machinery/Components</td><td>10</td><td>5.5%</td><td>87</td><td>11.5%</td><td>+2.9%</td></tr>
+      <tr><td>Integrated oil Companies</td><td>9</td><td>4.9%</td><td>12</td><td>75.0%</td><td>+66.4%</td></tr>
+      <tr><td>Marine Transportation</td><td>7</td><td>3.8%</td><td>16</td><td>43.8%</td><td>+35.2%</td></tr>
+      <tr><td>Medical Specialities</td><td>7</td><td>3.8%</td><td>29</td><td>24.1%</td><td>+15.6%</td></tr>
+      <tr><td>Biotechnology: Laboratory Analytical Instruments</td><td>6</td><td>3.3%</td><td>8</td><td>75.0%</td><td>+66.4%</td></tr>
+      <tr><td>EDP Services</td><td>6</td><td>3.3%</td><td>57</td><td>10.5%</td><td>+2.0%</td></tr>
+      <tr><td>Finance: Consumer Services</td><td>6</td><td>3.3%</td><td>57</td><td>10.5%</td><td>+2.0%</td></tr>
+      <tr><td>Medical/Dental Instruments</td><td>6</td><td>3.3%</td><td>41</td><td>14.6%</td><td>+6.1%</td></tr>
+      <tr><td>Business Services</td><td>5</td><td>2.7%</td><td>51</td><td>9.8%</td><td>+1.2%</td></tr>
+      <tr><td>Electronic Components</td><td>5</td><td>2.7%</td><td>11</td><td>45.5%</td><td>+36.9%</td></tr>
+      <tr><td>Oil &amp; Gas Production</td><td>5</td><td>2.7%</td><td>44</td><td>11.4%</td><td>+2.8%</td></tr>
+      <tr><td>Semiconductors</td><td>5</td><td>2.7%</td><td>61</td><td>8.2%</td><td>-0.4%</td></tr>
+      <tr><td>Telecommunications Equipment</td><td>4</td><td>2.2%</td><td>27</td><td>14.8%</td><td>+6.2%</td></tr>
+      <tr><td>Computer Manufacturing</td><td>3</td><td>1.6%</td><td>7</td><td>42.9%</td><td>+34.3%</td></tr>
+      <tr><td>Computer Software: Programming Data Processing</td><td>3</td><td>1.6%</td><td>32</td><td>9.4%</td><td>+0.8%</td></tr>
+      <tr><td>Transportation Services</td><td>3</td><td>1.6%</td><td>9</td><td>33.3%</td><td>+24.8%</td></tr>
+      <tr><td>Biotechnology: Commercial Physical &amp; Biological Resarch</td><td>2</td><td>1.1%</td><td>5</td><td>40.0%</td><td>+31.4%</td></tr>
+      <tr><td>Biotechnology: Electromedical &amp; Electrotherapeutic Apparatus</td><td>2</td><td>1.1%</td><td>7</td><td>28.6%</td><td>+20.0%</td></tr>
+      <tr><td>Consumer Electronics/Appliances</td><td>2</td><td>1.1%</td><td>10</td><td>20.0%</td><td>+11.4%</td></tr>
+      <tr><td>Electrical Products</td><td>2</td><td>1.1%</td><td>16</td><td>12.5%</td><td>+3.9%</td></tr>
+      <tr><td>Investment Bankers/Brokers/Service</td><td>2</td><td>1.1%</td><td>29</td><td>6.9%</td><td>-1.7%</td></tr>
+      <tr><td>Oil/Gas Transmission</td><td>2</td><td>1.1%</td><td>10</td><td>20.0%</td><td>+11.4%</td></tr>
+      <tr><td>Steel/Iron Ore</td><td>2</td><td>1.1%</td><td>10</td><td>20.0%</td><td>+11.4%</td></tr>
+      <tr><td>Auto &amp; Home Supply Stores</td><td>1</td><td>0.5%</td><td>3</td><td>33.3%</td><td>+24.8%</td></tr>
+      <tr><td>Blank Checks</td><td>1</td><td>0.5%</td><td>5</td><td>20.0%</td><td>+11.4%</td></tr>
+      <tr><td>Catalog/Specialty Distribution</td><td>1</td><td>0.5%</td><td>12</td><td>8.3%</td><td>-0.2%</td></tr>
+      <tr><td>Clothing/Shoe/Accessory Stores</td><td>1</td><td>0.5%</td><td>11</td><td>9.1%</td><td>+0.5%</td></tr>
+      <tr><td>Computer Communications Equipment</td><td>1</td><td>0.5%</td><td>7</td><td>14.3%</td><td>+5.7%</td></tr>
+      <tr><td>Computer peripheral equipment</td><td>1</td><td>0.5%</td><td>7</td><td>14.3%</td><td>+5.7%</td></tr>
+      <tr><td>Construction/Ag Equipment/Trucks</td><td>1</td><td>0.5%</td><td>6</td><td>16.7%</td><td>+8.1%</td></tr>
+      <tr><td>Consumer Specialties</td><td>1</td><td>0.5%</td><td>2</td><td>50.0%</td><td>+41.4%</td></tr>
+      <tr><td>Department/Specialty Retail Stores</td><td>1</td><td>0.5%</td><td>12</td><td>8.3%</td><td>-0.2%</td></tr>
+      <tr><td>Food Distributors</td><td>1</td><td>0.5%</td><td>6</td><td>16.7%</td><td>+8.1%</td></tr>
+      <tr><td>Homebuilding</td><td>1</td><td>0.5%</td><td>15</td><td>6.7%</td><td>-1.9%</td></tr>
+      <tr><td>Industrial Specialties</td><td>1</td><td>0.5%</td><td>17</td><td>5.9%</td><td>-2.7%</td></tr>
+      <tr><td>Investment Managers</td><td>1</td><td>0.5%</td><td>32</td><td>3.1%</td><td>-5.4%</td></tr>
+      <tr><td>Major Chemicals</td><td>1</td><td>0.5%</td><td>26</td><td>3.8%</td><td>-4.7%</td></tr>
+      <tr><td>Metal Fabrications</td><td>1</td><td>0.5%</td><td>18</td><td>5.6%</td><td>-3.0%</td></tr>
+      <tr><td>Military/Government/Technical</td><td>1</td><td>0.5%</td><td>25</td><td>4.0%</td><td>-4.6%</td></tr>
+      <tr><td>Natural Gas Distribution</td><td>1</td><td>0.5%</td><td>13</td><td>7.7%</td><td>-0.9%</td></tr>
+      <tr><td>Other Consumer Services</td><td>1</td><td>0.5%</td><td>17</td><td>5.9%</td><td>-2.7%</td></tr>
+      <tr><td>Other Specialty Stores</td><td>1</td><td>0.5%</td><td>13</td><td>7.7%</td><td>-0.9%</td></tr>
+      <tr><td>Package Goods/Cosmetics</td><td>1</td><td>0.5%</td><td>10</td><td>10.0%</td><td>+1.4%</td></tr>
+      <tr><td>Packaged Foods</td><td>1</td><td>0.5%</td><td>21</td><td>4.8%</td><td>-3.8%</td></tr>
+      <tr><td>Precision Instruments</td><td>1</td><td>0.5%</td><td>2</td><td>50.0%</td><td>+41.4%</td></tr>
+      <tr><td>Professional Services</td><td>1</td><td>0.5%</td><td>13</td><td>7.7%</td><td>-0.9%</td></tr>
+      <tr><td>Restaurants</td><td>1</td><td>0.5%</td><td>27</td><td>3.7%</td><td>-4.9%</td></tr>
+      <tr><td>Retail: Computer Software &amp; Peripheral Equipment</td><td>1</td><td>0.5%</td><td>3</td><td>33.3%</td><td>+24.8%</td></tr>
+      <tr><td>Unclassified</td><td>1</td><td>0.5%</td><td>14</td><td>7.1%</td><td>-1.4%</td></tr>
+      <tr><td>Accident &amp;Health Insurance</td><td>0</td><td>0.0%</td><td>4</td><td>0.0%</td><td>-8.6%</td></tr>
+      <tr><td>Advertising</td><td>0</td><td>0.0%</td><td>5</td><td>0.0%</td><td>-8.6%</td></tr>
+      <tr><td>Aerospace</td><td>0</td><td>0.0%</td><td>13</td><td>0.0%</td><td>-8.6%</td></tr>
+      <tr><td>Agricultural Chemicals</td><td>0</td><td>0.0%</td><td>3</td><td>0.0%</td><td>-8.6%</td></tr>
+      <tr><td>Air Freight/Delivery Services</td><td>0</td><td>0.0%</td><td>12</td><td>0.0%</td><td>-8.6%</td></tr>
+      <tr><td>Aluminum</td><td>0</td><td>0.0%</td><td>2</td><td>0.0%</td><td>-8.6%</td></tr>
+      <tr><td>Apparel</td><td>0</td><td>0.0%</td><td>11</td><td>0.0%</td><td>-8.6%</td></tr>
+      <tr><td>Auto Manufacturing</td><td>0</td><td>0.0%</td><td>9</td><td>0.0%</td><td>-8.6%</td></tr>
+      <tr><td>Auto Parts:O.E.M.</td><td>0</td><td>0.0%</td><td>15</td><td>0.0%</td><td>-8.6%</td></tr>
+      <tr><td>Automotive Aftermarket</td><td>0</td><td>0.0%</td><td>3</td><td>0.0%</td><td>-8.6%</td></tr>
+      <tr><td>Banks</td><td>0</td><td>0.0%</td><td>3</td><td>0.0%</td><td>-8.6%</td></tr>
+      <tr><td>Beverages (Production/Distribution)</td><td>0</td><td>0.0%</td><td>13</td><td>0.0%</td><td>-8.6%</td></tr>
+      <tr><td>Biotechnology: In Vitro &amp; In Vivo Diagnostic Substances</td><td>0</td><td>0.0%</td><td>7</td><td>0.0%</td><td>-8.6%</td></tr>
+      <tr><td>Books</td><td>0</td><td>0.0%</td><td>2</td><td>0.0%</td><td>-8.6%</td></tr>
+      <tr><td>Broadcasting</td><td>0</td><td>0.0%</td><td>11</td><td>0.0%</td><td>-8.6%</td></tr>
+      <tr><td>Building Materials</td><td>0</td><td>0.0%</td><td>4</td><td>0.0%</td><td>-8.6%</td></tr>
+      <tr><td>Building Products</td><td>0</td><td>0.0%</td><td>3</td><td>0.0%</td><td>-8.6%</td></tr>
+      <tr><td>Building operators</td><td>0</td><td>0.0%</td><td>1</td><td>0.0%</td><td>-8.6%</td></tr>
+      <tr><td>Cable &amp; Other Pay Television Services</td><td>0</td><td>0.0%</td><td>9</td><td>0.0%</td><td>-8.6%</td></tr>
+      <tr><td>Coal Mining</td><td>0</td><td>0.0%</td><td>5</td><td>0.0%</td><td>-8.6%</td></tr>
+      <tr><td>Commercial Banks</td><td>0</td><td>0.0%</td><td>9</td><td>0.0%</td><td>-8.6%</td></tr>
+      <tr><td>Consumer Electronics/Video Chains</td><td>0</td><td>0.0%</td><td>2</td><td>0.0%</td><td>-8.6%</td></tr>
+      <tr><td>Containers/Packaging</td><td>0</td><td>0.0%</td><td>12</td><td>0.0%</td><td>-8.6%</td></tr>
+      <tr><td>Diversified Commercial Services</td><td>0</td><td>0.0%</td><td>17</td><td>0.0%</td><td>-8.6%</td></tr>
+      <tr><td>Diversified Financial Services</td><td>0</td><td>0.0%</td><td>3</td><td>0.0%</td><td>-8.6%</td></tr>
+      <tr><td>Durable Goods</td><td>0</td><td>0.0%</td><td>1</td><td>0.0%</td><td>-8.6%</td></tr>
+      <tr><td>Electric Utilities: Central</td><td>0</td><td>0.0%</td><td>36</td><td>0.0%</td><td>-8.6%</td></tr>
+      <tr><td>Electronics Distribution</td><td>0</td><td>0.0%</td><td>1</td><td>0.0%</td><td>-8.6%</td></tr>
+      <tr><td>Engineering &amp; Construction</td><td>0</td><td>0.0%</td><td>5</td><td>0.0%</td><td>-8.6%</td></tr>
+      <tr><td>Environmental Services</td><td>0</td><td>0.0%</td><td>4</td><td>0.0%</td><td>-8.6%</td></tr>
+      <tr><td>Farming/Seeds/Milling</td><td>0</td><td>0.0%</td><td>7</td><td>0.0%</td><td>-8.6%</td></tr>
+      <tr><td>Finance Companies</td><td>0</td><td>0.0%</td><td>3</td><td>0.0%</td><td>-8.6%</td></tr>
+      <tr><td>Finance/Investors Services</td><td>0</td><td>0.0%</td><td>7</td><td>0.0%</td><td>-8.6%</td></tr>
+      <tr><td>Fluid Controls</td><td>0</td><td>0.0%</td><td>5</td><td>0.0%</td><td>-8.6%</td></tr>
+      <tr><td>Food Chains</td><td>0</td><td>0.0%</td><td>5</td><td>0.0%</td><td>-8.6%</td></tr>
+      <tr><td>Forest Products</td><td>0</td><td>0.0%</td><td>4</td><td>0.0%</td><td>-8.6%</td></tr>
+      <tr><td>Garments and Clothing</td><td>0</td><td>0.0%</td><td>6</td><td>0.0%</td><td>-8.6%</td></tr>
+      <tr><td>General Bldg Contractors - Nonresidential Bldgs</td><td>0</td><td>0.0%</td><td>1</td><td>0.0%</td><td>-8.6%</td></tr>
+      <tr><td>Home Furnishings</td><td>0</td><td>0.0%</td><td>9</td><td>0.0%</td><td>-8.6%</td></tr>
+      <tr><td>Hospital/Nursing Management</td><td>0</td><td>0.0%</td><td>11</td><td>0.0%</td><td>-8.6%</td></tr>
+      <tr><td>Hotels/Resorts</td><td>0</td><td>0.0%</td><td>21</td><td>0.0%</td><td>-8.6%</td></tr>
+      <tr><td>Integrated Freight &amp; Logistics</td><td>0</td><td>0.0%</td><td>5</td><td>0.0%</td><td>-8.6%</td></tr>
+      <tr><td>Life Insurance</td><td>0</td><td>0.0%</td><td>10</td><td>0.0%</td><td>-8.6%</td></tr>
+      <tr><td>Major Banks</td><td>0</td><td>0.0%</td><td>90</td><td>0.0%</td><td>-8.6%</td></tr>
+      <tr><td>Meat/Poultry/Fish</td><td>0</td><td>0.0%</td><td>4</td><td>0.0%</td><td>-8.6%</td></tr>
+      <tr><td>Medical Electronics</td><td>0</td><td>0.0%</td><td>2</td><td>0.0%</td><td>-8.6%</td></tr>
+      <tr><td>Medical/Nursing Services</td><td>0</td><td>0.0%</td><td>13</td><td>0.0%</td><td>-8.6%</td></tr>
+      <tr><td>Medicinal Chemicals and Botanical Products</td><td>0</td><td>0.0%</td><td>7</td><td>0.0%</td><td>-8.6%</td></tr>
+      <tr><td>Metal Mining</td><td>0</td><td>0.0%</td><td>9</td><td>0.0%</td><td>-8.6%</td></tr>
+      <tr><td>Mining &amp; Quarrying of Nonmetallic Minerals (No Fuels)</td><td>0</td><td>0.0%</td><td>7</td><td>0.0%</td><td>-8.6%</td></tr>
+      <tr><td>Misc Corporate Leasing Services</td><td>0</td><td>0.0%</td><td>4</td><td>0.0%</td><td>-8.6%</td></tr>
+      <tr><td>Misc Health and Biotechnology Services</td><td>0</td><td>0.0%</td><td>5</td><td>0.0%</td><td>-8.6%</td></tr>
+      <tr><td>Miscellaneous manufacturing industries</td><td>0</td><td>0.0%</td><td>2</td><td>0.0%</td><td>-8.6%</td></tr>
+      <tr><td>Motor Vehicles</td><td>0</td><td>0.0%</td><td>3</td><td>0.0%</td><td>-8.6%</td></tr>
+      <tr><td>Movies/Entertainment</td><td>0</td><td>0.0%</td><td>2</td><td>0.0%</td><td>-8.6%</td></tr>
+      <tr><td>Multi-Sector Companies</td><td>0</td><td>0.0%</td><td>2</td><td>0.0%</td><td>-8.6%</td></tr>
+      <tr><td>Newspapers/Magazines</td><td>0</td><td>0.0%</td><td>4</td><td>0.0%</td><td>-8.6%</td></tr>
+      <tr><td>Office Equipment/Supplies/Services</td><td>0</td><td>0.0%</td><td>6</td><td>0.0%</td><td>-8.6%</td></tr>
+      <tr><td>Oil Refining/Marketing</td><td>0</td><td>0.0%</td><td>1</td><td>0.0%</td><td>-8.6%</td></tr>
+      <tr><td>Oil and Gas Field Machinery</td><td>0</td><td>0.0%</td><td>10</td><td>0.0%</td><td>-8.6%</td></tr>
+      <tr><td>Oilfield Services/Equipment</td><td>0</td><td>0.0%</td><td>8</td><td>0.0%</td><td>-8.6%</td></tr>
+      <tr><td>Ophthalmic Goods</td><td>0</td><td>0.0%</td><td>5</td><td>0.0%</td><td>-8.6%</td></tr>
+      <tr><td>Ordnance And Accessories</td><td>0</td><td>0.0%</td><td>2</td><td>0.0%</td><td>-8.6%</td></tr>
+      <tr><td>Other Pharmaceuticals</td><td>0</td><td>0.0%</td><td>3</td><td>0.0%</td><td>-8.6%</td></tr>
+      <tr><td>Paints/Coatings</td><td>0</td><td>0.0%</td><td>3</td><td>0.0%</td><td>-8.6%</td></tr>
+      <tr><td>Paper</td><td>0</td><td>0.0%</td><td>6</td><td>0.0%</td><td>-8.6%</td></tr>
+      <tr><td>Plastic Products</td><td>0</td><td>0.0%</td><td>5</td><td>0.0%</td><td>-8.6%</td></tr>
+      <tr><td>Pollution Control Equipment</td><td>0</td><td>0.0%</td><td>3</td><td>0.0%</td><td>-8.6%</td></tr>
+      <tr><td>Power Generation</td><td>0</td><td>0.0%</td><td>15</td><td>0.0%</td><td>-8.6%</td></tr>
+      <tr><td>Precious Metals</td><td>0</td><td>0.0%</td><td>8</td><td>0.0%</td><td>-8.6%</td></tr>
+      <tr><td>Professional and commerical equipment</td><td>0</td><td>0.0%</td><td>1</td><td>0.0%</td><td>-8.6%</td></tr>
+      <tr><td>Property-Casualty Insurers</td><td>0</td><td>0.0%</td><td>23</td><td>0.0%</td><td>-8.6%</td></tr>
+      <tr><td>Publishing</td><td>0</td><td>0.0%</td><td>4</td><td>0.0%</td><td>-8.6%</td></tr>
+      <tr><td>RETAIL: Building Materials</td><td>0</td><td>0.0%</td><td>10</td><td>0.0%</td><td>-8.6%</td></tr>
+      <tr><td>Radio And Television Broadcasting And Communications Equipment</td><td>0</td><td>0.0%</td><td>10</td><td>0.0%</td><td>-8.6%</td></tr>
+      <tr><td>Railroads</td><td>0</td><td>0.0%</td><td>6</td><td>0.0%</td><td>-8.6%</td></tr>
+      <tr><td>Real Estate</td><td>0</td><td>0.0%</td><td>17</td><td>0.0%</td><td>-8.6%</td></tr>
+      <tr><td>Real Estate Investment Trusts</td><td>0</td><td>0.0%</td><td>107</td><td>0.0%</td><td>-8.6%</td></tr>
+      <tr><td>Recreational Games/Products/Toys</td><td>0</td><td>0.0%</td><td>5</td><td>0.0%</td><td>-8.6%</td></tr>
+      <tr><td>Rental/Leasing Companies</td><td>0</td><td>0.0%</td><td>1</td><td>0.0%</td><td>-8.6%</td></tr>
+      <tr><td>Retail-Auto Dealers and Gas Stations</td><td>0</td><td>0.0%</td><td>10</td><td>0.0%</td><td>-8.6%</td></tr>
+      <tr><td>Retail-Drug Stores and Proprietary Stores</td><td>0</td><td>0.0%</td><td>2</td><td>0.0%</td><td>-8.6%</td></tr>
+      <tr><td>Savings Institutions</td><td>0</td><td>0.0%</td><td>9</td><td>0.0%</td><td>-8.6%</td></tr>
+      <tr><td>Services-Misc. Amusement &amp; Recreation</td><td>0</td><td>0.0%</td><td>19</td><td>0.0%</td><td>-8.6%</td></tr>
+      <tr><td>Shoe Manufacturing</td><td>0</td><td>0.0%</td><td>8</td><td>0.0%</td><td>-8.6%</td></tr>
+      <tr><td>Specialty Chemicals</td><td>0</td><td>0.0%</td><td>3</td><td>0.0%</td><td>-8.6%</td></tr>
+      <tr><td>Specialty Foods</td><td>0</td><td>0.0%</td><td>3</td><td>0.0%</td><td>-8.6%</td></tr>
+      <tr><td>Specialty Insurers</td><td>0</td><td>0.0%</td><td>16</td><td>0.0%</td><td>-8.6%</td></tr>
+      <tr><td>Textiles</td><td>0</td><td>0.0%</td><td>1</td><td>0.0%</td><td>-8.6%</td></tr>
+      <tr><td>Tobacco</td><td>0</td><td>0.0%</td><td>1</td><td>0.0%</td><td>-8.6%</td></tr>
+      <tr><td>Tools/Hardware</td><td>0</td><td>0.0%</td><td>1</td><td>0.0%</td><td>-8.6%</td></tr>
+      <tr><td>Trucking Freight/Courier Services</td><td>0</td><td>0.0%</td><td>11</td><td>0.0%</td><td>-8.6%</td></tr>
+      <tr><td>Water Sewer Pipeline Comm &amp; Power Line Construction</td><td>0</td><td>0.0%</td><td>4</td><td>0.0%</td><td>-8.6%</td></tr>
+      <tr><td>Water Supply</td><td>0</td><td>0.0%</td><td>6</td><td>0.0%</td><td>-8.6%</td></tr>
+      <tr><td>Wholesale Distributors</td><td>0</td><td>0.0%</td><td>2</td><td>0.0%</td><td>-8.6%</td></tr>
+    </tbody>
+  </table>
 </div>
 
-<!-- ═══════════════════════════════════════════════════════════════ -->
-<!-- SECTION 8B — MARKET ANALYSIS (Bull/Bear AI)                      -->
-<!-- ═══════════════════════════════════════════════════════════════ -->
-<div class="section" id="s8b-market-analysis">
-
-  <!-- Market Analysis (AI) -->
-  <div class="sub-title">8B — Market Analysis</div>
-    <div class="table-wrap" style="margin-bottom:18px;">
-    <table class="data-table">
-      <thead>
-        <tr>
-          <th style="text-align:left">Indicator <span style="font-weight:400;color:var(--text-muted)">(current value)</span></th>
-          <th style="text-align:center">Status</th>
-          <th style="text-align:center">Trend vs Prior</th>
-        </tr>
-      </thead>
-      <tbody>
-      <tr>
-        <td><strong>VIX (Volatility)</strong><br/><span style="font-size:10px;color:var(--text-muted)">15.31 (-6.6%)</span></td>
-        <td style="text-align:center"><span style="background:var(--green-bg);color:var(--green);padding:2px 8px;border-radius:3px;font-size:11px;font-weight:600;">🟢 Calm</span></td>
-        <td style="text-align:center"><span style="color:var(--green);font-weight:600;">🟢 ↓</span></td>
-      </tr>
-      <tr>
-        <td><strong>Fear &amp; Greed Index</strong><br/><span style="font-size:10px;color:var(--text-muted)">31 (prev 28)</span></td>
-        <td style="text-align:center"><span style="background:var(--amber-bg);color:var(--amber);padding:2px 8px;border-radius:3px;font-size:11px;font-weight:600;">🟡 Fear</span></td>
-        <td style="text-align:center"><span style="color:var(--green);font-weight:600;">🟢 ↑</span></td>
-      </tr>
-      <tr>
-        <td><strong>Put / Call Ratio</strong><br/><span style="font-size:10px;color:var(--text-muted)">0.67</span></td>
-        <td style="text-align:center"><span style="background:var(--green-bg);color:var(--green);padding:2px 8px;border-radius:3px;font-size:11px;font-weight:600;">🟢 Bullish</span></td>
-        <td style="text-align:center"><span style="color:var(--green);font-weight:600;">🟢 ↓</span></td>
-      </tr>
-      <tr>
-        <td><strong>S&amp;P 500 &gt; 20MA</strong><br/><span style="font-size:10px;color:var(--text-muted)">26.4%</span></td>
-        <td style="text-align:center"><span style="background:var(--red-bg);color:var(--red);padding:2px 8px;border-radius:3px;font-size:11px;font-weight:600;">🔴 Bearish</span></td>
-        <td style="text-align:center"><span style="color:var(--amber);font-weight:600;">🟡 →</span></td>
-      </tr>
-      <tr>
-        <td><strong>NAAIM Exposure</strong><br/><span style="font-size:10px;color:var(--text-muted)">N/A</span></td>
-        <td style="text-align:center"><span style="background:var(--amber-bg);color:var(--amber);padding:2px 8px;border-radius:3px;font-size:11px;font-weight:600;">🟡 Neutral</span></td>
-        <td style="text-align:center"><span class="na-val">—</span></td>
-      </tr>
-      <tr>
-        <td><strong>NYSE A/D Ratio</strong><br/><span style="font-size:10px;color:var(--text-muted)">N/A</span></td>
-        <td style="text-align:center"><span style="background:var(--amber-bg);color:var(--amber);padding:2px 8px;border-radius:3px;font-size:11px;font-weight:600;">🟡 Neutral</span></td>
-        <td style="text-align:center"><span class="na-val">—</span></td>
-      </tr>
-      </tbody>
-    </table>
-  </div>
-
-  <h4 class="sub-title">Bull Case (利好邏輯)</h4>
-  <ul style="color:#81c784;font-size:13px;margin:8px 0 14px 0;padding-left:20px;"><li style="margin-bottom:6px;line-height:1.6;">主要指數全面上漲，SPY上漲1.21%，QQQ上漲1.31%，顯示市場整體趨勢向好</li><li style="margin-bottom:6px;line-height:1.6;">市場廣度強勁，SP500有79.7%成份股高於20日均線，顯示中短期趨勢穩健</li><li style="margin-bottom:6px;line-height:1.6;">多個科技及成長板塊RSI均在70以上，表明動能強勁，如SOXX RSI=77.14，SMH RSI=75.23</li><li style="margin-bottom:6px;line-height:1.6;">Fear & Greed指數達68.09，處於greed區間，投資者情緒樂觀</li><li style="margin-bottom:6px;line-height:1.6;">10年期收益率下降1.46%，利率壓力減輕，有利股市估值</li></ul>
-
-  <h4 class="sub-title">Bear Case (利淡邏輯)</h4>
-  <ul style="color:#ef9a9a;font-size:13px;margin:8px 0 14px 0;padding-left:20px;"><li style="margin-bottom:6px;line-height:1.6;">主要指數RSI過高，SPY、QQQ RSI均超過73，短期可能面臨技術性回調</li><li style="margin-bottom:6px;line-height:1.6;">WTI油價大幅下跌11.45%，能源板塊承壓，反映經濟不確定性增加</li><li style="margin-bottom:6px;line-height:1.6;">Put/Call Ratio偏低0.6484，市場可能過度樂觀，風險警示信號</li><li style="margin-bottom:6px;line-height:1.6;">NAAIM機構持倉增至79.49，風險偏好提升可能導致短期波動加劇</li><li style="margin-bottom:6px;line-height:1.6;">部分防禦板塊如XLU下跌0.41%，顯示資金輪動風險</li></ul>
-
-  <!-- Phase 4 AI Comment -->
-  <div class="impact-comment-placeholder" id="s8-ai-comment">
-    Bull/Bear regime synthesis — Checklist status, regime classification, actionable bias for next session.
-  </div>
 </div>
-
-
-
 <!-- ═══ HISTORY ARCHIVE ════════════════════════════════════════════ -->
 <div class="section" style="border-top:2px solid var(--border);margin-top:24px;">
   <div class="section-title" style="color:var(--blue);">&#128196; History Archive</div>
@@ -1701,7 +1038,7 @@
 <!-- FOOTER -->
 <div class="report-footer">
   Momentum Swing Trading Coach &nbsp;|&nbsp;
-  Data: Yahoo Finance &middot; CNN &middot; NAAIM &middot; Finviz &middot; Barchart &nbsp;|&nbsp;
+  Data: Yahoo Finance &middot; CNN &middot; Finviz &middot; Barchart &nbsp;|&nbsp;
   2026-10-04 00:13 HKT &nbsp;/&nbsp; 2026-10-03 12:13 ET<br/>
   For informational purposes only. Not financial advice.
 </div>
