@@ -309,7 +309,11 @@ def build_adr_cards(breadth):
     mwad = breadth.get("market_wide_advance_decline", {})
     cards = []
     for mkt in ["NYSE", "NASDAQ"]:
+        # Barchart may return '-' when its session/cookie check fails.
+        # Treat that marker as unavailable so the rest of the report still renders.
         d = mwad.get(mkt, {})
+        if not isinstance(d, dict):
+            d = {}
         adv     = na(d.get("advances"),    "int")
         dec     = na(d.get("declines"),    "int")
         unch    = na(d.get("unchanged"),   "int")
@@ -518,7 +522,10 @@ def build_s6_checklist(data):
 
     # ── NYSE A/D Ratio ────────────────────────────────────────────────────
     mwad     = (breadth.get("market_wide_advance_decline") or {})
-    nyse_adr = safe_float((mwad.get("NYSE") or {}).get("ad_ratio"))
+    nyse_data = mwad.get("NYSE") if isinstance(mwad, dict) else {}
+    if not isinstance(nyse_data, dict):
+        nyse_data = {}
+    nyse_adr = safe_float(nyse_data.get("ad_ratio"))
     if nyse_adr is not None and nyse_adr >= 1.2:
         adr_status = '<span style="background:var(--green-bg);color:var(--green);padding:2px 8px;border-radius:3px;font-size:11px;font-weight:600;">🟢 Bullish</span>'
     elif nyse_adr is not None and nyse_adr < 0.9:
