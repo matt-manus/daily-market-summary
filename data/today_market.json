@@ -1,12 +1,12 @@
 {
   "meta": {
-    "generated_hkt": "2026-10-04 08:12",
-    "generated_et": "2026-10-03 20:12",
-    "date": "2026-10-03",
+    "generated_hkt": "2026-10-05 08:18",
+    "generated_et": "2026-10-04 20:18",
+    "date": "2026-10-04",
     "source": "Yahoo Finance + CNN + NAAIM + Finviz + Barchart",
     "rsi_method": "Wilder SMMA (EWM alpha=1/14)",
     "schema_version": "4.2",
-    "last_updated_hkt": "2026-10-04 08:13:09 HKT"
+    "last_updated_hkt": "2026-10-05 08:18:37 HKT"
   },
   "macro": {
     "VIX": {
@@ -15,9 +15,9 @@
       "change_1d_pct": -6.59
     },
     "DXY": {
-      "price": 101.93,
-      "change_1d": -0.17,
-      "change_1d_pct": -0.17
+      "price": 101.9,
+      "change_1d": -0.03,
+      "change_1d_pct": -0.03
     },
     "TNX_10Y": {
       "price": 5.277,
@@ -25,19 +25,19 @@
       "change_1d_pct": 0.76
     },
     "GOLD": {
-      "price": 4162.2998,
-      "change_1d": -40.0,
-      "change_1d_pct": -0.95
+      "price": 4176.5,
+      "change_1d": 14.2002,
+      "change_1d_pct": 0.34
     },
     "OIL_WTI": {
-      "price": 91.11,
-      "change_1d": -1.76,
-      "change_1d_pct": -1.9
+      "price": 90.68,
+      "change_1d": -0.43,
+      "change_1d_pct": -0.47
     },
     "BTC": {
-      "price": 84810.9219,
-      "change_1d": 313.711,
-      "change_1d_pct": 0.37
+      "price": 86414.9375,
+      "change_1d": 1651.3594,
+      "change_1d_pct": 1.95
     }
   },
   "indices": {
@@ -69,7 +69,7 @@
       "rsi14": 65.5919,
       "ma20": 727.4082,
       "ma50": 716.2254,
-      "ma200": 667.2343,
+      "ma200": 667.2344,
       "vs_ma20_pct": 3.05,
       "vs_ma50_pct": 4.66,
       "vs_ma200_pct": 12.34,
@@ -1315,7 +1315,7 @@
     "data_stale": false
   },
   "data_status": "fresh",
-  "last_updated_hkt": "2026-10-04 08:13:09 HKT",
+  "last_updated_hkt": "2026-10-05 08:18:37 HKT",
   "thematic": [
     {
       "symbol": "XLK",
