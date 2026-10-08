@@ -1,43 +1,43 @@
 {
   "meta": {
-    "generated_hkt": "2026-10-07 09:05",
-    "generated_et": "2026-10-06 21:05",
-    "date": "2026-10-06",
+    "generated_hkt": "2026-10-08 09:25",
+    "generated_et": "2026-10-07 21:25",
+    "date": "2026-10-07",
     "source": "Yahoo Finance + CNN + NAAIM + Finviz + Barchart",
     "rsi_method": "Wilder SMMA (EWM alpha=1/14)",
     "schema_version": "4.2",
-    "last_updated_hkt": "2026-10-07 09:06:05 HKT"
+    "last_updated_hkt": "2026-10-08 09:25:31 HKT"
   },
   "macro": {
     "VIX": {
-      "price": 15.01,
-      "change_1d": -0.51,
-      "change_1d_pct": -3.29
+      "price": 15.08,
+      "change_1d": 0.07,
+      "change_1d_pct": 0.47
     },
     "DXY": {
-      "price": 101.952,
-      "change_1d": -0.218,
-      "change_1d_pct": -0.21
+      "price": 102.229,
+      "change_1d": 0.399,
+      "change_1d_pct": 0.39
     },
     "TNX_10Y": {
-      "price": 5.269,
-      "change_1d": -0.042,
-      "change_1d_pct": -0.79
+      "price": 5.277,
+      "change_1d": 0.008,
+      "change_1d_pct": 0.15
     },
     "GOLD": {
-      "price": 4184.6001,
-      "change_1d": 27.8003,
-      "change_1d_pct": 0.67
+      "price": 4143.8999,
+      "change_1d": -43.2002,
+      "change_1d_pct": -1.03
     },
     "OIL_WTI": {
-      "price": 89.9,
-      "change_1d": 0.47,
-      "change_1d_pct": 0.53
+      "price": 89.46,
+      "change_1d": 0.02,
+      "change_1d_pct": 0.02
     },
     "BTC": {
-      "price": 85451.7422,
-      "change_1d": -334.8516,
-      "change_1d_pct": -0.39
+      "price": 83192.1484,
+      "change_1d": -2365.4141,
+      "change_1d_pct": -2.76
     }
   },
   "indices": {
@@ -53,13 +53,13 @@
       "vs_ma200_pct": 8.49,
       "vs20ma": "Green",
       "status": "ABOVE ALL",
-      "ad_ratio": 2.061,
+      "ad_ratio": 0.382,
       "ad_detail": {
-        "advances": 338,
-        "declines": 164,
-        "unchanged": 1,
+        "advances": 138,
+        "declines": 361,
+        "unchanged": 4,
         "total": 503,
-        "ad_ratio": 2.061,
+        "ad_ratio": 0.382,
         "source": "Finviz screener (S&P 500)"
       }
     },
@@ -75,13 +75,13 @@
       "vs_ma200_pct": 13.59,
       "vs20ma": "Green",
       "status": "ABOVE ALL",
-      "ad_ratio": 1.658,
+      "ad_ratio": 0.587,
       "ad_detail": {
-        "advances": 63,
-        "declines": 38,
-        "unchanged": 0,
+        "advances": 37,
+        "declines": 63,
+        "unchanged": 1,
         "total": 101,
-        "ad_ratio": 1.658,
+        "ad_ratio": 0.587,
         "source": "Finviz screener (NASDAQ 100)"
       }
     },
@@ -97,13 +97,13 @@
       "vs_ma200_pct": 2.91,
       "vs20ma": "Red",
       "status": "MIXED",
-      "ad_ratio": 2.0,
+      "ad_ratio": 1.727,
       "ad_detail": {
-        "advances": 20,
-        "declines": 10,
+        "advances": 19,
+        "declines": 11,
         "unchanged": 0,
         "total": 30,
-        "ad_ratio": 2.0,
+        "ad_ratio": 1.727,
         "source": "yfinance (DJI 30 components)"
       }
     },
@@ -119,30 +119,30 @@
       "vs_ma200_pct": 2.13,
       "vs20ma": "Red",
       "status": "MIXED",
-      "ad_ratio": 0.788,
+      "ad_ratio": 0.419,
       "ad_detail": {
-        "advances": 849,
-        "declines": 1078,
-        "unchanged": 42,
+        "advances": 572,
+        "declines": 1366,
+        "unchanged": 31,
         "total": 1969,
-        "ad_ratio": 0.788,
+        "ad_ratio": 0.419,
         "source": "Finviz screener (Russell 2000)"
       }
     }
   },
   "sentiment": {
     "fear_greed": {
-      "score": 47.37,
-      "rating": "neutral",
-      "timestamp": "2026-10-06T23:59:49+00:00",
-      "prev_close": 43.03,
-      "prev_1w": 28.86,
+      "score": 44.6,
+      "rating": "fear",
+      "timestamp": "2026-10-07T23:59:52+00:00",
+      "prev_close": 47.2,
+      "prev_1w": 30.26,
       "prev_1m": 45.23,
-      "prev_1y": 53.97,
+      "prev_1y": 51.86,
       "source": "CNN Fear & Greed API"
     },
     "put_call": {
-      "value": 0.753,
+      "value": 0.7615,
       "rating": "extreme fear",
       "source": "CNN Fear & Greed (5-day avg equity P/C ratio)"
     },
@@ -174,6 +174,25 @@
       "change_ytd_pct": "-"
     },
     {
+      "symbol": "CIBR",
+      "name": "Cybersecurity",
+      "price": 108.13,
+      "change_1d_pct": 2.0,
+      "rsi14": 69.1939,
+      "ma20": 101.4527,
+      "ma50": 98.1368,
+      "ma200": 80.1968,
+      "vs_ma20_pct": 6.58,
+      "vs_ma50_pct": 10.18,
+      "vs_ma200_pct": 34.83,
+      "vs20ma": "Green",
+      "status": "ABOVE ALL",
+      "change_1w_pct": "-",
+      "change_1m_pct": "-",
+      "change_3m_pct": "-",
+      "change_ytd_pct": "-"
+    },
+    {
       "symbol": "SMH",
       "name": "Semiconductors",
       "price": 632.5,
@@ -185,6 +204,44 @@
       "vs_ma20_pct": 7.13,
       "vs_ma50_pct": 10.39,
       "vs_ma200_pct": 25.9,
+      "vs20ma": "Green",
+      "status": "ABOVE ALL",
+      "change_1w_pct": "-",
+      "change_1m_pct": "-",
+      "change_3m_pct": "-",
+      "change_ytd_pct": "-"
+    },
+    {
+      "symbol": "MAGS",
+      "name": "Magnificent 7",
+      "price": 73.9,
+      "change_1d_pct": 0.54,
+      "rsi14": 68.0939,
+      "ma20": 71.3825,
+      "ma50": 69.1918,
+      "ma200": 65.8165,
+      "vs_ma20_pct": 3.53,
+      "vs_ma50_pct": 6.8,
+      "vs_ma200_pct": 12.28,
+      "vs20ma": "Green",
+      "status": "ABOVE ALL",
+      "change_1w_pct": "-",
+      "change_1m_pct": "-",
+      "change_3m_pct": "-",
+      "change_ytd_pct": "-"
+    },
+    {
+      "symbol": "BUG",
+      "name": "Cybersecurity (Global X)",
+      "price": 48.73,
+      "change_1d_pct": 2.1,
+      "rsi14": 67.9764,
+      "ma20": 45.167,
+      "ma50": 42.7122,
+      "ma200": 33.5796,
+      "vs_ma20_pct": 7.89,
+      "vs_ma50_pct": 14.09,
+      "vs_ma200_pct": 45.12,
       "vs20ma": "Green",
       "status": "ABOVE ALL",
       "change_1w_pct": "-",
@@ -212,63 +269,6 @@
       "change_ytd_pct": "-"
     },
     {
-      "symbol": "MAGS",
-      "name": "Magnificent 7",
-      "price": 73.5,
-      "change_1d_pct": 1.25,
-      "rsi14": 66.5526,
-      "ma20": 71.141,
-      "ma50": 68.974,
-      "ma200": 65.7688,
-      "vs_ma20_pct": 3.32,
-      "vs_ma50_pct": 6.56,
-      "vs_ma200_pct": 11.76,
-      "vs20ma": "Green",
-      "status": "ABOVE ALL",
-      "change_1w_pct": "-",
-      "change_1m_pct": "-",
-      "change_3m_pct": "-",
-      "change_ytd_pct": "-"
-    },
-    {
-      "symbol": "CIBR",
-      "name": "Cybersecurity",
-      "price": 106.01,
-      "change_1d_pct": 1.25,
-      "rsi14": 65.5409,
-      "ma20": 100.7465,
-      "ma50": 97.7562,
-      "ma200": 80.0119,
-      "vs_ma20_pct": 5.22,
-      "vs_ma50_pct": 8.44,
-      "vs_ma200_pct": 32.49,
-      "vs20ma": "Green",
-      "status": "ABOVE ALL",
-      "change_1w_pct": "-",
-      "change_1m_pct": "-",
-      "change_3m_pct": "-",
-      "change_ytd_pct": "-"
-    },
-    {
-      "symbol": "BUG",
-      "name": "Cybersecurity (Global X)",
-      "price": 47.73,
-      "change_1d_pct": 1.73,
-      "rsi14": 65.0157,
-      "ma20": 44.7725,
-      "ma50": 42.4982,
-      "ma200": 33.4901,
-      "vs_ma20_pct": 6.61,
-      "vs_ma50_pct": 12.31,
-      "vs_ma200_pct": 42.52,
-      "vs20ma": "Green",
-      "status": "ABOVE ALL",
-      "change_1w_pct": "-",
-      "change_1m_pct": "-",
-      "change_3m_pct": "-",
-      "change_ytd_pct": "-"
-    },
-    {
       "symbol": "SKYY",
       "name": "Cloud Computing",
       "price": 171.01,
@@ -280,6 +280,25 @@
       "vs_ma20_pct": 4.07,
       "vs_ma50_pct": 6.73,
       "vs_ma200_pct": 28.41,
+      "vs20ma": "Green",
+      "status": "ABOVE ALL",
+      "change_1w_pct": "-",
+      "change_1m_pct": "-",
+      "change_3m_pct": "-",
+      "change_ytd_pct": "-"
+    },
+    {
+      "symbol": "QTUM",
+      "name": "Quantum Computing & ML",
+      "price": 157.39,
+      "change_1d_pct": 0.63,
+      "rsi14": 64.9351,
+      "ma20": 150.1904,
+      "ma50": 149.1035,
+      "ma200": 134.6018,
+      "vs_ma20_pct": 4.79,
+      "vs_ma50_pct": 5.56,
+      "vs_ma200_pct": 16.93,
       "vs20ma": "Green",
       "status": "ABOVE ALL",
       "change_1w_pct": "-",
@@ -307,55 +326,17 @@
       "change_ytd_pct": "-"
     },
     {
-      "symbol": "ARKK",
-      "name": "ARK Innovation",
-      "price": 92.78,
-      "change_1d_pct": 3.28,
-      "rsi14": 64.5271,
-      "ma20": 87.869,
-      "ma50": 83.439,
-      "ma200": 77.8245,
-      "vs_ma20_pct": 5.59,
-      "vs_ma50_pct": 11.2,
-      "vs_ma200_pct": 19.22,
-      "vs20ma": "Green",
-      "status": "ABOVE ALL",
-      "change_1w_pct": "-",
-      "change_1m_pct": "-",
-      "change_3m_pct": "-",
-      "change_ytd_pct": "-"
-    },
-    {
       "symbol": "AIQ",
       "name": "AI & Big Data",
-      "price": 66.85,
-      "change_1d_pct": 0.94,
-      "rsi14": 63.3933,
-      "ma20": 64.9035,
-      "ma50": 63.4016,
-      "ma200": 57.4096,
-      "vs_ma20_pct": 3.0,
-      "vs_ma50_pct": 5.44,
-      "vs_ma200_pct": 16.44,
-      "vs20ma": "Green",
-      "status": "ABOVE ALL",
-      "change_1w_pct": "-",
-      "change_1m_pct": "-",
-      "change_3m_pct": "-",
-      "change_ytd_pct": "-"
-    },
-    {
-      "symbol": "QTUM",
-      "name": "Quantum Computing & ML",
-      "price": 156.4,
-      "change_1d_pct": 0.22,
-      "rsi14": 63.3437,
-      "ma20": 149.744,
-      "ma50": 148.7632,
-      "ma200": 134.3449,
-      "vs_ma20_pct": 4.44,
-      "vs_ma50_pct": 5.13,
-      "vs_ma200_pct": 16.42,
+      "price": 67.05,
+      "change_1d_pct": 0.3,
+      "rsi14": 64.3095,
+      "ma20": 65.04,
+      "ma50": 63.5766,
+      "ma200": 57.5002,
+      "vs_ma20_pct": 3.09,
+      "vs_ma50_pct": 5.46,
+      "vs_ma200_pct": 16.61,
       "vs20ma": "Green",
       "status": "ABOVE ALL",
       "change_1w_pct": "-",
@@ -366,15 +347,53 @@
     {
       "symbol": "ROBO",
       "name": "Robotics & Automation",
-      "price": 83.34,
-      "change_1d_pct": 0.63,
-      "rsi14": 63.3388,
-      "ma20": 79.835,
-      "ma50": 80.7946,
-      "ma200": 78.3935,
-      "vs_ma20_pct": 4.39,
-      "vs_ma50_pct": 3.15,
-      "vs_ma200_pct": 6.31,
+      "price": 83.4,
+      "change_1d_pct": 0.07,
+      "rsi14": 63.5503,
+      "ma20": 80.0225,
+      "ma50": 80.891,
+      "ma200": 78.4723,
+      "vs_ma20_pct": 4.22,
+      "vs_ma50_pct": 3.1,
+      "vs_ma200_pct": 6.28,
+      "vs20ma": "Green",
+      "status": "ABOVE ALL",
+      "change_1w_pct": "-",
+      "change_1m_pct": "-",
+      "change_3m_pct": "-",
+      "change_ytd_pct": "-"
+    },
+    {
+      "symbol": "ARKQ",
+      "name": "ARK Autonomous & Robotics",
+      "price": 127.2,
+      "change_1d_pct": 1.08,
+      "rsi14": 60.7898,
+      "ma20": 122.7902,
+      "ma50": 122.9687,
+      "ma200": 124.7209,
+      "vs_ma20_pct": 3.59,
+      "vs_ma50_pct": 3.44,
+      "vs_ma200_pct": 1.99,
+      "vs20ma": "Green",
+      "status": "ABOVE ALL",
+      "change_1w_pct": "-",
+      "change_1m_pct": "-",
+      "change_3m_pct": "-",
+      "change_ytd_pct": "-"
+    },
+    {
+      "symbol": "ARKK",
+      "name": "ARK Innovation",
+      "price": 90.49,
+      "change_1d_pct": -2.47,
+      "rsi14": 57.451,
+      "ma20": 88.0895,
+      "ma50": 83.7982,
+      "ma200": 77.8884,
+      "vs_ma20_pct": 2.73,
+      "vs_ma50_pct": 7.99,
+      "vs_ma200_pct": 16.18,
       "vs20ma": "Green",
       "status": "ABOVE ALL",
       "change_1w_pct": "-",
@@ -385,36 +404,17 @@
     {
       "symbol": "BOTZ",
       "name": "Robotics & AI",
-      "price": 36.2,
-      "change_1d_pct": 0.47,
-      "rsi14": 57.8478,
-      "ma20": 35.3083,
-      "ma50": 35.8127,
-      "ma200": 36.8598,
-      "vs_ma20_pct": 2.53,
-      "vs_ma50_pct": 1.08,
-      "vs_ma200_pct": -1.79,
+      "price": 36.17,
+      "change_1d_pct": -0.08,
+      "rsi14": 57.4249,
+      "ma20": 35.3363,
+      "ma50": 35.8493,
+      "ma200": 36.8664,
+      "vs_ma20_pct": 2.36,
+      "vs_ma50_pct": 0.89,
+      "vs_ma200_pct": -1.89,
       "vs20ma": "Green",
       "status": "MIXED",
-      "change_1w_pct": "-",
-      "change_1m_pct": "-",
-      "change_3m_pct": "-",
-      "change_ytd_pct": "-"
-    },
-    {
-      "symbol": "ARKQ",
-      "name": "ARK Autonomous & Robotics",
-      "price": 125.84,
-      "change_1d_pct": 1.09,
-      "rsi14": 57.824,
-      "ma20": 122.6327,
-      "ma50": 122.7221,
-      "ma200": 124.6324,
-      "vs_ma20_pct": 2.62,
-      "vs_ma50_pct": 2.54,
-      "vs_ma200_pct": 0.97,
-      "vs20ma": "Green",
-      "status": "ABOVE ALL",
       "change_1w_pct": "-",
       "change_1m_pct": "-",
       "change_3m_pct": "-",
@@ -459,6 +459,25 @@
       "change_ytd_pct": "-"
     },
     {
+      "symbol": "PAVE",
+      "name": "Infrastructure",
+      "price": 54.65,
+      "change_1d_pct": 1.0,
+      "rsi14": 55.5908,
+      "ma20": 53.343,
+      "ma50": 55.351,
+      "ma200": 54.3547,
+      "vs_ma20_pct": 2.45,
+      "vs_ma50_pct": -1.27,
+      "vs_ma200_pct": 0.54,
+      "vs20ma": "Green",
+      "status": "MIXED",
+      "change_1w_pct": "-",
+      "change_1m_pct": "-",
+      "change_3m_pct": "-",
+      "change_ytd_pct": "-"
+    },
+    {
       "symbol": "XLU",
       "name": "Utilities",
       "price": 41.16,
@@ -470,25 +489,6 @@
       "vs_ma20_pct": 1.44,
       "vs_ma50_pct": -2.52,
       "vs_ma200_pct": -5.98,
-      "vs20ma": "Green",
-      "status": "MIXED",
-      "change_1w_pct": "-",
-      "change_1m_pct": "-",
-      "change_3m_pct": "-",
-      "change_ytd_pct": "-"
-    },
-    {
-      "symbol": "PAVE",
-      "name": "Infrastructure",
-      "price": 54.11,
-      "change_1d_pct": 0.43,
-      "rsi14": 51.2453,
-      "ma20": 53.351,
-      "ma50": 55.4076,
-      "ma200": 54.3188,
-      "vs_ma20_pct": 1.42,
-      "vs_ma50_pct": -2.34,
-      "vs_ma200_pct": -0.38,
       "vs20ma": "Green",
       "status": "MIXED",
       "change_1w_pct": "-",
@@ -575,15 +575,15 @@
     {
       "symbol": "XLC",
       "name": "Communication Services",
-      "price": 111.61,
-      "change_1d_pct": 1.17,
-      "rsi14": 49.5903,
-      "ma20": 112.0833,
-      "ma50": 111.3061,
-      "ma200": 113.1006,
-      "vs_ma20_pct": -0.42,
-      "vs_ma50_pct": 0.27,
-      "vs_ma200_pct": -1.32,
+      "price": 111.65,
+      "change_1d_pct": 0.04,
+      "rsi14": 49.7263,
+      "ma20": 112.1081,
+      "ma50": 111.3929,
+      "ma200": 113.0868,
+      "vs_ma20_pct": -0.41,
+      "vs_ma50_pct": 0.23,
+      "vs_ma200_pct": -1.27,
       "vs20ma": "Red",
       "status": "MIXED",
       "change_1w_pct": "-",
@@ -630,17 +630,17 @@
       "change_ytd_pct": "-"
     },
     {
-      "symbol": "PICK",
-      "name": "Diversified Metals & Mining",
-      "price": 61.24,
-      "change_1d_pct": 1.22,
-      "rsi14": 47.0096,
-      "ma20": 61.813,
-      "ma50": 62.5644,
-      "ma200": 59.8932,
-      "vs_ma20_pct": -0.93,
-      "vs_ma50_pct": -2.12,
-      "vs_ma200_pct": 2.25,
+      "symbol": "BLOK",
+      "name": "Blockchain",
+      "price": 61.96,
+      "change_1d_pct": -0.02,
+      "rsi14": 46.4406,
+      "ma20": 63.2003,
+      "ma50": 62.1041,
+      "ma200": 59.9543,
+      "vs_ma20_pct": -1.96,
+      "vs_ma50_pct": -0.23,
+      "vs_ma200_pct": 3.35,
       "vs20ma": "Red",
       "status": "MIXED",
       "change_1w_pct": "-",
@@ -649,17 +649,17 @@
       "change_ytd_pct": "-"
     },
     {
-      "symbol": "BLOK",
-      "name": "Blockchain",
-      "price": 61.97,
-      "change_1d_pct": 0.24,
-      "rsi14": 46.4766,
-      "ma20": 63.3788,
-      "ma50": 62.0736,
-      "ma200": 59.9275,
-      "vs_ma20_pct": -2.22,
-      "vs_ma50_pct": -0.17,
-      "vs_ma200_pct": 3.41,
+      "symbol": "PICK",
+      "name": "Diversified Metals & Mining",
+      "price": 61.12,
+      "change_1d_pct": -0.2,
+      "rsi14": 46.4231,
+      "ma20": 61.5625,
+      "ma50": 62.6224,
+      "ma200": 59.9548,
+      "vs_ma20_pct": -0.72,
+      "vs_ma50_pct": -2.4,
+      "vs_ma200_pct": 1.94,
       "vs20ma": "Red",
       "status": "MIXED",
       "change_1w_pct": "-",
@@ -725,6 +725,25 @@
       "change_ytd_pct": "-"
     },
     {
+      "symbol": "IPAY",
+      "name": "Digital Payments",
+      "price": 47.7,
+      "change_1d_pct": 0.15,
+      "rsi14": 44.9985,
+      "ma20": 47.913,
+      "ma50": 49.9352,
+      "ma200": 47.6331,
+      "vs_ma20_pct": -0.44,
+      "vs_ma50_pct": -4.48,
+      "vs_ma200_pct": 0.14,
+      "vs20ma": "Red",
+      "status": "MIXED",
+      "change_1w_pct": "-",
+      "change_1m_pct": "-",
+      "change_3m_pct": "-",
+      "change_ytd_pct": "-"
+    },
+    {
       "symbol": "XHB",
       "name": "Homebuilders",
       "price": 97.37,
@@ -738,25 +757,6 @@
       "vs_ma200_pct": -7.53,
       "vs20ma": "Green",
       "status": "MIXED",
-      "change_1w_pct": "-",
-      "change_1m_pct": "-",
-      "change_3m_pct": "-",
-      "change_ytd_pct": "-"
-    },
-    {
-      "symbol": "IPAY",
-      "name": "Digital Payments",
-      "price": 47.63,
-      "change_1d_pct": 2.52,
-      "rsi14": 44.4526,
-      "ma20": 48.027,
-      "ma50": 49.9712,
-      "ma200": 47.6544,
-      "vs_ma20_pct": -0.83,
-      "vs_ma50_pct": -4.69,
-      "vs_ma200_pct": -0.05,
-      "vs20ma": "Red",
-      "status": "BELOW ALL",
       "change_1w_pct": "-",
       "change_1m_pct": "-",
       "change_3m_pct": "-",
@@ -782,25 +782,6 @@
       "change_ytd_pct": "-"
     },
     {
-      "symbol": "KWEB",
-      "name": "China Internet",
-      "price": 24.56,
-      "change_1d_pct": 2.93,
-      "rsi14": 44.0633,
-      "ma20": 24.641,
-      "ma50": 26.155,
-      "ma200": 29.0696,
-      "vs_ma20_pct": -0.33,
-      "vs_ma50_pct": -6.1,
-      "vs_ma200_pct": -15.51,
-      "vs20ma": "Red",
-      "status": "BELOW ALL",
-      "change_1w_pct": "-",
-      "change_1m_pct": "-",
-      "change_3m_pct": "-",
-      "change_ytd_pct": "-"
-    },
-    {
       "symbol": "XRT",
       "name": "Retail",
       "price": 82.95,
@@ -820,17 +801,55 @@
       "change_ytd_pct": "-"
     },
     {
-      "symbol": "FINX",
-      "name": "FinTech",
-      "price": 24.95,
-      "change_1d_pct": 2.51,
-      "rsi14": 43.5084,
-      "ma20": 25.4398,
-      "ma50": 26.1561,
-      "ma200": 25.7931,
-      "vs_ma20_pct": -1.93,
-      "vs_ma50_pct": -4.61,
-      "vs_ma200_pct": -3.27,
+      "symbol": "KWEB",
+      "name": "China Internet",
+      "price": 24.54,
+      "change_1d_pct": -0.08,
+      "rsi14": 43.8433,
+      "ma20": 24.6,
+      "ma50": 26.1058,
+      "ma200": 29.0234,
+      "vs_ma20_pct": -0.24,
+      "vs_ma50_pct": -6.0,
+      "vs_ma200_pct": -15.45,
+      "vs20ma": "Red",
+      "status": "BELOW ALL",
+      "change_1w_pct": "-",
+      "change_1m_pct": "-",
+      "change_3m_pct": "-",
+      "change_ytd_pct": "-"
+    },
+    {
+      "symbol": "ROKT",
+      "name": "Space Exploration",
+      "price": 106.14,
+      "change_1d_pct": 0.49,
+      "rsi14": 43.7374,
+      "ma20": 106.156,
+      "ma50": 111.0253,
+      "ma200": 108.417,
+      "vs_ma20_pct": -0.02,
+      "vs_ma50_pct": -4.4,
+      "vs_ma200_pct": -2.1,
+      "vs20ma": "Red",
+      "status": "BELOW ALL",
+      "change_1w_pct": "-",
+      "change_1m_pct": "-",
+      "change_3m_pct": "-",
+      "change_ytd_pct": "-"
+    },
+    {
+      "symbol": "JETS",
+      "name": "Airlines",
+      "price": 28.1,
+      "change_1d_pct": 0.75,
+      "rsi14": 43.4376,
+      "ma20": 28.2795,
+      "ma50": 29.6502,
+      "ma200": 28.5414,
+      "vs_ma20_pct": -0.63,
+      "vs_ma50_pct": -5.23,
+      "vs_ma200_pct": -1.55,
       "vs20ma": "Red",
       "status": "BELOW ALL",
       "change_1w_pct": "-",
@@ -896,6 +915,25 @@
       "change_ytd_pct": "-"
     },
     {
+      "symbol": "FINX",
+      "name": "FinTech",
+      "price": 24.837,
+      "change_1d_pct": -0.45,
+      "rsi14": 42.4658,
+      "ma20": 25.3467,
+      "ma50": 26.1396,
+      "ma200": 25.7706,
+      "vs_ma20_pct": -2.01,
+      "vs_ma50_pct": -4.98,
+      "vs_ma200_pct": -3.62,
+      "vs20ma": "Red",
+      "status": "BELOW ALL",
+      "change_1w_pct": "-",
+      "change_1m_pct": "-",
+      "change_3m_pct": "-",
+      "change_ytd_pct": "-"
+    },
+    {
       "symbol": "GDX",
       "name": "Gold Miners",
       "price": 88.22,
@@ -953,44 +991,6 @@
       "change_ytd_pct": "-"
     },
     {
-      "symbol": "ROKT",
-      "name": "Space Exploration",
-      "price": 105.62,
-      "change_1d_pct": -0.04,
-      "rsi14": 41.1299,
-      "ma20": 106.3083,
-      "ma50": 111.1492,
-      "ma200": 108.2817,
-      "vs_ma20_pct": -0.65,
-      "vs_ma50_pct": -4.97,
-      "vs_ma200_pct": -2.46,
-      "vs20ma": "Red",
-      "status": "BELOW ALL",
-      "change_1w_pct": "-",
-      "change_1m_pct": "-",
-      "change_3m_pct": "-",
-      "change_ytd_pct": "-"
-    },
-    {
-      "symbol": "JETS",
-      "name": "Airlines",
-      "price": 27.89,
-      "change_1d_pct": -0.89,
-      "rsi14": 40.5888,
-      "ma20": 28.288,
-      "ma50": 29.7076,
-      "ma200": 28.5413,
-      "vs_ma20_pct": -1.41,
-      "vs_ma50_pct": -6.12,
-      "vs_ma200_pct": -2.28,
-      "vs20ma": "Red",
-      "status": "BELOW ALL",
-      "change_1w_pct": "-",
-      "change_1m_pct": "-",
-      "change_3m_pct": "-",
-      "change_ytd_pct": "-"
-    },
-    {
       "symbol": "IYT",
       "name": "Transportation",
       "price": 79.69,
@@ -1023,6 +1023,25 @@
       "vs_ma200_pct": 8.51,
       "vs20ma": "Red",
       "status": "MIXED",
+      "change_1w_pct": "-",
+      "change_1m_pct": "-",
+      "change_3m_pct": "-",
+      "change_ytd_pct": "-"
+    },
+    {
+      "symbol": "MSOS",
+      "name": "Cannabis",
+      "price": 4.45,
+      "change_1d_pct": 1.37,
+      "rsi14": 37.7999,
+      "ma20": 4.899,
+      "ma50": 4.7348,
+      "ma200": 4.5045,
+      "vs_ma20_pct": -9.17,
+      "vs_ma50_pct": -6.02,
+      "vs_ma200_pct": -1.21,
+      "vs20ma": "Red",
+      "status": "BELOW ALL",
       "change_1w_pct": "-",
       "change_1m_pct": "-",
       "change_3m_pct": "-",
@@ -1067,25 +1086,6 @@
       "change_ytd_pct": "-"
     },
     {
-      "symbol": "MSOS",
-      "name": "Cannabis",
-      "price": 4.39,
-      "change_1d_pct": -1.79,
-      "rsi14": 35.4464,
-      "ma20": 4.932,
-      "ma50": 4.7306,
-      "ma200": 4.5157,
-      "vs_ma20_pct": -10.99,
-      "vs_ma50_pct": -7.2,
-      "vs_ma200_pct": -2.78,
-      "vs20ma": "Red",
-      "status": "BELOW ALL",
-      "change_1w_pct": "-",
-      "change_1m_pct": "-",
-      "change_3m_pct": "-",
-      "change_ytd_pct": "-"
-    },
-    {
       "symbol": "XLF",
       "name": "Financials",
       "price": 54.01,
@@ -1116,6 +1116,25 @@
       "vs_ma20_pct": -2.46,
       "vs_ma50_pct": -5.63,
       "vs_ma200_pct": -0.44,
+      "vs20ma": "Red",
+      "status": "BELOW ALL",
+      "change_1w_pct": "-",
+      "change_1m_pct": "-",
+      "change_3m_pct": "-",
+      "change_ytd_pct": "-"
+    },
+    {
+      "symbol": "XLRE",
+      "name": "Real Estate",
+      "price": 41.1,
+      "change_1d_pct": 1.06,
+      "rsi14": 33.6238,
+      "ma20": 41.9238,
+      "ma50": 43.4357,
+      "ma200": 42.5406,
+      "vs_ma20_pct": -1.96,
+      "vs_ma50_pct": -5.38,
+      "vs_ma200_pct": -3.39,
       "vs20ma": "Red",
       "status": "BELOW ALL",
       "change_1w_pct": "-",
@@ -1198,46 +1217,27 @@
       "change_1m_pct": "-",
       "change_3m_pct": "-",
       "change_ytd_pct": "-"
-    },
-    {
-      "symbol": "XLRE",
-      "name": "Real Estate",
-      "price": 40.67,
-      "change_1d_pct": -0.34,
-      "rsi14": 24.6586,
-      "ma20": 42.0455,
-      "ma50": 43.5212,
-      "ma200": 42.5318,
-      "vs_ma20_pct": -3.27,
-      "vs_ma50_pct": -6.55,
-      "vs_ma200_pct": -4.38,
-      "vs20ma": "Red",
-      "status": "BELOW ALL",
-      "change_1w_pct": "-",
-      "change_1m_pct": "-",
-      "change_3m_pct": "-",
-      "change_ytd_pct": "-"
     }
   ],
   "industry": [],
   "breadth": {
     "sp500": {
       "total": 503,
-      "above_20ma": 219,
-      "above_50ma": 149,
-      "above_200ma": 234,
-      "pct_above_20ma": 43.5,
-      "pct_above_50ma": 29.6,
-      "pct_above_200ma": 46.5
+      "above_20ma": 189,
+      "above_50ma": 144,
+      "above_200ma": 226,
+      "pct_above_20ma": 37.6,
+      "pct_above_50ma": 28.6,
+      "pct_above_200ma": 44.9
     },
     "nasdaq100": {
       "total": 101,
-      "above_20ma": 60,
-      "above_50ma": 49,
-      "above_200ma": 64,
-      "pct_above_20ma": 59.4,
-      "pct_above_50ma": 48.5,
-      "pct_above_200ma": 63.4,
+      "above_20ma": 55,
+      "above_50ma": 52,
+      "above_200ma": 61,
+      "pct_above_20ma": 54.5,
+      "pct_above_50ma": 51.5,
+      "pct_above_200ma": 60.4,
       "source": "Finviz idx_ndx (NASDAQ 100 constituents)"
     },
     "dji30": {
@@ -1252,12 +1252,12 @@
     },
     "russell2000": {
       "total": 1969,
-      "above_20ma": 725,
-      "above_50ma": 550,
-      "above_200ma": 938,
-      "pct_above_20ma": 36.8,
-      "pct_above_50ma": 27.9,
-      "pct_above_200ma": 47.6
+      "above_20ma": 616,
+      "above_50ma": 502,
+      "above_200ma": 895,
+      "pct_above_20ma": 31.3,
+      "pct_above_50ma": 25.5,
+      "pct_above_200ma": 45.5
     },
     "source": "Finviz Screener v4.1 (with retry)",
     "market_wide_advance_decline": {
@@ -1267,35 +1267,35 @@
     },
     "index_ad_ratios": {
       "SPY": {
-        "advances": 338,
-        "declines": 164,
-        "unchanged": 1,
+        "advances": 138,
+        "declines": 361,
+        "unchanged": 4,
         "total": 503,
-        "ad_ratio": 2.061,
+        "ad_ratio": 0.382,
         "source": "Finviz screener (S&P 500)"
       },
       "QQQ": {
-        "advances": 63,
-        "declines": 38,
-        "unchanged": 0,
+        "advances": 37,
+        "declines": 63,
+        "unchanged": 1,
         "total": 101,
-        "ad_ratio": 1.658,
+        "ad_ratio": 0.587,
         "source": "Finviz screener (NASDAQ 100)"
       },
       "IWM": {
-        "advances": 849,
-        "declines": 1078,
-        "unchanged": 42,
+        "advances": 572,
+        "declines": 1366,
+        "unchanged": 31,
         "total": 1969,
-        "ad_ratio": 0.788,
+        "ad_ratio": 0.419,
         "source": "Finviz screener (Russell 2000)"
       },
       "DIA": {
-        "advances": 20,
-        "declines": 10,
+        "advances": 19,
+        "declines": 11,
         "unchanged": 0,
         "total": 30,
-        "ad_ratio": 2.0,
+        "ad_ratio": 1.727,
         "source": "yfinance (DJI 30 components)"
       }
     },
@@ -1308,14 +1308,14 @@
   },
   "stockbee_mm": {
     "source": "Stockbee Market Monitor (dynamic via stockbee_mm.json)",
-    "latest_date": "10/5/2026",
-    "t2108": 22.02,
-    "up_4_plus": 248,
-    "down_4_plus": 178,
+    "latest_date": "10/6/2026",
+    "t2108": 23.78,
+    "up_4_plus": 177,
+    "down_4_plus": 206,
     "data_stale": false
   },
   "data_status": "fresh",
-  "last_updated_hkt": "2026-10-07 09:06:05 HKT",
+  "last_updated_hkt": "2026-10-08 09:25:31 HKT",
   "thematic": [
     {
       "symbol": "XLK",
@@ -1325,11 +1325,32 @@
       "vs_200ma": 22.28
     },
     {
+      "symbol": "CIBR",
+      "price": 108.13,
+      "vs_20ma": 6.58,
+      "vs_50ma": 10.18,
+      "vs_200ma": 34.83
+    },
+    {
       "symbol": "SMH",
       "price": 632.5,
       "vs_20ma": 7.13,
       "vs_50ma": 10.39,
       "vs_200ma": 25.9
+    },
+    {
+      "symbol": "MAGS",
+      "price": 73.9,
+      "vs_20ma": 3.53,
+      "vs_50ma": 6.8,
+      "vs_200ma": 12.28
+    },
+    {
+      "symbol": "BUG",
+      "price": 48.73,
+      "vs_20ma": 7.89,
+      "vs_50ma": 14.09,
+      "vs_200ma": 45.12
     },
     {
       "symbol": "SOXX",
@@ -1339,32 +1360,18 @@
       "vs_200ma": 28.79
     },
     {
-      "symbol": "MAGS",
-      "price": 73.5,
-      "vs_20ma": 3.32,
-      "vs_50ma": 6.56,
-      "vs_200ma": 11.76
-    },
-    {
-      "symbol": "CIBR",
-      "price": 106.01,
-      "vs_20ma": 5.22,
-      "vs_50ma": 8.44,
-      "vs_200ma": 32.49
-    },
-    {
-      "symbol": "BUG",
-      "price": 47.73,
-      "vs_20ma": 6.61,
-      "vs_50ma": 12.31,
-      "vs_200ma": 42.52
-    },
-    {
       "symbol": "SKYY",
       "price": 171.01,
       "vs_20ma": 4.07,
       "vs_50ma": 6.73,
       "vs_200ma": 28.41
+    },
+    {
+      "symbol": "QTUM",
+      "price": 157.39,
+      "vs_20ma": 4.79,
+      "vs_50ma": 5.56,
+      "vs_200ma": 16.93
     },
     {
       "symbol": "IGV",
@@ -1374,46 +1381,39 @@
       "vs_200ma": 18.7
     },
     {
-      "symbol": "ARKK",
-      "price": 92.78,
-      "vs_20ma": 5.59,
-      "vs_50ma": 11.2,
-      "vs_200ma": 19.22
-    },
-    {
       "symbol": "AIQ",
-      "price": 66.85,
-      "vs_20ma": 3.0,
-      "vs_50ma": 5.44,
-      "vs_200ma": 16.44
-    },
-    {
-      "symbol": "QTUM",
-      "price": 156.4,
-      "vs_20ma": 4.44,
-      "vs_50ma": 5.13,
-      "vs_200ma": 16.42
+      "price": 67.05,
+      "vs_20ma": 3.09,
+      "vs_50ma": 5.46,
+      "vs_200ma": 16.61
     },
     {
       "symbol": "ROBO",
-      "price": 83.34,
-      "vs_20ma": 4.39,
-      "vs_50ma": 3.15,
-      "vs_200ma": 6.31
-    },
-    {
-      "symbol": "BOTZ",
-      "price": 36.2,
-      "vs_20ma": 2.53,
-      "vs_50ma": 1.08,
-      "vs_200ma": -1.79
+      "price": 83.4,
+      "vs_20ma": 4.22,
+      "vs_50ma": 3.1,
+      "vs_200ma": 6.28
     },
     {
       "symbol": "ARKQ",
-      "price": 125.84,
-      "vs_20ma": 2.62,
-      "vs_50ma": 2.54,
-      "vs_200ma": 0.97
+      "price": 127.2,
+      "vs_20ma": 3.59,
+      "vs_50ma": 3.44,
+      "vs_200ma": 1.99
+    },
+    {
+      "symbol": "ARKK",
+      "price": 90.49,
+      "vs_20ma": 2.73,
+      "vs_50ma": 7.99,
+      "vs_200ma": 16.18
+    },
+    {
+      "symbol": "BOTZ",
+      "price": 36.17,
+      "vs_20ma": 2.36,
+      "vs_50ma": 0.89,
+      "vs_200ma": -1.89
     },
     {
       "symbol": "XLE",
@@ -1430,18 +1430,18 @@
       "vs_200ma": 15.62
     },
     {
+      "symbol": "PAVE",
+      "price": 54.65,
+      "vs_20ma": 2.45,
+      "vs_50ma": -1.27,
+      "vs_200ma": 0.54
+    },
+    {
       "symbol": "XLU",
       "price": 41.16,
       "vs_20ma": 1.44,
       "vs_50ma": -2.52,
       "vs_200ma": -5.98
-    },
-    {
-      "symbol": "PAVE",
-      "price": 54.11,
-      "vs_20ma": 1.42,
-      "vs_50ma": -2.34,
-      "vs_200ma": -0.38
     },
     {
       "symbol": "LIT",
@@ -1473,10 +1473,10 @@
     },
     {
       "symbol": "XLC",
-      "price": 111.61,
-      "vs_20ma": -0.42,
-      "vs_50ma": 0.27,
-      "vs_200ma": -1.32
+      "price": 111.65,
+      "vs_20ma": -0.41,
+      "vs_50ma": 0.23,
+      "vs_200ma": -1.27
     },
     {
       "symbol": "URA",
@@ -1493,18 +1493,18 @@
       "vs_200ma": 4.13
     },
     {
-      "symbol": "PICK",
-      "price": 61.24,
-      "vs_20ma": -0.93,
-      "vs_50ma": -2.12,
-      "vs_200ma": 2.25
+      "symbol": "BLOK",
+      "price": 61.96,
+      "vs_20ma": -1.96,
+      "vs_50ma": -0.23,
+      "vs_200ma": 3.35
     },
     {
-      "symbol": "BLOK",
-      "price": 61.97,
-      "vs_20ma": -2.22,
-      "vs_50ma": -0.17,
-      "vs_200ma": 3.41
+      "symbol": "PICK",
+      "price": 61.12,
+      "vs_20ma": -0.72,
+      "vs_50ma": -2.4,
+      "vs_200ma": 1.94
     },
     {
       "symbol": "XLV",
@@ -1528,18 +1528,18 @@
       "vs_200ma": -1.12
     },
     {
+      "symbol": "IPAY",
+      "price": 47.7,
+      "vs_20ma": -0.44,
+      "vs_50ma": -4.48,
+      "vs_200ma": 0.14
+    },
+    {
       "symbol": "XHB",
       "price": 97.37,
       "vs_20ma": 0.25,
       "vs_50ma": -4.77,
       "vs_200ma": -7.53
-    },
-    {
-      "symbol": "IPAY",
-      "price": 47.63,
-      "vs_20ma": -0.83,
-      "vs_50ma": -4.69,
-      "vs_200ma": -0.05
     },
     {
       "symbol": "IBB",
@@ -1549,13 +1549,6 @@
       "vs_200ma": 11.98
     },
     {
-      "symbol": "KWEB",
-      "price": 24.56,
-      "vs_20ma": -0.33,
-      "vs_50ma": -6.1,
-      "vs_200ma": -15.51
-    },
-    {
       "symbol": "XRT",
       "price": 82.95,
       "vs_20ma": 0.01,
@@ -1563,11 +1556,25 @@
       "vs_200ma": -2.81
     },
     {
-      "symbol": "FINX",
-      "price": 24.95,
-      "vs_20ma": -1.93,
-      "vs_50ma": -4.61,
-      "vs_200ma": -3.27
+      "symbol": "KWEB",
+      "price": 24.54,
+      "vs_20ma": -0.24,
+      "vs_50ma": -6.0,
+      "vs_200ma": -15.45
+    },
+    {
+      "symbol": "ROKT",
+      "price": 106.14,
+      "vs_20ma": -0.02,
+      "vs_50ma": -4.4,
+      "vs_200ma": -2.1
+    },
+    {
+      "symbol": "JETS",
+      "price": 28.1,
+      "vs_20ma": -0.63,
+      "vs_50ma": -5.23,
+      "vs_200ma": -1.55
     },
     {
       "symbol": "TAN",
@@ -1591,6 +1598,13 @@
       "vs_200ma": -6.27
     },
     {
+      "symbol": "FINX",
+      "price": 24.837,
+      "vs_20ma": -2.01,
+      "vs_50ma": -4.98,
+      "vs_200ma": -3.62
+    },
+    {
       "symbol": "GDX",
       "price": 88.22,
       "vs_20ma": -4.68,
@@ -1612,20 +1626,6 @@
       "vs_200ma": -6.11
     },
     {
-      "symbol": "ROKT",
-      "price": 105.62,
-      "vs_20ma": -0.65,
-      "vs_50ma": -4.97,
-      "vs_200ma": -2.46
-    },
-    {
-      "symbol": "JETS",
-      "price": 27.89,
-      "vs_20ma": -1.41,
-      "vs_50ma": -6.12,
-      "vs_200ma": -2.28
-    },
-    {
       "symbol": "IYT",
       "price": 79.69,
       "vs_20ma": -0.68,
@@ -1638,6 +1638,13 @@
       "vs_20ma": -3.48,
       "vs_50ma": -4.6,
       "vs_200ma": 8.51
+    },
+    {
+      "symbol": "MSOS",
+      "price": 4.45,
+      "vs_20ma": -9.17,
+      "vs_50ma": -6.02,
+      "vs_200ma": -1.21
     },
     {
       "symbol": "KRE",
@@ -1654,13 +1661,6 @@
       "vs_200ma": -1.05
     },
     {
-      "symbol": "MSOS",
-      "price": 4.39,
-      "vs_20ma": -10.99,
-      "vs_50ma": -7.2,
-      "vs_200ma": -2.78
-    },
-    {
       "symbol": "XLF",
       "price": 54.01,
       "vs_20ma": -1.99,
@@ -1673,6 +1673,13 @@
       "vs_20ma": -2.46,
       "vs_50ma": -5.63,
       "vs_200ma": -0.44
+    },
+    {
+      "symbol": "XLRE",
+      "price": 41.1,
+      "vs_20ma": -1.96,
+      "vs_50ma": -5.38,
+      "vs_200ma": -3.39
     },
     {
       "symbol": "VNQ",
@@ -1701,13 +1708,6 @@
       "vs_20ma": -2.84,
       "vs_50ma": -4.51,
       "vs_200ma": -7.62
-    },
-    {
-      "symbol": "XLRE",
-      "price": 40.67,
-      "vs_20ma": -3.27,
-      "vs_50ma": -6.55,
-      "vs_200ma": -4.38
     }
   ],
   "rs_leaders": [
@@ -1740,19 +1740,19 @@
     },
     {
       "symbol": "ROKT",
-      "price": 105.62,
-      "vs_20ma": -0.65,
-      "vs_50ma": -4.97,
-      "vs_200ma": -2.46,
+      "price": 106.14,
+      "vs_20ma": -0.02,
+      "vs_50ma": -4.4,
+      "vs_200ma": -2.1,
       "rs_score": 0.17549942529078488,
       "rs_rating": 94
     },
     {
       "symbol": "PICK",
-      "price": 61.24,
-      "vs_20ma": -0.93,
-      "vs_50ma": -2.12,
-      "vs_200ma": 2.25,
+      "price": 61.12,
+      "vs_20ma": -0.72,
+      "vs_50ma": -2.4,
+      "vs_200ma": 1.94,
       "rs_score": 0.136919096170034,
       "rs_rating": 92
     },
@@ -1776,10 +1776,10 @@
     },
     {
       "symbol": "PAVE",
-      "price": 54.11,
-      "vs_20ma": 1.42,
-      "vs_50ma": -2.34,
-      "vs_200ma": -0.38,
+      "price": 54.65,
+      "vs_20ma": 2.45,
+      "vs_50ma": -1.27,
+      "vs_200ma": 0.54,
       "rs_score": 0.09622581944633408,
       "rs_rating": 87
     },
@@ -1814,46 +1814,46 @@
     },
     {
       "symbol": "FINX",
-      "price": 24.95,
-      "vs_20ma": -1.93,
-      "vs_50ma": -4.61,
-      "vs_200ma": -3.27,
+      "price": 24.837,
+      "vs_20ma": -2.01,
+      "vs_50ma": -4.98,
+      "vs_200ma": -3.62,
       "rs_score": -0.19063115816082443,
       "rs_rating": 4
     },
     {
       "symbol": "BUG",
-      "price": 47.73,
-      "vs_20ma": 6.61,
-      "vs_50ma": 12.31,
-      "vs_200ma": 42.52,
+      "price": 48.73,
+      "vs_20ma": 7.89,
+      "vs_50ma": 14.09,
+      "vs_200ma": 45.12,
       "rs_score": -0.1726324757402451,
       "rs_rating": 6
     },
     {
       "symbol": "KWEB",
-      "price": 24.56,
-      "vs_20ma": -0.33,
-      "vs_50ma": -6.1,
-      "vs_200ma": -15.51,
+      "price": 24.54,
+      "vs_20ma": -0.24,
+      "vs_50ma": -6.0,
+      "vs_200ma": -15.45,
       "rs_score": -0.1591513799257352,
       "rs_rating": 8
     },
     {
       "symbol": "IPAY",
-      "price": 47.63,
-      "vs_20ma": -0.83,
-      "vs_50ma": -4.69,
-      "vs_200ma": -0.05,
+      "price": 47.7,
+      "vs_20ma": -0.44,
+      "vs_50ma": -4.48,
+      "vs_200ma": 0.14,
       "rs_score": -0.12853178140838234,
       "rs_rating": 10
     },
     {
       "symbol": "ARKK",
-      "price": 92.78,
-      "vs_20ma": 5.59,
-      "vs_50ma": 11.2,
-      "vs_200ma": 19.22,
+      "price": 90.49,
+      "vs_20ma": 2.73,
+      "vs_50ma": 7.99,
+      "vs_200ma": 16.18,
       "rs_score": -0.1273426090670675,
       "rs_rating": 12
     },
@@ -1868,19 +1868,19 @@
     },
     {
       "symbol": "MSOS",
-      "price": 4.39,
-      "vs_20ma": -10.99,
-      "vs_50ma": -7.2,
-      "vs_200ma": -2.78,
+      "price": 4.45,
+      "vs_20ma": -9.17,
+      "vs_50ma": -6.02,
+      "vs_200ma": -1.21,
       "rs_score": -0.11001532068455824,
       "rs_rating": 15
     },
     {
       "symbol": "CIBR",
-      "price": 106.01,
-      "vs_20ma": 5.22,
-      "vs_50ma": 8.44,
-      "vs_200ma": 32.49,
+      "price": 108.13,
+      "vs_20ma": 6.58,
+      "vs_50ma": 10.18,
+      "vs_200ma": 34.83,
       "rs_score": -0.10540619679283689,
       "rs_rating": 17
     },
