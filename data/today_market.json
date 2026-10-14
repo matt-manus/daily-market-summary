@@ -1,43 +1,43 @@
 {
   "meta": {
-    "generated_hkt": "2026-10-13 10:45",
-    "generated_et": "2026-10-12 22:45",
-    "date": "2026-10-12",
+    "generated_hkt": "2026-10-14 08:43",
+    "generated_et": "2026-10-13 20:43",
+    "date": "2026-10-13",
     "source": "Yahoo Finance + CNN + NAAIM + Finviz + Barchart",
     "rsi_method": "Wilder SMMA (EWM alpha=1/14)",
     "schema_version": "4.2",
-    "last_updated_hkt": "2026-10-13 10:46:10 HKT"
+    "last_updated_hkt": "2026-10-14 08:43:45 HKT"
   },
   "macro": {
     "VIX": {
-      "price": 15.21,
-      "change_1d": 0.37,
-      "change_1d_pct": 2.49
+      "price": 15.27,
+      "change_1d": 0.06,
+      "change_1d_pct": 0.39
     },
     "DXY": {
-      "price": 102.412,
-      "change_1d": 0.202,
-      "change_1d_pct": 0.2
+      "price": 102.175,
+      "change_1d": -0.405,
+      "change_1d_pct": -0.39
     },
     "TNX_10Y": {
-      "price": 5.24,
-      "change_1d": -0.004,
-      "change_1d_pct": -0.08
+      "price": 5.217,
+      "change_1d": -0.023,
+      "change_1d_pct": -0.44
     },
     "GOLD": {
-      "price": 4191.7998,
-      "change_1d": -24.5,
-      "change_1d_pct": -0.58
+      "price": 4180.7998,
+      "change_1d": -9.8003,
+      "change_1d_pct": -0.23
     },
     "OIL_WTI": {
-      "price": 92.62,
-      "change_1d": 0.77,
-      "change_1d_pct": 0.84
+      "price": 94.94,
+      "change_1d": 1.2,
+      "change_1d_pct": 1.28
     },
     "BTC": {
-      "price": 82777.2188,
-      "change_1d": -902.25,
-      "change_1d_pct": -1.08
+      "price": 83513.1406,
+      "change_1d": 1750.5781,
+      "change_1d_pct": 2.14
     }
   },
   "indices": {
@@ -53,13 +53,13 @@
       "vs_ma200_pct": 8.05,
       "vs20ma": "Green",
       "status": "ABOVE ALL",
-      "ad_ratio": 1.793,
+      "ad_ratio": 1.118,
       "ad_detail": {
-        "advances": 321,
-        "declines": 179,
-        "unchanged": 3,
+        "advances": 265,
+        "declines": 237,
+        "unchanged": 1,
         "total": 503,
-        "ad_ratio": 1.793,
+        "ad_ratio": 1.118,
         "source": "Finviz screener (S&P 500)"
       }
     },
@@ -75,13 +75,13 @@
       "vs_ma200_pct": 11.1,
       "vs20ma": "Green",
       "status": "ABOVE ALL",
-      "ad_ratio": 0.87,
+      "ad_ratio": 0.804,
       "ad_detail": {
-        "advances": 47,
-        "declines": 54,
+        "advances": 45,
+        "declines": 56,
         "unchanged": 0,
         "total": 101,
-        "ad_ratio": 0.87,
+        "ad_ratio": 0.804,
         "source": "Finviz screener (NASDAQ 100)"
       }
     },
@@ -119,30 +119,30 @@
       "vs_ma200_pct": 0.67,
       "vs20ma": "Red",
       "status": "MIXED",
-      "ad_ratio": 0.961,
+      "ad_ratio": 0.7,
       "ad_detail": {
-        "advances": 942,
-        "declines": 980,
-        "unchanged": 45,
+        "advances": 795,
+        "declines": 1136,
+        "unchanged": 36,
         "total": 1967,
-        "ad_ratio": 0.961,
+        "ad_ratio": 0.7,
         "source": "Finviz screener (Russell 2000)"
       }
     }
   },
   "sentiment": {
     "fear_greed": {
-      "score": 45.74,
-      "rating": "neutral",
-      "timestamp": "2026-10-12T23:59:52+00:00",
-      "prev_close": 45.0,
-      "prev_1w": 43.71,
+      "score": 44.74,
+      "rating": "fear",
+      "timestamp": "2026-10-13T23:59:52+00:00",
+      "prev_close": 45.74,
+      "prev_1w": 46.8,
       "prev_1m": 32.69,
-      "prev_1y": 30.14,
+      "prev_1y": 29.74,
       "source": "CNN Fear & Greed API"
     },
     "put_call": {
-      "value": 0.7462,
+      "value": 0.7527,
       "rating": "extreme fear",
       "source": "CNN Fear & Greed (5-day avg equity P/C ratio)"
     },
@@ -1223,21 +1223,21 @@
   "breadth": {
     "sp500": {
       "total": 503,
-      "above_20ma": 292,
-      "above_50ma": 186,
-      "above_200ma": 248,
-      "pct_above_20ma": 58.1,
-      "pct_above_50ma": 37.0,
-      "pct_above_200ma": 49.3
+      "above_20ma": 306,
+      "above_50ma": 192,
+      "above_200ma": 249,
+      "pct_above_20ma": 60.8,
+      "pct_above_50ma": 38.2,
+      "pct_above_200ma": 49.5
     },
     "nasdaq100": {
       "total": 101,
-      "above_20ma": 58,
-      "above_50ma": 51,
-      "above_200ma": 63,
-      "pct_above_20ma": 57.4,
-      "pct_above_50ma": 50.5,
-      "pct_above_200ma": 62.4,
+      "above_20ma": 56,
+      "above_50ma": 45,
+      "above_200ma": 64,
+      "pct_above_20ma": 55.4,
+      "pct_above_50ma": 44.6,
+      "pct_above_200ma": 63.4,
       "source": "Finviz idx_ndx (NASDAQ 100 constituents)"
     },
     "dji30": {
@@ -1252,12 +1252,12 @@
     },
     "russell2000": {
       "total": 1967,
-      "above_20ma": 723,
-      "above_50ma": 542,
-      "above_200ma": 895,
-      "pct_above_20ma": 36.8,
-      "pct_above_50ma": 27.6,
-      "pct_above_200ma": 45.5
+      "above_20ma": 722,
+      "above_50ma": 539,
+      "above_200ma": 878,
+      "pct_above_20ma": 36.7,
+      "pct_above_50ma": 27.4,
+      "pct_above_200ma": 44.6
     },
     "source": "Finviz Screener v4.1 (with retry)",
     "market_wide_advance_decline": {
@@ -1267,27 +1267,27 @@
     },
     "index_ad_ratios": {
       "SPY": {
-        "advances": 321,
-        "declines": 179,
-        "unchanged": 3,
+        "advances": 265,
+        "declines": 237,
+        "unchanged": 1,
         "total": 503,
-        "ad_ratio": 1.793,
+        "ad_ratio": 1.118,
         "source": "Finviz screener (S&P 500)"
       },
       "QQQ": {
-        "advances": 47,
-        "declines": 54,
+        "advances": 45,
+        "declines": 56,
         "unchanged": 0,
         "total": 101,
-        "ad_ratio": 0.87,
+        "ad_ratio": 0.804,
         "source": "Finviz screener (NASDAQ 100)"
       },
       "IWM": {
-        "advances": 942,
-        "declines": 980,
-        "unchanged": 45,
+        "advances": 795,
+        "declines": 1136,
+        "unchanged": 36,
         "total": 1967,
-        "ad_ratio": 0.961,
+        "ad_ratio": 0.7,
         "source": "Finviz screener (Russell 2000)"
       },
       "DIA": {
@@ -1308,14 +1308,14 @@
   },
   "stockbee_mm": {
     "source": "Stockbee Market Monitor (dynamic via stockbee_mm.json)",
-    "latest_date": "10/9/2026",
-    "t2108": 25.29,
-    "up_4_plus": 163,
-    "down_4_plus": 117,
+    "latest_date": "10/12/2026",
+    "t2108": 27.09,
+    "up_4_plus": 92,
+    "down_4_plus": 360,
     "data_stale": false
   },
   "data_status": "fresh",
-  "last_updated_hkt": "2026-10-13 10:46:10 HKT",
+  "last_updated_hkt": "2026-10-14 08:43:45 HKT",
   "thematic": [
     {
       "symbol": "XLE",
