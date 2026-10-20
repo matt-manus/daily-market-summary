@@ -1,43 +1,43 @@
 {
   "meta": {
-    "generated_hkt": "2026-10-19 07:46",
-    "generated_et": "2026-10-18 19:46",
-    "date": "2026-10-18",
+    "generated_hkt": "2026-10-20 08:47",
+    "generated_et": "2026-10-19 20:47",
+    "date": "2026-10-19",
     "source": "Yahoo Finance + CNN + NAAIM + Finviz + Barchart",
     "rsi_method": "Wilder SMMA (EWM alpha=1/14)",
     "schema_version": "4.2",
-    "last_updated_hkt": "2026-10-19 07:47:14 HKT"
+    "last_updated_hkt": "2026-10-20 08:47:37 HKT"
   },
   "macro": {
     "VIX": {
-      "price": 19.99,
-      "change_1d": 3.53,
-      "change_1d_pct": 21.45
+      "price": 18.44,
+      "change_1d": -1.55,
+      "change_1d_pct": -7.75
     },
     "DXY": {
-      "price": 101.869,
-      "change_1d": 0.029,
-      "change_1d_pct": 0.03
+      "price": 101.919,
+      "change_1d": 0.079,
+      "change_1d_pct": 0.08
     },
     "TNX_10Y": {
-      "price": 5.098,
-      "change_1d": 0.009,
-      "change_1d_pct": 0.18
+      "price": 5.136,
+      "change_1d": 0.038,
+      "change_1d_pct": 0.75
     },
     "GOLD": {
-      "price": 4202.8999,
-      "change_1d": 21.7998,
-      "change_1d_pct": 0.52
+      "price": 4154.3999,
+      "change_1d": -26.7002,
+      "change_1d_pct": -0.64
     },
     "OIL_WTI": {
-      "price": 97.9,
-      "change_1d": -3.51,
-      "change_1d_pct": -3.46
+      "price": 98.39,
+      "change_1d": -3.02,
+      "change_1d_pct": -2.98
     },
     "BTC": {
-      "price": 82014.7266,
-      "change_1d": 632.5782,
-      "change_1d_pct": 0.78
+      "price": 81529.8906,
+      "change_1d": -487.711,
+      "change_1d_pct": -0.59
     }
   },
   "indices": {
@@ -53,13 +53,13 @@
       "vs_ma200_pct": 5.73,
       "vs20ma": "Red",
       "status": "MIXED",
-      "ad_ratio": 0.98,
+      "ad_ratio": 0.543,
       "ad_detail": {
-        "advances": 249,
-        "declines": 254,
-        "unchanged": 0,
+        "advances": 176,
+        "declines": 324,
+        "unchanged": 3,
         "total": 503,
-        "ad_ratio": 0.98,
+        "ad_ratio": 0.543,
         "source": "Finviz screener (S&P 500)"
       }
     },
@@ -75,13 +75,13 @@
       "vs_ma200_pct": 5.36,
       "vs20ma": "Red",
       "status": "MIXED",
-      "ad_ratio": 0.464,
+      "ad_ratio": 1.475,
       "ad_detail": {
-        "advances": 32,
-        "declines": 69,
-        "unchanged": 0,
+        "advances": 59,
+        "declines": 40,
+        "unchanged": 2,
         "total": 101,
-        "ad_ratio": 0.464,
+        "ad_ratio": 1.475,
         "source": "Finviz screener (NASDAQ 100)"
       }
     },
@@ -119,30 +119,30 @@
       "vs_ma200_pct": -2.21,
       "vs20ma": "Red",
       "status": "BELOW ALL",
-      "ad_ratio": 0.406,
+      "ad_ratio": 0.801,
       "ad_detail": {
-        "advances": 560,
-        "declines": 1378,
-        "unchanged": 28,
+        "advances": 861,
+        "declines": 1075,
+        "unchanged": 30,
         "total": 1966,
-        "ad_ratio": 0.406,
+        "ad_ratio": 0.801,
         "source": "Finviz screener (Russell 2000)"
       }
     }
   },
   "sentiment": {
     "fear_greed": {
-      "score": 17.94,
+      "score": 23.11,
       "rating": "extreme fear",
-      "timestamp": "2026-10-16T23:59:49+00:00",
-      "prev_close": 31.54,
-      "prev_1w": 46.49,
-      "prev_1m": 27.31,
-      "prev_1y": 23.11,
+      "timestamp": "2026-10-19T23:59:54+00:00",
+      "prev_close": 17.94,
+      "prev_1w": 46.34,
+      "prev_1m": 30.43,
+      "prev_1y": 22.33,
       "source": "CNN Fear & Greed API"
     },
     "put_call": {
-      "value": 0.82,
+      "value": 0.8305,
       "rating": "extreme fear",
       "source": "CNN Fear & Greed (5-day avg equity P/C ratio)"
     },
@@ -1223,21 +1223,21 @@
   "breadth": {
     "sp500": {
       "total": 503,
-      "above_20ma": 344,
-      "above_50ma": 226,
-      "above_200ma": 259,
-      "pct_above_20ma": 68.4,
-      "pct_above_50ma": 44.9,
-      "pct_above_200ma": 51.5
+      "above_20ma": 323,
+      "above_50ma": 220,
+      "above_200ma": 253,
+      "pct_above_20ma": 64.2,
+      "pct_above_50ma": 43.7,
+      "pct_above_200ma": 50.3
     },
     "nasdaq100": {
       "total": 101,
       "above_20ma": 50,
-      "above_50ma": 39,
-      "above_200ma": 56,
+      "above_50ma": 44,
+      "above_200ma": 58,
       "pct_above_20ma": 49.5,
-      "pct_above_50ma": 38.6,
-      "pct_above_200ma": 55.4,
+      "pct_above_50ma": 43.6,
+      "pct_above_200ma": 57.4,
       "source": "Finviz idx_ndx (NASDAQ 100 constituents)"
     },
     "dji30": {
@@ -1252,12 +1252,12 @@
     },
     "russell2000": {
       "total": 1966,
-      "above_20ma": 673,
-      "above_50ma": 476,
-      "above_200ma": 827,
-      "pct_above_20ma": 34.2,
-      "pct_above_50ma": 24.2,
-      "pct_above_200ma": 42.1
+      "above_20ma": 640,
+      "above_50ma": 478,
+      "above_200ma": 826,
+      "pct_above_20ma": 32.6,
+      "pct_above_50ma": 24.3,
+      "pct_above_200ma": 42.0
     },
     "source": "Finviz Screener v4.1 (with retry)",
     "market_wide_advance_decline": {
@@ -1267,27 +1267,27 @@
     },
     "index_ad_ratios": {
       "SPY": {
-        "advances": 249,
-        "declines": 254,
-        "unchanged": 0,
+        "advances": 176,
+        "declines": 324,
+        "unchanged": 3,
         "total": 503,
-        "ad_ratio": 0.98,
+        "ad_ratio": 0.543,
         "source": "Finviz screener (S&P 500)"
       },
       "QQQ": {
-        "advances": 32,
-        "declines": 69,
-        "unchanged": 0,
+        "advances": 59,
+        "declines": 40,
+        "unchanged": 2,
         "total": 101,
-        "ad_ratio": 0.464,
+        "ad_ratio": 1.475,
         "source": "Finviz screener (NASDAQ 100)"
       },
       "IWM": {
-        "advances": 560,
-        "declines": 1378,
-        "unchanged": 28,
+        "advances": 861,
+        "declines": 1075,
+        "unchanged": 30,
         "total": 1966,
-        "ad_ratio": 0.406,
+        "ad_ratio": 0.801,
         "source": "Finviz screener (Russell 2000)"
       },
       "DIA": {
@@ -1315,7 +1315,7 @@
     "data_stale": false
   },
   "data_status": "fresh",
-  "last_updated_hkt": "2026-10-19 07:47:14 HKT",
+  "last_updated_hkt": "2026-10-20 08:47:37 HKT",
   "thematic": [
     {
       "symbol": "XLP",
