@@ -1,43 +1,43 @@
 {
   "meta": {
-    "generated_hkt": "2026-11-03 11:08",
-    "generated_et": "2026-11-02 22:08",
-    "date": "2026-11-02",
+    "generated_hkt": "2026-11-04 09:45",
+    "generated_et": "2026-11-03 20:45",
+    "date": "2026-11-03",
     "source": "Yahoo Finance + CNN + NAAIM + Finviz + Barchart",
     "rsi_method": "Wilder SMMA (EWM alpha=1/14)",
     "schema_version": "4.2",
-    "last_updated_hkt": "2026-11-03 11:08:29 HKT"
+    "last_updated_hkt": "2026-11-04 09:45:45 HKT"
   },
   "macro": {
     "VIX": {
-      "price": 21.15,
-      "change_1d": 1.73,
-      "change_1d_pct": 8.91
+      "price": 20.83,
+      "change_1d": -0.32,
+      "change_1d_pct": -1.51
     },
     "DXY": {
-      "price": 101.816,
-      "change_1d": -0.064,
-      "change_1d_pct": -0.06
+      "price": 101.405,
+      "change_1d": -0.345,
+      "change_1d_pct": -0.34
     },
     "TNX_10Y": {
-      "price": 4.894,
-      "change_1d": -0.035,
-      "change_1d_pct": -0.71
+      "price": 4.952,
+      "change_1d": 0.058,
+      "change_1d_pct": 1.19
     },
     "GOLD": {
-      "price": 3959.8999,
-      "change_1d": 61.0,
-      "change_1d_pct": 1.56
+      "price": 3962.3999,
+      "change_1d": -7.2002,
+      "change_1d_pct": -0.18
     },
     "OIL_WTI": {
-      "price": 96.66,
-      "change_1d": -7.46,
-      "change_1d_pct": -7.16
+      "price": 96.02,
+      "change_1d": -0.44,
+      "change_1d_pct": -0.46
     },
     "BTC": {
-      "price": 76659.1562,
-      "change_1d": -1589.2969,
-      "change_1d_pct": -2.03
+      "price": 76794.1797,
+      "change_1d": 116.8828,
+      "change_1d_pct": 0.15
     }
   },
   "indices": {
@@ -53,13 +53,13 @@
       "vs_ma200_pct": 3.55,
       "vs20ma": "Red",
       "status": "MIXED",
-      "ad_ratio": 2.218,
+      "ad_ratio": 0.604,
       "ad_detail": {
-        "advances": 346,
-        "declines": 156,
-        "unchanged": 1,
-        "total": 503,
-        "ad_ratio": 2.218,
+        "advances": 189,
+        "declines": 313,
+        "unchanged": 0,
+        "total": 502,
+        "ad_ratio": 0.604,
         "source": "Finviz screener (S&P 500)"
       }
     },
@@ -75,13 +75,13 @@
       "vs_ma200_pct": 0.35,
       "vs20ma": "Red",
       "status": "MIXED",
-      "ad_ratio": 1.104,
+      "ad_ratio": 1.149,
       "ad_detail": {
-        "advances": 53,
-        "declines": 48,
+        "advances": 54,
+        "declines": 47,
         "unchanged": 0,
         "total": 101,
-        "ad_ratio": 1.104,
+        "ad_ratio": 1.149,
         "source": "Finviz screener (NASDAQ 100)"
       }
     },
@@ -119,30 +119,30 @@
       "vs_ma200_pct": 0.49,
       "vs20ma": "Green",
       "status": "MIXED",
-      "ad_ratio": 1.201,
+      "ad_ratio": 0.78,
       "ad_detail": {
-        "advances": 1056,
-        "declines": 879,
-        "unchanged": 23,
-        "total": 1958,
-        "ad_ratio": 1.201,
+        "advances": 837,
+        "declines": 1073,
+        "unchanged": 46,
+        "total": 1956,
+        "ad_ratio": 0.78,
         "source": "Finviz screener (Russell 2000)"
       }
     }
   },
   "sentiment": {
     "fear_greed": {
-      "score": 22.73,
+      "score": 19.09,
       "rating": "extreme fear",
-      "timestamp": "2026-11-02T23:59:46+00:00",
-      "prev_close": 26.24,
-      "prev_1w": 29.83,
+      "timestamp": "2026-11-03T23:59:48+00:00",
+      "prev_close": 22.73,
+      "prev_1w": 32.89,
       "prev_1m": 38.2,
-      "prev_1y": 34.46,
+      "prev_1y": 32.6,
       "source": "CNN Fear & Greed API"
     },
     "put_call": {
-      "value": 0.8126,
+      "value": 0.8278,
       "rating": "extreme fear",
       "source": "CNN Fear & Greed (5-day avg equity P/C ratio)"
     },
@@ -383,25 +383,6 @@
       "change_ytd_pct": "-"
     },
     {
-      "symbol": "TLT",
-      "name": "20+ Year Treasury Bond",
-      "price": 81.73,
-      "change_1d_pct": -0.13,
-      "rsi14": 62.4573,
-      "ma20": 79.894,
-      "ma50": 80.2791,
-      "ma200": 83.2082,
-      "vs_ma20_pct": 2.3,
-      "vs_ma50_pct": 1.81,
-      "vs_ma200_pct": -1.78,
-      "vs20ma": "Green",
-      "status": "MIXED",
-      "change_1w_pct": "-",
-      "change_1m_pct": "-",
-      "change_3m_pct": "-",
-      "change_ytd_pct": "-"
-    },
-    {
       "symbol": "KRE",
       "name": "Regional Banks",
       "price": 73.73,
@@ -415,6 +396,25 @@
       "vs_ma200_pct": 4.76,
       "vs20ma": "Green",
       "status": "ABOVE ALL",
+      "change_1w_pct": "-",
+      "change_1m_pct": "-",
+      "change_3m_pct": "-",
+      "change_ytd_pct": "-"
+    },
+    {
+      "symbol": "TLT",
+      "name": "20+ Year Treasury Bond",
+      "price": 81.73,
+      "change_1d_pct": -0.13,
+      "rsi14": 61.9835,
+      "ma20": 79.894,
+      "ma50": 80.455,
+      "ma200": 83.5064,
+      "vs_ma20_pct": 2.3,
+      "vs_ma50_pct": 1.58,
+      "vs_ma200_pct": -2.13,
+      "vs20ma": "Green",
+      "status": "MIXED",
       "change_1w_pct": "-",
       "change_1m_pct": "-",
       "change_3m_pct": "-",
@@ -1222,22 +1222,22 @@
   "industry": [],
   "breadth": {
     "sp500": {
-      "total": 503,
-      "above_20ma": 362,
-      "above_50ma": 336,
-      "above_200ma": 317,
-      "pct_above_20ma": 72.0,
-      "pct_above_50ma": 66.8,
-      "pct_above_200ma": 63.0
+      "total": 502,
+      "above_20ma": 355,
+      "above_50ma": 328,
+      "above_200ma": 306,
+      "pct_above_20ma": 70.7,
+      "pct_above_50ma": 65.3,
+      "pct_above_200ma": 61.0
     },
     "nasdaq100": {
       "total": 101,
-      "above_20ma": 50,
-      "above_50ma": 50,
-      "above_200ma": 54,
-      "pct_above_20ma": 49.5,
-      "pct_above_50ma": 49.5,
-      "pct_above_200ma": 53.5,
+      "above_20ma": 46,
+      "above_50ma": 49,
+      "above_200ma": 53,
+      "pct_above_20ma": 45.5,
+      "pct_above_50ma": 48.5,
+      "pct_above_200ma": 52.5,
       "source": "Finviz idx_ndx (NASDAQ 100 constituents)"
     },
     "dji30": {
@@ -1251,13 +1251,13 @@
       "source": "yfinance DJI-30 components"
     },
     "russell2000": {
-      "total": 1958,
-      "above_20ma": 1057,
-      "above_50ma": 883,
-      "above_200ma": 937,
-      "pct_above_20ma": 54.0,
-      "pct_above_50ma": 45.1,
-      "pct_above_200ma": 47.9
+      "total": 1956,
+      "above_20ma": 1036,
+      "above_50ma": 843,
+      "above_200ma": 922,
+      "pct_above_20ma": 53.0,
+      "pct_above_50ma": 43.1,
+      "pct_above_200ma": 47.1
     },
     "source": "Finviz Screener v4.1 (with retry)",
     "market_wide_advance_decline": {
@@ -1267,27 +1267,27 @@
     },
     "index_ad_ratios": {
       "SPY": {
-        "advances": 346,
-        "declines": 156,
-        "unchanged": 1,
-        "total": 503,
-        "ad_ratio": 2.218,
+        "advances": 189,
+        "declines": 313,
+        "unchanged": 0,
+        "total": 502,
+        "ad_ratio": 0.604,
         "source": "Finviz screener (S&P 500)"
       },
       "QQQ": {
-        "advances": 53,
-        "declines": 48,
+        "advances": 54,
+        "declines": 47,
         "unchanged": 0,
         "total": 101,
-        "ad_ratio": 1.104,
+        "ad_ratio": 1.149,
         "source": "Finviz screener (NASDAQ 100)"
       },
       "IWM": {
-        "advances": 1056,
-        "declines": 879,
-        "unchanged": 23,
-        "total": 1958,
-        "ad_ratio": 1.201,
+        "advances": 837,
+        "declines": 1073,
+        "unchanged": 46,
+        "total": 1956,
+        "ad_ratio": 0.78,
         "source": "Finviz screener (Russell 2000)"
       },
       "DIA": {
@@ -1308,14 +1308,14 @@
   },
   "stockbee_mm": {
     "source": "Stockbee Market Monitor (dynamic via stockbee_mm.json)",
-    "latest_date": "10/30/2026",
-    "t2108": 44.95,
-    "up_4_plus": 109,
-    "down_4_plus": 745,
+    "latest_date": "11/2/2026",
+    "t2108": 49.0,
+    "up_4_plus": 318,
+    "down_4_plus": 411,
     "data_stale": false
   },
   "data_status": "fresh",
-  "last_updated_hkt": "2026-11-03 11:08:29 HKT",
+  "last_updated_hkt": "2026-11-04 09:45:45 HKT",
   "thematic": [
     {
       "symbol": "XLB",
@@ -1402,18 +1402,18 @@
       "vs_200ma": 4.23
     },
     {
-      "symbol": "TLT",
-      "price": 81.73,
-      "vs_20ma": 2.3,
-      "vs_50ma": 1.81,
-      "vs_200ma": -1.78
-    },
-    {
       "symbol": "KRE",
       "price": 73.73,
       "vs_20ma": 4.16,
       "vs_50ma": 2.7,
       "vs_200ma": 4.76
+    },
+    {
+      "symbol": "TLT",
+      "price": 81.73,
+      "vs_20ma": 2.3,
+      "vs_50ma": 1.58,
+      "vs_200ma": -2.13
     },
     {
       "symbol": "IYT",
