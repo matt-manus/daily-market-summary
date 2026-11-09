@@ -1,12 +1,12 @@
 {
   "meta": {
-    "generated_hkt": "2026-11-08 08:58",
-    "generated_et": "2026-11-07 19:58",
-    "date": "2026-11-07",
+    "generated_hkt": "2026-11-09 09:17",
+    "generated_et": "2026-11-08 20:17",
+    "date": "2026-11-08",
     "source": "Yahoo Finance + CNN + NAAIM + Finviz + Barchart",
     "rsi_method": "Wilder SMMA (EWM alpha=1/14)",
     "schema_version": "4.2",
-    "last_updated_hkt": "2026-11-08 08:58:27 HKT"
+    "last_updated_hkt": "2026-11-09 09:17:38 HKT"
   },
   "macro": {
     "VIX": {
@@ -15,9 +15,9 @@
       "change_1d_pct": -9.01
     },
     "DXY": {
-      "price": 102.3,
-      "change_1d": 0.75,
-      "change_1d_pct": 0.74
+      "price": 102.215,
+      "change_1d": -0.085,
+      "change_1d_pct": -0.08
     },
     "TNX_10Y": {
       "price": 4.859,
@@ -25,19 +25,19 @@
       "change_1d_pct": 0.45
     },
     "GOLD": {
-      "price": 4074.8999,
-      "change_1d": -38.6001,
-      "change_1d_pct": -0.94
+      "price": 4111.1001,
+      "change_1d": 36.2002,
+      "change_1d_pct": 0.89
     },
     "OIL_WTI": {
-      "price": 90.83,
-      "change_1d": 0.31,
-      "change_1d_pct": 0.34
+      "price": 90.46,
+      "change_1d": -0.37,
+      "change_1d_pct": -0.41
     },
     "BTC": {
-      "price": 75681.0703,
-      "change_1d": -65.8594,
-      "change_1d_pct": -0.09
+      "price": 74904.2422,
+      "change_1d": -843.3359,
+      "change_1d_pct": -1.11
     }
   },
   "indices": {
@@ -105,6 +105,28 @@
         "total": 30,
         "ad_ratio": 0.304,
         "source": "yfinance (DJI 30 components)"
+      }
+    },
+    "IWM": {
+      "price": 273.67,
+      "change_1d_pct": 0.99,
+      "rsi14": 43.0473,
+      "ma20": 276.8425,
+      "ma50": 281.9413,
+      "ma200": 278.0229,
+      "vs_ma20_pct": -1.15,
+      "vs_ma50_pct": -2.93,
+      "vs_ma200_pct": -1.57,
+      "vs20ma": "Red",
+      "status": "BELOW ALL",
+      "ad_ratio": 1.219,
+      "ad_detail": {
+        "advances": 1064,
+        "declines": 873,
+        "unchanged": 17,
+        "total": 1954,
+        "ad_ratio": 1.219,
+        "source": "Finviz screener (Russell 2000)"
       }
     }
   },
@@ -1281,22 +1303,19 @@
       "SPY": 1.2,
       "QQQ": 1.79,
       "DIA": 1.15,
-      "IWM": "-"
+      "IWM": 1.58
     }
   },
   "stockbee_mm": {
     "source": "Stockbee Market Monitor (dynamic via stockbee_mm.json)",
-    "latest_date": "11/5/2026",
-    "t2108": 44.69,
-    "up_4_plus": 137,
-    "down_4_plus": 1269,
+    "latest_date": "11/6/2026",
+    "t2108": 44.43,
+    "up_4_plus": 262,
+    "down_4_plus": 156,
     "data_stale": false
   },
-  "data_status": "warning",
-  "data_warnings": [
-    "IWM price missing"
-  ],
-  "last_updated_hkt": "2026-11-08 08:58:27 HKT",
+  "data_status": "fresh",
+  "last_updated_hkt": "2026-11-09 09:17:38 HKT",
   "thematic": [
     {
       "symbol": "FXI",
