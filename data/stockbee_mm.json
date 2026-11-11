@@ -1,21 +1,58 @@
 [
   {
+    "Date": "11/10/2026",
+    "Number of stocks up 4% plus today": "145",
+    "Number of stocks down 4% plus today": "299",
+    "5 day ratio": "0.94",
+    "10 day  ratio": "0.88",
+    "Number of stocks up 25% plus in a quarter": "886",
+    "Number of stocks down 25% + in a quarter": "1396",
+    "Number of stocks up 25% + in a month": "205",
+    "Number of stocks down 25% + in a month": "265",
+    "Number of stocks up 50% + in a month": "35",
+    "Number of stocks down 50% + in a month": "34",
+    "Number of stocks up 13% + in 34 days": "1773",
+    "Number of stocks down 13% + in 34 days": "1683",
+    "Worden Common stock universe": "6555",
+    "T2108": "49.47",
+    "S&P": "7,521.06",
+    "colors": {
+      "Date": "none",
+      "Number of stocks up 4% plus today": "none",
+      "Number of stocks down 4% plus today": "none",
+      "5 day ratio": "none",
+      "10 day  ratio": "none",
+      "Number of stocks up 25% plus in a quarter": "none",
+      "Number of stocks down 25% + in a quarter": "none",
+      "Number of stocks up 25% + in a month": "none",
+      "Number of stocks down 25% + in a month": "none",
+      "Number of stocks up 50% + in a month": "none",
+      "Number of stocks down 50% + in a month": "green",
+      "Number of stocks up 13% + in 34 days": "green",
+      "Number of stocks down 13% + in 34 days": "green",
+      "Worden Common stock universe": "none",
+      "T2108": "none",
+      "S&P": "none"
+    },
+    "last_success_time": "2026-11-11T01:34:19.947847"
+  },
+  {
     "Date": "11/9/2026",
-    "Number of stocks up 4% plus today": "725",
-    "Number of stocks down 4% plus today": "126",
-    "5 day ratio": "1.03",
+    "Number of stocks up 4% plus today": "748",
+    "Number of stocks down 4% plus today": "129",
+    "5 day ratio": "1.04",
     "10 day  ratio": "1.01",
-    "Number of stocks up 25% plus in a quarter": "936",
-    "Number of stocks down 25% + in a quarter": "1335",
+    "Number of stocks up 25% plus in a quarter": "937",
+    "Number of stocks down 25% + in a quarter": "1336",
     "Number of stocks up 25% + in a month": "211",
     "Number of stocks down 25% + in a month": "262",
     "Number of stocks up 50% + in a month": "36",
     "Number of stocks down 50% + in a month": "36",
-    "Number of stocks up 13% + in 34 days": "1925",
+    "Number of stocks up 13% + in 34 days": "1926",
     "Number of stocks down 13% + in 34 days": "1638",
     "Worden Common stock universe": "6556",
-    "T2108": "51.35",
-    "S&P": "7,549.83",
+    "T2108": "51.90",
+    "S&P": "7,549.94",
     "colors": {
       "Date": "none",
       "Number of stocks up 4% plus today": "none",
@@ -34,7 +71,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:35.753509"
+    "last_success_time": "2026-11-11T01:34:20.026848"
   },
   {
     "Date": "11/6/2026",
@@ -71,7 +108,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:35.829654"
+    "last_success_time": "2026-11-11T01:34:20.096043"
   },
   {
     "Date": "11/5/2026",
@@ -108,7 +145,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:35.902209"
+    "last_success_time": "2026-11-11T01:34:20.165550"
   },
   {
     "Date": "11/4/2026",
@@ -145,7 +182,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:35.972970"
+    "last_success_time": "2026-11-11T01:34:20.237156"
   },
   {
     "Date": "11/3/2026",
@@ -182,7 +219,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:36.058654"
+    "last_success_time": "2026-11-11T01:34:20.303119"
   },
   {
     "Date": "11/2/2026",
@@ -219,7 +256,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:36.126551"
+    "last_success_time": "2026-11-11T01:34:20.370771"
   },
   {
     "Date": "10/30/2026",
@@ -256,7 +293,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:36.192465"
+    "last_success_time": "2026-11-11T01:34:20.438640"
   },
   {
     "Date": "10/29/2026",
@@ -293,7 +330,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:36.257761"
+    "last_success_time": "2026-11-11T01:34:20.504929"
   },
   {
     "Date": "10/28/2026",
@@ -330,7 +367,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:36.321556"
+    "last_success_time": "2026-11-11T01:34:20.572687"
   },
   {
     "Date": "10/27/2026",
@@ -367,7 +404,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:36.392649"
+    "last_success_time": "2026-11-11T01:34:20.651561"
   },
   {
     "Date": "10/26/2026",
@@ -404,7 +441,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:36.456013"
+    "last_success_time": "2026-11-11T01:34:20.715507"
   },
   {
     "Date": "10/23/2026",
@@ -441,7 +478,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:36.522017"
+    "last_success_time": "2026-11-11T01:34:20.778850"
   },
   {
     "Date": "10/22/2026",
@@ -478,7 +515,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:36.591602"
+    "last_success_time": "2026-11-11T01:34:20.842730"
   },
   {
     "Date": "10/21/2026",
@@ -515,7 +552,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:36.653387"
+    "last_success_time": "2026-11-11T01:34:20.909688"
   },
   {
     "Date": "10/20/2026",
@@ -552,7 +589,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:36.716260"
+    "last_success_time": "2026-11-11T01:34:20.973853"
   },
   {
     "Date": "10/19/2026",
@@ -589,7 +626,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:36.779065"
+    "last_success_time": "2026-11-11T01:34:21.047043"
   },
   {
     "Date": "10/16/2026",
@@ -626,7 +663,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:36.842059"
+    "last_success_time": "2026-11-11T01:34:21.112089"
   },
   {
     "Date": "10/15/2026",
@@ -663,7 +700,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:36.916614"
+    "last_success_time": "2026-11-11T01:34:21.175547"
   },
   {
     "Date": "10/14/2026",
@@ -700,7 +737,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:36.979722"
+    "last_success_time": "2026-11-11T01:34:21.243757"
   },
   {
     "Date": "10/13/2026",
@@ -737,7 +774,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:37.047074"
+    "last_success_time": "2026-11-11T01:34:21.308994"
   },
   {
     "Date": "10/12/2026",
@@ -774,7 +811,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:37.109955"
+    "last_success_time": "2026-11-11T01:34:21.371370"
   },
   {
     "Date": "10/9/2026",
@@ -811,7 +848,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:37.173046"
+    "last_success_time": "2026-11-11T01:34:21.434058"
   },
   {
     "Date": "10/8/2026",
@@ -848,7 +885,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:37.235384"
+    "last_success_time": "2026-11-11T01:34:21.499357"
   },
   {
     "Date": "10/7/2026",
@@ -885,7 +922,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:37.302306"
+    "last_success_time": "2026-11-11T01:34:21.566685"
   },
   {
     "Date": "10/6/2026",
@@ -922,7 +959,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:37.364819"
+    "last_success_time": "2026-11-11T01:34:21.630377"
   },
   {
     "Date": "10/5/2026",
@@ -959,7 +996,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:37.428656"
+    "last_success_time": "2026-11-11T01:34:21.694267"
   },
   {
     "Date": "10/2/2026",
@@ -996,7 +1033,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:37.494348"
+    "last_success_time": "2026-11-11T01:34:21.759696"
   },
   {
     "Date": "10/1/2026",
@@ -1033,7 +1070,7 @@
       "T2108": "green",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:37.555199"
+    "last_success_time": "2026-11-11T01:34:21.825968"
   },
   {
     "Date": "9/30/2026",
@@ -1070,7 +1107,7 @@
       "T2108": "green",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:37.615654"
+    "last_success_time": "2026-11-11T01:34:21.892662"
   },
   {
     "Date": "9/29/2026",
@@ -1107,7 +1144,7 @@
       "T2108": "green",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:37.686416"
+    "last_success_time": "2026-11-11T01:34:21.957789"
   },
   {
     "Date": "9/28/2026",
@@ -1144,7 +1181,7 @@
       "T2108": "green",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:37.747178"
+    "last_success_time": "2026-11-11T01:34:22.035357"
   },
   {
     "Date": "9/25/2026",
@@ -1181,7 +1218,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:37.809572"
+    "last_success_time": "2026-11-11T01:34:22.100612"
   },
   {
     "Date": "9/24/2026",
@@ -1218,7 +1255,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:37.882717"
+    "last_success_time": "2026-11-11T01:34:22.161828"
   },
   {
     "Date": "9/23/2026",
@@ -1255,7 +1292,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:37.945835"
+    "last_success_time": "2026-11-11T01:34:22.224379"
   },
   {
     "Date": "9/22/2026",
@@ -1292,7 +1329,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:38.011132"
+    "last_success_time": "2026-11-11T01:34:22.291581"
   },
   {
     "Date": "9/21/2026",
@@ -1329,7 +1366,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:38.099597"
+    "last_success_time": "2026-11-11T01:34:22.365310"
   },
   {
     "Date": "9/18/2026",
@@ -1366,7 +1403,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:38.162600"
+    "last_success_time": "2026-11-11T01:34:22.428134"
   },
   {
     "Date": "9/17/2026",
@@ -1403,7 +1440,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:38.226773"
+    "last_success_time": "2026-11-11T01:34:22.490516"
   },
   {
     "Date": "9/16/2026",
@@ -1440,7 +1477,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:38.289609"
+    "last_success_time": "2026-11-11T01:34:22.556254"
   },
   {
     "Date": "9/15/2026",
@@ -1477,7 +1514,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:38.355283"
+    "last_success_time": "2026-11-11T01:34:22.617858"
   },
   {
     "Date": "9/14/2026",
@@ -1514,7 +1551,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:38.418204"
+    "last_success_time": "2026-11-11T01:34:22.679480"
   },
   {
     "Date": "9/11/2026",
@@ -1551,7 +1588,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:38.478393"
+    "last_success_time": "2026-11-11T01:34:22.740024"
   },
   {
     "Date": "9/10/2026",
@@ -1588,7 +1625,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:38.540851"
+    "last_success_time": "2026-11-11T01:34:22.811746"
   },
   {
     "Date": "9/9/2026",
@@ -1625,7 +1662,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:38.603036"
+    "last_success_time": "2026-11-11T01:34:22.873630"
   },
   {
     "Date": "9/8/2026",
@@ -1662,7 +1699,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:38.667314"
+    "last_success_time": "2026-11-11T01:34:22.935096"
   },
   {
     "Date": "9/4/2026",
@@ -1699,7 +1736,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:38.735870"
+    "last_success_time": "2026-11-11T01:34:22.997146"
   },
   {
     "Date": "9/3/2026",
@@ -1736,7 +1773,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:38.796170"
+    "last_success_time": "2026-11-11T01:34:23.057805"
   },
   {
     "Date": "9/2/2026",
@@ -1773,7 +1810,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:38.855888"
+    "last_success_time": "2026-11-11T01:34:23.120925"
   },
   {
     "Date": "9/1/2026",
@@ -1810,7 +1847,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:38.916058"
+    "last_success_time": "2026-11-11T01:34:23.182253"
   },
   {
     "Date": "8/31/2026",
@@ -1847,7 +1884,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:38.976028"
+    "last_success_time": "2026-11-11T01:34:23.248281"
   },
   {
     "Date": "8/28/2026",
@@ -1884,7 +1921,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:39.036308"
+    "last_success_time": "2026-11-11T01:34:23.312600"
   },
   {
     "Date": "8/27/2026",
@@ -1921,7 +1958,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:39.101870"
+    "last_success_time": "2026-11-11T01:34:23.376198"
   },
   {
     "Date": "8/26/2026",
@@ -1958,7 +1995,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:39.161197"
+    "last_success_time": "2026-11-11T01:34:23.437641"
   },
   {
     "Date": "8/25/2026",
@@ -1995,7 +2032,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:39.220763"
+    "last_success_time": "2026-11-11T01:34:23.500194"
   },
   {
     "Date": "8/24/2026",
@@ -2032,7 +2069,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:39.281039"
+    "last_success_time": "2026-11-11T01:34:23.561254"
   },
   {
     "Date": "8/21/2026",
@@ -2069,7 +2106,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:39.339943"
+    "last_success_time": "2026-11-11T01:34:23.624947"
   },
   {
     "Date": "8/20/2026",
@@ -2106,7 +2143,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:39.399927"
+    "last_success_time": "2026-11-11T01:34:23.688783"
   },
   {
     "Date": "8/19/2026",
@@ -2143,7 +2180,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:39.466458"
+    "last_success_time": "2026-11-11T01:34:23.752237"
   },
   {
     "Date": "8/18/2026",
@@ -2180,7 +2217,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:39.527411"
+    "last_success_time": "2026-11-11T01:34:23.818608"
   },
   {
     "Date": "8/17/2026",
@@ -2217,7 +2254,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:39.586771"
+    "last_success_time": "2026-11-11T01:34:23.879800"
   },
   {
     "Date": "8/14/2026",
@@ -2254,7 +2291,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:39.646666"
+    "last_success_time": "2026-11-11T01:34:23.941450"
   },
   {
     "Date": "8/13/2026",
@@ -2291,7 +2328,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:39.707603"
+    "last_success_time": "2026-11-11T01:34:24.002666"
   },
   {
     "Date": "8/12/2026",
@@ -2328,7 +2365,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:39.780572"
+    "last_success_time": "2026-11-11T01:34:24.063609"
   },
   {
     "Date": "8/11/2026",
@@ -2365,7 +2402,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:39.840946"
+    "last_success_time": "2026-11-11T01:34:24.124462"
   },
   {
     "Date": "8/10/2026",
@@ -2402,7 +2439,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:39.900366"
+    "last_success_time": "2026-11-11T01:34:24.185022"
   },
   {
     "Date": "8/7/2026",
@@ -2439,7 +2476,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:39.961292"
+    "last_success_time": "2026-11-11T01:34:24.245519"
   },
   {
     "Date": "8/6/2026",
@@ -2476,7 +2513,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:40.021460"
+    "last_success_time": "2026-11-11T01:34:24.323338"
   },
   {
     "Date": "8/5/2026",
@@ -2513,7 +2550,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:40.082855"
+    "last_success_time": "2026-11-11T01:34:24.384648"
   },
   {
     "Date": "8/4/2026",
@@ -2550,7 +2587,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:40.143158"
+    "last_success_time": "2026-11-11T01:34:24.445401"
   },
   {
     "Date": "8/3/2026",
@@ -2587,7 +2624,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:40.212574"
+    "last_success_time": "2026-11-11T01:34:24.506011"
   },
   {
     "Date": "7/31/2026",
@@ -2624,7 +2661,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:40.273316"
+    "last_success_time": "2026-11-11T01:34:24.568707"
   },
   {
     "Date": "7/30/2026",
@@ -2661,7 +2698,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:40.337453"
+    "last_success_time": "2026-11-11T01:34:24.629373"
   },
   {
     "Date": "7/29/2026",
@@ -2698,7 +2735,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:40.397922"
+    "last_success_time": "2026-11-11T01:34:24.690431"
   },
   {
     "Date": "7/28/2026",
@@ -2735,7 +2772,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:40.461470"
+    "last_success_time": "2026-11-11T01:34:24.750808"
   },
   {
     "Date": "7/27/2026",
@@ -2772,7 +2809,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:40.531280"
+    "last_success_time": "2026-11-11T01:34:24.815078"
   },
   {
     "Date": "7/24/2026",
@@ -2809,7 +2846,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:40.592936"
+    "last_success_time": "2026-11-11T01:34:24.875514"
   },
   {
     "Date": "7/23/2026",
@@ -2846,7 +2883,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:40.651833"
+    "last_success_time": "2026-11-11T01:34:24.936477"
   },
   {
     "Date": "7/22/2026",
@@ -2883,7 +2920,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:40.710910"
+    "last_success_time": "2026-11-11T01:34:25.010651"
   },
   {
     "Date": "7/21/2026",
@@ -2920,7 +2957,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:40.784755"
+    "last_success_time": "2026-11-11T01:34:25.073619"
   },
   {
     "Date": "7/20/2026",
@@ -2957,7 +2994,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:40.846752"
+    "last_success_time": "2026-11-11T01:34:25.134860"
   },
   {
     "Date": "7/17/2026",
@@ -2994,7 +3031,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:40.909846"
+    "last_success_time": "2026-11-11T01:34:25.195238"
   },
   {
     "Date": "7/16/2026",
@@ -3031,7 +3068,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:40.969741"
+    "last_success_time": "2026-11-11T01:34:25.261058"
   },
   {
     "Date": "7/15/2026",
@@ -3068,7 +3105,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:41.029552"
+    "last_success_time": "2026-11-11T01:34:25.321476"
   },
   {
     "Date": "7/14/2026",
@@ -3105,7 +3142,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:41.090070"
+    "last_success_time": "2026-11-11T01:34:25.381824"
   },
   {
     "Date": "7/13/2026",
@@ -3142,7 +3179,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:41.149088"
+    "last_success_time": "2026-11-11T01:34:25.442184"
   },
   {
     "Date": "7/10/2026",
@@ -3179,7 +3216,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:41.209083"
+    "last_success_time": "2026-11-11T01:34:25.504368"
   },
   {
     "Date": "7/9/2026",
@@ -3216,7 +3253,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:41.269729"
+    "last_success_time": "2026-11-11T01:34:25.565008"
   },
   {
     "Date": "7/8/2026",
@@ -3253,7 +3290,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:41.334204"
+    "last_success_time": "2026-11-11T01:34:25.625539"
   },
   {
     "Date": "7/7/2026",
@@ -3290,7 +3327,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:41.393717"
+    "last_success_time": "2026-11-11T01:34:25.687475"
   },
   {
     "Date": "7/6/2026",
@@ -3327,7 +3364,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:41.453869"
+    "last_success_time": "2026-11-11T01:34:25.752630"
   },
   {
     "Date": "7/2/2026",
@@ -3364,7 +3401,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:41.513516"
+    "last_success_time": "2026-11-11T01:34:25.813245"
   },
   {
     "Date": "7/1/2026",
@@ -3401,7 +3438,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:41.572678"
+    "last_success_time": "2026-11-11T01:34:25.875260"
   },
   {
     "Date": "6/30/2026",
@@ -3438,7 +3475,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:41.636818"
+    "last_success_time": "2026-11-11T01:34:25.937221"
   },
   {
     "Date": "6/29/2026",
@@ -3475,7 +3512,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:41.702705"
+    "last_success_time": "2026-11-11T01:34:26.032971"
   },
   {
     "Date": "6/26/2026",
@@ -3512,7 +3549,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:41.764493"
+    "last_success_time": "2026-11-11T01:34:26.094999"
   },
   {
     "Date": "6/25/2026",
@@ -3549,7 +3586,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:41.823676"
+    "last_success_time": "2026-11-11T01:34:26.155926"
   },
   {
     "Date": "6/24/2026",
@@ -3586,7 +3623,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:41.883891"
+    "last_success_time": "2026-11-11T01:34:26.215494"
   },
   {
     "Date": "6/23/2026",
@@ -3623,7 +3660,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:41.944659"
+    "last_success_time": "2026-11-11T01:34:26.277428"
   },
   {
     "Date": "6/22/2026",
@@ -3660,7 +3697,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:42.008327"
+    "last_success_time": "2026-11-11T01:34:26.340401"
   },
   {
     "Date": "6/18/2026",
@@ -3697,7 +3734,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:42.086547"
+    "last_success_time": "2026-11-11T01:34:26.400480"
   },
   {
     "Date": "6/17/2026",
@@ -3734,7 +3771,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:42.148091"
+    "last_success_time": "2026-11-11T01:34:26.460977"
   },
   {
     "Date": "6/16/2026",
@@ -3771,7 +3808,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:42.210861"
+    "last_success_time": "2026-11-11T01:34:26.522483"
   },
   {
     "Date": "6/15/2026",
@@ -3808,7 +3845,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:42.271933"
+    "last_success_time": "2026-11-11T01:34:26.584537"
   },
   {
     "Date": "6/12/2026",
@@ -3845,7 +3882,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:42.333297"
+    "last_success_time": "2026-11-11T01:34:26.644957"
   },
   {
     "Date": "6/11/2026",
@@ -3882,7 +3919,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:42.393459"
+    "last_success_time": "2026-11-11T01:34:26.704544"
   },
   {
     "Date": "6/10/2026",
@@ -3919,7 +3956,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:42.454101"
+    "last_success_time": "2026-11-11T01:34:26.763719"
   },
   {
     "Date": "6/9/2026",
@@ -3956,7 +3993,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:42.519379"
+    "last_success_time": "2026-11-11T01:34:26.822992"
   },
   {
     "Date": "6/8/2026",
@@ -3993,7 +4030,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:42.579792"
+    "last_success_time": "2026-11-11T01:34:26.882294"
   },
   {
     "Date": "6/5/2026",
@@ -4030,7 +4067,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:42.639924"
+    "last_success_time": "2026-11-11T01:34:26.942635"
   },
   {
     "Date": "6/4/2026",
@@ -4067,7 +4104,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:42.699645"
+    "last_success_time": "2026-11-11T01:34:27.006913"
   },
   {
     "Date": "6/3/2026",
@@ -4104,7 +4141,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:42.760922"
+    "last_success_time": "2026-11-11T01:34:27.066663"
   },
   {
     "Date": "6/2/2026",
@@ -4141,7 +4178,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:42.826985"
+    "last_success_time": "2026-11-11T01:34:27.127013"
   },
   {
     "Date": "6/1/2026",
@@ -4178,7 +4215,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:42.885829"
+    "last_success_time": "2026-11-11T01:34:27.186826"
   },
   {
     "Date": "5/29/2026",
@@ -4215,7 +4252,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:42.945334"
+    "last_success_time": "2026-11-11T01:34:27.247797"
   },
   {
     "Date": "5/28/2026",
@@ -4252,7 +4289,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:43.004539"
+    "last_success_time": "2026-11-11T01:34:27.308070"
   },
   {
     "Date": "5/27/2026",
@@ -4289,7 +4326,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:43.064580"
+    "last_success_time": "2026-11-11T01:34:27.368020"
   },
   {
     "Date": "5/26/2026",
@@ -4326,7 +4363,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:43.123850"
+    "last_success_time": "2026-11-11T01:34:27.434965"
   },
   {
     "Date": "5/22/2026",
@@ -4363,7 +4400,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:43.191232"
+    "last_success_time": "2026-11-11T01:34:27.500593"
   },
   {
     "Date": "5/21/2026",
@@ -4400,7 +4437,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:43.255878"
+    "last_success_time": "2026-11-11T01:34:27.560948"
   },
   {
     "Date": "5/20/2026",
@@ -4437,7 +4474,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:43.314748"
+    "last_success_time": "2026-11-11T01:34:27.622077"
   },
   {
     "Date": "5/19/2026",
@@ -4474,7 +4511,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:43.375768"
+    "last_success_time": "2026-11-11T01:34:27.682685"
   },
   {
     "Date": "5/18/2026",
@@ -4511,7 +4548,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:43.436562"
+    "last_success_time": "2026-11-11T01:34:27.743595"
   },
   {
     "Date": "5/15/2026",
@@ -4548,7 +4585,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:43.496281"
+    "last_success_time": "2026-11-11T01:34:27.805566"
   },
   {
     "Date": "5/14/2026",
@@ -4585,7 +4622,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:43.559357"
+    "last_success_time": "2026-11-11T01:34:27.866632"
   },
   {
     "Date": "5/13/2026",
@@ -4622,7 +4659,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:43.619231"
+    "last_success_time": "2026-11-11T01:34:27.945409"
   },
   {
     "Date": "5/12/2026",
@@ -4659,7 +4696,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:43.678687"
+    "last_success_time": "2026-11-11T01:34:28.006996"
   },
   {
     "Date": "5/11/2026",
@@ -4696,7 +4733,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:43.738079"
+    "last_success_time": "2026-11-11T01:34:28.068036"
   },
   {
     "Date": "5/8/2026",
@@ -4733,7 +4770,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:43.798023"
+    "last_success_time": "2026-11-11T01:34:28.128246"
   },
   {
     "Date": "5/7/2026",
@@ -4770,7 +4807,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:43.860378"
+    "last_success_time": "2026-11-11T01:34:28.188736"
   },
   {
     "Date": "5/6/2026",
@@ -4807,7 +4844,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:43.925769"
+    "last_success_time": "2026-11-11T01:34:28.248292"
   },
   {
     "Date": "5/5/2026",
@@ -4844,7 +4881,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:43.991117"
+    "last_success_time": "2026-11-11T01:34:28.309468"
   },
   {
     "Date": "5/4/2026",
@@ -4881,7 +4918,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:44.051898"
+    "last_success_time": "2026-11-11T01:34:28.369677"
   },
   {
     "Date": "5/1/2026",
@@ -4918,7 +4955,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:44.112645"
+    "last_success_time": "2026-11-11T01:34:28.430571"
   },
   {
     "Date": "4/30/2026",
@@ -4955,7 +4992,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:44.174175"
+    "last_success_time": "2026-11-11T01:34:28.493899"
   },
   {
     "Date": "4/29/2026",
@@ -4992,7 +5029,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:44.232950"
+    "last_success_time": "2026-11-11T01:34:28.553888"
   },
   {
     "Date": "4/28/2026",
@@ -5029,7 +5066,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:44.292779"
+    "last_success_time": "2026-11-11T01:34:28.618474"
   },
   {
     "Date": "4/27/2026",
@@ -5066,7 +5103,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:44.357818"
+    "last_success_time": "2026-11-11T01:34:28.677497"
   },
   {
     "Date": "4/24/2026",
@@ -5103,7 +5140,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:44.418153"
+    "last_success_time": "2026-11-11T01:34:28.738013"
   },
   {
     "Date": "4/23/2026",
@@ -5140,7 +5177,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:44.478735"
+    "last_success_time": "2026-11-11T01:34:28.798493"
   },
   {
     "Date": "4/22/2026",
@@ -5177,7 +5214,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:44.539242"
+    "last_success_time": "2026-11-11T01:34:28.859408"
   },
   {
     "Date": "4/21/2026",
@@ -5214,7 +5251,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:44.599303"
+    "last_success_time": "2026-11-11T01:34:28.925395"
   },
   {
     "Date": "4/20/2026",
@@ -5251,7 +5288,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:44.662337"
+    "last_success_time": "2026-11-11T01:34:28.985844"
   },
   {
     "Date": "4/17/2026",
@@ -5288,7 +5325,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:44.755482"
+    "last_success_time": "2026-11-11T01:34:29.046440"
   },
   {
     "Date": "4/16/2026",
@@ -5325,7 +5362,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:44.825963"
+    "last_success_time": "2026-11-11T01:34:29.106389"
   },
   {
     "Date": "4/15/2026",
@@ -5362,7 +5399,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:44.898968"
+    "last_success_time": "2026-11-11T01:34:29.166187"
   },
   {
     "Date": "4/14/2026",
@@ -5399,7 +5436,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:44.960453"
+    "last_success_time": "2026-11-11T01:34:29.225545"
   },
   {
     "Date": "4/13/2026",
@@ -5436,7 +5473,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:45.020962"
+    "last_success_time": "2026-11-11T01:34:29.287808"
   },
   {
     "Date": "4/10/2026",
@@ -5473,7 +5510,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:45.080789"
+    "last_success_time": "2026-11-11T01:34:29.348134"
   },
   {
     "Date": "4/9/2026",
@@ -5510,7 +5547,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:45.141176"
+    "last_success_time": "2026-11-11T01:34:29.411169"
   },
   {
     "Date": "4/8/2026",
@@ -5547,7 +5584,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:45.202527"
+    "last_success_time": "2026-11-11T01:34:29.470381"
   },
   {
     "Date": "4/7/2026",
@@ -5584,7 +5621,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:45.262844"
+    "last_success_time": "2026-11-11T01:34:29.530056"
   },
   {
     "Date": "4/6/2026",
@@ -5621,7 +5658,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:45.321422"
+    "last_success_time": "2026-11-11T01:34:29.591318"
   },
   {
     "Date": "4/2/2026",
@@ -5658,7 +5695,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:45.380777"
+    "last_success_time": "2026-11-11T01:34:29.653352"
   },
   {
     "Date": "4/1/2026",
@@ -5695,7 +5732,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:45.439186"
+    "last_success_time": "2026-11-11T01:34:29.712750"
   },
   {
     "Date": "3/31/2026",
@@ -5732,7 +5769,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:45.499782"
+    "last_success_time": "2026-11-11T01:34:29.772249"
   },
   {
     "Date": "3/30/2026",
@@ -5769,7 +5806,7 @@
       "T2108": "green",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:45.563213"
+    "last_success_time": "2026-11-11T01:34:29.835475"
   },
   {
     "Date": "3/27/2026",
@@ -5806,7 +5843,7 @@
       "T2108": "green",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:45.623126"
+    "last_success_time": "2026-11-11T01:34:29.896401"
   },
   {
     "Date": "3/26/2026",
@@ -5843,7 +5880,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:45.682848"
+    "last_success_time": "2026-11-11T01:34:29.957391"
   },
   {
     "Date": "3/25/2026",
@@ -5880,7 +5917,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:45.743281"
+    "last_success_time": "2026-11-11T01:34:30.017085"
   },
   {
     "Date": "3/24/2026",
@@ -5917,7 +5954,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:45.800687"
+    "last_success_time": "2026-11-11T01:34:30.077285"
   },
   {
     "Date": "3/23/2026",
@@ -5954,7 +5991,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:45.859034"
+    "last_success_time": "2026-11-11T01:34:30.137563"
   },
   {
     "Date": "3/20/2026",
@@ -5991,7 +6028,7 @@
       "T2108": "green",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:45.921649"
+    "last_success_time": "2026-11-11T01:34:30.197810"
   },
   {
     "Date": "3/19/2026",
@@ -6028,7 +6065,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:45.980348"
+    "last_success_time": "2026-11-11T01:34:30.258387"
   },
   {
     "Date": "3/18/2026",
@@ -6065,7 +6102,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:46.039758"
+    "last_success_time": "2026-11-11T01:34:30.339880"
   },
   {
     "Date": "3/17/2026",
@@ -6102,7 +6139,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:46.099785"
+    "last_success_time": "2026-11-11T01:34:30.400456"
   },
   {
     "Date": "3/16/2026",
@@ -6139,7 +6176,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:46.159630"
+    "last_success_time": "2026-11-11T01:34:30.461006"
   },
   {
     "Date": "3/13/2026",
@@ -6176,7 +6213,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:46.220075"
+    "last_success_time": "2026-11-11T01:34:30.520389"
   },
   {
     "Date": "3/12/2026",
@@ -6213,7 +6250,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:46.283562"
+    "last_success_time": "2026-11-11T01:34:30.579769"
   },
   {
     "Date": "3/11/2026",
@@ -6250,7 +6287,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:46.343524"
+    "last_success_time": "2026-11-11T01:34:30.640142"
   },
   {
     "Date": "3/10/2026",
@@ -6287,7 +6324,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:46.402075"
+    "last_success_time": "2026-11-11T01:34:30.699988"
   },
   {
     "Date": "3/9/2026",
@@ -6324,7 +6361,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:46.462196"
+    "last_success_time": "2026-11-11T01:34:30.759218"
   },
   {
     "Date": "3/6/2026",
@@ -6361,7 +6398,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:46.520661"
+    "last_success_time": "2026-11-11T01:34:30.827328"
   },
   {
     "Date": "3/5/2026",
@@ -6398,7 +6435,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:46.588249"
+    "last_success_time": "2026-11-11T01:34:30.886910"
   },
   {
     "Date": "3/4/2026",
@@ -6435,7 +6472,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:46.651979"
+    "last_success_time": "2026-11-11T01:34:30.946115"
   },
   {
     "Date": "3/3/2026",
@@ -6472,7 +6509,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:46.711612"
+    "last_success_time": "2026-11-11T01:34:31.004730"
   },
   {
     "Date": "3/2/2026",
@@ -6509,7 +6546,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:46.770290"
+    "last_success_time": "2026-11-11T01:34:31.064732"
   },
   {
     "Date": "2/27/2026",
@@ -6546,7 +6583,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:46.828560"
+    "last_success_time": "2026-11-11T01:34:31.124684"
   },
   {
     "Date": "2/26/2026",
@@ -6583,7 +6620,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:46.888241"
+    "last_success_time": "2026-11-11T01:34:31.183359"
   },
   {
     "Date": "2/25/2026",
@@ -6620,7 +6657,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:46.946796"
+    "last_success_time": "2026-11-11T01:34:31.242254"
   },
   {
     "Date": "2/24/2026",
@@ -6657,7 +6694,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:47.009526"
+    "last_success_time": "2026-11-11T01:34:31.306248"
   },
   {
     "Date": "2/23/2026",
@@ -6694,7 +6731,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:47.070142"
+    "last_success_time": "2026-11-11T01:34:31.365255"
   },
   {
     "Date": "2/20/2026",
@@ -6731,7 +6768,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:47.129550"
+    "last_success_time": "2026-11-11T01:34:31.424053"
   },
   {
     "Date": "2/19/2026",
@@ -6768,7 +6805,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:47.189748"
+    "last_success_time": "2026-11-11T01:34:31.483772"
   },
   {
     "Date": "2/18/2026",
@@ -6805,7 +6842,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:47.249190"
+    "last_success_time": "2026-11-11T01:34:31.542903"
   },
   {
     "Date": "2/17/2026",
@@ -6842,7 +6879,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:47.307533"
+    "last_success_time": "2026-11-11T01:34:31.602135"
   },
   {
     "Date": "2/13/2026",
@@ -6879,7 +6916,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:47.371425"
+    "last_success_time": "2026-11-11T01:34:31.660955"
   },
   {
     "Date": "2/12/2026",
@@ -6916,7 +6953,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:47.430563"
+    "last_success_time": "2026-11-11T01:34:31.723966"
   },
   {
     "Date": "2/11/2026",
@@ -6953,7 +6990,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:47.491616"
+    "last_success_time": "2026-11-11T01:34:31.782716"
   },
   {
     "Date": "2/10/2026",
@@ -6990,7 +7027,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:47.551246"
+    "last_success_time": "2026-11-11T01:34:31.842942"
   },
   {
     "Date": "2/9/2026",
@@ -7027,7 +7064,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:47.610435"
+    "last_success_time": "2026-11-11T01:34:31.903468"
   },
   {
     "Date": "2/6/2026",
@@ -7064,7 +7101,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:47.673069"
+    "last_success_time": "2026-11-11T01:34:31.962398"
   },
   {
     "Date": "2/5/2026",
@@ -7101,7 +7138,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:47.739985"
+    "last_success_time": "2026-11-11T01:34:32.021444"
   },
   {
     "Date": "2/4/2026",
@@ -7138,7 +7175,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:47.799752"
+    "last_success_time": "2026-11-11T01:34:32.079915"
   },
   {
     "Date": "2/3/2026",
@@ -7175,7 +7212,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:47.860540"
+    "last_success_time": "2026-11-11T01:34:32.139083"
   },
   {
     "Date": "2/2/2026",
@@ -7212,7 +7249,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:47.920729"
+    "last_success_time": "2026-11-11T01:34:32.201692"
   },
   {
     "Date": "1/30/2026",
@@ -7249,7 +7286,7 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:47.979859"
+    "last_success_time": "2026-11-11T01:34:32.260513"
   },
   {
     "Date": "1/29/2026",
@@ -7286,1005 +7323,6 @@
       "T2108": "none",
       "S&P": "none"
     },
-    "last_success_time": "2026-11-10T03:53:48.039597"
-  },
-  {
-    "Date": "1/28/2026",
-    "Number of stocks up 4% plus today": "174",
-    "Number of stocks down 4% plus today": "309",
-    "5 day ratio": "1.14",
-    "10 day  ratio": "1.27",
-    "Number of stocks up 25% plus in a quarter": "1434",
-    "Number of stocks down 25% + in a quarter": "975",
-    "Number of stocks up 25% + in a month": "240",
-    "Number of stocks down 25% + in a month": "80",
-    "Number of stocks up 50% + in a month": "59",
-    "Number of stocks down 50% + in a month": "20",
-    "Number of stocks up 13% + in 34 days": "1547",
-    "Number of stocks down 13% + in 34 days": "1275",
-    "Worden Common stock universe": "6327",
-    "T2108": "55.40",
-    "S&P": "6,978.03",
-    "colors": {
-      "Date": "none",
-      "Number of stocks up 4% plus today": "none",
-      "Number of stocks down 4% plus today": "none",
-      "5 day ratio": "none",
-      "10 day  ratio": "none",
-      "Number of stocks up 25% plus in a quarter": "green",
-      "Number of stocks down 25% + in a quarter": "green",
-      "Number of stocks up 25% + in a month": "green",
-      "Number of stocks down 25% + in a month": "green",
-      "Number of stocks up 50% + in a month": "none",
-      "Number of stocks down 50% + in a month": "green",
-      "Number of stocks up 13% + in 34 days": "green",
-      "Number of stocks down 13% + in 34 days": "green",
-      "Worden Common stock universe": "none",
-      "T2108": "none",
-      "S&P": "none"
-    },
-    "last_success_time": "2026-11-10T03:53:48.123116"
-  },
-  {
-    "Date": "1/27/2026",
-    "Number of stocks up 4% plus today": "253",
-    "Number of stocks down 4% plus today": "166",
-    "5 day ratio": "1.77",
-    "10 day  ratio": "1.33",
-    "Number of stocks up 25% plus in a quarter": "1497",
-    "Number of stocks down 25% + in a quarter": "939",
-    "Number of stocks up 25% + in a month": "224",
-    "Number of stocks down 25% + in a month": "77",
-    "Number of stocks up 50% + in a month": "48",
-    "Number of stocks down 50% + in a month": "21",
-    "Number of stocks up 13% + in 34 days": "1659",
-    "Number of stocks down 13% + in 34 days": "1168",
-    "Worden Common stock universe": "6320",
-    "T2108": "59.34",
-    "S&P": "6,978.60",
-    "colors": {
-      "Date": "none",
-      "Number of stocks up 4% plus today": "green",
-      "Number of stocks down 4% plus today": "green",
-      "5 day ratio": "none",
-      "10 day  ratio": "none",
-      "Number of stocks up 25% plus in a quarter": "green",
-      "Number of stocks down 25% + in a quarter": "green",
-      "Number of stocks up 25% + in a month": "green",
-      "Number of stocks down 25% + in a month": "green",
-      "Number of stocks up 50% + in a month": "none",
-      "Number of stocks down 50% + in a month": "green",
-      "Number of stocks up 13% + in 34 days": "green",
-      "Number of stocks down 13% + in 34 days": "green",
-      "Worden Common stock universe": "none",
-      "T2108": "none",
-      "S&P": "none"
-    },
-    "last_success_time": "2026-11-10T03:53:48.183624"
-  },
-  {
-    "Date": "1/26/2026",
-    "Number of stocks up 4% plus today": "159",
-    "Number of stocks down 4% plus today": "307",
-    "5 day ratio": "1.32",
-    "10 day  ratio": "1.37",
-    "Number of stocks up 25% plus in a quarter": "1489",
-    "Number of stocks down 25% + in a quarter": "944",
-    "Number of stocks up 25% + in a month": "159",
-    "Number of stocks down 25% + in a month": "78",
-    "Number of stocks up 50% + in a month": "35",
-    "Number of stocks down 50% + in a month": "20",
-    "Number of stocks up 13% + in 34 days": "1649",
-    "Number of stocks down 13% + in 34 days": "1178",
-    "Worden Common stock universe": "6312",
-    "T2108": "61.22",
-    "S&P": "6,950.23",
-    "colors": {
-      "Date": "none",
-      "Number of stocks up 4% plus today": "none",
-      "Number of stocks down 4% plus today": "none",
-      "5 day ratio": "none",
-      "10 day  ratio": "none",
-      "Number of stocks up 25% plus in a quarter": "green",
-      "Number of stocks down 25% + in a quarter": "green",
-      "Number of stocks up 25% + in a month": "green",
-      "Number of stocks down 25% + in a month": "green",
-      "Number of stocks up 50% + in a month": "none",
-      "Number of stocks down 50% + in a month": "green",
-      "Number of stocks up 13% + in 34 days": "green",
-      "Number of stocks down 13% + in 34 days": "green",
-      "Worden Common stock universe": "none",
-      "T2108": "none",
-      "S&P": "none"
-    },
-    "last_success_time": "2026-11-10T03:53:48.243188"
-  },
-  {
-    "Date": "1/23/2026",
-    "Number of stocks up 4% plus today": "178",
-    "Number of stocks down 4% plus today": "189",
-    "5 day ratio": "1.51",
-    "10 day  ratio": "1.54",
-    "Number of stocks up 25% plus in a quarter": "1552",
-    "Number of stocks down 25% + in a quarter": "919",
-    "Number of stocks up 25% + in a month": "196",
-    "Number of stocks down 25% + in a month": "60",
-    "Number of stocks up 50% + in a month": "43",
-    "Number of stocks down 50% + in a month": "17",
-    "Number of stocks up 13% + in 34 days": "1731",
-    "Number of stocks down 13% + in 34 days": "1081",
-    "Worden Common stock universe": "6309",
-    "T2108": "61.48",
-    "S&P": "6,915.61",
-    "colors": {
-      "Date": "none",
-      "Number of stocks up 4% plus today": "none",
-      "Number of stocks down 4% plus today": "none",
-      "5 day ratio": "none",
-      "10 day  ratio": "none",
-      "Number of stocks up 25% plus in a quarter": "green",
-      "Number of stocks down 25% + in a quarter": "green",
-      "Number of stocks up 25% + in a month": "green",
-      "Number of stocks down 25% + in a month": "green",
-      "Number of stocks up 50% + in a month": "none",
-      "Number of stocks down 50% + in a month": "none",
-      "Number of stocks up 13% + in 34 days": "green",
-      "Number of stocks down 13% + in 34 days": "green",
-      "Worden Common stock universe": "none",
-      "T2108": "none",
-      "S&P": "none"
-    },
-    "last_success_time": "2026-11-10T03:53:48.302034"
-  },
-  {
-    "Date": "1/22/2026",
-    "Number of stocks up 4% plus today": "438",
-    "Number of stocks down 4% plus today": "83",
-    "5 day ratio": "1.61",
-    "10 day  ratio": "1.68",
-    "Number of stocks up 25% plus in a quarter": "1659",
-    "Number of stocks down 25% + in a quarter": "890",
-    "Number of stocks up 25% + in a month": "215",
-    "Number of stocks down 25% + in a month": "61",
-    "Number of stocks up 50% + in a month": "44",
-    "Number of stocks down 50% + in a month": "22",
-    "Number of stocks up 13% + in 34 days": "1897",
-    "Number of stocks down 13% + in 34 days": "997",
-    "Worden Common stock universe": "6302",
-    "T2108": "64.89",
-    "S&P": "6,913.35",
-    "colors": {
-      "Date": "none",
-      "Number of stocks up 4% plus today": "none",
-      "Number of stocks down 4% plus today": "green",
-      "5 day ratio": "none",
-      "10 day  ratio": "none",
-      "Number of stocks up 25% plus in a quarter": "green",
-      "Number of stocks down 25% + in a quarter": "green",
-      "Number of stocks up 25% + in a month": "green",
-      "Number of stocks down 25% + in a month": "green",
-      "Number of stocks up 50% + in a month": "none",
-      "Number of stocks down 50% + in a month": "green",
-      "Number of stocks up 13% + in 34 days": "green",
-      "Number of stocks down 13% + in 34 days": "green",
-      "Worden Common stock universe": "none",
-      "T2108": "none",
-      "S&P": "none"
-    },
-    "last_success_time": "2026-11-10T03:53:48.361051"
-  },
-  {
-    "Date": "1/21/2026",
-    "Number of stocks up 4% plus today": "536",
-    "Number of stocks down 4% plus today": "140",
-    "5 day ratio": "1.39",
-    "10 day  ratio": "1.55",
-    "Number of stocks up 25% plus in a quarter": "1587",
-    "Number of stocks down 25% + in a quarter": "958",
-    "Number of stocks up 25% + in a month": "222",
-    "Number of stocks down 25% + in a month": "69",
-    "Number of stocks up 50% + in a month": "53",
-    "Number of stocks down 50% + in a month": "21",
-    "Number of stocks up 13% + in 34 days": "1814",
-    "Number of stocks down 13% + in 34 days": "1101",
-    "Worden Common stock universe": "6300",
-    "T2108": "64.54",
-    "S&P": "6,875.62",
-    "colors": {
-      "Date": "none",
-      "Number of stocks up 4% plus today": "none",
-      "Number of stocks down 4% plus today": "green",
-      "5 day ratio": "none",
-      "10 day  ratio": "none",
-      "Number of stocks up 25% plus in a quarter": "green",
-      "Number of stocks down 25% + in a quarter": "green",
-      "Number of stocks up 25% + in a month": "green",
-      "Number of stocks down 25% + in a month": "green",
-      "Number of stocks up 50% + in a month": "none",
-      "Number of stocks down 50% + in a month": "green",
-      "Number of stocks up 13% + in 34 days": "green",
-      "Number of stocks down 13% + in 34 days": "green",
-      "Worden Common stock universe": "none",
-      "T2108": "none",
-      "S&P": "none"
-    },
-    "last_success_time": "2026-11-10T03:53:48.420074"
-  },
-  {
-    "Date": "1/20/2026",
-    "Number of stocks up 4% plus today": "229",
-    "Number of stocks down 4% plus today": "447",
-    "5 day ratio": "1.03",
-    "10 day  ratio": "1.50",
-    "Number of stocks up 25% plus in a quarter": "1426",
-    "Number of stocks down 25% + in a quarter": "1001",
-    "Number of stocks up 25% + in a month": "223",
-    "Number of stocks down 25% + in a month": "74",
-    "Number of stocks up 50% + in a month": "61",
-    "Number of stocks down 50% + in a month": "21",
-    "Number of stocks up 13% + in 34 days": "1571",
-    "Number of stocks down 13% + in 34 days": "1183",
-    "Worden Common stock universe": "6301",
-    "T2108": "58.64",
-    "S&P": "6,796.86",
-    "colors": {
-      "Date": "none",
-      "Number of stocks up 4% plus today": "none",
-      "Number of stocks down 4% plus today": "none",
-      "5 day ratio": "none",
-      "10 day  ratio": "none",
-      "Number of stocks up 25% plus in a quarter": "green",
-      "Number of stocks down 25% + in a quarter": "green",
-      "Number of stocks up 25% + in a month": "green",
-      "Number of stocks down 25% + in a month": "green",
-      "Number of stocks up 50% + in a month": "none",
-      "Number of stocks down 50% + in a month": "green",
-      "Number of stocks up 13% + in 34 days": "green",
-      "Number of stocks down 13% + in 34 days": "green",
-      "Worden Common stock universe": "none",
-      "T2108": "none",
-      "S&P": "none"
-    },
-    "last_success_time": "2026-11-10T03:53:48.479214"
-  },
-  {
-    "Date": "1/16/2026",
-    "Number of stocks up 4% plus today": "232",
-    "Number of stocks down 4% plus today": "211",
-    "5 day ratio": "1.43",
-    "10 day  ratio": "1.98",
-    "Number of stocks up 25% plus in a quarter": "1561",
-    "Number of stocks down 25% + in a quarter": "936",
-    "Number of stocks up 25% + in a month": "248",
-    "Number of stocks down 25% + in a month": "65",
-    "Number of stocks up 50% + in a month": "78",
-    "Number of stocks down 50% + in a month": "20",
-    "Number of stocks up 13% + in 34 days": "1778",
-    "Number of stocks down 13% + in 34 days": "1065",
-    "Worden Common stock universe": "6300",
-    "T2108": "65.27",
-    "S&P": "6,940.01",
-    "colors": {
-      "Date": "none",
-      "Number of stocks up 4% plus today": "green",
-      "Number of stocks down 4% plus today": "green",
-      "5 day ratio": "none",
-      "10 day  ratio": "none",
-      "Number of stocks up 25% plus in a quarter": "green",
-      "Number of stocks down 25% + in a quarter": "green",
-      "Number of stocks up 25% + in a month": "green",
-      "Number of stocks down 25% + in a month": "green",
-      "Number of stocks up 50% + in a month": "none",
-      "Number of stocks down 50% + in a month": "green",
-      "Number of stocks up 13% + in 34 days": "green",
-      "Number of stocks down 13% + in 34 days": "green",
-      "Worden Common stock universe": "none",
-      "T2108": "none",
-      "S&P": "none"
-    },
-    "last_success_time": "2026-11-10T03:53:48.538069"
-  },
-  {
-    "Date": "1/15/2026",
-    "Number of stocks up 4% plus today": "288",
-    "Number of stocks down 4% plus today": "190",
-    "5 day ratio": "1.57",
-    "10 day  ratio": "2.12",
-    "Number of stocks up 25% plus in a quarter": "1598",
-    "Number of stocks down 25% + in a quarter": "922",
-    "Number of stocks up 25% + in a month": "213",
-    "Number of stocks down 25% + in a month": "60",
-    "Number of stocks up 50% + in a month": "55",
-    "Number of stocks down 50% + in a month": "18",
-    "Number of stocks up 13% + in 34 days": "1802",
-    "Number of stocks down 13% + in 34 days": "1016",
-    "Worden Common stock universe": "6297",
-    "T2108": "66.92",
-    "S&P": "6,944.47",
-    "colors": {
-      "Date": "none",
-      "Number of stocks up 4% plus today": "green",
-      "Number of stocks down 4% plus today": "green",
-      "5 day ratio": "none",
-      "10 day  ratio": "green",
-      "Number of stocks up 25% plus in a quarter": "green",
-      "Number of stocks down 25% + in a quarter": "green",
-      "Number of stocks up 25% + in a month": "green",
-      "Number of stocks down 25% + in a month": "green",
-      "Number of stocks up 50% + in a month": "none",
-      "Number of stocks down 50% + in a month": "none",
-      "Number of stocks up 13% + in 34 days": "green",
-      "Number of stocks down 13% + in 34 days": "green",
-      "Worden Common stock universe": "none",
-      "T2108": "none",
-      "S&P": "none"
-    },
-    "last_success_time": "2026-11-10T03:53:48.604303"
-  },
-  {
-    "Date": "1/14/2026",
-    "Number of stocks up 4% plus today": "308",
-    "Number of stocks down 4% plus today": "155",
-    "5 day ratio": "1.76",
-    "10 day  ratio": "2.08",
-    "Number of stocks up 25% plus in a quarter": "1539",
-    "Number of stocks down 25% + in a quarter": "913",
-    "Number of stocks up 25% + in a month": "203",
-    "Number of stocks down 25% + in a month": "61",
-    "Number of stocks up 50% + in a month": "58",
-    "Number of stocks down 50% + in a month": "18",
-    "Number of stocks up 13% + in 34 days": "1763",
-    "Number of stocks down 13% + in 34 days": "964",
-    "Worden Common stock universe": "6297",
-    "T2108": "65.02",
-    "S&P": "6,926.60",
-    "colors": {
-      "Date": "none",
-      "Number of stocks up 4% plus today": "none",
-      "Number of stocks down 4% plus today": "green",
-      "5 day ratio": "none",
-      "10 day  ratio": "green",
-      "Number of stocks up 25% plus in a quarter": "green",
-      "Number of stocks down 25% + in a quarter": "green",
-      "Number of stocks up 25% + in a month": "green",
-      "Number of stocks down 25% + in a month": "green",
-      "Number of stocks up 50% + in a month": "none",
-      "Number of stocks down 50% + in a month": "none",
-      "Number of stocks up 13% + in 34 days": "green",
-      "Number of stocks down 13% + in 34 days": "green",
-      "Worden Common stock universe": "none",
-      "T2108": "none",
-      "S&P": "none"
-    },
-    "last_success_time": "2026-11-10T03:53:48.662966"
-  },
-  {
-    "Date": "1/13/2026",
-    "Number of stocks up 4% plus today": "223",
-    "Number of stocks down 4% plus today": "245",
-    "5 day ratio": "1.73",
-    "10 day  ratio": "1.97",
-    "Number of stocks up 25% plus in a quarter": "1518",
-    "Number of stocks down 25% + in a quarter": "924",
-    "Number of stocks up 25% + in a month": "155",
-    "Number of stocks down 25% + in a month": "75",
-    "Number of stocks up 50% + in a month": "34",
-    "Number of stocks down 50% + in a month": "22",
-    "Number of stocks up 13% + in 34 days": "1792",
-    "Number of stocks down 13% + in 34 days": "972",
-    "Worden Common stock universe": "6294",
-    "T2108": "62.21",
-    "S&P": "6,963.74",
-    "colors": {
-      "Date": "none",
-      "Number of stocks up 4% plus today": "none",
-      "Number of stocks down 4% plus today": "none",
-      "5 day ratio": "none",
-      "10 day  ratio": "none",
-      "Number of stocks up 25% plus in a quarter": "green",
-      "Number of stocks down 25% + in a quarter": "green",
-      "Number of stocks up 25% + in a month": "green",
-      "Number of stocks down 25% + in a month": "green",
-      "Number of stocks up 50% + in a month": "none",
-      "Number of stocks down 50% + in a month": "green",
-      "Number of stocks up 13% + in 34 days": "green",
-      "Number of stocks down 13% + in 34 days": "green",
-      "Worden Common stock universe": "none",
-      "T2108": "none",
-      "S&P": "none"
-    },
-    "last_success_time": "2026-11-10T03:53:48.721575"
-  },
-  {
-    "Date": "1/12/2026",
-    "Number of stocks up 4% plus today": "354",
-    "Number of stocks down 4% plus today": "180",
-    "5 day ratio": "2.22",
-    "10 day  ratio": "1.75",
-    "Number of stocks up 25% plus in a quarter": "1514",
-    "Number of stocks down 25% + in a quarter": "924",
-    "Number of stocks up 25% + in a month": "133",
-    "Number of stocks down 25% + in a month": "84",
-    "Number of stocks up 50% + in a month": "28",
-    "Number of stocks down 50% + in a month": "24",
-    "Number of stocks up 13% + in 34 days": "1883",
-    "Number of stocks down 13% + in 34 days": "934",
-    "Worden Common stock universe": "6293",
-    "T2108": "61.83",
-    "S&P": "6,977.27",
-    "colors": {
-      "Date": "none",
-      "Number of stocks up 4% plus today": "none",
-      "Number of stocks down 4% plus today": "green",
-      "5 day ratio": "green",
-      "10 day  ratio": "none",
-      "Number of stocks up 25% plus in a quarter": "green",
-      "Number of stocks down 25% + in a quarter": "green",
-      "Number of stocks up 25% + in a month": "green",
-      "Number of stocks down 25% + in a month": "green",
-      "Number of stocks up 50% + in a month": "none",
-      "Number of stocks down 50% + in a month": "green",
-      "Number of stocks up 13% + in 34 days": "green",
-      "Number of stocks down 13% + in 34 days": "green",
-      "Worden Common stock universe": "none",
-      "T2108": "none",
-      "S&P": "none"
-    },
-    "last_success_time": "2026-11-10T03:53:48.780676"
-  },
-  {
-    "Date": "1/9/2026",
-    "Number of stocks up 4% plus today": "296",
-    "Number of stocks down 4% plus today": "166",
-    "5 day ratio": "2.65",
-    "10 day  ratio": "1.59",
-    "Number of stocks up 25% plus in a quarter": "1465",
-    "Number of stocks down 25% + in a quarter": "944",
-    "Number of stocks up 25% + in a month": "135",
-    "Number of stocks down 25% + in a month": "101",
-    "Number of stocks up 50% + in a month": "27",
-    "Number of stocks down 50% + in a month": "26",
-    "Number of stocks up 13% + in 34 days": "2063",
-    "Number of stocks down 13% + in 34 days": "948",
-    "Worden Common stock universe": "6294",
-    "T2108": "61.96",
-    "S&P": "6,966.28",
-    "colors": {
-      "Date": "none",
-      "Number of stocks up 4% plus today": "green",
-      "Number of stocks down 4% plus today": "green",
-      "5 day ratio": "green",
-      "10 day  ratio": "none",
-      "Number of stocks up 25% plus in a quarter": "green",
-      "Number of stocks down 25% + in a quarter": "green",
-      "Number of stocks up 25% + in a month": "green",
-      "Number of stocks down 25% + in a month": "green",
-      "Number of stocks up 50% + in a month": "none",
-      "Number of stocks down 50% + in a month": "green",
-      "Number of stocks up 13% + in 34 days": "green",
-      "Number of stocks down 13% + in 34 days": "green",
-      "Worden Common stock universe": "none",
-      "T2108": "none",
-      "S&P": "none"
-    },
-    "last_success_time": "2026-11-10T03:53:48.842722"
-  },
-  {
-    "Date": "1/8/2026",
-    "Number of stocks up 4% plus today": "430",
-    "Number of stocks down 4% plus today": "170",
-    "5 day ratio": "2.74",
-    "10 day  ratio": "1.58",
-    "Number of stocks up 25% plus in a quarter": "1428",
-    "Number of stocks down 25% + in a quarter": "947",
-    "Number of stocks up 25% + in a month": "115",
-    "Number of stocks down 25% + in a month": "90",
-    "Number of stocks up 50% + in a month": "24",
-    "Number of stocks down 50% + in a month": "25",
-    "Number of stocks up 13% + in 34 days": "2065",
-    "Number of stocks down 13% + in 34 days": "972",
-    "Worden Common stock universe": "6290",
-    "T2108": "60.77",
-    "S&P": "6,921.46",
-    "colors": {
-      "Date": "none",
-      "Number of stocks up 4% plus today": "none",
-      "Number of stocks down 4% plus today": "green",
-      "5 day ratio": "green",
-      "10 day  ratio": "none",
-      "Number of stocks up 25% plus in a quarter": "green",
-      "Number of stocks down 25% + in a quarter": "green",
-      "Number of stocks up 25% + in a month": "green",
-      "Number of stocks down 25% + in a month": "green",
-      "Number of stocks up 50% + in a month": "none",
-      "Number of stocks down 50% + in a month": "green",
-      "Number of stocks up 13% + in 34 days": "green",
-      "Number of stocks down 13% + in 34 days": "green",
-      "Worden Common stock universe": "none",
-      "T2108": "none",
-      "S&P": "none"
-    },
-    "last_success_time": "2026-11-10T03:53:48.903081"
-  },
-  {
-    "Date": "1/7/2026",
-    "Number of stocks up 4% plus today": "309",
-    "Number of stocks down 4% plus today": "170",
-    "5 day ratio": "2.46",
-    "10 day  ratio": "1.37",
-    "Number of stocks up 25% plus in a quarter": "1330",
-    "Number of stocks down 25% + in a quarter": "983",
-    "Number of stocks up 25% + in a month": "113",
-    "Number of stocks down 25% + in a month": "81",
-    "Number of stocks up 50% + in a month": "24",
-    "Number of stocks down 50% + in a month": "26",
-    "Number of stocks up 13% + in 34 days": "1930",
-    "Number of stocks down 13% + in 34 days": "996",
-    "Worden Common stock universe": "6290",
-    "T2108": "53.59",
-    "S&P": "6,920.93",
-    "colors": {
-      "Date": "none",
-      "Number of stocks up 4% plus today": "none",
-      "Number of stocks down 4% plus today": "green",
-      "5 day ratio": "green",
-      "10 day  ratio": "none",
-      "Number of stocks up 25% plus in a quarter": "green",
-      "Number of stocks down 25% + in a quarter": "green",
-      "Number of stocks up 25% + in a month": "green",
-      "Number of stocks down 25% + in a month": "green",
-      "Number of stocks up 50% + in a month": "none",
-      "Number of stocks down 50% + in a month": "green",
-      "Number of stocks up 13% + in 34 days": "green",
-      "Number of stocks down 13% + in 34 days": "green",
-      "Worden Common stock universe": "none",
-      "T2108": "none",
-      "S&P": "none"
-    },
-    "last_success_time": "2026-11-10T03:53:48.967898"
-  },
-  {
-    "Date": "1/6/2026",
-    "Number of stocks up 4% plus today": "439",
-    "Number of stocks down 4% plus today": "137",
-    "5 day ratio": "2.24",
-    "10 day  ratio": "1.37",
-    "Number of stocks up 25% plus in a quarter": "1366",
-    "Number of stocks down 25% + in a quarter": "997",
-    "Number of stocks up 25% + in a month": "109",
-    "Number of stocks down 25% + in a month": "85",
-    "Number of stocks up 50% + in a month": "27",
-    "Number of stocks down 50% + in a month": "23",
-    "Number of stocks up 13% + in 34 days": "2011",
-    "Number of stocks down 13% + in 34 days": "1013",
-    "Worden Common stock universe": "6290",
-    "T2108": "57.35",
-    "S&P": "6,944.82",
-    "colors": {
-      "Date": "none",
-      "Number of stocks up 4% plus today": "none",
-      "Number of stocks down 4% plus today": "green",
-      "5 day ratio": "green",
-      "10 day  ratio": "none",
-      "Number of stocks up 25% plus in a quarter": "green",
-      "Number of stocks down 25% + in a quarter": "green",
-      "Number of stocks up 25% + in a month": "green",
-      "Number of stocks down 25% + in a month": "green",
-      "Number of stocks up 50% + in a month": "none",
-      "Number of stocks down 50% + in a month": "green",
-      "Number of stocks up 13% + in 34 days": "green",
-      "Number of stocks down 13% + in 34 days": "green",
-      "Worden Common stock universe": "none",
-      "T2108": "none",
-      "S&P": "none"
-    },
-    "last_success_time": "2026-11-10T03:53:49.026482"
-  },
-  {
-    "Date": "1/5/2026",
-    "Number of stocks up 4% plus today": "659",
-    "Number of stocks down 4% plus today": "163",
-    "5 day ratio": "1.38",
-    "10 day  ratio": "1.32",
-    "Number of stocks up 25% plus in a quarter": "1264",
-    "Number of stocks down 25% + in a quarter": "1027",
-    "Number of stocks up 25% + in a month": "96",
-    "Number of stocks down 25% + in a month": "86",
-    "Number of stocks up 50% + in a month": "25",
-    "Number of stocks down 50% + in a month": "25",
-    "Number of stocks up 13% + in 34 days": "1887",
-    "Number of stocks down 13% + in 34 days": "1099",
-    "Worden Common stock universe": "6289",
-    "T2108": "54.78",
-    "S&P": "6,902.05",
-    "colors": {
-      "Date": "none",
-      "Number of stocks up 4% plus today": "none",
-      "Number of stocks down 4% plus today": "green",
-      "5 day ratio": "none",
-      "10 day  ratio": "none",
-      "Number of stocks up 25% plus in a quarter": "green",
-      "Number of stocks down 25% + in a quarter": "green",
-      "Number of stocks up 25% + in a month": "green",
-      "Number of stocks down 25% + in a month": "green",
-      "Number of stocks up 50% + in a month": "none",
-      "Number of stocks down 50% + in a month": "green",
-      "Number of stocks up 13% + in 34 days": "green",
-      "Number of stocks down 13% + in 34 days": "green",
-      "Worden Common stock universe": "none",
-      "T2108": "none",
-      "S&P": "none"
-    },
-    "last_success_time": "2026-11-10T03:53:49.085677"
-  },
-  {
-    "Date": "1/2/2026",
-    "Number of stocks up 4% plus today": "432",
-    "Number of stocks down 4% plus today": "188",
-    "5 day ratio": "0.82",
-    "10 day  ratio": "1.09",
-    "Number of stocks up 25% plus in a quarter": "1093",
-    "Number of stocks down 25% + in a quarter": "1076",
-    "Number of stocks up 25% + in a month": "99",
-    "Number of stocks down 25% + in a month": "86",
-    "Number of stocks up 50% + in a month": "26",
-    "Number of stocks down 50% + in a month": "25",
-    "Number of stocks up 13% + in 34 days": "1603",
-    "Number of stocks down 13% + in 34 days": "1192",
-    "Worden Common stock universe": "6291",
-    "T2108": "50.24",
-    "S&P": "6,858.47",
-    "colors": {
-      "Date": "none",
-      "Number of stocks up 4% plus today": "none",
-      "Number of stocks down 4% plus today": "green",
-      "5 day ratio": "none",
-      "10 day  ratio": "none",
-      "Number of stocks up 25% plus in a quarter": "green",
-      "Number of stocks down 25% + in a quarter": "green",
-      "Number of stocks up 25% + in a month": "green",
-      "Number of stocks down 25% + in a month": "green",
-      "Number of stocks up 50% + in a month": "none",
-      "Number of stocks down 50% + in a month": "green",
-      "Number of stocks up 13% + in 34 days": "green",
-      "Number of stocks down 13% + in 34 days": "green",
-      "Worden Common stock universe": "none",
-      "T2108": "none",
-      "S&P": "none"
-    },
-    "last_success_time": "2026-11-10T03:53:49.144315"
-  },
-  {
-    "Date": "12/31/2025",
-    "Number of stocks up 4% plus today": "133",
-    "Number of stocks down 4% plus today": "145",
-    "5 day ratio": "0.57",
-    "10 day  ratio": "0.94",
-    "Number of stocks up 25% plus in a quarter": "1010",
-    "Number of stocks down 25% + in a quarter": "1091",
-    "Number of stocks up 25% + in a month": "109",
-    "Number of stocks down 25% + in a month": "84",
-    "Number of stocks up 50% + in a month": "28",
-    "Number of stocks down 50% + in a month": "27",
-    "Number of stocks up 13% + in 34 days": "1440",
-    "Number of stocks down 13% + in 34 days": "1276",
-    "Worden Common stock universe": "6294",
-    "T2108": "46.27",
-    "S&P": "6,845.50",
-    "colors": {
-      "Date": "none",
-      "Number of stocks up 4% plus today": "none",
-      "Number of stocks down 4% plus today": "none",
-      "5 day ratio": "none",
-      "10 day  ratio": "none",
-      "Number of stocks up 25% plus in a quarter": "none",
-      "Number of stocks down 25% + in a quarter": "none",
-      "Number of stocks up 25% + in a month": "green",
-      "Number of stocks down 25% + in a month": "green",
-      "Number of stocks up 50% + in a month": "none",
-      "Number of stocks down 50% + in a month": "green",
-      "Number of stocks up 13% + in 34 days": "green",
-      "Number of stocks down 13% + in 34 days": "green",
-      "Worden Common stock universe": "none",
-      "T2108": "none",
-      "S&P": "none"
-    },
-    "last_success_time": "2026-11-10T03:53:49.203518"
-  },
-  {
-    "Date": "12/30/2025",
-    "Number of stocks up 4% plus today": "121",
-    "Number of stocks down 4% plus today": "164",
-    "5 day ratio": "0.51",
-    "10 day  ratio": "0.95",
-    "Number of stocks up 25% plus in a quarter": "1039",
-    "Number of stocks down 25% + in a quarter": "1086",
-    "Number of stocks up 25% + in a month": "119",
-    "Number of stocks down 25% + in a month": "88",
-    "Number of stocks up 50% + in a month": "31",
-    "Number of stocks down 50% + in a month": "28",
-    "Number of stocks up 13% + in 34 days": "1521",
-    "Number of stocks down 13% + in 34 days": "1261",
-    "Worden Common stock universe": "6293",
-    "T2108": "51.55",
-    "S&P": "6,896.24",
-    "colors": {
-      "Date": "none",
-      "Number of stocks up 4% plus today": "none",
-      "Number of stocks down 4% plus today": "none",
-      "5 day ratio": "none",
-      "10 day  ratio": "none",
-      "Number of stocks up 25% plus in a quarter": "none",
-      "Number of stocks down 25% + in a quarter": "none",
-      "Number of stocks up 25% + in a month": "green",
-      "Number of stocks down 25% + in a month": "green",
-      "Number of stocks up 50% + in a month": "none",
-      "Number of stocks down 50% + in a month": "green",
-      "Number of stocks up 13% + in 34 days": "green",
-      "Number of stocks down 13% + in 34 days": "green",
-      "Worden Common stock universe": "none",
-      "T2108": "none",
-      "S&P": "none"
-    },
-    "last_success_time": "2026-11-10T03:53:49.261576"
-  },
-  {
-    "Date": "12/29/2025",
-    "Number of stocks up 4% plus today": "109",
-    "Number of stocks down 4% plus today": "391",
-    "5 day ratio": "0.63",
-    "10 day  ratio": "0.97",
-    "Number of stocks up 25% plus in a quarter": "1076",
-    "Number of stocks down 25% + in a quarter": "1069",
-    "Number of stocks up 25% + in a month": "108",
-    "Number of stocks down 25% + in a month": "100",
-    "Number of stocks up 50% + in a month": "29",
-    "Number of stocks down 50% + in a month": "25",
-    "Number of stocks up 13% + in 34 days": "1607",
-    "Number of stocks down 13% + in 34 days": "1224",
-    "Worden Common stock universe": "6292",
-    "T2108": "52.57",
-    "S&P": "6,905.74",
-    "colors": {
-      "Date": "none",
-      "Number of stocks up 4% plus today": "none",
-      "Number of stocks down 4% plus today": "none",
-      "5 day ratio": "none",
-      "10 day  ratio": "none",
-      "Number of stocks up 25% plus in a quarter": "green",
-      "Number of stocks down 25% + in a quarter": "green",
-      "Number of stocks up 25% + in a month": "green",
-      "Number of stocks down 25% + in a month": "green",
-      "Number of stocks up 50% + in a month": "none",
-      "Number of stocks down 50% + in a month": "green",
-      "Number of stocks up 13% + in 34 days": "green",
-      "Number of stocks down 13% + in 34 days": "green",
-      "Worden Common stock universe": "none",
-      "T2108": "none",
-      "S&P": "none"
-    },
-    "last_success_time": "2026-11-10T03:53:49.325289"
-  },
-  {
-    "Date": "12/26/2025",
-    "Number of stocks up 4% plus today": "109",
-    "Number of stocks down 4% plus today": "219",
-    "5 day ratio": "1.24",
-    "10 day  ratio": "1.29",
-    "Number of stocks up 25% plus in a quarter": "1162",
-    "Number of stocks down 25% + in a quarter": "1035",
-    "Number of stocks up 25% + in a month": "131",
-    "Number of stocks down 25% + in a month": "82",
-    "Number of stocks up 50% + in a month": "25",
-    "Number of stocks down 50% + in a month": "24",
-    "Number of stocks up 13% + in 34 days": "1749",
-    "Number of stocks down 13% + in 34 days": "1162",
-    "Worden Common stock universe": "6292",
-    "T2108": "52.71",
-    "S&P": "6,929.94",
-    "colors": {
-      "Date": "none",
-      "Number of stocks up 4% plus today": "none",
-      "Number of stocks down 4% plus today": "none",
-      "5 day ratio": "none",
-      "10 day  ratio": "none",
-      "Number of stocks up 25% plus in a quarter": "green",
-      "Number of stocks down 25% + in a quarter": "green",
-      "Number of stocks up 25% + in a month": "green",
-      "Number of stocks down 25% + in a month": "green",
-      "Number of stocks up 50% + in a month": "none",
-      "Number of stocks down 50% + in a month": "green",
-      "Number of stocks up 13% + in 34 days": "green",
-      "Number of stocks down 13% + in 34 days": "green",
-      "Worden Common stock universe": "none",
-      "T2108": "none",
-      "S&P": "none"
-    },
-    "last_success_time": "2026-11-10T03:53:49.384702"
-  },
-  {
-    "Date": "12/24/2025",
-    "Number of stocks up 4% plus today": "78",
-    "Number of stocks down 4% plus today": "38",
-    "5 day ratio": "1.56",
-    "10 day  ratio": "1.56",
-    "Number of stocks up 25% plus in a quarter": "1181",
-    "Number of stocks down 25% + in a quarter": "1027",
-    "Number of stocks up 25% + in a month": "158",
-    "Number of stocks down 25% + in a month": "74",
-    "Number of stocks up 50% + in a month": "37",
-    "Number of stocks down 50% + in a month": "22",
-    "Number of stocks up 13% + in 34 days": "1830",
-    "Number of stocks down 13% + in 34 days": "1128",
-    "Worden Common stock universe": "6292",
-    "T2108": "52.38",
-    "S&P": "6,932.05",
-    "colors": {
-      "Date": "none",
-      "Number of stocks up 4% plus today": "green",
-      "Number of stocks down 4% plus today": "green",
-      "5 day ratio": "none",
-      "10 day  ratio": "none",
-      "Number of stocks up 25% plus in a quarter": "green",
-      "Number of stocks down 25% + in a quarter": "green",
-      "Number of stocks up 25% + in a month": "green",
-      "Number of stocks down 25% + in a month": "green",
-      "Number of stocks up 50% + in a month": "none",
-      "Number of stocks down 50% + in a month": "green",
-      "Number of stocks up 13% + in 34 days": "green",
-      "Number of stocks down 13% + in 34 days": "green",
-      "Worden Common stock universe": "none",
-      "T2108": "none",
-      "S&P": "none"
-    },
-    "last_success_time": "2026-11-10T03:53:49.444588"
-  },
-  {
-    "Date": "12/23/2025",
-    "Number of stocks up 4% plus today": "100",
-    "Number of stocks down 4% plus today": "199",
-    "5 day ratio": "1.53",
-    "10 day  ratio": "1.53",
-    "Number of stocks up 25% plus in a quarter": "1143",
-    "Number of stocks down 25% + in a quarter": "1061",
-    "Number of stocks up 25% + in a month": "199",
-    "Number of stocks down 25% + in a month": "70",
-    "Number of stocks up 50% + in a month": "35",
-    "Number of stocks down 50% + in a month": "19",
-    "Number of stocks up 13% + in 34 days": "1804",
-    "Number of stocks down 13% + in 34 days": "1246",
-    "Worden Common stock universe": "6296",
-    "T2108": "50.36",
-    "S&P": "6,909.79",
-    "colors": {
-      "Date": "none",
-      "Number of stocks up 4% plus today": "none",
-      "Number of stocks down 4% plus today": "none",
-      "5 day ratio": "none",
-      "10 day  ratio": "none",
-      "Number of stocks up 25% plus in a quarter": "green",
-      "Number of stocks down 25% + in a quarter": "green",
-      "Number of stocks up 25% + in a month": "green",
-      "Number of stocks down 25% + in a month": "green",
-      "Number of stocks up 50% + in a month": "none",
-      "Number of stocks down 50% + in a month": "none",
-      "Number of stocks up 13% + in 34 days": "green",
-      "Number of stocks down 13% + in 34 days": "green",
-      "Worden Common stock universe": "none",
-      "T2108": "none",
-      "S&P": "none"
-    },
-    "last_success_time": "2026-11-10T03:53:49.503041"
-  },
-  {
-    "Date": "12/22/2025",
-    "Number of stocks up 4% plus today": "186",
-    "Number of stocks down 4% plus today": "84",
-    "5 day ratio": "2.03",
-    "10 day  ratio": "2.03",
-    "Number of stocks up 25% plus in a quarter": "1211",
-    "Number of stocks down 25% + in a quarter": "1049",
-    "Number of stocks up 25% + in a month": "256",
-    "Number of stocks down 25% + in a month": "60",
-    "Number of stocks up 50% + in a month": "55",
-    "Number of stocks down 50% + in a month": "14",
-    "Number of stocks up 13% + in 34 days": "1957",
-    "Number of stocks down 13% + in 34 days": "1209",
-    "Worden Common stock universe": "6298",
-    "T2108": "51.78",
-    "S&P": "6,878.49",
-    "colors": {
-      "Date": "none",
-      "Number of stocks up 4% plus today": "green",
-      "Number of stocks down 4% plus today": "green",
-      "5 day ratio": "green",
-      "10 day  ratio": "green",
-      "Number of stocks up 25% plus in a quarter": "green",
-      "Number of stocks down 25% + in a quarter": "green",
-      "Number of stocks up 25% + in a month": "green",
-      "Number of stocks down 25% + in a month": "green",
-      "Number of stocks up 50% + in a month": "none",
-      "Number of stocks down 50% + in a month": "none",
-      "Number of stocks up 13% + in 34 days": "green",
-      "Number of stocks down 13% + in 34 days": "green",
-      "Worden Common stock universe": "none",
-      "T2108": "none",
-      "S&P": "none"
-    },
-    "last_success_time": "2026-11-10T03:53:49.561679"
-  },
-  {
-    "Date": "12/19/2025",
-    "Number of stocks up 4% plus today": "412",
-    "Number of stocks down 4% plus today": "175",
-    "5 day ratio": "1.98",
-    "10 day  ratio": "1.98",
-    "Number of stocks up 25% plus in a quarter": "1144",
-    "Number of stocks down 25% + in a quarter": "1086",
-    "Number of stocks up 25% + in a month": "298",
-    "Number of stocks down 25% + in a month": "52",
-    "Number of stocks up 50% + in a month": "57",
-    "Number of stocks down 50% + in a month": "16",
-    "Number of stocks up 13% + in 34 days": "1899",
-    "Number of stocks down 13% + in 34 days": "1329",
-    "Worden Common stock universe": "6297",
-    "T2108": "49.67",
-    "S&P": "6,834.50",
-    "colors": {
-      "Date": "none",
-      "Number of stocks up 4% plus today": "none",
-      "Number of stocks down 4% plus today": "green",
-      "5 day ratio": "none",
-      "10 day  ratio": "none",
-      "Number of stocks up 25% plus in a quarter": "green",
-      "Number of stocks down 25% + in a quarter": "green",
-      "Number of stocks up 25% + in a month": "green",
-      "Number of stocks down 25% + in a month": "green",
-      "Number of stocks up 50% + in a month": "none",
-      "Number of stocks down 50% + in a month": "none",
-      "Number of stocks up 13% + in 34 days": "green",
-      "Number of stocks down 13% + in 34 days": "green",
-      "Worden Common stock universe": "none",
-      "T2108": "none",
-      "S&P": "none"
-    },
-    "last_success_time": "2026-11-10T03:53:49.620764"
-  },
-  {
-    "Date": "12/18/2025",
-    "Number of stocks up 4% plus today": "227",
-    "Number of stocks down 4% plus today": "148",
-    "5 day ratio": "1.53",
-    "10 day  ratio": "1.53",
-    "Number of stocks up 25% plus in a quarter": "1112",
-    "Number of stocks down 25% + in a quarter": "1125",
-    "Number of stocks up 25% + in a month": "235",
-    "Number of stocks down 25% + in a month": "70",
-    "Number of stocks up 50% + in a month": "37",
-    "Number of stocks down 50% + in a month": "21",
-    "Number of stocks up 13% + in 34 days": "1863",
-    "Number of stocks down 13% + in 34 days": "1402",
-    "Worden Common stock universe": "6297",
-    "T2108": "50.29",
-    "S&P": "6,774.76",
-    "colors": {
-      "Date": "none",
-      "Number of stocks up 4% plus today": "green",
-      "Number of stocks down 4% plus today": "green",
-      "5 day ratio": "none",
-      "10 day  ratio": "none",
-      "Number of stocks up 25% plus in a quarter": "none",
-      "Number of stocks down 25% + in a quarter": "none",
-      "Number of stocks up 25% + in a month": "green",
-      "Number of stocks down 25% + in a month": "green",
-      "Number of stocks up 50% + in a month": "none",
-      "Number of stocks down 50% + in a month": "green",
-      "Number of stocks up 13% + in 34 days": "green",
-      "Number of stocks down 13% + in 34 days": "green",
-      "Worden Common stock universe": "none",
-      "T2108": "none",
-      "S&P": "none"
-    },
-    "last_success_time": "2026-11-10T03:53:49.684216"
+    "last_success_time": "2026-11-11T01:34:32.319424"
   }
 ]
