@@ -1,43 +1,43 @@
 {
   "meta": {
-    "generated_hkt": "2026-11-12 10:34",
-    "generated_et": "2026-11-11 21:34",
-    "date": "2026-11-11",
+    "generated_hkt": "2026-11-13 10:14",
+    "generated_et": "2026-11-12 21:14",
+    "date": "2026-11-12",
     "source": "Yahoo Finance + CNN + NAAIM + Finviz + Barchart",
     "rsi_method": "Wilder SMMA (EWM alpha=1/14)",
     "schema_version": "4.2",
-    "last_updated_hkt": "2026-11-12 10:35:24 HKT"
+    "last_updated_hkt": "2026-11-13 10:15:04 HKT"
   },
   "macro": {
     "VIX": {
-      "price": 17.49,
-      "change_1d": -1.97,
-      "change_1d_pct": -10.12
+      "price": 18.7,
+      "change_1d": 1.21,
+      "change_1d_pct": 6.92
     },
     "DXY": {
-      "price": 102.938,
-      "change_1d": 0.708,
-      "change_1d_pct": 0.69
+      "price": 103.152,
+      "change_1d": 0.242,
+      "change_1d_pct": 0.24
     },
     "TNX_10Y": {
-      "price": 4.998,
-      "change_1d": 0.015,
-      "change_1d_pct": 0.3
+      "price": 5.103,
+      "change_1d": 0.105,
+      "change_1d_pct": 2.1
     },
     "GOLD": {
-      "price": 3994.3,
-      "change_1d": -35.9,
-      "change_1d_pct": -0.89
+      "price": 3914.6001,
+      "change_1d": -85.8999,
+      "change_1d_pct": -2.15
     },
     "OIL_WTI": {
-      "price": 86.0,
-      "change_1d": -0.04,
-      "change_1d_pct": -0.05
+      "price": 88.08,
+      "change_1d": 1.55,
+      "change_1d_pct": 1.79
     },
     "BTC": {
-      "price": 73783.4375,
-      "change_1d": 63.3203,
-      "change_1d_pct": 0.09
+      "price": 70517.2969,
+      "change_1d": -3447.1719,
+      "change_1d_pct": -4.66
     }
   },
   "indices": {
@@ -53,13 +53,13 @@
       "vs_ma200_pct": 4.28,
       "vs20ma": "Red",
       "status": "MIXED",
-      "ad_ratio": 1.976,
+      "ad_ratio": 0.329,
       "ad_detail": {
-        "advances": 332,
-        "declines": 168,
-        "unchanged": 3,
+        "advances": 124,
+        "declines": 377,
+        "unchanged": 2,
         "total": 503,
-        "ad_ratio": 1.976,
+        "ad_ratio": 0.329,
         "source": "Finviz screener (S&P 500)"
       }
     },
@@ -75,13 +75,13 @@
       "vs_ma200_pct": 1.43,
       "vs20ma": "Red",
       "status": "MIXED",
-      "ad_ratio": 4.941,
+      "ad_ratio": 0.538,
       "ad_detail": {
-        "advances": 84,
-        "declines": 17,
-        "unchanged": 0,
+        "advances": 35,
+        "declines": 65,
+        "unchanged": 1,
         "total": 101,
-        "ad_ratio": 4.941,
+        "ad_ratio": 0.538,
         "source": "Finviz screener (NASDAQ 100)"
       }
     },
@@ -119,30 +119,30 @@
       "vs_ma200_pct": 1.72,
       "vs20ma": "Green",
       "status": "ABOVE ALL",
-      "ad_ratio": 1.393,
+      "ad_ratio": 0.289,
       "ad_detail": {
-        "advances": 1112,
-        "declines": 798,
-        "unchanged": 42,
+        "advances": 433,
+        "declines": 1497,
+        "unchanged": 22,
         "total": 1952,
-        "ad_ratio": 1.393,
+        "ad_ratio": 0.289,
         "source": "Finviz screener (Russell 2000)"
       }
     }
   },
   "sentiment": {
     "fear_greed": {
-      "score": 36.97,
+      "score": 39.94,
       "rating": "fear",
-      "timestamp": "2026-11-11T23:59:59+00:00",
-      "prev_close": 33.46,
-      "prev_1w": 34.17,
-      "prev_1m": 43.51,
-      "prev_1y": 30.46,
+      "timestamp": "2026-11-12T23:59:58+00:00",
+      "prev_close": 36.97,
+      "prev_1w": 19.99,
+      "prev_1m": 45.23,
+      "prev_1y": 34.57,
       "source": "CNN Fear & Greed API"
     },
     "put_call": {
-      "value": 0.836,
+      "value": 0.8001,
       "rating": "extreme fear",
       "source": "CNN Fear & Greed (5-day avg equity P/C ratio)"
     },
@@ -820,6 +820,25 @@
       "change_ytd_pct": "-"
     },
     {
+      "symbol": "ROBO",
+      "name": "Robotics & Automation",
+      "price": 74.08,
+      "change_1d_pct": 2.05,
+      "rsi14": 45.5159,
+      "ma20": 74.924,
+      "ma50": 77.9762,
+      "ma200": 79.0233,
+      "vs_ma20_pct": -1.13,
+      "vs_ma50_pct": -5.0,
+      "vs_ma200_pct": -6.26,
+      "vs20ma": "Red",
+      "status": "BELOW ALL",
+      "change_1w_pct": "-",
+      "change_1m_pct": "-",
+      "change_3m_pct": "-",
+      "change_ytd_pct": "-"
+    },
+    {
       "symbol": "PICK",
       "name": "Diversified Metals & Mining",
       "price": 55.83,
@@ -1204,21 +1223,21 @@
   "breadth": {
     "sp500": {
       "total": 503,
-      "above_20ma": 365,
-      "above_50ma": 360,
-      "above_200ma": 318,
-      "pct_above_20ma": 72.6,
-      "pct_above_50ma": 71.6,
-      "pct_above_200ma": 63.2
+      "above_20ma": 333,
+      "above_50ma": 350,
+      "above_200ma": 308,
+      "pct_above_20ma": 66.2,
+      "pct_above_50ma": 69.6,
+      "pct_above_200ma": 61.2
     },
     "nasdaq100": {
       "total": 101,
-      "above_20ma": 59,
-      "above_50ma": 55,
-      "above_200ma": 52,
-      "pct_above_20ma": 58.4,
-      "pct_above_50ma": 54.5,
-      "pct_above_200ma": 51.5,
+      "above_20ma": 56,
+      "above_50ma": 56,
+      "above_200ma": 53,
+      "pct_above_20ma": 55.4,
+      "pct_above_50ma": 55.4,
+      "pct_above_200ma": 52.5,
       "source": "Finviz idx_ndx (NASDAQ 100 constituents)"
     },
     "dji30": {
@@ -1233,12 +1252,12 @@
     },
     "russell2000": {
       "total": 1952,
-      "above_20ma": 1125,
-      "above_50ma": 950,
-      "above_200ma": 944,
-      "pct_above_20ma": 57.6,
-      "pct_above_50ma": 48.7,
-      "pct_above_200ma": 48.4
+      "above_20ma": 938,
+      "above_50ma": 854,
+      "above_200ma": 898,
+      "pct_above_20ma": 48.1,
+      "pct_above_50ma": 43.8,
+      "pct_above_200ma": 46.0
     },
     "source": "Finviz Screener v4.1 (with retry)",
     "market_wide_advance_decline": {
@@ -1248,27 +1267,27 @@
     },
     "index_ad_ratios": {
       "SPY": {
-        "advances": 332,
-        "declines": 168,
-        "unchanged": 3,
+        "advances": 124,
+        "declines": 377,
+        "unchanged": 2,
         "total": 503,
-        "ad_ratio": 1.976,
+        "ad_ratio": 0.329,
         "source": "Finviz screener (S&P 500)"
       },
       "QQQ": {
-        "advances": 84,
-        "declines": 17,
-        "unchanged": 0,
+        "advances": 35,
+        "declines": 65,
+        "unchanged": 1,
         "total": 101,
-        "ad_ratio": 4.941,
+        "ad_ratio": 0.538,
         "source": "Finviz screener (NASDAQ 100)"
       },
       "IWM": {
-        "advances": 1112,
-        "declines": 798,
-        "unchanged": 42,
+        "advances": 433,
+        "declines": 1497,
+        "unchanged": 22,
         "total": 1952,
-        "ad_ratio": 1.393,
+        "ad_ratio": 0.289,
         "source": "Finviz screener (Russell 2000)"
       },
       "DIA": {
@@ -1289,14 +1308,14 @@
   },
   "stockbee_mm": {
     "source": "Stockbee Market Monitor (dynamic via stockbee_mm.json)",
-    "latest_date": "11/10/2026",
-    "t2108": 49.47,
-    "up_4_plus": 145,
-    "down_4_plus": 299,
+    "latest_date": "11/11/2026",
+    "t2108": 50.3,
+    "up_4_plus": 387,
+    "down_4_plus": 127,
     "data_stale": false
   },
   "data_status": "fresh",
-  "last_updated_hkt": "2026-11-12 10:35:24 HKT",
+  "last_updated_hkt": "2026-11-13 10:15:04 HKT",
   "thematic": [
     {
       "symbol": "XLV",
@@ -1542,6 +1561,13 @@
       "vs_20ma": 0.09,
       "vs_50ma": -9.61,
       "vs_200ma": -25.2
+    },
+    {
+      "symbol": "ROBO",
+      "price": 74.08,
+      "vs_20ma": -1.13,
+      "vs_50ma": -5.0,
+      "vs_200ma": -6.26
     },
     {
       "symbol": "PICK",
