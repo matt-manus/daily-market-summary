@@ -1,12 +1,12 @@
 {
   "meta": {
-    "generated_hkt": "2026-11-15 09:25",
-    "generated_et": "2026-11-14 20:25",
-    "date": "2026-11-14",
+    "generated_hkt": "2026-11-16 09:28",
+    "generated_et": "2026-11-15 20:28",
+    "date": "2026-11-15",
     "source": "Yahoo Finance + CNN + NAAIM + Finviz + Barchart",
     "rsi_method": "Wilder SMMA (EWM alpha=1/14)",
     "schema_version": "4.2",
-    "last_updated_hkt": "2026-11-15 09:25:53 HKT"
+    "last_updated_hkt": "2026-11-16 09:28:45 HKT"
   },
   "macro": {
     "VIX": {
@@ -15,9 +15,9 @@
       "change_1d_pct": 3.21
     },
     "DXY": {
-      "price": 103.41,
-      "change_1d": 0.24,
-      "change_1d_pct": 0.23
+      "price": 103.433,
+      "change_1d": 0.023,
+      "change_1d_pct": 0.02
     },
     "TNX_10Y": {
       "price": 5.154,
@@ -25,19 +25,19 @@
       "change_1d_pct": 1.0
     },
     "GOLD": {
-      "price": 3886.3,
-      "change_1d": 1.0,
-      "change_1d_pct": 0.03
+      "price": 3875.3,
+      "change_1d": -11.0,
+      "change_1d_pct": -0.28
     },
     "OIL_WTI": {
-      "price": 88.56,
-      "change_1d": -0.18,
-      "change_1d_pct": -0.2
+      "price": 88.15,
+      "change_1d": -0.41,
+      "change_1d_pct": -0.46
     },
     "BTC": {
-      "price": 62714.8203,
-      "change_1d": -5534.4531,
-      "change_1d_pct": -8.11
+      "price": 64778.0,
+      "change_1d": 649.9492,
+      "change_1d_pct": 1.01
     }
   },
   "indices": {
@@ -516,25 +516,6 @@
       "change_ytd_pct": "-"
     },
     {
-      "symbol": "XLI",
-      "name": "Industrials",
-      "price": 168.78,
-      "change_1d_pct": -0.39,
-      "rsi14": 50.5582,
-      "ma20": 167.824,
-      "ma50": 168.8663,
-      "ma200": 172.7955,
-      "vs_ma20_pct": 0.57,
-      "vs_ma50_pct": -0.05,
-      "vs_ma200_pct": -2.32,
-      "vs20ma": "Green",
-      "status": "MIXED",
-      "change_1w_pct": "-",
-      "change_1m_pct": "-",
-      "change_3m_pct": "-",
-      "change_ytd_pct": "-"
-    },
-    {
       "symbol": "IBB",
       "name": "Biotech (Market Cap)",
       "price": 212.5,
@@ -869,6 +850,25 @@
       "vs_ma20_pct": -4.26,
       "vs_ma50_pct": -6.35,
       "vs_ma200_pct": 10.57,
+      "vs20ma": "Red",
+      "status": "MIXED",
+      "change_1w_pct": "-",
+      "change_1m_pct": "-",
+      "change_3m_pct": "-",
+      "change_ytd_pct": "-"
+    },
+    {
+      "symbol": "CIBR",
+      "name": "Cybersecurity",
+      "price": 95.04,
+      "change_1d_pct": -1.47,
+      "rsi14": 41.2081,
+      "ma20": 99.7425,
+      "ma50": 101.1326,
+      "ma200": 84.3409,
+      "vs_ma20_pct": -4.71,
+      "vs_ma50_pct": -6.02,
+      "vs_ma200_pct": 12.69,
       "vs20ma": "Red",
       "status": "MIXED",
       "change_1w_pct": "-",
@@ -1290,13 +1290,13 @@
   "stockbee_mm": {
     "source": "Stockbee Market Monitor (dynamic via stockbee_mm.json)",
     "latest_date": "11/13/2026",
-    "t2108": 46.99,
-    "up_4_plus": 147,
-    "down_4_plus": 299,
+    "t2108": 46.94,
+    "up_4_plus": 150,
+    "down_4_plus": 307,
     "data_stale": false
   },
   "data_status": "fresh",
-  "last_updated_hkt": "2026-11-15 09:25:53 HKT",
+  "last_updated_hkt": "2026-11-16 09:28:45 HKT",
   "thematic": [
     {
       "symbol": "XLV",
@@ -1432,13 +1432,6 @@
       "vs_200ma": 2.57
     },
     {
-      "symbol": "XLI",
-      "price": 168.78,
-      "vs_20ma": 0.57,
-      "vs_50ma": -0.05,
-      "vs_200ma": -2.32
-    },
-    {
       "symbol": "IBB",
       "price": 212.5,
       "vs_20ma": -0.49,
@@ -1563,6 +1556,13 @@
       "vs_20ma": -4.26,
       "vs_50ma": -6.35,
       "vs_200ma": 10.57
+    },
+    {
+      "symbol": "CIBR",
+      "price": 95.04,
+      "vs_20ma": -4.71,
+      "vs_50ma": -6.02,
+      "vs_200ma": 12.69
     },
     {
       "symbol": "AIQ",
@@ -1851,6 +1851,10 @@
     },
     {
       "symbol": "CIBR",
+      "price": 95.04,
+      "vs_20ma": -4.71,
+      "vs_50ma": -6.02,
+      "vs_200ma": 12.69,
       "rs_score": -0.10540619679283689,
       "rs_rating": 17
     },
