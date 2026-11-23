@@ -165,7 +165,8 @@ def momentum_svg(h, pcts):
     pts = " ".join(f"{X(i):.1f},{Y(v):.1f}" for i, v in enumerate(t.mom_pct))
     parts.append(f'<polyline points="{pts}" fill="none" stroke="#42a5f5" stroke-width="2"/>')
     step = max(1, len(t) // 8)
-    for i in list(range(0, len(t), step)) + [len(t) - 1]:
+    ticks = [i for i in range(0, len(t), step) if len(t) - 1 - i > step * 0.6] + [len(t) - 1]
+    for i in ticks:
         d = t.index[i]
         parts.append(f'<text x="{X(i):.1f}" y="{H-8}" fill="#888" font-size="10" text-anchor="middle">{pd.Timestamp(d).strftime("%d/%m/%y")}</text>')
     lv = float(t.mom_pct.iloc[-1])
