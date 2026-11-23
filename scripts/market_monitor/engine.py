@@ -337,6 +337,7 @@ def main():
         old.index = pd.to_datetime(old.index).date
         old = old[old.index < min(h.index)]
         h = pd.concat([old, h]).sort_index()
+    h.index.name = "date"
     h.round(4).to_csv(HIST_CSV)
 
     asof = close.index[close.index.get_indexer([pd.Timestamp(h.index[-1])])[0]]
