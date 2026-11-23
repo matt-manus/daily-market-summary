@@ -57,7 +57,7 @@ def log(msg):
 
 
 def yahoo_symbol(sym):
-    return sym.strip().upper().replace("/", "-").replace(".", "-").replace("^", "-P")
+    return str(sym).strip().upper().replace("/", "-").replace(".", "-").replace("^", "-P")
 
 
 # --------------------------------------------------------------------------
@@ -82,7 +82,7 @@ def fetch_symdir():
         r = requests.get(url, headers=UA, timeout=60)
         r.raise_for_status()
         txt = "\n".join(l for l in r.text.splitlines() if not l.startswith("File Creation Time"))
-        d = pd.read_csv(io.StringIO(txt), sep="|", dtype=str)
+        d = pd.read_csv(io.StringIO(txt), sep="|", dtype=str, keep_default_na=False)
         d = d.rename(columns={symcol: "symbol"})
         frames.append(d[["symbol", "Security Name", "ETF", "Test Issue"]])
     return pd.concat(frames, ignore_index=True)
