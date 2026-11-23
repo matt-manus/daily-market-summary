@@ -1,5 +1,5 @@
 {
- "run_utc": "2026-11-23 16:51",
+ "run_utc": "2026-11-23 16:58",
  "session": "2026-11-20",
  "rules": {
   "breadth_universe": "US common stocks + ADRs (no ETFs/funds/preferreds/warrants/units), close >= $5, volume >= 300,000 shares that day",
@@ -1980,15 +1980,15 @@
   ]
  },
  "log": [
-  "[16:51:03Z] NASDAQ screener rows: 7300",
-  "[16:51:04Z] NASDAQ Trader symbol directory rows: 13315",
-  "[16:51:04Z] Candidate tickers after filters: 4425",
-  "[16:51:18Z] downloaded 200/4425",
-  "[16:52:38Z] downloaded 1200/4425",
-  "[16:53:58Z] downloaded 2200/4425",
-  "[16:55:16Z] downloaded 3200/4425",
-  "[16:56:35Z] downloaded 4200/4425",
-  "[16:56:56Z] Bars: 4425 tickers x 522 days; no data for 0",
-  "[16:56:57Z] Dropping 2026-11-23: US session not closed yet (ET 11:56)"
+  "[16:58:52Z] NASDAQ screener rows: 7300",
+  "[16:58:53Z] NASDAQ Trader symbol directory rows: 13315",
+  "[16:58:53Z] Candidate tickers after filters: 4425",
+  "[16:59:02Z] downloaded 200/4425",
+  "[16:59:57Z] downloaded 1200/4425",
+  "[17:00:59Z] downloaded 2200/4425",
+  "[17:01:55Z] downloaded 3200/4425",
+  "[17:02:50Z] downloaded 4200/4425",
+  "[17:03:06Z] Bars: 4425 tickers x 522 days; no data for 0",
+  "[17:03:07Z] Dropping 2026-11-23: US session not closed yet (ET 12:03)"
  ]
 }
