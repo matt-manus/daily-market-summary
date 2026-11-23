@@ -189,9 +189,17 @@ def index_atr_distance(start):
     for sym in ["SPY", "QQQ"]:
         d = out[sym]
         ema50 = d["Close"].ewm(span=50, adjust=False, min_periods=50).mean()
-        atr = wilder_atr(d["High"], d["Low"], d["Close"], 14)
-        res[f"{sym.lower()}_atr"] = (d["Close"] - ema50) / atr
+        pc = d["Close"].shift(1)
+        tr = pd.concat([d["High"] - d["Low"], (d["High"] - pc).abs(), (d["Low"] - pc).abs()], axis=1).max(axis=1)
+        atr_sma = tr.rolling(14, min_periods=14).mean()
+        atr_w = wilder_atr(d["High"], d["Low"], d["Close"], 14)
+        res[f"{sym.lower()}_atr"] = (d["Close"] - ema50) / atr_sma
+        res[f"{sym.lower()}_atr_w"] = (d["Close"] - ema50) / atr_w
     res["sp500"] = out["^GSPC"]["Close"].reindex(res.index)
+    now_et = pd.Timestamp.now(tz="America/New_York")
+    if len(res) and res.index[-1].date() == now_et.date() and (now_et.hour, now_et.minute) < (16, 45):
+        log(f"Dropping {res.index[-1].date()}: US session not closed yet (ET {now_et:%H:%M})")
+        res = res.iloc[:-1]
     return res
 
 
@@ -209,7 +217,7 @@ def compute_breadth(close, vol):
 
     valid = close.notna() & prev.notna()
     b_uni = valid & (close >= MIN_PRICE) & (vol >= MIN_VOL)
-    m_uni = valid & (close >= MIN_PRICE) & (close * vol >= MIN_DOLLAR_VOL) & ret_mom.notna()
+    m_uni = valid & (close >= MIN_PRICE) & (vol >= MIN_VOL) & (close * vol >= MIN_DOLLAR_VOL) & ret_mom.notna()
 
     up4 = (b_uni & (ret1 >= 0.04)).sum(axis=1)
     dn4 = (b_uni & (ret1 <= -0.04)).sum(axis=1)
@@ -245,7 +253,7 @@ def compute_sectors(close, vol, uni, asof):
     r63 = c0 / close.iloc[i - MOM_LOOKBACK] - 1
     r21 = c0 / close.iloc[i - DELTA_DAYS] - 1
     prev = close.iloc[i - 1]
-    in_u = c0.notna() & prev.notna() & (c0 >= MIN_PRICE) & (c0 * v0 >= MIN_DOLLAR_VOL) & r63.notna()
+    in_u = c0.notna() & prev.notna() & (c0 >= MIN_PRICE) & (v0 >= MIN_VOL) & (c0 * v0 >= MIN_DOLLAR_VOL) & r63.notna()
     U = in_u[in_u].index
     ind = uni.set_index("ysym")["industry"].reindex(U).fillna("Unclassified")
 
@@ -327,7 +335,7 @@ def main():
     if os.path.exists(HIST_CSV):
         old = pd.read_csv(HIST_CSV, index_col="date")
         old.index = pd.to_datetime(old.index).date
-        old = old[~old.index.isin(h.index)]
+        old = old[old.index < min(h.index)]
         h = pd.concat([old, h]).sort_index()
     h.round(4).to_csv(HIST_CSV)
 
@@ -339,9 +347,9 @@ def main():
         "session": str(h.index[-1]),
         "rules": {
             "breadth_universe": f"US common stocks + ADRs (no ETFs/funds/preferreds/warrants/units), close >= ${MIN_PRICE:.0f}, volume >= {MIN_VOL:,} shares that day",
-            "momentum_universe": f"close >= ${MIN_PRICE:.0f}, dollar volume >= ${MIN_DOLLAR_VOL/1e6:.0f}M that day; momentum stock = up >= {int(MOM_THRESHOLD*100)}% over {MOM_LOOKBACK} trading days",
+            "momentum_universe": f"close >= ${MIN_PRICE:.0f}, volume >= {MIN_VOL:,} shares, dollar volume >= ${MIN_DOLLAR_VOL/1e6:.0f}M that day; momentum stock = up >= {int(MOM_THRESHOLD*100)}% over {MOM_LOOKBACK} trading days",
             "ma": "% above 20-day EMA and 50-day SMA",
-            "atr": "SPY/QQQ: (close - 50-day EMA) / 14-day ATR (Wilder)",
+            "atr": "SPY/QQQ: (close - 50-day EMA) / 14-day ATR (simple average of true range)",
             "prefilter": f"tickers priced below ${PREFILTER_PRICE:.0f} today are skipped",
         },
         "universe_info": info,

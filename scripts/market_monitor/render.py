@@ -172,7 +172,7 @@ def momentum_svg(h, pcts):
     parts.append(f'<circle cx="{X(len(t)-1):.1f}" cy="{Y(lv):.1f}" r="4" fill="#ef5350"/>'
                  f'<text x="{X(len(t)-1)+8:.1f}" y="{Y(lv)+4:.1f}" fill="#fff" font-size="12" font-weight="700">{f(lv)}%</text>')
     parts.append("</svg>")
-    note = (f'<p class="mm-note">動力股 = 收市 ≥ $5、當日成交額 ≥ $5M、過去 63 個交易日升 ≥ 20%。'
+    note = (f'<p class="mm-note">動力股 = 收市 ≥ $5、當日成交 ≥ 30 萬股及成交額 ≥ $5M、過去 63 個交易日升 ≥ 20%。'
             f'色帶 = 本站歷史百分位：紅 ≤ 第 5／10（{f(pcts["p5"])}%／{f(pcts["p10"])}%），綠 ≥ 第 90／95（{f(pcts["p90"])}%／{f(pcts["p95"])}%）。'
             f'灰虛線 = median。歷史得 {pcts["n"]} 個交易日，所以百分位會隨日子累積而變。</p>')
     return "".join(parts) + note
