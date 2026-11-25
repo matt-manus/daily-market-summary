@@ -8,6 +8,7 @@ on:
     branches: [ dev-monitor ]
     paths:
       - 'scripts/market_monitor/**'
+      - 'data/monitor/watchlist.txt'
       - '.github/workflows/market_monitor_dev.yml'
   workflow_dispatch:
 

@@ -346,9 +346,10 @@ def main():
     themes = None
     try:
         sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-        from themes import download as theme_download, compute_themes
-        themes = compute_themes(theme_download(start), asof)
-        log(f"Themes: {themes['n']} ETFs ranked")
+        import themes as th_mod
+        tc, etf_g, stk_g = th_mod.run(start)
+        themes = th_mod.compute_themes(tc, asof, etf_g, stk_g)
+        log(f"Themes: {themes['n_etf']} ETFs, {themes['n_theme']} stock themes; missing {themes['missing']}")
     except Exception as e:  # noqa: BLE001
         log(f"Themes failed: {e!r}")
 

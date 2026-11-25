@@ -287,31 +287,33 @@ def readout_box(h, latest):
           f"（{f(last.mom_pct)}%，本站歷史第 {pctile:.0f} 百分位）· 5 日<b>{dirw}</b>（20 日線上 {f(d20,1,True)} pp）")
 
     th = latest.get("themes") or {}
-    rows = th.get("rows") or []
-    lead = [r for r in rows if r["status"] == "領先"][:3]
-    rise = [r for r in rows if r["status"] == "冒起"][:2]
-    nm = lambda r: f'{esc(r["name"])} {esc(r["etf"])}'
-    l2 = ("領先主題：" + ("、".join(nm(r) for r in lead) if lead else "冇主題同時 21 日同 63 日跑贏 SPY"))
+    srows = th.get("stock_rows") or []
+    erows = th.get("etf_rows") or []
+    lead = [r for r in srows if r["status"] == "領先"][:4]
+    rise = [r for r in srows if r["status"] == "冒起"][:3]
+    l2 = "主題：" + ("、".join(esc(r["theme"]) for r in lead) if lead else "冇主題同時 21 日同 63 日跑贏 SPY")
     if rise:
-        l2 += "　冒起：" + "、".join(nm(r) for r in rise)
+        l2 += "　冒起：" + "、".join(esc(r["theme"]) for r in rise)
+    elead = [r for r in erows if r["status"] == "領先" and r["group"] != "SECTOR"][:4]
+    if elead:
+        l2 += "<br>ETF：" + "、".join(f'{esc(r["etf"])}（{esc(r["group"])}）' for r in elead)
     sec = latest.get("sectors") or {}
     sig = sorted([r for r in sec.get("rows", []) if r["base"] >= 20 and (r.get("z") or 0) > 1.96],
                  key=lambda r: -r["lift"])[:3]
     if sig:
-        l2 += "<br>動力股集中：" + "、".join(f'{esc(r["industry"])}（{f(r["lift"],1)}x）' for r in sig)
+        l2 += "<br>全市場動力股集中：" + "、".join(f'{esc(r["industry"])}（{f(r["lift"],1)}x）' for r in sig)
 
-    top_now = {r["etf"] for r in rows if r["rank"] <= 5}
-    top_then = {r["etf"] for r in rows if (r.get("rank_then") or 99) <= 5}
-    by = {r["etf"]: r for r in rows}
-    ins = [nm(by[e]) for e in top_now - top_then]
-    outs = [nm(by[e]) for e in top_then - top_now if e in by]
-    new_lead = [nm(r) for r in rows if r["status"] == "領先" and r.get("status_then") != "領先"]
-    lost_lead = [nm(r) for r in rows if r.get("status_then") == "領先" and r["status"] != "領先"]
+    top_now = {r["theme"] for r in srows if r["rank"] <= 5}
+    top_then = {r["theme"] for r in srows if (r.get("rank_then") or 99) <= 5}
+    ins = sorted(top_now - top_then)
+    outs = sorted(top_then - top_now)
+    new_lead = [r["theme"] for r in srows if r["status"] == "領先" and r.get("status_then") != "領先"]
+    lost_lead = [r["theme"] for r in srows if r.get("status_then") == "領先" and r["status"] != "領先"]
     parts = []
-    if ins: parts.append("新入前 5：" + "、".join(ins))
-    if outs: parts.append("跌出前 5：" + "、".join(outs))
-    if new_lead: parts.append("新變領先：" + "、".join(new_lead))
-    if lost_lead: parts.append("唔再領先：" + "、".join(lost_lead))
+    if ins: parts.append("新入前 5：" + "、".join(map(esc, ins)))
+    if outs: parts.append("跌出前 5：" + "、".join(map(esc, outs)))
+    if new_lead: parts.append("新變領先：" + "、".join(map(esc, new_lead)))
+    if lost_lead: parts.append("唔再領先：" + "、".join(map(esc, lost_lead)))
     l3 = ("；".join(parts) if parts else "主題排名前 5 冇變") + \
          f"<br>50 日線上 {f(last.pct50-back.pct50,1,True)} pp · 動力股 {f(last.mom_pct-back.mom_pct,1,True)} pp"
     then = ddmm(th["then"]) if th.get("then") else ddmm(h.index[-6] if len(h) > 5 else h.index[0])
@@ -324,38 +326,65 @@ def readout_box(h, latest):
  <div class="mm-rl"><span>領先</span><div>{l2}</div></div>
  <div class="mm-rl"><span>變化</span><div>對比 {then}（5 個交易日前）：{l3}</div></div>
  <div class="mm-rn">規則（草稿，可以改）：參與度 = % 高過 50 日 SMA，≥60 闊／40–60 一般／&lt;40 窄。動力股 = 本站歷史百分位，≤10 極低／≤50 偏低／≥90 過熱。
- 方向 = % 高過 20 日 EMA 對比 5 日前，±5 pp。領先 = 主題 ETF 21 日同 63 日都跑贏 SPY（見 Section 13）；動力股集中 = Section 11 z &gt; 1.96。數字用 Section 8–13 嗰套。描述市況，唔係買賣訊號。</div>
+ 方向 = % 高過 20 日 EMA 對比 5 日前，±5 pp。領先 = 你嘅主題（成份股 median）21 日同 63 日都跑贏 SPY（Section 13）；ETF 一行唔計 SPDR sector（Section 14）；動力股集中 = Section 11 z &gt; 1.96。數字用 Section 8–14 嗰套。描述市況，唔係買賣訊號。</div>
 </div>
 """
 
 
-def themes_section(th):
-    if not th or not th.get("rows"):
-        return '<p class="mm-note">今次攞唔到主題 ETF 數據。</p>'
-    tr = []
-    for r in th["rows"]:
-        rt = r.get("rank_then")
-        mv = "—" if rt is None else (f"{int(rt)} → {r['rank']}")
-        chg = "" if rt is None else (' <span class="text-green">▲</span>' if r["rank"] < rt
-                                       else (' <span class="text-red">▼</span>' if r["rank"] > rt else ""))
-        a50 = "—" if r.get("above50") is None else ("✓" if r["above50"] else "✗")
-        tr.append(f'<tr><td>{r["rank"]}</td><td><b>{esc(r["etf"])}</b> {esc(r["name"])}</td>'
-                  f'<td class="{STATUS_CLS.get(r["status"], "")}" style="text-align:center">{esc(r["status"])}</td>'
-                  f'<td>{f(r["ex5"],1,True)}</td><td>{f(r["ex21"],1,True)}</td><td>{f(r["ex63"],1,True)}</td>'
-                  f'<td style="text-align:center">{a50}</td><td>{mv}{chg}</td></tr>')
-    return (f'<p class="mm-note">交易日 {ddmm(th["asof"])} · 回報減 SPY 同期回報（pp，含股息）· 排名 = 21 日同 63 日超額回報嘅平均百分位 · 對比 {ddmm(th["then"])}</p>'
-            '<div class="mm-wrap"><table class="mm-t"><tr><th>#</th><th>ETF</th><th>狀態</th><th>5 日</th><th>21 日</th><th>63 日</th><th>50 日線上</th><th>排名變化</th></tr>'
-            + "".join(tr) + "</table></div>"
-            + """<div class="mm-box">狀態：<b>領先</b> = 21 日同 63 日都跑贏 SPY；<b>冒起</b> = 5 日同 21 日跑贏、63 日仲落後；<b>轉弱</b> = 63 日跑贏但 21 日落後；<b>落後</b> = 21 日同 63 日都跑輸；其他 = 混合。<br>
-清單係<b>暫用</b>（11 隻 SPDR sector + 25 隻主題 ETF），之後應該換做你 TradingView 嘅主題分組。ETF 反映嘅係成個籃子，唔等於入面最強嗰幾隻股票。</div>""")
+def _chg(r):
+    rt = r.get("rank_then")
+    if rt is None or rt != rt:
+        return "—"
+    rt = int(rt)
+    arrow = ' <span class="text-green">▲</span>' if r["rank"] < rt else (' <span class="text-red">▼</span>' if r["rank"] > rt else "")
+    return f"{rt} → {r['rank']}{arrow}"
 
+
+def _st(r):
+    return f'<td class="{STATUS_CLS.get(r["status"], "")}" style="text-align:center">{esc(r["status"])}</td>'
+
+
+def stock_themes_section(th):
+    rows = (th or {}).get("stock_rows") or []
+    if not rows:
+        return '<p class="mm-note">今次攞唔到主題數據。</p>'
+    tr = []
+    for r in rows:
+        n = f'{r["n"]}' + (f'/{r["n_list"]}' if r["n"] != r["n_list"] else "")
+        best = "、".join(f'{esc(t)} {f(v,0,True)}' for t, v in r["best"])
+        tr.append(f'<tr><td>{r["rank"]}</td><td><b>{esc(r["theme"])}</b></td>{_st(r)}'
+                  f'<td>{f(r["ex5"],1,True)}</td><td>{f(r["ex21"],1,True)}</td><td>{f(r["ex63"],1,True)}</td>'
+                  f'<td>{f(r["pct50"],0)}%</td><td>{r["mom"]}/{n}</td><td>{_chg(r)}</td><td style="text-align:left">{best}</td></tr>')
+    return (f'<p class="mm-note">你 TradingView watchlist 嘅股票分組 · 交易日 {ddmm(th["asof"])} · 主題嘅 5／21／63 日 = 成份股超額回報（減 SPY，pp）嘅 median · 對比 {ddmm(th["then"])}</p>'
+            '<div class="mm-wrap"><table class="mm-t"><tr><th>#</th><th>主題</th><th>狀態</th><th>5 日</th><th>21 日</th><th>63 日</th>'
+            '<th>50 日線上</th><th>動力股</th><th>排名變化</th><th style="text-align:left">21 日最強 2 隻</th></tr>'
+            + "".join(tr) + "</table></div>"
+            + f"""<div class="mm-box">排名 = 21 日同 63 日 median 超額回報嘅平均百分位。動力股 = 63 日升 ≥ 20% 嘅成份股數目 / 成份股數。<br>
+狀態：<b>領先</b> = 21 日同 63 日都跑贏 SPY；<b>冒起</b> = 5 日同 21 日跑贏、63 日仲落後；<b>轉弱</b> = 63 日跑贏但 21 日落後；<b>落後</b> = 21 日同 63 日都跑輸；其他 = 混合。<br>
+每個主題得 2–19 隻股票，數字會俾一兩隻帶住走，睇方向為主。上市未夠 63 日嘅股票唔計（「n/總數」）。Yahoo 冇數據：{esc("、".join(th.get("missing") or []) or "冇")}。</div>""")
+
+
+def etf_section(th):
+    rows = (th or {}).get("etf_rows") or []
+    if not rows:
+        return '<p class="mm-note">今次攞唔到 ETF 數據。</p>'
+    tr = []
+    for r in rows:
+        a50 = "—" if r.get("above50") is None else ("✓" if r["above50"] else "✗")
+        tr.append(f'<tr><td>{r["rank"]}</td><td><b>{esc(r["etf"])}</b></td><td style="text-align:left">{esc(r["group"])}</td>{_st(r)}'
+                  f'<td>{f(r["ex5"],1,True)}</td><td>{f(r["ex21"],1,True)}</td><td>{f(r["ex63"],1,True)}</td>'
+                  f'<td style="text-align:center">{a50}</td><td>{_chg(r)}</td></tr>')
+    return (f'<p class="mm-note">你 watchlist 嘅 SECTOR、GATE 同 ARK 分組 · 回報減 SPY（pp，含股息）· 對比 {ddmm(th["then"])}</p>'
+            '<div class="mm-wrap"><table class="mm-t"><tr><th>#</th><th>ETF</th><th style="text-align:left">分組</th><th>狀態</th><th>5 日</th><th>21 日</th><th>63 日</th><th>50 日線上</th><th>排名變化</th></tr>'
+            + "".join(tr) + "</table></div>"
+            + '<div class="mm-box">狀態同排名規則同 Section 13 一樣。ETF 反映成個籃子，唔等於入面最強嗰幾隻。大市跌嘅時候，防守 sector（XLP、XLV、XLU）會自動「跑贏 SPY」，所以今日讀數嘅 ETF 一行唔計 SPDR sector。</div>')
 
 def notes_box(latest, h):
     info = latest.get("universe_info", {})
     r = latest.get("rules", {})
     src_ok = ("NASDAQ screener ✓" if info.get("screener_ok") else "NASDAQ screener ✗（行業分類攞唔到）") + \
              " · " + ("NASDAQ Trader 名單 ✓" if info.get("symdir_ok") else "NASDAQ Trader 名單 ✗")
-    return f"""<div class="mm-box"><b>數據來源同限制（Section 8–13）</b><br>
+    return f"""<div class="mm-box"><b>數據來源同限制（Section 8–14）</b><br>
 來源：股票名單 + 行業 = NASDAQ；每日股價 = Yahoo Finance（免費、非官方，有機會改動或者擋）。{src_ok}。<br>
 監察表範圍：{esc(r.get('breadth_universe',''))}。<br>
 動力股範圍：{esc(r.get('momentum_universe',''))}。<br>
@@ -385,7 +414,8 @@ def main():
              + section(10, "動力股數目走勢", momentum_svg(h, pcts), "s10-mm-momentum")
              + section(11, "行業動力（水平表）", level, "s11-mm-industry")
              + section(12, "行業動能（變強同變弱）", direction, "s12-mm-direction")
-             + section(13, "主題 ETF 相對強弱（對 SPY）", themes_section(latest.get("themes")), "s13-mm-themes")
+             + section(13, "你嘅主題相對強弱（對 SPY）", stock_themes_section(latest.get("themes")), "s13-mm-themes")
+             + section(14, "你嘅 ETF 相對強弱（對 SPY）", etf_section(latest.get("themes")), "s14-mm-etf")
              + notes_box(latest, h) + "\n")
 
     pos = page.find("<!-- ═══ HISTORY ARCHIVE")
