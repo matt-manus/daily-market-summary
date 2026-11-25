@@ -1,5 +1,5 @@
 {
- "run_utc": "2026-11-25 06:13",
+ "run_utc": "2026-11-25 06:43",
  "session": "2026-11-24",
  "rules": {
   "breadth_universe": "US common stocks + ADRs (no ETFs/funds/preferreds/warrants/units), close >= $5, volume >= 300,000 shares that day",
@@ -1995,524 +1995,1878 @@
  "themes": {
   "asof": "2026-11-24",
   "then": "2026-11-17",
-  "n": 36,
-  "rows": [
+  "etf_rows": [
    {
     "etf": "XLP",
-    "name": "必需消費",
-    "kind": "Sector",
+    "group": "SECTOR",
     "ex5": 2.3242,
     "ex21": 10.5438,
     "ex63": 13.1446,
     "above50": true,
-    "score": 98.6111,
+    "score": 95.5696,
     "rank": 1,
     "status": "領先",
     "rank_then": 3,
     "status_then": "領先"
    },
    {
+    "etf": "KBWP",
+    "group": "FINANCIAL",
+    "ex5": 3.1421,
+    "ex21": 11.6534,
+    "ex63": 12.7009,
+    "above50": true,
+    "score": 95.5696,
+    "rank": 1,
+    "status": "領先",
+    "rank_then": 1,
+    "status_then": "領先"
+   },
+   {
     "etf": "IHI",
-    "name": "醫療器械",
-    "kind": "Theme",
+    "group": "CONSUMER HEALTH",
     "ex5": 2.8134,
     "ex21": 10.5204,
     "ex63": 9.8769,
     "above50": true,
-    "score": 94.4444,
-    "rank": 2,
+    "score": 93.038,
+    "rank": 3,
     "status": "領先",
-    "rank_then": 1,
+    "rank_then": 3,
     "status_then": "領先"
    },
    {
+    "etf": "IBB",
+    "group": "CONSUMER HEALTH",
+    "ex5": 7.9142,
+    "ex21": 11.2624,
+    "ex63": 7.9261,
+    "above50": true,
+    "score": 93.038,
+    "rank": 3,
+    "status": "領先",
+    "rank_then": 23,
+    "status_then": "其他"
+   },
+   {
     "etf": "XLV",
-    "name": "醫療",
-    "kind": "Sector",
+    "group": "SECTOR",
     "ex5": 1.5843,
     "ex21": 9.1216,
     "ex63": 12.791,
     "above50": true,
-    "score": 91.6667,
-    "rank": 3,
-    "status": "領先",
-    "rank_then": 1,
-    "status_then": "領先"
-   },
-   {
-    "etf": "XRT",
-    "name": "零售",
-    "kind": "Theme",
-    "ex5": 3.462,
-    "ex21": 8.6953,
-    "ex63": 7.8223,
-    "above50": true,
-    "score": 86.1111,
-    "rank": 4,
-    "status": "領先",
-    "rank_then": 8,
-    "status_then": "領先"
-   },
-   {
-    "etf": "XLY",
-    "name": "非必需消費",
-    "kind": "Sector",
-    "ex5": 2.3945,
-    "ex21": 9.1154,
-    "ex63": 6.6406,
-    "above50": true,
-    "score": 84.7222,
+    "score": 91.7722,
     "rank": 5,
     "status": "領先",
-    "rank_then": 8,
+    "rank_then": 2,
     "status_then": "領先"
    },
    {
-    "etf": "JETS",
-    "name": "航空",
-    "kind": "Theme",
-    "ex5": 1.9708,
-    "ex21": 13.4652,
-    "ex63": 1.3042,
+    "etf": "KIE",
+    "group": "FINANCIAL",
+    "ex5": 2.2951,
+    "ex21": 9.8156,
+    "ex63": 8.2101,
     "above50": true,
-    "score": 84.7222,
+    "score": 91.1392,
     "rank": 6,
-    "status": "領先",
-    "rank_then": 7,
-    "status_then": "其他"
-   },
-   {
-    "etf": "XHB",
-    "name": "建屋",
-    "kind": "Theme",
-    "ex5": 4.0751,
-    "ex21": 9.4869,
-    "ex63": 2.0228,
-    "above50": true,
-    "score": 80.5556,
-    "rank": 7,
-    "status": "領先",
-    "rank_then": 11,
-    "status_then": "其他"
-   },
-   {
-    "etf": "XLU",
-    "name": "公用",
-    "kind": "Sector",
-    "ex5": 1.8189,
-    "ex21": 8.0849,
-    "ex63": 6.4219,
-    "above50": true,
-    "score": 80.5556,
-    "rank": 7,
-    "status": "領先",
-    "rank_then": 4,
-    "status_then": "領先"
-   },
-   {
-    "etf": "XLRE",
-    "name": "地產",
-    "kind": "Sector",
-    "ex5": 1.5668,
-    "ex21": 7.6293,
-    "ex63": 3.1376,
-    "above50": true,
-    "score": 76.3889,
-    "rank": 9,
-    "status": "領先",
-    "rank_then": 6,
-    "status_then": "領先"
-   },
-   {
-    "etf": "XBI",
-    "name": "生物科技",
-    "kind": "Theme",
-    "ex5": 9.8083,
-    "ex21": 10.3074,
-    "ex63": -0.9297,
-    "above50": true,
-    "score": 76.3889,
-    "rank": 9,
-    "status": "冒起",
-    "rank_then": 22,
-    "status_then": "其他"
-   },
-   {
-    "etf": "XLF",
-    "name": "金融",
-    "kind": "Sector",
-    "ex5": 0.1829,
-    "ex21": 6.2479,
-    "ex63": 2.5918,
-    "above50": true,
-    "score": 72.2222,
-    "rank": 11,
     "status": "領先",
     "rank_then": 5,
     "status_then": "領先"
    },
    {
-    "etf": "CIBR",
-    "name": "網絡安全",
-    "kind": "Theme",
-    "ex5": 4.7321,
-    "ex21": -6.8889,
-    "ex63": 6.6916,
-    "above50": false,
-    "score": 63.8889,
-    "rank": 12,
-    "status": "轉弱",
-    "rank_then": 17,
-    "status_then": "轉弱"
-   },
-   {
-    "etf": "XLC",
-    "name": "通訊",
-    "kind": "Sector",
-    "ex5": 1.0955,
-    "ex21": 6.665,
-    "ex63": -0.9993,
-    "above50": false,
-    "score": 63.8889,
-    "rank": 12,
-    "status": "冒起",
-    "rank_then": 16,
-    "status_then": "冒起"
-   },
-   {
-    "etf": "XLB",
-    "name": "原材料",
-    "kind": "Sector",
-    "ex5": 0.5471,
-    "ex21": 3.7322,
-    "ex63": -0.1498,
-    "above50": false,
-    "score": 62.5,
-    "rank": 14,
-    "status": "冒起",
-    "rank_then": 13,
-    "status_then": "領先"
-   },
-   {
-    "etf": "IYT",
-    "name": "運輸",
-    "kind": "Theme",
-    "ex5": -0.3818,
-    "ex21": 5.827,
-    "ex63": -1.5666,
-    "above50": false,
-    "score": 59.7222,
-    "rank": 15,
-    "status": "其他",
-    "rank_then": 10,
-    "status_then": "冒起"
-   },
-   {
-    "etf": "KRE",
-    "name": "地區銀行",
-    "kind": "Theme",
-    "ex5": 0.3265,
-    "ex21": 2.0036,
-    "ex63": 0.0112,
-    "above50": false,
-    "score": 59.7222,
-    "rank": 15,
+    "etf": "ITB",
+    "group": "INDUSTRIAL",
+    "ex5": 6.0403,
+    "ex21": 12.4186,
+    "ex63": 4.9721,
+    "above50": true,
+    "score": 91.1392,
+    "rank": 6,
     "status": "領先",
     "rank_then": 13,
     "status_then": "其他"
    },
    {
-    "etf": "XLE",
-    "name": "能源",
-    "kind": "Sector",
-    "ex5": -2.7278,
-    "ex21": -7.1092,
-    "ex63": 3.3453,
-    "above50": false,
-    "score": 58.3333,
-    "rank": 17,
-    "status": "轉弱",
+    "etf": "XRT",
+    "group": "CONSUMER HEALTH",
+    "ex5": 3.462,
+    "ex21": 8.6953,
+    "ex63": 7.8223,
+    "above50": true,
+    "score": 86.7089,
+    "rank": 8,
+    "status": "領先",
     "rank_then": 11,
-    "status_then": "轉弱"
+    "status_then": "領先"
    },
    {
-    "etf": "PAVE",
-    "name": "基建",
-    "kind": "Theme",
-    "ex5": 0.1619,
-    "ex21": 3.5168,
-    "ex63": -3.7011,
-    "above50": false,
-    "score": 52.7778,
-    "rank": 18,
-    "status": "冒起",
-    "rank_then": 19,
+    "etf": "XLY",
+    "group": "SECTOR",
+    "ex5": 2.3945,
+    "ex21": 9.1154,
+    "ex63": 6.6406,
+    "above50": true,
+    "score": 86.0759,
+    "rank": 9,
+    "status": "領先",
+    "rank_then": 10,
+    "status_then": "領先"
+   },
+   {
+    "etf": "JETS",
+    "group": "CONSUMER HEALTH",
+    "ex5": 1.9708,
+    "ex21": 13.4652,
+    "ex63": 1.3042,
+    "above50": true,
+    "score": 85.443,
+    "rank": 10,
+    "status": "領先",
+    "rank_then": 9,
     "status_then": "其他"
    },
    {
-    "etf": "ITA",
-    "name": "航太國防",
-    "kind": "Theme",
-    "ex5": -0.2614,
-    "ex21": 4.7356,
-    "ex63": -7.5045,
-    "above50": false,
-    "score": 50.0,
-    "rank": 19,
-    "status": "其他",
-    "rank_then": 20,
-    "status_then": "其他"
+    "etf": "XLU",
+    "group": "SECTOR",
+    "ex5": 1.8189,
+    "ex21": 8.0849,
+    "ex63": 6.4219,
+    "above50": true,
+    "score": 83.5443,
+    "rank": 11,
+    "status": "領先",
+    "rank_then": 6,
+    "status_then": "領先"
    },
    {
-    "etf": "XLI",
-    "name": "工業",
-    "kind": "Sector",
-    "ex5": -0.0409,
-    "ex21": 2.8829,
-    "ex63": -4.2038,
-    "above50": false,
-    "score": 50.0,
-    "rank": 19,
-    "status": "其他",
+    "etf": "PEJ",
+    "group": "CONSUMER HEALTH",
+    "ex5": 2.6298,
+    "ex21": 9.0131,
+    "ex63": 4.6656,
+    "above50": true,
+    "score": 82.2785,
+    "rank": 12,
+    "status": "領先",
+    "rank_then": 13,
+    "status_then": "領先"
+   },
+   {
+    "etf": "XHB",
+    "group": "INDUSTRIAL",
+    "ex5": 4.0751,
+    "ex21": 9.4869,
+    "ex63": 2.0228,
+    "above50": true,
+    "score": 80.3797,
+    "rank": 13,
+    "status": "領先",
     "rank_then": 18,
     "status_then": "其他"
    },
    {
+    "etf": "XHE",
+    "group": "CONSUMER HEALTH",
+    "ex5": 3.8039,
+    "ex21": 7.183,
+    "ex63": 4.2182,
+    "above50": true,
+    "score": 79.1139,
+    "rank": 14,
+    "status": "領先",
+    "rank_then": 20,
+    "status_then": "其他"
+   },
+   {
+    "etf": "BUG",
+    "group": "TECH",
+    "ex5": 10.7015,
+    "ex21": -2.4114,
+    "ex63": 23.6251,
+    "above50": true,
+    "score": 78.481,
+    "rank": 15,
+    "status": "轉弱",
+    "rank_then": 16,
+    "status_then": "領先"
+   },
+   {
+    "etf": "XBI",
+    "group": "CONSUMER HEALTH",
+    "ex5": 9.8083,
+    "ex21": 10.3074,
+    "ex63": -0.9297,
+    "above50": true,
+    "score": 77.8481,
+    "rank": 16,
+    "status": "冒起",
+    "rank_then": 39,
+    "status_then": "其他"
+   },
+   {
+    "etf": "XPH",
+    "group": "CONSUMER HEALTH",
+    "ex5": 6.0888,
+    "ex21": 12.3989,
+    "ex63": -2.1593,
+    "above50": true,
+    "score": 77.8481,
+    "rank": 16,
+    "status": "冒起",
+    "rank_then": 29,
+    "status_then": "其他"
+   },
+   {
+    "etf": "XLRE",
+    "group": "SECTOR",
+    "ex5": 1.5668,
+    "ex21": 7.6293,
+    "ex63": 3.1376,
+    "above50": true,
+    "score": 77.8481,
+    "rank": 16,
+    "status": "領先",
+    "rank_then": 8,
+    "status_then": "領先"
+   },
+   {
+    "etf": "HACK",
+    "group": "TECH",
+    "ex5": 7.8011,
+    "ex21": -3.0597,
+    "ex63": 14.8638,
+    "above50": false,
+    "score": 75.3165,
+    "rank": 19,
+    "status": "轉弱",
+    "rank_then": 21,
+    "status_then": "轉弱"
+   },
+   {
+    "etf": "XLF",
+    "group": "SECTOR",
+    "ex5": 0.1829,
+    "ex21": 6.2479,
+    "ex63": 2.5918,
+    "above50": true,
+    "score": 74.6835,
+    "rank": 20,
+    "status": "領先",
+    "rank_then": 7,
+    "status_then": "領先"
+   },
+   {
+    "etf": "IYG",
+    "group": "FINANCIAL",
+    "ex5": -0.1941,
+    "ex21": 5.1897,
+    "ex63": 0.9093,
+    "above50": false,
+    "score": 71.519,
+    "rank": 21,
+    "status": "領先",
+    "rank_then": 12,
+    "status_then": "領先"
+   },
+   {
+    "etf": "XLC",
+    "group": "SECTOR",
+    "ex5": 1.0955,
+    "ex21": 6.665,
+    "ex63": -0.9993,
+    "above50": false,
+    "score": 70.2532,
+    "rank": 22,
+    "status": "冒起",
+    "rank_then": 30,
+    "status_then": "冒起"
+   },
+   {
+    "etf": "XLB",
+    "group": "SECTOR",
+    "ex5": 0.5471,
+    "ex21": 3.7322,
+    "ex63": -0.1498,
+    "above50": false,
+    "score": 68.3544,
+    "rank": 23,
+    "status": "冒起",
+    "rank_then": 21,
+    "status_then": "領先"
+   },
+   {
+    "etf": "XSW",
+    "group": "TECH",
+    "ex5": 1.8397,
+    "ex21": -2.4716,
+    "ex63": 4.8306,
+    "above50": false,
+    "score": 68.3544,
+    "rank": 24,
+    "status": "轉弱",
+    "rank_then": 17,
+    "status_then": "領先"
+   },
+   {
+    "etf": "IYT",
+    "group": "INDUSTRIAL",
+    "ex5": -0.3818,
+    "ex21": 5.827,
+    "ex63": -1.5666,
+    "above50": false,
+    "score": 67.7215,
+    "rank": 25,
+    "status": "其他",
+    "rank_then": 15,
+    "status_then": "冒起"
+   },
+   {
+    "etf": "MAGS",
+    "group": "TECH",
+    "ex5": 0.8563,
+    "ex21": -0.9142,
+    "ex63": 3.2478,
+    "above50": false,
+    "score": 67.7215,
+    "rank": 25,
+    "status": "轉弱",
+    "rank_then": 33,
+    "status_then": "轉弱"
+   },
+   {
+    "etf": "BOAT",
+    "group": "INDUSTRIAL",
+    "ex5": 0.9954,
+    "ex21": -4.6802,
+    "ex63": 4.8888,
+    "above50": false,
+    "score": 66.4557,
+    "rank": 27,
+    "status": "轉弱",
+    "rank_then": 31,
+    "status_then": "轉弱"
+   },
+   {
+    "etf": "XTN",
+    "group": "INDUSTRIAL",
+    "ex5": -0.3007,
+    "ex21": 6.5873,
+    "ex63": -2.5599,
+    "above50": false,
+    "score": 66.4557,
+    "rank": 27,
+    "status": "其他",
+    "rank_then": 18,
+    "status_then": "冒起"
+   },
+   {
+    "etf": "KRE",
+    "group": "FINANCIAL",
+    "ex5": 0.3265,
+    "ex21": 2.0036,
+    "ex63": 0.0112,
+    "above50": false,
+    "score": 65.8228,
+    "rank": 29,
+    "status": "領先",
+    "rank_then": 24,
+    "status_then": "其他"
+   },
+   {
+    "etf": "KBE",
+    "group": "FINANCIAL",
+    "ex5": 0.4602,
+    "ex21": 2.6843,
+    "ex63": -0.563,
+    "above50": false,
+    "score": 65.1899,
+    "rank": 30,
+    "status": "冒起",
+    "rank_then": 24,
+    "status_then": "其他"
+   },
+   {
+    "etf": "CIBR",
+    "group": "TECH",
+    "ex5": 4.7321,
+    "ex21": -6.8889,
+    "ex63": 6.6916,
+    "above50": false,
+    "score": 63.2911,
+    "rank": 31,
+    "status": "轉弱",
+    "rank_then": 37,
+    "status_then": "轉弱"
+   },
+   {
+    "etf": "ONLN",
+    "group": "CONSUMER HEALTH",
+    "ex5": -0.8546,
+    "ex21": 3.0899,
+    "ex63": -2.0309,
+    "above50": false,
+    "score": 63.2911,
+    "rank": 31,
+    "status": "其他",
+    "rank_then": 34,
+    "status_then": "其他"
+   },
+   {
+    "etf": "WCLD",
+    "group": "TECH",
+    "ex5": 3.7001,
+    "ex21": -7.2603,
+    "ex63": 6.9889,
+    "above50": false,
+    "score": 62.0253,
+    "rank": 33,
+    "status": "轉弱",
+    "rank_then": 27,
+    "status_then": "轉弱"
+   },
+   {
+    "etf": "IPAY",
+    "group": "TECH",
+    "ex5": 0.4527,
+    "ex21": 4.0039,
+    "ex63": -3.6741,
+    "above50": false,
+    "score": 62.0253,
+    "rank": 33,
+    "status": "冒起",
+    "rank_then": 28,
+    "status_then": "其他"
+   },
+   {
+    "etf": "PAVE",
+    "group": "INDUSTRIAL",
+    "ex5": 0.1619,
+    "ex21": 3.5168,
+    "ex63": -3.7011,
+    "above50": false,
+    "score": 60.1266,
+    "rank": 35,
+    "status": "冒起",
+    "rank_then": 36,
+    "status_then": "其他"
+   },
+   {
+    "etf": "ITA",
+    "group": "INDUSTRIAL",
+    "ex5": -0.2614,
+    "ex21": 4.7356,
+    "ex63": -7.5045,
+    "above50": false,
+    "score": 58.8608,
+    "rank": 36,
+    "status": "其他",
+    "rank_then": 38,
+    "status_then": "其他"
+   },
+   {
+    "etf": "XLI",
+    "group": "SECTOR",
+    "ex5": -0.0409,
+    "ex21": 2.8829,
+    "ex63": -4.2038,
+    "above50": false,
+    "score": 57.5949,
+    "rank": 37,
+    "status": "其他",
+    "rank_then": 32,
+    "status_then": "其他"
+   },
+   {
+    "etf": "XLE",
+    "group": "SECTOR",
+    "ex5": -2.7278,
+    "ex21": -7.1092,
+    "ex63": 3.3453,
+    "above50": false,
+    "score": 56.962,
+    "rank": 38,
+    "status": "轉弱",
+    "rank_then": 26,
+    "status_then": "轉弱"
+   },
+   {
+    "etf": "IBUY",
+    "group": "CONSUMER HEALTH",
+    "ex5": -0.8196,
+    "ex21": 0.845,
+    "ex63": -3.7332,
+    "above50": false,
+    "score": 56.3291,
+    "rank": 39,
+    "status": "其他",
+    "rank_then": 34,
+    "status_then": "其他"
+   },
+   {
+    "etf": "GRID",
+    "group": "INDUSTRIAL",
+    "ex5": -0.7003,
+    "ex21": -1.1932,
+    "ex63": -10.2962,
+    "above50": false,
+    "score": 49.3671,
+    "rank": 40,
+    "status": "落後",
+    "rank_then": 49,
+    "status_then": "落後"
+   },
+   {
     "etf": "IGV",
-    "name": "軟件",
-    "kind": "Theme",
+    "group": "TECH",
     "ex5": 1.4576,
     "ex21": -8.3126,
     "ex63": -0.9344,
     "above50": false,
-    "score": 45.8333,
-    "rank": 21,
+    "score": 48.1013,
+    "rank": 41,
     "status": "落後",
-    "rank_then": 23,
+    "rank_then": 42,
     "status_then": "落後"
    },
    {
-    "etf": "IAI",
-    "name": "券商",
-    "kind": "Theme",
-    "ex5": -1.4595,
-    "ex21": 1.7748,
-    "ex63": -6.4125,
+    "etf": "FDN",
+    "group": "TECH",
+    "ex5": -0.4556,
+    "ex21": -4.7399,
+    "ex63": -7.0266,
     "above50": false,
-    "score": 44.4444,
-    "rank": 22,
-    "status": "其他",
-    "rank_then": 15,
+    "score": 48.1013,
+    "rank": 41,
+    "status": "落後",
+    "rank_then": 48,
+    "status_then": "落後"
+   },
+   {
+    "etf": "UFO",
+    "group": "SPACE",
+    "ex5": -4.2928,
+    "ex21": -2.6708,
+    "ex63": -11.1932,
+    "above50": false,
+    "score": 44.3038,
+    "rank": 43,
+    "status": "落後",
+    "rank_then": 41,
     "status_then": "其他"
    },
    {
+    "etf": "XAR",
+    "group": "INDUSTRIAL",
+    "ex5": -2.4048,
+    "ex21": 0.3994,
+    "ex63": -14.98,
+    "above50": false,
+    "score": 43.6709,
+    "rank": 44,
+    "status": "其他",
+    "rank_then": 46,
+    "status_then": "其他"
+   },
+   {
+    "etf": "FINX",
+    "group": "TECH",
+    "ex5": -2.6666,
+    "ex21": -2.5068,
+    "ex63": -14.7551,
+    "above50": false,
+    "score": 41.1392,
+    "rank": 45,
+    "status": "落後",
+    "rank_then": 43,
+    "status_then": "落後"
+   },
+   {
+    "etf": "SOCL",
+    "group": "TECH",
+    "ex5": -4.0277,
+    "ex21": -5.3583,
+    "ex63": -10.9219,
+    "above50": false,
+    "score": 41.1392,
+    "rank": 45,
+    "status": "落後",
+    "rank_then": 50,
+    "status_then": "落後"
+   },
+   {
     "etf": "BOTZ",
-    "name": "機械人／AI",
-    "kind": "Theme",
+    "group": "TECH",
     "ex5": 1.0572,
     "ex21": -4.987,
     "ex63": -11.3475,
     "above50": false,
-    "score": 36.1111,
-    "rank": 23,
+    "score": 41.1392,
+    "rank": 45,
     "status": "落後",
-    "rank_then": 32,
+    "rank_then": 64,
     "status_then": "落後"
    },
    {
-    "etf": "KWEB",
-    "name": "中國互聯網",
-    "kind": "Theme",
-    "ex5": -2.347,
-    "ex21": -2.749,
-    "ex63": -13.5793,
+    "etf": "DTCR",
+    "group": "TECH",
+    "ex5": -3.4462,
+    "ex21": -5.0498,
+    "ex63": -13.5507,
     "above50": false,
-    "score": 36.1111,
-    "rank": 23,
+    "score": 38.6076,
+    "rank": 48,
     "status": "落後",
-    "rank_then": 30,
+    "rank_then": 44,
+    "status_then": "落後"
+   },
+   {
+    "etf": "ARKG",
+    "group": "ARK",
+    "ex5": 5.0502,
+    "ex21": -8.1369,
+    "ex63": -9.5491,
+    "above50": false,
+    "score": 37.9747,
+    "rank": 49,
+    "status": "落後",
+    "rank_then": 67,
+    "status_then": "落後"
+   },
+   {
+    "etf": "AIQ",
+    "group": "TECH",
+    "ex5": -1.913,
+    "ex21": -8.5298,
+    "ex63": -8.8518,
+    "above50": false,
+    "score": 36.7089,
+    "rank": 50,
+    "status": "落後",
+    "rank_then": 55,
+    "status_then": "落後"
+   },
+   {
+    "etf": "ROBO",
+    "group": "TECH",
+    "ex5": -1.8609,
+    "ex21": -6.6643,
+    "ex63": -12.8934,
+    "above50": false,
+    "score": 36.7089,
+    "rank": 51,
+    "status": "落後",
+    "rank_then": 58,
+    "status_then": "落後"
+   },
+   {
+    "etf": "CLOU",
+    "group": "TECH",
+    "ex5": 1.9048,
+    "ex21": -11.7979,
+    "ex63": -2.5012,
+    "above50": false,
+    "score": 36.0759,
+    "rank": 52,
+    "status": "落後",
+    "rank_then": 52,
     "status_then": "落後"
    },
    {
     "etf": "SKYY",
-    "name": "雲端",
-    "kind": "Theme",
+    "group": "TECH",
     "ex5": 0.2587,
     "ex21": -9.8906,
     "ex63": -4.7862,
     "above50": false,
-    "score": 33.3333,
-    "rank": 25,
+    "score": 35.443,
+    "rank": 53,
     "status": "落後",
-    "rank_then": 24,
+    "rank_then": 46,
     "status_then": "落後"
    },
    {
-    "etf": "XOP",
-    "name": "油氣開採",
-    "kind": "Theme",
-    "ex5": -4.5254,
-    "ex21": -12.7549,
-    "ex63": -3.566,
-    "above50": false,
-    "score": 31.9444,
-    "rank": 26,
-    "status": "落後",
-    "rank_then": 20,
-    "status_then": "轉弱"
-   },
-   {
     "etf": "XLK",
-    "name": "科技",
-    "kind": "Sector",
+    "group": "SECTOR",
     "ex5": -1.9143,
     "ex21": -9.6008,
     "ex63": -8.0418,
     "above50": false,
-    "score": 30.5556,
-    "rank": 27,
+    "score": 34.8101,
+    "rank": 54,
     "status": "落後",
-    "rank_then": 28,
+    "rank_then": 56,
     "status_then": "落後"
    },
    {
-    "etf": "GDX",
-    "name": "金礦",
-    "kind": "Theme",
-    "ex5": -8.4404,
-    "ex21": -5.8234,
-    "ex63": -24.375,
+    "etf": "XOP",
+    "group": "ENERGY MATERIAL",
+    "ex5": -4.5254,
+    "ex21": -12.7549,
+    "ex63": -3.566,
     "above50": false,
-    "score": 26.3889,
-    "rank": 28,
+    "score": 32.9114,
+    "rank": 55,
     "status": "落後",
-    "rank_then": 26,
+    "rank_then": 40,
+    "status_then": "轉弱"
+   },
+   {
+    "etf": "GLD",
+    "group": "ENERGY MATERIAL",
+    "ex5": -5.8035,
+    "ex21": -5.432,
+    "ex63": -16.8134,
+    "above50": false,
+    "score": 32.2785,
+    "rank": 56,
+    "status": "落後",
+    "rank_then": 44,
+    "status_then": "落後"
+   },
+   {
+    "etf": "ARKX",
+    "group": "SPACE",
+    "ex5": -4.9606,
+    "ex21": -8.3973,
+    "ex63": -14.5518,
+    "above50": false,
+    "score": 30.3797,
+    "rank": 57,
+    "status": "落後",
+    "rank_then": 53,
     "status_then": "落後"
    },
    {
     "etf": "OIH",
-    "name": "油服",
-    "kind": "Theme",
+    "group": "ENERGY MATERIAL",
     "ex5": -2.8389,
     "ex21": -9.9863,
     "ex63": -10.6463,
     "above50": false,
-    "score": 26.3889,
-    "rank": 28,
+    "score": 30.3797,
+    "rank": 57,
+    "status": "落後",
+    "rank_then": 51,
+    "status_then": "落後"
+   },
+   {
+    "etf": "ARKF",
+    "group": "ARK",
+    "ex5": -2.4017,
+    "ex21": -8.966,
+    "ex63": -12.9548,
+    "above50": false,
+    "score": 30.3797,
+    "rank": 57,
+    "status": "落後",
+    "rank_then": 58,
+    "status_then": "落後"
+   },
+   {
+    "etf": "LIT",
+    "group": "ENERGY MATERIAL",
+    "ex5": -2.9737,
+    "ex21": -6.2842,
+    "ex63": -23.3395,
+    "above50": false,
+    "score": 29.1139,
+    "rank": 60,
+    "status": "落後",
+    "rank_then": 69,
+    "status_then": "落後"
+   },
+   {
+    "etf": "GDX",
+    "group": "ENERGY MATERIAL",
+    "ex5": -8.4404,
+    "ex21": -5.8234,
+    "ex63": -24.375,
+    "above50": false,
+    "score": 28.481,
+    "rank": 61,
+    "status": "落後",
+    "rank_then": 56,
+    "status_then": "落後"
+   },
+   {
+    "etf": "ARKW",
+    "group": "ARK",
+    "ex5": -2.5643,
+    "ex21": -10.5116,
+    "ex63": -10.8243,
+    "above50": false,
+    "score": 27.8481,
+    "rank": 62,
+    "status": "落後",
+    "rank_then": 58,
+    "status_then": "落後"
+   },
+   {
+    "etf": "XME",
+    "group": "ENERGY MATERIAL",
+    "ex5": -4.6716,
+    "ex21": -7.0885,
+    "ex63": -24.7245,
+    "above50": false,
+    "score": 25.3165,
+    "rank": 63,
+    "status": "落後",
+    "rank_then": 68,
+    "status_then": "落後"
+   },
+   {
+    "etf": "ARKQ",
+    "group": "ARK",
+    "ex5": -4.4803,
+    "ex21": -9.6128,
+    "ex63": -15.7541,
+    "above50": false,
+    "score": 24.0506,
+    "rank": 64,
+    "status": "落後",
+    "rank_then": 63,
+    "status_then": "落後"
+   },
+   {
+    "etf": "QTUM",
+    "group": "TECH",
+    "ex5": -3.2894,
+    "ex21": -10.0788,
+    "ex63": -15.7816,
+    "above50": false,
+    "score": 21.519,
+    "rank": 65,
+    "status": "落後",
+    "rank_then": 66,
+    "status_then": "落後"
+   },
+   {
+    "etf": "TAN",
+    "group": "ENERGY MATERIAL",
+    "ex5": -7.6838,
+    "ex21": -9.32,
+    "ex63": -23.374,
+    "above50": false,
+    "score": 21.519,
+    "rank": 65,
+    "status": "落後",
+    "rank_then": 61,
+    "status_then": "落後"
+   },
+   {
+    "etf": "ARKK",
+    "group": "ARK",
+    "ex5": -2.9063,
+    "ex21": -11.4836,
+    "ex63": -15.4157,
+    "above50": false,
+    "score": 20.8861,
+    "rank": 67,
+    "status": "落後",
+    "rank_then": 65,
+    "status_then": "落後"
+   },
+   {
+    "etf": "XSD",
+    "group": "TECH",
+    "ex5": -7.1176,
+    "ex21": -11.912,
+    "ex63": -16.6386,
+    "above50": false,
+    "score": 17.0886,
+    "rank": 68,
+    "status": "落後",
+    "rank_then": 62,
+    "status_then": "落後"
+   },
+   {
+    "etf": "REMX",
+    "group": "ENERGY MATERIAL",
+    "ex5": -2.9663,
+    "ex21": -9.3286,
+    "ex63": -38.0449,
+    "above50": false,
+    "score": 15.1899,
+    "rank": 69,
+    "status": "落後",
+    "rank_then": 74,
+    "status_then": "落後"
+   },
+   {
+    "etf": "SMH",
+    "group": "TECH",
+    "ex5": -5.3834,
+    "ex21": -15.1213,
+    "ex63": -17.2733,
+    "above50": false,
+    "score": 13.9241,
+    "rank": 70,
+    "status": "落後",
+    "rank_then": 69,
+    "status_then": "落後"
+   },
+   {
+    "etf": "SIL",
+    "group": "ENERGY MATERIAL",
+    "ex5": -9.9944,
+    "ex21": -10.2937,
+    "ex63": -32.0195,
+    "above50": false,
+    "score": 13.2911,
+    "rank": 71,
+    "status": "落後",
+    "rank_then": 73,
+    "status_then": "落後"
+   },
+   {
+    "etf": "SOXX",
+    "group": "TECH",
+    "ex5": -7.2118,
+    "ex21": -15.4588,
+    "ex63": -19.1436,
+    "above50": false,
+    "score": 12.6582,
+    "rank": 72,
+    "status": "落後",
+    "rank_then": 71,
+    "status_then": "落後"
+   },
+   {
+    "etf": "BLOK",
+    "group": "CRYPTO",
+    "ex5": -5.2626,
+    "ex21": -11.8924,
+    "ex63": -25.4584,
+    "above50": false,
+    "score": 12.6582,
+    "rank": 72,
+    "status": "落後",
+    "rank_then": 71,
+    "status_then": "落後"
+   },
+   {
+    "etf": "MSOS",
+    "group": "CONSUMER HEALTH",
+    "ex5": -12.9295,
+    "ex21": -15.5752,
+    "ex63": -29.935,
+    "above50": false,
+    "score": 8.2278,
+    "rank": 74,
+    "status": "落後",
+    "rank_then": 53,
+    "status_then": "其他"
+   },
+   {
+    "etf": "URA",
+    "group": "ENERGY MATERIAL",
+    "ex5": -6.2575,
+    "ex21": -13.5868,
+    "ex63": -36.6185,
+    "above50": false,
+    "score": 7.5949,
+    "rank": 75,
+    "status": "落後",
+    "rank_then": 75,
+    "status_then": "落後"
+   },
+   {
+    "etf": "DRAM",
+    "group": "TECH",
+    "ex5": -5.8668,
+    "ex21": -19.5904,
+    "ex63": -30.3595,
+    "above50": false,
+    "score": 6.3291,
+    "rank": 76,
+    "status": "落後",
+    "rank_then": 77,
+    "status_then": "落後"
+   },
+   {
+    "etf": "COPX",
+    "group": "ENERGY MATERIAL",
+    "ex5": -9.9709,
+    "ex21": -15.9016,
+    "ex63": -33.7908,
+    "above50": false,
+    "score": 5.6962,
+    "rank": 77,
+    "status": "落後",
+    "rank_then": 75,
+    "status_then": "落後"
+   },
+   {
+    "etf": "LYTE",
+    "group": "TECH",
+    "ex5": -3.7028,
+    "ex21": -25.567,
+    "ex63": -42.5193,
+    "above50": false,
+    "score": 1.8987,
+    "rank": 78,
+    "status": "落後",
+    "rank_then": 78,
+    "status_then": "落後"
+   },
+   {
+    "etf": "WGMI",
+    "group": "CRYPTO",
+    "ex5": -11.5703,
+    "ex21": -21.5811,
+    "ex63": -47.6902,
+    "above50": false,
+    "score": 1.8987,
+    "rank": 78,
+    "status": "落後",
+    "rank_then": 78,
+    "status_then": "落後"
+   }
+  ],
+  "stock_rows": [
+   {
+    "theme": "PHARMA",
+    "n": 6,
+    "n_list": 6,
+    "ex5": 1.7742,
+    "ex21": 9.0936,
+    "ex63": 14.7619,
+    "pct50": 83.3333,
+    "mom": 1,
+    "best": [
+     [
+      "LLY",
+      16.2627
+     ],
+     [
+      "AMGN",
+      13.2949
+     ]
+    ],
+    "score": 95.4545,
+    "rank": 1,
+    "status": "領先",
+    "rank_then": 1,
+    "status_then": "領先"
+   },
+   {
+    "theme": "HOUSING",
+    "n": 5,
+    "n_list": 5,
+    "ex5": 5.4394,
+    "ex21": 10.2967,
+    "ex63": 6.3145,
+    "pct50": 100.0,
+    "mom": 0,
+    "best": [
+     [
+      "PHM",
+      13.4403
+     ],
+     [
+      "TOL",
+      12.1699
+     ]
+    ],
+    "score": 93.9394,
+    "rank": 2,
+    "status": "領先",
+    "rank_then": 2,
+    "status_then": "其他"
+   },
+   {
+    "theme": "BIOTECH",
+    "n": 10,
+    "n_list": 10,
+    "ex5": 12.1652,
+    "ex21": 12.1384,
+    "ex63": -4.151,
+    "pct50": 50.0,
+    "mom": 2,
+    "best": [
+     [
+      "CGON",
+      48.225
+     ],
+     [
+      "REGN",
+      28.4263
+     ]
+    ],
+    "score": 89.3939,
+    "rank": 3,
+    "status": "冒起",
+    "rank_then": 12,
+    "status_then": "其他"
+   },
+   {
+    "theme": "CYBERSECURITY",
+    "n": 15,
+    "n_list": 15,
+    "ex5": 10.7847,
+    "ex21": -3.8623,
+    "ex63": 22.9574,
+    "pct50": 46.6667,
+    "mom": 6,
+    "best": [
+     [
+      "ATEN",
+      26.3079
+     ],
+     [
+      "SAIL",
+      7.1447
+     ]
+    ],
+    "score": 83.3333,
+    "rank": 4,
+    "status": "轉弱",
+    "rank_then": 6,
+    "status_then": "領先"
+   },
+   {
+    "theme": "INDUSTRIALS",
+    "n": 8,
+    "n_list": 8,
+    "ex5": -0.6223,
+    "ex21": 2.6579,
+    "ex63": -4.7416,
+    "pct50": 25.0,
+    "mom": 0,
+    "best": [
+     [
+      "GE",
+      16.3497
+     ],
+     [
+      "HON",
+      8.9359
+     ]
+    ],
+    "score": 81.8182,
+    "rank": 5,
+    "status": "其他",
+    "rank_then": 9,
+    "status_then": "其他"
+   },
+   {
+    "theme": "MAG7",
+    "n": 8,
+    "n_list": 8,
+    "ex5": 0.7559,
+    "ex21": -0.477,
+    "ex63": 4.4788,
+    "pct50": 25.0,
+    "mom": 0,
+    "best": [
+     [
+      "AAPL",
+      9.1197
+     ],
+     [
+      "AMZN",
+      7.3719
+     ]
+    ],
+    "score": 81.8182,
+    "rank": 5,
+    "status": "轉弱",
+    "rank_then": 8,
+    "status_then": "轉弱"
+   },
+   {
+    "theme": "DATA CENTRE",
+    "n": 4,
+    "n_list": 4,
+    "ex5": -2.9842,
+    "ex21": 2.0014,
+    "ex63": -4.3133,
+    "pct50": 25.0,
+    "mom": 0,
+    "best": [
+     [
+      "EQIX",
+      8.1588
+     ],
+     [
+      "AMT",
+      3.1926
+     ]
+    ],
+    "score": 81.8182,
+    "rank": 5,
+    "status": "其他",
+    "rank_then": 5,
+    "status_then": "冒起"
+   },
+   {
+    "theme": "DEFENSE",
+    "n": 12,
+    "n_list": 12,
+    "ex5": 0.7813,
+    "ex21": 0.9756,
+    "ex63": -1.5788,
+    "pct50": 50.0,
+    "mom": 1,
+    "best": [
+     [
+      "AMTM",
+      18.457
+     ],
+     [
+      "ATI",
+      8.8221
+     ]
+    ],
+    "score": 80.303,
+    "rank": 8,
+    "status": "冒起",
+    "rank_then": 3,
+    "status_then": "其他"
+   },
+   {
+    "theme": "EDA",
+    "n": 2,
+    "n_list": 2,
+    "ex5": -2.1995,
+    "ex21": -2.2293,
+    "ex63": 0.8401,
+    "pct50": 0.0,
+    "mom": 0,
+    "best": [
+     [
+      "CDNS",
+      -1.8496
+     ],
+     [
+      "SNPS",
+      -2.6091
+     ]
+    ],
+    "score": 78.7879,
+    "rank": 9,
+    "status": "轉弱",
+    "rank_then": 10,
+    "status_then": "轉弱"
+   },
+   {
+    "theme": "ENERGY",
+    "n": 7,
+    "n_list": 7,
+    "ex5": -2.1391,
+    "ex21": -5.386,
+    "ex63": 6.5979,
+    "pct50": 0.0,
+    "mom": 0,
+    "best": [
+     [
+      "CVX",
+      -3.1997
+     ],
+     [
+      "EOG",
+      -4.3539
+     ]
+    ],
+    "score": 75.7576,
+    "rank": 10,
+    "status": "轉弱",
+    "rank_then": 7,
+    "status_then": "領先"
+   },
+   {
+    "theme": "BANK",
+    "n": 7,
+    "n_list": 7,
+    "ex5": -2.0324,
+    "ex21": 1.016,
+    "ex63": -8.3479,
+    "pct50": 0.0,
+    "mom": 0,
+    "best": [
+     [
+      "SCHW",
+      11.1121
+     ],
+     [
+      "WFC",
+      4.9034
+     ]
+    ],
+    "score": 72.7273,
+    "rank": 11,
+    "status": "其他",
+    "rank_then": 11,
+    "status_then": "其他"
+   },
+   {
+    "theme": "MEDTECH DX",
+    "n": 9,
+    "n_list": 9,
+    "ex5": 2.7778,
+    "ex21": -2.7151,
+    "ex63": -4.9364,
+    "pct50": 33.3333,
+    "mom": 0,
+    "best": [
+     [
+      "HROW",
+      14.2738
+     ],
+     [
+      "ESTA",
+      14.0076
+     ]
+    ],
+    "score": 69.697,
+    "rank": 12,
+    "status": "落後",
+    "rank_then": 3,
+    "status_then": "領先"
+   },
+   {
+    "theme": "INTERNET",
+    "n": 7,
+    "n_list": 7,
+    "ex5": -1.0336,
+    "ex21": 1.8428,
+    "ex63": -21.7901,
+    "pct50": 28.5714,
+    "mom": 0,
+    "best": [
+     [
+      "TTWO",
+      14.4767
+     ],
+     [
+      "SPOT",
+      10.871
+     ]
+    ],
+    "score": 68.1818,
+    "rank": 13,
+    "status": "其他",
+    "rank_then": 19,
+    "status_then": "落後"
+   },
+   {
+    "theme": "FINTECH",
+    "n": 13,
+    "n_list": 13,
+    "ex5": -3.2514,
+    "ex21": -4.9778,
+    "ex63": -19.7006,
+    "pct50": 23.0769,
+    "mom": 0,
+    "best": [
+     [
+      "MA",
+      11.6194
+     ],
+     [
+      "V",
+      9.4007
+     ]
+    ],
+    "score": 57.5758,
+    "rank": 14,
+    "status": "落後",
+    "rank_then": 13,
+    "status_then": "其他"
+   },
+   {
+    "theme": "GOLD SILVER",
+    "n": 5,
+    "n_list": 5,
+    "ex5": -8.0677,
+    "ex21": -4.2689,
+    "ex63": -22.3369,
+    "pct50": 0.0,
+    "mom": 0,
+    "best": [
+     [
+      "WPM",
+      1.5268
+     ],
+     [
+      "NEM",
+      -3.6057
+     ]
+    ],
+    "score": 56.0606,
+    "rank": 15,
+    "status": "落後",
+    "rank_then": 14,
+    "status_then": "落後"
+   },
+   {
+    "theme": "SOFTWARE",
+    "n": 16,
+    "n_list": 16,
+    "ex5": 0.5041,
+    "ex21": -13.7004,
+    "ex63": -6.2234,
+    "pct50": 12.5,
+    "mom": 1,
+    "best": [
+     [
+      "APP",
+      52.252
+     ],
+     [
+      "TYL",
+      12.8448
+     ]
+    ],
+    "score": 54.5455,
+    "rank": 16,
+    "status": "落後",
+    "rank_then": 17,
+    "status_then": "落後"
+   },
+   {
+    "theme": "CLOUD DATA",
+    "n": 4,
+    "n_list": 4,
+    "ex5": 2.5461,
+    "ex21": -13.8038,
+    "ex63": -13.0967,
+    "pct50": 0.0,
+    "mom": 0,
+    "best": [
+     [
+      "ORCL",
+      -7.0494
+     ],
+     [
+      "SNOW",
+      -12.9783
+     ]
+    ],
+    "score": 50.0,
+    "rank": 17,
+    "status": "落後",
+    "rank_then": 16,
+    "status_then": "落後"
+   },
+   {
+    "theme": "POWER GRID",
+    "n": 18,
+    "n_list": 18,
+    "ex5": -3.2862,
+    "ex21": -5.9915,
+    "ex63": -23.214,
+    "pct50": 0.0,
+    "mom": 0,
+    "best": [
+     [
+      "AAON",
+      12.0901
+     ],
+     [
+      "PWR",
+      10.6463
+     ]
+    ],
+    "score": 50.0,
+    "rank": 17,
+    "status": "落後",
+    "rank_then": 20,
+    "status_then": "落後"
+   },
+   {
+    "theme": "SEMI",
+    "n": 19,
+    "n_list": 19,
+    "ex5": -7.7914,
+    "ex21": -17.1962,
+    "ex63": -15.3416,
+    "pct50": 5.2632,
+    "mom": 0,
+    "best": [
+     [
+      "CRUS",
+      8.4943
+     ],
+     [
+      "MPWR",
+      8.0482
+     ]
+    ],
+    "score": 46.9697,
+    "rank": 19,
+    "status": "落後",
+    "rank_then": 17,
+    "status_then": "落後"
+   },
+   {
+    "theme": "OPTICS",
+    "n": 13,
+    "n_list": 13,
+    "ex5": -5.9603,
+    "ex21": -11.7221,
+    "ex63": -27.3943,
+    "pct50": 0.0,
+    "mom": 0,
+    "best": [
+     [
+      "APH",
+      3.6959
+     ],
+     [
+      "MKSI",
+      0.669
+     ]
+    ],
+    "score": 45.4545,
+    "rank": 20,
     "status": "落後",
     "rank_then": 24,
     "status_then": "落後"
    },
    {
-    "etf": "TAN",
-    "name": "太陽能",
-    "kind": "Theme",
-    "ex5": -7.6838,
-    "ex21": -9.32,
-    "ex63": -23.374,
-    "above50": false,
-    "score": 22.2222,
-    "rank": 30,
+    "theme": "BATTERY LITHIUM",
+    "n": 3,
+    "n_list": 3,
+    "ex5": -7.2647,
+    "ex21": -11.6238,
+    "ex63": -33.9133,
+    "pct50": 0.0,
+    "mom": 0,
+    "best": [
+     [
+      "ALB",
+      -7.6036
+     ],
+     [
+      "SQM",
+      -11.6238
+     ]
+    ],
+    "score": 40.9091,
+    "rank": 21,
     "status": "落後",
-    "rank_then": 28,
+    "rank_then": 22,
     "status_then": "落後"
    },
    {
-    "etf": "ARKK",
-    "name": "創新科技",
-    "kind": "Theme",
-    "ex5": -2.9063,
-    "ex21": -11.4836,
-    "ex63": -15.4157,
-    "above50": false,
-    "score": 19.4444,
-    "rank": 31,
+    "theme": "SOLAR",
+    "n": 6,
+    "n_list": 6,
+    "ex5": -12.5623,
+    "ex21": -17.3737,
+    "ex63": -30.6,
+    "pct50": 0.0,
+    "mom": 0,
+    "best": [
+     [
+      "RUN",
+      -1.203
+     ],
+     [
+      "FSLR",
+      -5.8961
+     ]
+    ],
+    "score": 36.3636,
+    "rank": 22,
+    "status": "落後",
+    "rank_then": 22,
+    "status_then": "落後"
+   },
+   {
+    "theme": "SPACE",
+    "n": 14,
+    "n_list": 14,
+    "ex5": -12.7718,
+    "ex21": -12.0868,
+    "ex63": -36.3719,
+    "pct50": 7.1429,
+    "mom": 0,
+    "best": [
+     [
+      "GSAT",
+      10.2378
+     ],
+     [
+      "FLY",
+      5.7037
+     ]
+    ],
+    "score": 34.8485,
+    "rank": 23,
+    "status": "落後",
+    "rank_then": 14,
+    "status_then": "其他"
+   },
+   {
+    "theme": "COPPER BASE",
+    "n": 3,
+    "n_list": 3,
+    "ex5": -11.824,
+    "ex21": -19.6057,
+    "ex63": -33.5105,
+    "pct50": 0.0,
+    "mom": 0,
+    "best": [
+     [
+      "HBM",
+      -18.0102
+     ],
+     [
+      "SCCO",
+      -19.6057
+     ]
+    ],
+    "score": 28.7879,
+    "rank": 24,
+    "status": "落後",
+    "rank_then": 21,
+    "status_then": "落後"
+   },
+   {
+    "theme": "SEMI CAP EQUIP",
+    "n": 8,
+    "n_list": 8,
+    "ex5": -7.2079,
+    "ex21": -20.6598,
+    "ex63": -33.2869,
+    "pct50": 0.0,
+    "mom": 0,
+    "best": [
+     [
+      "KLAC",
+      -4.2056
+     ],
+     [
+      "AMAT",
+      -10.2553
+     ]
+    ],
+    "score": 25.7576,
+    "rank": 25,
+    "status": "落後",
+    "rank_then": 27,
+    "status_then": "落後"
+   },
+   {
+    "theme": "AUTONOMY",
+    "n": 9,
+    "n_list": 9,
+    "ex5": -15.2033,
+    "ex21": -19.0727,
+    "ex63": -44.899,
+    "pct50": 0.0,
+    "mom": 0,
+    "best": [
+     [
+      "SERV",
+      -7.5491
+     ],
+     [
+      "OUST",
+      -9.7997
+     ]
+    ],
+    "score": 22.7273,
+    "rank": 26,
+    "status": "落後",
+    "rank_then": 25,
+    "status_then": "落後"
+   },
+   {
+    "theme": "MEMORY STORAGE",
+    "n": 4,
+    "n_list": 5,
+    "ex5": -6.1071,
+    "ex21": -21.6203,
+    "ex63": -36.3103,
+    "pct50": 0.0,
+    "mom": 0,
+    "best": [
+     [
+      "WDC",
+      -16.9886
+     ],
+     [
+      "STX",
+      -19.0179
+     ]
+    ],
+    "score": 19.697,
+    "rank": 27,
+    "status": "落後",
+    "rank_then": 27,
+    "status_then": "落後"
+   },
+   {
+    "theme": "CRYPTO MINER",
+    "n": 4,
+    "n_list": 4,
+    "ex5": -10.4529,
+    "ex21": -19.8111,
+    "ex63": -44.6847,
+    "pct50": 0.0,
+    "mom": 0,
+    "best": [
+     [
+      "RIOT",
+      35.8728
+     ],
+     [
+      "HUT",
+      -17.3048
+     ]
+    ],
+    "score": 18.1818,
+    "rank": 28,
     "status": "落後",
     "rank_then": 31,
     "status_then": "落後"
    },
    {
-    "etf": "SMH",
-    "name": "半導體",
-    "kind": "Theme",
-    "ex5": -5.3834,
-    "ex21": -15.1213,
-    "ex63": -17.2733,
-    "above50": false,
-    "score": 13.8889,
-    "rank": 32,
+    "theme": "NUCLEAR",
+    "n": 10,
+    "n_list": 10,
+    "ex5": -10.0537,
+    "ex21": -19.2118,
+    "ex63": -48.5866,
+    "pct50": 10.0,
+    "mom": 0,
+    "best": [
+     [
+      "SOLS",
+      9.9793
+     ],
+     [
+      "BWXT",
+      -7.4801
+     ]
+    ],
+    "score": 16.6667,
+    "rank": 29,
     "status": "落後",
-    "rank_then": 33,
+    "rank_then": 30,
     "status_then": "落後"
    },
    {
-    "etf": "SIL",
-    "name": "銀礦",
-    "kind": "Theme",
-    "ex5": -9.9944,
-    "ex21": -10.2937,
-    "ex63": -32.0195,
-    "above50": false,
-    "score": 13.8889,
-    "rank": 32,
-    "status": "落後",
-    "rank_then": 34,
-    "status_then": "落後"
-   },
-   {
-    "etf": "IBIT",
-    "name": "比特幣",
-    "kind": "Theme",
-    "ex5": -4.7205,
-    "ex21": -19.2555,
-    "ex63": -18.1253,
-    "above50": false,
-    "score": 9.7222,
-    "rank": 34,
+    "theme": "CRYPTO",
+    "n": 6,
+    "n_list": 6,
+    "ex5": -10.1386,
+    "ex21": -30.3924,
+    "ex63": -39.3689,
+    "pct50": 0.0,
+    "mom": 0,
+    "best": [
+     [
+      "PURR",
+      -8.5765
+     ],
+     [
+      "GLXY",
+      -20.252
+     ]
+    ],
+    "score": 13.6364,
+    "rank": 30,
     "status": "落後",
     "rank_then": 26,
     "status_then": "落後"
    },
    {
-    "etf": "URA",
-    "name": "鈾",
-    "kind": "Theme",
-    "ex5": -6.2575,
-    "ex21": -13.5868,
-    "ex63": -36.6185,
-    "above50": false,
-    "score": 6.9444,
-    "rank": 35,
+    "theme": "CRITICAL MINERALS",
+    "n": 10,
+    "n_list": 10,
+    "ex5": -10.0974,
+    "ex21": -19.6333,
+    "ex63": -54.6881,
+    "pct50": 0.0,
+    "mom": 0,
+    "best": [
+     [
+      "MP",
+      1.9239
+     ],
+     [
+      "METC",
+      -13.8838
+     ]
+    ],
+    "score": 12.1212,
+    "rank": 31,
     "status": "落後",
-    "rank_then": 35,
+    "rank_then": 32,
     "status_then": "落後"
    },
    {
-    "etf": "COPX",
-    "name": "銅礦",
-    "kind": "Theme",
-    "ex5": -9.9709,
-    "ex21": -15.9016,
-    "ex63": -33.7908,
-    "above50": false,
-    "score": 5.5556,
-    "rank": 36,
+    "theme": "QUANTUM",
+    "n": 7,
+    "n_list": 7,
+    "ex5": -12.9498,
+    "ex21": -27.5666,
+    "ex63": -46.4426,
+    "pct50": 0.0,
+    "mom": 0,
+    "best": [
+     [
+      "INFQ",
+      -20.4481
+     ],
+     [
+      "IONQ",
+      -21.0909
+     ]
+    ],
+    "score": 10.6061,
+    "rank": 32,
     "status": "落後",
-    "rank_then": 35,
+    "rank_then": 27,
+    "status_then": "落後"
+   },
+   {
+    "theme": "NEOCLOUD",
+    "n": 6,
+    "n_list": 6,
+    "ex5": -14.2657,
+    "ex21": -31.1622,
+    "ex63": -47.115,
+    "pct50": 0.0,
+    "mom": 0,
+    "best": [
+     [
+      "CORZ",
+      -12.5656
+     ],
+     [
+      "CRWV",
+      -16.7158
+     ]
+    ],
+    "score": 6.0606,
+    "rank": 33,
+    "status": "落後",
+    "rank_then": 33,
     "status_then": "落後"
    }
-  ]
+  ],
+  "missing": [
+   "SNDK"
+  ],
+  "n_etf": 79,
+  "n_theme": 33
  },
  "log": [
-  "[06:13:20Z] NASDAQ screener rows: 7343",
-  "[06:13:21Z] NASDAQ Trader symbol directory rows: 13312",
-  "[06:13:21Z] Candidate tickers after filters: 4448",
-  "[06:13:28Z] downloaded 200/4448",
-  "[06:14:16Z] downloaded 1200/4448",
-  "[06:15:02Z] downloaded 2200/4448",
-  "[06:15:48Z] downloaded 3200/4448",
-  "[06:16:33Z] downloaded 4200/4448",
-  "[06:16:48Z] Bars: 4448 tickers x 521 days; no data for 0",
-  "[06:16:54Z] Themes: 36 ETFs ranked"
+  "[06:44:00Z] NASDAQ screener rows: 7343",
+  "[06:44:00Z] NASDAQ Trader symbol directory rows: 13312",
+  "[06:44:00Z] Candidate tickers after filters: 4448",
+  "[06:44:13Z] downloaded 200/4448",
+  "[06:45:22Z] downloaded 1200/4448",
+  "[06:46:30Z] downloaded 2200/4448",
+  "[06:47:25Z] downloaded 3200/4448",
+  "[06:48:33Z] downloaded 4200/4448",
+  "[06:48:53Z] Bars: 4448 tickers x 521 days; no data for 0",
+  "[06:49:14Z] Themes: 79 ETFs, 33 stock themes; missing ['SNDK']"
  ]
 }
