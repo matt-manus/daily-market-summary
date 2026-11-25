@@ -274,6 +274,32 @@ z = 實際動力股數減「隨機應該有幾多」，再除以正常隨機波�
 STATUS_CLS = {"領先": "g1", "冒起": "a1", "轉弱": "r1", "落後": "r1", "其他": ""}
 
 
+def watch_set():
+    try:
+        sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+        import themes as th_mod
+        e, st = th_mod.parse_watchlist()
+        return {t for g in e + st for t in g["members"]}
+    except Exception:  # noqa: BLE001
+        return set()
+
+
+def not_followed(latest, ws):
+    """Significant industries (z > 1.96, base >= 20) whose momentum names are
+    mostly (< 50%) outside the user's watchlist."""
+    out = []
+    for r in (latest.get("sectors") or {}).get("rows", []):
+        if r["base"] < 20 or (r.get("z") or 0) <= 1.96:
+            continue
+        ml = r.get("mom_list") or []
+        inw = [t for t, _ in ml if t in ws]
+        cov = len(inw) / len(ml) if ml else 1
+        if ml and cov < 0.5:
+            out.append({**r, "inw": len(inw), "nm": len(ml),
+                        "outside": [(t, v) for t, v in ml if t not in ws][:4]})
+    return sorted(out, key=lambda r: -r["lift"])
+
+
 def readout_box(h, latest):
     last = h.iloc[-1]
     back = h.iloc[-6] if len(h) > 5 else h.iloc[0]
@@ -302,6 +328,10 @@ def readout_box(h, latest):
                  key=lambda r: -r["lift"])[:3]
     if sig:
         l2 += "<br>全市場動力股集中：" + "、".join(f'{esc(r["industry"])}（{f(r["lift"],1)}x）' for r in sig)
+    nf = not_followed(latest, watch_set())
+    if nf:
+        l2 += "<br><b>你冇跟緊</b>：" + "、".join(
+            f'{esc(r["industry"])}（動力股 {r["nm"]} 隻，watchlist 有 {r["inw"]} 隻）' for r in nf)
 
     top_now = {r["theme"] for r in srows if r["rank"] <= 5}
     top_then = {r["theme"] for r in srows if (r.get("rank_then") or 99) <= 5}
@@ -326,7 +356,7 @@ def readout_box(h, latest):
  <div class="mm-rl"><span>領先</span><div>{l2}</div></div>
  <div class="mm-rl"><span>變化</span><div>對比 {then}（5 個交易日前）：{l3}</div></div>
  <div class="mm-rn">規則（草稿，可以改）：參與度 = % 高過 50 日 SMA，≥60 闊／40–60 一般／&lt;40 窄。動力股 = 本站歷史百分位，≤10 極低／≤50 偏低／≥90 過熱。
- 方向 = % 高過 20 日 EMA 對比 5 日前，±5 pp。領先 = 你嘅主題（成份股 median）21 日同 63 日都跑贏 SPY（Section 13）；ETF 一行唔計 SPDR sector（Section 14）；動力股集中 = Section 11 z &gt; 1.96。數字用 Section 8–14 嗰套。描述市況，唔係買賣訊號。</div>
+ 方向 = % 高過 20 日 EMA 對比 5 日前，±5 pp。領先 = 你嘅主題（成份股 median）21 日同 63 日都跑贏 SPY（Section 13）；ETF 一行唔計 SPDR sector（Section 14）；動力股集中 = Section 11 z &gt; 1.96；你冇跟緊 = 呢啲行業嘅動力股有一半以上唔喺你 watchlist（Section 13 底）。數字用 Section 8–14 嗰套。描述市況，唔係買賣訊號。</div>
 </div>
 """
 
@@ -344,10 +374,27 @@ def _st(r):
     return f'<td class="{STATUS_CLS.get(r["status"], "")}" style="text-align:center">{esc(r["status"])}</td>'
 
 
-def stock_themes_section(th):
+def not_followed_box(latest):
+    ws = watch_set()
+    nf = not_followed(latest, ws)
+    head = ('<div class="sub-title">全市場偏強，但你冇跟緊</div>'
+            '<p class="mm-note">Section 11 統計上顯著偏強（z &gt; 1.96）嘅行業之中，動力股有一半以上唔喺你 watchlist。'
+            '可以考慮喺 TradingView 開新組或者加入現有組；呢度只係話你知覆蓋有缺口，唔係買賣訊號。</p>')
+    if not nf:
+        return head + '<p class="mm-note">今日冇：顯著偏強嘅行業，你 watchlist 都有覆蓋一半以上動力股。</p>'
+    tr = "".join(
+        f'<tr><td style="text-align:left">{esc(r["industry"])}</td><td>{f(r["lift"],2)}</td><td>{f(r["z"],2,True)}</td>'
+        f'<td>{r["inw"]}/{r["nm"]}</td><td style="text-align:left">{"、".join(f"{esc(t)} {f(v,0,True)}%" for t, v in r["outside"])}</td></tr>'
+        for r in nf)
+    return (head + '<div class="mm-wrap"><table class="mm-t"><tr><th style="text-align:left">行業（NASDAQ）</th><th>Lift</th><th>z</th>'
+            '<th>watchlist 覆蓋</th><th style="text-align:left">watchlist 以外 63 日升幅最大</th></tr>' + tr + '</table></div>')
+
+
+def stock_themes_section(th, latest=None):
     rows = (th or {}).get("stock_rows") or []
     if not rows:
         return '<p class="mm-note">今次攞唔到主題數據。</p>'
+    latest = latest or {}
     tr = []
     for r in rows:
         n = f'{r["n"]}' + (f'/{r["n_list"]}' if r["n"] != r["n_list"] else "")
@@ -361,7 +408,7 @@ def stock_themes_section(th):
             + "".join(tr) + "</table></div>"
             + f"""<div class="mm-box">排名 = 21 日同 63 日 median 超額回報嘅平均百分位。動力股 = 63 日升 ≥ 20% 嘅成份股數目 / 成份股數。<br>
 狀態：<b>領先</b> = 21 日同 63 日都跑贏 SPY；<b>冒起</b> = 5 日同 21 日跑贏、63 日仲落後；<b>轉弱</b> = 63 日跑贏但 21 日落後；<b>落後</b> = 21 日同 63 日都跑輸；其他 = 混合。<br>
-每個主題得 2–19 隻股票，數字會俾一兩隻帶住走，睇方向為主。上市未夠 63 日嘅股票唔計（「n/總數」）。Yahoo 冇數據：{esc("、".join(th.get("missing") or []) or "冇")}。</div>""")
+每個主題得 2–19 隻股票，數字會俾一兩隻帶住走，睇方向為主。上市未夠 63 日嘅股票唔計（「n/總數」）。Yahoo 冇數據：{esc("、".join(th.get("missing") or []) or "冇")}。</div>""" + not_followed_box(latest))
 
 
 def etf_section(th):
@@ -414,7 +461,7 @@ def main():
              + section(10, "動力股數目走勢", momentum_svg(h, pcts), "s10-mm-momentum")
              + section(11, "行業動力（水平表）", level, "s11-mm-industry")
              + section(12, "行業動能（變強同變弱）", direction, "s12-mm-direction")
-             + section(13, "你嘅主題相對強弱（對 SPY）", stock_themes_section(latest.get("themes")), "s13-mm-themes")
+             + section(13, "你嘅主題相對強弱（對 SPY）", stock_themes_section(latest.get("themes"), latest), "s13-mm-themes")
              + section(14, "你嘅 ETF 相對強弱（對 SPY）", etf_section(latest.get("themes")), "s14-mm-etf")
              + notes_box(latest, h) + "\n")
 

@@ -278,10 +278,13 @@ def compute_sectors(close, vol, uni, asof):
         med21 = float(np.nanmedian(r21[idx])) * 100
         n_then = int(has_then[idx].sum())
         lift_then = ((mom_then[idx].sum() / n_then) / p_then) if n_then and p_then else float("nan")
+        mom_idx = [t for t in idx if mom[t]]
+        mom_list = sorted(mom_idx, key=lambda t: -float(r63[t]))
         rows.append({
             "industry": g, "base": n, "mom": k, "share": 100 * share, "lift": lift, "z": z,
             "median63": med63, "median21": med21, "pace": med21 - med63 / 3,
             "lift_then": lift_then, "dlift": lift - lift_then,
+            "mom_list": [[t, 100 * float(r63[t])] for t in mom_list],
         })
     t = pd.DataFrame(rows)
     corr = float(t.loc[t["base"] >= MIN_BASE, ["dlift", "pace"]].corr().iloc[0, 1]) if len(t) > 2 else float("nan")
