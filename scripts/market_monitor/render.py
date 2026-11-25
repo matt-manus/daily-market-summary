@@ -39,6 +39,12 @@ CSS = """
 .mm-legend span{display:inline-block;margin:0 10px 4px 0;font-size:10px;color:var(--text-muted)}
 .mm-legend i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:4px;vertical-align:-1px}
 .mm-wrap{overflow-x:auto}
+.mm-readout{background:var(--bg-card);border:1px solid var(--amber);border-radius:8px;padding:12px 14px;margin:0 0 18px 0}
+.mm-rt{font-size:13px;font-weight:700;color:#fff;margin-bottom:8px}
+.mm-rl{display:flex;gap:10px;font-size:13px;line-height:1.6;color:var(--text-label);padding:5px 0;border-top:1px solid var(--border-lt)}
+.mm-rl>span{flex:0 0 36px;font-weight:700;color:var(--amber)}
+.mm-rn{font-size:10px;color:var(--text-muted);line-height:1.5;margin-top:8px}
+.a1{background:rgba(255,193,7,.22)}
 .mm-tag{display:inline-block;font-size:10px;padding:1px 6px;border-radius:3px;background:var(--amber-bg);color:var(--amber);margin-left:6px;vertical-align:2px}
 </style>
 """
@@ -262,12 +268,94 @@ z = 實際動力股數減「隨機應該有幾多」，再除以正常隨機波�
     return level, direction
 
 
+# --------------------------------------------------------------------------
+# 今日讀數 (draft rules) + Section 13 theme ETF relative strength
+# --------------------------------------------------------------------------
+STATUS_CLS = {"領先": "g1", "冒起": "a1", "轉弱": "r1", "落後": "r1", "其他": ""}
+
+
+def readout_box(h, latest):
+    last = h.iloc[-1]
+    back = h.iloc[-6] if len(h) > 5 else h.iloc[0]
+    m = h["mom_pct"].dropna()
+    pctile = 100 * (m <= last.mom_pct).mean()
+    part = "闊" if last.pct50 >= 60 else ("一般" if last.pct50 >= 40 else "窄")
+    mom = ("極低" if pctile <= 10 else "偏低" if pctile <= 50 else "過熱" if pctile >= 90 else "正常")
+    d20 = last.pct20 - back.pct20
+    dirw = "改善緊" if d20 >= 5 else ("轉差緊" if d20 <= -5 else "冇明顯變化")
+    l1 = (f"參與度<b>{part}</b>（{f(last.pct50)}% 高過 50 日線）· 動力股<b>{mom}</b>"
+          f"（{f(last.mom_pct)}%，本站歷史第 {pctile:.0f} 百分位）· 5 日<b>{dirw}</b>（20 日線上 {f(d20,1,True)} pp）")
+
+    th = latest.get("themes") or {}
+    rows = th.get("rows") or []
+    lead = [r for r in rows if r["status"] == "領先"][:3]
+    rise = [r for r in rows if r["status"] == "冒起"][:2]
+    nm = lambda r: f'{esc(r["name"])} {esc(r["etf"])}'
+    l2 = ("領先主題：" + ("、".join(nm(r) for r in lead) if lead else "冇主題同時 21 日同 63 日跑贏 SPY"))
+    if rise:
+        l2 += "　冒起：" + "、".join(nm(r) for r in rise)
+    sec = latest.get("sectors") or {}
+    sig = sorted([r for r in sec.get("rows", []) if r["base"] >= 20 and (r.get("z") or 0) > 1.96],
+                 key=lambda r: -r["lift"])[:3]
+    if sig:
+        l2 += "<br>動力股集中：" + "、".join(f'{esc(r["industry"])}（{f(r["lift"],1)}x）' for r in sig)
+
+    top_now = {r["etf"] for r in rows if r["rank"] <= 5}
+    top_then = {r["etf"] for r in rows if (r.get("rank_then") or 99) <= 5}
+    by = {r["etf"]: r for r in rows}
+    ins = [nm(by[e]) for e in top_now - top_then]
+    outs = [nm(by[e]) for e in top_then - top_now if e in by]
+    new_lead = [nm(r) for r in rows if r["status"] == "領先" and r.get("status_then") != "領先"]
+    lost_lead = [nm(r) for r in rows if r.get("status_then") == "領先" and r["status"] != "領先"]
+    parts = []
+    if ins: parts.append("新入前 5：" + "、".join(ins))
+    if outs: parts.append("跌出前 5：" + "、".join(outs))
+    if new_lead: parts.append("新變領先：" + "、".join(new_lead))
+    if lost_lead: parts.append("唔再領先：" + "、".join(lost_lead))
+    l3 = ("；".join(parts) if parts else "主題排名前 5 冇變") + \
+         f"<br>50 日線上 {f(last.pct50-back.pct50,1,True)} pp · 動力股 {f(last.mom_pct-back.mom_pct,1,True)} pp"
+    then = ddmm(th["then"]) if th.get("then") else ddmm(h.index[-6] if len(h) > 5 else h.index[0])
+
+    return f"""
+<!-- ═══ TODAY'S READOUT (market_monitor, preview) ═══ -->
+<div class="mm-readout">
+ <div class="mm-rt">今日讀數 · {ddmm(h.index[-1])}<span class="mm-tag">NEW · 規則係草稿</span></div>
+ <div class="mm-rl"><span>大市</span><div>{l1}</div></div>
+ <div class="mm-rl"><span>領先</span><div>{l2}</div></div>
+ <div class="mm-rl"><span>變化</span><div>對比 {then}（5 個交易日前）：{l3}</div></div>
+ <div class="mm-rn">規則（草稿，可以改）：參與度 = % 高過 50 日 SMA，≥60 闊／40–60 一般／&lt;40 窄。動力股 = 本站歷史百分位，≤10 極低／≤50 偏低／≥90 過熱。
+ 方向 = % 高過 20 日 EMA 對比 5 日前，±5 pp。領先 = 主題 ETF 21 日同 63 日都跑贏 SPY（見 Section 13）；動力股集中 = Section 11 z &gt; 1.96。數字用 Section 8–13 嗰套。描述市況，唔係買賣訊號。</div>
+</div>
+"""
+
+
+def themes_section(th):
+    if not th or not th.get("rows"):
+        return '<p class="mm-note">今次攞唔到主題 ETF 數據。</p>'
+    tr = []
+    for r in th["rows"]:
+        rt = r.get("rank_then")
+        mv = "—" if rt is None else (f"{int(rt)} → {r['rank']}")
+        chg = "" if rt is None else (' <span class="text-green">▲</span>' if r["rank"] < rt
+                                       else (' <span class="text-red">▼</span>' if r["rank"] > rt else ""))
+        a50 = "—" if r.get("above50") is None else ("✓" if r["above50"] else "✗")
+        tr.append(f'<tr><td>{r["rank"]}</td><td><b>{esc(r["etf"])}</b> {esc(r["name"])}</td>'
+                  f'<td class="{STATUS_CLS.get(r["status"], "")}" style="text-align:center">{esc(r["status"])}</td>'
+                  f'<td>{f(r["ex5"],1,True)}</td><td>{f(r["ex21"],1,True)}</td><td>{f(r["ex63"],1,True)}</td>'
+                  f'<td style="text-align:center">{a50}</td><td>{mv}{chg}</td></tr>')
+    return (f'<p class="mm-note">交易日 {ddmm(th["asof"])} · 回報減 SPY 同期回報（pp，含股息）· 排名 = 21 日同 63 日超額回報嘅平均百分位 · 對比 {ddmm(th["then"])}</p>'
+            '<div class="mm-wrap"><table class="mm-t"><tr><th>#</th><th>ETF</th><th>狀態</th><th>5 日</th><th>21 日</th><th>63 日</th><th>50 日線上</th><th>排名變化</th></tr>'
+            + "".join(tr) + "</table></div>"
+            + """<div class="mm-box">狀態：<b>領先</b> = 21 日同 63 日都跑贏 SPY；<b>冒起</b> = 5 日同 21 日跑贏、63 日仲落後；<b>轉弱</b> = 63 日跑贏但 21 日落後；<b>落後</b> = 21 日同 63 日都跑輸；其他 = 混合。<br>
+清單係<b>暫用</b>（11 隻 SPDR sector + 25 隻主題 ETF），之後應該換做你 TradingView 嘅主題分組。ETF 反映嘅係成個籃子，唔等於入面最強嗰幾隻股票。</div>""")
+
+
 def notes_box(latest, h):
     info = latest.get("universe_info", {})
     r = latest.get("rules", {})
     src_ok = ("NASDAQ screener ✓" if info.get("screener_ok") else "NASDAQ screener ✗（行業分類攞唔到）") + \
              " · " + ("NASDAQ Trader 名單 ✓" if info.get("symdir_ok") else "NASDAQ Trader 名單 ✗")
-    return f"""<div class="mm-box"><b>數據來源同限制（Section 8–12）</b><br>
+    return f"""<div class="mm-box"><b>數據來源同限制（Section 8–13）</b><br>
 來源：股票名單 + 行業 = NASDAQ；每日股價 = Yahoo Finance（免費、非官方，有機會改動或者擋）。{src_ok}。<br>
 監察表範圍：{esc(r.get('breadth_universe',''))}。<br>
 動力股範圍：{esc(r.get('momentum_universe',''))}。<br>
@@ -297,6 +385,7 @@ def main():
              + section(10, "動力股數目走勢", momentum_svg(h, pcts), "s10-mm-momentum")
              + section(11, "行業動力（水平表）", level, "s11-mm-industry")
              + section(12, "行業動能（變強同變弱）", direction, "s12-mm-direction")
+             + section(13, "主題 ETF 相對強弱（對 SPY）", themes_section(latest.get("themes")), "s13-mm-themes")
              + notes_box(latest, h) + "\n")
 
     pos = page.find("<!-- ═══ HISTORY ARCHIVE")
@@ -309,6 +398,12 @@ def main():
     if pos < 0:
         pos = page.rfind("</body>")
     page = page[:pos] + block + page[pos:]
+    # readout box at the top of the page body
+    ro = readout_box(h, latest)
+    k = page.find('<div class="page-wrap">')
+    if k >= 0:
+        k += len('<div class="page-wrap">')
+        page = page[:k] + ro + page[k:]
     page = page.replace("<title>", "<title>[Preview] ", 1)
     with open(OUT, "w", encoding="utf-8") as fh:
         fh.write(page)

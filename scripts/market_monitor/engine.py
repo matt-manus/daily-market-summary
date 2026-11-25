@@ -343,6 +343,15 @@ def main():
     asof = close.index[close.index.get_indexer([pd.Timestamp(h.index[-1])])[0]]
     sectors = compute_sectors(close, vol, uni, asof)
 
+    themes = None
+    try:
+        sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+        from themes import download as theme_download, compute_themes
+        themes = compute_themes(theme_download(start), asof)
+        log(f"Themes: {themes['n']} ETFs ranked")
+    except Exception as e:  # noqa: BLE001
+        log(f"Themes failed: {e!r}")
+
     latest = {
         "run_utc": started.strftime("%Y-%m-%d %H:%M"),
         "session": str(h.index[-1]),
@@ -356,6 +365,7 @@ def main():
         "universe_info": info,
         "no_data_tickers": len(failed),
         "sectors": sectors,
+        "themes": themes,
         "log": log_lines,
     }
     with open(LATEST_JSON, "w", encoding="utf-8") as f:
