@@ -299,8 +299,13 @@ def main():
              + section(12, "行業動能（變強同變弱）", direction, "s12-mm-direction")
              + notes_box(latest, h) + "\n")
 
-    marker = "<!-- ═══ HISTORY ARCHIVE"
-    pos = page.find(marker)
+    pos = page.find("<!-- ═══ HISTORY ARCHIVE")
+    if pos < 0:
+        # live page (dev-3.9): no comment marker; insert before the
+        # <div class="section"...> that holds the History Archive title
+        t = page.find("History Archive</div>")
+        if t >= 0:
+            pos = page.rfind('<div class="section"', 0, t)
     if pos < 0:
         pos = page.rfind("</body>")
     page = page[:pos] + block + page[pos:]

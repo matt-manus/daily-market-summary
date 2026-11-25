@@ -1,8 +1,8 @@
 name: Market Monitor (dev preview)
 
 # Builds market-monitor.html on the dev-monitor branch:
-# today's index.html from main + new Kelileo-style Sections 8-12.
-# Does not touch main or index.html.
+# today's live index.html from dev-3.9 (the branch GitHub Pages serves)
+# + new Kelileo-style Sections 8-12. Does not touch main, dev-3.9 or index.html.
 on:
   push:
     branches: [ dev-monitor ]
@@ -36,10 +36,10 @@ jobs:
       - name: Install dependencies
         run: pip install "yfinance>=0.2.40" pandas numpy requests
 
-      - name: Use today's index.html from main
+      - name: Use today's live index.html from dev-3.9
         run: |
-          git fetch --depth=1 origin main
-          git checkout origin/main -- index.html
+          git fetch --depth=1 origin dev-3.9
+          git checkout FETCH_HEAD -- index.html
 
       - name: Run engine
         run: python scripts/market_monitor/engine.py
