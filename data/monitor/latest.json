@@ -1,6 +1,6 @@
 {
- "run_utc": "2026-11-26 01:22",
- "session": "2026-11-24",
+ "run_utc": "2026-11-26 02:23",
+ "session": "2026-11-25",
  "rules": {
   "breadth_universe": "US common stocks + ADRs (no ETFs/funds/preferreds/warrants/units), close >= $5, volume >= 300,000 shares that day",
   "momentum_universe": "close >= $5, volume >= 300,000 shares, dollar volume >= $5M that day; momentum stock = up >= 20% over 63 trading days",
@@ -13,66 +13,61 @@
   "symdir_ok": true,
   "candidates": 4457
  },
- "no_data_tickers": 0,
+ "no_data_tickers": 1,
  "sectors": {
-  "asof": "2026-11-24",
-  "N": 2237,
-  "K": 148,
-  "p": 6.616,
-  "p_then": 13.4857,
-  "n_groups": 150,
-  "n_ranked": 27,
-  "n_small": 123,
+  "asof": "2026-11-25",
+  "N": 2112,
+  "K": 138,
+  "p": 6.5341,
+  "p_then": 13.093,
+  "n_groups": 148,
+  "n_ranked": 28,
+  "n_small": 120,
   "unclassified": [
    {
     "industry": "Unclassified",
-    "base": 9,
+    "base": 14,
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.7985,
-    "median63": -23.1421,
-    "median21": -13.0886,
-    "pace": -5.3746,
-    "lift_then": 0.8239,
-    "dlift": -0.8239,
+    "z": -0.9893,
+    "median63": -16.182,
+    "median21": -6.5087,
+    "pace": -1.1147,
+    "lift_then": 0.5455,
+    "dlift": -0.5455,
     "mom_list": [],
     "members": null
    }
   ],
-  "dlift_pace_corr": 0.6519,
+  "dlift_pace_corr": 0.5938,
   "unmapped": [],
   "rows": [
    {
     "industry": " Medicinal Chemicals and Botanical Products ",
-    "base": 7,
-    "mom": 1,
-    "share": 14.2857,
-    "lift": 2.1593,
-    "z": 0.8164,
-    "median63": 1.3928,
-    "median21": -3.0948,
-    "pace": -3.5591,
-    "lift_then": 1.0593,
-    "dlift": 1.0999,
-    "mom_list": [
-     [
-      "AKAN",
-      22.6415
-     ]
-    ],
+    "base": 5,
+    "mom": 0,
+    "share": 0.0,
+    "lift": 0.0,
+    "z": -0.5912,
+    "median63": -3.2339,
+    "median21": -9.0317,
+    "pace": -7.9537,
+    "lift_then": 1.5275,
+    "dlift": -1.5275,
+    "mom_list": [],
     "members": null
    },
    {
     "industry": "Accident &Health Insurance",
-    "base": 4,
+    "base": 3,
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.5323,
-    "median63": -0.5317,
-    "median21": 0.8821,
-    "pace": 1.0594,
+    "z": -0.458,
+    "median63": -2.7904,
+    "median21": -2.6255,
+    "pace": -1.6953,
     "lift_then": 0.0,
     "dlift": 0.0,
     "mom_list": [],
@@ -81,23 +76,19 @@
    {
     "industry": "Advertising",
     "base": 5,
-    "mom": 2,
-    "share": 40.0,
-    "lift": 6.0459,
-    "z": 3.0032,
-    "median63": 13.9069,
-    "median21": 24.424,
-    "pace": 19.7883,
-    "lift_then": 1.4831,
-    "dlift": 4.5629,
+    "mom": 1,
+    "share": 20.0,
+    "lift": 3.0609,
+    "z": 1.2184,
+    "median63": 10.7889,
+    "median21": 15.2039,
+    "pace": 11.6076,
+    "lift_then": 0.0,
+    "dlift": 3.0609,
     "mom_list": [
      [
-      "EDHL",
-      82.1429
-     ],
-     [
       "STGW",
-      25.0
+      23.9865
      ]
     ],
     "members": null
@@ -108,12 +99,12 @@
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.8828,
-    "median63": -7.8589,
-    "median21": -1.0887,
-    "pace": 1.5309,
-    "lift_then": 0.0,
-    "dlift": 0.0,
+    "z": -0.8769,
+    "median63": -7.4925,
+    "median21": 0.8171,
+    "pace": 3.3145,
+    "lift_then": 0.6943,
+    "dlift": -0.6943,
     "mom_list": [],
     "members": null
    },
@@ -123,10 +114,10 @@
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.5323,
-    "median63": -8.509,
-    "median21": 0.799,
-    "pace": 3.6354,
+    "z": -0.5288,
+    "median63": -7.5222,
+    "median21": 1.4344,
+    "pace": 3.9418,
     "lift_then": 0.0,
     "dlift": 0.0,
     "mom_list": [],
@@ -134,38 +125,38 @@
    },
    {
     "industry": "Air Freight/Delivery Services",
-    "base": 13,
+    "base": 10,
     "mom": 2,
-    "share": 15.3846,
-    "lift": 2.3254,
-    "z": 1.2719,
-    "median63": 0.7585,
-    "median21": 7.0309,
-    "pace": 6.7781,
+    "share": 20.0,
+    "lift": 3.0609,
+    "z": 1.7231,
+    "median63": 3.0631,
+    "median21": 6.9423,
+    "pace": 5.9213,
     "lift_then": 0.0,
-    "dlift": 2.3254,
+    "dlift": 3.0609,
     "mom_list": [
      [
       "ULCC",
-      37.1859
+      33.3333
      ],
      [
       "VLRS",
-      21.03
+      22.4964
      ]
     ],
     "members": null
    },
    {
     "industry": "Aluminum",
-    "base": 2,
+    "base": 1,
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.3764,
-    "median63": -32.5572,
-    "median21": -10.1351,
-    "pace": 0.7173,
+    "z": -0.2644,
+    "median63": -35.6505,
+    "median21": -11.4808,
+    "pace": 0.4027,
     "lift_then": 0.0,
     "dlift": 0.0,
     "mom_list": [],
@@ -173,48 +164,48 @@
    },
    {
     "industry": "Apparel",
-    "base": 12,
+    "base": 11,
     "mom": 4,
-    "share": 33.3333,
-    "lift": 5.0383,
-    "z": 3.7235,
-    "median63": 3.5151,
-    "median21": 8.8743,
-    "pace": 7.7026,
-    "lift_then": 0.6741,
-    "dlift": 4.3642,
+    "share": 36.3636,
+    "lift": 5.5652,
+    "z": 4.0034,
+    "median63": 11.0978,
+    "median21": 12.4426,
+    "pace": 8.7433,
+    "lift_then": 0.7638,
+    "dlift": 4.8014,
     "mom_list": [
      [
-      "REF",
-      43.0556
+      "COLM",
+      42.0654
      ],
      [
       "FIGS",
-      34.5598
-     ],
-     [
-      "COLM",
-      34.0096
+      38.2781
      ],
      [
       "CPRI",
-      32.2794
+      36.4947
+     ],
+     [
+      "REF",
+      36.1225
      ]
     ],
     "members": null
    },
    {
     "industry": "Auto & Home Supply Stores",
-    "base": 3,
+    "base": 2,
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.461,
-    "median63": 4.1771,
-    "median21": 0.9342,
-    "pace": -0.4581,
-    "lift_then": 2.4718,
-    "dlift": -2.4718,
+    "z": -0.3739,
+    "median63": 5.7624,
+    "median21": 4.2626,
+    "pace": 2.3418,
+    "lift_then": 3.8188,
+    "dlift": -3.8188,
     "mom_list": [],
     "members": null
    },
@@ -224,25 +215,25 @@
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.922,
-    "median63": -9.0247,
-    "median21": 0.4077,
-    "pace": 3.416,
-    "lift_then": 0.6179,
-    "dlift": -0.6179,
+    "z": -0.9159,
+    "median63": -3.1189,
+    "median21": 3.9983,
+    "pace": 5.0379,
+    "lift_then": 0.6365,
+    "dlift": -0.6365,
     "mom_list": [],
     "members": null
    },
    {
     "industry": "Auto Parts:O.E.M.",
-    "base": 19,
+    "base": 15,
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -1.1602,
-    "median63": -19.1053,
-    "median21": -5.7171,
-    "pace": 0.6514,
+    "z": -1.024,
+    "median63": -15.7967,
+    "median21": -2.7214,
+    "pace": 2.5441,
     "lift_then": 0.0,
     "dlift": 0.0,
     "mom_list": [],
@@ -254,10 +245,10 @@
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.461,
-    "median63": -14.1538,
-    "median21": -4.5338,
-    "pace": 0.1842,
+    "z": -0.458,
+    "median63": -9.3782,
+    "median21": -0.5168,
+    "pace": 2.6093,
     "lift_then": 0.0,
     "dlift": 0.0,
     "mom_list": [],
@@ -265,14 +256,14 @@
    },
    {
     "industry": "Banks",
-    "base": 3,
+    "base": 2,
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.461,
-    "median63": -4.5412,
-    "median21": -1.9119,
-    "pace": -0.3981,
+    "z": -0.3739,
+    "median63": -12.0002,
+    "median21": 2.1873,
+    "pace": 6.1874,
     "lift_then": 0.0,
     "dlift": 0.0,
     "mom_list": [],
@@ -280,14 +271,14 @@
    },
    {
     "industry": "Beverages (Production/Distribution)",
-    "base": 15,
+    "base": 14,
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -1.0309,
-    "median63": 2.1421,
-    "median21": 2.3149,
-    "pace": 1.6009,
+    "z": -0.9893,
+    "median63": 4.8428,
+    "median21": 6.1127,
+    "pace": 4.4984,
     "lift_then": 0.0,
     "dlift": 0.0,
     "mom_list": [],
@@ -295,60 +286,44 @@
    },
    {
     "industry": "Biotechnology: Biological Products (No Diagnostic Substances)",
-    "base": 53,
-    "mom": 11,
-    "share": 20.7547,
-    "lift": 3.137,
-    "z": 4.1411,
-    "median63": -11.1592,
-    "median21": 3.6265,
-    "pace": 7.3462,
-    "lift_then": 1.8188,
-    "dlift": 1.3182,
+    "base": 46,
+    "mom": 7,
+    "share": 15.2174,
+    "lift": 2.3289,
+    "z": 2.3831,
+    "median63": -13.3036,
+    "median21": -0.3758,
+    "pace": 4.0587,
+    "lift_then": 2.4905,
+    "dlift": -0.1616,
     "mom_list": [
      [
       "KOD",
-      191.584
+      182.1575
      ],
      [
       "MRNA",
-      51.931
-     ],
-     [
-      "ADMA",
-      44.3406
+      54.6823
      ],
      [
       "VCEL",
-      44.1565
-     ],
-     [
-      "REPL",
-      40.0504
+      48.1544
      ],
      [
       "KYMR",
-      38.5265
+      44.5313
      ],
      [
-      "SRZN",
-      36.3138
-     ],
-     [
-      "BIIB",
-      21.7307
+      "REPL",
+      38.9103
      ],
      [
       "MAZE",
-      20.8587
-     ],
-     [
-      "GILD",
-      20.393
+      26.0839
      ],
      [
       "EXEL",
-      20.2317
+      21.6974
      ]
     ],
     "members": null
@@ -359,31 +334,31 @@
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.652,
-    "median63": 3.3671,
-    "median21": 2.4607,
-    "pace": 1.3384,
-    "lift_then": 3.7076,
-    "dlift": -3.7076,
+    "z": -0.6477,
+    "median63": 5.6949,
+    "median21": -1.5109,
+    "pace": -3.4092,
+    "lift_then": 2.5459,
+    "dlift": -2.5459,
     "mom_list": [],
     "members": null
    },
    {
     "industry": "Biotechnology: Electromedical & Electrotherapeutic Apparatus",
-    "base": 6,
+    "base": 7,
     "mom": 1,
-    "share": 16.6667,
-    "lift": 2.5191,
-    "z": 0.9905,
-    "median63": 10.2305,
-    "median21": 13.6377,
-    "pace": 10.2275,
-    "lift_then": 1.2359,
-    "dlift": 1.2833,
+    "share": 14.2857,
+    "lift": 2.1863,
+    "z": 0.8299,
+    "median63": 6.7689,
+    "median21": 8.1558,
+    "pace": 5.8995,
+    "lift_then": 1.0911,
+    "dlift": 1.0952,
     "mom_list": [
      [
       "CBLL",
-      27.6759
+      25.9735
      ]
     ],
     "members": null
@@ -393,147 +368,131 @@
     "base": 9,
     "mom": 2,
     "share": 22.2222,
-    "lift": 3.3589,
-    "z": 1.8836,
-    "median63": -6.8376,
-    "median21": -5.3156,
-    "pace": -3.0364,
-    "lift_then": 0.8239,
-    "dlift": 2.5349,
+    "lift": 3.401,
+    "z": 1.9045,
+    "median63": -10.6474,
+    "median21": -12.0827,
+    "pace": -8.5335,
+    "lift_then": 1.6973,
+    "dlift": 1.7037,
     "mom_list": [
      [
       "MYGN",
-      82.6923
+      73.8994
      ],
      [
       "IDXX",
-      28.6644
+      30.157
      ]
     ],
     "members": null
    },
    {
     "industry": "Biotechnology: Laboratory Analytical Instruments",
-    "base": 8,
-    "mom": 2,
-    "share": 25.0,
-    "lift": 3.7787,
-    "z": 2.0919,
-    "median63": 8.6913,
-    "median21": -0.6539,
-    "pace": -3.551,
-    "lift_then": 5.5615,
-    "dlift": -1.7827,
+    "base": 6,
+    "mom": 1,
+    "share": 16.6667,
+    "lift": 2.5507,
+    "z": 1.0043,
+    "median63": 5.0915,
+    "median21": -6.7854,
+    "pace": -8.4826,
+    "lift_then": 5.0918,
+    "dlift": -2.5411,
     "mom_list": [
      [
       "CTKB",
-      44.2013
-     ],
-     [
-      "RVTY",
-      21.2268
+      38.5281
      ]
     ],
     "members": null
    },
    {
     "industry": "Biotechnology: Pharmaceutical Preparations",
-    "base": 168,
-    "mom": 18,
-    "share": 10.7143,
-    "lift": 1.6194,
-    "z": 2.1371,
-    "median63": -11.8062,
-    "median21": 3.5996,
-    "pace": 7.5349,
-    "lift_then": 0.9769,
-    "dlift": 0.6426,
+    "base": 143,
+    "mom": 15,
+    "share": 10.4895,
+    "lift": 1.6054,
+    "z": 1.914,
+    "median63": -13.3428,
+    "median21": 2.0098,
+    "pace": 6.4574,
+    "lift_then": 1.1295,
+    "dlift": 0.4758,
     "mom_list": [
      [
       "XERS",
-      103.8018
+      101.9767
      ],
      [
       "GMAB",
-      67.6148
-     ],
-     [
-      "SLN",
-      47.8197
+      66.5689
      ],
      [
       "VRDN",
-      47.1558
+      58.7521
      ],
      [
-      "LFCR",
-      37.2043
+      "SLN",
+      48.6989
      ],
      [
       "INSM",
-      36.7875
-     ],
-     [
-      "DMAC",
-      36.1194
-     ],
-     [
-      "AMPH",
-      34.5595
-     ],
-     [
-      "XNCR",
-      34.2475
+      40.2999
      ],
      [
       "BHC",
-      32.2581
+      35.2381
      ],
      [
-      "KNSA",
-      30.5541
-     ],
-     [
-      "MANE",
-      29.6984
-     ],
-     [
-      "SDGR",
-      28.3513
-     ],
-     [
-      "TGTX",
-      27.4396
-     ],
-     [
-      "RDY",
-      24.1408
+      "XNCR",
+      32.8601
      ],
      [
       "TAK",
-      23.9715
+      27.6206
+     ],
+     [
+      "KNSA",
+      26.5476
+     ],
+     [
+      "RDY",
+      26.2336
+     ],
+     [
+      "MANE",
+      23.7992
+     ],
+     [
+      "TGTX",
+      22.7028
+     ],
+     [
+      "IRWD",
+      21.934
      ],
      [
       "REGN",
-      21.1466
+      21.5622
      ],
      [
-      "AMRX",
-      20.3446
+      "SNY",
+      21.2979
      ]
     ],
     "members": null
    },
    {
     "industry": "Blank Checks",
-    "base": 3,
+    "base": 4,
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.461,
-    "median63": -0.2988,
-    "median21": 0.4771,
-    "pace": 0.5767,
+    "z": -0.5288,
+    "median63": 0.0542,
+    "median21": 0.3955,
+    "pace": 0.3775,
     "lift_then": 0.0,
     "dlift": 0.0,
     "mom_list": [],
@@ -545,10 +504,10 @@
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.3764,
-    "median63": -3.8551,
-    "median21": -9.6117,
-    "pace": -8.3266,
+    "z": -0.3739,
+    "median63": -4.3828,
+    "median21": -6.097,
+    "pace": -4.636,
     "lift_then": 0.0,
     "dlift": 0.0,
     "mom_list": [],
@@ -557,43 +516,33 @@
    {
     "industry": "Broadcasting",
     "base": 12,
-    "mom": 0,
-    "share": 0.0,
-    "lift": 0.0,
-    "z": -0.922,
-    "median63": 3.7292,
-    "median21": 15.8566,
-    "pace": 14.6135,
+    "mom": 1,
+    "share": 8.3333,
+    "lift": 1.2754,
+    "z": 0.2522,
+    "median63": 5.9068,
+    "median21": 13.4123,
+    "pace": 11.4433,
     "lift_then": 0.0,
-    "dlift": 0.0,
-    "mom_list": [],
+    "dlift": 1.2754,
+    "mom_list": [
+     [
+      "GTN",
+      23.382
+     ]
+    ],
     "members": null
    },
    {
     "industry": "Building Materials",
-    "base": 5,
+    "base": 6,
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.5952,
-    "median63": -7.9124,
-    "median21": 4.9949,
-    "pace": 7.6324,
-    "lift_then": 0.0,
-    "dlift": 0.0,
-    "mom_list": [],
-    "members": null
-   },
-   {
-    "industry": "Building Products",
-    "base": 1,
-    "mom": 0,
-    "share": 0.0,
-    "lift": 0.0,
-    "z": -0.2662,
-    "median63": 5.1081,
-    "median21": 8.498,
-    "pace": 6.7953,
+    "z": -0.6477,
+    "median63": -4.1836,
+    "median21": 7.5652,
+    "pace": 8.9598,
     "lift_then": 0.0,
     "dlift": 0.0,
     "mom_list": [],
@@ -605,10 +554,10 @@
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.461,
-    "median63": -2.3265,
-    "median21": 4.0316,
-    "pace": 4.8071,
+    "z": -0.458,
+    "median63": 0.096,
+    "median21": 7.0346,
+    "pace": 7.0026,
     "lift_then": 0.0,
     "dlift": 0.0,
     "mom_list": [],
@@ -616,46 +565,42 @@
    },
    {
     "industry": "Business Services",
-    "base": 48,
-    "mom": 4,
-    "share": 8.3333,
-    "lift": 1.2596,
-    "z": 0.4787,
-    "median63": -1.0105,
-    "median21": -1.1311,
-    "pace": -0.7943,
-    "lift_then": 0.7724,
-    "dlift": 0.4871,
+    "base": 45,
+    "mom": 3,
+    "share": 6.6667,
+    "lift": 1.0203,
+    "z": 0.036,
+    "median63": 0.8415,
+    "median21": 1.1666,
+    "pace": 0.8861,
+    "lift_then": 0.6789,
+    "dlift": 0.3414,
     "mom_list": [
      [
       "RSKD",
-      74.8744
+      66.0131
      ],
      [
-      "ACN",
-      28.0847
+      "FLYW",
+      24.385
      ],
      [
       "RDWR",
-      24.3139
-     ],
-     [
-      "AMTM",
-      20.3299
+      22.489
      ]
     ],
     "members": null
    },
    {
     "industry": "Cable & Other Pay Television Services",
-    "base": 8,
+    "base": 6,
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.7528,
-    "median63": -5.684,
-    "median21": 22.1932,
-    "pace": 24.0879,
+    "z": -0.6477,
+    "median63": -0.9232,
+    "median21": 25.3975,
+    "pace": 25.7053,
     "lift_then": 0.0,
     "dlift": 0.0,
     "mom_list": [],
@@ -663,42 +608,32 @@
    },
    {
     "industry": "Catalog/Specialty Distribution",
-    "base": 11,
-    "mom": 1,
-    "share": 9.0909,
-    "lift": 1.3741,
-    "z": 0.3302,
-    "median63": -3.1458,
-    "median21": 0.5698,
-    "pace": 1.6184,
-    "lift_then": 1.3482,
-    "dlift": 0.0258,
-    "mom_list": [
-     [
-      "LUXE",
-      43.0573
-     ]
-    ],
+    "base": 10,
+    "mom": 0,
+    "share": 0.0,
+    "lift": 0.0,
+    "z": -0.8361,
+    "median63": -4.0157,
+    "median21": -0.4923,
+    "pace": 0.8463,
+    "lift_then": 2.2913,
+    "dlift": -2.2913,
+    "mom_list": [],
     "members": null
    },
    {
     "industry": "Clothing/Shoe/Accessory Stores",
-    "base": 11,
-    "mom": 1,
-    "share": 9.0909,
-    "lift": 1.3741,
-    "z": 0.3302,
-    "median63": 2.8527,
-    "median21": 0.1113,
-    "pace": -0.8396,
-    "lift_then": 1.3482,
-    "dlift": 0.0258,
-    "mom_list": [
-     [
-      "AEO",
-      29.5623
-     ]
-    ],
+    "base": 8,
+    "mom": 0,
+    "share": 0.0,
+    "lift": 0.0,
+    "z": -0.7478,
+    "median63": -0.5554,
+    "median21": -1.8798,
+    "pace": -1.6947,
+    "lift_then": 0.9547,
+    "dlift": -0.9547,
+    "mom_list": [],
     "members": null
    },
    {
@@ -707,10 +642,10 @@
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.5952,
-    "median63": -27.738,
-    "median21": -12.0308,
-    "pace": -2.7848,
+    "z": -0.5912,
+    "median63": -26.5643,
+    "median21": -14.322,
+    "pace": -5.4673,
     "lift_then": 0.0,
     "dlift": 0.0,
     "mom_list": [],
@@ -718,17 +653,26 @@
    },
    {
     "industry": "Commercial Banks",
-    "base": 19,
-    "mom": 0,
-    "share": 0.0,
-    "lift": 0.0,
-    "z": -1.1602,
-    "median63": -13.2257,
-    "median21": -6.7739,
-    "pace": -2.3653,
+    "base": 20,
+    "mom": 2,
+    "share": 10.0,
+    "lift": 1.5304,
+    "z": 0.6272,
+    "median63": -11.5094,
+    "median21": -6.9305,
+    "pace": -3.094,
     "lift_then": 0.0,
-    "dlift": 0.0,
-    "mom_list": [],
+    "dlift": 1.5304,
+    "mom_list": [
+     [
+      "HDB",
+      26.2244
+     ],
+     [
+      "IBN",
+      22.2371
+     ]
+    ],
     "members": null
    },
    {
@@ -737,142 +681,122 @@
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.652,
-    "median63": -16.5034,
-    "median21": -9.8189,
-    "pace": -4.3178,
-    "lift_then": 0.0,
-    "dlift": 0.0,
+    "z": -0.6477,
+    "median63": -17.2274,
+    "median21": -13.8647,
+    "pace": -8.1223,
+    "lift_then": 1.2729,
+    "dlift": -1.2729,
     "mom_list": [],
     "members": null
    },
    {
     "industry": "Computer Manufacturing",
-    "base": 6,
+    "base": 5,
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.652,
-    "median63": -2.976,
-    "median21": -12.5359,
-    "pace": -11.5439,
-    "lift_then": 1.2359,
-    "dlift": -1.2359,
+    "z": -0.5912,
+    "median63": 1.9599,
+    "median21": -7.2365,
+    "pace": -7.8898,
+    "lift_then": 3.0551,
+    "dlift": -3.0551,
     "mom_list": [],
     "members": null
    },
    {
     "industry": "Computer Software: Prepackaged Software",
-    "base": 113,
-    "mom": 25,
-    "share": 22.1239,
-    "lift": 3.344,
-    "z": 6.6322,
-    "median63": 1.4433,
-    "median21": -7.7478,
-    "pace": -8.2289,
-    "lift_then": 4.0029,
-    "dlift": -0.6589,
+    "base": 106,
+    "mom": 20,
+    "share": 18.8679,
+    "lift": 2.8876,
+    "z": 5.1384,
+    "median63": -1.408,
+    "median21": -6.0728,
+    "pace": -5.6035,
+    "lift_then": 3.9629,
+    "dlift": -1.0753,
     "mom_list": [
      [
-      "NTSK",
-      83.4052
+      "GDYN",
+      78.9607
      ],
      [
-      "GDYN",
-      79.7928
+      "NTSK",
+      74.8677
      ],
      [
       "VIA",
-      67.5842
-     ],
-     [
-      "BRZE",
-      50.7303
-     ],
-     [
-      "OKTA",
-      47.3888
-     ],
-     [
-      "APPN",
-      42.5228
+      65.2866
      ],
      [
       "RBLX",
-      42.4121
+      45.8191
+     ],
+     [
+      "BRZE",
+      36.1396
      ],
      [
       "BOX",
-      37.5262
+      33.4773
      ],
      [
-      "VERX",
-      36.5782
-     ],
-     [
-      "DOCU",
-      34.9065
-     ],
-     [
-      "TENB",
-      34.3731
-     ],
-     [
-      "CERT",
-      32.8467
-     ],
-     [
-      "RPD",
-      32.3155
-     ],
-     [
-      "TDC",
-      31.966
+      "APPN",
+      33.0435
      ],
      [
       "NABL",
-      31.8421
+      32.6582
      ],
      [
-      "AMPL",
-      31.0185
+      "VERX",
+      32.5175
      ],
      [
-      "KVYO",
-      30.5228
+      "TDC",
+      31.0683
      ],
      [
-      "PTC",
-      29.2791
+      "CERT",
+      28.2996
      ],
      [
-      "AVPT",
-      29.2203
+      "DOCU",
+      26.5674
      ],
      [
       "BILL",
-      27.7281
+      25.9464
+     ],
+     [
+      "PTC",
+      23.3092
+     ],
+     [
+      "YOU",
+      23.2268
      ],
      [
       "PRCH",
-      27.5782
-     ],
-     [
-      "PD",
-      25.0205
+      23.2225
      ],
      [
       "CHKP",
-      23.4715
+      22.9228
      ],
      [
-      "PCOR",
-      22.4061
+      "TENB",
+      21.4779
      ],
      [
-      "SAIL",
-      20.6367
+      "KVYO",
+      21.0607
+     ],
+     [
+      "AVPT",
+      20.979
      ]
     ],
     "members": null
@@ -882,25 +806,25 @@
     "base": 35,
     "mom": 3,
     "share": 8.5714,
-    "lift": 1.2956,
-    "z": 0.4654,
-    "median63": -10.1921,
-    "median21": -11.3249,
-    "pace": -7.9276,
-    "lift_then": 2.1187,
-    "dlift": -0.8231,
+    "lift": 1.3118,
+    "z": 0.4877,
+    "median63": -11.1694,
+    "median21": -5.9968,
+    "pace": -2.2737,
+    "lift_then": 1.7458,
+    "dlift": -0.434,
     "mom_list": [
      [
       "BMBL",
-      117.4545
+      120.6642
      ],
      [
       "ZIP",
-      36.6589
+      42.1911
      ],
      [
       "APP",
-      23.6928
+      21.2136
      ]
     ],
     "members": null
@@ -911,25 +835,25 @@
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.652,
-    "median63": -3.69,
-    "median21": -12.5405,
-    "pace": -11.3105,
-    "lift_then": 3.7076,
-    "dlift": -3.7076,
+    "z": -0.6477,
+    "median63": -9.5529,
+    "median21": -13.3411,
+    "pace": -10.1569,
+    "lift_then": 3.8188,
+    "dlift": -3.8188,
     "mom_list": [],
     "members": null
    },
    {
     "industry": "Construction/Ag Equipment/Trucks",
-    "base": 5,
+    "base": 7,
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.5952,
-    "median63": -10.511,
-    "median21": -2.6706,
-    "pace": 0.8331,
+    "z": -0.6995,
+    "median63": -8.5683,
+    "median21": -0.3696,
+    "pace": 2.4865,
     "lift_then": 0.0,
     "dlift": 0.0,
     "mom_list": [],
@@ -940,17 +864,17 @@
     "base": 10,
     "mom": 1,
     "share": 10.0,
-    "lift": 1.5115,
-    "z": 0.4305,
-    "median63": 2.3631,
-    "median21": 2.6381,
-    "pace": 1.8504,
-    "lift_then": 0.7415,
-    "dlift": 0.77,
+    "lift": 1.5304,
+    "z": 0.4435,
+    "median63": 4.1497,
+    "median21": 2.6637,
+    "pace": 1.2805,
+    "lift_then": 0.7638,
+    "dlift": 0.7667,
     "mom_list": [
      [
       "SN",
-      21.4161
+      20.5538
      ]
     ],
     "members": null
@@ -958,16 +882,21 @@
    {
     "industry": "Consumer Electronics/Video Chains",
     "base": 2,
-    "mom": 0,
-    "share": 0.0,
-    "lift": 0.0,
-    "z": -0.3764,
-    "median63": -6.9009,
-    "median21": -3.0834,
-    "pace": -0.7831,
+    "mom": 1,
+    "share": 50.0,
+    "lift": 7.6522,
+    "z": 2.4874,
+    "median63": -1.4133,
+    "median21": -0.4161,
+    "pace": 0.055,
     "lift_then": 0.0,
-    "dlift": 0.0,
-    "mom_list": [],
+    "dlift": 7.6522,
+    "mom_list": [
+     [
+      "BBY",
+      22.7621
+     ]
+    ],
     "members": null
    },
    {
@@ -975,21 +904,21 @@
     "base": 5,
     "mom": 2,
     "share": 40.0,
-    "lift": 6.0459,
-    "z": 3.0032,
-    "median63": 10.5909,
-    "median21": -8.8087,
-    "pace": -12.339,
-    "lift_then": 1.4831,
-    "dlift": 4.5629,
+    "lift": 6.1217,
+    "z": 3.0281,
+    "median63": 15.6078,
+    "median21": -9.4341,
+    "pace": -14.6367,
+    "lift_then": 1.5275,
+    "dlift": 4.5942,
     "mom_list": [
      [
       "FOSL",
-      47.2325
+      53.7175
      ],
      [
       "SIG",
-      25.203
+      27.5049
      ]
     ],
     "members": null
@@ -1000,10 +929,10 @@
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.8828,
-    "median63": -2.3066,
-    "median21": 1.3033,
-    "pace": 2.0722,
+    "z": -0.8769,
+    "median63": 1.4576,
+    "median21": 4.805,
+    "pace": 4.3191,
     "lift_then": 0.0,
     "dlift": 0.0,
     "mom_list": [],
@@ -1014,49 +943,45 @@
     "base": 12,
     "mom": 3,
     "share": 25.0,
-    "lift": 3.7787,
-    "z": 2.5621,
-    "median63": 12.2219,
-    "median21": 7.5348,
-    "pace": 3.4609,
-    "lift_then": 1.2359,
-    "dlift": 2.5428,
+    "lift": 3.8261,
+    "z": 2.5885,
+    "median63": 11.5082,
+    "median21": 9.6628,
+    "pace": 5.8267,
+    "lift_then": 0.6365,
+    "dlift": 3.1896,
     "mom_list": [
      [
       "KSS",
-      41.1929
+      47.1074
      ],
      [
       "OLLI",
-      27.0096
+      30.4852
      ],
      [
       "WMT",
-      26.8066
+      28.5589
      ]
     ],
     "members": null
    },
    {
     "industry": "Diversified Commercial Services",
-    "base": 20,
-    "mom": 2,
-    "share": 10.0,
-    "lift": 1.5115,
-    "z": 0.6089,
-    "median63": -1.3496,
-    "median21": 2.0422,
-    "pace": 2.4921,
+    "base": 13,
+    "mom": 1,
+    "share": 7.6923,
+    "lift": 1.1773,
+    "z": 0.169,
+    "median63": -2.1002,
+    "median21": 7.7491,
+    "pace": 8.4492,
     "lift_then": 0.0,
-    "dlift": 1.5115,
+    "dlift": 1.1773,
     "mom_list": [
      [
       "UPBD",
-      38.786
-     ],
-     [
-      "ADT",
-      33.1989
+      41.9907
      ]
     ],
     "members": null
@@ -1067,10 +992,10 @@
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.3764,
-    "median63": -10.286,
-    "median21": -0.5381,
-    "pace": 2.8906,
+    "z": -0.3739,
+    "median63": -5.8697,
+    "median21": 4.2023,
+    "pace": 6.1589,
     "lift_then": 0.0,
     "dlift": 0.0,
     "mom_list": [],
@@ -1082,10 +1007,10 @@
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.2662,
-    "median63": -1.6832,
-    "median21": 0.6135,
-    "pace": 1.1746,
+    "z": -0.2644,
+    "median63": 1.3489,
+    "median21": 4.6753,
+    "pace": 4.2257,
     "lift_then": 0.0,
     "dlift": 0.0,
     "mom_list": [],
@@ -1093,70 +1018,66 @@
    },
    {
     "industry": "EDP Services",
-    "base": 54,
-    "mom": 10,
-    "share": 18.5185,
-    "lift": 2.799,
-    "z": 3.5189,
-    "median63": -2.6818,
-    "median21": -8.6292,
-    "pace": -7.7353,
-    "lift_then": 2.0598,
-    "dlift": 0.7392,
+    "base": 53,
+    "mom": 9,
+    "share": 16.9811,
+    "lift": 2.5989,
+    "z": 3.0776,
+    "median63": -5.838,
+    "median21": -6.4595,
+    "pace": -4.5135,
+    "lift_then": 2.1616,
+    "dlift": 0.4372,
     "mom_list": [
      [
       "TLS",
-      77.2522
-     ],
-     [
-      "OSPN",
-      51.9844
+      64.5228
      ],
      [
       "EPAM",
-      47.6591
+      45.9874
      ],
      [
-      "ZS",
-      35.9991
+      "FIRY",
+      42.2964
+     ],
+     [
+      "OSPN",
+      42.1021
      ],
      [
       "DXC",
-      35.6398
-     ],
-     [
-      "GLOB",
-      29.0281
+      36.0
      ],
      [
       "LFTO",
-      24.7831
+      27.6973
      ],
      [
       "KD",
-      23.4227
+      24.9811
      ],
      [
-      "HNGE",
-      20.4751
+      "GLOB",
+      24.944
      ],
      [
-      "DOCS",
-      20.1698
+      "ZS",
+      23.2568
      ]
     ],
     "members": null
    },
    {
     "industry": "Electric Utilities: Central",
-    "base": 35,
+    "base": 34,
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -1.5747,
-    "median63": 0.5679,
-    "median21": 0.7363,
-    "pace": 0.547,
+    "z": -1.5417,
+    "median63": 1.071,
+    "median21": 0.5145,
+    "pace": 0.1575,
     "lift_then": 0.0,
     "dlift": 0.0,
     "mom_list": [],
@@ -1167,17 +1088,17 @@
     "base": 19,
     "mom": 1,
     "share": 5.2632,
-    "lift": 0.7955,
-    "z": -0.2372,
-    "median63": -27.0882,
-    "median21": -16.0568,
-    "pace": -7.0273,
-    "lift_then": 0.0,
-    "dlift": 0.7955,
+    "lift": 0.8055,
+    "z": -0.2242,
+    "median63": -26.8717,
+    "median21": -19.3401,
+    "pace": -10.3829,
+    "lift_then": 0.402,
+    "dlift": 0.4035,
     "mom_list": [
      [
       "VLTO",
-      20.6201
+      22.1816
      ]
     ],
     "members": null
@@ -1187,17 +1108,17 @@
     "base": 14,
     "mom": 1,
     "share": 7.1429,
-    "lift": 1.0796,
-    "z": 0.0793,
-    "median63": -19.5854,
-    "median21": -19.3243,
-    "pace": -12.7958,
-    "lift_then": 1.589,
-    "dlift": -0.5094,
+    "lift": 1.0932,
+    "z": 0.0922,
+    "median63": -18.6835,
+    "median21": -20.9961,
+    "pace": -14.7683,
+    "lift_then": 1.6366,
+    "dlift": -0.5435,
     "mom_list": [
      [
       "TGLS",
-      35.9138
+      42.1588
      ]
     ],
     "members": null
@@ -1207,31 +1128,31 @@
     "base": 1,
     "mom": 1,
     "share": 100.0,
-    "lift": 15.1149,
-    "z": 3.757,
-    "median63": 52.9215,
-    "median21": 14.9791,
-    "pace": -2.6614,
+    "lift": 15.3043,
+    "z": 3.7821,
+    "median63": 47.7808,
+    "median21": 15.4538,
+    "pace": -0.4732,
     "lift_then": 0.0,
-    "dlift": 15.1149,
+    "dlift": 15.3043,
     "mom_list": [
      [
       "GME",
-      52.9215
+      47.7808
      ]
     ],
     "members": null
    },
    {
     "industry": "Engineering & Construction",
-    "base": 8,
+    "base": 6,
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.7528,
-    "median63": -29.38,
-    "median21": -10.5371,
-    "pace": -0.7438,
+    "z": -0.6477,
+    "median63": -25.3964,
+    "median21": -8.8543,
+    "pace": -0.3888,
     "lift_then": 0.0,
     "dlift": 0.0,
     "mom_list": [],
@@ -1243,10 +1164,10 @@
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.652,
-    "median63": 7.8505,
-    "median21": 0.0077,
-    "pace": -2.6091,
+    "z": -0.6477,
+    "median63": 10.236,
+    "median21": 3.8904,
+    "pace": 0.4784,
     "lift_then": 0.0,
     "dlift": 0.0,
     "mom_list": [],
@@ -1254,14 +1175,14 @@
    },
    {
     "industry": "Farming/Seeds/Milling",
-    "base": 9,
+    "base": 6,
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.7985,
-    "median63": -22.192,
-    "median21": -17.2228,
-    "pace": -9.8254,
+    "z": -0.6477,
+    "median63": -20.0717,
+    "median21": -15.1121,
+    "pace": -8.4216,
     "lift_then": 0.0,
     "dlift": 0.0,
     "mom_list": [],
@@ -1269,14 +1190,14 @@
    },
    {
     "industry": "Finance Companies",
-    "base": 1,
+    "base": 3,
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.2662,
-    "median63": -46.1183,
-    "median21": -45.3027,
-    "pace": -29.93,
+    "z": -0.458,
+    "median63": -3.7794,
+    "median21": -2.079,
+    "pace": -0.8192,
     "lift_then": 0.0,
     "dlift": 0.0,
     "mom_list": [],
@@ -1288,10 +1209,10 @@
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.7042,
-    "median63": -10.9244,
-    "median21": 0.1513,
-    "pace": 3.7927,
+    "z": -0.6995,
+    "median63": -9.916,
+    "median21": -1.9409,
+    "pace": 1.3644,
     "lift_then": 0.0,
     "dlift": 0.0,
     "mom_list": [],
@@ -1299,17 +1220,22 @@
    },
    {
     "industry": "Finance: Consumer Services",
-    "base": 45,
-    "mom": 0,
-    "share": 0.0,
-    "lift": 0.0,
-    "z": -1.7855,
-    "median63": -21.8194,
-    "median21": -8.3004,
-    "pace": -1.0273,
-    "lift_then": 0.8239,
-    "dlift": -0.8239,
-    "mom_list": [],
+    "base": 47,
+    "mom": 1,
+    "share": 2.1277,
+    "lift": 0.3256,
+    "z": -1.2224,
+    "median63": -20.2586,
+    "median21": -9.7836,
+    "pace": -3.0308,
+    "lift_then": 1.4625,
+    "dlift": -1.1369,
+    "mom_list": [
+     [
+      "OPRT",
+      43.4492
+     ]
+    ],
     "members": null
    },
    {
@@ -1318,10 +1244,10 @@
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.5952,
-    "median63": -3.8827,
-    "median21": 9.1418,
-    "pace": 10.436,
+    "z": -0.5912,
+    "median63": -3.7311,
+    "median21": 8.4863,
+    "pace": 9.73,
     "lift_then": 0.0,
     "dlift": 0.0,
     "mom_list": [],
@@ -1329,34 +1255,38 @@
    },
    {
     "industry": "Food Chains",
-    "base": 6,
-    "mom": 1,
-    "share": 16.6667,
-    "lift": 2.5191,
-    "z": 0.9905,
-    "median63": 0.0171,
-    "median21": -8.9626,
-    "pace": -8.9683,
-    "lift_then": 4.9435,
-    "dlift": -2.4244,
+    "base": 4,
+    "mom": 2,
+    "share": 50.0,
+    "lift": 7.6522,
+    "z": 3.5177,
+    "median63": 11.0733,
+    "median21": -1.8253,
+    "pace": -5.5164,
+    "lift_then": 3.8188,
+    "dlift": 3.8333,
     "mom_list": [
      [
       "TBBB",
-      31.5368
+      34.6612
+     ],
+     [
+      "KR",
+      22.6594
      ]
     ],
     "members": null
    },
    {
     "industry": "Food Distributors",
-    "base": 5,
+    "base": 6,
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.5952,
-    "median63": 3.4711,
-    "median21": 9.0667,
-    "pace": 7.9097,
+    "z": -0.6477,
+    "median63": 5.3442,
+    "median21": 6.8007,
+    "pace": 5.0193,
     "lift_then": 0.0,
     "dlift": 0.0,
     "mom_list": [],
@@ -1368,10 +1298,10 @@
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.5323,
-    "median63": 6.2475,
-    "median21": 6.5189,
-    "pace": 4.4364,
+    "z": -0.5288,
+    "median63": 11.2772,
+    "median21": 9.4821,
+    "pace": 5.7231,
     "lift_then": 0.0,
     "dlift": 0.0,
     "mom_list": [],
@@ -1382,21 +1312,21 @@
     "base": 6,
     "mom": 2,
     "share": 33.3333,
-    "lift": 5.0383,
-    "z": 2.6329,
-    "median63": 9.6943,
-    "median21": 5.9894,
-    "pace": 2.758,
+    "lift": 5.1014,
+    "z": 2.6563,
+    "median63": 12.6908,
+    "median21": 8.2276,
+    "pace": 3.9973,
     "lift_then": 0.0,
-    "dlift": 5.0383,
+    "dlift": 5.1014,
     "mom_list": [
      [
       "VFC",
-      50.54
+      57.4047
      ],
      [
       "PVH",
-      22.5576
+      27.2847
      ]
     ],
     "members": null
@@ -1407,10 +1337,10 @@
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.2662,
-    "median63": 1.6047,
-    "median21": 14.5496,
-    "pace": 14.0147,
+    "z": -0.2644,
+    "median63": -1.5008,
+    "median21": 12.0777,
+    "pace": 12.578,
     "lift_then": 0.0,
     "dlift": 0.0,
     "mom_list": [],
@@ -1418,34 +1348,34 @@
    },
    {
     "industry": "Home Furnishings",
-    "base": 11,
+    "base": 10,
     "mom": 1,
-    "share": 9.0909,
-    "lift": 1.3741,
-    "z": 0.3302,
-    "median63": -9.9229,
-    "median21": -1.1195,
-    "pace": 2.1882,
+    "share": 10.0,
+    "lift": 1.5304,
+    "z": 0.4435,
+    "median63": -9.259,
+    "median21": 1.2485,
+    "pace": 4.3348,
     "lift_then": 0.0,
-    "dlift": 1.3741,
+    "dlift": 1.5304,
     "mom_list": [
      [
       "HELE",
-      22.615
+      26.1411
      ]
     ],
     "members": null
    },
    {
     "industry": "Homebuilding",
-    "base": 14,
+    "base": 13,
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.9959,
-    "median63": -4.325,
-    "median21": 5.6519,
-    "pace": 7.0935,
+    "z": -0.9533,
+    "median63": 1.9739,
+    "median21": 8.3834,
+    "pace": 7.7255,
     "lift_then": 0.0,
     "dlift": 0.0,
     "mom_list": [],
@@ -1454,23 +1384,19 @@
    {
     "industry": "Hospital/Nursing Management",
     "base": 11,
-    "mom": 2,
-    "share": 18.1818,
-    "lift": 2.7482,
-    "z": 1.5433,
-    "median63": 11.2615,
-    "median21": 2.2829,
-    "pace": -1.4709,
-    "lift_then": 0.6741,
-    "dlift": 2.074,
+    "mom": 1,
+    "share": 9.0909,
+    "lift": 1.3913,
+    "z": 0.3431,
+    "median63": 10.4242,
+    "median21": 7.0979,
+    "pace": 3.6232,
+    "lift_then": 0.6943,
+    "dlift": 0.697,
     "mom_list": [
      [
       "SGRY",
-      91.0969
-     ],
-     [
-      "ARDT",
-      39.9822
+      90.5958
      ]
     ],
     "members": null
@@ -1481,10 +1407,10 @@
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -1.2765,
-    "median63": 5.5358,
-    "median21": 9.4758,
-    "pace": 7.6305,
+    "z": -1.268,
+    "median63": 7.5889,
+    "median21": 10.0775,
+    "pace": 7.5479,
     "lift_then": 0.0,
     "dlift": 0.0,
     "mom_list": [],
@@ -1492,52 +1418,56 @@
    },
    {
     "industry": "Industrial Machinery/Components",
-    "base": 90,
-    "mom": 5,
-    "share": 5.5556,
-    "lift": 0.8397,
-    "z": -0.4047,
-    "median63": -10.8538,
-    "median21": -6.9046,
-    "pace": -3.2867,
-    "lift_then": 0.6591,
-    "dlift": 0.1806,
+    "base": 85,
+    "mom": 6,
+    "share": 7.0588,
+    "lift": 1.0803,
+    "z": 0.1958,
+    "median63": -10.221,
+    "median21": -7.2659,
+    "pace": -3.8589,
+    "lift_then": 1.0911,
+    "dlift": -0.0108,
     "mom_list": [
      [
       "CRCT",
-      50.6024
+      54.9296
+     ],
+     [
+      "CHPT",
+      50.4288
      ],
      [
       "AZTA",
-      41.6145
+      39.1848
      ],
      [
       "VNT",
-      31.8195
+      37.4094
      ],
      [
       "ENR",
-      27.3555
+      26.2777
      ],
      [
       "BMI",
-      20.7656
+      22.3598
      ]
     ],
     "members": null
    },
    {
     "industry": "Industrial Specialties",
-    "base": 16,
+    "base": 15,
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -1.0647,
-    "median63": 5.6583,
-    "median21": 8.1143,
-    "pace": 6.2282,
-    "lift_then": 0.4635,
-    "dlift": -0.4635,
+    "z": -1.024,
+    "median63": 6.4526,
+    "median21": 6.2584,
+    "pace": 4.1075,
+    "lift_then": 0.5092,
+    "dlift": -0.5092,
     "mom_list": [],
     "members": null
    },
@@ -1547,10 +1477,10 @@
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.5952,
-    "median63": 4.012,
-    "median21": 0.7025,
-    "pace": -0.6348,
+    "z": -0.5912,
+    "median63": 3.9167,
+    "median21": 0.8566,
+    "pace": -0.449,
     "lift_then": 0.0,
     "dlift": 0.0,
     "mom_list": [],
@@ -1562,12 +1492,12 @@
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -1.0309,
-    "median63": -5.8824,
-    "median21": -19.6905,
-    "pace": -17.7297,
-    "lift_then": 6.4266,
-    "dlift": -6.4266,
+    "z": -1.024,
+    "median63": -6.8063,
+    "median21": -16.6107,
+    "pace": -14.342,
+    "lift_then": 2.5459,
+    "dlift": -2.5459,
     "mom_list": [],
     "members": null
    },
@@ -1577,40 +1507,40 @@
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -1.482,
-    "median63": -15.117,
-    "median21": -3.9864,
-    "pace": 1.0526,
-    "lift_then": 0.2392,
-    "dlift": -0.2392,
+    "z": -1.4721,
+    "median63": -15.8562,
+    "median21": -2.854,
+    "pace": 2.4314,
+    "lift_then": 0.2464,
+    "dlift": -0.2464,
     "mom_list": [],
     "members": null
    },
    {
     "industry": "Investment Managers",
-    "base": 28,
+    "base": 27,
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -1.4084,
-    "median63": -11.1818,
-    "median21": 2.062,
-    "pace": 5.7893,
-    "lift_then": 0.2648,
-    "dlift": -0.2648,
+    "z": -1.3739,
+    "median63": -9.3037,
+    "median21": 2.3716,
+    "pace": 5.4728,
+    "lift_then": 0.2829,
+    "dlift": -0.2829,
     "mom_list": [],
     "members": null
    },
    {
     "industry": "Life Insurance",
-    "base": 16,
+    "base": 14,
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -1.0647,
-    "median63": -2.9865,
-    "median21": 0.3444,
-    "pace": 1.3399,
+    "z": -0.9893,
+    "median63": -2.9437,
+    "median21": -0.5109,
+    "pace": 0.4703,
     "lift_then": 0.0,
     "dlift": 0.0,
     "mom_list": [],
@@ -1618,55 +1548,55 @@
    },
    {
     "industry": "Major Banks",
-    "base": 75,
-    "mom": 1,
-    "share": 1.3333,
-    "lift": 0.2015,
-    "z": -1.8406,
-    "median63": -7.5318,
-    "median21": -4.332,
-    "pace": -1.8213,
+    "base": 76,
+    "mom": 0,
+    "share": 0.0,
+    "lift": 0.0,
+    "z": -2.305,
+    "median63": -7.4637,
+    "median21": -3.7922,
+    "pace": -1.3043,
     "lift_then": 0.0,
-    "dlift": 0.2015,
+    "dlift": 0.0,
+    "mom_list": [],
+    "members": null
+   },
+   {
+    "industry": "Major Chemicals",
+    "base": 24,
+    "mom": 1,
+    "share": 4.1667,
+    "lift": 0.6377,
+    "z": -0.4693,
+    "median63": -6.564,
+    "median21": -5.4301,
+    "pace": -3.2421,
+    "lift_then": 0.0,
+    "dlift": 0.6377,
     "mom_list": [
      [
-      "EGBN",
-      20.0145
+      "VVV",
+      22.0069
      ]
     ],
     "members": null
    },
    {
-    "industry": "Major Chemicals",
-    "base": 27,
-    "mom": 0,
-    "share": 0.0,
-    "lift": 0.0,
-    "z": -1.3831,
-    "median63": -9.7032,
-    "median21": -7.3189,
-    "pace": -4.0845,
-    "lift_then": 0.5493,
-    "dlift": -0.5493,
-    "mom_list": [],
-    "members": null
-   },
-   {
     "industry": "Marine Transportation",
-    "base": 34,
+    "base": 32,
     "mom": 1,
-    "share": 2.9412,
-    "lift": 0.4446,
-    "z": -0.8621,
-    "median63": -0.9172,
-    "median21": -9.3813,
-    "pace": -9.0756,
-    "lift_then": 2.6172,
-    "dlift": -2.1726,
+    "share": 3.125,
+    "lift": 0.4783,
+    "z": -0.7804,
+    "median63": -4.2489,
+    "median21": -8.0208,
+    "pace": -6.6045,
+    "lift_then": 1.9094,
+    "dlift": -1.4312,
     "mom_list": [
      [
       "ECO",
-      28.7893
+      22.9876
      ]
     ],
     "members": null
@@ -1677,10 +1607,10 @@
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.5952,
-    "median63": -7.9898,
-    "median21": 5.3421,
-    "pace": 8.0054,
+    "z": -0.5912,
+    "median63": -6.1074,
+    "median21": 7.8258,
+    "pace": 9.8616,
     "lift_then": 0.0,
     "dlift": 0.0,
     "mom_list": [],
@@ -1692,10 +1622,10 @@
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.461,
-    "median63": 9.5961,
-    "median21": 11.3286,
-    "pace": 8.1299,
+    "z": -0.458,
+    "median63": 10.847,
+    "median21": 12.9875,
+    "pace": 9.3719,
     "lift_then": 0.0,
     "dlift": 0.0,
     "mom_list": [],
@@ -1703,96 +1633,92 @@
    },
    {
     "industry": "Medical Specialities",
-    "base": 28,
-    "mom": 3,
-    "share": 10.7143,
-    "lift": 1.6194,
-    "z": 0.8725,
-    "median63": -2.4572,
-    "median21": -8.6518,
-    "pace": -7.8327,
-    "lift_then": 2.3835,
-    "dlift": -0.764,
+    "base": 26,
+    "mom": 4,
+    "share": 15.3846,
+    "lift": 2.3545,
+    "z": 1.8262,
+    "median63": -2.3043,
+    "median21": -8.2736,
+    "pace": -7.5055,
+    "lift_then": 2.9376,
+    "dlift": -0.5831,
     "mom_list": [
      [
       "CDNA",
-      52.7276
+      44.8816
      ],
      [
       "GRAL",
-      32.4915
+      26.0364
      ],
      [
       "CON",
-      23.7482
+      24.0922
+     ],
+     [
+      "TRUP",
+      23.0017
      ]
     ],
     "members": null
    },
    {
     "industry": "Medical/Dental Instruments",
-    "base": 42,
-    "mom": 7,
-    "share": 16.6667,
-    "lift": 2.5191,
-    "z": 2.6205,
-    "median63": -1.6831,
-    "median21": 3.0177,
-    "pace": 3.5787,
-    "lift_then": 2.6483,
-    "dlift": -0.1292,
+    "base": 41,
+    "mom": 5,
+    "share": 12.1951,
+    "lift": 1.8664,
+    "z": 1.4668,
+    "median63": -0.509,
+    "median21": 0.2081,
+    "pace": 0.3778,
+    "lift_then": 2.2354,
+    "dlift": -0.369,
     "mom_list": [
      [
       "EMBC",
-      62.9032
+      59.3561
      ],
      [
       "RCEL",
-      58.1681
+      53.4884
      ],
      [
       "GKOS",
-      42.316
-     ],
-     [
-      "SGHT",
-      34.6476
+      42.8728
      ],
      [
       "SIBN",
-      28.2038
-     ],
-     [
-      "DCTH",
-      20.8537
+      29.1146
      ],
      [
       "TFX",
-      20.3402
+      22.1988
      ]
     ],
     "members": null
    },
    {
     "industry": "Medical/Nursing Services",
-    "base": 11,
+    "base": 9,
     "mom": 2,
-    "share": 18.1818,
-    "lift": 2.7482,
-    "z": 1.5433,
-    "median63": 6.5526,
-    "median21": 1.1527,
-    "pace": -1.0315,
-    "lift_then": 1.3482,
-    "dlift": 1.3999,
+    "share": 22.2222,
+    "lift": 3.401,
+    "z": 1.9045,
+    "median63": 5.4516,
+    "median21": 1.1186,
+    "pace": -0.6986,
+    "lift_then": 2.5459,
+    "dlift": 0.8551,
     "mom_list": [
      [
       "OPCH",
-      31.406
+      31.9433
      ],
      [
-      "AHCO",
-      29.806
+      "PRVA",
+      23.8734
      ]
     ],
     "members": null
@@ -1803,60 +1729,55 @@
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -1.0975,
-    "median63": -17.8683,
-    "median21": -7.8559,
-    "pace": -1.8998,
-    "lift_then": 0.8724,
-    "dlift": -0.8724,
+    "z": -1.0902,
+    "median63": -16.1421,
+    "median21": -5.7941,
+    "pace": -0.4134,
+    "lift_then": 0.4493,
+    "dlift": -0.4493,
     "mom_list": [],
     "members": null
    },
    {
     "industry": "Metal Mining",
-    "base": 12,
+    "base": 13,
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.922,
-    "median63": -39.518,
-    "median21": -24.5628,
-    "pace": -11.3901,
-    "lift_then": 1.2359,
-    "dlift": -1.2359,
+    "z": -0.9533,
+    "median63": -38.0898,
+    "median21": -26.2933,
+    "pace": -13.5967,
+    "lift_then": 1.7625,
+    "dlift": -1.7625,
     "mom_list": [],
     "members": null
    },
    {
     "industry": "Military/Government/Technical",
-    "base": 25,
-    "mom": 1,
-    "share": 4.0,
-    "lift": 0.6046,
-    "z": -0.5262,
-    "median63": -13.8016,
-    "median21": -5.0451,
-    "pace": -0.4446,
-    "lift_then": 0.2966,
-    "dlift": 0.308,
-    "mom_list": [
-     [
-      "ACM",
-      24.113
-     ]
-    ],
+    "base": 21,
+    "mom": 0,
+    "share": 0.0,
+    "lift": 0.0,
+    "z": -1.2116,
+    "median63": -10.8143,
+    "median21": -3.8123,
+    "pace": -0.2075,
+    "lift_then": 0.7274,
+    "dlift": -0.7274,
+    "mom_list": [],
     "members": null
    },
    {
     "industry": "Mining & Quarrying of Nonmetallic Minerals (No Fuels)",
-    "base": 10,
+    "base": 11,
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.8417,
-    "median63": -27.2348,
-    "median21": -10.2436,
-    "pace": -1.1653,
+    "z": -0.8769,
+    "median63": -25.2168,
+    "median21": -17.2286,
+    "pace": -8.823,
     "lift_then": 0.0,
     "dlift": 0.0,
     "mom_list": [],
@@ -1868,10 +1789,10 @@
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.5323,
-    "median63": -20.9777,
-    "median21": 1.7136,
-    "pace": 8.7062,
+    "z": -0.5288,
+    "median63": -18.1524,
+    "median21": -7.0718,
+    "pace": -1.021,
     "lift_then": 0.0,
     "dlift": 0.0,
     "mom_list": [],
@@ -1882,17 +1803,17 @@
     "base": 4,
     "mom": 1,
     "share": 25.0,
-    "lift": 3.7787,
-    "z": 1.4792,
-    "median63": -9.5381,
-    "median21": -9.242,
-    "pace": -6.0626,
+    "lift": 3.8261,
+    "z": 1.4945,
+    "median63": -9.0153,
+    "median21": -8.1622,
+    "pace": -5.1571,
     "lift_then": 0.0,
-    "dlift": 3.7787,
+    "dlift": 3.8261,
     "mom_list": [
      [
       "PGNY",
-      38.339
+      40.2552
      ]
     ],
     "members": null
@@ -1903,10 +1824,10 @@
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.2662,
-    "median63": 7.0038,
-    "median21": 9.8989,
-    "pace": 7.5643,
+    "z": -0.2644,
+    "median63": 10.1732,
+    "median21": 11.9489,
+    "pace": 8.5579,
     "lift_then": 0.0,
     "dlift": 0.0,
     "mom_list": [],
@@ -1914,14 +1835,14 @@
    },
    {
     "industry": "Miscellaneous manufacturing industries",
-    "base": 3,
+    "base": 2,
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.461,
-    "median63": -9.6361,
-    "median21": -6.5382,
-    "pace": -3.3262,
+    "z": -0.3739,
+    "median63": -12.1291,
+    "median21": -8.791,
+    "pace": -4.748,
     "lift_then": 0.0,
     "dlift": 0.0,
     "mom_list": [],
@@ -1932,17 +1853,17 @@
     "base": 3,
     "mom": 1,
     "share": 33.3333,
-    "lift": 5.0383,
-    "z": 1.8617,
-    "median63": -17.5214,
-    "median21": 17.5043,
-    "pace": 23.3448,
+    "lift": 5.1014,
+    "z": 1.8783,
+    "median63": -18.5782,
+    "median21": 14.0936,
+    "pace": 20.2863,
     "lift_then": 0.0,
-    "dlift": 5.0383,
+    "dlift": 5.1014,
     "mom_list": [
      [
       "HOG",
-      21.7235
+      22.8448
      ]
     ],
     "members": null
@@ -1953,10 +1874,10 @@
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.461,
-    "median63": 5.8491,
-    "median21": 0.744,
-    "pace": -1.2057,
+    "z": -0.458,
+    "median63": 7.707,
+    "median21": -0.3036,
+    "pace": -2.8726,
     "lift_then": 0.0,
     "dlift": 0.0,
     "mom_list": [],
@@ -1964,31 +1885,31 @@
    },
    {
     "industry": "Multi-Sector Companies",
-    "base": 2,
+    "base": 1,
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.3764,
-    "median63": -28.4221,
-    "median21": -23.584,
-    "pace": -14.1099,
-    "lift_then": 3.7076,
-    "dlift": -3.7076,
+    "z": -0.2644,
+    "median63": -8.9409,
+    "median21": -9.4198,
+    "pace": -6.4395,
+    "lift_then": 0.0,
+    "dlift": 0.0,
     "mom_list": [],
     "members": null
    },
    {
     "industry": "Natural Gas Distribution",
-    "base": 16,
+    "base": 15,
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -1.0647,
-    "median63": -9.0411,
-    "median21": -7.4806,
-    "pace": -4.4669,
-    "lift_then": 0.4635,
-    "dlift": -0.4635,
+    "z": -1.024,
+    "median63": -7.6568,
+    "median21": -6.3811,
+    "pace": -3.8288,
+    "lift_then": 0.5092,
+    "dlift": -0.5092,
     "mom_list": [],
     "members": null
    },
@@ -1998,10 +1919,10 @@
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.5323,
-    "median63": -8.7916,
-    "median21": -10.191,
-    "pace": -7.2605,
+    "z": -0.5288,
+    "median63": -8.8949,
+    "median21": -7.6623,
+    "pace": -4.6974,
     "lift_then": 0.0,
     "dlift": 0.0,
     "mom_list": [],
@@ -2009,66 +1930,80 @@
    },
    {
     "industry": "Office Equipment/Supplies/Services",
-    "base": 7,
-    "mom": 0,
-    "share": 0.0,
-    "lift": 0.0,
-    "z": -0.7042,
-    "median63": 4.69,
-    "median21": 3.6391,
-    "pace": 2.0757,
+    "base": 6,
+    "mom": 1,
+    "share": 16.6667,
+    "lift": 2.5507,
+    "z": 1.0043,
+    "median63": 4.0474,
+    "median21": 6.0191,
+    "pace": 4.67,
     "lift_then": 0.0,
-    "dlift": 0.0,
-    "mom_list": [],
+    "dlift": 2.5507,
+    "mom_list": [
+     [
+      "PAR",
+      23.0889
+     ]
+    ],
     "members": null
    },
    {
     "industry": "Oil & Gas Production",
-    "base": 56,
-    "mom": 1,
-    "share": 1.7857,
-    "lift": 0.2699,
-    "z": -1.4542,
-    "median63": -11.8238,
-    "median21": -16.16,
-    "pace": -12.2187,
-    "lift_then": 3.7076,
-    "dlift": -3.4377,
+    "base": 55,
+    "mom": 2,
+    "share": 3.6364,
+    "lift": 0.5565,
+    "z": -0.8696,
+    "median63": -12.0548,
+    "median21": -14.6241,
+    "pace": -10.6059,
+    "lift_then": 2.083,
+    "dlift": -1.5265,
     "mom_list": [
      [
       "GFR",
-      25.6536
+      26.0163
+     ],
+     [
+      "RRC",
+      21.5898
      ]
     ],
     "members": null
    },
    {
     "industry": "Oil Refining/Marketing",
-    "base": 1,
-    "mom": 0,
-    "share": 0.0,
-    "lift": 0.0,
-    "z": -0.2662,
-    "median63": -0.9719,
-    "median21": -1.9522,
-    "pace": -1.6282,
+    "base": 2,
+    "mom": 1,
+    "share": 50.0,
+    "lift": 7.6522,
+    "z": 2.4874,
+    "median63": 20.2784,
+    "median21": 4.3463,
+    "pace": -2.4132,
     "lift_then": 0.0,
-    "dlift": 0.0,
-    "mom_list": [],
+    "dlift": 7.6522,
+    "mom_list": [
+     [
+      "ZYN",
+      40.2778
+     ]
+    ],
     "members": null
    },
    {
     "industry": "Oil and Gas Field Machinery",
-    "base": 9,
+    "base": 8,
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.7985,
-    "median63": -15.2955,
-    "median21": -15.8691,
-    "pace": -10.7706,
-    "lift_then": 1.6478,
-    "dlift": -1.6478,
+    "z": -0.7478,
+    "median63": -16.8293,
+    "median21": -15.2472,
+    "pace": -9.6374,
+    "lift_then": 2.8641,
+    "dlift": -2.8641,
     "mom_list": [],
     "members": null
    },
@@ -2078,10 +2013,10 @@
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.7528,
-    "median63": 1.7487,
-    "median21": -0.6334,
-    "pace": -1.2163,
+    "z": -0.7478,
+    "median63": 4.7419,
+    "median21": 1.398,
+    "pace": -0.1826,
     "lift_then": 0.0,
     "dlift": 0.0,
     "mom_list": [],
@@ -2089,29 +2024,29 @@
    },
    {
     "industry": "Oilfield Services/Equipment",
-    "base": 12,
+    "base": 11,
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.922,
-    "median63": -32.8476,
-    "median21": -20.0483,
-    "pace": -9.0991,
-    "lift_then": 0.6179,
-    "dlift": -0.6179,
+    "z": -0.8769,
+    "median63": -32.7615,
+    "median21": -20.1515,
+    "pace": -9.231,
+    "lift_then": 0.6943,
+    "dlift": -0.6943,
     "mom_list": [],
     "members": null
    },
    {
     "industry": "Ophthalmic Goods",
-    "base": 7,
+    "base": 5,
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.7042,
-    "median63": -5.4097,
-    "median21": 5.8545,
-    "pace": 7.6578,
+    "z": -0.5912,
+    "median63": -2.798,
+    "median21": 4.0247,
+    "pace": 4.9574,
     "lift_then": 0.0,
     "dlift": 0.0,
     "mom_list": [],
@@ -2123,10 +2058,10 @@
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.3764,
-    "median63": -16.687,
-    "median21": -7.3187,
-    "pace": -1.7563,
+    "z": -0.3739,
+    "median63": -15.7772,
+    "median21": -6.8418,
+    "pace": -1.5827,
     "lift_then": 0.0,
     "dlift": 0.0,
     "mom_list": [],
@@ -2138,25 +2073,25 @@
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -1.0647,
-    "median63": -14.904,
-    "median21": -12.8369,
-    "pace": -7.8689,
-    "lift_then": 0.4635,
-    "dlift": -0.4635,
+    "z": -1.0576,
+    "median63": -14.5211,
+    "median21": -11.4742,
+    "pace": -6.6339,
+    "lift_then": 0.4774,
+    "dlift": -0.4774,
     "mom_list": [],
     "members": null
    },
    {
     "industry": "Other Metals and Minerals",
-    "base": 4,
+    "base": 3,
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.5323,
-    "median63": -50.9435,
-    "median21": -24.7589,
-    "pace": -7.7778,
+    "z": -0.458,
+    "median63": -42.1142,
+    "median21": -25.3125,
+    "pace": -11.2744,
     "lift_then": 0.0,
     "dlift": 0.0,
     "mom_list": [],
@@ -2165,67 +2100,71 @@
    {
     "industry": "Other Pharmaceuticals",
     "base": 4,
-    "mom": 2,
-    "share": 50.0,
-    "lift": 7.5574,
-    "z": 3.4908,
-    "median63": 18.7691,
-    "median21": 9.8792,
-    "pace": 3.6228,
+    "mom": 3,
+    "share": 75.0,
+    "lift": 11.4783,
+    "z": 5.541,
+    "median63": 20.6493,
+    "median21": 13.1001,
+    "pace": 6.217,
     "lift_then": 0.0,
-    "dlift": 7.5574,
+    "dlift": 11.4783,
     "mom_list": [
      [
       "HLF",
-      31.5577
+      35.6275
      ],
      [
       "MCK",
-      20.2353
+      20.9779
+     ],
+     [
+      "CAH",
+      20.3207
      ]
     ],
     "members": null
    },
    {
     "industry": "Other Specialty Stores",
-    "base": 15,
+    "base": 12,
     "mom": 2,
-    "share": 13.3333,
-    "lift": 2.0153,
-    "z": 1.0467,
-    "median63": 3.3333,
-    "median21": 2.5059,
-    "pace": 1.3948,
-    "lift_then": 0.9887,
-    "dlift": 1.0266,
+    "share": 16.6667,
+    "lift": 2.5507,
+    "z": 1.4203,
+    "median63": -4.0684,
+    "median21": 0.7111,
+    "pace": 2.0672,
+    "lift_then": 0.6365,
+    "dlift": 1.9143,
     "mom_list": [
      [
-      "ASO",
-      65.8783
+      "BOBS",
+      21.1606
      ],
      [
-      "ARHS",
-      44.7427
+      "DKS",
+      20.3536
      ]
     ],
     "members": null
    },
    {
     "industry": "Package Goods/Cosmetics",
-    "base": 11,
+    "base": 10,
     "mom": 1,
-    "share": 9.0909,
-    "lift": 1.3741,
-    "z": 0.3302,
-    "median63": 2.9221,
-    "median21": 3.6136,
-    "pace": 2.6395,
-    "lift_then": 2.0223,
-    "dlift": -0.6483,
+    "share": 10.0,
+    "lift": 1.5304,
+    "z": 0.4435,
+    "median63": 3.4867,
+    "median21": 2.8101,
+    "pace": 1.6479,
+    "lift_then": 2.2913,
+    "dlift": -0.7609,
     "mom_list": [
      [
-      "IPAR",
-      20.4508
+      "PG",
+      21.0214
      ]
     ],
     "members": null
@@ -2235,17 +2174,17 @@
     "base": 21,
     "mom": 1,
     "share": 4.7619,
-    "lift": 0.7198,
-    "z": -0.3418,
-    "median63": -11.0163,
-    "median21": 1.718,
-    "pace": 5.3901,
+    "lift": 0.7288,
+    "z": -0.3286,
+    "median63": -2.1848,
+    "median21": 4.9916,
+    "pace": 5.7198,
     "lift_then": 0.0,
-    "dlift": 0.7198,
+    "dlift": 0.7288,
     "mom_list": [
      [
       "BRBR",
-      40.0371
+      52.6316
      ]
     ],
     "members": null
@@ -2256,10 +2195,10 @@
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.461,
-    "median63": -1.7001,
-    "median21": 7.4433,
-    "pace": 8.01,
+    "z": -0.458,
+    "median63": 1.6556,
+    "median21": 9.1861,
+    "pace": 8.6342,
     "lift_then": 0.0,
     "dlift": 0.0,
     "mom_list": [],
@@ -2271,25 +2210,10 @@
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.5323,
-    "median63": 1.7908,
-    "median21": 8.6097,
-    "pace": 8.0128,
-    "lift_then": 0.0,
-    "dlift": 0.0,
-    "mom_list": [],
-    "members": null
-   },
-   {
-    "industry": "Pharmaceuticals and Biotechnology",
-    "base": 1,
-    "mom": 0,
-    "share": 0.0,
-    "lift": 0.0,
-    "z": -0.2662,
-    "median63": -17.362,
-    "median21": -10.365,
-    "pace": -4.5776,
+    "z": -0.5288,
+    "median63": -6.4869,
+    "median21": 1.7044,
+    "pace": 3.8667,
     "lift_then": 0.0,
     "dlift": 0.0,
     "mom_list": [],
@@ -2297,16 +2221,16 @@
    },
    {
     "industry": "Plastic Products",
-    "base": 6,
+    "base": 4,
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.652,
-    "median63": -2.4944,
-    "median21": 6.2779,
-    "pace": 7.1093,
-    "lift_then": 0.0,
-    "dlift": 0.0,
+    "z": -0.5288,
+    "median63": 3.1533,
+    "median21": 14.5865,
+    "pace": 13.5354,
+    "lift_then": 3.8188,
+    "dlift": -3.8188,
     "mom_list": [],
     "members": null
    },
@@ -2316,10 +2240,10 @@
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.3764,
-    "median63": -16.1941,
-    "median21": -1.4101,
-    "pace": 3.988,
+    "z": -0.3739,
+    "median63": -11.9156,
+    "median21": -2.019,
+    "pace": 1.9528,
     "lift_then": 0.0,
     "dlift": 0.0,
     "mom_list": [],
@@ -2327,14 +2251,14 @@
    },
    {
     "industry": "Power Generation",
-    "base": 13,
+    "base": 12,
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.9597,
-    "median63": 5.2251,
-    "median21": 3.9107,
-    "pace": 2.169,
+    "z": -0.9159,
+    "median63": 7.0585,
+    "median21": 4.2376,
+    "pace": 1.8848,
     "lift_then": 0.0,
     "dlift": 0.0,
     "mom_list": [],
@@ -2342,16 +2266,16 @@
    },
    {
     "industry": "Precious Metals",
-    "base": 36,
+    "base": 35,
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -1.597,
-    "median63": -39.2585,
-    "median21": -16.0948,
-    "pace": -3.0087,
-    "lift_then": 0.8239,
-    "dlift": -0.8239,
+    "z": -1.5642,
+    "median63": -38.1733,
+    "median21": -17.3036,
+    "pace": -4.5792,
+    "lift_then": 1.0911,
+    "dlift": -1.0911,
     "mom_list": [],
     "members": null
    },
@@ -2361,35 +2285,39 @@
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.3764,
-    "median63": -5.698,
-    "median21": -2.467,
-    "pace": -0.5676,
-    "lift_then": 3.7076,
-    "dlift": -3.7076,
+    "z": -0.3739,
+    "median63": -9.4885,
+    "median21": -3.9869,
+    "pace": -0.8241,
+    "lift_then": 0.0,
+    "dlift": 0.0,
     "mom_list": [],
     "members": null
    },
    {
     "industry": "Professional Services",
-    "base": 12,
-    "mom": 2,
-    "share": 16.6667,
-    "lift": 2.5191,
-    "z": 1.4007,
-    "median63": 4.4025,
-    "median21": -3.5131,
-    "pace": -4.9806,
-    "lift_then": 1.2359,
-    "dlift": 1.2833,
+    "base": 11,
+    "mom": 3,
+    "share": 27.2727,
+    "lift": 4.1739,
+    "z": 2.7833,
+    "median63": 12.0118,
+    "median21": 4.8097,
+    "pace": 0.8058,
+    "lift_then": 1.3887,
+    "dlift": 2.7852,
     "mom_list": [
      [
       "FCN",
-      36.2888
+      39.6737
+     ],
+     [
+      "ONT",
+      37.0031
      ],
      [
       "EXPO",
-      29.4285
+      28.967
      ]
     ],
     "members": null
@@ -2397,36 +2325,36 @@
    {
     "industry": "Professional and commerical equipment",
     "base": 1,
-    "mom": 0,
-    "share": 0.0,
-    "lift": 0.0,
-    "z": -0.2662,
-    "median63": 17.862,
-    "median21": 11.5457,
-    "pace": 5.5917,
+    "mom": 1,
+    "share": 100.0,
+    "lift": 15.3043,
+    "z": 3.7821,
+    "median63": 21.8848,
+    "median21": 12.9768,
+    "pace": 5.6819,
     "lift_then": 0.0,
-    "dlift": 0.0,
-    "mom_list": [],
+    "dlift": 15.3043,
+    "mom_list": [
+     [
+      "SITE",
+      21.8848
+     ]
+    ],
     "members": null
    },
    {
     "industry": "Property-Casualty Insurers",
-    "base": 33,
-    "mom": 1,
-    "share": 3.0303,
-    "lift": 0.458,
-    "z": -0.8287,
-    "median63": 7.8592,
-    "median21": 5.6417,
-    "pace": 3.022,
-    "lift_then": 0.2247,
-    "dlift": 0.2333,
-    "mom_list": [
-     [
-      "PLMR",
-      27.1962
-     ]
-    ],
+    "base": 29,
+    "mom": 0,
+    "share": 0.0,
+    "lift": 0.0,
+    "z": -1.4239,
+    "median63": 9.6715,
+    "median21": 5.8067,
+    "pace": 2.5829,
+    "lift_then": 0.2634,
+    "dlift": -0.2634,
+    "mom_list": [],
     "members": null
    },
    {
@@ -2435,12 +2363,12 @@
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.461,
-    "median63": 4.6657,
-    "median21": -11.2188,
-    "pace": -12.7741,
-    "lift_then": 2.4718,
-    "dlift": -2.4718,
+    "z": -0.458,
+    "median63": 4.3615,
+    "median21": -6.0648,
+    "pace": -7.5186,
+    "lift_then": 2.5459,
+    "dlift": -2.5459,
     "mom_list": [],
     "members": null
    },
@@ -2450,10 +2378,10 @@
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.7985,
-    "median63": 1.1186,
-    "median21": 5.1527,
-    "pace": 4.7798,
+    "z": -0.7932,
+    "median63": 3.5002,
+    "median21": 10.7389,
+    "pace": 9.5722,
     "lift_then": 0.0,
     "dlift": 0.0,
     "mom_list": [],
@@ -2465,10 +2393,10 @@
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.7528,
-    "median63": -25.2034,
-    "median21": -8.0836,
-    "pace": 0.3176,
+    "z": -0.7478,
+    "median63": -25.8348,
+    "median21": -12.5137,
+    "pace": -3.902,
     "lift_then": 0.0,
     "dlift": 0.0,
     "mom_list": [],
@@ -2480,10 +2408,10 @@
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.7528,
-    "median63": -4.8084,
-    "median21": -0.5602,
-    "pace": 1.0426,
+    "z": -0.7478,
+    "median63": -1.8784,
+    "median21": 1.307,
+    "pace": 1.9332,
     "lift_then": 0.0,
     "dlift": 0.0,
     "mom_list": [],
@@ -2491,14 +2419,14 @@
    },
    {
     "industry": "Real Estate",
-    "base": 17,
+    "base": 21,
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -1.0975,
-    "median63": -12.5714,
-    "median21": 1.6512,
-    "pace": 5.8417,
+    "z": -1.2116,
+    "median63": -6.3375,
+    "median21": 3.0736,
+    "pace": 5.1861,
     "lift_then": 0.0,
     "dlift": 0.0,
     "mom_list": [],
@@ -2506,49 +2434,57 @@
    },
    {
     "industry": "Real Estate Investment Trusts",
-    "base": 109,
-    "mom": 1,
-    "share": 0.9174,
-    "lift": 0.1387,
-    "z": -2.3936,
-    "median63": -4.7308,
-    "median21": 1.2658,
-    "pace": 2.8427,
+    "base": 104,
+    "mom": 3,
+    "share": 2.8846,
+    "lift": 0.4415,
+    "z": -1.506,
+    "median63": -2.4557,
+    "median21": 1.8725,
+    "pace": 2.691,
     "lift_then": 0.0,
-    "dlift": 0.1387,
+    "dlift": 0.4415,
     "mom_list": [
      [
       "INN",
-      22.5376
+      22.1658
+     ],
+     [
+      "HHH",
+      21.0875
+     ],
+     [
+      "SMA",
+      20.7547
      ]
     ],
     "members": null
    },
    {
     "industry": "Recreational Games/Products/Toys",
-    "base": 6,
+    "base": 7,
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.652,
-    "median63": -1.2292,
-    "median21": 1.2897,
-    "pace": 1.6995,
-    "lift_then": 1.2359,
-    "dlift": -1.2359,
+    "z": -0.6995,
+    "median63": -2.2152,
+    "median21": -6.5495,
+    "pace": -5.8111,
+    "lift_then": 1.0911,
+    "dlift": -1.0911,
     "mom_list": [],
     "members": null
    },
    {
     "industry": "Rental/Leasing Companies",
-    "base": 3,
+    "base": 1,
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.461,
-    "median63": -10.1528,
-    "median21": -0.9961,
-    "pace": 2.3882,
+    "z": -0.2644,
+    "median63": 1.6704,
+    "median21": 38.7536,
+    "pace": 38.1968,
     "lift_then": 0.0,
     "dlift": 0.0,
     "mom_list": [],
@@ -2556,46 +2492,46 @@
    },
    {
     "industry": "Restaurants",
-    "base": 32,
+    "base": 30,
     "mom": 4,
-    "share": 12.5,
-    "lift": 1.8894,
-    "z": 1.3391,
-    "median63": -3.2322,
-    "median21": 8.8085,
-    "pace": 9.8859,
-    "lift_then": 0.7176,
-    "dlift": 1.1718,
+    "share": 13.3333,
+    "lift": 2.0406,
+    "z": 1.507,
+    "median63": 0.0285,
+    "median21": 10.7356,
+    "pace": 10.7261,
+    "lift_then": 0.5267,
+    "dlift": 1.5138,
     "mom_list": [
      [
       "SG",
-      76.4964
-     ],
-     [
-      "WING",
-      37.9277
+      69.2194
      ],
      [
       "PTLO",
-      30.9474
+      37.7232
      ],
      [
       "CBRL",
-      28.3982
+      36.8259
+     ],
+     [
+      "WING",
+      35.3524
      ]
     ],
     "members": null
    },
    {
     "industry": "Retail-Auto Dealers and Gas Stations",
-    "base": 7,
+    "base": 6,
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.7042,
-    "median63": -10.8046,
-    "median21": 0.019,
-    "pace": 3.6205,
+    "z": -0.6477,
+    "median63": -8.4831,
+    "median21": 0.0626,
+    "pace": 2.8903,
     "lift_then": 0.0,
     "dlift": 0.0,
     "mom_list": [],
@@ -2606,17 +2542,17 @@
     "base": 2,
     "mom": 1,
     "share": 50.0,
-    "lift": 7.5574,
-    "z": 2.4684,
-    "median63": 10.3039,
-    "median21": 8.1849,
-    "pace": 4.7502,
+    "lift": 7.6522,
+    "z": 2.4874,
+    "median63": 13.4146,
+    "median21": 10.3369,
+    "pace": 5.8654,
     "lift_then": 0.0,
-    "dlift": 7.5574,
+    "dlift": 7.6522,
     "mom_list": [
      [
       "GRDN",
-      35.0587
+      39.5928
      ]
     ],
     "members": null
@@ -2627,25 +2563,25 @@
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.5323,
-    "median63": -18.8056,
-    "median21": -21.0542,
-    "pace": -14.7857,
-    "lift_then": 1.8538,
-    "dlift": -1.8538,
+    "z": -0.5288,
+    "median63": -20.16,
+    "median21": -21.2153,
+    "pace": -14.4953,
+    "lift_then": 1.9094,
+    "dlift": -1.9094,
     "mom_list": [],
     "members": null
    },
    {
     "industry": "Savings Institutions",
-    "base": 7,
+    "base": 6,
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.7042,
-    "median63": -6.7986,
-    "median21": -3.91,
-    "pace": -1.6437,
+    "z": -0.6477,
+    "median63": -8.6233,
+    "median21": -4.2137,
+    "pace": -1.3393,
     "lift_then": 0.0,
     "dlift": 0.0,
     "mom_list": [],
@@ -2653,38 +2589,34 @@
    },
    {
     "industry": "Semiconductors",
-    "base": 66,
-    "mom": 2,
-    "share": 3.0303,
-    "lift": 0.458,
-    "z": -1.172,
-    "median63": -28.6332,
-    "median21": -21.347,
-    "pace": -11.8026,
-    "lift_then": 0.4494,
-    "dlift": 0.0086,
+    "base": 59,
+    "mom": 1,
+    "share": 1.6949,
+    "lift": 0.2594,
+    "z": -1.5041,
+    "median63": -31.2295,
+    "median21": -23.5416,
+    "pace": -13.1317,
+    "lift_then": 1.2945,
+    "dlift": -1.0351,
     "mom_list": [
      [
-      "SYNA",
-      22.0167
-     ],
-     [
       "SWKS",
-      21.51
+      21.7488
      ]
     ],
     "members": null
    },
    {
     "industry": "Services-Misc. Amusement & Recreation",
-    "base": 17,
+    "base": 19,
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -1.0975,
-    "median63": -9.3438,
-    "median21": 6.966,
-    "pace": 10.0806,
+    "z": -1.1525,
+    "median63": 0.5947,
+    "median21": 5.7375,
+    "pace": 5.5393,
     "lift_then": 0.0,
     "dlift": 0.0,
     "mom_list": [],
@@ -2695,35 +2627,35 @@
     "base": 8,
     "mom": 2,
     "share": 25.0,
-    "lift": 3.7787,
-    "z": 2.0919,
-    "median63": -4.1939,
-    "median21": -0.1088,
-    "pace": 1.2892,
+    "lift": 3.8261,
+    "z": 2.1135,
+    "median63": 0.1488,
+    "median21": 2.0751,
+    "pace": 2.0255,
     "lift_then": 0.0,
-    "dlift": 3.7787,
+    "dlift": 3.8261,
     "mom_list": [
      [
       "CROX",
-      28.7933
+      31.4241
      ],
      [
       "WWW",
-      27.1144
+      28.2389
      ]
     ],
     "members": null
    },
    {
     "industry": "Specialty Chemicals",
-    "base": 3,
+    "base": 2,
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.461,
-    "median63": 2.4849,
-    "median21": 14.6082,
-    "pace": 13.7799,
+    "z": -0.3739,
+    "median63": 10.5778,
+    "median21": 22.5385,
+    "pace": 19.0126,
     "lift_then": 0.0,
     "dlift": 0.0,
     "mom_list": [],
@@ -2735,10 +2667,10 @@
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.461,
-    "median63": -6.6601,
-    "median21": -2.5747,
-    "pace": -0.3546,
+    "z": -0.458,
+    "median63": -2.9382,
+    "median21": 1.2468,
+    "pace": 2.2262,
     "lift_then": 0.0,
     "dlift": 0.0,
     "mom_list": [],
@@ -2746,20 +2678,20 @@
    },
    {
     "industry": "Specialty Insurers",
-    "base": 15,
+    "base": 14,
     "mom": 1,
-    "share": 6.6667,
-    "lift": 1.0077,
-    "z": 0.0079,
-    "median63": 1.271,
-    "median21": 6.8038,
-    "pace": 6.3802,
-    "lift_then": 1.4831,
-    "dlift": -0.4754,
+    "share": 7.1429,
+    "lift": 1.0932,
+    "z": 0.0922,
+    "median63": 1.6151,
+    "median21": 8.3895,
+    "pace": 7.8511,
+    "lift_then": 1.0911,
+    "dlift": 0.0021,
     "mom_list": [
      [
       "HGTY",
-      22.5131
+      24.4745
      ]
     ],
     "members": null
@@ -2770,10 +2702,10 @@
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.8828,
-    "median63": -17.7752,
-    "median21": -8.7675,
-    "pace": -2.8424,
+    "z": -0.8769,
+    "median63": -16.7976,
+    "median21": -10.0613,
+    "pace": -4.4621,
     "lift_then": 0.0,
     "dlift": 0.0,
     "mom_list": [],
@@ -2781,16 +2713,16 @@
    },
    {
     "industry": "Telecommunications Equipment",
-    "base": 29,
+    "base": 30,
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -1.4334,
-    "median63": -15.4524,
-    "median21": -8.9321,
-    "pace": -3.7813,
-    "lift_then": 0.2557,
-    "dlift": -0.2557,
+    "z": -1.4482,
+    "median63": -15.1924,
+    "median21": -9.4639,
+    "pace": -4.3997,
+    "lift_then": 0.2546,
+    "dlift": -0.2546,
     "mom_list": [],
     "members": null
    },
@@ -2800,10 +2732,10 @@
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.2662,
-    "median63": -8.4786,
-    "median21": 3.079,
-    "pace": 5.9052,
+    "z": -0.2644,
+    "median63": -7.5984,
+    "median21": 2.9838,
+    "pace": 5.5166,
     "lift_then": 0.0,
     "dlift": 0.0,
     "mom_list": [],
@@ -2815,10 +2747,10 @@
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.2662,
-    "median63": -47.8651,
-    "median21": -29.6722,
-    "pace": -13.7172,
+    "z": -0.2644,
+    "median63": -42.6638,
+    "median21": -28.2744,
+    "pace": -14.0532,
     "lift_then": 0.0,
     "dlift": 0.0,
     "mom_list": [],
@@ -2830,10 +2762,10 @@
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.2662,
-    "median63": 4.1455,
-    "median21": -0.9008,
-    "pace": -2.2826,
+    "z": -0.2644,
+    "median63": 6.5058,
+    "median21": 1.3298,
+    "pace": -0.8388,
     "lift_then": 0.0,
     "dlift": 0.0,
     "mom_list": [],
@@ -2844,31 +2776,31 @@
     "base": 10,
     "mom": 1,
     "share": 10.0,
-    "lift": 1.5115,
-    "z": 0.4305,
-    "median63": -7.4365,
-    "median21": -4.8811,
-    "pace": -2.4023,
-    "lift_then": 2.2246,
-    "dlift": -0.7131,
+    "lift": 1.5304,
+    "z": 0.4435,
+    "median63": -7.4809,
+    "median21": -3.2251,
+    "pace": -0.7314,
+    "lift_then": 1.5275,
+    "dlift": 0.0029,
     "mom_list": [
      [
       "RXO",
-      30.1487
+      31.4491
      ]
     ],
     "members": null
    },
    {
     "industry": "Trucking Freight/Courier Services",
-    "base": 12,
+    "base": 11,
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.922,
-    "median63": -15.1047,
-    "median21": -3.0395,
-    "pace": 1.9954,
+    "z": -0.8769,
+    "median63": -13.4667,
+    "median21": -4.5649,
+    "pace": -0.076,
     "lift_then": 0.0,
     "dlift": 0.0,
     "mom_list": [],
@@ -2876,14 +2808,14 @@
    },
    {
     "industry": "Trusts Except Educational Religious and Charitable",
-    "base": 2,
+    "base": 3,
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.3764,
-    "median63": -8.9852,
-    "median21": -1.9347,
-    "pace": 1.0604,
+    "z": -0.458,
+    "median63": -6.6901,
+    "median21": -0.3759,
+    "pace": 1.8541,
     "lift_then": 0.0,
     "dlift": 0.0,
     "mom_list": [],
@@ -2895,10 +2827,10 @@
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.461,
-    "median63": -38.7127,
-    "median21": -16.7794,
-    "pace": -3.8752,
+    "z": -0.458,
+    "median63": -38.6095,
+    "median21": -19.2853,
+    "pace": -6.4155,
     "lift_then": 0.0,
     "dlift": 0.0,
     "mom_list": [],
@@ -2910,10 +2842,10 @@
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.461,
-    "median63": 9.3898,
-    "median21": 6.1397,
-    "pace": 3.0098,
+    "z": -0.458,
+    "median63": 11.8151,
+    "median21": 8.3203,
+    "pace": 4.382,
     "lift_then": 0.0,
     "dlift": 0.0,
     "mom_list": [],
@@ -2921,14 +2853,14 @@
    },
    {
     "industry": "Wholesale Distributors",
-    "base": 2,
+    "base": 1,
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.3764,
-    "median63": -22.5655,
-    "median21": -9.0663,
-    "pace": -1.5444,
+    "z": -0.2644,
+    "median63": 12.3123,
+    "median21": 22.69,
+    "pace": 18.5859,
     "lift_then": 0.0,
     "dlift": 0.0,
     "mom_list": [],
@@ -2937,61 +2869,56 @@
   ]
  },
  "groups": {
-  "asof": "2026-11-24",
-  "N": 2237,
-  "K": 148,
-  "p": 6.616,
-  "p_then": 13.4857,
+  "asof": "2026-11-25",
+  "N": 2112,
+  "K": 138,
+  "p": 6.5341,
+  "p_then": 13.093,
   "n_groups": 36,
-  "n_ranked": 35,
-  "n_small": 1,
+  "n_ranked": 34,
+  "n_small": 2,
   "unclassified": [
    {
     "industry": "Unclassified",
-    "base": 9,
+    "base": 14,
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.7985,
-    "median63": -23.1421,
-    "median21": -13.0886,
-    "pace": -5.3746,
-    "lift_then": 0.8239,
-    "dlift": -0.8239,
+    "z": -0.9893,
+    "median63": -16.182,
+    "median21": -6.5087,
+    "pace": -1.1147,
+    "lift_then": 0.5455,
+    "dlift": -0.5455,
     "mom_list": [],
     "members": [
      [
       "Unclassified",
-      9
+      14
      ]
     ]
    }
   ],
-  "dlift_pace_corr": 0.4649,
+  "dlift_pace_corr": 0.4731,
   "unmapped": [],
   "rows": [
    {
     "industry": "Aerospace & Defense",
-    "base": 38,
-    "mom": 1,
-    "share": 2.6316,
-    "lift": 0.3978,
-    "z": -0.9882,
-    "median63": -13.5796,
-    "median21": -4.8295,
-    "pace": -0.303,
-    "lift_then": 0.1951,
-    "dlift": 0.2026,
-    "mom_list": [
-     [
-      "ACM",
-      24.113
-     ]
-    ],
+    "base": 34,
+    "mom": 0,
+    "share": 0.0,
+    "lift": 0.0,
+    "z": -1.5417,
+    "median63": -10.1684,
+    "median21": -2.0458,
+    "pace": 1.3437,
+    "lift_then": 0.6739,
+    "dlift": -0.6739,
+    "mom_list": [],
     "members": [
      [
       "Military/Government/Technical",
-      25
+      21
      ],
      [
       "Aerospace",
@@ -3005,54 +2932,54 @@
    },
    {
     "industry": "Apparel & Footwear",
-    "base": 27,
+    "base": 26,
     "mom": 8,
-    "share": 29.6296,
-    "lift": 4.4785,
-    "z": 4.811,
-    "median63": 7.1003,
-    "median21": 4.8774,
-    "pace": 2.5107,
-    "lift_then": 0.2852,
-    "dlift": 4.1933,
+    "share": 30.7692,
+    "lift": 4.709,
+    "z": 5.0005,
+    "median63": 8.4706,
+    "median21": 6.1076,
+    "pace": 3.2841,
+    "lift_then": 0.3055,
+    "dlift": 4.4035,
     "mom_list": [
      [
       "VFC",
-      50.54
-     ],
-     [
-      "REF",
-      43.0556
-     ],
-     [
-      "FIGS",
-      34.5598
+      57.4047
      ],
      [
       "COLM",
-      34.0096
+      42.0654
+     ],
+     [
+      "FIGS",
+      38.2781
      ],
      [
       "CPRI",
-      32.2794
+      36.4947
+     ],
+     [
+      "REF",
+      36.1225
      ],
      [
       "CROX",
-      28.7933
+      31.4241
      ],
      [
       "WWW",
-      27.1144
+      28.2389
      ],
      [
       "PVH",
-      22.5576
+      27.2847
      ]
     ],
     "members": [
      [
       "Apparel",
-      12
+      11
      ],
      [
       "Shoe Manufacturing",
@@ -3070,26 +2997,26 @@
    },
    {
     "industry": "Autos",
-    "base": 47,
+    "base": 41,
     "mom": 1,
-    "share": 2.1277,
-    "lift": 0.3216,
-    "z": -1.2379,
-    "median63": -13.0619,
-    "median21": -0.1139,
-    "pace": 4.2401,
-    "lift_then": 0.3155,
-    "dlift": 0.006,
+    "share": 2.439,
+    "lift": 0.3733,
+    "z": -1.061,
+    "median63": -9.3782,
+    "median21": 0.1036,
+    "pace": 3.2297,
+    "lift_then": 0.3726,
+    "dlift": 0.0007,
     "mom_list": [
      [
       "HOG",
-      21.7235
+      22.8448
      ]
     ],
     "members": [
      [
       "Auto Parts:O.E.M.",
-      19
+      15
      ],
      [
       "Auto Manufacturing",
@@ -3097,11 +3024,7 @@
      ],
      [
       "Retail-Auto Dealers and Gas Stations",
-      7
-     ],
-     [
-      "Auto & Home Supply Stores",
-      3
+      6
      ],
      [
       "Automotive Aftermarket",
@@ -3110,301 +3033,273 @@
      [
       "Motor Vehicles",
       3
+     ],
+     [
+      "Auto & Home Supply Stores",
+      2
      ]
     ]
    },
    {
     "industry": "Banks",
     "base": 104,
-    "mom": 1,
-    "share": 0.9615,
-    "lift": 0.1453,
-    "z": -2.3199,
-    "median63": -8.3046,
-    "median21": -4.5074,
-    "pace": -1.7392,
+    "mom": 2,
+    "share": 1.9231,
+    "lift": 0.2943,
+    "z": -1.9028,
+    "median63": -8.067,
+    "median21": -4.0115,
+    "pace": -1.3225,
     "lift_then": 0.0,
-    "dlift": 0.1453,
+    "dlift": 0.2943,
     "mom_list": [
      [
-      "EGBN",
-      20.0145
+      "HDB",
+      26.2244
+     ],
+     [
+      "IBN",
+      22.2371
      ]
     ],
     "members": [
      [
       "Major Banks",
-      75
+      76
      ],
      [
       "Commercial Banks",
-      19
+      20
      ],
      [
       "Savings Institutions",
-      7
+      6
      ],
      [
       "Banks",
-      3
+      2
      ]
     ]
    },
    {
     "industry": "Biotech – Biologics",
-    "base": 53,
-    "mom": 11,
-    "share": 20.7547,
-    "lift": 3.137,
-    "z": 4.1411,
-    "median63": -11.1592,
-    "median21": 3.6265,
-    "pace": 7.3462,
-    "lift_then": 1.8188,
-    "dlift": 1.3182,
+    "base": 46,
+    "mom": 7,
+    "share": 15.2174,
+    "lift": 2.3289,
+    "z": 2.3831,
+    "median63": -13.3036,
+    "median21": -0.3758,
+    "pace": 4.0587,
+    "lift_then": 2.4905,
+    "dlift": -0.1616,
     "mom_list": [
      [
       "KOD",
-      191.584
+      182.1575
      ],
      [
       "MRNA",
-      51.931
-     ],
-     [
-      "ADMA",
-      44.3406
+      54.6823
      ],
      [
       "VCEL",
-      44.1565
-     ],
-     [
-      "REPL",
-      40.0504
+      48.1544
      ],
      [
       "KYMR",
-      38.5265
+      44.5313
      ],
      [
-      "SRZN",
-      36.3138
-     ],
-     [
-      "BIIB",
-      21.7307
+      "REPL",
+      38.9103
      ],
      [
       "MAZE",
-      20.8587
-     ],
-     [
-      "GILD",
-      20.393
+      26.0839
      ],
      [
       "EXEL",
-      20.2317
+      21.6974
      ]
     ],
     "members": [
      [
       "Biotechnology: Biological Products (No Diagnostic Substances)",
-      53
+      46
      ]
     ]
    },
    {
     "industry": "Biotech – Drugs",
-    "base": 180,
-    "mom": 21,
-    "share": 11.6667,
-    "lift": 1.7634,
-    "z": 2.7262,
-    "median63": -10.5435,
-    "median21": 3.5996,
-    "pace": 7.1141,
-    "lift_then": 0.9528,
-    "dlift": 0.8106,
+    "base": 152,
+    "mom": 18,
+    "share": 11.8421,
+    "lift": 1.8124,
+    "z": 2.6481,
+    "median63": -11.499,
+    "median21": 2.0357,
+    "pace": 5.8687,
+    "lift_then": 1.1128,
+    "dlift": 0.6996,
     "mom_list": [
      [
       "XERS",
-      103.8018
+      101.9767
      ],
      [
       "GMAB",
-      67.6148
-     ],
-     [
-      "SLN",
-      47.8197
+      66.5689
      ],
      [
       "VRDN",
-      47.1558
+      58.7521
      ],
      [
-      "LFCR",
-      37.2043
+      "SLN",
+      48.6989
      ],
      [
       "INSM",
-      36.7875
-     ],
-     [
-      "DMAC",
-      36.1194
-     ],
-     [
-      "AMPH",
-      34.5595
-     ],
-     [
-      "XNCR",
-      34.2475
-     ],
-     [
-      "BHC",
-      32.2581
+      40.2999
      ],
      [
       "HLF",
-      31.5577
+      35.6275
      ],
      [
-      "KNSA",
-      30.5541
+      "BHC",
+      35.2381
      ],
      [
-      "MANE",
-      29.6984
-     ],
-     [
-      "SDGR",
-      28.3513
-     ],
-     [
-      "TGTX",
-      27.4396
-     ],
-     [
-      "RDY",
-      24.1408
+      "XNCR",
+      32.8601
      ],
      [
       "TAK",
-      23.9715
+      27.6206
      ],
      [
-      "AKAN",
-      22.6415
+      "KNSA",
+      26.5476
+     ],
+     [
+      "RDY",
+      26.2336
+     ],
+     [
+      "MANE",
+      23.7992
+     ],
+     [
+      "TGTX",
+      22.7028
+     ],
+     [
+      "IRWD",
+      21.934
      ],
      [
       "REGN",
-      21.1466
+      21.5622
      ],
      [
-      "AMRX",
-      20.3446
+      "SNY",
+      21.2979
      ],
      [
       "MCK",
-      20.2353
+      20.9779
+     ],
+     [
+      "CAH",
+      20.3207
      ]
     ],
     "members": [
      [
       "Biotechnology: Pharmaceutical Preparations",
-      168
+      143
      ],
      [
       "Medicinal Chemicals and Botanical Products",
-      7
+      5
      ],
      [
       "Other Pharmaceuticals",
       4
-     ],
-     [
-      "Pharmaceuticals and Biotechnology",
-      1
      ]
     ]
    },
    {
     "industry": "Business Services",
-    "base": 105,
-    "mom": 10,
-    "share": 9.5238,
-    "lift": 1.4395,
-    "z": 1.1987,
-    "median63": 0.5534,
-    "median21": 1.2716,
-    "pace": 1.0871,
-    "lift_then": 0.565,
-    "dlift": 0.8745,
+    "base": 91,
+    "mom": 9,
+    "share": 9.8901,
+    "lift": 1.5136,
+    "z": 1.2955,
+    "median63": 1.6704,
+    "median21": 3.0665,
+    "pace": 2.5097,
+    "lift_then": 0.5036,
+    "dlift": 1.01,
     "mom_list": [
      [
-      "EDHL",
-      82.1429
-     ],
-     [
       "RSKD",
-      74.8744
+      66.0131
      ],
      [
       "UPBD",
-      38.786
+      41.9907
      ],
      [
       "FCN",
-      36.2888
+      39.6737
      ],
      [
-      "ADT",
-      33.1989
+      "ONT",
+      37.0031
      ],
      [
       "EXPO",
-      29.4285
+      28.967
      ],
      [
-      "ACN",
-      28.0847
+      "FLYW",
+      24.385
      ],
      [
       "STGW",
-      25.0
+      23.9865
+     ],
+     [
+      "PAR",
+      23.0889
      ],
      [
       "RDWR",
-      24.3139
-     ],
-     [
-      "AMTM",
-      20.3299
+      22.489
      ]
     ],
     "members": [
      [
       "Business Services",
-      48
+      45
      ],
      [
       "Diversified Commercial Services",
-      20
+      13
      ],
      [
       "Professional Services",
-      12
-     ],
-     [
-      "Office Equipment/Supplies/Services",
-      7
+      11
      ],
      [
       "Environmental Services",
+      6
+     ],
+     [
+      "Office Equipment/Supplies/Services",
       6
      ],
      [
@@ -3417,7 +3312,7 @@
      ],
      [
       "Rental/Leasing Companies",
-      3
+      1
      ]
     ]
    },
@@ -3427,12 +3322,12 @@
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -2.227,
-    "median63": -12.774,
-    "median21": -0.1176,
-    "pace": 4.1404,
-    "lift_then": 0.2119,
-    "dlift": -0.2119,
+    "z": -2.2122,
+    "median63": -12.7995,
+    "median21": 0.2297,
+    "pace": 4.4962,
+    "lift_then": 0.2182,
+    "dlift": -0.2182,
     "mom_list": [],
     "members": [
      [
@@ -3441,7 +3336,7 @@
      ],
      [
       "Investment Managers",
-      28
+      27
      ],
      [
       "Finance/Investors Services",
@@ -3449,7 +3344,7 @@
      ],
      [
       "Trusts Except Educational Religious and Charitable",
-      2
+      3
      ],
      [
       "Diversified Financial Services",
@@ -3459,21 +3354,26 @@
    },
    {
     "industry": "Chemicals & Materials",
-    "base": 62,
-    "mom": 0,
-    "share": 0.0,
-    "lift": 0.0,
-    "z": -2.0958,
-    "median63": -3.8845,
-    "median21": 0.0913,
-    "pace": 1.3862,
-    "lift_then": 0.2392,
-    "dlift": -0.2392,
-    "mom_list": [],
+    "base": 56,
+    "mom": 1,
+    "share": 1.7857,
+    "lift": 0.2733,
+    "z": -1.4379,
+    "median63": -0.4636,
+    "median21": 1.3393,
+    "pace": 1.4938,
+    "lift_then": 0.2728,
+    "dlift": 0.0005,
+    "mom_list": [
+     [
+      "VVV",
+      22.0069
+     ]
+    ],
     "members": [
      [
       "Major Chemicals",
-      27
+      24
      ],
      [
       "Containers/Packaging",
@@ -3481,7 +3381,7 @@
      ],
      [
       "Plastic Products",
-      6
+      4
      ],
      [
       "Agricultural Chemicals",
@@ -3496,67 +3396,72 @@
       4
      ],
      [
-      "Specialty Chemicals",
+      "Paints/Coatings",
       3
      ],
      [
-      "Paints/Coatings",
-      3
+      "Specialty Chemicals",
+      2
      ]
     ]
    },
    {
     "industry": "Consumer Finance",
-    "base": 46,
-    "mom": 0,
-    "share": 0.0,
-    "lift": 0.0,
-    "z": -1.8053,
-    "median63": -22.0397,
-    "median21": -8.774,
-    "pace": -1.4274,
-    "lift_then": 0.806,
-    "dlift": -0.806,
-    "mom_list": [],
+    "base": 50,
+    "mom": 1,
+    "share": 2.0,
+    "lift": 0.3061,
+    "z": -1.2973,
+    "median63": -20.01,
+    "median21": -9.5502,
+    "pace": -2.8802,
+    "lift_then": 1.3748,
+    "dlift": -1.0687,
+    "mom_list": [
+     [
+      "OPRT",
+      43.4492
+     ]
+    ],
     "members": [
      [
       "Finance: Consumer Services",
-      45
+      47
      ],
      [
       "Finance Companies",
-      1
+      3
      ]
     ]
    },
    {
     "industry": "Consumer Staples",
-    "base": 77,
+    "base": 72,
     "mom": 4,
-    "share": 5.1948,
-    "lift": 0.7852,
-    "z": -0.5017,
-    "median63": -3.6628,
-    "median21": 1.2609,
-    "pace": 2.4818,
-    "lift_then": 0.3903,
-    "dlift": 0.3949,
+    "share": 5.5556,
+    "lift": 0.8502,
+    "z": -0.336,
+    "median63": 0.6208,
+    "median21": 3.7666,
+    "pace": 3.5596,
+    "lift_then": 0.4243,
+    "dlift": 0.4259,
     "mom_list": [
      [
       "FOSL",
-      47.2325
+      53.7175
      ],
      [
       "BRBR",
-      40.0371
+      52.6316
      ],
      [
       "SIG",
-      25.203
+      27.5049
      ],
      [
-      "IPAR",
-      20.4508
+      "PG",
+      21.0214
      ]
     ],
     "members": [
@@ -3566,22 +3471,22 @@
      ],
      [
       "Beverages (Production/Distribution)",
-      15
+      14
      ],
      [
       "Package Goods/Cosmetics",
-      11
+      10
      ],
      [
       "Farming/Seeds/Milling",
-      9
-     ],
-     [
-      "Consumer Specialties",
-      5
+      6
      ],
      [
       "Food Distributors",
+      6
+     ],
+     [
+      "Consumer Specialties",
       5
      ],
      [
@@ -3594,7 +3499,7 @@
      ],
      [
       "Wholesale Distributors",
-      2
+      1
      ],
      [
       "Tobacco",
@@ -3604,36 +3509,32 @@
    },
    {
     "industry": "Diagnostics & Research Tools",
-    "base": 27,
-    "mom": 5,
-    "share": 18.5185,
-    "lift": 2.799,
-    "z": 2.4882,
-    "median63": 1.0415,
-    "median21": -2.963,
-    "pace": -3.3101,
-    "lift_then": 2.7464,
-    "dlift": 0.0526,
+    "base": 25,
+    "mom": 4,
+    "share": 16.0,
+    "lift": 2.4487,
+    "z": 1.9152,
+    "median63": -0.6442,
+    "median21": -6.8207,
+    "pace": -6.606,
+    "lift_then": 2.4441,
+    "dlift": 0.0046,
     "mom_list": [
      [
       "MYGN",
-      82.6923
-     ],
-     [
-      "CTKB",
-      44.2013
+      73.8994
      ],
      [
       "PGNY",
-      38.339
+      40.2552
+     ],
+     [
+      "CTKB",
+      38.5281
      ],
      [
       "IDXX",
-      28.6644
-     ],
-     [
-      "RVTY",
-      21.2268
+      30.157
      ]
     ],
     "members": [
@@ -3643,7 +3544,7 @@
      ],
      [
       "Biotechnology: Laboratory Analytical Instruments",
-      8
+      6
      ],
      [
       "Biotechnology: Commercial Physical & Biological Resarch",
@@ -3657,20 +3558,20 @@
    },
    {
     "industry": "Electrical & Infrastructure",
-    "base": 31,
+    "base": 29,
     "mom": 1,
-    "share": 3.2258,
-    "lift": 0.4876,
-    "z": -0.7594,
-    "median63": -27.2994,
-    "median21": -14.2928,
-    "pace": -5.193,
-    "lift_then": 0.0,
-    "dlift": 0.4876,
+    "share": 3.4483,
+    "lift": 0.5277,
+    "z": -0.6724,
+    "median63": -26.9297,
+    "median21": -18.2478,
+    "pace": -9.2712,
+    "lift_then": 0.2634,
+    "dlift": 0.2644,
     "mom_list": [
      [
       "VLTO",
-      20.6201
+      22.1816
      ]
     ],
     "members": [
@@ -3680,7 +3581,7 @@
      ],
      [
       "Engineering & Construction",
-      8
+      6
      ],
      [
       "Water Sewer Pipeline Comm & Power Line Construction",
@@ -3695,28 +3596,29 @@
    {
     "industry": "Hardware & Networking",
     "base": 58,
-    "mom": 0,
-    "share": 0.0,
-    "lift": 0.0,
-    "z": -2.0271,
-    "median63": -14.0996,
-    "median21": -8.8998,
-    "pace": -4.2,
-    "lift_then": 0.7671,
-    "dlift": -0.7671,
-    "mom_list": [],
+    "mom": 1,
+    "share": 1.7241,
+    "lift": 0.2639,
+    "z": -1.4823,
+    "median63": -15.1924,
+    "median21": -10.614,
+    "pace": -5.5499,
+    "lift_then": 0.9218,
+    "dlift": -0.6579,
+    "mom_list": [
+     [
+      "SITE",
+      21.8848
+     ]
+    ],
     "members": [
      [
       "Telecommunications Equipment",
-      29
+      30
      ],
      [
       "Radio And Television Broadcasting And Communications Equipment",
       8
-     ],
-     [
-      "Computer Manufacturing",
-      6
      ],
      [
       "Computer Communications Equipment",
@@ -3725,6 +3627,10 @@
      [
       "Computer peripheral equipment",
       6
+     ],
+     [
+      "Computer Manufacturing",
+      5
      ],
      [
       "Precision Instruments",
@@ -3738,46 +3644,42 @@
    },
    {
     "industry": "Healthcare Services",
-    "base": 24,
-    "mom": 5,
-    "share": 20.8333,
-    "lift": 3.1489,
-    "z": 2.8021,
-    "median63": 8.907,
-    "median21": 1.8779,
-    "pace": -1.0911,
-    "lift_then": 0.9269,
-    "dlift": 2.222,
+    "base": 22,
+    "mom": 4,
+    "share": 18.1818,
+    "lift": 2.7826,
+    "z": 2.2107,
+    "median63": 7.9379,
+    "median21": 6.5367,
+    "pace": 3.8908,
+    "lift_then": 1.3887,
+    "dlift": 1.3939,
     "mom_list": [
      [
       "SGRY",
-      91.0969
-     ],
-     [
-      "ARDT",
-      39.9822
+      90.5958
      ],
      [
       "GRDN",
-      35.0587
+      39.5928
      ],
      [
       "OPCH",
-      31.406
+      31.9433
      ],
      [
-      "AHCO",
-      29.806
+      "PRVA",
+      23.8734
      ]
     ],
     "members": [
      [
-      "Medical/Nursing Services",
+      "Hospital/Nursing Management",
       11
      ],
      [
-      "Hospital/Nursing Management",
-      11
+      "Medical/Nursing Services",
+      9
      ],
      [
       "Retail-Drug Stores and Proprietary Stores",
@@ -3790,55 +3692,55 @@
     "base": 27,
     "mom": 2,
     "share": 7.4074,
-    "lift": 1.1196,
-    "z": 0.1654,
-    "median63": -6.0915,
-    "median21": -0.5633,
-    "pace": 1.4672,
-    "lift_then": 0.5493,
-    "dlift": 0.5703,
+    "lift": 1.1337,
+    "z": 0.1836,
+    "median63": -2.2152,
+    "median21": 0.713,
+    "pace": 1.4514,
+    "lift_then": 0.5658,
+    "dlift": 0.5679,
     "mom_list": [
      [
       "HELE",
-      22.615
+      26.1411
      ],
      [
       "SN",
-      21.4161
+      20.5538
      ]
     ],
     "members": [
-     [
-      "Home Furnishings",
-      11
-     ],
      [
       "Consumer Electronics/Appliances",
       10
      ],
      [
+      "Home Furnishings",
+      10
+     ],
+     [
       "Recreational Games/Products/Toys",
-      6
+      7
      ]
     ]
    },
    {
     "industry": "Homebuilding & Building Products",
-    "base": 29,
+    "base": 28,
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -1.4334,
-    "median63": -6.1829,
-    "median21": 5.1915,
-    "pace": 7.2525,
+    "z": -1.3991,
+    "median63": -2.5835,
+    "median21": 8.1316,
+    "pace": 8.9927,
     "lift_then": 0.0,
     "dlift": 0.0,
     "mom_list": [],
     "members": [
      [
       "Homebuilding",
-      14
+      13
      ],
      [
       "RETAIL: Building Materials",
@@ -3846,113 +3748,109 @@
      ],
      [
       "Building Materials",
-      5
-     ],
-     [
-      "Building Products",
-      1
+      6
      ]
     ]
    },
    {
     "industry": "IT Services",
-    "base": 54,
-    "mom": 10,
-    "share": 18.5185,
-    "lift": 2.799,
-    "z": 3.5189,
-    "median63": -2.6818,
-    "median21": -8.6292,
-    "pace": -7.7353,
-    "lift_then": 2.0598,
-    "dlift": 0.7392,
+    "base": 53,
+    "mom": 9,
+    "share": 16.9811,
+    "lift": 2.5989,
+    "z": 3.0776,
+    "median63": -5.838,
+    "median21": -6.4595,
+    "pace": -4.5135,
+    "lift_then": 2.1616,
+    "dlift": 0.4372,
     "mom_list": [
      [
       "TLS",
-      77.2522
-     ],
-     [
-      "OSPN",
-      51.9844
+      64.5228
      ],
      [
       "EPAM",
-      47.6591
+      45.9874
      ],
      [
-      "ZS",
-      35.9991
+      "FIRY",
+      42.2964
+     ],
+     [
+      "OSPN",
+      42.1021
      ],
      [
       "DXC",
-      35.6398
-     ],
-     [
-      "GLOB",
-      29.0281
+      36.0
      ],
      [
       "LFTO",
-      24.7831
+      27.6973
      ],
      [
       "KD",
-      23.4227
+      24.9811
      ],
      [
-      "HNGE",
-      20.4751
+      "GLOB",
+      24.944
      ],
      [
-      "DOCS",
-      20.1698
+      "ZS",
+      23.2568
      ]
     ],
     "members": [
      [
       "EDP Services",
-      54
+      53
      ]
     ]
    },
    {
     "industry": "Industrial Machinery",
-    "base": 142,
-    "mom": 5,
-    "share": 3.5211,
-    "lift": 0.5322,
-    "z": -1.4837,
-    "median63": -9.5228,
-    "median21": -4.6964,
-    "pace": -1.5222,
-    "lift_then": 0.6266,
-    "dlift": -0.0944,
+    "base": 136,
+    "mom": 6,
+    "share": 4.4118,
+    "lift": 0.6752,
+    "z": -1.0015,
+    "median63": -8.1991,
+    "median21": -2.9394,
+    "pace": -0.2064,
+    "lift_then": 0.7921,
+    "dlift": -0.1169,
     "mom_list": [
      [
       "CRCT",
-      50.6024
+      54.9296
+     ],
+     [
+      "CHPT",
+      50.4288
      ],
      [
       "AZTA",
-      41.6145
+      39.1848
      ],
      [
       "VNT",
-      31.8195
+      37.4094
      ],
      [
       "ENR",
-      27.3555
+      26.2777
      ],
      [
       "BMI",
-      20.7656
+      22.3598
      ]
     ],
     "members": [
      [
       "Industrial Machinery/Components",
-      90
+      85
      ],
      [
       "Metal Fabrications",
@@ -3960,11 +3858,11 @@
      ],
      [
       "Industrial Specialties",
-      16
+      15
      ],
      [
       "Construction/Ag Equipment/Trucks",
-      5
+      7
      ],
      [
       "Fluid Controls",
@@ -3972,10 +3870,6 @@
      ],
      [
       "Miscellaneous manufacturing industries",
-      3
-     ],
-     [
-      "Multi-Sector Companies",
       2
      ],
      [
@@ -3987,6 +3881,10 @@
       1
      ],
      [
+      "Multi-Sector Companies",
+      1
+     ],
+     [
       "Tools/Hardware",
       1
      ]
@@ -3994,58 +3892,59 @@
    },
    {
     "industry": "Insurance",
-    "base": 68,
-    "mom": 2,
-    "share": 2.9412,
-    "lift": 0.4446,
-    "z": -1.2192,
-    "median63": 1.8686,
-    "median21": 3.2889,
-    "pace": 2.666,
-    "lift_then": 0.4362,
-    "dlift": 0.0084,
+    "base": 60,
+    "mom": 1,
+    "share": 1.6667,
+    "lift": 0.2551,
+    "z": -1.5257,
+    "median63": 1.8058,
+    "median21": 2.7995,
+    "pace": 2.1976,
+    "lift_then": 0.3819,
+    "dlift": -0.1268,
     "mom_list": [
      [
-      "PLMR",
-      27.1962
-     ],
-     [
       "HGTY",
-      22.5131
+      24.4745
      ]
     ],
     "members": [
      [
       "Property-Casualty Insurers",
-      33
-     ],
-     [
-      "Life Insurance",
-      16
+      29
      ],
      [
       "Specialty Insurers",
-      15
+      14
+     ],
+     [
+      "Life Insurance",
+      14
      ],
      [
       "Accident &Health Insurance",
-      4
+      3
      ]
     ]
    },
    {
     "industry": "Media",
-    "base": 30,
-    "mom": 0,
-    "share": 0.0,
-    "lift": 0.0,
-    "z": -1.4579,
-    "median63": 0.1332,
-    "median21": 10.3394,
-    "pace": 10.295,
-    "lift_then": 0.2472,
-    "dlift": -0.2472,
-    "mom_list": [],
+    "base": 28,
+    "mom": 1,
+    "share": 3.5714,
+    "lift": 0.5466,
+    "z": -0.6344,
+    "median63": -0.6458,
+    "median21": 12.1312,
+    "pace": 12.3465,
+    "lift_then": 0.2728,
+    "dlift": 0.2738,
+    "mom_list": [
+     [
+      "GTN",
+      23.382
+     ]
+    ],
     "members": [
      [
       "Broadcasting",
@@ -4053,7 +3952,7 @@
      ],
      [
       "Cable & Other Pay Television Services",
-      8
+      6
      ],
      [
       "Newspapers/Magazines",
@@ -4071,78 +3970,74 @@
    },
    {
     "industry": "Medical Devices",
-    "base": 86,
-    "mom": 11,
-    "share": 12.7907,
-    "lift": 1.9333,
-    "z": 2.3037,
-    "median63": -1.6831,
-    "median21": 1.9663,
-    "pace": 2.5273,
-    "lift_then": 2.1556,
-    "dlift": -0.2223,
+    "base": 82,
+    "mom": 10,
+    "share": 12.1951,
+    "lift": 1.8664,
+    "z": 2.0744,
+    "median63": -1.3839,
+    "median21": 0.1706,
+    "pace": 0.6319,
+    "lift_then": 2.1423,
+    "dlift": -0.2759,
     "mom_list": [
      [
       "EMBC",
-      62.9032
+      59.3561
      ],
      [
       "RCEL",
-      58.1681
+      53.4884
      ],
      [
       "CDNA",
-      52.7276
+      44.8816
      ],
      [
       "GKOS",
-      42.316
-     ],
-     [
-      "SGHT",
-      34.6476
-     ],
-     [
-      "GRAL",
-      32.4915
+      42.8728
      ],
      [
       "SIBN",
-      28.2038
+      29.1146
+     ],
+     [
+      "GRAL",
+      26.0364
      ],
      [
       "CBLL",
-      27.6759
+      25.9735
      ],
      [
       "CON",
-      23.7482
+      24.0922
      ],
      [
-      "DCTH",
-      20.8537
+      "TRUP",
+      23.0017
      ],
      [
       "TFX",
-      20.3402
+      22.1988
      ]
     ],
     "members": [
      [
       "Medical/Dental Instruments",
-      42
+      41
      ],
      [
       "Medical Specialities",
-      28
-     ],
-     [
-      "Ophthalmic Goods",
-      7
+      26
      ],
      [
       "Biotechnology: Electromedical & Electrotherapeutic Apparatus",
-      6
+      7
+     ],
+     [
+      "Ophthalmic Goods",
+      5
      ],
      [
       "Medical Electronics",
@@ -4156,17 +4051,17 @@
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -1.7656,
-    "median63": -32.9699,
-    "median21": -13.6029,
-    "pace": -2.6129,
-    "lift_then": 0.3371,
-    "dlift": -0.3371,
+    "z": -1.7538,
+    "median63": -29.0992,
+    "median21": -17.187,
+    "pace": -7.4872,
+    "lift_then": 0.5208,
+    "dlift": -0.5208,
     "mom_list": [],
     "members": [
      [
       "Metal Mining",
-      12
+      13
      ],
      [
       "Steel/Iron Ore",
@@ -4174,7 +4069,7 @@
      ],
      [
       "Mining & Quarrying of Nonmetallic Minerals (No Fuels)",
-      10
+      11
      ],
      [
       "Coal Mining",
@@ -4182,36 +4077,44 @@
      ],
      [
       "Other Metals and Minerals",
-      4
+      3
      ],
      [
       "Aluminum",
-      2
+      1
      ]
     ]
    },
    {
     "industry": "Oil & Gas",
     "base": 80,
-    "mom": 1,
-    "share": 1.25,
-    "lift": 0.1889,
-    "z": -1.9309,
-    "median63": -11.3519,
-    "median21": -15.5691,
-    "pace": -11.7851,
-    "lift_then": 3.8003,
-    "dlift": -3.6114,
+    "mom": 3,
+    "share": 3.75,
+    "lift": 0.5739,
+    "z": -1.0076,
+    "median63": -10.2525,
+    "median21": -14.3215,
+    "pace": -10.904,
+    "lift_then": 1.9094,
+    "dlift": -1.3355,
     "mom_list": [
      [
+      "ZYN",
+      40.2778
+     ],
+     [
       "GFR",
-      25.6536
+      26.0163
+     ],
+     [
+      "RRC",
+      21.5898
      ]
     ],
     "members": [
      [
       "Oil & Gas Production",
-      56
+      55
      ],
      [
       "Integrated oil Companies",
@@ -4223,51 +4126,51 @@
      ],
      [
       "Oil Refining/Marketing",
-      1
+      2
      ]
     ]
    },
    {
     "industry": "Oil Services",
-    "base": 21,
+    "base": 19,
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -1.2198,
-    "median63": -19.3293,
-    "median21": -16.8158,
-    "pace": -10.3727,
-    "lift_then": 1.0593,
-    "dlift": -1.0593,
+    "z": -1.1525,
+    "median63": -20.0673,
+    "median21": -16.8955,
+    "pace": -10.2064,
+    "lift_then": 1.6079,
+    "dlift": -1.6079,
     "mom_list": [],
     "members": [
      [
       "Oilfield Services/Equipment",
-      12
+      11
      ],
      [
       "Oil and Gas Field Machinery",
-      9
+      8
      ]
     ]
    },
    {
     "industry": "Other",
-    "base": 4,
+    "base": 5,
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.5323,
-    "median63": -0.0065,
-    "median21": 0.7431,
-    "pace": 0.7453,
+    "z": -0.5912,
+    "median63": 0.502,
+    "median21": 0.502,
+    "pace": 0.3347,
     "lift_then": 0.0,
     "dlift": 0.0,
     "mom_list": [],
     "members": [
      [
       "Blank Checks",
-      3
+      4
      ],
      [
       "Miscellaneous",
@@ -4277,50 +4180,58 @@
    },
    {
     "industry": "Precious Metals",
-    "base": 36,
+    "base": 35,
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -1.597,
-    "median63": -39.2585,
-    "median21": -16.0948,
-    "pace": -3.0087,
-    "lift_then": 0.8239,
-    "dlift": -0.8239,
+    "z": -1.5642,
+    "median63": -38.1733,
+    "median21": -17.3036,
+    "pace": -4.5792,
+    "lift_then": 1.0911,
+    "dlift": -1.0911,
     "mom_list": [],
     "members": [
      [
       "Precious Metals",
-      36
+      35
      ]
     ]
    },
    {
     "industry": "Real Estate",
-    "base": 129,
-    "mom": 1,
-    "share": 0.7752,
-    "lift": 0.1172,
-    "z": -2.6689,
-    "median63": -5.607,
-    "median21": 1.5457,
-    "pace": 3.4147,
+    "base": 128,
+    "mom": 3,
+    "share": 2.3438,
+    "lift": 0.3587,
+    "z": -1.9184,
+    "median63": -2.6206,
+    "median21": 2.6003,
+    "pace": 3.4738,
     "lift_then": 0.0,
-    "dlift": 0.1172,
+    "dlift": 0.3587,
     "mom_list": [
      [
       "INN",
-      22.5376
+      22.1658
+     ],
+     [
+      "HHH",
+      21.0875
+     ],
+     [
+      "SMA",
+      20.7547
      ]
     ],
     "members": [
      [
       "Real Estate Investment Trusts",
-      109
+      104
      ],
      [
       "Real Estate",
-      17
+      21
      ],
      [
       "Building operators",
@@ -4330,107 +4241,107 @@
    },
    {
     "industry": "Restaurants",
-    "base": 32,
+    "base": 30,
     "mom": 4,
-    "share": 12.5,
-    "lift": 1.8894,
-    "z": 1.3391,
-    "median63": -3.2322,
-    "median21": 8.8085,
-    "pace": 9.8859,
-    "lift_then": 0.7176,
-    "dlift": 1.1718,
+    "share": 13.3333,
+    "lift": 2.0406,
+    "z": 1.507,
+    "median63": 0.0285,
+    "median21": 10.7356,
+    "pace": 10.7261,
+    "lift_then": 0.5267,
+    "dlift": 1.5138,
     "mom_list": [
      [
       "SG",
-      76.4964
-     ],
-     [
-      "WING",
-      37.9277
+      69.2194
      ],
      [
       "PTLO",
-      30.9474
+      37.7232
      ],
      [
       "CBRL",
-      28.3982
+      36.8259
+     ],
+     [
+      "WING",
+      35.3524
      ]
     ],
     "members": [
      [
       "Restaurants",
-      32
+      30
      ]
     ]
    },
    {
     "industry": "Retail",
-    "base": 59,
+    "base": 50,
     "mom": 8,
-    "share": 13.5593,
-    "lift": 2.0495,
-    "z": 2.1457,
-    "median63": 3.1706,
-    "median21": 1.2847,
-    "pace": 0.2278,
-    "lift_then": 1.5082,
-    "dlift": 0.5413,
+    "share": 16.0,
+    "lift": 2.4487,
+    "z": 2.7085,
+    "median63": 0.4892,
+    "median21": 2.4775,
+    "pace": 2.3144,
+    "lift_then": 1.222,
+    "dlift": 1.2267,
     "mom_list": [
      [
-      "ASO",
-      65.8783
-     ],
-     [
-      "ARHS",
-      44.7427
-     ],
-     [
-      "LUXE",
-      43.0573
-     ],
-     [
       "KSS",
-      41.1929
+      47.1074
      ],
      [
       "TBBB",
-      31.5368
-     ],
-     [
-      "AEO",
-      29.5623
+      34.6612
      ],
      [
       "OLLI",
-      27.0096
+      30.4852
      ],
      [
       "WMT",
-      26.8066
+      28.5589
+     ],
+     [
+      "BBY",
+      22.7621
+     ],
+     [
+      "KR",
+      22.6594
+     ],
+     [
+      "BOBS",
+      21.1606
+     ],
+     [
+      "DKS",
+      20.3536
      ]
     ],
     "members": [
      [
       "Other Specialty Stores",
-      15
+      12
      ],
      [
       "Department/Specialty Retail Stores",
       12
      ],
      [
-      "Clothing/Shoe/Accessory Stores",
-      11
+      "Catalog/Specialty Distribution",
+      10
      ],
      [
-      "Catalog/Specialty Distribution",
-      11
+      "Clothing/Shoe/Accessory Stores",
+      8
      ],
      [
       "Food Chains",
-      6
+      4
      ],
      [
       "Consumer Electronics/Video Chains",
@@ -4444,38 +4355,34 @@
    },
    {
     "industry": "Semiconductors",
-    "base": 81,
-    "mom": 4,
-    "share": 4.9383,
-    "lift": 0.7464,
-    "z": -0.6075,
-    "median63": -27.555,
-    "median21": -20.2994,
-    "pace": -11.1144,
-    "lift_then": 0.6408,
-    "dlift": 0.1056,
+    "base": 74,
+    "mom": 3,
+    "share": 4.0541,
+    "lift": 0.6204,
+    "z": -0.8633,
+    "median63": -29.507,
+    "median21": -22.5174,
+    "pace": -12.6818,
+    "lift_then": 1.3418,
+    "dlift": -0.7213,
     "mom_list": [
      [
       "GME",
-      52.9215
+      47.7808
      ],
      [
       "TGLS",
-      35.9138
-     ],
-     [
-      "SYNA",
-      22.0167
+      42.1588
      ],
      [
       "SWKS",
-      21.51
+      21.7488
      ]
     ],
     "members": [
      [
       "Semiconductors",
-      66
+      59
      ],
      [
       "Electronic Components",
@@ -4489,159 +4396,139 @@
    },
    {
     "industry": "Shipping",
-    "base": 34,
+    "base": 32,
     "mom": 1,
-    "share": 2.9412,
-    "lift": 0.4446,
-    "z": -0.8621,
-    "median63": -0.9172,
-    "median21": -9.3813,
-    "pace": -9.0756,
-    "lift_then": 2.6172,
-    "dlift": -2.1726,
+    "share": 3.125,
+    "lift": 0.4783,
+    "z": -0.7804,
+    "median63": -4.2489,
+    "median21": -8.0208,
+    "pace": -6.6045,
+    "lift_then": 1.9094,
+    "dlift": -1.4312,
     "mom_list": [
      [
       "ECO",
-      28.7893
+      22.9876
      ]
     ],
     "members": [
      [
       "Marine Transportation",
-      34
+      32
      ]
     ]
    },
    {
     "industry": "Software",
-    "base": 152,
-    "mom": 28,
-    "share": 18.4211,
-    "lift": 2.7843,
-    "z": 5.8554,
-    "median63": -0.0055,
-    "median21": -8.5919,
-    "pace": -8.5901,
-    "lift_then": 3.5125,
-    "dlift": -0.7282,
+    "base": 145,
+    "mom": 23,
+    "share": 15.8621,
+    "lift": 2.4276,
+    "z": 4.5452,
+    "median63": -3.7478,
+    "median21": -6.0819,
+    "pace": -4.8326,
+    "lift_then": 3.3711,
+    "dlift": -0.9435,
     "mom_list": [
      [
       "BMBL",
-      117.4545
-     ],
-     [
-      "NTSK",
-      83.4052
+      120.6642
      ],
      [
       "GDYN",
-      79.7928
+      78.9607
+     ],
+     [
+      "NTSK",
+      74.8677
      ],
      [
       "VIA",
-      67.5842
-     ],
-     [
-      "BRZE",
-      50.7303
-     ],
-     [
-      "OKTA",
-      47.3888
-     ],
-     [
-      "APPN",
-      42.5228
+      65.2866
      ],
      [
       "RBLX",
-      42.4121
-     ],
-     [
-      "BOX",
-      37.5262
+      45.8191
      ],
      [
       "ZIP",
-      36.6589
+      42.1911
      ],
      [
-      "VERX",
-      36.5782
+      "BRZE",
+      36.1396
      ],
      [
-      "DOCU",
-      34.9065
+      "BOX",
+      33.4773
      ],
      [
-      "TENB",
-      34.3731
-     ],
-     [
-      "CERT",
-      32.8467
-     ],
-     [
-      "RPD",
-      32.3155
-     ],
-     [
-      "TDC",
-      31.966
+      "APPN",
+      33.0435
      ],
      [
       "NABL",
-      31.8421
+      32.6582
      ],
      [
-      "AMPL",
-      31.0185
+      "VERX",
+      32.5175
      ],
      [
-      "KVYO",
-      30.5228
+      "TDC",
+      31.0683
      ],
      [
-      "PTC",
-      29.2791
+      "CERT",
+      28.2996
      ],
      [
-      "AVPT",
-      29.2203
+      "DOCU",
+      26.5674
      ],
      [
       "BILL",
-      27.7281
+      25.9464
+     ],
+     [
+      "PTC",
+      23.3092
+     ],
+     [
+      "YOU",
+      23.2268
      ],
      [
       "PRCH",
-      27.5782
-     ],
-     [
-      "PD",
-      25.0205
-     ],
-     [
-      "APP",
-      23.6928
+      23.2225
      ],
      [
       "CHKP",
-      23.4715
+      22.9228
      ],
      [
-      "PCOR",
-      22.4061
+      "TENB",
+      21.4779
      ],
      [
-      "SAIL",
-      20.6367
+      "APP",
+      21.2136
+     ],
+     [
+      "KVYO",
+      21.0607
+     ],
+     [
+      "AVPT",
+      20.979
      ]
     ],
     "members": [
      [
       "Computer Software: Prepackaged Software",
-      113
+      106
      ],
      [
       "Computer Software: Programming Data Processing",
@@ -4655,41 +4542,41 @@
    },
    {
     "industry": "Transport & Logistics",
-    "base": 48,
+    "base": 44,
     "mom": 3,
-    "share": 6.25,
-    "lift": 0.9447,
-    "z": -0.102,
-    "median63": -7.8129,
-    "median21": 0.8249,
-    "pace": 3.4292,
-    "lift_then": 0.4635,
-    "dlift": 0.4812,
+    "share": 6.8182,
+    "lift": 1.0435,
+    "z": 0.0763,
+    "median63": -6.4788,
+    "median21": 0.1975,
+    "pace": 2.3571,
+    "lift_then": 0.3472,
+    "dlift": 0.6963,
     "mom_list": [
      [
       "ULCC",
-      37.1859
+      33.3333
      ],
      [
       "RXO",
-      30.1487
+      31.4491
      ],
      [
       "VLRS",
-      21.03
+      22.4964
      ]
     ],
     "members": [
      [
-      "Air Freight/Delivery Services",
-      13
-     ],
-     [
       "Trucking Freight/Courier Services",
-      12
+      11
      ],
      [
       "Transportation Services",
+      10
+     ],
+     [
+      "Air Freight/Delivery Services",
       10
      ],
      [
@@ -4704,16 +4591,16 @@
    },
    {
     "industry": "Travel & Leisure",
-    "base": 56,
+    "base": 58,
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -1.9918,
-    "median63": -7.3573,
-    "median21": 4.4869,
-    "pace": 6.9393,
-    "lift_then": 0.1324,
-    "dlift": -0.1324,
+    "z": -2.0136,
+    "median63": -3.3829,
+    "median21": 5.7065,
+    "pace": 6.8341,
+    "lift_then": 0.1317,
+    "dlift": -0.1317,
     "mom_list": [],
     "members": [
      [
@@ -4722,7 +4609,7 @@
      ],
      [
       "Services-Misc. Amusement & Recreation",
-      17
+      19
      ],
      [
       "Other Consumer Services",
@@ -4732,29 +4619,29 @@
    },
    {
     "industry": "Utilities & Power",
-    "base": 67,
+    "base": 64,
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -2.1787,
-    "median63": 0.4275,
-    "median21": 0.7353,
-    "pace": 0.5928,
-    "lift_then": 0.1107,
-    "dlift": -0.1107,
+    "z": -2.1152,
+    "median63": 1.071,
+    "median21": 0.5145,
+    "pace": 0.1575,
+    "lift_then": 0.1193,
+    "dlift": -0.1193,
     "mom_list": [],
     "members": [
      [
       "Electric Utilities: Central",
-      35
+      34
      ],
      [
       "Natural Gas Distribution",
-      16
+      15
      ],
      [
       "Power Generation",
-      13
+      12
      ],
      [
       "Water Supply",
@@ -4765,148 +4652,135 @@
   ]
  },
  "themes": {
-  "asof": "2026-11-24",
-  "then": "2026-11-17",
+  "asof": "2026-11-25",
+  "then": "2026-11-18",
   "etf_rows": [
-   {
-    "etf": "XLP",
-    "group": "SECTOR",
-    "ex5": 2.3242,
-    "ex21": 10.5438,
-    "ex63": 13.1446,
-    "above50": true,
-    "score": 95.5696,
-    "rank": 1,
-    "status": "領先",
-    "rank_then": 3,
-    "status_then": "領先"
-   },
    {
     "etf": "KBWP",
     "group": "FINANCIAL",
-    "ex5": 3.1421,
-    "ex21": 11.6534,
-    "ex63": 12.7009,
+    "ex5": 5.1548,
+    "ex21": 15.2149,
+    "ex63": 16.4439,
     "above50": true,
-    "score": 95.5696,
+    "score": 99.3671,
     "rank": 1,
     "status": "領先",
     "rank_then": 1,
     "status_then": "領先"
    },
    {
+    "etf": "XLP",
+    "group": "SECTOR",
+    "ex5": 3.0772,
+    "ex21": 12.7903,
+    "ex63": 16.0237,
+    "above50": true,
+    "score": 97.4684,
+    "rank": 2,
+    "status": "領先",
+    "rank_then": 2,
+    "status_then": "領先"
+   },
+   {
     "etf": "IHI",
     "group": "CONSUMER HEALTH",
-    "ex5": 2.8134,
-    "ex21": 10.5204,
-    "ex63": 9.8769,
+    "ex5": 3.4835,
+    "ex21": 12.9143,
+    "ex63": 12.8483,
     "above50": true,
-    "score": 93.038,
+    "score": 96.2025,
     "rank": 3,
     "status": "領先",
     "rank_then": 3,
     "status_then": "領先"
    },
    {
-    "etf": "IBB",
-    "group": "CONSUMER HEALTH",
-    "ex5": 7.9142,
-    "ex21": 11.2624,
-    "ex63": 7.9261,
+    "etf": "ITB",
+    "group": "INDUSTRIAL",
+    "ex5": 7.9787,
+    "ex21": 15.7243,
+    "ex63": 10.5262,
     "above50": true,
-    "score": 93.038,
-    "rank": 3,
+    "score": 95.5696,
+    "rank": 4,
     "status": "領先",
-    "rank_then": 23,
-    "status_then": "其他"
-   },
-   {
-    "etf": "XLV",
-    "group": "SECTOR",
-    "ex5": 1.5843,
-    "ex21": 9.1216,
-    "ex63": 12.791,
-    "above50": true,
-    "score": 91.7722,
-    "rank": 5,
-    "status": "領先",
-    "rank_then": 2,
+    "rank_then": 12,
     "status_then": "領先"
    },
    {
     "etf": "KIE",
     "group": "FINANCIAL",
-    "ex5": 2.2951,
-    "ex21": 9.8156,
-    "ex63": 8.2101,
+    "ex5": 3.8877,
+    "ex21": 12.6446,
+    "ex63": 10.9196,
     "above50": true,
-    "score": 91.1392,
-    "rank": 6,
-    "status": "領先",
-    "rank_then": 5,
-    "status_then": "領先"
-   },
-   {
-    "etf": "ITB",
-    "group": "INDUSTRIAL",
-    "ex5": 6.0403,
-    "ex21": 12.4186,
-    "ex63": 4.9721,
-    "above50": true,
-    "score": 91.1392,
-    "rank": 6,
-    "status": "領先",
-    "rank_then": 13,
-    "status_then": "其他"
-   },
-   {
-    "etf": "XRT",
-    "group": "CONSUMER HEALTH",
-    "ex5": 3.462,
-    "ex21": 8.6953,
-    "ex63": 7.8223,
-    "above50": true,
-    "score": 86.7089,
-    "rank": 8,
-    "status": "領先",
-    "rank_then": 11,
-    "status_then": "領先"
-   },
-   {
-    "etf": "XLY",
-    "group": "SECTOR",
-    "ex5": 2.3945,
-    "ex21": 9.1154,
-    "ex63": 6.6406,
-    "above50": true,
-    "score": 86.0759,
-    "rank": 9,
+    "score": 94.3038,
+    "rank": 5,
     "status": "領先",
     "rank_then": 10,
     "status_then": "領先"
    },
    {
-    "etf": "JETS",
-    "group": "CONSUMER HEALTH",
-    "ex5": 1.9708,
-    "ex21": 13.4652,
-    "ex63": 1.3042,
+    "etf": "XLV",
+    "group": "SECTOR",
+    "ex5": 3.2342,
+    "ex21": 9.3924,
+    "ex63": 14.2859,
     "above50": true,
-    "score": 85.443,
-    "rank": 10,
+    "score": 90.5063,
+    "rank": 6,
     "status": "領先",
-    "rank_then": 9,
-    "status_then": "其他"
+    "rank_then": 11,
+    "status_then": "領先"
+   },
+   {
+    "etf": "XRT",
+    "group": "CONSUMER HEALTH",
+    "ex5": 1.1401,
+    "ex21": 9.5725,
+    "ex63": 10.5883,
+    "above50": true,
+    "score": 89.2405,
+    "rank": 7,
+    "status": "領先",
+    "rank_then": 5,
+    "status_then": "領先"
+   },
+   {
+    "etf": "XHB",
+    "group": "INDUSTRIAL",
+    "ex5": 4.7471,
+    "ex21": 11.4292,
+    "ex63": 6.5654,
+    "above50": true,
+    "score": 88.6076,
+    "rank": 8,
+    "status": "領先",
+    "rank_then": 16,
+    "status_then": "冒起"
+   },
+   {
+    "etf": "IBB",
+    "group": "CONSUMER HEALTH",
+    "ex5": 8.1149,
+    "ex21": 9.7368,
+    "ex63": 8.4403,
+    "above50": true,
+    "score": 87.9747,
+    "rank": 9,
+    "status": "領先",
+    "rank_then": 24,
+    "status_then": "領先"
    },
    {
     "etf": "XLU",
     "group": "SECTOR",
-    "ex5": 1.8189,
-    "ex21": 8.0849,
-    "ex63": 6.4219,
+    "ex5": 1.9866,
+    "ex21": 8.6546,
+    "ex63": 8.5625,
     "above50": true,
-    "score": 83.5443,
-    "rank": 11,
+    "score": 86.7089,
+    "rank": 10,
     "status": "領先",
     "rank_then": 6,
     "status_then": "領先"
@@ -4914,454 +4788,493 @@
    {
     "etf": "PEJ",
     "group": "CONSUMER HEALTH",
-    "ex5": 2.6298,
-    "ex21": 9.0131,
-    "ex63": 4.6656,
+    "ex5": 1.2594,
+    "ex21": 10.0934,
+    "ex63": 7.828,
     "above50": true,
-    "score": 82.2785,
-    "rank": 12,
-    "status": "領先",
-    "rank_then": 13,
-    "status_then": "領先"
-   },
-   {
-    "etf": "XHB",
-    "group": "INDUSTRIAL",
-    "ex5": 4.0751,
-    "ex21": 9.4869,
-    "ex63": 2.0228,
-    "above50": true,
-    "score": 80.3797,
-    "rank": 13,
-    "status": "領先",
-    "rank_then": 18,
-    "status_then": "其他"
-   },
-   {
-    "etf": "XHE",
-    "group": "CONSUMER HEALTH",
-    "ex5": 3.8039,
-    "ex21": 7.183,
-    "ex63": 4.2182,
-    "above50": true,
-    "score": 79.1139,
-    "rank": 14,
-    "status": "領先",
-    "rank_then": 20,
-    "status_then": "其他"
-   },
-   {
-    "etf": "BUG",
-    "group": "TECH",
-    "ex5": 10.7015,
-    "ex21": -2.4114,
-    "ex63": 23.6251,
-    "above50": true,
-    "score": 78.481,
-    "rank": 15,
-    "status": "轉弱",
-    "rank_then": 16,
-    "status_then": "領先"
-   },
-   {
-    "etf": "XBI",
-    "group": "CONSUMER HEALTH",
-    "ex5": 9.8083,
-    "ex21": 10.3074,
-    "ex63": -0.9297,
-    "above50": true,
-    "score": 77.8481,
-    "rank": 16,
-    "status": "冒起",
-    "rank_then": 39,
-    "status_then": "其他"
-   },
-   {
-    "etf": "XPH",
-    "group": "CONSUMER HEALTH",
-    "ex5": 6.0888,
-    "ex21": 12.3989,
-    "ex63": -2.1593,
-    "above50": true,
-    "score": 77.8481,
-    "rank": 16,
-    "status": "冒起",
-    "rank_then": 29,
-    "status_then": "其他"
-   },
-   {
-    "etf": "XLRE",
-    "group": "SECTOR",
-    "ex5": 1.5668,
-    "ex21": 7.6293,
-    "ex63": 3.1376,
-    "above50": true,
-    "score": 77.8481,
-    "rank": 16,
-    "status": "領先",
-    "rank_then": 8,
-    "status_then": "領先"
-   },
-   {
-    "etf": "HACK",
-    "group": "TECH",
-    "ex5": 7.8011,
-    "ex21": -3.0597,
-    "ex63": 14.8638,
-    "above50": false,
-    "score": 75.3165,
-    "rank": 19,
-    "status": "轉弱",
-    "rank_then": 21,
-    "status_then": "轉弱"
-   },
-   {
-    "etf": "XLF",
-    "group": "SECTOR",
-    "ex5": 0.1829,
-    "ex21": 6.2479,
-    "ex63": 2.5918,
-    "above50": true,
-    "score": 74.6835,
-    "rank": 20,
-    "status": "領先",
-    "rank_then": 7,
-    "status_then": "領先"
-   },
-   {
-    "etf": "IYG",
-    "group": "FINANCIAL",
-    "ex5": -0.1941,
-    "ex21": 5.1897,
-    "ex63": 0.9093,
-    "above50": false,
-    "score": 71.519,
-    "rank": 21,
+    "score": 86.7089,
+    "rank": 10,
     "status": "領先",
     "rank_then": 12,
     "status_then": "領先"
    },
    {
+    "etf": "XLRE",
+    "group": "SECTOR",
+    "ex5": 2.399,
+    "ex21": 10.2269,
+    "ex63": 5.8594,
+    "above50": true,
+    "score": 85.443,
+    "rank": 12,
+    "status": "領先",
+    "rank_then": 15,
+    "status_then": "領先"
+   },
+   {
+    "etf": "XLY",
+    "group": "SECTOR",
+    "ex5": 0.4142,
+    "ex21": 8.648,
+    "ex63": 8.4367,
+    "above50": true,
+    "score": 84.8101,
+    "rank": 13,
+    "status": "領先",
+    "rank_then": 9,
+    "status_then": "領先"
+   },
+   {
+    "etf": "JETS",
+    "group": "CONSUMER HEALTH",
+    "ex5": -0.0689,
+    "ex21": 10.989,
+    "ex63": 2.6673,
+    "above50": true,
+    "score": 82.2785,
+    "rank": 14,
+    "status": "領先",
+    "rank_then": 7,
+    "status_then": "領先"
+   },
+   {
+    "etf": "XHE",
+    "group": "CONSUMER HEALTH",
+    "ex5": 3.4968,
+    "ex21": 8.082,
+    "ex63": 6.0669,
+    "above50": true,
+    "score": 81.0127,
+    "rank": 15,
+    "status": "領先",
+    "rank_then": 18,
+    "status_then": "領先"
+   },
+   {
+    "etf": "XLF",
+    "group": "SECTOR",
+    "ex5": 2.0083,
+    "ex21": 8.0084,
+    "ex63": 4.8026,
+    "above50": true,
+    "score": 77.8481,
+    "rank": 16,
+    "status": "領先",
+    "rank_then": 14,
+    "status_then": "領先"
+   },
+   {
     "etf": "XLC",
     "group": "SECTOR",
-    "ex5": 1.0955,
-    "ex21": 6.665,
-    "ex63": -0.9993,
+    "ex5": 1.6594,
+    "ex21": 8.6187,
+    "ex63": 1.7233,
     "above50": false,
-    "score": 70.2532,
-    "rank": 22,
-    "status": "冒起",
-    "rank_then": 30,
+    "score": 75.9494,
+    "rank": 17,
+    "status": "領先",
+    "rank_then": 32,
     "status_then": "冒起"
+   },
+   {
+    "etf": "BUG",
+    "group": "TECH",
+    "ex5": 4.1254,
+    "ex21": -2.1544,
+    "ex63": 14.7081,
+    "above50": true,
+    "score": 75.9494,
+    "rank": 17,
+    "status": "轉弱",
+    "rank_then": 4,
+    "status_then": "領先"
+   },
+   {
+    "etf": "XPH",
+    "group": "CONSUMER HEALTH",
+    "ex5": 5.6165,
+    "ex21": 11.0867,
+    "ex63": -1.0729,
+    "above50": true,
+    "score": 74.0506,
+    "rank": 19,
+    "status": "冒起",
+    "rank_then": 33,
+    "status_then": "其他"
+   },
+   {
+    "etf": "IYG",
+    "group": "FINANCIAL",
+    "ex5": 1.5178,
+    "ex21": 6.7098,
+    "ex63": 2.857,
+    "above50": false,
+    "score": 74.0506,
+    "rank": 19,
+    "status": "領先",
+    "rank_then": 19,
+    "status_then": "領先"
    },
    {
     "etf": "XLB",
     "group": "SECTOR",
-    "ex5": 0.5471,
-    "ex21": 3.7322,
-    "ex63": -0.1498,
-    "above50": false,
-    "score": 68.3544,
-    "rank": 23,
-    "status": "冒起",
-    "rank_then": 21,
-    "status_then": "領先"
-   },
-   {
-    "etf": "XSW",
-    "group": "TECH",
-    "ex5": 1.8397,
-    "ex21": -2.4716,
-    "ex63": 4.8306,
-    "above50": false,
-    "score": 68.3544,
-    "rank": 24,
-    "status": "轉弱",
-    "rank_then": 17,
+    "ex5": 3.3351,
+    "ex21": 5.7801,
+    "ex63": 3.4719,
+    "above50": true,
+    "score": 72.7848,
+    "rank": 21,
+    "status": "領先",
+    "rank_then": 25,
     "status_then": "領先"
    },
    {
     "etf": "IYT",
     "group": "INDUSTRIAL",
-    "ex5": -0.3818,
-    "ex21": 5.827,
-    "ex63": -1.5666,
+    "ex5": 0.5214,
+    "ex21": 6.4063,
+    "ex63": 1.6787,
+    "above50": true,
+    "score": 70.2532,
+    "rank": 22,
+    "status": "領先",
+    "rank_then": 17,
+    "status_then": "領先"
+   },
+   {
+    "etf": "XBI",
+    "group": "CONSUMER HEALTH",
+    "ex5": 9.819,
+    "ex21": 8.0176,
+    "ex63": -0.0891,
+    "above50": true,
+    "score": 68.9873,
+    "rank": 23,
+    "status": "冒起",
+    "rank_then": 41,
+    "status_then": "落後"
+   },
+   {
+    "etf": "HACK",
+    "group": "TECH",
+    "ex5": 2.5177,
+    "ex21": -2.9453,
+    "ex63": 8.3589,
     "above50": false,
-    "score": 67.7215,
+    "score": 68.9873,
+    "rank": 23,
+    "status": "轉弱",
+    "rank_then": 7,
+    "status_then": "領先"
+   },
+   {
+    "etf": "XTN",
+    "group": "INDUSTRIAL",
+    "ex5": 0.8413,
+    "ex21": 6.6619,
+    "ex63": 0.653,
+    "above50": true,
+    "score": 67.0886,
     "rank": 25,
-    "status": "其他",
-    "rank_then": 15,
+    "status": "領先",
+    "rank_then": 20,
     "status_then": "冒起"
    },
    {
-    "etf": "MAGS",
-    "group": "TECH",
-    "ex5": 0.8563,
-    "ex21": -0.9142,
-    "ex63": 3.2478,
+    "etf": "KBE",
+    "group": "FINANCIAL",
+    "ex5": 1.3676,
+    "ex21": 3.9291,
+    "ex63": 1.0551,
     "above50": false,
-    "score": 67.7215,
-    "rank": 25,
+    "score": 66.4557,
+    "rank": 26,
+    "status": "領先",
+    "rank_then": 27,
+    "status_then": "冒起"
+   },
+   {
+    "etf": "IPAY",
+    "group": "TECH",
+    "ex5": 3.0006,
+    "ex21": 6.8189,
+    "ex63": -1.0514,
+    "above50": false,
+    "score": 65.8228,
+    "rank": 27,
+    "status": "冒起",
+    "rank_then": 37,
+    "status_then": "其他"
+   },
+   {
+    "etf": "XSW",
+    "group": "TECH",
+    "ex5": 1.8989,
+    "ex21": -0.1599,
+    "ex63": 1.8076,
+    "above50": false,
+    "score": 65.8228,
+    "rank": 27,
     "status": "轉弱",
-    "rank_then": 33,
+    "rank_then": 22,
+    "status_then": "領先"
+   },
+   {
+    "etf": "KRE",
+    "group": "FINANCIAL",
+    "ex5": 0.8704,
+    "ex21": 3.092,
+    "ex63": 1.2796,
+    "above50": false,
+    "score": 64.557,
+    "rank": 29,
+    "status": "領先",
+    "rank_then": 27,
+    "status_then": "冒起"
+   },
+   {
+    "etf": "XLE",
+    "group": "SECTOR",
+    "ex5": 1.2125,
+    "ex21": -3.8359,
+    "ex63": 5.1737,
+    "above50": false,
+    "score": 63.9241,
+    "rank": 30,
+    "status": "轉弱",
+    "rank_then": 38,
     "status_then": "轉弱"
    },
    {
     "etf": "BOAT",
     "group": "INDUSTRIAL",
-    "ex5": 0.9954,
-    "ex21": -4.6802,
-    "ex63": 4.8888,
+    "ex5": 2.0835,
+    "ex21": -2.9809,
+    "ex63": 4.228,
     "above50": false,
-    "score": 66.4557,
-    "rank": 27,
-    "status": "轉弱",
-    "rank_then": 31,
-    "status_then": "轉弱"
-   },
-   {
-    "etf": "XTN",
-    "group": "INDUSTRIAL",
-    "ex5": -0.3007,
-    "ex21": 6.5873,
-    "ex63": -2.5599,
-    "above50": false,
-    "score": 66.4557,
-    "rank": 27,
-    "status": "其他",
-    "rank_then": 18,
-    "status_then": "冒起"
-   },
-   {
-    "etf": "KRE",
-    "group": "FINANCIAL",
-    "ex5": 0.3265,
-    "ex21": 2.0036,
-    "ex63": 0.0112,
-    "above50": false,
-    "score": 65.8228,
-    "rank": 29,
-    "status": "領先",
-    "rank_then": 24,
-    "status_then": "其他"
-   },
-   {
-    "etf": "KBE",
-    "group": "FINANCIAL",
-    "ex5": 0.4602,
-    "ex21": 2.6843,
-    "ex63": -0.563,
-    "above50": false,
-    "score": 65.1899,
+    "score": 63.9241,
     "rank": 30,
-    "status": "冒起",
-    "rank_then": 24,
-    "status_then": "其他"
-   },
-   {
-    "etf": "CIBR",
-    "group": "TECH",
-    "ex5": 4.7321,
-    "ex21": -6.8889,
-    "ex63": 6.6916,
-    "above50": false,
-    "score": 63.2911,
-    "rank": 31,
     "status": "轉弱",
-    "rank_then": 37,
+    "rank_then": 30,
     "status_then": "轉弱"
    },
    {
-    "etf": "ONLN",
-    "group": "CONSUMER HEALTH",
-    "ex5": -0.8546,
-    "ex21": 3.0899,
-    "ex63": -2.0309,
-    "above50": false,
-    "score": 63.2911,
-    "rank": 31,
-    "status": "其他",
-    "rank_then": 34,
-    "status_then": "其他"
-   },
-   {
-    "etf": "WCLD",
-    "group": "TECH",
-    "ex5": 3.7001,
-    "ex21": -7.2603,
-    "ex63": 6.9889,
-    "above50": false,
-    "score": 62.0253,
-    "rank": 33,
-    "status": "轉弱",
-    "rank_then": 27,
-    "status_then": "轉弱"
-   },
-   {
-    "etf": "IPAY",
-    "group": "TECH",
-    "ex5": 0.4527,
-    "ex21": 4.0039,
-    "ex63": -3.6741,
-    "above50": false,
-    "score": 62.0253,
-    "rank": 33,
-    "status": "冒起",
-    "rank_then": 28,
-    "status_then": "其他"
-   },
-   {
-    "etf": "PAVE",
+    "etf": "ITA",
     "group": "INDUSTRIAL",
-    "ex5": 0.1619,
-    "ex21": 3.5168,
-    "ex63": -3.7011,
+    "ex5": 0.9553,
+    "ex21": 6.9246,
+    "ex63": -5.0051,
     "above50": false,
-    "score": 60.1266,
-    "rank": 35,
+    "score": 63.2911,
+    "rank": 32,
     "status": "冒起",
     "rank_then": 36,
     "status_then": "其他"
    },
    {
-    "etf": "ITA",
-    "group": "INDUSTRIAL",
-    "ex5": -0.2614,
-    "ex21": 4.7356,
-    "ex63": -7.5045,
+    "etf": "ONLN",
+    "group": "CONSUMER HEALTH",
+    "ex5": -2.7038,
+    "ex21": 3.3247,
+    "ex63": 0.0354,
     "above50": false,
-    "score": 58.8608,
-    "rank": 36,
-    "status": "其他",
-    "rank_then": 38,
-    "status_then": "其他"
+    "score": 62.6582,
+    "rank": 33,
+    "status": "領先",
+    "rank_then": 29,
+    "status_then": "領先"
    },
    {
-    "etf": "XLI",
-    "group": "SECTOR",
-    "ex5": -0.0409,
-    "ex21": 2.8829,
-    "ex63": -4.2038,
+    "etf": "MAGS",
+    "group": "TECH",
+    "ex5": -0.7997,
+    "ex21": -2.0751,
+    "ex63": 1.6637,
     "above50": false,
-    "score": 57.5949,
-    "rank": 37,
-    "status": "其他",
-    "rank_then": 32,
-    "status_then": "其他"
-   },
-   {
-    "etf": "XLE",
-    "group": "SECTOR",
-    "ex5": -2.7278,
-    "ex21": -7.1092,
-    "ex63": 3.3453,
-    "above50": false,
-    "score": 56.962,
-    "rank": 38,
+    "score": 62.0253,
+    "rank": 34,
     "status": "轉弱",
     "rank_then": 26,
     "status_then": "轉弱"
    },
    {
+    "etf": "PAVE",
+    "group": "INDUSTRIAL",
+    "ex5": 0.5426,
+    "ex21": 3.8976,
+    "ex63": -1.5241,
+    "above50": false,
+    "score": 60.1266,
+    "rank": 35,
+    "status": "冒起",
+    "rank_then": 30,
+    "status_then": "冒起"
+   },
+   {
     "etf": "IBUY",
     "group": "CONSUMER HEALTH",
-    "ex5": -0.8196,
-    "ex21": 0.845,
-    "ex63": -3.7332,
+    "ex5": -0.1593,
+    "ex21": 2.9998,
+    "ex63": -1.038,
     "above50": false,
-    "score": 56.3291,
-    "rank": 39,
+    "score": 60.1266,
+    "rank": 35,
     "status": "其他",
-    "rank_then": 34,
+    "rank_then": 33,
     "status_then": "其他"
    },
    {
-    "etf": "GRID",
-    "group": "INDUSTRIAL",
-    "ex5": -0.7003,
-    "ex21": -1.1932,
-    "ex63": -10.2962,
+    "etf": "XLI",
+    "group": "SECTOR",
+    "ex5": 0.8103,
+    "ex21": 3.9212,
+    "ex63": -1.7957,
     "above50": false,
-    "score": 49.3671,
+    "score": 60.1266,
+    "rank": 35,
+    "status": "冒起",
+    "rank_then": 35,
+    "status_then": "冒起"
+   },
+   {
+    "etf": "WCLD",
+    "group": "TECH",
+    "ex5": 2.4892,
+    "ex21": -4.8113,
+    "ex63": 1.6268,
+    "above50": false,
+    "score": 55.6962,
+    "rank": 38,
+    "status": "轉弱",
+    "rank_then": 23,
+    "status_then": "轉弱"
+   },
+   {
+    "etf": "CIBR",
+    "group": "TECH",
+    "ex5": 0.5684,
+    "ex21": -6.6348,
+    "ex63": 0.9135,
+    "above50": false,
+    "score": 51.2658,
+    "rank": 39,
+    "status": "轉弱",
+    "rank_then": 21,
+    "status_then": "領先"
+   },
+   {
+    "etf": "SOCL",
+    "group": "TECH",
+    "ex5": -1.0579,
+    "ex21": -1.7782,
+    "ex63": -7.9858,
+    "above50": false,
+    "score": 50.6329,
     "rank": 40,
     "status": "落後",
-    "rank_then": 49,
-    "status_then": "落後"
-   },
-   {
-    "etf": "IGV",
-    "group": "TECH",
-    "ex5": 1.4576,
-    "ex21": -8.3126,
-    "ex63": -0.9344,
-    "above50": false,
-    "score": 48.1013,
-    "rank": 41,
-    "status": "落後",
-    "rank_then": 42,
-    "status_then": "落後"
-   },
-   {
-    "etf": "FDN",
-    "group": "TECH",
-    "ex5": -0.4556,
-    "ex21": -4.7399,
-    "ex63": -7.0266,
-    "above50": false,
-    "score": 48.1013,
-    "rank": 41,
-    "status": "落後",
-    "rank_then": 48,
+    "rank_then": 52,
     "status_then": "落後"
    },
    {
     "etf": "UFO",
     "group": "SPACE",
-    "ex5": -4.2928,
-    "ex21": -2.6708,
-    "ex63": -11.1932,
+    "ex5": -3.1653,
+    "ex21": -2.8443,
+    "ex63": -10.3627,
     "above50": false,
-    "score": 44.3038,
-    "rank": 43,
+    "score": 46.8354,
+    "rank": 41,
     "status": "落後",
-    "rank_then": 41,
+    "rank_then": 40,
     "status_then": "其他"
    },
    {
     "etf": "XAR",
     "group": "INDUSTRIAL",
-    "ex5": -2.4048,
-    "ex21": 0.3994,
-    "ex63": -14.98,
+    "ex5": -0.4485,
+    "ex21": 2.1895,
+    "ex63": -12.7267,
     "above50": false,
-    "score": 43.6709,
-    "rank": 44,
+    "score": 46.2025,
+    "rank": 42,
     "status": "其他",
-    "rank_then": 46,
+    "rank_then": 45,
     "status_then": "其他"
+   },
+   {
+    "etf": "FDN",
+    "group": "TECH",
+    "ex5": -1.7864,
+    "ex21": -4.3392,
+    "ex63": -7.9192,
+    "above50": false,
+    "score": 45.5696,
+    "rank": 43,
+    "status": "落後",
+    "rank_then": 42,
+    "status_then": "落後"
+   },
+   {
+    "etf": "GRID",
+    "group": "INDUSTRIAL",
+    "ex5": -1.4764,
+    "ex21": -3.3136,
+    "ex63": -10.4532,
+    "above50": false,
+    "score": 44.3038,
+    "rank": 44,
+    "status": "落後",
+    "rank_then": 44,
+    "status_then": "落後"
    },
    {
     "etf": "FINX",
     "group": "TECH",
-    "ex5": -2.6666,
-    "ex21": -2.5068,
-    "ex63": -14.7551,
+    "ex5": -0.339,
+    "ex21": -1.2629,
+    "ex63": -13.4229,
     "above50": false,
-    "score": 41.1392,
+    "score": 43.6709,
     "rank": 45,
     "status": "落後",
-    "rank_then": 43,
+    "rank_then": 47,
     "status_then": "落後"
    },
    {
-    "etf": "SOCL",
+    "etf": "IGV",
     "group": "TECH",
-    "ex5": -4.0277,
-    "ex21": -5.3583,
-    "ex63": -10.9219,
+    "ex5": -0.1318,
+    "ex21": -8.1128,
+    "ex63": -7.0447,
     "above50": false,
-    "score": 41.1392,
-    "rank": 45,
+    "score": 41.7722,
+    "rank": 46,
+    "status": "落後",
+    "rank_then": 39,
+    "status_then": "落後"
+   },
+   {
+    "etf": "XOP",
+    "group": "ENERGY MATERIAL",
+    "ex5": -0.2728,
+    "ex21": -9.1582,
+    "ex63": -2.272,
+    "above50": false,
+    "score": 39.2405,
+    "rank": 47,
+    "status": "落後",
+    "rank_then": 54,
+    "status_then": "落後"
+   },
+   {
+    "etf": "OIH",
+    "group": "ENERGY MATERIAL",
+    "ex5": 0.6523,
+    "ex21": -8.2926,
+    "ex63": -9.5924,
+    "above50": false,
+    "score": 38.6076,
+    "rank": 48,
     "status": "落後",
     "rank_then": 50,
     "status_then": "落後"
@@ -5369,428 +5282,402 @@
    {
     "etf": "BOTZ",
     "group": "TECH",
-    "ex5": 1.0572,
-    "ex21": -4.987,
-    "ex63": -11.3475,
+    "ex5": 0.2332,
+    "ex21": -5.8132,
+    "ex63": -12.296,
     "above50": false,
-    "score": 41.1392,
-    "rank": 45,
-    "status": "落後",
-    "rank_then": 64,
-    "status_then": "落後"
-   },
-   {
-    "etf": "DTCR",
-    "group": "TECH",
-    "ex5": -3.4462,
-    "ex21": -5.0498,
-    "ex63": -13.5507,
-    "above50": false,
-    "score": 38.6076,
-    "rank": 48,
-    "status": "落後",
-    "rank_then": 44,
-    "status_then": "落後"
-   },
-   {
-    "etf": "ARKG",
-    "group": "ARK",
-    "ex5": 5.0502,
-    "ex21": -8.1369,
-    "ex63": -9.5491,
-    "above50": false,
-    "score": 37.9747,
+    "score": 37.3418,
     "rank": 49,
     "status": "落後",
-    "rank_then": 67,
-    "status_then": "落後"
-   },
-   {
-    "etf": "AIQ",
-    "group": "TECH",
-    "ex5": -1.913,
-    "ex21": -8.5298,
-    "ex63": -8.8518,
-    "above50": false,
-    "score": 36.7089,
-    "rank": 50,
-    "status": "落後",
-    "rank_then": 55,
-    "status_then": "落後"
-   },
-   {
-    "etf": "ROBO",
-    "group": "TECH",
-    "ex5": -1.8609,
-    "ex21": -6.6643,
-    "ex63": -12.8934,
-    "above50": false,
-    "score": 36.7089,
-    "rank": 51,
-    "status": "落後",
-    "rank_then": 58,
+    "rank_then": 59,
     "status_then": "落後"
    },
    {
     "etf": "CLOU",
     "group": "TECH",
-    "ex5": 1.9048,
-    "ex21": -11.7979,
-    "ex63": -2.5012,
+    "ex5": 0.8676,
+    "ex21": -10.071,
+    "ex63": -5.9353,
+    "above50": false,
+    "score": 36.7089,
+    "rank": 50,
+    "status": "落後",
+    "rank_then": 48,
+    "status_then": "落後"
+   },
+   {
+    "etf": "DTCR",
+    "group": "TECH",
+    "ex5": -3.0972,
+    "ex21": -5.5951,
+    "ex63": -12.9303,
     "above50": false,
     "score": 36.0759,
-    "rank": 52,
+    "rank": 51,
     "status": "落後",
-    "rank_then": 52,
-    "status_then": "落後"
-   },
-   {
-    "etf": "SKYY",
-    "group": "TECH",
-    "ex5": 0.2587,
-    "ex21": -9.8906,
-    "ex63": -4.7862,
-    "above50": false,
-    "score": 35.443,
-    "rank": 53,
-    "status": "落後",
-    "rank_then": 46,
-    "status_then": "落後"
-   },
-   {
-    "etf": "XLK",
-    "group": "SECTOR",
-    "ex5": -1.9143,
-    "ex21": -9.6008,
-    "ex63": -8.0418,
-    "above50": false,
-    "score": 34.8101,
-    "rank": 54,
-    "status": "落後",
-    "rank_then": 56,
-    "status_then": "落後"
-   },
-   {
-    "etf": "XOP",
-    "group": "ENERGY MATERIAL",
-    "ex5": -4.5254,
-    "ex21": -12.7549,
-    "ex63": -3.566,
-    "above50": false,
-    "score": 32.9114,
-    "rank": 55,
-    "status": "落後",
-    "rank_then": 40,
-    "status_then": "轉弱"
-   },
-   {
-    "etf": "GLD",
-    "group": "ENERGY MATERIAL",
-    "ex5": -5.8035,
-    "ex21": -5.432,
-    "ex63": -16.8134,
-    "above50": false,
-    "score": 32.2785,
-    "rank": 56,
-    "status": "落後",
-    "rank_then": 44,
-    "status_then": "落後"
-   },
-   {
-    "etf": "ARKX",
-    "group": "SPACE",
-    "ex5": -4.9606,
-    "ex21": -8.3973,
-    "ex63": -14.5518,
-    "above50": false,
-    "score": 30.3797,
-    "rank": 57,
-    "status": "落後",
-    "rank_then": 53,
-    "status_then": "落後"
-   },
-   {
-    "etf": "OIH",
-    "group": "ENERGY MATERIAL",
-    "ex5": -2.8389,
-    "ex21": -9.9863,
-    "ex63": -10.6463,
-    "above50": false,
-    "score": 30.3797,
-    "rank": 57,
-    "status": "落後",
-    "rank_then": 51,
+    "rank_then": 45,
     "status_then": "落後"
    },
    {
     "etf": "ARKF",
     "group": "ARK",
-    "ex5": -2.4017,
-    "ex21": -8.966,
-    "ex63": -12.9548,
+    "ex5": -1.269,
+    "ex21": -7.8706,
+    "ex63": -12.5678,
     "above50": false,
-    "score": 30.3797,
-    "rank": 57,
+    "score": 35.443,
+    "rank": 52,
     "status": "落後",
-    "rank_then": 58,
+    "rank_then": 59,
     "status_then": "落後"
    },
    {
-    "etf": "LIT",
-    "group": "ENERGY MATERIAL",
-    "ex5": -2.9737,
-    "ex21": -6.2842,
-    "ex63": -23.3395,
+    "etf": "SKYY",
+    "group": "TECH",
+    "ex5": -1.2585,
+    "ex21": -10.1901,
+    "ex63": -7.8278,
     "above50": false,
-    "score": 29.1139,
-    "rank": 60,
+    "score": 34.8101,
+    "rank": 53,
     "status": "落後",
-    "rank_then": 69,
+    "rank_then": 43,
+    "status_then": "落後"
+   },
+   {
+    "etf": "AIQ",
+    "group": "TECH",
+    "ex5": -2.3604,
+    "ex21": -9.1102,
+    "ex63": -10.3126,
+    "above50": false,
+    "score": 34.8101,
+    "rank": 53,
+    "status": "落後",
+    "rank_then": 53,
+    "status_then": "落後"
+   },
+   {
+    "etf": "GLD",
+    "group": "ENERGY MATERIAL",
+    "ex5": -2.1783,
+    "ex21": -5.1611,
+    "ex63": -15.6913,
+    "above50": false,
+    "score": 33.5443,
+    "rank": 55,
+    "status": "落後",
+    "rank_then": 57,
     "status_then": "落後"
    },
    {
     "etf": "GDX",
     "group": "ENERGY MATERIAL",
-    "ex5": -8.4404,
-    "ex21": -5.8234,
-    "ex63": -24.375,
+    "ex5": 0.6058,
+    "ex21": -4.2983,
+    "ex63": -21.9155,
     "above50": false,
-    "score": 28.481,
-    "rank": 61,
-    "status": "落後",
-    "rank_then": 56,
-    "status_then": "落後"
-   },
-   {
-    "etf": "ARKW",
-    "group": "ARK",
-    "ex5": -2.5643,
-    "ex21": -10.5116,
-    "ex63": -10.8243,
-    "above50": false,
-    "score": 27.8481,
-    "rank": 62,
-    "status": "落後",
-    "rank_then": 58,
-    "status_then": "落後"
-   },
-   {
-    "etf": "XME",
-    "group": "ENERGY MATERIAL",
-    "ex5": -4.6716,
-    "ex21": -7.0885,
-    "ex63": -24.7245,
-    "above50": false,
-    "score": 25.3165,
-    "rank": 63,
+    "score": 31.6456,
+    "rank": 56,
     "status": "落後",
     "rank_then": 68,
     "status_then": "落後"
    },
    {
-    "etf": "ARKQ",
+    "etf": "ROBO",
+    "group": "TECH",
+    "ex5": -2.7922,
+    "ex21": -8.4598,
+    "ex63": -13.6772,
+    "above50": false,
+    "score": 30.3797,
+    "rank": 57,
+    "status": "落後",
+    "rank_then": 55,
+    "status_then": "落後"
+   },
+   {
+    "etf": "XLK",
+    "group": "SECTOR",
+    "ex5": -3.0471,
+    "ex21": -10.9036,
+    "ex63": -10.4805,
+    "above50": false,
+    "score": 29.1139,
+    "rank": 58,
+    "status": "落後",
+    "rank_then": 49,
+    "status_then": "落後"
+   },
+   {
+    "etf": "ARKX",
+    "group": "SPACE",
+    "ex5": -3.5753,
+    "ex21": -8.8778,
+    "ex63": -14.0169,
+    "above50": false,
+    "score": 27.8481,
+    "rank": 59,
+    "status": "落後",
+    "rank_then": 51,
+    "status_then": "落後"
+   },
+   {
+    "etf": "ARKW",
     "group": "ARK",
-    "ex5": -4.4803,
-    "ex21": -9.6128,
-    "ex63": -15.7541,
+    "ex5": -2.8685,
+    "ex21": -10.9298,
+    "ex63": -11.7438,
+    "above50": false,
+    "score": 27.2152,
+    "rank": 60,
+    "status": "落後",
+    "rank_then": 55,
+    "status_then": "落後"
+   },
+   {
+    "etf": "ARKG",
+    "group": "ARK",
+    "ex5": 1.146,
+    "ex21": -13.7967,
+    "ex63": -11.0223,
     "above50": false,
     "score": 24.0506,
-    "rank": 64,
+    "rank": 61,
     "status": "落後",
-    "rank_then": 63,
+    "rank_then": 64,
     "status_then": "落後"
    },
    {
-    "etf": "QTUM",
-    "group": "TECH",
-    "ex5": -3.2894,
-    "ex21": -10.0788,
-    "ex63": -15.7816,
+    "etf": "ARKQ",
+    "group": "ARK",
+    "ex5": -3.418,
+    "ex21": -10.6244,
+    "ex63": -15.6711,
     "above50": false,
-    "score": 21.519,
-    "rank": 65,
-    "status": "落後",
-    "rank_then": 66,
-    "status_then": "落後"
-   },
-   {
-    "etf": "TAN",
-    "group": "ENERGY MATERIAL",
-    "ex5": -7.6838,
-    "ex21": -9.32,
-    "ex63": -23.374,
-    "above50": false,
-    "score": 21.519,
-    "rank": 65,
+    "score": 23.4177,
+    "rank": 62,
     "status": "落後",
     "rank_then": 61,
     "status_then": "落後"
    },
    {
-    "etf": "ARKK",
-    "group": "ARK",
-    "ex5": -2.9063,
-    "ex21": -11.4836,
-    "ex63": -15.4157,
-    "above50": false,
-    "score": 20.8861,
-    "rank": 67,
-    "status": "落後",
-    "rank_then": 65,
-    "status_then": "落後"
-   },
-   {
-    "etf": "XSD",
-    "group": "TECH",
-    "ex5": -7.1176,
-    "ex21": -11.912,
-    "ex63": -16.6386,
-    "above50": false,
-    "score": 17.0886,
-    "rank": 68,
-    "status": "落後",
-    "rank_then": 62,
-    "status_then": "落後"
-   },
-   {
-    "etf": "REMX",
+    "etf": "XME",
     "group": "ENERGY MATERIAL",
-    "ex5": -2.9663,
-    "ex21": -9.3286,
-    "ex63": -38.0449,
+    "ex5": -0.9897,
+    "ex21": -8.6514,
+    "ex63": -24.1133,
     "above50": false,
-    "score": 15.1899,
-    "rank": 69,
+    "score": 22.7848,
+    "rank": 63,
     "status": "落後",
-    "rank_then": 74,
-    "status_then": "落後"
-   },
-   {
-    "etf": "SMH",
-    "group": "TECH",
-    "ex5": -5.3834,
-    "ex21": -15.1213,
-    "ex63": -17.2733,
-    "above50": false,
-    "score": 13.9241,
-    "rank": 70,
-    "status": "落後",
-    "rank_then": 69,
+    "rank_then": 67,
     "status_then": "落後"
    },
    {
     "etf": "SIL",
     "group": "ENERGY MATERIAL",
-    "ex5": -9.9944,
-    "ex21": -10.2937,
-    "ex63": -32.0195,
+    "ex5": 0.0336,
+    "ex21": -8.108,
+    "ex63": -29.7185,
     "above50": false,
-    "score": 13.2911,
-    "rank": 71,
+    "score": 22.7848,
+    "rank": 63,
     "status": "落後",
     "rank_then": 73,
     "status_then": "落後"
    },
    {
-    "etf": "SOXX",
-    "group": "TECH",
-    "ex5": -7.2118,
-    "ex21": -15.4588,
-    "ex63": -19.1436,
+    "etf": "LIT",
+    "group": "ENERGY MATERIAL",
+    "ex5": -3.0279,
+    "ex21": -8.7186,
+    "ex63": -24.6423,
     "above50": false,
-    "score": 12.6582,
-    "rank": 72,
+    "score": 21.519,
+    "rank": 65,
     "status": "落後",
-    "rank_then": 71,
+    "rank_then": 70,
     "status_then": "落後"
    },
    {
-    "etf": "BLOK",
-    "group": "CRYPTO",
-    "ex5": -5.2626,
-    "ex21": -11.8924,
-    "ex63": -25.4584,
+    "etf": "TAN",
+    "group": "ENERGY MATERIAL",
+    "ex5": -5.1845,
+    "ex21": -9.4446,
+    "ex63": -22.4884,
     "above50": false,
-    "score": 12.6582,
-    "rank": 72,
+    "score": 20.2532,
+    "rank": 66,
     "status": "落後",
-    "rank_then": 71,
+    "rank_then": 58,
+    "status_then": "落後"
+   },
+   {
+    "etf": "QTUM",
+    "group": "TECH",
+    "ex5": -3.7795,
+    "ex21": -11.448,
+    "ex63": -16.0824,
+    "above50": false,
+    "score": 20.2532,
+    "rank": 66,
+    "status": "落後",
+    "rank_then": 63,
+    "status_then": "落後"
+   },
+   {
+    "etf": "ARKK",
+    "group": "ARK",
+    "ex5": -3.3581,
+    "ex21": -13.6663,
+    "ex63": -16.0874,
+    "above50": false,
+    "score": 17.0886,
+    "rank": 68,
+    "status": "落後",
+    "rank_then": 64,
+    "status_then": "落後"
+   },
+   {
+    "etf": "XSD",
+    "group": "TECH",
+    "ex5": -6.0632,
+    "ex21": -14.3829,
+    "ex63": -16.8359,
+    "above50": false,
+    "score": 15.1899,
+    "rank": 69,
+    "status": "落後",
+    "rank_then": 62,
     "status_then": "落後"
    },
    {
     "etf": "MSOS",
     "group": "CONSUMER HEALTH",
-    "ex5": -12.9295,
-    "ex21": -15.5752,
-    "ex63": -29.935,
+    "ex5": -7.0897,
+    "ex21": -12.426,
+    "ex63": -25.6811,
     "above50": false,
-    "score": 8.2278,
-    "rank": 74,
+    "score": 12.6582,
+    "rank": 70,
     "status": "落後",
-    "rank_then": 53,
-    "status_then": "其他"
-   },
-   {
-    "etf": "URA",
-    "group": "ENERGY MATERIAL",
-    "ex5": -6.2575,
-    "ex21": -13.5868,
-    "ex63": -36.6185,
-    "above50": false,
-    "score": 7.5949,
-    "rank": 75,
-    "status": "落後",
-    "rank_then": 75,
+    "rank_then": 66,
     "status_then": "落後"
    },
    {
-    "etf": "DRAM",
+    "etf": "SMH",
     "group": "TECH",
-    "ex5": -5.8668,
-    "ex21": -19.5904,
-    "ex63": -30.3595,
+    "ex5": -6.2201,
+    "ex21": -17.4067,
+    "ex63": -19.4482,
     "above50": false,
-    "score": 6.3291,
-    "rank": 76,
+    "score": 12.6582,
+    "rank": 70,
     "status": "落後",
-    "rank_then": 77,
+    "rank_then": 70,
+    "status_then": "落後"
+   },
+   {
+    "etf": "BLOK",
+    "group": "CRYPTO",
+    "ex5": -4.832,
+    "ex21": -12.5681,
+    "ex63": -25.6055,
+    "above50": false,
+    "score": 12.6582,
+    "rank": 70,
+    "status": "落後",
+    "rank_then": 72,
+    "status_then": "落後"
+   },
+   {
+    "etf": "SOXX",
+    "group": "TECH",
+    "ex5": -7.9291,
+    "ex21": -17.9928,
+    "ex63": -20.0566,
+    "above50": false,
+    "score": 11.3924,
+    "rank": 73,
+    "status": "落後",
+    "rank_then": 68,
+    "status_then": "落後"
+   },
+   {
+    "etf": "REMX",
+    "group": "ENERGY MATERIAL",
+    "ex5": -1.4411,
+    "ex21": -12.3072,
+    "ex63": -37.9078,
+    "above50": false,
+    "score": 10.1266,
+    "rank": 74,
+    "status": "落後",
+    "rank_then": 74,
     "status_then": "落後"
    },
    {
     "etf": "COPX",
     "group": "ENERGY MATERIAL",
-    "ex5": -9.9709,
-    "ex21": -15.9016,
-    "ex63": -33.7908,
+    "ex5": -2.2859,
+    "ex21": -16.6193,
+    "ex63": -32.3569,
+    "above50": false,
+    "score": 6.962,
+    "rank": 75,
+    "status": "落後",
+    "rank_then": 77,
+    "status_then": "落後"
+   },
+   {
+    "etf": "URA",
+    "group": "ENERGY MATERIAL",
+    "ex5": -3.9636,
+    "ex21": -15.8463,
+    "ex63": -35.8884,
+    "above50": false,
+    "score": 6.962,
+    "rank": 76,
+    "status": "落後",
+    "rank_then": 74,
+    "status_then": "落後"
+   },
+   {
+    "etf": "DRAM",
+    "group": "TECH",
+    "ex5": -9.1857,
+    "ex21": -24.176,
+    "ex63": -31.8879,
     "above50": false,
     "score": 5.6962,
     "rank": 77,
     "status": "落後",
-    "rank_then": 75,
+    "rank_then": 74,
     "status_then": "落後"
    },
    {
     "etf": "LYTE",
     "group": "TECH",
-    "ex5": -3.7028,
-    "ex21": -25.567,
-    "ex63": -42.5193,
+    "ex5": -2.9269,
+    "ex21": -25.4931,
+    "ex63": -41.5479,
     "above50": false,
-    "score": 1.8987,
+    "score": 2.5316,
     "rank": 78,
     "status": "落後",
-    "rank_then": 78,
+    "rank_then": 79,
     "status_then": "落後"
    },
    {
     "etf": "WGMI",
     "group": "CRYPTO",
-    "ex5": -11.5703,
-    "ex21": -21.5811,
-    "ex63": -47.6902,
+    "ex5": -12.9902,
+    "ex21": -26.271,
+    "ex63": -48.2125,
     "above50": false,
-    "score": 1.8987,
-    "rank": 78,
+    "score": 1.2658,
+    "rank": 79,
     "status": "落後",
     "rank_then": 78,
     "status_then": "落後"
@@ -5801,22 +5688,22 @@
     "theme": "PHARMA",
     "n": 6,
     "n_list": 6,
-    "ex5": 1.7742,
-    "ex21": 9.0936,
-    "ex63": 14.7619,
+    "ex5": 1.2772,
+    "ex21": 10.4338,
+    "ex63": 18.7077,
     "pct50": 83.3333,
-    "mom": 1,
+    "mom": 0,
     "best": [
      [
       "LLY",
-      16.2627
+      15.6179
      ],
      [
-      "AMGN",
-      13.2949
+      "NVO",
+      12.8287
      ]
     ],
-    "score": 95.4545,
+    "score": 98.4848,
     "rank": 1,
     "status": "領先",
     "rank_then": 1,
@@ -5826,519 +5713,519 @@
     "theme": "HOUSING",
     "n": 5,
     "n_list": 5,
-    "ex5": 5.4394,
-    "ex21": 10.2967,
-    "ex63": 6.3145,
+    "ex5": 7.9105,
+    "ex21": 14.6411,
+    "ex63": 13.4398,
     "pct50": 100.0,
     "mom": 0,
     "best": [
      [
       "PHM",
-      13.4403
+      17.7418
      ],
      [
       "TOL",
-      12.1699
+      15.7221
      ]
     ],
-    "score": 93.9394,
+    "score": 96.9697,
     "rank": 2,
     "status": "領先",
-    "rank_then": 2,
+    "rank_then": 3,
+    "status_then": "領先"
+   },
+   {
+    "theme": "DEFENSE",
+    "n": 12,
+    "n_list": 12,
+    "ex5": 3.1518,
+    "ex21": 6.2094,
+    "ex63": 0.879,
+    "pct50": 50.0,
+    "mom": 1,
+    "best": [
+     [
+      "AMTM",
+      21.1798
+     ],
+     [
+      "ATI",
+      12.4124
+     ]
+    ],
+    "score": 86.3636,
+    "rank": 3,
+    "status": "領先",
+    "rank_then": 7,
     "status_then": "其他"
    },
    {
     "theme": "BIOTECH",
     "n": 10,
     "n_list": 10,
-    "ex5": 12.1652,
-    "ex21": 12.1384,
-    "ex63": -4.151,
+    "ex5": 11.6584,
+    "ex21": 8.4253,
+    "ex63": -2.7752,
     "pct50": 50.0,
     "mom": 2,
     "best": [
      [
       "CGON",
-      48.225
+      41.4695
      ],
      [
       "REGN",
-      28.4263
+      27.316
      ]
     ],
-    "score": 89.3939,
-    "rank": 3,
+    "score": 84.8485,
+    "rank": 4,
     "status": "冒起",
     "rank_then": 12,
-    "status_then": "其他"
+    "status_then": "落後"
+   },
+   {
+    "theme": "MAG7",
+    "n": 8,
+    "n_list": 8,
+    "ex5": -0.3545,
+    "ex21": -0.2783,
+    "ex63": 3.1117,
+    "pct50": 25.0,
+    "mom": 0,
+    "best": [
+     [
+      "AAPL",
+      9.4019
+     ],
+     [
+      "META",
+      5.2202
+     ]
+    ],
+    "score": 81.8182,
+    "rank": 5,
+    "status": "轉弱",
+    "rank_then": 4,
+    "status_then": "領先"
    },
    {
     "theme": "CYBERSECURITY",
     "n": 15,
     "n_list": 15,
-    "ex5": 10.7847,
-    "ex21": -3.8623,
-    "ex63": 22.9574,
-    "pct50": 46.6667,
-    "mom": 6,
+    "ex5": 4.6353,
+    "ex21": -3.8679,
+    "ex63": 18.6578,
+    "pct50": 60.0,
+    "mom": 3,
     "best": [
      [
       "ATEN",
-      26.3079
+      22.7369
      ],
      [
-      "SAIL",
-      7.1447
+      "CHKP",
+      9.3397
      ]
     ],
-    "score": 83.3333,
-    "rank": 4,
+    "score": 81.8182,
+    "rank": 5,
     "status": "轉弱",
-    "rank_then": 6,
+    "rank_then": 1,
     "status_then": "領先"
    },
    {
     "theme": "INDUSTRIALS",
     "n": 8,
     "n_list": 8,
-    "ex5": -0.6223,
-    "ex21": 2.6579,
-    "ex63": -4.7416,
+    "ex5": -0.8836,
+    "ex21": 4.2788,
+    "ex63": -2.2546,
     "pct50": 25.0,
     "mom": 0,
     "best": [
      [
       "GE",
-      16.3497
+      13.3716
      ],
      [
       "HON",
-      8.9359
+      10.0789
      ]
     ],
     "score": 81.8182,
     "rank": 5,
     "status": "其他",
-    "rank_then": 9,
+    "rank_then": 7,
     "status_then": "其他"
    },
    {
-    "theme": "MAG7",
-    "n": 8,
-    "n_list": 8,
-    "ex5": 0.7559,
-    "ex21": -0.477,
-    "ex63": 4.4788,
-    "pct50": 25.0,
+    "theme": "ENERGY",
+    "n": 7,
+    "n_list": 7,
+    "ex5": 2.2022,
+    "ex21": -3.4001,
+    "ex63": 8.5102,
+    "pct50": 0.0,
     "mom": 0,
     "best": [
      [
-      "AAPL",
-      9.1197
+      "CVX",
+      0.0772
      ],
      [
-      "AMZN",
-      7.3719
+      "EOG",
+      -1.0582
      ]
     ],
-    "score": 81.8182,
-    "rank": 5,
+    "score": 80.303,
+    "rank": 8,
     "status": "轉弱",
-    "rank_then": 8,
+    "rank_then": 11,
     "status_then": "轉弱"
    },
    {
     "theme": "DATA CENTRE",
     "n": 4,
     "n_list": 4,
-    "ex5": -2.9842,
-    "ex21": 2.0014,
-    "ex63": -4.3133,
+    "ex5": -4.2939,
+    "ex21": 2.5538,
+    "ex63": -3.8953,
     "pct50": 25.0,
     "mom": 0,
     "best": [
      [
-      "EQIX",
-      8.1588
-     ],
-     [
       "AMT",
-      3.1926
-     ]
-    ],
-    "score": 81.8182,
-    "rank": 5,
-    "status": "其他",
-    "rank_then": 5,
-    "status_then": "冒起"
-   },
-   {
-    "theme": "DEFENSE",
-    "n": 12,
-    "n_list": 12,
-    "ex5": 0.7813,
-    "ex21": 0.9756,
-    "ex63": -1.5788,
-    "pct50": 50.0,
-    "mom": 1,
-    "best": [
-     [
-      "AMTM",
-      18.457
+      7.2944
      ],
      [
-      "ATI",
-      8.8221
+      "EQIX",
+      5.2542
      ]
     ],
-    "score": 80.303,
-    "rank": 8,
-    "status": "冒起",
-    "rank_then": 3,
-    "status_then": "其他"
-   },
-   {
-    "theme": "EDA",
-    "n": 2,
-    "n_list": 2,
-    "ex5": -2.1995,
-    "ex21": -2.2293,
-    "ex63": 0.8401,
-    "pct50": 0.0,
-    "mom": 0,
-    "best": [
-     [
-      "CDNS",
-      -1.8496
-     ],
-     [
-      "SNPS",
-      -2.6091
-     ]
-    ],
-    "score": 78.7879,
+    "score": 77.2727,
     "rank": 9,
-    "status": "轉弱",
-    "rank_then": 10,
-    "status_then": "轉弱"
-   },
-   {
-    "theme": "ENERGY",
-    "n": 7,
-    "n_list": 7,
-    "ex5": -2.1391,
-    "ex21": -5.386,
-    "ex63": 6.5979,
-    "pct50": 0.0,
-    "mom": 0,
-    "best": [
-     [
-      "CVX",
-      -3.1997
-     ],
-     [
-      "EOG",
-      -4.3539
-     ]
-    ],
-    "score": 75.7576,
-    "rank": 10,
-    "status": "轉弱",
-    "rank_then": 7,
-    "status_then": "領先"
+    "status": "其他",
+    "rank_then": 4,
+    "status_then": "冒起"
    },
    {
     "theme": "BANK",
     "n": 7,
     "n_list": 7,
-    "ex5": -2.0324,
-    "ex21": 1.016,
-    "ex63": -8.3479,
+    "ex5": -0.4251,
+    "ex21": 1.2078,
+    "ex63": -7.2907,
     "pct50": 0.0,
     "mom": 0,
     "best": [
      [
       "SCHW",
-      11.1121
+      11.8946
      ],
      [
       "WFC",
-      4.9034
+      5.3809
      ]
     ],
     "score": 72.7273,
-    "rank": 11,
+    "rank": 10,
     "status": "其他",
-    "rank_then": 11,
+    "rank_then": 10,
     "status_then": "其他"
    },
    {
     "theme": "MEDTECH DX",
     "n": 9,
     "n_list": 9,
-    "ex5": 2.7778,
-    "ex21": -2.7151,
-    "ex63": -4.9364,
+    "ex5": -0.0169,
+    "ex21": -6.9908,
+    "ex63": -2.1719,
     "pct50": 33.3333,
     "mom": 0,
     "best": [
      [
       "HROW",
-      14.2738
+      15.4465
      ],
      [
       "ESTA",
-      14.0076
+      13.1394
      ]
     ],
-    "score": 69.697,
-    "rank": 12,
+    "score": 71.2121,
+    "rank": 11,
     "status": "落後",
-    "rank_then": 3,
-    "status_then": "領先"
+    "rank_then": 9,
+    "status_then": "其他"
    },
    {
     "theme": "INTERNET",
     "n": 7,
     "n_list": 7,
-    "ex5": -1.0336,
-    "ex21": 1.8428,
-    "ex63": -21.7901,
+    "ex5": 1.1634,
+    "ex21": 6.4547,
+    "ex63": -18.7646,
     "pct50": 28.5714,
     "mom": 0,
     "best": [
      [
       "TTWO",
-      14.4767
+      19.8281
      ],
      [
       "SPOT",
-      10.871
+      17.8648
      ]
     ],
-    "score": 68.1818,
+    "score": 71.2121,
+    "rank": 11,
+    "status": "冒起",
+    "rank_then": 14,
+    "status_then": "落後"
+   },
+   {
+    "theme": "EDA",
+    "n": 2,
+    "n_list": 2,
+    "ex5": -3.2699,
+    "ex21": -7.449,
+    "ex63": -7.1835,
+    "pct50": 0.0,
+    "mom": 0,
+    "best": [
+     [
+      "CDNS",
+      -7.1653
+     ],
+     [
+      "SNPS",
+      -7.7327
+     ]
+    ],
+    "score": 62.1212,
     "rank": 13,
-    "status": "其他",
-    "rank_then": 19,
+    "status": "落後",
+    "rank_then": 6,
+    "status_then": "領先"
+   },
+   {
+    "theme": "GOLD SILVER",
+    "n": 5,
+    "n_list": 5,
+    "ex5": -0.0888,
+    "ex21": -3.2539,
+    "ex63": -19.9451,
+    "pct50": 0.0,
+    "mom": 0,
+    "best": [
+     [
+      "WPM",
+      4.4025
+     ],
+     [
+      "NEM",
+      -2.8267
+     ]
+    ],
+    "score": 60.6061,
+    "rank": 14,
+    "status": "落後",
+    "rank_then": 20,
     "status_then": "落後"
    },
    {
     "theme": "FINTECH",
     "n": 13,
     "n_list": 13,
-    "ex5": -3.2514,
-    "ex21": -4.9778,
-    "ex63": -19.7006,
+    "ex5": -0.6012,
+    "ex21": -5.8063,
+    "ex63": -17.1796,
     "pct50": 23.0769,
     "mom": 0,
     "best": [
      [
       "MA",
-      11.6194
+      15.0994
      ],
      [
       "V",
-      9.4007
+      12.6829
      ]
     ],
-    "score": 57.5758,
-    "rank": 14,
-    "status": "落後",
-    "rank_then": 13,
-    "status_then": "其他"
-   },
-   {
-    "theme": "GOLD SILVER",
-    "n": 5,
-    "n_list": 5,
-    "ex5": -8.0677,
-    "ex21": -4.2689,
-    "ex63": -22.3369,
-    "pct50": 0.0,
-    "mom": 0,
-    "best": [
-     [
-      "WPM",
-      1.5268
-     ],
-     [
-      "NEM",
-      -3.6057
-     ]
-    ],
-    "score": 56.0606,
+    "score": 59.0909,
     "rank": 15,
     "status": "落後",
-    "rank_then": 14,
+    "rank_then": 13,
     "status_then": "落後"
    },
    {
     "theme": "SOFTWARE",
     "n": 16,
     "n_list": 16,
-    "ex5": 0.5041,
-    "ex21": -13.7004,
-    "ex63": -6.2234,
+    "ex5": 3.5578,
+    "ex21": -11.0266,
+    "ex63": -13.6925,
     "pct50": 12.5,
     "mom": 1,
     "best": [
      [
       "APP",
-      52.252
+      51.0671
      ],
      [
       "TYL",
-      12.8448
+      17.8841
      ]
     ],
-    "score": 54.5455,
+    "score": 57.5758,
     "rank": 16,
     "status": "落後",
-    "rank_then": 17,
+    "rank_then": 15,
     "status_then": "落後"
    },
    {
     "theme": "CLOUD DATA",
     "n": 4,
     "n_list": 4,
-    "ex5": 2.5461,
-    "ex21": -13.8038,
-    "ex63": -13.0967,
+    "ex5": -0.3212,
+    "ex21": -13.6558,
+    "ex63": -16.9211,
     "pct50": 0.0,
     "mom": 0,
     "best": [
      [
-      "ORCL",
-      -7.0494
+      "MDB",
+      -12.6937
      ],
      [
-      "SNOW",
-      -12.9783
+      "ORCL",
+      -13.5358
      ]
     ],
-    "score": 50.0,
+    "score": 51.5152,
     "rank": 17,
     "status": "落後",
-    "rank_then": 16,
+    "rank_then": 15,
     "status_then": "落後"
    },
    {
     "theme": "POWER GRID",
     "n": 18,
     "n_list": 18,
-    "ex5": -3.2862,
-    "ex21": -5.9915,
-    "ex63": -23.214,
+    "ex5": -3.7964,
+    "ex21": -7.0145,
+    "ex63": -21.4925,
     "pct50": 0.0,
     "mom": 0,
     "best": [
      [
       "AAON",
-      12.0901
+      6.8823
      ],
      [
-      "PWR",
-      10.6463
+      "MOD",
+      6.7564
      ]
     ],
-    "score": 50.0,
+    "score": 51.5152,
     "rank": 17,
     "status": "落後",
-    "rank_then": 20,
+    "rank_then": 15,
     "status_then": "落後"
    },
    {
     "theme": "SEMI",
     "n": 19,
     "n_list": 19,
-    "ex5": -7.7914,
-    "ex21": -17.1962,
-    "ex63": -15.3416,
+    "ex5": -7.2649,
+    "ex21": -15.6699,
+    "ex63": -16.1629,
     "pct50": 5.2632,
     "mom": 0,
     "best": [
      [
       "CRUS",
-      8.4943
+      9.9964
      ],
      [
       "MPWR",
-      8.0482
+      5.4567
      ]
     ],
-    "score": 46.9697,
+    "score": 48.4848,
     "rank": 19,
     "status": "落後",
-    "rank_then": 17,
+    "rank_then": 15,
     "status_then": "落後"
    },
    {
     "theme": "OPTICS",
     "n": 13,
     "n_list": 13,
-    "ex5": -5.9603,
-    "ex21": -11.7221,
-    "ex63": -27.3943,
+    "ex5": -7.0685,
+    "ex21": -13.5661,
+    "ex63": -26.7587,
     "pct50": 0.0,
     "mom": 0,
     "best": [
      [
       "APH",
-      3.6959
+      0.3217
      ],
      [
       "MKSI",
-      0.669
+      -6.3635
      ]
     ],
     "score": 45.4545,
     "rank": 20,
     "status": "落後",
-    "rank_then": 24,
+    "rank_then": 21,
     "status_then": "落後"
    },
    {
     "theme": "BATTERY LITHIUM",
     "n": 3,
     "n_list": 3,
-    "ex5": -7.2647,
-    "ex21": -11.6238,
-    "ex63": -33.9133,
+    "ex5": -3.185,
+    "ex21": -13.7824,
+    "ex63": -32.9457,
     "pct50": 0.0,
     "mom": 0,
     "best": [
      [
       "ALB",
-      -7.6036
+      -10.7625
      ],
      [
       "SQM",
-      -11.6238
+      -13.7824
      ]
     ],
-    "score": 40.9091,
+    "score": 37.8788,
     "rank": 21,
     "status": "落後",
-    "rank_then": 22,
+    "rank_then": 23,
     "status_then": "落後"
    },
    {
     "theme": "SOLAR",
     "n": 6,
     "n_list": 6,
-    "ex5": -12.5623,
-    "ex21": -17.3737,
-    "ex63": -30.6,
+    "ex5": -5.2405,
+    "ex21": -16.0248,
+    "ex63": -28.589,
     "pct50": 0.0,
     "mom": 0,
     "best": [
      [
       "RUN",
-      -1.203
+      -1.4856
      ],
      [
-      "FSLR",
-      -5.8961
+      "NXT",
+      -6.2736
      ]
     ],
     "score": 36.3636,
@@ -6351,172 +6238,172 @@
     "theme": "SPACE",
     "n": 14,
     "n_list": 14,
-    "ex5": -12.7718,
-    "ex21": -12.0868,
-    "ex63": -36.3719,
+    "ex5": -7.5764,
+    "ex21": -14.7974,
+    "ex63": -34.0687,
     "pct50": 7.1429,
     "mom": 0,
     "best": [
      [
       "GSAT",
-      10.2378
+      9.229
      ],
      [
-      "FLY",
-      5.7037
+      "IRDM",
+      0.9883
      ]
     ],
     "score": 34.8485,
     "rank": 23,
     "status": "落後",
-    "rank_then": 14,
+    "rank_then": 19,
     "status_then": "其他"
    },
    {
     "theme": "COPPER BASE",
     "n": 3,
     "n_list": 3,
-    "ex5": -11.824,
-    "ex21": -19.6057,
-    "ex63": -33.5105,
+    "ex5": -2.6387,
+    "ex21": -19.5027,
+    "ex63": -31.132,
     "pct50": 0.0,
     "mom": 0,
     "best": [
      [
       "HBM",
-      -18.0102
+      -19.4123
      ],
      [
-      "SCCO",
-      -19.6057
+      "FCX",
+      -19.5027
      ]
     ],
-    "score": 28.7879,
+    "score": 33.3333,
     "rank": 24,
     "status": "落後",
-    "rank_then": 21,
-    "status_then": "落後"
-   },
-   {
-    "theme": "SEMI CAP EQUIP",
-    "n": 8,
-    "n_list": 8,
-    "ex5": -7.2079,
-    "ex21": -20.6598,
-    "ex63": -33.2869,
-    "pct50": 0.0,
-    "mom": 0,
-    "best": [
-     [
-      "KLAC",
-      -4.2056
-     ],
-     [
-      "AMAT",
-      -10.2553
-     ]
-    ],
-    "score": 25.7576,
-    "rank": 25,
-    "status": "落後",
-    "rank_then": 27,
+    "rank_then": 24,
     "status_then": "落後"
    },
    {
     "theme": "AUTONOMY",
     "n": 9,
     "n_list": 9,
-    "ex5": -15.2033,
-    "ex21": -19.0727,
-    "ex63": -44.899,
+    "ex5": -5.2425,
+    "ex21": -19.7813,
+    "ex63": -41.9112,
     "pct50": 0.0,
     "mom": 0,
     "best": [
      [
-      "SERV",
-      -7.5491
+      "AEVA",
+      -12.6593
      ],
      [
       "OUST",
-      -9.7997
+      -14.528
      ]
     ],
     "score": 22.7273,
-    "rank": 26,
+    "rank": 25,
     "status": "落後",
-    "rank_then": 25,
+    "rank_then": 26,
     "status_then": "落後"
    },
    {
     "theme": "MEMORY STORAGE",
     "n": 4,
     "n_list": 5,
-    "ex5": -6.1071,
-    "ex21": -21.6203,
-    "ex63": -36.3103,
+    "ex5": -9.0716,
+    "ex21": -25.3886,
+    "ex63": -35.7823,
     "pct50": 0.0,
     "mom": 0,
     "best": [
      [
       "WDC",
-      -16.9886
+      -21.5873
      ],
      [
       "STX",
-      -19.0179
+      -22.3951
      ]
     ],
-    "score": 19.697,
-    "rank": 27,
+    "score": 21.2121,
+    "rank": 26,
     "status": "落後",
     "rank_then": 27,
+    "status_then": "落後"
+   },
+   {
+    "theme": "SEMI CAP EQUIP",
+    "n": 8,
+    "n_list": 8,
+    "ex5": -9.0175,
+    "ex21": -26.4801,
+    "ex63": -35.5692,
+    "pct50": 0.0,
+    "mom": 0,
+    "best": [
+     [
+      "KLAC",
+      -5.6513
+     ],
+     [
+      "AMAT",
+      -14.4059
+     ]
+    ],
+    "score": 18.1818,
+    "rank": 27,
+    "status": "落後",
+    "rank_then": 25,
     "status_then": "落後"
    },
    {
     "theme": "CRYPTO MINER",
     "n": 4,
     "n_list": 4,
-    "ex5": -10.4529,
-    "ex21": -19.8111,
-    "ex63": -44.6847,
+    "ex5": -13.5271,
+    "ex21": -24.3745,
+    "ex63": -45.1546,
     "pct50": 0.0,
     "mom": 0,
     "best": [
      [
       "RIOT",
-      35.8728
+      29.6686
      ],
      [
       "HUT",
-      -17.3048
+      -20.6064
      ]
     ],
     "score": 18.1818,
-    "rank": 28,
+    "rank": 27,
     "status": "落後",
-    "rank_then": 31,
+    "rank_then": 27,
     "status_then": "落後"
    },
    {
     "theme": "NUCLEAR",
     "n": 10,
     "n_list": 10,
-    "ex5": -10.0537,
-    "ex21": -19.2118,
-    "ex63": -48.5866,
+    "ex5": -5.7499,
+    "ex21": -21.6196,
+    "ex63": -48.9314,
     "pct50": 10.0,
     "mom": 0,
     "best": [
      [
       "SOLS",
-      9.9793
+      8.05
      ],
      [
       "BWXT",
-      -7.4801
+      -8.2301
      ]
     ],
-    "score": 16.6667,
+    "score": 15.1515,
     "rank": 29,
     "status": "落後",
     "rank_then": 30,
@@ -6526,100 +6413,100 @@
     "theme": "CRYPTO",
     "n": 6,
     "n_list": 6,
-    "ex5": -10.1386,
-    "ex21": -30.3924,
-    "ex63": -39.3689,
+    "ex5": -8.6134,
+    "ex21": -29.8435,
+    "ex63": -39.765,
     "pct50": 0.0,
     "mom": 0,
     "best": [
      [
       "PURR",
-      -8.5765
+      -17.8906
      ],
      [
       "GLXY",
-      -20.252
-     ]
-    ],
-    "score": 13.6364,
-    "rank": 30,
-    "status": "落後",
-    "rank_then": 26,
-    "status_then": "落後"
-   },
-   {
-    "theme": "CRITICAL MINERALS",
-    "n": 10,
-    "n_list": 10,
-    "ex5": -10.0974,
-    "ex21": -19.6333,
-    "ex63": -54.6881,
-    "pct50": 0.0,
-    "mom": 0,
-    "best": [
-     [
-      "MP",
-      1.9239
-     ],
-     [
-      "METC",
-      -13.8838
+      -25.8315
      ]
     ],
     "score": 12.1212,
-    "rank": 31,
+    "rank": 30,
     "status": "落後",
-    "rank_then": 32,
-    "status_then": "落後"
-   },
-   {
-    "theme": "QUANTUM",
-    "n": 7,
-    "n_list": 7,
-    "ex5": -12.9498,
-    "ex21": -27.5666,
-    "ex63": -46.4426,
-    "pct50": 0.0,
-    "mom": 0,
-    "best": [
-     [
-      "INFQ",
-      -20.4481
-     ],
-     [
-      "IONQ",
-      -21.0909
-     ]
-    ],
-    "score": 10.6061,
-    "rank": 32,
-    "status": "落後",
-    "rank_then": 27,
+    "rank_then": 29,
     "status_then": "落後"
    },
    {
     "theme": "NEOCLOUD",
     "n": 6,
     "n_list": 6,
-    "ex5": -14.2657,
-    "ex21": -31.1622,
-    "ex63": -47.115,
+    "ex5": -13.4664,
+    "ex21": -25.9831,
+    "ex63": -46.2597,
     "pct50": 0.0,
     "mom": 0,
     "best": [
      [
       "CORZ",
-      -12.5656
+      -17.2691
      ],
      [
       "CRWV",
-      -16.7158
+      -21.6569
      ]
     ],
-    "score": 6.0606,
-    "rank": 33,
+    "score": 12.1212,
+    "rank": 30,
     "status": "落後",
     "rank_then": 33,
+    "status_then": "落後"
+   },
+   {
+    "theme": "QUANTUM",
+    "n": 7,
+    "n_list": 7,
+    "ex5": -8.1512,
+    "ex21": -27.4749,
+    "ex63": -45.4266,
+    "pct50": 0.0,
+    "mom": 0,
+    "best": [
+     [
+      "IONQ",
+      -21.6775
+     ],
+     [
+      "QUBT",
+      -26.3068
+     ]
+    ],
+    "score": 9.0909,
+    "rank": 32,
+    "status": "落後",
+    "rank_then": 32,
+    "status_then": "落後"
+   },
+   {
+    "theme": "CRITICAL MINERALS",
+    "n": 10,
+    "n_list": 10,
+    "ex5": -6.6877,
+    "ex21": -26.011,
+    "ex63": -55.6005,
+    "pct50": 0.0,
+    "mom": 0,
+    "best": [
+     [
+      "MP",
+      -6.7476
+     ],
+     [
+      "METC",
+      -18.5428
+     ]
+    ],
+    "score": 7.5758,
+    "rank": 33,
+    "status": "落後",
+    "rank_then": 31,
     "status_then": "落後"
    }
   ],
@@ -6630,16 +6517,20 @@
   "n_theme": 33
  },
  "log": [
-  "[01:22:45Z] NASDAQ screener rows: 7365",
-  "[01:22:47Z] NASDAQ Trader symbol directory rows: 13312",
-  "[01:22:47Z] Candidate tickers after filters: 4457",
-  "[01:23:22Z] downloaded 200/4457",
-  "[01:26:20Z] downloaded 1200/4457",
-  "[01:29:07Z] downloaded 2200/4457",
-  "[01:31:56Z] downloaded 3200/4457",
-  "[01:34:54Z] downloaded 4200/4457",
-  "[01:35:44Z] Bars: 4457 tickers x 522 days; no data for 0",
-  "[01:35:52Z] Groups: 35 ranked; unmapped industries []",
-  "[01:36:29Z] Themes: 79 ETFs, 33 stock themes; missing ['SNDK']"
+  "[02:23:49Z] NASDAQ screener rows: 7365",
+  "[02:23:50Z] NASDAQ Trader symbol directory rows: 13312",
+  "[02:23:50Z] Candidate tickers after filters: 4457",
+  "[02:23:58Z] downloaded 200/4457",
+  "[02:24:48Z] downloaded 1200/4457",
+  "[02:25:37Z] downloaded 2200/4457",
+  "[02:26:26Z] downloaded 3200/4457",
+  "[02:27:16Z] downloaded 4200/4457",
+  "[02:27:33Z] Bars: 4457 tickers x 522 days; no data for 1",
+  "[02:27:33Z] Stocks priced on 2026-11-23: 4450",
+  "[02:27:33Z] Stocks priced on 2026-11-24: 4452",
+  "[02:27:33Z] Stocks priced on 2026-11-25: 4164",
+  "[02:27:33Z] SPY/QQQ/^GSPC last session: 2026-11-25",
+  "[02:27:39Z] Groups: 34 ranked; unmapped industries []",
+  "[02:27:49Z] Themes: 79 ETFs, 33 stock themes; missing ['SNDK']"
  ]
 }
