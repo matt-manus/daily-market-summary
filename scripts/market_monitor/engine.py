@@ -362,6 +362,27 @@ def main():
     vol = vol.reindex(idx.index)
 
     h = compute_breadth(close, vol).join(idx, how="left")
+    # export the latest session's universe, one row per candidate ticker
+    try:
+        d = h.index[-1]
+        di = close.index.get_indexer([pd.Timestamp(d)])[0]
+        c0, v0 = close.iloc[di], vol.iloc[di]
+        pc = close.iloc[di - 1]
+        old = close.iloc[di - MOM_LOOKBACK] if di >= MOM_LOOKBACK else pd.Series(np.nan, index=close.columns)
+        ind = uni.set_index("ysym")["industry"]
+        ex = pd.DataFrame({"close": c0, "volume": v0, "dollar_vol": c0 * v0,
+                           "close_63d_ago": old, "ret_63d_pct": 100 * (c0 / old - 1)})
+        ex["has_bar"] = c0.notna() & pc.notna()
+        ex["breadth_universe"] = ex.has_bar & (c0 >= MIN_PRICE) & (v0 >= MIN_VOL)
+        ex["momentum_universe"] = ex.breadth_universe & (c0 * v0 >= MIN_DOLLAR_VOL) & old.notna()
+        ex["momentum_stock"] = ex.momentum_universe & (c0 / old - 1 >= MOM_THRESHOLD)
+        ex["industry"] = ind.reindex(ex.index)
+        ex.index.name = "ticker"
+        ex.sort_index().round(4).to_csv(os.path.join(OUT_DIR, "universe_latest.csv"))
+        log(f"Universe export {d}: breadth {int(ex.breadth_universe.sum())}, momentum universe "
+            f"{int(ex.momentum_universe.sum())}, momentum {int(ex.momentum_stock.sum())}")
+    except Exception as e:  # noqa: BLE001
+        log(f"Universe export failed: {e!r}")
     # diagnostics: volume near the 300k line on the latest session
     try:
         d = close.index[-1]
