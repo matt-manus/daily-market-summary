@@ -335,11 +335,18 @@ def main():
     if close.empty:
         raise SystemExit("No price data — stopping.")
 
+    # diagnostics: how many tickers are priced on the last few sessions
+    for d in close.index[-3:]:
+        log(f"Stocks priced on {pd.Timestamp(d).date()}: {int(close.loc[d].notna().sum())}")
     idx = index_atr_distance(start)
+    log(f"SPY/QQQ/^GSPC last session: {pd.Timestamp(idx.index[-1]).date()}")
     close = close.reindex(idx.index)
     vol = vol.reindex(idx.index)
 
     h = compute_breadth(close, vol).join(idx, how="left")
+    dropped = [str(pd.Timestamp(d).date()) for d in close.index[-5:] if d not in h.index]
+    if dropped:
+        log(f"Sessions dropped by breadth filter (too few stocks priced): {dropped}")
     h.index = pd.to_datetime(h.index).date
     h.index.name = "date"
 
