@@ -1,5 +1,5 @@
 {
- "run_utc": "2026-11-26 02:23",
+ "run_utc": "2026-11-26 02:42",
  "session": "2026-11-25",
  "rules": {
   "breadth_universe": "US common stocks + ADRs (no ETFs/funds/preferreds/warrants/units), close >= $5, volume >= 300,000 shares that day",
@@ -13,34 +13,34 @@
   "symdir_ok": true,
   "candidates": 4457
  },
- "no_data_tickers": 1,
+ "no_data_tickers": 0,
  "sectors": {
   "asof": "2026-11-25",
-  "N": 2112,
-  "K": 138,
-  "p": 6.5341,
-  "p_then": 13.093,
+  "N": 2255,
+  "K": 152,
+  "p": 6.7406,
+  "p_then": 13.2,
   "n_groups": 148,
-  "n_ranked": 28,
-  "n_small": 120,
+  "n_ranked": 30,
+  "n_small": 118,
   "unclassified": [
    {
     "industry": "Unclassified",
-    "base": 14,
+    "base": 15,
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.9893,
-    "median63": -16.182,
-    "median21": -6.5087,
-    "pace": -1.1147,
-    "lift_then": 0.5455,
-    "dlift": -0.5455,
+    "z": -1.0412,
+    "median63": -17.0796,
+    "median21": -5.7579,
+    "pace": -0.0647,
+    "lift_then": 0.5051,
+    "dlift": -0.5051,
     "mom_list": [],
     "members": null
    }
   ],
-  "dlift_pace_corr": 0.5938,
+  "dlift_pace_corr": 0.523,
   "unmapped": [],
   "rows": [
    {
@@ -49,25 +49,25 @@
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.5912,
+    "z": -0.6012,
     "median63": -3.2339,
     "median21": -9.0317,
     "pace": -7.9537,
-    "lift_then": 1.5275,
-    "dlift": -1.5275,
+    "lift_then": 1.5152,
+    "dlift": -1.5152,
     "mom_list": [],
     "members": null
    },
    {
     "industry": "Accident &Health Insurance",
-    "base": 3,
+    "base": 4,
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.458,
-    "median63": -2.7904,
-    "median21": -2.6255,
-    "pace": -1.6953,
+    "z": -0.5377,
+    "median63": -0.5341,
+    "median21": 0.2211,
+    "pace": 0.3991,
     "lift_then": 0.0,
     "dlift": 0.0,
     "mom_list": [],
@@ -78,13 +78,13 @@
     "base": 5,
     "mom": 1,
     "share": 20.0,
-    "lift": 3.0609,
-    "z": 1.2184,
+    "lift": 2.9671,
+    "z": 1.1825,
     "median63": 10.7889,
     "median21": 15.2039,
     "pace": 11.6076,
     "lift_then": 0.0,
-    "dlift": 3.0609,
+    "dlift": 2.9671,
     "mom_list": [
      [
       "STGW",
@@ -99,12 +99,12 @@
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.8769,
+    "z": -0.8917,
     "median63": -7.4925,
     "median21": 0.8171,
     "pace": 3.3145,
-    "lift_then": 0.6943,
-    "dlift": -0.6943,
+    "lift_then": 0.6887,
+    "dlift": -0.6887,
     "mom_list": [],
     "members": null
    },
@@ -114,7 +114,7 @@
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.5288,
+    "z": -0.5377,
     "median63": -7.5222,
     "median21": 1.4344,
     "pace": 3.9418,
@@ -125,16 +125,16 @@
    },
    {
     "industry": "Air Freight/Delivery Services",
-    "base": 10,
+    "base": 14,
     "mom": 2,
-    "share": 20.0,
-    "lift": 3.0609,
-    "z": 1.7231,
+    "share": 14.2857,
+    "lift": 2.1194,
+    "z": 1.126,
     "median63": 3.0631,
     "median21": 6.9423,
     "pace": 5.9213,
     "lift_then": 0.0,
-    "dlift": 3.0609,
+    "dlift": 2.1194,
     "mom_list": [
      [
       "ULCC",
@@ -149,14 +149,14 @@
    },
    {
     "industry": "Aluminum",
-    "base": 1,
+    "base": 2,
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.2644,
-    "median63": -35.6505,
-    "median21": -11.4808,
-    "pace": 0.4027,
+    "z": -0.3802,
+    "median63": -33.5705,
+    "median21": -11.8261,
+    "pace": -0.6359,
     "lift_then": 0.0,
     "dlift": 0.0,
     "mom_list": [],
@@ -164,16 +164,16 @@
    },
    {
     "industry": "Apparel",
-    "base": 11,
+    "base": 12,
     "mom": 4,
-    "share": 36.3636,
-    "lift": 5.5652,
-    "z": 4.0034,
-    "median63": 11.0978,
-    "median21": 12.4426,
-    "pace": 8.7433,
-    "lift_then": 0.7638,
-    "dlift": 4.8014,
+    "share": 33.3333,
+    "lift": 4.9452,
+    "z": 3.6742,
+    "median63": 8.1292,
+    "median21": 11.0457,
+    "pace": 8.336,
+    "lift_then": 0.6887,
+    "dlift": 4.2565,
     "mom_list": [
      [
       "COLM",
@@ -196,16 +196,16 @@
    },
    {
     "industry": "Auto & Home Supply Stores",
-    "base": 2,
+    "base": 3,
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.3739,
-    "median63": 5.7624,
-    "median21": 4.2626,
-    "pace": 2.3418,
-    "lift_then": 3.8188,
-    "dlift": -3.8188,
+    "z": -0.4657,
+    "median63": 5.908,
+    "median21": 0.9164,
+    "pace": -1.0529,
+    "lift_then": 2.5253,
+    "dlift": -2.5253,
     "mom_list": [],
     "members": null
    },
@@ -215,25 +215,25 @@
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.9159,
+    "z": -0.9313,
     "median63": -3.1189,
     "median21": 3.9983,
     "pace": 5.0379,
-    "lift_then": 0.6365,
-    "dlift": -0.6365,
+    "lift_then": 0.6313,
+    "dlift": -0.6313,
     "mom_list": [],
     "members": null
    },
    {
     "industry": "Auto Parts:O.E.M.",
-    "base": 15,
+    "base": 20,
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -1.024,
-    "median63": -15.7967,
-    "median21": -2.7214,
-    "pace": 2.5441,
+    "z": -1.2023,
+    "median63": -16.5801,
+    "median21": -2.8063,
+    "pace": 2.7204,
     "lift_then": 0.0,
     "dlift": 0.0,
     "mom_list": [],
@@ -245,7 +245,7 @@
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.458,
+    "z": -0.4657,
     "median63": -9.3782,
     "median21": -0.5168,
     "pace": 2.6093,
@@ -260,7 +260,7 @@
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.3739,
+    "z": -0.3802,
     "median63": -12.0002,
     "median21": 2.1873,
     "pace": 6.1874,
@@ -275,7 +275,7 @@
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.9893,
+    "z": -1.0059,
     "median63": 4.8428,
     "median21": 6.1127,
     "pace": 4.4984,
@@ -286,16 +286,16 @@
    },
    {
     "industry": "Biotechnology: Biological Products (No Diagnostic Substances)",
-    "base": 46,
-    "mom": 7,
-    "share": 15.2174,
-    "lift": 2.3289,
-    "z": 2.3831,
-    "median63": -13.3036,
-    "median21": -0.3758,
-    "pace": 4.0587,
-    "lift_then": 2.4905,
-    "dlift": -0.1616,
+    "base": 50,
+    "mom": 8,
+    "share": 16.0,
+    "lift": 2.3737,
+    "z": 2.6114,
+    "median63": -11.9796,
+    "median21": 2.7552,
+    "pace": 6.7484,
+    "lift_then": 2.5758,
+    "dlift": -0.2021,
     "mom_list": [
      [
       "KOD",
@@ -304,6 +304,10 @@
      [
       "MRNA",
       54.6823
+     ],
+     [
+      "ADMA",
+      50.1055
      ],
      [
       "VCEL",
@@ -330,16 +334,16 @@
    },
    {
     "industry": "Biotechnology: Commercial Physical & Biological Resarch",
-    "base": 6,
+    "base": 7,
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.6477,
-    "median63": 5.6949,
-    "median21": -1.5109,
-    "pace": -3.4092,
-    "lift_then": 2.5459,
-    "dlift": -2.5459,
+    "z": -0.7113,
+    "median63": -0.6442,
+    "median21": -7.4574,
+    "pace": -7.2426,
+    "lift_then": 3.2468,
+    "dlift": -3.2468,
     "mom_list": [],
     "members": null
    },
@@ -348,13 +352,13 @@
     "base": 7,
     "mom": 1,
     "share": 14.2857,
-    "lift": 2.1863,
-    "z": 0.8299,
+    "lift": 2.1194,
+    "z": 0.7962,
     "median63": 6.7689,
     "median21": 8.1558,
     "pace": 5.8995,
-    "lift_then": 1.0911,
-    "dlift": 1.0952,
+    "lift_then": 1.0823,
+    "dlift": 1.0371,
     "mom_list": [
      [
       "CBLL",
@@ -368,13 +372,13 @@
     "base": 9,
     "mom": 2,
     "share": 22.2222,
-    "lift": 3.401,
-    "z": 1.9045,
+    "lift": 3.2968,
+    "z": 1.8524,
     "median63": -10.6474,
     "median21": -12.0827,
     "pace": -8.5335,
-    "lift_then": 1.6973,
-    "dlift": 1.7037,
+    "lift_then": 1.6835,
+    "dlift": 1.6133,
     "mom_list": [
      [
       "MYGN",
@@ -389,16 +393,16 @@
    },
    {
     "industry": "Biotechnology: Laboratory Analytical Instruments",
-    "base": 6,
+    "base": 8,
     "mom": 1,
-    "share": 16.6667,
-    "lift": 2.5507,
-    "z": 1.0043,
+    "share": 12.5,
+    "lift": 1.8544,
+    "z": 0.6497,
     "median63": 5.0915,
     "median21": -6.7854,
     "pace": -8.4826,
-    "lift_then": 5.0918,
-    "dlift": -2.5411,
+    "lift_then": 5.6818,
+    "dlift": -3.8274,
     "mom_list": [
      [
       "CTKB",
@@ -409,16 +413,16 @@
    },
    {
     "industry": "Biotechnology: Pharmaceutical Preparations",
-    "base": 143,
-    "mom": 15,
-    "share": 10.4895,
-    "lift": 1.6054,
-    "z": 1.914,
-    "median63": -13.3428,
-    "median21": 2.0098,
-    "pace": 6.4574,
-    "lift_then": 1.1295,
-    "dlift": 0.4758,
+    "base": 156,
+    "mom": 16,
+    "share": 10.2564,
+    "lift": 1.5216,
+    "z": 1.7514,
+    "median63": -12.6738,
+    "median21": 1.9743,
+    "pace": 6.1989,
+    "lift_then": 1.173,
+    "dlift": 0.3486,
     "mom_list": [
      [
       "XERS",
@@ -443,6 +447,10 @@
      [
       "BHC",
       35.2381
+     ],
+     [
+      "AMPH",
+      33.0896
      ],
      [
       "XNCR",
@@ -485,14 +493,14 @@
    },
    {
     "industry": "Blank Checks",
-    "base": 4,
+    "base": 5,
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.5288,
-    "median63": 0.0542,
-    "median21": 0.3955,
-    "pace": 0.3775,
+    "z": -0.6012,
+    "median63": 0.502,
+    "median21": 0.502,
+    "pace": 0.3347,
     "lift_then": 0.0,
     "dlift": 0.0,
     "mom_list": [],
@@ -504,7 +512,7 @@
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.3739,
+    "z": -0.3802,
     "median63": -4.3828,
     "median21": -6.097,
     "pace": -4.636,
@@ -518,13 +526,13 @@
     "base": 12,
     "mom": 1,
     "share": 8.3333,
-    "lift": 1.2754,
-    "z": 0.2522,
+    "lift": 1.2363,
+    "z": 0.2201,
     "median63": 5.9068,
     "median21": 13.4123,
     "pace": 11.4433,
     "lift_then": 0.0,
-    "dlift": 1.2754,
+    "dlift": 1.2363,
     "mom_list": [
      [
       "GTN",
@@ -539,7 +547,7 @@
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.6477,
+    "z": -0.6585,
     "median63": -4.1836,
     "median21": 7.5652,
     "pace": 8.9598,
@@ -554,7 +562,7 @@
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.458,
+    "z": -0.4657,
     "median63": 0.096,
     "median21": 7.0346,
     "pace": 7.0026,
@@ -565,20 +573,24 @@
    },
    {
     "industry": "Business Services",
-    "base": 45,
-    "mom": 3,
-    "share": 6.6667,
-    "lift": 1.0203,
-    "z": 0.036,
-    "median63": 0.8415,
-    "median21": 1.1666,
-    "pace": 0.8861,
-    "lift_then": 0.6789,
-    "dlift": 0.3414,
+    "base": 48,
+    "mom": 5,
+    "share": 10.4167,
+    "lift": 1.5454,
+    "z": 1.0158,
+    "median63": 1.0174,
+    "median21": 1.5974,
+    "pace": 1.2583,
+    "lift_then": 0.7891,
+    "dlift": 0.7562,
     "mom_list": [
      [
       "RSKD",
       66.0131
+     ],
+     [
+      "ACN",
+      28.3435
      ],
      [
       "FLYW",
@@ -587,20 +599,24 @@
      [
       "RDWR",
       22.489
+     ],
+     [
+      "AMTM",
+      21.6838
      ]
     ],
     "members": null
    },
    {
     "industry": "Cable & Other Pay Television Services",
-    "base": 6,
+    "base": 7,
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.6477,
-    "median63": -0.9232,
-    "median21": 25.3975,
-    "pace": 25.7053,
+    "z": -0.7113,
+    "median63": -1.1385,
+    "median21": 18.9241,
+    "pace": 19.3036,
     "lift_then": 0.0,
     "dlift": 0.0,
     "mom_list": [],
@@ -612,28 +628,37 @@
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.8361,
+    "z": -0.8502,
     "median63": -4.0157,
     "median21": -0.4923,
     "pace": 0.8463,
-    "lift_then": 2.2913,
-    "dlift": -2.2913,
+    "lift_then": 2.2727,
+    "dlift": -2.2727,
     "mom_list": [],
     "members": null
    },
    {
     "industry": "Clothing/Shoe/Accessory Stores",
-    "base": 8,
-    "mom": 0,
-    "share": 0.0,
-    "lift": 0.0,
-    "z": -0.7478,
-    "median63": -0.5554,
-    "median21": -1.8798,
-    "pace": -1.6947,
-    "lift_then": 0.9547,
-    "dlift": -0.9547,
-    "mom_list": [],
+    "base": 10,
+    "mom": 2,
+    "share": 20.0,
+    "lift": 2.9671,
+    "z": 1.6724,
+    "median63": 1.7655,
+    "median21": 1.705,
+    "pace": 1.1165,
+    "lift_then": 1.5152,
+    "dlift": 1.452,
+    "mom_list": [
+     [
+      "AEO",
+      33.0138
+     ],
+     [
+      "ANF",
+      21.4134
+     ]
+    ],
     "members": null
    },
    {
@@ -642,7 +667,7 @@
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.5912,
+    "z": -0.6012,
     "median63": -26.5643,
     "median21": -14.322,
     "pace": -5.4673,
@@ -656,13 +681,13 @@
     "base": 20,
     "mom": 2,
     "share": 10.0,
-    "lift": 1.5304,
-    "z": 0.6272,
+    "lift": 1.4836,
+    "z": 0.5814,
     "median63": -11.5094,
     "median21": -6.9305,
     "pace": -3.094,
     "lift_then": 0.0,
-    "dlift": 1.5304,
+    "dlift": 1.4836,
     "mom_list": [
      [
       "HDB",
@@ -681,42 +706,42 @@
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.6477,
+    "z": -0.6585,
     "median63": -17.2274,
     "median21": -13.8647,
     "pace": -8.1223,
-    "lift_then": 1.2729,
-    "dlift": -1.2729,
+    "lift_then": 1.2626,
+    "dlift": -1.2626,
     "mom_list": [],
     "members": null
    },
    {
     "industry": "Computer Manufacturing",
-    "base": 5,
+    "base": 6,
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.5912,
-    "median63": 1.9599,
-    "median21": -7.2365,
-    "pace": -7.8898,
-    "lift_then": 3.0551,
-    "dlift": -3.0551,
+    "z": -0.6585,
+    "median63": 2.7608,
+    "median21": -6.5562,
+    "pace": -7.4765,
+    "lift_then": 2.5253,
+    "dlift": -2.5253,
     "mom_list": [],
     "members": null
    },
    {
     "industry": "Computer Software: Prepackaged Software",
-    "base": 106,
+    "base": 114,
     "mom": 20,
-    "share": 18.8679,
-    "lift": 2.8876,
-    "z": 5.1384,
-    "median63": -1.408,
-    "median21": -6.0728,
-    "pace": -5.6035,
-    "lift_then": 3.9629,
-    "dlift": -1.0753,
+    "share": 17.5439,
+    "lift": 2.6027,
+    "z": 4.6006,
+    "median63": -3.0438,
+    "median21": -6.2732,
+    "pace": -5.2586,
+    "lift_then": 3.7879,
+    "dlift": -1.1852,
     "mom_list": [
      [
       "GDYN",
@@ -806,13 +831,13 @@
     "base": 35,
     "mom": 3,
     "share": 8.5714,
-    "lift": 1.3118,
-    "z": 0.4877,
+    "lift": 1.2716,
+    "z": 0.432,
     "median63": -11.1694,
     "median21": -5.9968,
     "pace": -2.2737,
-    "lift_then": 1.7458,
-    "dlift": -0.434,
+    "lift_then": 1.7316,
+    "dlift": -0.46,
     "mom_list": [
      [
       "BMBL",
@@ -835,12 +860,12 @@
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.6477,
+    "z": -0.6585,
     "median63": -9.5529,
     "median21": -13.3411,
     "pace": -10.1569,
-    "lift_then": 3.8188,
-    "dlift": -3.8188,
+    "lift_then": 3.7879,
+    "dlift": -3.7879,
     "mom_list": [],
     "members": null
    },
@@ -850,7 +875,7 @@
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.6995,
+    "z": -0.7113,
     "median63": -8.5683,
     "median21": -0.3696,
     "pace": 2.4865,
@@ -864,13 +889,13 @@
     "base": 10,
     "mom": 1,
     "share": 10.0,
-    "lift": 1.5304,
-    "z": 0.4435,
+    "lift": 1.4836,
+    "z": 0.4111,
     "median63": 4.1497,
     "median21": 2.6637,
     "pace": 1.2805,
-    "lift_then": 0.7638,
-    "dlift": 0.7667,
+    "lift_then": 0.7576,
+    "dlift": 0.726,
     "mom_list": [
      [
       "SN",
@@ -884,13 +909,13 @@
     "base": 2,
     "mom": 1,
     "share": 50.0,
-    "lift": 7.6522,
-    "z": 2.4874,
+    "lift": 7.4178,
+    "z": 2.4401,
     "median63": -1.4133,
     "median21": -0.4161,
     "pace": 0.055,
     "lift_then": 0.0,
-    "dlift": 7.6522,
+    "dlift": 7.4178,
     "mom_list": [
      [
       "BBY",
@@ -904,13 +929,13 @@
     "base": 5,
     "mom": 2,
     "share": 40.0,
-    "lift": 6.1217,
-    "z": 3.0281,
+    "lift": 5.9342,
+    "z": 2.9662,
     "median63": 15.6078,
     "median21": -9.4341,
     "pace": -14.6367,
-    "lift_then": 1.5275,
-    "dlift": 4.5942,
+    "lift_then": 1.5152,
+    "dlift": 4.4191,
     "mom_list": [
      [
       "FOSL",
@@ -929,7 +954,7 @@
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.8769,
+    "z": -0.8917,
     "median63": 1.4576,
     "median21": 4.805,
     "pace": 4.3191,
@@ -943,13 +968,13 @@
     "base": 12,
     "mom": 3,
     "share": 25.0,
-    "lift": 3.8261,
-    "z": 2.5885,
+    "lift": 3.7089,
+    "z": 2.5228,
     "median63": 11.5082,
     "median21": 9.6628,
     "pace": 5.8267,
-    "lift_then": 0.6365,
-    "dlift": 3.1896,
+    "lift_then": 0.6313,
+    "dlift": 3.0776,
     "mom_list": [
      [
       "KSS",
@@ -968,20 +993,28 @@
    },
    {
     "industry": "Diversified Commercial Services",
-    "base": 13,
-    "mom": 1,
-    "share": 7.6923,
-    "lift": 1.1773,
-    "z": 0.169,
-    "median63": -2.1002,
-    "median21": 7.7491,
-    "pace": 8.4492,
+    "base": 19,
+    "mom": 3,
+    "share": 15.7895,
+    "lift": 2.3425,
+    "z": 1.5732,
+    "median63": 1.5205,
+    "median21": 6.4525,
+    "pace": 5.9457,
     "lift_then": 0.0,
-    "dlift": 1.1773,
+    "dlift": 2.3425,
     "mom_list": [
      [
       "UPBD",
       41.9907
+     ],
+     [
+      "ADT",
+      32.5737
+     ],
+     [
+      "ALLE",
+      20.3356
      ]
     ],
     "members": null
@@ -992,7 +1025,7 @@
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.3739,
+    "z": -0.3802,
     "median63": -5.8697,
     "median21": 4.2023,
     "pace": 6.1589,
@@ -1007,7 +1040,7 @@
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.2644,
+    "z": -0.2688,
     "median63": 1.3489,
     "median21": 4.6753,
     "pace": 4.2257,
@@ -1018,16 +1051,16 @@
    },
    {
     "industry": "EDP Services",
-    "base": 53,
+    "base": 55,
     "mom": 9,
-    "share": 16.9811,
-    "lift": 2.5989,
-    "z": 3.0776,
+    "share": 16.3636,
+    "lift": 2.4276,
+    "z": 2.8464,
     "median63": -5.838,
-    "median21": -6.4595,
-    "pace": -4.5135,
-    "lift_then": 2.1616,
-    "dlift": 0.4372,
+    "median21": -5.5556,
+    "pace": -3.6096,
+    "lift_then": 2.0661,
+    "dlift": 0.3615,
     "mom_list": [
      [
       "TLS",
@@ -1070,14 +1103,14 @@
    },
    {
     "industry": "Electric Utilities: Central",
-    "base": 34,
+    "base": 37,
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -1.5417,
-    "median63": 1.071,
-    "median21": 0.5145,
-    "pace": 0.1575,
+    "z": -1.6353,
+    "median63": 1.2324,
+    "median21": 0.4605,
+    "pace": 0.0497,
     "lift_then": 0.0,
     "dlift": 0.0,
     "mom_list": [],
@@ -1085,16 +1118,16 @@
    },
    {
     "industry": "Electrical Products",
-    "base": 19,
+    "base": 21,
     "mom": 1,
-    "share": 5.2632,
-    "lift": 0.8055,
-    "z": -0.2242,
+    "share": 4.7619,
+    "lift": 0.7065,
+    "z": -0.3617,
     "median63": -26.8717,
     "median21": -19.3401,
     "pace": -10.3829,
-    "lift_then": 0.402,
-    "dlift": 0.4035,
+    "lift_then": 0.3608,
+    "dlift": 0.3457,
     "mom_list": [
      [
       "VLTO",
@@ -1108,13 +1141,13 @@
     "base": 14,
     "mom": 1,
     "share": 7.1429,
-    "lift": 1.0932,
-    "z": 0.0922,
+    "lift": 1.0597,
+    "z": 0.06,
     "median63": -18.6835,
     "median21": -20.9961,
     "pace": -14.7683,
-    "lift_then": 1.6366,
-    "dlift": -0.5435,
+    "lift_then": 1.6234,
+    "dlift": -0.5637,
     "mom_list": [
      [
       "TGLS",
@@ -1128,13 +1161,13 @@
     "base": 1,
     "mom": 1,
     "share": 100.0,
-    "lift": 15.3043,
-    "z": 3.7821,
+    "lift": 14.8355,
+    "z": 3.7196,
     "median63": 47.7808,
     "median21": 15.4538,
     "pace": -0.4732,
     "lift_then": 0.0,
-    "dlift": 15.3043,
+    "dlift": 14.8355,
     "mom_list": [
      [
       "GME",
@@ -1145,14 +1178,14 @@
    },
    {
     "industry": "Engineering & Construction",
-    "base": 6,
+    "base": 7,
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.6477,
-    "median63": -25.3964,
-    "median21": -8.8543,
-    "pace": -0.3888,
+    "z": -0.7113,
+    "median63": -31.9137,
+    "median21": -12.0599,
+    "pace": -1.422,
     "lift_then": 0.0,
     "dlift": 0.0,
     "mom_list": [],
@@ -1164,7 +1197,7 @@
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.6477,
+    "z": -0.6585,
     "median63": 10.236,
     "median21": 3.8904,
     "pace": 0.4784,
@@ -1175,14 +1208,14 @@
    },
    {
     "industry": "Farming/Seeds/Milling",
-    "base": 6,
+    "base": 8,
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.6477,
-    "median63": -20.0717,
-    "median21": -15.1121,
-    "pace": -8.4216,
+    "z": -0.7604,
+    "median63": -22.3064,
+    "median21": -17.6775,
+    "pace": -10.242,
     "lift_then": 0.0,
     "dlift": 0.0,
     "mom_list": [],
@@ -1194,7 +1227,7 @@
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.458,
+    "z": -0.4657,
     "median63": -3.7794,
     "median21": -2.079,
     "pace": -0.8192,
@@ -1209,7 +1242,7 @@
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.6995,
+    "z": -0.7113,
     "median63": -9.916,
     "median21": -1.9409,
     "pace": 1.3644,
@@ -1220,16 +1253,16 @@
    },
    {
     "industry": "Finance: Consumer Services",
-    "base": 47,
+    "base": 48,
     "mom": 1,
-    "share": 2.1277,
-    "lift": 0.3256,
-    "z": -1.2224,
-    "median63": -20.2586,
-    "median21": -9.7836,
-    "pace": -3.0308,
-    "lift_then": 1.4625,
-    "dlift": -1.1369,
+    "share": 2.0833,
+    "lift": 0.3091,
+    "z": -1.2869,
+    "median63": -21.0791,
+    "median21": -9.9797,
+    "pace": -2.9534,
+    "lift_then": 1.4205,
+    "dlift": -1.1114,
     "mom_list": [
      [
       "OPRT",
@@ -1244,7 +1277,7 @@
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.5912,
+    "z": -0.6012,
     "median63": -3.7311,
     "median21": 8.4863,
     "pace": 9.73,
@@ -1255,16 +1288,16 @@
    },
    {
     "industry": "Food Chains",
-    "base": 4,
+    "base": 5,
     "mom": 2,
-    "share": 50.0,
-    "lift": 7.6522,
-    "z": 3.5177,
-    "median63": 11.0733,
-    "median21": -1.8253,
-    "pace": -5.5164,
-    "lift_then": 3.8188,
-    "dlift": 3.8333,
+    "share": 40.0,
+    "lift": 5.9342,
+    "z": 2.9662,
+    "median63": 5.4783,
+    "median21": -5.9767,
+    "pace": -7.8028,
+    "lift_then": 3.0303,
+    "dlift": 2.9039,
     "mom_list": [
      [
       "TBBB",
@@ -1283,7 +1316,7 @@
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.6477,
+    "z": -0.6585,
     "median63": 5.3442,
     "median21": 6.8007,
     "pace": 5.0193,
@@ -1298,7 +1331,7 @@
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.5288,
+    "z": -0.5377,
     "median63": 11.2772,
     "median21": 9.4821,
     "pace": 5.7231,
@@ -1312,13 +1345,13 @@
     "base": 6,
     "mom": 2,
     "share": 33.3333,
-    "lift": 5.1014,
-    "z": 2.6563,
+    "lift": 4.9452,
+    "z": 2.598,
     "median63": 12.6908,
     "median21": 8.2276,
     "pace": 3.9973,
     "lift_then": 0.0,
-    "dlift": 5.1014,
+    "dlift": 4.9452,
     "mom_list": [
      [
       "VFC",
@@ -1337,7 +1370,7 @@
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.2644,
+    "z": -0.2688,
     "median63": -1.5008,
     "median21": 12.0777,
     "pace": 12.578,
@@ -1351,13 +1384,13 @@
     "base": 10,
     "mom": 1,
     "share": 10.0,
-    "lift": 1.5304,
-    "z": 0.4435,
+    "lift": 1.4836,
+    "z": 0.4111,
     "median63": -9.259,
     "median21": 1.2485,
     "pace": 4.3348,
     "lift_then": 0.0,
-    "dlift": 1.5304,
+    "dlift": 1.4836,
     "mom_list": [
      [
       "HELE",
@@ -1372,7 +1405,7 @@
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.9533,
+    "z": -0.9693,
     "median63": 1.9739,
     "median21": 8.3834,
     "pace": 7.7255,
@@ -1383,20 +1416,24 @@
    },
    {
     "industry": "Hospital/Nursing Management",
-    "base": 11,
-    "mom": 1,
-    "share": 9.0909,
-    "lift": 1.3913,
-    "z": 0.3431,
-    "median63": 10.4242,
-    "median21": 7.0979,
-    "pace": 3.6232,
-    "lift_then": 0.6943,
-    "dlift": 0.697,
+    "base": 12,
+    "mom": 2,
+    "share": 16.6667,
+    "lift": 2.4726,
+    "z": 1.3714,
+    "median63": 10.6393,
+    "median21": 7.2392,
+    "pace": 3.6928,
+    "lift_then": 0.6313,
+    "dlift": 1.8413,
     "mom_list": [
      [
       "SGRY",
       90.5958
+     ],
+     [
+      "ARDT",
+      44.222
      ]
     ],
     "members": null
@@ -1407,7 +1444,7 @@
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -1.268,
+    "z": -1.2893,
     "median63": 7.5889,
     "median21": 10.0775,
     "pace": 7.5479,
@@ -1418,16 +1455,16 @@
    },
    {
     "industry": "Industrial Machinery/Components",
-    "base": 85,
+    "base": 92,
     "mom": 6,
-    "share": 7.0588,
-    "lift": 1.0803,
-    "z": 0.1958,
-    "median63": -10.221,
-    "median21": -7.2659,
-    "pace": -3.8589,
-    "lift_then": 1.0911,
-    "dlift": -0.0108,
+    "share": 6.5217,
+    "lift": 0.9675,
+    "z": -0.0837,
+    "median63": -10.3745,
+    "median21": -7.4365,
+    "pace": -3.9783,
+    "lift_then": 0.999,
+    "dlift": -0.0315,
     "mom_list": [
      [
       "CRCT",
@@ -1458,16 +1495,16 @@
    },
    {
     "industry": "Industrial Specialties",
-    "base": 15,
+    "base": 16,
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -1.024,
-    "median63": 6.4526,
-    "median21": 6.2584,
-    "pace": 4.1075,
-    "lift_then": 0.5092,
-    "dlift": -0.5092,
+    "z": -1.0754,
+    "median63": 6.2987,
+    "median21": 7.555,
+    "pace": 5.4554,
+    "lift_then": 0.4735,
+    "dlift": -0.4735,
     "mom_list": [],
     "members": null
    },
@@ -1477,7 +1514,7 @@
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.5912,
+    "z": -0.6012,
     "median63": 3.9167,
     "median21": 0.8566,
     "pace": -0.449,
@@ -1492,12 +1529,12 @@
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -1.024,
+    "z": -1.0412,
     "median63": -6.8063,
     "median21": -16.6107,
     "pace": -14.342,
-    "lift_then": 2.5459,
-    "dlift": -2.5459,
+    "lift_then": 2.5253,
+    "dlift": -2.5253,
     "mom_list": [],
     "members": null
    },
@@ -1507,40 +1544,40 @@
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -1.4721,
+    "z": -1.4969,
     "median63": -15.8562,
     "median21": -2.854,
     "pace": 2.4314,
-    "lift_then": 0.2464,
-    "dlift": -0.2464,
+    "lift_then": 0.2444,
+    "dlift": -0.2444,
     "mom_list": [],
     "members": null
    },
    {
     "industry": "Investment Managers",
-    "base": 27,
+    "base": 30,
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -1.3739,
-    "median63": -9.3037,
-    "median21": 2.3716,
-    "pace": 5.4728,
-    "lift_then": 0.2829,
-    "dlift": -0.2829,
+    "z": -1.4725,
+    "median63": -11.0667,
+    "median21": 2.4164,
+    "pace": 6.1053,
+    "lift_then": 0.2525,
+    "dlift": -0.2525,
     "mom_list": [],
     "members": null
    },
    {
     "industry": "Life Insurance",
-    "base": 14,
+    "base": 15,
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.9893,
-    "median63": -2.9437,
-    "median21": -0.5109,
-    "pace": 0.4703,
+    "z": -1.0412,
+    "median63": -3.3863,
+    "median21": -0.2,
+    "pace": 0.9287,
     "lift_then": 0.0,
     "dlift": 0.0,
     "mom_list": [],
@@ -1548,14 +1585,14 @@
    },
    {
     "industry": "Major Banks",
-    "base": 76,
+    "base": 79,
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -2.305,
-    "median63": -7.4637,
-    "median21": -3.7922,
-    "pace": -1.3043,
+    "z": -2.3895,
+    "median63": -7.3114,
+    "median21": -3.7801,
+    "pace": -1.3429,
     "lift_then": 0.0,
     "dlift": 0.0,
     "mom_list": [],
@@ -1563,16 +1600,16 @@
    },
    {
     "industry": "Major Chemicals",
-    "base": 24,
+    "base": 26,
     "mom": 1,
-    "share": 4.1667,
-    "lift": 0.6377,
-    "z": -0.4693,
+    "share": 3.8462,
+    "lift": 0.5706,
+    "z": -0.5886,
     "median63": -6.564,
     "median21": -5.4301,
     "pace": -3.2421,
     "lift_then": 0.0,
-    "dlift": 0.6377,
+    "dlift": 0.5706,
     "mom_list": [
      [
       "VVV",
@@ -1586,13 +1623,13 @@
     "base": 32,
     "mom": 1,
     "share": 3.125,
-    "lift": 0.4783,
-    "z": -0.7804,
+    "lift": 0.4636,
+    "z": -0.8158,
     "median63": -4.2489,
     "median21": -8.0208,
     "pace": -6.6045,
-    "lift_then": 1.9094,
-    "dlift": -1.4312,
+    "lift_then": 1.8939,
+    "dlift": -1.4303,
     "mom_list": [
      [
       "ECO",
@@ -1607,7 +1644,7 @@
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.5912,
+    "z": -0.6012,
     "median63": -6.1074,
     "median21": 7.8258,
     "pace": 9.8616,
@@ -1622,7 +1659,7 @@
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.458,
+    "z": -0.4657,
     "median63": 10.847,
     "median21": 12.9875,
     "pace": 9.3719,
@@ -1633,16 +1670,16 @@
    },
    {
     "industry": "Medical Specialities",
-    "base": 26,
+    "base": 28,
     "mom": 4,
-    "share": 15.3846,
-    "lift": 2.3545,
-    "z": 1.8262,
+    "share": 14.2857,
+    "lift": 2.1194,
+    "z": 1.5924,
     "median63": -2.3043,
     "median21": -8.2736,
     "pace": -7.5055,
-    "lift_then": 2.9376,
-    "dlift": -0.5831,
+    "lift_then": 2.7056,
+    "dlift": -0.5863,
     "mom_list": [
      [
       "CDNA",
@@ -1665,16 +1702,16 @@
    },
    {
     "industry": "Medical/Dental Instruments",
-    "base": 41,
+    "base": 42,
     "mom": 5,
-    "share": 12.1951,
-    "lift": 1.8664,
-    "z": 1.4668,
-    "median63": -0.509,
-    "median21": 0.2081,
-    "pace": 0.3778,
-    "lift_then": 2.2354,
-    "dlift": -0.369,
+    "share": 11.9048,
+    "lift": 1.7661,
+    "z": 1.3348,
+    "median63": -1.712,
+    "median21": 0.1706,
+    "pace": 0.7413,
+    "lift_then": 2.1645,
+    "dlift": -0.3984,
     "mom_list": [
      [
       "EMBC",
@@ -1701,20 +1738,24 @@
    },
    {
     "industry": "Medical/Nursing Services",
-    "base": 9,
-    "mom": 2,
-    "share": 22.2222,
-    "lift": 3.401,
-    "z": 1.9045,
-    "median63": 5.4516,
-    "median21": 1.1186,
-    "pace": -0.6986,
-    "lift_then": 2.5459,
-    "dlift": 0.8551,
+    "base": 10,
+    "mom": 3,
+    "share": 30.0,
+    "lift": 4.4507,
+    "z": 2.9336,
+    "median63": 11.5876,
+    "median21": 5.5798,
+    "pace": 1.7173,
+    "lift_then": 2.2727,
+    "dlift": 2.1779,
     "mom_list": [
      [
       "OPCH",
       31.9433
+     ],
+     [
+      "AHCO",
+      28.9655
      ],
      [
       "PRVA",
@@ -1729,12 +1770,12 @@
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -1.0902,
+    "z": -1.1085,
     "median63": -16.1421,
     "median21": -5.7941,
     "pace": -0.4134,
-    "lift_then": 0.4493,
-    "dlift": -0.4493,
+    "lift_then": 0.4456,
+    "dlift": -0.4456,
     "mom_list": [],
     "members": null
    },
@@ -1744,40 +1785,45 @@
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.9533,
+    "z": -0.9693,
     "median63": -38.0898,
     "median21": -26.2933,
     "pace": -13.5967,
-    "lift_then": 1.7625,
-    "dlift": -1.7625,
+    "lift_then": 1.7483,
+    "dlift": -1.7483,
     "mom_list": [],
     "members": null
    },
    {
     "industry": "Military/Government/Technical",
-    "base": 21,
-    "mom": 0,
-    "share": 0.0,
-    "lift": 0.0,
-    "z": -1.2116,
+    "base": 25,
+    "mom": 1,
+    "share": 4.0,
+    "lift": 0.5934,
+    "z": -0.5465,
     "median63": -10.8143,
     "median21": -3.8123,
     "pace": -0.2075,
-    "lift_then": 0.7274,
-    "dlift": -0.7274,
-    "mom_list": [],
+    "lift_then": 0.9091,
+    "dlift": -0.3157,
+    "mom_list": [
+     [
+      "ACM",
+      25.9511
+     ]
+    ],
     "members": null
    },
    {
     "industry": "Mining & Quarrying of Nonmetallic Minerals (No Fuels)",
-    "base": 11,
+    "base": 12,
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.8769,
-    "median63": -25.2168,
-    "median21": -17.2286,
-    "pace": -8.823,
+    "z": -0.9313,
+    "median63": -26.0689,
+    "median21": -17.5821,
+    "pace": -8.8925,
     "lift_then": 0.0,
     "dlift": 0.0,
     "mom_list": [],
@@ -1789,7 +1835,7 @@
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.5288,
+    "z": -0.5377,
     "median63": -18.1524,
     "median21": -7.0718,
     "pace": -1.021,
@@ -1803,13 +1849,13 @@
     "base": 4,
     "mom": 1,
     "share": 25.0,
-    "lift": 3.8261,
-    "z": 1.4945,
+    "lift": 3.7089,
+    "z": 1.4565,
     "median63": -9.0153,
     "median21": -8.1622,
     "pace": -5.1571,
     "lift_then": 0.0,
-    "dlift": 3.8261,
+    "dlift": 3.7089,
     "mom_list": [
      [
       "PGNY",
@@ -1824,7 +1870,7 @@
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.2644,
+    "z": -0.2688,
     "median63": 10.1732,
     "median21": 11.9489,
     "pace": 8.5579,
@@ -1835,14 +1881,14 @@
    },
    {
     "industry": "Miscellaneous manufacturing industries",
-    "base": 2,
+    "base": 3,
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.3739,
-    "median63": -12.1291,
-    "median21": -8.791,
-    "pace": -4.748,
+    "z": -0.4657,
+    "median63": -6.6803,
+    "median21": -6.7199,
+    "pace": -4.4932,
     "lift_then": 0.0,
     "dlift": 0.0,
     "mom_list": [],
@@ -1853,13 +1899,13 @@
     "base": 3,
     "mom": 1,
     "share": 33.3333,
-    "lift": 5.1014,
-    "z": 1.8783,
+    "lift": 4.9452,
+    "z": 1.8371,
     "median63": -18.5782,
     "median21": 14.0936,
     "pace": 20.2863,
     "lift_then": 0.0,
-    "dlift": 5.1014,
+    "dlift": 4.9452,
     "mom_list": [
      [
       "HOG",
@@ -1874,7 +1920,7 @@
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.458,
+    "z": -0.4657,
     "median63": 7.707,
     "median21": -0.3036,
     "pace": -2.8726,
@@ -1885,31 +1931,31 @@
    },
    {
     "industry": "Multi-Sector Companies",
-    "base": 1,
+    "base": 2,
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.2644,
-    "median63": -8.9409,
-    "median21": -9.4198,
-    "pace": -6.4395,
-    "lift_then": 0.0,
-    "dlift": 0.0,
+    "z": -0.3802,
+    "median63": -28.3778,
+    "median21": -25.3589,
+    "pace": -15.8996,
+    "lift_then": 3.7879,
+    "dlift": -3.7879,
     "mom_list": [],
     "members": null
    },
    {
     "industry": "Natural Gas Distribution",
-    "base": 15,
+    "base": 17,
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -1.024,
-    "median63": -7.6568,
+    "z": -1.1085,
+    "median63": -8.4776,
     "median21": -6.3811,
-    "pace": -3.8288,
-    "lift_then": 0.5092,
-    "dlift": -0.5092,
+    "pace": -3.5552,
+    "lift_then": 0.4456,
+    "dlift": -0.4456,
     "mom_list": [],
     "members": null
    },
@@ -1919,7 +1965,7 @@
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.5288,
+    "z": -0.5377,
     "median63": -8.8949,
     "median21": -7.6623,
     "pace": -4.6974,
@@ -1933,13 +1979,13 @@
     "base": 6,
     "mom": 1,
     "share": 16.6667,
-    "lift": 2.5507,
-    "z": 1.0043,
+    "lift": 2.4726,
+    "z": 0.9697,
     "median63": 4.0474,
     "median21": 6.0191,
     "pace": 4.67,
     "lift_then": 0.0,
-    "dlift": 2.5507,
+    "dlift": 2.4726,
     "mom_list": [
      [
       "PAR",
@@ -1950,16 +1996,16 @@
    },
    {
     "industry": "Oil & Gas Production",
-    "base": 55,
+    "base": 57,
     "mom": 2,
-    "share": 3.6364,
-    "lift": 0.5565,
-    "z": -0.8696,
-    "median63": -12.0548,
-    "median21": -14.6241,
-    "pace": -10.6059,
-    "lift_then": 2.083,
-    "dlift": -1.5265,
+    "share": 3.5088,
+    "lift": 0.5205,
+    "z": -0.9732,
+    "median63": -11.9683,
+    "median21": -14.4295,
+    "pace": -10.4401,
+    "lift_then": 2.1265,
+    "dlift": -1.606,
     "mom_list": [
      [
       "GFR",
@@ -1977,13 +2023,13 @@
     "base": 2,
     "mom": 1,
     "share": 50.0,
-    "lift": 7.6522,
-    "z": 2.4874,
+    "lift": 7.4178,
+    "z": 2.4401,
     "median63": 20.2784,
     "median21": 4.3463,
     "pace": -2.4132,
     "lift_then": 0.0,
-    "dlift": 7.6522,
+    "dlift": 7.4178,
     "mom_list": [
      [
       "ZYN",
@@ -1998,25 +2044,25 @@
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.7478,
+    "z": -0.7604,
     "median63": -16.8293,
     "median21": -15.2472,
     "pace": -9.6374,
-    "lift_then": 2.8641,
-    "dlift": -2.8641,
+    "lift_then": 2.8409,
+    "dlift": -2.8409,
     "mom_list": [],
     "members": null
    },
    {
     "industry": "Oil/Gas Transmission",
-    "base": 8,
+    "base": 9,
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.7478,
-    "median63": 4.7419,
-    "median21": 1.398,
-    "pace": -0.1826,
+    "z": -0.8065,
+    "median63": 4.4592,
+    "median21": 1.1029,
+    "pace": -0.3835,
     "lift_then": 0.0,
     "dlift": 0.0,
     "mom_list": [],
@@ -2028,25 +2074,25 @@
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.8769,
+    "z": -0.8917,
     "median63": -32.7615,
     "median21": -20.1515,
     "pace": -9.231,
-    "lift_then": 0.6943,
-    "dlift": -0.6943,
+    "lift_then": 0.6887,
+    "dlift": -0.6887,
     "mom_list": [],
     "members": null
    },
    {
     "industry": "Ophthalmic Goods",
-    "base": 5,
+    "base": 6,
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.5912,
-    "median63": -2.798,
-    "median21": 4.0247,
-    "pace": 4.9574,
+    "z": -0.6585,
+    "median63": 2.5744,
+    "median21": 5.6235,
+    "pace": 4.7653,
     "lift_then": 0.0,
     "dlift": 0.0,
     "mom_list": [],
@@ -2058,7 +2104,7 @@
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.3739,
+    "z": -0.3802,
     "median63": -15.7772,
     "median21": -6.8418,
     "pace": -1.5827,
@@ -2073,25 +2119,25 @@
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -1.0576,
+    "z": -1.0754,
     "median63": -14.5211,
     "median21": -11.4742,
     "pace": -6.6339,
-    "lift_then": 0.4774,
-    "dlift": -0.4774,
+    "lift_then": 0.4735,
+    "dlift": -0.4735,
     "mom_list": [],
     "members": null
    },
    {
     "industry": "Other Metals and Minerals",
-    "base": 3,
+    "base": 4,
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.458,
-    "median63": -42.1142,
-    "median21": -25.3125,
-    "pace": -11.2744,
+    "z": -0.5377,
+    "median63": -50.1687,
+    "median21": -27.196,
+    "pace": -10.4731,
     "lift_then": 0.0,
     "dlift": 0.0,
     "mom_list": [],
@@ -2102,13 +2148,13 @@
     "base": 4,
     "mom": 3,
     "share": 75.0,
-    "lift": 11.4783,
-    "z": 5.541,
+    "lift": 11.1266,
+    "z": 5.445,
     "median63": 20.6493,
     "median21": 13.1001,
     "pace": 6.217,
     "lift_then": 0.0,
-    "dlift": 11.4783,
+    "dlift": 11.1266,
     "mom_list": [
      [
       "HLF",
@@ -2127,17 +2173,25 @@
    },
    {
     "industry": "Other Specialty Stores",
-    "base": 12,
-    "mom": 2,
-    "share": 16.6667,
-    "lift": 2.5507,
-    "z": 1.4203,
-    "median63": -4.0684,
-    "median21": 0.7111,
-    "pace": 2.0672,
-    "lift_then": 0.6365,
-    "dlift": 1.9143,
+    "base": 14,
+    "mom": 4,
+    "share": 28.5714,
+    "lift": 4.2387,
+    "z": 3.2579,
+    "median63": 2.2889,
+    "median21": 2.8409,
+    "pace": 2.078,
+    "lift_then": 1.6234,
+    "dlift": 2.6153,
     "mom_list": [
+     [
+      "ASO",
+      72.015
+     ],
+     [
+      "ARHS",
+      48.0136
+     ],
      [
       "BOBS",
       21.1606
@@ -2154,13 +2208,13 @@
     "base": 10,
     "mom": 1,
     "share": 10.0,
-    "lift": 1.5304,
-    "z": 0.4435,
+    "lift": 1.4836,
+    "z": 0.4111,
     "median63": 3.4867,
     "median21": 2.8101,
     "pace": 1.6479,
-    "lift_then": 2.2913,
-    "dlift": -0.7609,
+    "lift_then": 2.2727,
+    "dlift": -0.7892,
     "mom_list": [
      [
       "PG",
@@ -2171,16 +2225,16 @@
    },
    {
     "industry": "Packaged Foods",
-    "base": 21,
+    "base": 22,
     "mom": 1,
-    "share": 4.7619,
-    "lift": 0.7288,
-    "z": -0.3286,
-    "median63": -2.1848,
-    "median21": 4.9916,
-    "pace": 5.7198,
+    "share": 4.5455,
+    "lift": 0.6743,
+    "z": -0.4107,
+    "median63": -3.3187,
+    "median21": 3.5357,
+    "pace": 4.642,
     "lift_then": 0.0,
-    "dlift": 0.7288,
+    "dlift": 0.6743,
     "mom_list": [
      [
       "BRBR",
@@ -2195,7 +2249,7 @@
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.458,
+    "z": -0.4657,
     "median63": 1.6556,
     "median21": 9.1861,
     "pace": 8.6342,
@@ -2210,7 +2264,7 @@
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.5288,
+    "z": -0.5377,
     "median63": -6.4869,
     "median21": 1.7044,
     "pace": 3.8667,
@@ -2221,16 +2275,16 @@
    },
    {
     "industry": "Plastic Products",
-    "base": 4,
+    "base": 5,
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.5288,
-    "median63": 3.1533,
-    "median21": 14.5865,
-    "pace": 13.5354,
-    "lift_then": 3.8188,
-    "dlift": -3.8188,
+    "z": -0.6012,
+    "median63": 5.2862,
+    "median21": 14.9949,
+    "pace": 13.2328,
+    "lift_then": 3.0303,
+    "dlift": -3.0303,
     "mom_list": [],
     "members": null
    },
@@ -2240,7 +2294,7 @@
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.3739,
+    "z": -0.3802,
     "median63": -11.9156,
     "median21": -2.019,
     "pace": 1.9528,
@@ -2251,14 +2305,14 @@
    },
    {
     "industry": "Power Generation",
-    "base": 12,
+    "base": 13,
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.9159,
-    "median63": 7.0585,
-    "median21": 4.2376,
-    "pace": 1.8848,
+    "z": -0.9693,
+    "median63": 7.2277,
+    "median21": 4.426,
+    "pace": 2.0168,
     "lift_then": 0.0,
     "dlift": 0.0,
     "mom_list": [],
@@ -2266,16 +2320,16 @@
    },
    {
     "industry": "Precious Metals",
-    "base": 35,
+    "base": 38,
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -1.5642,
-    "median63": -38.1733,
-    "median21": -17.3036,
-    "pace": -4.5792,
-    "lift_then": 1.0911,
-    "dlift": -1.0911,
+    "z": -1.6573,
+    "median63": -37.3167,
+    "median21": -17.2528,
+    "pace": -4.8139,
+    "lift_then": 1.1962,
+    "dlift": -1.1962,
     "mom_list": [],
     "members": null
    },
@@ -2285,7 +2339,7 @@
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.3739,
+    "z": -0.3802,
     "median63": -9.4885,
     "median21": -3.9869,
     "pace": -0.8241,
@@ -2296,16 +2350,16 @@
    },
    {
     "industry": "Professional Services",
-    "base": 11,
+    "base": 12,
     "mom": 3,
-    "share": 27.2727,
-    "lift": 4.1739,
-    "z": 2.7833,
-    "median63": 12.0118,
-    "median21": 4.8097,
-    "pace": 0.8058,
-    "lift_then": 1.3887,
-    "dlift": 2.7852,
+    "share": 25.0,
+    "lift": 3.7089,
+    "z": 2.5228,
+    "median63": 9.3561,
+    "median21": 3.6833,
+    "pace": 0.5646,
+    "lift_then": 1.2626,
+    "dlift": 2.4463,
     "mom_list": [
      [
       "FCN",
@@ -2327,13 +2381,13 @@
     "base": 1,
     "mom": 1,
     "share": 100.0,
-    "lift": 15.3043,
-    "z": 3.7821,
+    "lift": 14.8355,
+    "z": 3.7196,
     "median63": 21.8848,
     "median21": 12.9768,
     "pace": 5.6819,
     "lift_then": 0.0,
-    "dlift": 15.3043,
+    "dlift": 14.8355,
     "mom_list": [
      [
       "SITE",
@@ -2344,32 +2398,37 @@
    },
    {
     "industry": "Property-Casualty Insurers",
-    "base": 29,
+    "base": 36,
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -1.4239,
-    "median63": 9.6715,
-    "median21": 5.8067,
-    "pace": 2.5829,
-    "lift_then": 0.2634,
-    "dlift": -0.2634,
+    "z": -1.6131,
+    "median63": 8.4897,
+    "median21": 5.9459,
+    "pace": 3.116,
+    "lift_then": 0.2104,
+    "dlift": -0.2104,
     "mom_list": [],
     "members": null
    },
    {
     "industry": "Publishing",
-    "base": 3,
-    "mom": 0,
-    "share": 0.0,
-    "lift": 0.0,
-    "z": -0.458,
-    "median63": 4.3615,
-    "median21": -6.0648,
-    "pace": -7.5186,
-    "lift_then": 2.5459,
-    "dlift": -2.5459,
-    "mom_list": [],
+    "base": 4,
+    "mom": 1,
+    "share": 25.0,
+    "lift": 3.7089,
+    "z": 1.4565,
+    "median63": 7.5243,
+    "median21": 3.7314,
+    "pace": 1.2233,
+    "lift_then": 1.8939,
+    "dlift": 1.8149,
+    "mom_list": [
+     [
+      "ACCO",
+      27.7389
+     ]
+    ],
     "members": null
    },
    {
@@ -2378,7 +2437,7 @@
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.7932,
+    "z": -0.8065,
     "median63": 3.5002,
     "median21": 10.7389,
     "pace": 9.5722,
@@ -2393,7 +2452,7 @@
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.7478,
+    "z": -0.7604,
     "median63": -25.8348,
     "median21": -12.5137,
     "pace": -3.902,
@@ -2408,7 +2467,7 @@
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.7478,
+    "z": -0.7604,
     "median63": -1.8784,
     "median21": 1.307,
     "pace": 1.9332,
@@ -2423,7 +2482,7 @@
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -1.2116,
+    "z": -1.232,
     "median63": -6.3375,
     "median21": 3.0736,
     "pace": 5.1861,
@@ -2434,16 +2493,16 @@
    },
    {
     "industry": "Real Estate Investment Trusts",
-    "base": 104,
+    "base": 111,
     "mom": 3,
-    "share": 2.8846,
-    "lift": 0.4415,
-    "z": -1.506,
-    "median63": -2.4557,
-    "median21": 1.8725,
-    "pace": 2.691,
+    "share": 2.7027,
+    "lift": 0.401,
+    "z": -1.6968,
+    "median63": -2.5081,
+    "median21": 1.9774,
+    "pace": 2.8134,
     "lift_then": 0.0,
-    "dlift": 0.4415,
+    "dlift": 0.401,
     "mom_list": [
      [
       "INN",
@@ -2466,12 +2525,12 @@
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.6995,
+    "z": -0.7113,
     "median63": -2.2152,
     "median21": -6.5495,
     "pace": -5.8111,
-    "lift_then": 1.0911,
-    "dlift": -1.0911,
+    "lift_then": 1.0823,
+    "dlift": -1.0823,
     "mom_list": [],
     "members": null
    },
@@ -2481,7 +2540,7 @@
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.2644,
+    "z": -0.2688,
     "median63": 1.6704,
     "median21": 38.7536,
     "pace": 38.1968,
@@ -2495,13 +2554,13 @@
     "base": 30,
     "mom": 4,
     "share": 13.3333,
-    "lift": 2.0406,
-    "z": 1.507,
+    "lift": 1.9781,
+    "z": 1.4402,
     "median63": 0.0285,
     "median21": 10.7356,
     "pace": 10.7261,
-    "lift_then": 0.5267,
-    "dlift": 1.5138,
+    "lift_then": 0.5225,
+    "dlift": 1.4556,
     "mom_list": [
      [
       "SG",
@@ -2524,14 +2583,14 @@
    },
    {
     "industry": "Retail-Auto Dealers and Gas Stations",
-    "base": 6,
+    "base": 7,
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.6477,
-    "median63": -8.4831,
-    "median21": 0.0626,
-    "pace": 2.8903,
+    "z": -0.7113,
+    "median63": -8.4357,
+    "median21": 0.1032,
+    "pace": 2.9151,
     "lift_then": 0.0,
     "dlift": 0.0,
     "mom_list": [],
@@ -2542,13 +2601,13 @@
     "base": 2,
     "mom": 1,
     "share": 50.0,
-    "lift": 7.6522,
-    "z": 2.4874,
+    "lift": 7.4178,
+    "z": 2.4401,
     "median63": 13.4146,
     "median21": 10.3369,
     "pace": 5.8654,
     "lift_then": 0.0,
-    "dlift": 7.6522,
+    "dlift": 7.4178,
     "mom_list": [
      [
       "GRDN",
@@ -2563,12 +2622,12 @@
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.5288,
+    "z": -0.5377,
     "median63": -20.16,
     "median21": -21.2153,
     "pace": -14.4953,
-    "lift_then": 1.9094,
-    "dlift": -1.9094,
+    "lift_then": 1.8939,
+    "dlift": -1.8939,
     "mom_list": [],
     "members": null
    },
@@ -2578,7 +2637,7 @@
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.6477,
+    "z": -0.6585,
     "median63": -8.6233,
     "median21": -4.2137,
     "pace": -1.3393,
@@ -2589,16 +2648,16 @@
    },
    {
     "industry": "Semiconductors",
-    "base": 59,
+    "base": 68,
     "mom": 1,
-    "share": 1.6949,
-    "lift": 0.2594,
-    "z": -1.5041,
-    "median63": -31.2295,
-    "median21": -23.5416,
-    "pace": -13.1317,
-    "lift_then": 1.2945,
-    "dlift": -1.0351,
+    "share": 1.4706,
+    "lift": 0.2182,
+    "z": -1.7333,
+    "median63": -31.0316,
+    "median21": -23.0462,
+    "pace": -12.7023,
+    "lift_then": 1.3369,
+    "dlift": -1.1187,
     "mom_list": [
      [
       "SWKS",
@@ -2613,7 +2672,7 @@
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -1.1525,
+    "z": -1.1719,
     "median63": 0.5947,
     "median21": 5.7375,
     "pace": 5.5393,
@@ -2627,13 +2686,13 @@
     "base": 8,
     "mom": 2,
     "share": 25.0,
-    "lift": 3.8261,
-    "z": 2.1135,
+    "lift": 3.7089,
+    "z": 2.0599,
     "median63": 0.1488,
     "median21": 2.0751,
     "pace": 2.0255,
     "lift_then": 0.0,
-    "dlift": 3.8261,
+    "dlift": 3.7089,
     "mom_list": [
      [
       "CROX",
@@ -2648,14 +2707,14 @@
    },
    {
     "industry": "Specialty Chemicals",
-    "base": 2,
+    "base": 3,
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.3739,
-    "median63": 10.5778,
-    "median21": 22.5385,
-    "pace": 19.0126,
+    "z": -0.4657,
+    "median63": 7.0539,
+    "median21": 18.0853,
+    "pace": 15.734,
     "lift_then": 0.0,
     "dlift": 0.0,
     "mom_list": [],
@@ -2667,7 +2726,7 @@
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.458,
+    "z": -0.4657,
     "median63": -2.9382,
     "median21": 1.2468,
     "pace": 2.2262,
@@ -2678,16 +2737,16 @@
    },
    {
     "industry": "Specialty Insurers",
-    "base": 14,
+    "base": 17,
     "mom": 1,
-    "share": 7.1429,
-    "lift": 1.0932,
-    "z": 0.0922,
-    "median63": 1.6151,
-    "median21": 8.3895,
-    "pace": 7.8511,
-    "lift_then": 1.0911,
-    "dlift": 0.0021,
+    "share": 5.8824,
+    "lift": 0.8727,
+    "z": -0.1411,
+    "median63": 1.1173,
+    "median21": 6.4868,
+    "pace": 6.1144,
+    "lift_then": 1.3369,
+    "dlift": -0.4642,
     "mom_list": [
      [
       "HGTY",
@@ -2702,7 +2761,7 @@
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.8769,
+    "z": -0.8917,
     "median63": -16.7976,
     "median21": -10.0613,
     "pace": -4.4621,
@@ -2717,12 +2776,12 @@
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -1.4482,
+    "z": -1.4725,
     "median63": -15.1924,
     "median21": -9.4639,
     "pace": -4.3997,
-    "lift_then": 0.2546,
-    "dlift": -0.2546,
+    "lift_then": 0.2525,
+    "dlift": -0.2525,
     "mom_list": [],
     "members": null
    },
@@ -2732,7 +2791,7 @@
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.2644,
+    "z": -0.2688,
     "median63": -7.5984,
     "median21": 2.9838,
     "pace": 5.5166,
@@ -2747,7 +2806,7 @@
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.2644,
+    "z": -0.2688,
     "median63": -42.6638,
     "median21": -28.2744,
     "pace": -14.0532,
@@ -2762,7 +2821,7 @@
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.2644,
+    "z": -0.2688,
     "median63": 6.5058,
     "median21": 1.3298,
     "pace": -0.8388,
@@ -2776,13 +2835,13 @@
     "base": 10,
     "mom": 1,
     "share": 10.0,
-    "lift": 1.5304,
-    "z": 0.4435,
+    "lift": 1.4836,
+    "z": 0.4111,
     "median63": -7.4809,
     "median21": -3.2251,
     "pace": -0.7314,
-    "lift_then": 1.5275,
-    "dlift": 0.0029,
+    "lift_then": 1.5152,
+    "dlift": -0.0316,
     "mom_list": [
      [
       "RXO",
@@ -2797,7 +2856,7 @@
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.8769,
+    "z": -0.8917,
     "median63": -13.4667,
     "median21": -4.5649,
     "pace": -0.076,
@@ -2812,7 +2871,7 @@
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.458,
+    "z": -0.4657,
     "median63": -6.6901,
     "median21": -0.3759,
     "pace": 1.8541,
@@ -2827,7 +2886,7 @@
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.458,
+    "z": -0.4657,
     "median63": -38.6095,
     "median21": -19.2853,
     "pace": -6.4155,
@@ -2842,7 +2901,7 @@
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.458,
+    "z": -0.4657,
     "median63": 11.8151,
     "median21": 8.3203,
     "pace": 4.382,
@@ -2853,14 +2912,14 @@
    },
    {
     "industry": "Wholesale Distributors",
-    "base": 1,
+    "base": 2,
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.2644,
-    "median63": 12.3123,
-    "median21": 22.69,
-    "pace": 18.5859,
+    "z": -0.3802,
+    "median63": -21.0148,
+    "median21": -9.8985,
+    "pace": -2.8936,
     "lift_then": 0.0,
     "dlift": 0.0,
     "mom_list": [],
@@ -2870,55 +2929,60 @@
  },
  "groups": {
   "asof": "2026-11-25",
-  "N": 2112,
-  "K": 138,
-  "p": 6.5341,
-  "p_then": 13.093,
+  "N": 2255,
+  "K": 152,
+  "p": 6.7406,
+  "p_then": 13.2,
   "n_groups": 36,
   "n_ranked": 34,
   "n_small": 2,
   "unclassified": [
    {
     "industry": "Unclassified",
-    "base": 14,
+    "base": 15,
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.9893,
-    "median63": -16.182,
-    "median21": -6.5087,
-    "pace": -1.1147,
-    "lift_then": 0.5455,
-    "dlift": -0.5455,
+    "z": -1.0412,
+    "median63": -17.0796,
+    "median21": -5.7579,
+    "pace": -0.0647,
+    "lift_then": 0.5051,
+    "dlift": -0.5051,
     "mom_list": [],
     "members": [
      [
       "Unclassified",
-      14
+      15
      ]
     ]
    }
   ],
-  "dlift_pace_corr": 0.4731,
+  "dlift_pace_corr": 0.5248,
   "unmapped": [],
   "rows": [
    {
     "industry": "Aerospace & Defense",
-    "base": 34,
-    "mom": 0,
-    "share": 0.0,
-    "lift": 0.0,
-    "z": -1.5417,
+    "base": 38,
+    "mom": 1,
+    "share": 2.6316,
+    "lift": 0.3904,
+    "z": -1.0103,
     "median63": -10.1684,
-    "median21": -2.0458,
-    "pace": 1.3437,
-    "lift_then": 0.6739,
-    "dlift": -0.6739,
-    "mom_list": [],
+    "median21": -2.9184,
+    "pace": 0.4711,
+    "lift_then": 0.7974,
+    "dlift": -0.407,
+    "mom_list": [
+     [
+      "ACM",
+      25.9511
+     ]
+    ],
     "members": [
      [
       "Military/Government/Technical",
-      21
+      25
      ],
      [
       "Aerospace",
@@ -2932,16 +2996,16 @@
    },
    {
     "industry": "Apparel & Footwear",
-    "base": 26,
+    "base": 27,
     "mom": 8,
-    "share": 30.7692,
-    "lift": 4.709,
-    "z": 5.0005,
-    "median63": 8.4706,
-    "median21": 6.1076,
-    "pace": 3.2841,
-    "lift_then": 0.3055,
-    "dlift": 4.4035,
+    "share": 29.6296,
+    "lift": 4.3957,
+    "z": 4.7437,
+    "median63": 8.1328,
+    "median21": 6.2329,
+    "pace": 3.522,
+    "lift_then": 0.2914,
+    "dlift": 4.1043,
     "mom_list": [
      [
       "VFC",
@@ -2979,7 +3043,7 @@
     "members": [
      [
       "Apparel",
-      11
+      12
      ],
      [
       "Shoe Manufacturing",
@@ -2997,16 +3061,16 @@
    },
    {
     "industry": "Autos",
-    "base": 41,
+    "base": 48,
     "mom": 1,
-    "share": 2.439,
-    "lift": 0.3733,
-    "z": -1.061,
-    "median63": -9.3782,
-    "median21": 0.1036,
-    "pace": 3.2297,
-    "lift_then": 0.3726,
-    "dlift": 0.0007,
+    "share": 2.0833,
+    "lift": 0.3091,
+    "z": -1.2869,
+    "median63": -9.096,
+    "median21": 0.4901,
+    "pace": 3.5221,
+    "lift_then": 0.3157,
+    "dlift": -0.0066,
     "mom_list": [
      [
       "HOG",
@@ -3016,7 +3080,7 @@
     "members": [
      [
       "Auto Parts:O.E.M.",
-      15
+      20
      ],
      [
       "Auto Manufacturing",
@@ -3024,7 +3088,11 @@
      ],
      [
       "Retail-Auto Dealers and Gas Stations",
-      6
+      7
+     ],
+     [
+      "Auto & Home Supply Stores",
+      3
      ],
      [
       "Automotive Aftermarket",
@@ -3033,25 +3101,21 @@
      [
       "Motor Vehicles",
       3
-     ],
-     [
-      "Auto & Home Supply Stores",
-      2
      ]
     ]
    },
    {
     "industry": "Banks",
-    "base": 104,
+    "base": 107,
     "mom": 2,
-    "share": 1.9231,
-    "lift": 0.2943,
-    "z": -1.9028,
-    "median63": -8.067,
-    "median21": -4.0115,
-    "pace": -1.3225,
+    "share": 1.8692,
+    "lift": 0.2773,
+    "z": -2.0098,
+    "median63": -7.9596,
+    "median21": -3.9679,
+    "pace": -1.3148,
     "lift_then": 0.0,
-    "dlift": 0.2943,
+    "dlift": 0.2773,
     "mom_list": [
      [
       "HDB",
@@ -3065,7 +3129,7 @@
     "members": [
      [
       "Major Banks",
-      76
+      79
      ],
      [
       "Commercial Banks",
@@ -3083,16 +3147,16 @@
    },
    {
     "industry": "Biotech – Biologics",
-    "base": 46,
-    "mom": 7,
-    "share": 15.2174,
-    "lift": 2.3289,
-    "z": 2.3831,
-    "median63": -13.3036,
-    "median21": -0.3758,
-    "pace": 4.0587,
-    "lift_then": 2.4905,
-    "dlift": -0.1616,
+    "base": 50,
+    "mom": 8,
+    "share": 16.0,
+    "lift": 2.3737,
+    "z": 2.6114,
+    "median63": -11.9796,
+    "median21": 2.7552,
+    "pace": 6.7484,
+    "lift_then": 2.5758,
+    "dlift": -0.2021,
     "mom_list": [
      [
       "KOD",
@@ -3101,6 +3165,10 @@
      [
       "MRNA",
       54.6823
+     ],
+     [
+      "ADMA",
+      50.1055
      ],
      [
       "VCEL",
@@ -3126,22 +3194,22 @@
     "members": [
      [
       "Biotechnology: Biological Products (No Diagnostic Substances)",
-      46
+      50
      ]
     ]
    },
    {
     "industry": "Biotech – Drugs",
-    "base": 152,
-    "mom": 18,
-    "share": 11.8421,
-    "lift": 1.8124,
-    "z": 2.6481,
-    "median63": -11.499,
-    "median21": 2.0357,
-    "pace": 5.8687,
-    "lift_then": 1.1128,
-    "dlift": 0.6996,
+    "base": 165,
+    "mom": 19,
+    "share": 11.5152,
+    "lift": 1.7083,
+    "z": 2.4461,
+    "median63": -11.4354,
+    "median21": 2.0098,
+    "pace": 5.8216,
+    "lift_then": 1.1548,
+    "dlift": 0.5535,
     "mom_list": [
      [
       "XERS",
@@ -3170,6 +3238,10 @@
      [
       "BHC",
       35.2381
+     ],
+     [
+      "AMPH",
+      33.0896
      ],
      [
       "XNCR",
@@ -3219,7 +3291,7 @@
     "members": [
      [
       "Biotechnology: Pharmaceutical Preparations",
-      143
+      156
      ],
      [
       "Medicinal Chemicals and Botanical Products",
@@ -3233,16 +3305,16 @@
    },
    {
     "industry": "Business Services",
-    "base": 91,
-    "mom": 9,
-    "share": 9.8901,
-    "lift": 1.5136,
-    "z": 1.2955,
-    "median63": 1.6704,
-    "median21": 3.0665,
-    "pace": 2.5097,
-    "lift_then": 0.5036,
-    "dlift": 1.01,
+    "base": 101,
+    "mom": 13,
+    "share": 12.8713,
+    "lift": 1.9095,
+    "z": 2.4574,
+    "median63": 1.9393,
+    "median21": 2.9884,
+    "pace": 2.342,
+    "lift_then": 0.5251,
+    "dlift": 1.3845,
     "mom_list": [
      [
       "RSKD",
@@ -3261,8 +3333,16 @@
       37.0031
      ],
      [
+      "ADT",
+      32.5737
+     ],
+     [
       "EXPO",
       28.967
+     ],
+     [
+      "ACN",
+      28.3435
      ],
      [
       "FLYW",
@@ -3279,20 +3359,28 @@
      [
       "RDWR",
       22.489
+     ],
+     [
+      "AMTM",
+      21.6838
+     ],
+     [
+      "ALLE",
+      20.3356
      ]
     ],
     "members": [
      [
       "Business Services",
-      45
+      48
      ],
      [
       "Diversified Commercial Services",
-      13
+      19
      ],
      [
       "Professional Services",
-      11
+      12
      ],
      [
       "Environmental Services",
@@ -3318,16 +3406,16 @@
    },
    {
     "industry": "Capital Markets",
-    "base": 70,
+    "base": 73,
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -2.2122,
-    "median63": -12.7995,
-    "median21": 0.2297,
-    "pace": 4.4962,
-    "lift_then": 0.2182,
-    "dlift": -0.2182,
+    "z": -2.297,
+    "median63": -13.0495,
+    "median21": 0.2353,
+    "pace": 4.5851,
+    "lift_then": 0.2076,
+    "dlift": -0.2076,
     "mom_list": [],
     "members": [
      [
@@ -3336,7 +3424,7 @@
      ],
      [
       "Investment Managers",
-      27
+      30
      ],
      [
       "Finance/Investors Services",
@@ -3354,16 +3442,16 @@
    },
    {
     "industry": "Chemicals & Materials",
-    "base": 56,
+    "base": 60,
     "mom": 1,
-    "share": 1.7857,
-    "lift": 0.2733,
-    "z": -1.4379,
+    "share": 1.6667,
+    "lift": 0.2473,
+    "z": -1.5676,
     "median63": -0.4636,
     "median21": 1.3393,
     "pace": 1.4938,
-    "lift_then": 0.2728,
-    "dlift": 0.0005,
+    "lift_then": 0.2525,
+    "dlift": -0.0053,
     "mom_list": [
      [
       "VVV",
@@ -3373,7 +3461,7 @@
     "members": [
      [
       "Major Chemicals",
-      24
+      26
      ],
      [
       "Containers/Packaging",
@@ -3381,7 +3469,7 @@
      ],
      [
       "Plastic Products",
-      4
+      5
      ],
      [
       "Agricultural Chemicals",
@@ -3396,27 +3484,27 @@
       4
      ],
      [
-      "Paints/Coatings",
+      "Specialty Chemicals",
       3
      ],
      [
-      "Specialty Chemicals",
-      2
+      "Paints/Coatings",
+      3
      ]
     ]
    },
    {
     "industry": "Consumer Finance",
-    "base": 50,
+    "base": 51,
     "mom": 1,
-    "share": 2.0,
-    "lift": 0.3061,
-    "z": -1.2973,
-    "median63": -20.01,
-    "median21": -9.5502,
-    "pace": -2.8802,
-    "lift_then": 1.3748,
-    "dlift": -1.0687,
+    "share": 1.9608,
+    "lift": 0.2909,
+    "z": -1.3614,
+    "median63": -20.2586,
+    "median21": -9.7836,
+    "pace": -3.0308,
+    "lift_then": 1.3369,
+    "dlift": -1.046,
     "mom_list": [
      [
       "OPRT",
@@ -3426,7 +3514,7 @@
     "members": [
      [
       "Finance: Consumer Services",
-      47
+      48
      ],
      [
       "Finance Companies",
@@ -3436,16 +3524,16 @@
    },
    {
     "industry": "Consumer Staples",
-    "base": 72,
+    "base": 76,
     "mom": 4,
-    "share": 5.5556,
-    "lift": 0.8502,
-    "z": -0.336,
-    "median63": 0.6208,
-    "median21": 3.7666,
-    "pace": 3.5596,
-    "lift_then": 0.4243,
-    "dlift": 0.4259,
+    "share": 5.2632,
+    "lift": 0.7808,
+    "z": -0.5137,
+    "median63": -0.2456,
+    "median21": 2.8992,
+    "pace": 2.9811,
+    "lift_then": 0.404,
+    "dlift": 0.3768,
     "mom_list": [
      [
       "FOSL",
@@ -3467,7 +3555,7 @@
     "members": [
      [
       "Packaged Foods",
-      21
+      22
      ],
      [
       "Beverages (Production/Distribution)",
@@ -3479,7 +3567,7 @@
      ],
      [
       "Farming/Seeds/Milling",
-      6
+      8
      ],
      [
       "Food Distributors",
@@ -3499,7 +3587,7 @@
      ],
      [
       "Wholesale Distributors",
-      1
+      2
      ],
      [
       "Tobacco",
@@ -3509,16 +3597,16 @@
    },
    {
     "industry": "Diagnostics & Research Tools",
-    "base": 25,
+    "base": 28,
     "mom": 4,
-    "share": 16.0,
-    "lift": 2.4487,
-    "z": 1.9152,
-    "median63": -0.6442,
-    "median21": -6.8207,
-    "pace": -6.606,
-    "lift_then": 2.4441,
-    "dlift": 0.0046,
+    "share": 14.2857,
+    "lift": 2.1194,
+    "z": 1.5924,
+    "median63": -2.4319,
+    "median21": -7.139,
+    "pace": -6.3284,
+    "lift_then": 2.9762,
+    "dlift": -0.8568,
     "mom_list": [
      [
       "MYGN",
@@ -3544,11 +3632,11 @@
      ],
      [
       "Biotechnology: Laboratory Analytical Instruments",
-      6
+      8
      ],
      [
       "Biotechnology: Commercial Physical & Biological Resarch",
-      6
+      7
      ],
      [
       "Misc Health and Biotechnology Services",
@@ -3558,16 +3646,16 @@
    },
    {
     "industry": "Electrical & Infrastructure",
-    "base": 29,
+    "base": 32,
     "mom": 1,
-    "share": 3.4483,
-    "lift": 0.5277,
-    "z": -0.6724,
-    "median63": -26.9297,
-    "median21": -18.2478,
-    "pace": -9.2712,
-    "lift_then": 0.2634,
-    "dlift": 0.2644,
+    "share": 3.125,
+    "lift": 0.4636,
+    "z": -0.8158,
+    "median63": -27.2376,
+    "median21": -17.6068,
+    "pace": -8.5276,
+    "lift_then": 0.2367,
+    "dlift": 0.2269,
     "mom_list": [
      [
       "VLTO",
@@ -3577,11 +3665,11 @@
     "members": [
      [
       "Electrical Products",
-      19
+      21
      ],
      [
       "Engineering & Construction",
-      6
+      7
      ],
      [
       "Water Sewer Pipeline Comm & Power Line Construction",
@@ -3595,16 +3683,16 @@
    },
    {
     "industry": "Hardware & Networking",
-    "base": 58,
+    "base": 59,
     "mom": 1,
-    "share": 1.7241,
-    "lift": 0.2639,
-    "z": -1.4823,
-    "median63": -15.1924,
-    "median21": -10.614,
-    "pace": -5.5499,
-    "lift_then": 0.9218,
-    "dlift": -0.6579,
+    "share": 1.6949,
+    "lift": 0.2514,
+    "z": -1.5458,
+    "median63": -15.0826,
+    "median21": -10.5528,
+    "pace": -5.5253,
+    "lift_then": 0.8988,
+    "dlift": -0.6474,
     "mom_list": [
      [
       "SITE",
@@ -3621,16 +3709,16 @@
       8
      ],
      [
+      "Computer Manufacturing",
+      6
+     ],
+     [
       "Computer Communications Equipment",
       6
      ],
      [
       "Computer peripheral equipment",
       6
-     ],
-     [
-      "Computer Manufacturing",
-      5
      ],
      [
       "Precision Instruments",
@@ -3644,20 +3732,24 @@
    },
    {
     "industry": "Healthcare Services",
-    "base": 22,
-    "mom": 4,
-    "share": 18.1818,
-    "lift": 2.7826,
-    "z": 2.2107,
-    "median63": 7.9379,
-    "median21": 6.5367,
-    "pace": 3.8908,
-    "lift_then": 1.3887,
-    "dlift": 1.3939,
+    "base": 24,
+    "mom": 6,
+    "share": 25.0,
+    "lift": 3.7089,
+    "z": 3.5678,
+    "median63": 10.6393,
+    "median21": 7.2392,
+    "pace": 3.6928,
+    "lift_then": 1.2626,
+    "dlift": 2.4463,
     "mom_list": [
      [
       "SGRY",
       90.5958
+     ],
+     [
+      "ARDT",
+      44.222
      ],
      [
       "GRDN",
@@ -3668,6 +3760,10 @@
       31.9433
      ],
      [
+      "AHCO",
+      28.9655
+     ],
+     [
       "PRVA",
       23.8734
      ]
@@ -3675,11 +3771,11 @@
     "members": [
      [
       "Hospital/Nursing Management",
-      11
+      12
      ],
      [
       "Medical/Nursing Services",
-      9
+      10
      ],
      [
       "Retail-Drug Stores and Proprietary Stores",
@@ -3692,13 +3788,13 @@
     "base": 27,
     "mom": 2,
     "share": 7.4074,
-    "lift": 1.1337,
-    "z": 0.1836,
+    "lift": 1.0989,
+    "z": 0.1382,
     "median63": -2.2152,
     "median21": 0.713,
     "pace": 1.4514,
-    "lift_then": 0.5658,
-    "dlift": 0.5679,
+    "lift_then": 0.5612,
+    "dlift": 0.5378,
     "mom_list": [
      [
       "HELE",
@@ -3730,7 +3826,7 @@
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -1.3991,
+    "z": -1.4226,
     "median63": -2.5835,
     "median21": 8.1316,
     "pace": 8.9927,
@@ -3754,16 +3850,16 @@
    },
    {
     "industry": "IT Services",
-    "base": 53,
+    "base": 55,
     "mom": 9,
-    "share": 16.9811,
-    "lift": 2.5989,
-    "z": 3.0776,
+    "share": 16.3636,
+    "lift": 2.4276,
+    "z": 2.8464,
     "median63": -5.838,
-    "median21": -6.4595,
-    "pace": -4.5135,
-    "lift_then": 2.1616,
-    "dlift": 0.4372,
+    "median21": -5.5556,
+    "pace": -3.6096,
+    "lift_then": 2.0661,
+    "dlift": 0.3615,
     "mom_list": [
      [
       "TLS",
@@ -3805,22 +3901,22 @@
     "members": [
      [
       "EDP Services",
-      53
+      55
      ]
     ]
    },
    {
     "industry": "Industrial Machinery",
-    "base": 136,
+    "base": 146,
     "mom": 6,
-    "share": 4.4118,
-    "lift": 0.6752,
-    "z": -1.0015,
+    "share": 4.1096,
+    "lift": 0.6097,
+    "z": -1.2679,
     "median63": -8.1991,
     "median21": -2.9394,
     "pace": -0.2064,
-    "lift_then": 0.7921,
-    "dlift": -0.1169,
+    "lift_then": 0.7837,
+    "dlift": -0.174,
     "mom_list": [
      [
       "CRCT",
@@ -3850,7 +3946,7 @@
     "members": [
      [
       "Industrial Machinery/Components",
-      85
+      92
      ],
      [
       "Metal Fabrications",
@@ -3858,7 +3954,7 @@
      ],
      [
       "Industrial Specialties",
-      15
+      16
      ],
      [
       "Construction/Ag Equipment/Trucks",
@@ -3870,6 +3966,10 @@
      ],
      [
       "Miscellaneous manufacturing industries",
+      3
+     ],
+     [
+      "Multi-Sector Companies",
       2
      ],
      [
@@ -3881,10 +3981,6 @@
       1
      ],
      [
-      "Multi-Sector Companies",
-      1
-     ],
-     [
       "Tools/Hardware",
       1
      ]
@@ -3892,16 +3988,16 @@
    },
    {
     "industry": "Insurance",
-    "base": 60,
+    "base": 72,
     "mom": 1,
-    "share": 1.6667,
-    "lift": 0.2551,
-    "z": -1.5257,
-    "median63": 1.8058,
-    "median21": 2.7995,
-    "pace": 2.1976,
-    "lift_then": 0.3819,
-    "dlift": -0.1268,
+    "share": 1.3889,
+    "lift": 0.206,
+    "z": -1.8112,
+    "median63": 1.8973,
+    "median21": 3.7798,
+    "pace": 3.1474,
+    "lift_then": 0.4209,
+    "dlift": -0.2148,
     "mom_list": [
      [
       "HGTY",
@@ -3911,35 +4007,39 @@
     "members": [
      [
       "Property-Casualty Insurers",
-      29
+      36
      ],
      [
       "Specialty Insurers",
-      14
+      17
      ],
      [
       "Life Insurance",
-      14
+      15
      ],
      [
       "Accident &Health Insurance",
-      3
+      4
      ]
     ]
    },
    {
     "industry": "Media",
-    "base": 28,
-    "mom": 1,
-    "share": 3.5714,
-    "lift": 0.5466,
-    "z": -0.6344,
+    "base": 30,
+    "mom": 2,
+    "share": 6.6667,
+    "lift": 0.989,
+    "z": -0.0161,
     "median63": -0.6458,
     "median21": 12.1312,
     "pace": 12.3465,
-    "lift_then": 0.2728,
-    "dlift": 0.2738,
+    "lift_then": 0.2525,
+    "dlift": 0.7365,
     "mom_list": [
+     [
+      "ACCO",
+      27.7389
+     ],
      [
       "GTN",
       23.382
@@ -3952,7 +4052,11 @@
      ],
      [
       "Cable & Other Pay Television Services",
-      6
+      7
+     ],
+     [
+      "Publishing",
+      4
      ],
      [
       "Newspapers/Magazines",
@@ -3961,25 +4065,21 @@
      [
       "Movies/Entertainment",
       3
-     ],
-     [
-      "Publishing",
-      3
      ]
     ]
    },
    {
     "industry": "Medical Devices",
-    "base": 82,
+    "base": 86,
     "mom": 10,
-    "share": 12.1951,
-    "lift": 1.8664,
-    "z": 2.0744,
+    "share": 11.6279,
+    "lift": 1.7251,
+    "z": 1.8077,
     "median63": -1.3839,
     "median21": 0.1706,
     "pace": 0.6319,
-    "lift_then": 2.1423,
-    "dlift": -0.2759,
+    "lift_then": 2.0261,
+    "dlift": -0.301,
     "mom_list": [
      [
       "EMBC",
@@ -4025,11 +4125,11 @@
     "members": [
      [
       "Medical/Dental Instruments",
-      41
+      42
      ],
      [
       "Medical Specialities",
-      26
+      28
      ],
      [
       "Biotechnology: Electromedical & Electrotherapeutic Apparatus",
@@ -4037,7 +4137,7 @@
      ],
      [
       "Ophthalmic Goods",
-      5
+      6
      ],
      [
       "Medical Electronics",
@@ -4047,16 +4147,16 @@
    },
    {
     "industry": "Metals & Mining",
-    "base": 44,
+    "base": 47,
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -1.7538,
-    "median63": -29.0992,
-    "median21": -17.187,
-    "pace": -7.4872,
-    "lift_then": 0.5208,
-    "dlift": -0.5208,
+    "z": -1.8431,
+    "median63": -31.4905,
+    "median21": -17.2286,
+    "pace": -6.7318,
+    "lift_then": 0.4836,
+    "dlift": -0.4836,
     "mom_list": [],
     "members": [
      [
@@ -4064,11 +4164,11 @@
       13
      ],
      [
-      "Steel/Iron Ore",
-      11
+      "Mining & Quarrying of Nonmetallic Minerals (No Fuels)",
+      12
      ],
      [
-      "Mining & Quarrying of Nonmetallic Minerals (No Fuels)",
+      "Steel/Iron Ore",
       11
      ],
      [
@@ -4077,26 +4177,26 @@
      ],
      [
       "Other Metals and Minerals",
-      3
+      4
      ],
      [
       "Aluminum",
-      1
+      2
      ]
     ]
    },
    {
     "industry": "Oil & Gas",
-    "base": 80,
+    "base": 83,
     "mom": 3,
-    "share": 3.75,
-    "lift": 0.5739,
-    "z": -1.0076,
-    "median63": -10.2525,
-    "median21": -14.3215,
-    "pace": -10.904,
-    "lift_then": 1.9094,
-    "dlift": -1.3355,
+    "share": 3.6145,
+    "lift": 0.5362,
+    "z": -1.1359,
+    "median63": -9.9109,
+    "median21": -13.9965,
+    "pace": -10.6929,
+    "lift_then": 1.9168,
+    "dlift": -1.3805,
     "mom_list": [
      [
       "ZYN",
@@ -4114,7 +4214,7 @@
     "members": [
      [
       "Oil & Gas Production",
-      55
+      57
      ],
      [
       "Integrated oil Companies",
@@ -4122,7 +4222,7 @@
      ],
      [
       "Oil/Gas Transmission",
-      8
+      9
      ],
      [
       "Oil Refining/Marketing",
@@ -4136,12 +4236,12 @@
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -1.1525,
+    "z": -1.1719,
     "median63": -20.0673,
     "median21": -16.8955,
     "pace": -10.2064,
-    "lift_then": 1.6079,
-    "dlift": -1.6079,
+    "lift_then": 1.5949,
+    "dlift": -1.5949,
     "mom_list": [],
     "members": [
      [
@@ -4156,21 +4256,21 @@
    },
    {
     "industry": "Other",
-    "base": 5,
+    "base": 6,
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -0.5912,
-    "median63": 0.502,
-    "median21": 0.502,
-    "pace": 0.3347,
+    "z": -0.6585,
+    "median63": 0.649,
+    "median21": 0.5989,
+    "pace": 0.3826,
     "lift_then": 0.0,
     "dlift": 0.0,
     "mom_list": [],
     "members": [
      [
       "Blank Checks",
-      4
+      5
      ],
      [
       "Miscellaneous",
@@ -4180,36 +4280,36 @@
    },
    {
     "industry": "Precious Metals",
-    "base": 35,
+    "base": 38,
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -1.5642,
-    "median63": -38.1733,
-    "median21": -17.3036,
-    "pace": -4.5792,
-    "lift_then": 1.0911,
-    "dlift": -1.0911,
+    "z": -1.6573,
+    "median63": -37.3167,
+    "median21": -17.2528,
+    "pace": -4.8139,
+    "lift_then": 1.1962,
+    "dlift": -1.1962,
     "mom_list": [],
     "members": [
      [
       "Precious Metals",
-      35
+      38
      ]
     ]
    },
    {
     "industry": "Real Estate",
-    "base": 128,
+    "base": 135,
     "mom": 3,
-    "share": 2.3438,
-    "lift": 0.3587,
-    "z": -1.9184,
-    "median63": -2.6206,
-    "median21": 2.6003,
-    "pace": 3.4738,
+    "share": 2.2222,
+    "lift": 0.3297,
+    "z": -2.0939,
+    "median63": -2.6792,
+    "median21": 2.6447,
+    "pace": 3.5378,
     "lift_then": 0.0,
-    "dlift": 0.3587,
+    "dlift": 0.3297,
     "mom_list": [
      [
       "INN",
@@ -4227,7 +4327,7 @@
     "members": [
      [
       "Real Estate Investment Trusts",
-      104
+      111
      ],
      [
       "Real Estate",
@@ -4244,13 +4344,13 @@
     "base": 30,
     "mom": 4,
     "share": 13.3333,
-    "lift": 2.0406,
-    "z": 1.507,
+    "lift": 1.9781,
+    "z": 1.4402,
     "median63": 0.0285,
     "median21": 10.7356,
     "pace": 10.7261,
-    "lift_then": 0.5267,
-    "dlift": 1.5138,
+    "lift_then": 0.5225,
+    "dlift": 1.4556,
     "mom_list": [
      [
       "SG",
@@ -4278,17 +4378,25 @@
    },
    {
     "industry": "Retail",
-    "base": 50,
-    "mom": 8,
-    "share": 16.0,
-    "lift": 2.4487,
-    "z": 2.7085,
-    "median63": 0.4892,
-    "median21": 2.4775,
-    "pace": 2.3144,
-    "lift_then": 1.222,
-    "dlift": 1.2267,
+    "base": 55,
+    "mom": 12,
+    "share": 21.8182,
+    "lift": 3.2368,
+    "z": 4.4598,
+    "median63": 2.0399,
+    "median21": 3.1678,
+    "pace": 2.4878,
+    "lift_then": 1.5152,
+    "dlift": 1.7217,
     "mom_list": [
+     [
+      "ASO",
+      72.015
+     ],
+     [
+      "ARHS",
+      48.0136
+     ],
      [
       "KSS",
       47.1074
@@ -4296,6 +4404,10 @@
      [
       "TBBB",
       34.6612
+     ],
+     [
+      "AEO",
+      33.0138
      ],
      [
       "OLLI",
@@ -4314,6 +4426,10 @@
       22.6594
      ],
      [
+      "ANF",
+      21.4134
+     ],
+     [
       "BOBS",
       21.1606
      ],
@@ -4325,23 +4441,23 @@
     "members": [
      [
       "Other Specialty Stores",
-      12
+      14
      ],
      [
       "Department/Specialty Retail Stores",
       12
      ],
      [
+      "Clothing/Shoe/Accessory Stores",
+      10
+     ],
+     [
       "Catalog/Specialty Distribution",
       10
      ],
      [
-      "Clothing/Shoe/Accessory Stores",
-      8
-     ],
-     [
       "Food Chains",
-      4
+      5
      ],
      [
       "Consumer Electronics/Video Chains",
@@ -4355,16 +4471,16 @@
    },
    {
     "industry": "Semiconductors",
-    "base": 74,
+    "base": 83,
     "mom": 3,
-    "share": 4.0541,
-    "lift": 0.6204,
-    "z": -0.8633,
-    "median63": -29.507,
-    "median21": -22.5174,
-    "pace": -12.6818,
-    "lift_then": 1.3418,
-    "dlift": -0.7213,
+    "share": 3.6145,
+    "lift": 0.5362,
+    "z": -1.1359,
+    "median63": -29.6145,
+    "median21": -22.4839,
+    "pace": -12.6125,
+    "lift_then": 1.3691,
+    "dlift": -0.8329,
     "mom_list": [
      [
       "GME",
@@ -4382,7 +4498,7 @@
     "members": [
      [
       "Semiconductors",
-      59
+      68
      ],
      [
       "Electronic Components",
@@ -4399,13 +4515,13 @@
     "base": 32,
     "mom": 1,
     "share": 3.125,
-    "lift": 0.4783,
-    "z": -0.7804,
+    "lift": 0.4636,
+    "z": -0.8158,
     "median63": -4.2489,
     "median21": -8.0208,
     "pace": -6.6045,
-    "lift_then": 1.9094,
-    "dlift": -1.4312,
+    "lift_then": 1.8939,
+    "dlift": -1.4303,
     "mom_list": [
      [
       "ECO",
@@ -4421,16 +4537,16 @@
    },
    {
     "industry": "Software",
-    "base": 145,
+    "base": 153,
     "mom": 23,
-    "share": 15.8621,
-    "lift": 2.4276,
-    "z": 4.5452,
-    "median63": -3.7478,
-    "median21": -6.0819,
-    "pace": -4.8326,
-    "lift_then": 3.3711,
-    "dlift": -0.9435,
+    "share": 15.0327,
+    "lift": 2.2302,
+    "z": 4.0909,
+    "median63": -4.821,
+    "median21": -6.2934,
+    "pace": -4.6864,
+    "lift_then": 3.268,
+    "dlift": -1.0378,
     "mom_list": [
      [
       "BMBL",
@@ -4528,7 +4644,7 @@
     "members": [
      [
       "Computer Software: Prepackaged Software",
-      106
+      114
      ],
      [
       "Computer Software: Programming Data Processing",
@@ -4542,16 +4658,16 @@
    },
    {
     "industry": "Transport & Logistics",
-    "base": 44,
+    "base": 48,
     "mom": 3,
-    "share": 6.8182,
-    "lift": 1.0435,
-    "z": 0.0763,
+    "share": 6.25,
+    "lift": 0.9272,
+    "z": -0.1356,
     "median63": -6.4788,
-    "median21": 0.1975,
-    "pace": 2.3571,
-    "lift_then": 0.3472,
-    "dlift": 0.6963,
+    "median21": 0.6318,
+    "pace": 2.7914,
+    "lift_then": 0.3157,
+    "dlift": 0.6116,
     "mom_list": [
      [
       "ULCC",
@@ -4568,15 +4684,15 @@
     ],
     "members": [
      [
+      "Air Freight/Delivery Services",
+      14
+     ],
+     [
       "Trucking Freight/Courier Services",
       11
      ],
      [
       "Transportation Services",
-      10
-     ],
-     [
-      "Air Freight/Delivery Services",
       10
      ],
      [
@@ -4595,12 +4711,12 @@
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -2.0136,
+    "z": -2.0475,
     "median63": -3.3829,
     "median21": 5.7065,
     "pace": 6.8341,
-    "lift_then": 0.1317,
-    "dlift": -0.1317,
+    "lift_then": 0.1306,
+    "dlift": -0.1306,
     "mom_list": [],
     "members": [
      [
@@ -4619,29 +4735,29 @@
    },
    {
     "industry": "Utilities & Power",
-    "base": 64,
+    "base": 70,
     "mom": 0,
     "share": 0.0,
     "lift": 0.0,
-    "z": -2.1152,
-    "median63": 1.071,
-    "median21": 0.5145,
-    "pace": 0.1575,
-    "lift_then": 0.1193,
-    "dlift": -0.1193,
+    "z": -2.2493,
+    "median63": 1.174,
+    "median21": 0.2303,
+    "pace": -0.1611,
+    "lift_then": 0.1082,
+    "dlift": -0.1082,
     "mom_list": [],
     "members": [
      [
       "Electric Utilities: Central",
-      34
+      37
      ],
      [
       "Natural Gas Distribution",
-      15
+      17
      ],
      [
       "Power Generation",
-      12
+      13
      ],
      [
       "Water Supply",
@@ -6517,20 +6633,23 @@
   "n_theme": 33
  },
  "log": [
-  "[02:23:49Z] NASDAQ screener rows: 7365",
-  "[02:23:50Z] NASDAQ Trader symbol directory rows: 13312",
-  "[02:23:50Z] Candidate tickers after filters: 4457",
-  "[02:23:58Z] downloaded 200/4457",
-  "[02:24:48Z] downloaded 1200/4457",
-  "[02:25:37Z] downloaded 2200/4457",
-  "[02:26:26Z] downloaded 3200/4457",
-  "[02:27:16Z] downloaded 4200/4457",
-  "[02:27:33Z] Bars: 4457 tickers x 522 days; no data for 1",
-  "[02:27:33Z] Stocks priced on 2026-11-23: 4450",
-  "[02:27:33Z] Stocks priced on 2026-11-24: 4452",
-  "[02:27:33Z] Stocks priced on 2026-11-25: 4164",
-  "[02:27:33Z] SPY/QQQ/^GSPC last session: 2026-11-25",
-  "[02:27:39Z] Groups: 34 ranked; unmapped industries []",
-  "[02:27:49Z] Themes: 79 ETFs, 33 stock themes; missing ['SNDK']"
+  "[02:42:23Z] NASDAQ screener rows: 7365",
+  "[02:42:24Z] NASDAQ Trader symbol directory rows: 13312",
+  "[02:42:24Z] Candidate tickers after filters: 4457",
+  "[02:42:32Z] downloaded 200/4457",
+  "[02:43:21Z] downloaded 1200/4457",
+  "[02:44:11Z] downloaded 2200/4457",
+  "[02:45:00Z] downloaded 3200/4457",
+  "[02:45:49Z] downloaded 4200/4457",
+  "[02:46:06Z] Bars: 4457 tickers x 522 days; no data for 0",
+  "[02:46:06Z] Missing latest bar (2026-11-25): 8 tickers, e.g. ['CIG-C', 'RDIB', 'SNDK', 'SOS', 'UA', 'UHAL-B', 'VABK', 'WLYB']",
+  "[02:46:06Z] downloaded 8/8",
+  "[02:46:08Z] Retry recovered 0; still missing 8, e.g. ['CIG-C', 'RDIB', 'SNDK', 'SOS', 'UA', 'UHAL-B', 'VABK', 'WLYB']",
+  "[02:46:08Z] Stocks priced on 2026-11-23: 4451",
+  "[02:46:08Z] Stocks priced on 2026-11-24: 4453",
+  "[02:46:08Z] Stocks priced on 2026-11-25: 4449",
+  "[02:46:09Z] SPY/QQQ/^GSPC last session: 2026-11-25",
+  "[02:46:14Z] Groups: 34 ranked; unmapped industries []",
+  "[02:46:25Z] Themes: 79 ETFs, 33 stock themes; missing ['SNDK']"
  ]
 }
