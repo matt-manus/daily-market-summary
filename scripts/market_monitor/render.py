@@ -186,6 +186,7 @@ def momentum_svg(h, pcts):
 
 
 def sector_tables(sec):
+    lab = "組別" if (sec or {}).get("unmapped") is not None else "行業"
     if not sec:
         return '<div class="mm-box">行業數據今日計唔到（資料不足）。</div>', '<div class="mm-box">—</div>'
     rows = pd.DataFrame(sec["rows"])
@@ -218,7 +219,7 @@ def sector_tables(sec):
                 f"<td class='{cls_pace(r.pace)}'>{f(r.pace,1,True,True)}</td>"
                 f"<td>{f(r.share)}</td><td>{int(r.mom)}</td><td>{int(r.base)}</td>"
                 f"<td class='{zcls(r.z)}'>{f(r.z,2,True)}{' ✓' if abs(r.z) > 1.96 else ''}</td></tr>")
-        return ("<div class='mm-wrap'><table class='mm-t'><thead><tr><th>#</th><th style='text-align:left'>行業</th><th style='text-align:left'>Lift</th>"
+        return (f"<div class='mm-wrap'><table class='mm-t'><thead><tr><th>#</th><th style='text-align:left'>{lab}</th><th style='text-align:left'>Lift</th>"
                 "<th>倍數</th><th>季度 median</th><th>Δlift 21 日</th><th>Pace</th><th>滲透率 %</th><th>動力股</th><th>Base</th><th>z</th></tr></thead>"
                 f"<tbody>{''.join(tr)}</tbody></table></div>")
 
@@ -228,7 +229,7 @@ def sector_tables(sec):
     unc = sec["unclassified"][0] if sec["unclassified"] else None
     cards = f"""
 <div class="mm-cards">
- <div class="mm-card"><div class="k">過關行業數</div><div class="v">{len(strong)}</div><div class="s">{sec['n_ranked']} 個行業之中（z &gt; 1.96）</div></div>
+ <div class="mm-card"><div class="k">過關{lab}數</div><div class="v">{len(strong)}</div><div class="s">{sec['n_ranked']} 個{lab}之中（z &gt; 1.96）</div></div>
  <div class="mm-card"><div class="k">最闊（lift 最高）</div><div class="v">{f(top.lift.iloc[0],2) + 'x' if len(top) else '—'}</div><div class="s">{esc(top.industry.iloc[0]) if len(top) else ''}</div></div>
  <div class="mm-card"><div class="k">最深（median 最高）</div><div class="v">{f(topmed.median63.iloc[0],1,True,True) if len(topmed) else '—'}</div><div class="s">{esc(topmed.industry.iloc[0]) if len(topmed) else ''}</div></div>
  <div class="mm-card"><div class="k">未分類</div><div class="v">{(unc['base'] if unc else 0)}</div><div class="s">隻冇行業分類，唔參與排名</div></div>
@@ -238,12 +239,12 @@ def sector_tables(sec):
              + '<div class="sub-title">未達顯著（base ≥ 20）</div>' + tbl(mid, zc)
              + '<div class="sub-title">統計上顯著偏弱（z &lt; −1.96）</div>' + tbl(weak, zc)
              + f"""<div class="mm-box"><b>定義</b><br>
-滲透率 = 行業入面有幾多 % 股票係動力股；全市場今日 {f(sec['p'])}%（{sec['K']} / {sec['N']} 隻）。<br>
+滲透率 = {lab}入面有幾多 % 股票係動力股；全市場今日 {f(sec['p'])}%（{sec['K']} / {sec['N']} 隻）。<br>
 lift（倍數）= 滲透率 ÷ 全市場滲透率。1.00 = 同大市一樣。<br>
 z = 實際動力股數減「隨機應該有幾多」，再除以正常隨機波動。|z| &gt; 1.96 先當訊號（✓）。<br>
-季度 median = 行業內<b>全部</b>股票 63 日回報嘅 median（量度深度）。<br>
+季度 median = {lab}內<b>全部</b>股票 63 日回報嘅 median（量度深度）。<br>
 Δlift = 今日 lift 減 21 個交易日前 lift（固定今日同一批股票）。pace = 21 日 median 回報 − 季度 median ÷ 3（絕對步速有冇加快）。<br>
-同時檢驗 {sec['n_ranked']} 個行業，單靠運氣預期大約 {sec['n_ranked']*0.05:.1f} 個會過關；base 少過 20 隻嘅 {sec['n_small']} 個行業已剔除。行業分類用 NASDAQ industry。</div>""")
+同時檢驗 {sec['n_ranked']} 個{lab}，單靠運氣預期大約 {sec['n_ranked']*0.05:.1f} 個會過關；base 少過 20 隻嘅 {sec['n_small']} 個{lab}已剔除。{'組別 = NASDAQ industry 併埋（對照表喺下面）。' if lab == '組別' else '行業分類用 NASDAQ industry。'}</div>""")
 
     up = ranked.sort_values("dlift", ascending=False).head(7)
     dn = ranked.sort_values("dlift").head(7)
@@ -255,7 +256,7 @@ z = 實際動力股數減「隨機應該有幾多」，再除以正常隨機波�
                       f"<td class='{cls_d(r.dlift)}'>{f(r.dlift,2,True)}</td><td>{f(r.lift_then,2)}</td><td>{f(r.lift,2)}</td>"
                       f"<td class='{cls_pace(r.pace)}'>{f(r.pace,1,True,True)}</td><td>{f(r.median21,1,True,True)}</td>"
                       f"<td>{f(r.median63,1,True,True)}</td><td>{int(r.base)}</td></tr>")
-        return ("<div class='mm-wrap'><table class='mm-t'><thead><tr><th>#</th><th style='text-align:left'>行業</th><th>Δlift</th><th>21 日前</th><th>今日</th>"
+        return (f"<div class='mm-wrap'><table class='mm-t'><thead><tr><th>#</th><th style='text-align:left'>{lab}</th><th>Δlift</th><th>21 日前</th><th>今日</th>"
                 "<th>Pace</th><th>21 日 median</th><th>季度 median</th><th>Base</th></tr></thead>"
                 f"<tbody>{''.join(tr)}</tbody></table></div>")
 
@@ -374,6 +375,22 @@ def _st(r):
     return f'<td class="{STATUS_CLS.get(r["status"], "")}" style="text-align:center">{esc(r["status"])}</td>'
 
 
+def group_map_box(sec):
+    if not sec or sec.get("unmapped") is None:
+        return ""
+    rows = sorted(sec["rows"], key=lambda r: -r["base"])
+    tr = "".join(
+        f'<tr><td style="text-align:left"><b>{esc(r["industry"])}</b></td><td>{r["base"]}</td>'
+        f'<td style="text-align:left;font-size:11px">{"、".join(f"{esc(k)} ({v})" for k, v in (r.get("members") or []))}</td></tr>'
+        for r in rows)
+    um = sec.get("unmapped") or []
+    return ('<div class="sub-title">組別對照表（初稿 v0，等你改）</div>'
+            '<p class="mm-note">每組 = 幾個 NASDAQ industry 併埋，括號係今日入 universe 嘅股票數。對照係按行業，唔係按股票，所以新上市股票會自動入組。'
+            + (f'<b>未有對照嘅新行業：{esc("、".join(um))}</b>' if um else "今日冇未對照嘅行業。") + '</p>'
+            '<div class="mm-wrap"><table class="mm-t"><tr><th style="text-align:left">組別</th><th>股票</th><th style="text-align:left">包括嘅 NASDAQ industry</th></tr>'
+            + tr + '</table></div>')
+
+
 def not_followed_box(latest):
     ws = watch_set()
     nf = not_followed(latest, ws)
@@ -386,7 +403,7 @@ def not_followed_box(latest):
         f'<tr><td style="text-align:left">{esc(r["industry"])}</td><td>{f(r["lift"],2)}</td><td>{f(r["z"],2,True)}</td>'
         f'<td>{r["inw"]}/{r["nm"]}</td><td style="text-align:left">{"、".join(f"{esc(t)} {f(v,0,True)}%" for t, v in r["outside"])}</td></tr>'
         for r in nf)
-    return (head + '<div class="mm-wrap"><table class="mm-t"><tr><th style="text-align:left">行業（NASDAQ）</th><th>Lift</th><th>z</th>'
+    return (head + '<div class="mm-wrap"><table class="mm-t"><tr><th style="text-align:left">組別</th><th>Lift</th><th>z</th>'
             '<th>watchlist 覆蓋</th><th style="text-align:left">watchlist 以外 63 日升幅最大</th></tr>' + tr + '</table></div>')
 
 
@@ -453,14 +470,18 @@ def main():
     pcts = {"p5": m.quantile(.05), "p10": m.quantile(.10), "p50": m.quantile(.50),
             "p90": m.quantile(.90), "p95": m.quantile(.95), "n": len(m), "from": m.index[0]}
 
+    if latest.get("groups"):
+        latest["sectors_raw"] = latest["sectors"]
+        latest["sectors"] = latest["groups"]
     level, direction = sector_tables(latest.get("sectors"))
+    level += group_map_box(latest.get("sectors"))
     block = (CSS
              + "\n<!-- ═══ NEW SECTIONS 8–12 (market_monitor, preview) ═══ -->\n"
              + section(8, "市寬與動能監察表", breadth_section(h, pcts, latest), "s8-mm-breadth")
              + section(9, "4% 動量脈搏", pulse_svg(h), "s9-mm-pulse")
              + section(10, "動力股數目走勢", momentum_svg(h, pcts), "s10-mm-momentum")
-             + section(11, "行業動力（水平表）", level, "s11-mm-industry")
-             + section(12, "行業動能（變強同變弱）", direction, "s12-mm-direction")
+             + section(11, "組別動力（水平表）", level, "s11-mm-industry")
+             + section(12, "組別動能（變強同變弱）", direction, "s12-mm-direction")
              + section(13, "你嘅主題相對強弱（對 SPY）", stock_themes_section(latest.get("themes"), latest), "s13-mm-themes")
              + section(14, "你嘅 ETF 相對強弱（對 SPY）", etf_section(latest.get("themes")), "s14-mm-etf")
              + notes_box(latest, h) + "\n")

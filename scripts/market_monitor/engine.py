@@ -242,7 +242,7 @@ def compute_breadth(close, vol):
     return h
 
 
-def compute_sectors(close, vol, uni, asof):
+def compute_sectors(close, vol, uni, asof, keyfn=None):
     """Kelileo-style industry table for session `asof`."""
     close = close.sort_index()
     i = close.index.get_loc(asof)
@@ -255,7 +255,13 @@ def compute_sectors(close, vol, uni, asof):
     prev = close.iloc[i - 1]
     in_u = c0.notna() & prev.notna() & (c0 >= MIN_PRICE) & (v0 >= MIN_VOL) & (c0 * v0 >= MIN_DOLLAR_VOL) & r63.notna()
     U = in_u[in_u].index
-    ind = uni.set_index("ysym")["industry"].reindex(U).fillna("Unclassified")
+    raw_ind = uni.set_index("ysym")["industry"].reindex(U).fillna("Unclassified")
+    ind = raw_ind
+    unmapped = []
+    if keyfn is not None:
+        ind = raw_ind.map(lambda x: keyfn(x) or "Unclassified")
+        unmapped = sorted({str(x).strip() for x, g in zip(raw_ind, ind)
+                           if g == "Unclassified" and str(x).strip() not in ("", "Unclassified", "nan")})
 
     mom = (r63[U] >= MOM_THRESHOLD)
     N, K = len(U), int(mom.sum())
@@ -285,6 +291,8 @@ def compute_sectors(close, vol, uni, asof):
             "median63": med63, "median21": med21, "pace": med21 - med63 / 3,
             "lift_then": lift_then, "dlift": lift - lift_then,
             "mom_list": [[t, 100 * float(r63[t])] for t in mom_list],
+            "members": ([[str(k).strip(), int(v)] for k, v in raw_ind[idx].value_counts().items()]
+                        if keyfn is not None else None),
         })
     t = pd.DataFrame(rows)
     corr = float(t.loc[t["base"] >= MIN_BASE, ["dlift", "pace"]].corr().iloc[0, 1]) if len(t) > 2 else float("nan")
@@ -296,6 +304,7 @@ def compute_sectors(close, vol, uni, asof):
         "n_small": int(((t["base"] < MIN_BASE) & (t["industry"] != "Unclassified")).sum()),
         "unclassified": t[t["industry"] == "Unclassified"].to_dict("records"),
         "dlift_pace_corr": corr,
+        "unmapped": unmapped,
         "rows": t[t["industry"] != "Unclassified"].to_dict("records"),
     }
 
@@ -345,6 +354,14 @@ def main():
 
     asof = close.index[close.index.get_indexer([pd.Timestamp(h.index[-1])])[0]]
     sectors = compute_sectors(close, vol, uni, asof)
+    groups = None
+    try:
+        sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+        from groups import group_of
+        groups = compute_sectors(close, vol, uni, asof, keyfn=group_of)
+        log(f"Groups: {groups['n_ranked']} ranked; unmapped industries {groups['unmapped']}")
+    except Exception as e:  # noqa: BLE001
+        log(f"Groups failed: {e!r}")
 
     themes = None
     try:
@@ -369,6 +386,7 @@ def main():
         "universe_info": info,
         "no_data_tickers": len(failed),
         "sectors": sectors,
+        "groups": groups,
         "themes": themes,
         "log": log_lines,
     }
