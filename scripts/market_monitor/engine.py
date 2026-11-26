@@ -362,6 +362,17 @@ def main():
     vol = vol.reindex(idx.index)
 
     h = compute_breadth(close, vol).join(idx, how="left")
+    # diagnostics: volume near the 300k line on the latest session
+    try:
+        d = close.index[-1]
+        c0, v0 = close.loc[d], vol.loc[d]
+        for t in ["CWT", "NTGR", "INDB"]:
+            if t in close.columns:
+                log(f"Diag {pd.Timestamp(d).date()} {t}: close {c0[t]:.2f} volume {v0[t]:,.0f}")
+        near = ((c0 >= MIN_PRICE) & (c0 * v0 >= MIN_DOLLAR_VOL) & (v0 < MIN_VOL)).sum()
+        log(f"Diag: pass $5 and $5M but volume < 300k: {int(near)}")
+    except Exception as e:  # noqa: BLE001
+        log(f"Diag failed: {e!r}")
     dropped = [str(pd.Timestamp(d).date()) for d in close.index[-5:] if d not in h.index]
     if dropped:
         log(f"Sessions dropped by breadth filter (too few stocks priced): {dropped}")
