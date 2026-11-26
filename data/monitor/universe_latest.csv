@@ -79,7 +79,7 @@ ADRX,13.77,323100.0,4449087.1479,,,True,True,False,False,Biotechnology: Pharmace
 ADSE,9.69,13200.0,127907.9945,11.3,-14.2478,True,False,False,False,Industrial Specialties
 ADSK,246.79,3320800.0,819540209.7046,270.58,-8.7922,True,True,True,False,Computer Software: Prepackaged Software
 ADT,9.89,20716800.0,204889159.1125,7.46,32.5737,True,True,True,True,Diversified Commercial Services
-ADTN,4.41,1472300.0,6492842.7753,7.79,-43.389,True,False,False,False,Telecommunications Equipment
+ADTN,,,,,,False,False,False,False,Telecommunications Equipment
 ADUR,8.11,286500.0,2323514.9016,15.09,-46.2558,True,False,False,False,Major Chemicals
 ADUS,122.53,137900.0,16896886.8317,118.01,3.8302,True,False,False,False,Medical/Nursing Services
 ADV,27.85,86500.0,2409025.033,33.43,-16.6916,True,False,False,False,Business Services
@@ -3724,7 +3724,7 @@ SOPH,6.275,846900.0,5314297.5808,8.92,-29.6525,True,True,True,False,EDP Services
 SOR,45.9,11300.0,518670.0172,46.55,-1.3963,True,False,False,False,Investment Managers
 SORA,2.39,20200.0,48278.0021,1.95,22.5641,True,False,False,False,Other Specialty Stores
 SORN,10.08,0.0,0.0,9.96,1.2048,True,False,False,False,Blank Checks
-SOS,3.66,5400.0,19764.0005,18.52,-80.2376,True,False,False,False,Investment Bankers/Brokers/Service
+SOS,,5386.0,,18.518,,False,False,False,False,Investment Bankers/Brokers/Service
 SOTK,4.27,44600.0,190441.9991,5.03,-15.1093,True,False,False,False,Industrial Machinery/Components
 SOUL,10.56,200.0,2112.0001,10.45,1.0526,True,False,False,False,Publishing
 SOUN,2.645,19266300.0,50959363.1325,7.22,-63.3657,True,False,False,False,Computer Software: Prepackaged Software
