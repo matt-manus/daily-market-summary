@@ -335,6 +335,24 @@ def main():
     if close.empty:
         raise SystemExit("No price data — stopping.")
 
+    # retry tickers that have history but no bar on the latest session
+    last = close.index[-1]
+    miss = [t for t in close.columns if pd.isna(close.at[last, t]) and close[t].notna().any()]
+    log(f"Missing latest bar ({pd.Timestamp(last).date()}): {len(miss)} tickers, e.g. {miss[:15]}")
+    if miss:
+        rstart = (pd.Timestamp(last) - pd.Timedelta(days=10)).strftime("%Y-%m-%d")
+        rc, rv, _ = download_bars(miss, rstart, batch=50)
+        if not rc.empty:
+            rc.index = pd.to_datetime(rc.index)
+            close.index = pd.to_datetime(close.index)
+            vol.index = pd.to_datetime(vol.index)
+            for t in rc.columns:
+                ok = rc[t].dropna()
+                ok = ok[ok.index.isin(close.index)]
+                close.loc[ok.index, t] = ok
+                vol.loc[ok.index, t] = rv[t].reindex(ok.index)
+        still = [t for t in miss if pd.isna(close.at[last, t])]
+        log(f"Retry recovered {len(miss) - len(still)}; still missing {len(still)}, e.g. {still[:15]}")
     # diagnostics: how many tickers are priced on the last few sessions
     for d in close.index[-3:]:
         log(f"Stocks priced on {pd.Timestamp(d).date()}: {int(close.loc[d].notna().sum())}")
