@@ -46,7 +46,9 @@ jobs:
         run: python scripts/market_monitor/engine.py
 
       - name: Render page
-        run: python scripts/market_monitor/render.py
+        run: |
+          python scripts/market_monitor/render.py
+          python scripts/market_monitor/render_v2.py
 
       - name: Commit outputs to dev-monitor
         run: |
