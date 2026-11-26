@@ -173,6 +173,7 @@ ALF,10.91,0.0,0.0,10.88,0.2757,True,False,False,False,Unclassified
 ALG,138.4,199300.0,27583118.7836,164.12,-15.6715,True,False,False,False,Industrial Machinery/Components
 ALGM,27.13,2748300.0,74561376.6935,37.59,-27.8266,True,True,True,False,Semiconductors
 ALGN,165.4,762500.0,126117495.3461,158.84,4.1299,True,True,True,False,Industrial Specialties
+ALGS,2.26,32821000.0,74175459.687,7.07,-68.0339,True,False,False,False,Biotechnology: Biological Products (No Diagnostic Substances)
 ALGT,91.77,601300.0,55181298.9815,80.31,14.2697,True,True,True,False,Air Freight/Delivery Services
 ALH,25.72,1410000.0,36265199.0318,23.24,10.6713,True,True,True,False,Industrial Machinery/Components
 ALHC,6.61,3378900.0,22334529.4511,13.56,-51.2537,True,True,True,False,Medical Specialities
@@ -299,6 +300,7 @@ AQST,3.8,1702600.0,6469879.9188,5.16,-26.3566,True,False,False,False,Biotechnolo
 AR,37.13,3960500.0,147053369.2303,38.52,-3.6085,True,True,True,False,Oil & Gas Production
 ARBB,3.21,900.0,2889.0,4.28,-25.0,True,False,False,False,EDP Services
 ARCB,128.25,197500.0,25329375.0,139.12,-7.8134,True,False,False,False,Trucking Freight/Courier Services
+ARCC,18.95,5686100.0,107751599.3382,19.88,-4.6781,True,True,True,False,Finance: Consumer Services
 ARCI,10.06,151600.0,1525096.0636,10.14,-0.789,True,False,False,False,Unclassified
 ARCL,10.11,0.0,0.0,9.97,1.4042,True,False,False,False,Blank Checks
 ARCO,6.92,2693400.0,18638328.2055,7.94,-12.8463,True,True,True,False,Restaurants
@@ -461,6 +463,7 @@ BAND,36.37,844000.0,30696279.0985,51.85,-29.8554,True,True,True,False,Computer S
 BANF,122.21,161700.0,19761356.852,110.4,10.6975,True,False,False,False,Major Banks
 BANL,4.7,6000.0,28199.9989,13.4,-64.9254,True,False,False,False,Oil Refining/Marketing
 BANR,70.2,472900.0,33197578.5568,70.17,0.0428,True,True,True,False,Major Banks
+BANX,18.85,36900.0,695565.0141,20.65,-8.7167,True,False,False,False,Trusts Except Educational Religious and Charitable
 BAP,351.13,484200.0,170017148.3643,373.2,-5.9137,True,True,True,False,Commercial Banks
 BARK,8.49,28300.0,240266.9935,10.85,-21.7512,True,False,False,False,Other Specialty Stores
 BATRA,59.13,23200.0,1371816.0248,55.76,6.0438,True,False,False,False,Services-Misc. Amusement & Recreation
@@ -468,6 +471,7 @@ BATRK,54.44,407100.0,22162523.4409,50.83,7.1021,True,True,True,False,Services-Mi
 BAX,27.26,10037100.0,273611348.2973,25.93,5.1292,True,True,True,False,Medical/Dental Instruments
 BB,8.5,10225900.0,86920150.0,8.65,-1.7341,True,True,True,False,Computer Software: Prepackaged Software
 BBAR,8.97,1572600.0,14106222.4199,14.6,-38.5616,True,True,True,False,Commercial Banks
+BBCI,2.21,451900.0,998699.0172,,,True,False,False,False,Business Services
 BBCP,9.37,69100.0,647466.9921,9.43,-0.6363,True,False,False,False,Engineering & Construction
 BBD,2.43,61897900.0,150411901.1321,3.23,-24.7678,True,False,False,False,Major Banks
 BBDC,8.52,699600.0,5960592.3203,9.38,-9.1684,True,True,True,False,Diversified Financial Services
@@ -493,6 +497,7 @@ BCC,67.63,416400.0,28161130.8563,78.77,-14.1424,True,True,True,False,RETAIL: Bui
 BCCQ,10.02,4300.0,43086.002,10.06,-0.3976,True,False,False,False,Blank Checks
 BCE,22.18,3509900.0,77849583.0711,23.4,-5.2137,True,True,True,False,Telecommunications Equipment
 BCH,36.67,434200.0,15922113.205,41.6,-11.851,True,True,True,False,Commercial Banks
+BCIC,4.84,68300.0,330572.0104,7.67,-36.897,True,False,False,False,Finance: Consumer Services
 BCML,30.25,59900.0,1811975.0,29.98,0.9006,True,False,False,False,Major Banks
 BCO,123.21,464600.0,57243365.5746,109.49,12.5308,True,True,True,False,Integrated Freight & Logistics
 BCPC,168.3,204000.0,34333200.6226,177.86,-5.375,True,False,False,False,Major Chemicals
@@ -837,9 +842,9 @@ CFFN,8.06,546300.0,4403178.2292,8.64,-6.713,True,True,False,False,Savings Instit
 CFG,61.76,3311800.0,204536762.4413,70.18,-11.9977,True,True,True,False,Major Banks
 CG,39.44,3859700.0,152226562.6995,49.24,-19.9025,True,True,True,False,Investment Managers
 CGAU,18.18,963000.0,17507340.2939,24.25,-25.0309,True,True,True,False,Precious Metals
+CGBD,10.86,457400.0,4967363.843,11.66,-6.8611,True,True,False,False,Finance: Consumer Services
 CGCF,9.8,25400.0,248920.0048,9.84,-0.4065,True,False,False,False,Blank Checks
 CGEM,10.07,890900.0,8971362.7281,22.6,-55.4425,True,True,True,False,Biotechnology: Biological Products (No Diagnostic Substances)
-CGEN,1.96,187600.0,367696.0072,2.76,-28.9855,True,False,False,False,Biotechnology: Biological Products (No Diagnostic Substances)
 CGNT,8.04,287300.0,2309891.989,9.02,-10.8647,True,False,False,False,Computer Software: Prepackaged Software
 CGNX,46.91,1865600.0,87515295.7153,62.97,-25.5042,True,True,True,False,Industrial Machinery/Components
 CGON,84.71,1392200.0,117933260.7254,79.01,7.2143,True,True,True,False,Biotechnology: Biological Products (No Diagnostic Substances)
@@ -873,14 +878,13 @@ CI,271.42,4483400.0,1216884488.2019,277.67,-2.2509,True,True,True,False,Medical 
 CIA,3.12,165200.0,515423.9811,3.92,-20.4082,True,False,False,False,Life Insurance
 CIEN,242.79,3005300.0,729656766.8228,399.85,-39.2797,True,True,True,False,Telecommunications Equipment
 CIFR,5.51,45927900.0,253062739.5121,16.77,-67.1437,True,True,True,False,Finance: Consumer Services
-CIG-C,,1096.0,,3.11,,False,False,False,False,Electric Utilities: Central
+CIG-C,2.88,1096.0,3156.4801,3.11,-7.3955,True,False,False,False,Electric Utilities: Central
 CIGI,95.63,166300.0,15903268.5432,102.97,-7.1283,True,False,False,False,Real Estate
 CIM,7.11,2173400.0,15452874.2902,11.51,-38.2276,True,True,True,False,Real Estate Investment Trusts
 CINF,192.32,453300.0,87178659.3201,172.52,11.4769,True,True,True,False,Property-Casualty Insurers
 CING,5.03,538200.0,2707146.1129,5.44,-7.5368,True,True,False,False,Biotechnology: Pharmaceutical Preparations
 CINT,2.94,27500.0,80850.0016,3.45,-14.7826,True,False,False,False,EDP Services
 CION,6.05,265700.0,1607485.0507,7.41,-18.3536,True,False,False,False,Finance/Investors Services
-CITR,1.98,37500.0,74250.0007,6.06,-67.3267,True,False,False,False,Major Chemicals
 CIVB,27.59,125900.0,3473581.0192,27.43,0.5833,True,False,False,False,Major Banks
 CIX,42.85,21100.0,904134.9678,31.85,34.5369,True,False,False,False,Industrial Machinery/Components
 CKX,12.95,33000.0,427349.9937,10.65,21.5962,True,False,False,False,Oil & Gas Production
@@ -995,13 +999,13 @@ CPHC,15.61,2200.0,34341.9992,15.87,-1.6383,True,False,False,False,Services-Misc.
 CPIX,7.99,369500.0,2952304.9154,8.65,-7.6301,True,True,False,False,Biotechnology: Pharmaceutical Preparations
 CPK,139.22,161100.0,22428342.1967,133.3,4.4411,True,False,False,False,Oil & Gas Production
 CPNG,16.09,22081700.0,355294556.3694,16.23,-0.8626,True,True,True,False,Catalog/Specialty Distribution
-CPOP,1.96,3500.0,6860.0001,5.28,-62.8788,True,False,False,False,Services-Misc. Amusement & Recreation
 CPRI,17.99,3069700.0,55223902.2974,13.18,36.4947,True,True,True,True,Apparel
 CPRT,33.17,10921600.0,362269452.002,32.76,1.2515,True,True,True,False,Retail-Auto Dealers and Gas Stations
 CPS,18.56,362800.0,6733567.8062,26.4,-29.697,True,True,True,False,Auto Parts:O.E.M.
 CPSH,3.28,157900.0,517911.9955,3.92,-16.3265,True,False,False,False,Building Materials
 CPSS,8.32,42700.0,355263.987,9.38,-11.3006,True,False,False,False,Finance: Consumer Services
 CPT,99.25,1018900.0,101125825.0,105.79,-6.1821,True,True,True,False,Real Estate Investment Trusts
+CPZ,12.43,43200.0,536976.0132,13.37,-7.0307,True,False,False,False,Trusts Except Educational Religious and Charitable
 CR,213.73,316200.0,67581424.649,208.98,2.2729,True,True,True,False,Metal Fabrications
 CRAC,10.31,0.0,0.0,10.18,1.277,True,False,False,False,Unclassified
 CRAI,229.1,123200.0,28225120.752,172.5,32.8116,True,False,False,False,Other Consumer Services
@@ -1017,6 +1021,7 @@ CRD-B,11.18,4800.0,53664.0015,11.8,-5.2542,True,False,False,False,Unclassified
 CRDO,106.795,8259900.0,882116005.3757,240.24,-55.5465,True,True,True,False,Semiconductors
 CRE,2.325,10700.0,24877.5005,5.9,-60.5932,True,False,False,False,Publishing
 CRESY,8.21,218400.0,1793064.0083,11.22,-26.8271,True,False,False,False,Real Estate
+CREX,2.04,148800.0,303551.9943,2.95,-30.8475,True,False,False,False,EDP Services
 CRGY,10.72,4297300.0,46067057.1475,13.65,-21.4652,True,True,True,False,Oil & Gas Production
 CRH,97.3,6005400.0,584325438.327,95.58,1.7995,True,True,True,False,Building Materials
 CRI,37.04,1289100.0,47748265.1802,33.34,11.0978,True,True,True,False,Apparel
@@ -1048,6 +1053,7 @@ CSHR,3.98,509400.0,2027412.0097,6.0,-33.6667,True,False,False,False,Investment B
 CSIQ,5.45,5268100.0,28711143.9952,13.98,-61.0157,True,True,True,False,Semiconductors
 CSL,411.61,361100.0,148632365.7104,360.74,14.1016,True,True,True,False,Specialty Chemicals
 CSPI,7.91,8700.0,68816.9987,7.88,0.3807,True,False,False,False,EDP Services
+CSQ,18.2,214500.0,3903900.1637,20.97,-13.2093,True,False,False,False,Finance Companies
 CSQR,14.91,1647400.0,24562733.7486,20.06,-25.673,True,True,True,False,Computer Software: Programming Data Processing
 CSR,56.88,324500.0,18457560.3466,52.55,8.2398,True,True,True,False,Real Estate Investment Trusts
 CSTL,32.53,335100.0,10900802.5909,34.26,-5.0496,True,True,True,False,Medical Specialities
@@ -1081,6 +1087,7 @@ CUE,8.42,1113100.0,9372302.0849,28.16,-70.0994,True,True,True,False,Biotechnolog
 CULP,3.12,43600.0,136031.995,3.43,-9.0379,True,False,False,False,Textiles
 CURB,29.33,2012700.0,59032490.8464,29.87,-1.8078,True,True,True,False,Real Estate
 CURI,2.58,592200.0,1527875.9548,2.56,0.7812,True,False,False,False,Movies/Entertainment
+CURR,2.46,700100.0,1722246.0267,3.53,-30.3116,True,False,False,False,Business Services
 CURV,2.24,163200.0,365568.0016,2.24,0.0,True,False,False,False,Clothing/Shoe/Accessory Stores
 CURX,4.387,5100.0,22373.7004,4.68,-6.2607,True,False,False,False,Biotechnology: Pharmaceutical Preparations
 CUVL,4.68,13000.0,60839.9978,6.77,-30.8715,True,False,False,False,Biotechnology: Biological Products (No Diagnostic Substances)
@@ -1229,6 +1236,7 @@ DRTS,11.84,612100.0,7247264.0934,14.81,-20.054,True,True,True,False,Medical/Dent
 DRUG,22.8,137200.0,3128159.8953,74.535,-69.4103,True,False,False,False,Biotechnology: Pharmaceutical Preparations
 DRVN,11.55,989100.0,11424105.1887,12.65,-8.6956,True,True,True,False,Automotive Aftermarket
 DSAC,10.1,633900.0,6402390.2418,10.16,-0.5905,True,True,True,False,Blank Checks
+DSC,2.0,9400.0,18800.0,8.49,-76.4429,True,False,False,False,Computer Software: Programming Data Processing
 DSGN,10.19,307200.0,3130367.8711,15.25,-33.1803,True,True,False,False,Biotechnology: Pharmaceutical Preparations
 DSGR,35.06,212100.0,7436226.2913,34.83,0.6603,True,False,False,False,Industrial Specialties
 DSGX,91.86,469900.0,43165014.2868,80.66,13.8854,True,True,True,False,Computer Software: Prepackaged Software
@@ -1251,6 +1259,7 @@ DX,10.27,6536400.0,67128830.9921,12.9,-20.3876,True,True,True,False,Real Estate 
 DXC,14.96,1720900.0,25744664.0656,11.0,36.0,True,True,True,True,EDP Services
 DXCM,84.84,3087200.0,261918036.6943,89.29,-4.9838,True,True,True,False,Medical/Dental Instruments
 DXPE,148.08,91400.0,13534512.1674,192.81,-23.199,True,False,False,False,Industrial Machinery/Components
+DXR,7.28,15500.0,112840.0033,9.67,-24.7156,True,False,False,False,Medical/Dental Instruments
 DXYZ,23.7,1357300.0,32168011.0355,35.4,-33.0508,True,True,True,False,Unclassified
 DY,177.64,1198200.0,212848247.2687,308.01,-42.3265,True,True,True,False,Water Sewer Pipeline Comm & Power Line Construction
 DYN,17.74,2150500.0,38149869.5078,26.09,-32.0046,True,True,True,False,Biotechnology: Pharmaceutical Preparations
@@ -1276,7 +1285,6 @@ ECOR,4.88,92500.0,451400.0106,9.71,-49.7425,True,False,False,False,Biotechnology
 ECPG,101.49,212400.0,21556475.5463,101.98,-0.4805,True,False,False,False,Finance Companies
 ECVT,9.94,1565100.0,15557093.3433,10.15,-2.069,True,True,True,False,Major Chemicals
 ED,120.37,2728400.0,328417515.4938,106.69,12.8222,True,True,True,False,Power Generation
-EDBL,1.855,12800.0,23744.0002,7.15,-74.0559,True,False,False,False,Farming/Seeds/Milling
 EDHL,7.24,376700.0,2727307.9138,4.0,81.0,True,True,False,False,Advertising
 EDN,11.96,133800.0,1600248.0051,23.65,-49.4292,True,False,False,False,Electric Utilities: Central
 EDRY,36.4,96000.0,3494400.1465,49.34,-26.2262,True,False,False,False,Marine Transportation
@@ -1313,7 +1321,6 @@ EL,109.61,3867200.0,423883794.3604,106.21,3.2012,True,True,True,False,Package Go
 ELA,12.15,137200.0,1666979.9477,13.93,-12.7782,True,False,False,False,Consumer Specialties
 ELAN,26.24,5152300.0,135196350.8207,24.49,7.1458,True,True,True,False,Biotechnology: Pharmaceutical Preparations
 ELC,18.16,52400.0,951583.992,20.03,-9.336,True,False,False,False,Electric Utilities: Central
-ELDN,1.915,748900.0,1434143.4714,3.32,-42.3193,True,False,False,False,Biotechnology: Pharmaceutical Preparations
 ELE,12.6,700300.0,8823780.2671,22.36,-43.6494,True,True,True,False,Precious Metals
 ELF,108.93,1340100.0,145977093.409,106.17,2.5996,True,True,True,False,Package Goods/Cosmetics
 ELLO,17.2,800.0,13760.0006,20.21,-14.8936,True,False,False,False,Electric Utilities: Central
@@ -1448,7 +1455,6 @@ FAF,66.02,1417400.0,93576743.2419,74.55,-11.442,True,True,True,False,Specialty I
 FANG,180.15,2072700.0,373396892.3492,200.52,-10.1586,True,True,True,False,Oil & Gas Production
 FAST,52.93,7118400.0,376776914.1724,51.14,3.5002,True,True,True,False,RETAIL: Building Materials
 FATN,3.68,26700.0,98256.0018,6.03,-38.9718,True,False,False,False,Computer Software: Prepackaged Software
-FBGL,1.89,5500.0,10394.9999,4.39,-56.9476,True,False,False,False,Homebuilding
 FBIN,49.84,2567800.0,127979152.3918,45.31,9.9978,True,True,True,False,Forest Products
 FBIO,2.2,395700.0,870540.0189,2.8,-21.4286,True,False,False,False,Biotechnology: Pharmaceutical Preparations
 FBIZ,71.93,45500.0,3272815.0139,70.82,1.5674,True,False,False,False,Major Banks
@@ -1469,6 +1475,7 @@ FCF,20.31,562500.0,11424374.6996,20.8,-2.3558,True,True,True,False,Major Banks
 FCFS,176.65,537800.0,95002366.7175,224.07,-21.163,True,True,True,False,Other Specialty Stores
 FCN,212.29,306200.0,65003195.9442,151.99,39.6737,True,True,True,True,Professional Services
 FCNCA,2153.8799,59000.0,127078913.0859,2160.1399,-0.2898,True,False,False,False,Major Banks
+FCNCP,17.69,35500.0,627995.019,19.875,-10.9937,True,False,False,False,Major Banks
 FCPT,23.49,562100.0,13203728.8713,25.18,-6.7117,True,True,True,False,Real Estate Investment Trusts
 FCRS,10.26,5700.0,58482.0013,10.235,0.2443,True,False,False,False,Blank Checks
 FCUV,5.65,9362300.0,52896995.8929,10.43,-45.8293,True,True,True,False,Industrial Machinery/Components
@@ -1479,6 +1486,7 @@ FDMM,9.85,2300.0,22655.0009,9.88,-0.3036,True,False,False,False,Blank Checks
 FDMT,11.8,1779500.0,20998100.3394,14.91,-20.8585,True,True,True,False,Biotechnology: Biological Products (No Diagnostic Substances)
 FDS,324.55,370200.0,120148405.481,304.47,6.5951,True,True,True,False,Computer Software: Programming Data Processing
 FDSB,17.09,6800.0,116212.001,17.902,-4.5358,True,False,False,False,Savings Institutions
+FDUS,18.98,136100.0,2583177.9377,19.73,-3.8013,True,False,False,False,Finance/Investors Services
 FDX,308.87,800600.0,247281318.0908,331.41,-6.8012,True,True,True,False,Air Freight/Delivery Services
 FDXF,118.71,802000.0,95205419.2657,133.25,-10.9118,True,True,True,False,Air Freight/Delivery Services
 FE,47.62,4215500.0,200742105.4974,46.25,2.9622,True,True,True,False,Electric Utilities: Central
@@ -1556,6 +1564,7 @@ FNF,45.19,2333200.0,105437304.7958,47.3,-4.4609,True,True,True,False,Specialty I
 FNKO,5.74,1450900.0,8328165.6679,6.74,-14.8368,True,True,True,False,Recreational Games/Products/Toys
 FNLC,35.7,22700.0,810390.0173,34.53,3.3884,True,False,False,False,Major Banks
 FNRN,17.11,103900.0,1777729.0634,16.81,1.7847,True,False,False,False,Savings Institutions
+FNUC,5.28,46500.0,245520.0098,25.5,-79.2941,True,False,False,False,Other Metals and Minerals
 FNV,244.76,1053400.0,257830178.2135,271.31,-9.7859,True,True,True,False,Precious Metals
 FNWB,9.11,46900.0,427258.9839,11.14,-18.2226,True,False,False,False,Banks
 FNWD,41.86,24800.0,1038128.0151,43.03,-2.719,True,False,False,False,Savings Institutions
@@ -1581,6 +1590,7 @@ FRBT,17.7,208600.0,3692220.1591,18.6,-4.8387,True,False,False,False,Major Banks
 FRD,36.94,43100.0,1592113.9408,44.84,-17.6182,True,False,False,False,Steel/Iron Ore
 FRHC,175.58,167700.0,29444766.3071,170.66,2.8829,True,False,False,False,Investment Bankers/Brokers/Service
 FRME,39.18,371000.0,14535780.1132,41.67,-5.9755,True,True,True,False,Major Banks
+FRMEP,25.0,0.0,0.0,25.25,-0.9901,True,False,False,False,Major Banks
 FRMM,2.35,289100.0,679384.9724,5.66,-58.4806,True,False,False,False,Finance: Consumer Services
 FRNM,9.7,1004500.0,9743649.8084,13.94,-30.4161,True,True,True,False,Medical Specialities
 FRO,47.65,2062500.0,98278128.1471,43.75,8.9143,True,True,True,False,Marine Transportation
@@ -1626,6 +1636,7 @@ FULC,3.78,1109800.0,4195043.9682,3.85,-1.8182,True,False,False,False,Biotechnolo
 FULT,22.99,1424700.0,32753852.6739,23.75,-3.2,True,True,True,False,Major Banks
 FUN,11.11,1883000.0,20920129.3535,15.96,-30.3885,True,True,True,False,Services-Misc. Amusement & Recreation
 FUNC,44.45,14900.0,662305.0114,43.2,2.8935,True,False,False,False,Major Banks
+FUND,9.38,16900.0,158522.0019,10.7,-12.3364,True,False,False,False,Investment Managers
 FUSB,16.66,3300.0,54977.9995,16.35,1.896,True,False,False,False,Major Banks
 FUTU,87.94,1360100.0,119607197.3206,124.57,-29.4052,True,True,True,False,Investment Bankers/Brokers/Service
 FVAV,10.24,0.0,0.0,10.21,0.2938,True,False,False,False,Unclassified
@@ -1654,6 +1665,7 @@ GATX,186.28,173200.0,32263695.7886,178.44,4.3936,True,False,False,False,Transpor
 GAUZ,3.94,5200.0,20488.0003,9.02,-56.3193,True,False,False,False,Industrial Machinery/Components
 GBC,33.92,11000.0,373119.9799,,,True,False,False,False,Major Banks
 GBCI,46.28,839700.0,38861314.975,47.27,-2.0944,True,True,True,False,Major Banks
+GBDC,12.6,1604400.0,20215440.612,13.07,-3.596,True,True,True,False,Finance: Consumer Services
 GBFH,13.98,103900.0,1452521.9524,20.33,-31.2346,True,False,False,False,Major Banks
 GBLI,19.76,17200.0,339872.0039,29.0,-31.8621,True,False,False,False,Property-Casualty Insurers
 GBX,38.2,472200.0,18038040.3603,46.12,-17.1726,True,True,True,False,Railroads
@@ -1671,9 +1683,9 @@ GDS,13.8,7934100.0,109490581.5133,33.51,-58.8183,True,True,True,False,Computer S
 GDV,27.69,139900.0,3873831.0747,30.33,-8.7043,True,False,False,False,Investment Managers
 GDYN,14.12,1317000.0,18596039.8493,7.89,78.9607,True,True,True,True,Computer Software: Prepackaged Software
 GE,316.98,4368600.0,1384758875.9949,342.73,-7.5132,True,True,True,False,Consumer Electronics/Appliances
+GECC,4.95,39800.0,197009.9924,5.99,-17.3623,True,False,False,False,Finance: Consumer Services
 GEF,68.26,351400.0,23986564.7507,84.51,-19.2285,True,True,True,False,Unclassified
 GEF-B,95.4,60900.0,5809860.0929,108.04,-11.6994,True,False,False,False,Unclassified
-GEG,1.97,10800.0,21276.0003,2.15,-8.3721,True,False,False,False,Computer Software: Prepackaged Software
 GEHC,83.33,2617000.0,218074614.7919,72.48,14.9696,True,True,True,False,Medical Electronics
 GEN,30.17,7763600.0,234227812.5923,30.5,-1.082,True,True,True,False,Computer Software: Prepackaged Software
 GENB,11.31,919500.0,10399545.3858,15.77,-28.2815,True,True,True,False,Biotechnology: Pharmaceutical Preparations
@@ -1720,8 +1732,10 @@ GJS,23.43,700.0,16401.0002,23.45,-0.0853,True,False,False,False,Finance: Consume
 GJT,22.99,100.0,2299.0,23.22,-0.9905,True,False,False,False,Finance: Consumer Services
 GKOS,259.9,815200.0,211870475.0244,181.91,42.8728,True,True,True,True,Medical/Dental Instruments
 GL,155.7,430800.0,67075558.6853,175.78,-11.4234,True,True,True,False,Life Insurance
+GLAD,18.12,100800.0,1826496.0846,19.84,-8.6694,True,False,False,False,Textiles
 GLBE,38.01,1837200.0,69831968.9163,39.49,-3.7478,True,True,True,False,Computer Software: Prepackaged Software
 GLBS,2.35,116500.0,273774.9889,3.61,-34.903,True,False,False,False,Marine Transportation
+GLE,2.13,1200.0,2556.0001,5.24,-59.3511,True,False,False,False,EDP Services
 GLED,10.12,300.0,3036.0,10.0,1.2,True,False,False,False,Blank Checks
 GLIBA,27.2,54100.0,1471520.0413,26.65,2.0638,True,False,False,False,Cable & Other Pay Television Services
 GLIBK,27.385,216800.0,5937068.0496,26.14,4.7628,True,False,False,False,Cable & Other Pay Television Services
@@ -1759,7 +1773,6 @@ GOOGL,273.1,41164500.0,11242025201.2482,340.65,-19.8297,True,True,True,False,Com
 GOOS,7.9,801000.0,6327900.0764,8.1,-2.4691,True,True,True,False,Apparel
 GORO,2.89,726700.0,2100163.0762,3.79,-23.7467,True,False,False,False,Precious Metals
 GOSS,14.07,433900.0,6104972.8676,13.6,3.4559,True,True,True,False,Biotechnology: Pharmaceutical Preparations
-GOTU,1.89,789800.0,1492721.9887,1.82,3.8462,True,False,False,False,Other Consumer Services
 GOW,2.18,14300.0,31174.001,10.69,-79.6071,True,False,False,False,Oil and Gas Field Machinery
 GPAC,10.15,0.0,0.0,10.06,0.8946,True,False,False,False,Unclassified
 GPAT,11.3,0.0,0.0,10.93,3.3852,True,False,False,False,Unclassified
@@ -1857,7 +1870,6 @@ HCKT,13.32,212100.0,2825171.9353,11.18,19.1413,True,False,False,False,Profession
 HCM,13.49,30200.0,407397.9931,12.415,8.6589,True,False,False,False,Biotechnology: Pharmaceutical Preparations
 HCMA,10.36,0.0,0.0,10.29,0.6803,True,False,False,False,Hotels/Resorts
 HCSG,25.43,561400.0,14276402.1713,22.94,10.8544,True,True,True,False,Hospital/Nursing Management
-HCTI,0.462,2706700.0,1250495.4336,16.76,-97.2434,True,False,False,False,EDP Services
 HD,361.26,7228700.0,2611440232.5928,328.61,9.9358,True,True,True,False,RETAIL: Building Materials
 HDB,28.35,13090300.0,371110009.9936,22.46,26.2244,True,True,True,True,Commercial Banks
 HDL,10.49,600.0,6293.9999,13.275,-20.9793,True,False,False,False,Restaurants
@@ -2004,6 +2016,7 @@ IDXX,709.46,665300.0,472003752.6184,545.08,30.157,True,True,True,True,Biotechnol
 IDYA,29.45,1259900.0,37104055.9612,41.77,-29.4949,True,True,True,False,Biotechnology: Pharmaceutical Preparations
 IE,5.76,2379500.0,13705920.5446,11.69,-50.7271,True,True,True,False,Metal Mining
 IEAG,10.11,0.0,0.0,10.23,-1.173,True,False,False,False,Blank Checks
+IEP,2.57,3073000.0,7897609.7949,6.73,-61.8128,True,False,False,False,Integrated oil Companies
 IESC,171.98,528700.0,90925823.7411,333.67,-48.4581,True,True,True,False,Engineering & Construction
 IEX,225.25,740400.0,166775100.0,233.98,-3.7311,True,True,True,False,Fluid Controls
 IFF,86.11,2991600.0,257606677.8259,86.85,-0.852,True,True,True,False,Major Chemicals
@@ -2086,7 +2099,6 @@ IONS,29.96,2493100.0,74693273.7175,62.43,-52.0103,True,True,True,False,Biotechno
 IOR,18.59,0.0,0.0,20.02,-7.1429,True,False,False,False,Real Estate Investment Trusts
 IOSP,77.81,176900.0,13764588.5681,95.34,-18.3868,True,False,False,False,Major Chemicals
 IOT,38.86,4873700.0,189391984.9747,41.87,-7.1889,True,True,True,False,EDP Services
-IOTR,1.7,7000.0,11900.0003,2.45,-30.6122,True,False,False,False,Telecommunications Equipment
 IOVA,7.13,9608200.0,68506467.0996,8.26,-13.6804,True,True,True,False,Biotechnology: Biological Products (No Diagnostic Substances)
 IP,32.08,6553300.0,210229875.9995,39.88,-19.5587,True,True,True,False,Paper
 IPAR,142.65,267600.0,38173138.3667,117.27,21.6424,True,False,False,False,Package Goods/Cosmetics
@@ -2396,6 +2408,7 @@ LOBO,2.255,4400.0,9922.0005,6.45,-65.0388,True,False,False,False,Motor Vehicles
 LOCO,15.43,228900.0,3531927.0699,15.2,1.5132,True,False,False,False,Restaurants
 LOGI,101.18,759400.0,76836092.2318,98.02,3.2238,True,True,True,False,Computer peripheral equipment
 LOMA,8.55,223000.0,1906650.0425,9.67,-11.5822,True,False,False,False,Building Materials
+LONA,2.71,1351400.0,3662294.0516,7.89,-65.6527,True,False,False,False,Biotechnology: Biological Products (No Diagnostic Substances)
 LOPE,114.59,438100.0,50201877.3956,150.19,-23.7033,True,True,True,False,Other Consumer Services
 LOVE,14.02,234200.0,3283484.1072,16.07,-12.7567,True,False,False,False,Other Specialty Stores
 LOVI,9.8,3000.0,29400.0006,,,True,False,False,False,Blank Checks
@@ -2541,6 +2554,7 @@ MFA,6.29,3266700.0,20547542.8754,8.86,-29.0068,True,True,True,False,Real Estate 
 MFC,42.26,1681100.0,71043283.1783,43.15,-2.0626,True,True,True,False,Life Insurance
 MFG,9.3,6844900.0,63657571.3056,10.44,-10.9195,True,True,True,False,Major Banks
 MFI,8.5,500.0,4250.0,9.13,-6.9003,True,False,False,False,EDP Services
+MFIC,10.1,784800.0,7926480.2994,9.7,4.1237,True,True,True,False,Finance/Investors Services
 MFIN,9.26,110800.0,1026008.0254,11.81,-21.5919,True,False,False,False,Finance: Consumer Services
 MFP,46.13,227100.0,10476123.2426,48.64,-5.1604,True,False,False,False,Industrial Machinery/Components
 MG,20.2,767000.0,15493400.5852,19.25,4.9351,True,True,True,False,Military/Government/Technical
@@ -2698,7 +2712,6 @@ MYX,10.14,0.0,0.0,9.94,2.0121,True,False,False,False,Blank Checks
 MZTI,113.26,327400.0,37081324.6994,112.53,0.6487,True,True,True,False,Packaged Foods
 MZYX,10.01,1600.0,16016.0004,9.97,0.4012,True,False,False,False,Unclassified
 NABL,5.24,1575500.0,8255619.6394,3.95,32.6582,True,True,True,True,Computer Software: Prepackaged Software
-NAGE,1.91,503500.0,961684.9832,3.21,-40.4984,True,False,False,False, Medicinal Chemicals and Botanical Products 
 NAKA,3.325,234000.0,778050.0112,7.73,-56.9858,True,False,False,False,Medical/Nursing Services
 NAMS,24.18,1539800.0,37232364.4699,26.79,-9.7424,True,True,True,False,Biotechnology: Pharmaceutical Preparations
 NANO,3.97,301800.0,1198146.0086,10.67,-62.7929,True,False,False,False,Industrial Machinery/Components
@@ -2706,7 +2719,6 @@ NARA,10.21,175600.0,1792876.0067,,,True,False,False,False,Banks
 NAT,6.48,4202200.0,27230256.0802,6.76,-4.142,True,True,True,False,Marine Transportation
 NATL,49.32,716600.0,35342711.7813,46.01,7.1941,True,True,True,False,Office Equipment/Supplies/Services
 NATR,10.55,172900.0,1824095.033,13.92,-24.2098,True,False,False,False,Biotechnology: Pharmaceutical Preparations
-NAUT,1.95,2921300.0,5696535.1393,0.904,115.708,True,False,False,False,Biotechnology: Laboratory Analytical Instruments
 NAVI,6.73,1821500.0,12258695.0347,9.31,-27.7121,True,True,True,False,Investment Bankers/Brokers/Service
 NAVN,27.11,4175900.0,113208651.5488,30.58,-11.3473,True,True,True,False,Computer Software: Prepackaged Software
 NB,2.3,2190800.0,5038839.8955,4.37,-47.3684,True,False,False,False,Metal Mining
@@ -2727,7 +2739,6 @@ NCI,3.45,31700.0,109365.0015,98.88,-96.5109,True,False,False,False,Apparel
 NCLH,17.0,11884300.0,202033100.0,16.65,2.1021,True,True,True,False,Marine Transportation
 NCNO,21.59,1311600.0,28317444.2001,23.32,-7.4185,True,True,True,False,Computer Software: Prepackaged Software
 NCO,10.0,0.0,0.0,9.89,1.1122,True,False,False,False,Unclassified
-NCPL,1.87,1265200.0,2365924.006,0.539,246.9388,True,False,False,False,Finance: Consumer Services
 NCT,6.95,1217900.0,8464404.7677,116.75,-94.0471,True,True,True,False,Marine Transportation
 NCTY,2.94,57000.0,167580.0033,4.7,-37.4468,True,False,False,False,Finance: Consumer Services
 NDAQ,107.07,2693600.0,288403751.178,99.35,7.7705,True,True,True,False,Investment Bankers/Brokers/Service
@@ -2741,7 +2752,6 @@ NEGG,8.19,51200.0,419327.9785,17.68,-53.6765,True,False,False,False,Other Specia
 NEM,101.44,7971200.0,808598547.4609,132.29,-23.32,True,True,True,False,Precious Metals
 NEO,14.74,1015600.0,14969943.7675,18.64,-20.9227,True,True,True,False,Precision Instruments
 NEOG,10.49,1267100.0,13291878.71,11.74,-10.6474,True,True,True,False,Biotechnology: In Vitro & In Vivo Diagnostic Substances
-NEOV,1.83,892700.0,1633641.0383,3.55,-48.4507,True,False,False,False,Industrial Machinery/Components
 NEPH,2.83,47500.0,134424.9964,4.31,-34.3387,True,False,False,False,Medical/Dental Instruments
 NERV,2.4,108500.0,260400.0103,5.13,-53.2164,True,False,False,False,Biotechnology: Pharmaceutical Preparations
 NESR,19.0,980000.0,18620000.0,35.03,-45.7608,True,True,True,False,Oilfield Services/Equipment
@@ -2773,7 +2783,6 @@ NICE,92.15,957300.0,88215196.4607,105.09,-12.3133,True,True,True,False,Computer 
 NICM,3.77,1800.0,6786.0,6.9,-45.3623,True,False,False,False,Metal Mining
 NINE,5.94,45700.0,271458.0026,10.55,-43.6967,True,False,False,False,Oilfield Services/Equipment
 NIO,2.69,49525500.0,133223597.8339,4.36,-38.3028,True,False,False,False,Auto Manufacturing
-NIPG,1.78,6600.0,11747.9998,12.47,-85.7257,True,False,False,False,Services-Misc. Amusement & Recreation
 NIQ,16.94,1351700.0,22897798.7219,19.07,-11.1694,True,True,True,False,Computer Software: Programming Data Processing
 NIXX,2.34,30000.0,70199.9974,12.978,-81.9695,True,False,False,False,EDP Services
 NJR,56.77,904200.0,51331434.4139,53.78,5.5597,True,True,True,False,Oil/Gas Transmission
@@ -2830,6 +2839,7 @@ NRXS,4.82,133000.0,641060.0228,6.02,-19.9336,True,False,False,False,Biotechnolog
 NSAI,9.91,100.0,991.0,,,True,False,False,False,Blank Checks
 NSC,326.51,1156800.0,377706779.2969,347.93,-6.1564,True,True,True,False,Railroads
 NSIT,158.74,407800.0,64734174.2401,156.26,1.5871,True,True,True,False,Catalog/Specialty Distribution
+NSLR,5.12,317600.0,1626111.9637,10.29,-50.243,True,True,False,False,Finance: Consumer Services
 NSP,49.33,356100.0,17566413.652,51.81,-4.7867,True,True,True,False,Professional Services
 NSRX,2.25,6000.0,13500.0,4.1,-45.1219,True,False,False,False,Biotechnology: Pharmaceutical Preparations
 NSSC,30.49,246800.0,7524931.9435,35.28,-13.5771,True,False,False,False,Telecommunications Equipment
@@ -2886,6 +2896,7 @@ NWPX,87.58,77500.0,6787450.1419,114.28,-23.3637,True,False,False,False,Steel/Iro
 NWS,28.94,1101200.0,31868728.5881,35.32,-18.0634,True,True,True,False,Newspapers/Magazines
 NWSA,26.08,3571500.0,93144719.7275,31.19,-16.3835,True,True,True,False,Newspapers/Magazines
 NX,19.4,260000.0,5043999.9008,19.68,-1.4228,True,False,False,False,Metal Fabrications
+NXDR,2.03,3006400.0,6102991.914,2.32,-12.5,True,False,False,False,Computer Software: Programming Data Processing
 NXDT,3.34,176300.0,588841.9849,5.46,-38.8278,True,False,False,False,Real Estate Investment Trusts
 NXE,6.96,7480800.0,52066368.2854,11.19,-37.8016,True,True,True,False,Other Metals and Minerals
 NXGL,3.165,35500.0,112357.4986,7.0,-54.7857,True,False,False,False,Medical/Dental Instruments
@@ -2916,6 +2927,7 @@ OCC,7.75,248800.0,1928200.0,13.84,-44.0029,True,False,False,False,Telecommunicat
 OCFC,17.67,866100.0,15303987.0661,18.89,-6.4584,True,True,True,False,Major Banks
 OCLT,10.0,0.0,0.0,,,True,False,False,False,Blank Checks
 OCS,8.47,290300.0,2458841.0775,12.43,-31.8584,True,False,False,False,Biotechnology: Pharmaceutical Preparations
+OCSL,12.26,305200.0,3741752.0699,12.97,-5.4742,True,True,False,False,Finance: Consumer Services
 OCTV,22.55,4190200.0,94489006.8031,19.46,15.8787,True,True,True,False,Computer Software: Prepackaged Software
 OCUL,6.1,2748800.0,16767679.7379,10.82,-43.6229,True,True,True,False,Biotechnology: Pharmaceutical Preparations
 ODC,69.26,89600.0,6205696.1914,91.52,-24.3225,True,False,False,False,Miscellaneous manufacturing industries
@@ -2928,8 +2940,10 @@ OFG,48.74,280100.0,13652074.4701,52.09,-6.4312,True,False,False,False,Major Bank
 OFIX,6.48,416400.0,2698272.0079,9.63,-32.7103,True,True,False,False,Medical/Dental Instruments
 OFLX,21.59,36800.0,794512.0056,26.82,-19.5004,True,False,False,False,Industrial Specialties
 OFRM,12.93,797300.0,10309089.2433,16.98,-23.8516,True,True,True,False,Packaged Foods
+OFS,3.42,32900.0,112518.0025,3.69,-7.3171,True,False,False,False,Finance/Investors Services
 OGC,24.72,873100.0,21583031.4005,31.45,-21.3991,True,True,True,False,Unclassified
 OGE,51.39,2780900.0,142910449.3027,46.03,11.6446,True,True,True,False,Electric Utilities: Central
+OGG,2.0,1996200.0,3992400.0,3.17,-36.9085,True,False,False,False,Precious Metals
 OGN,13.86,2945400.0,40823242.9888,13.76,0.7267,True,True,True,False,Biotechnology: Pharmaceutical Preparations
 OGS,83.61,600500.0,50207805.3665,79.61,5.0245,True,True,True,False,Oil/Gas Transmission
 OHAC,10.03,31800.0,318953.9915,9.96,0.7028,True,False,False,False,Unclassified
@@ -2982,6 +2996,7 @@ OPLN,35.79,645400.0,23098866.5909,35.51,0.7885,True,True,True,False,Retail-Auto 
 OPRA,13.58,381100.0,5175337.9709,19.41,-30.0361,True,True,True,False,Computer Software: Prepackaged Software
 OPRT,10.73,569400.0,6109661.7393,7.48,43.4492,True,True,True,True,Finance: Consumer Services
 OPRX,7.31,250700.0,1832616.9857,7.83,-6.6411,True,False,False,False,Business Services
+OPTH,2.15,14500.0,31175.0014,4.89,-56.0327,True,False,False,False,Biotechnology: Pharmaceutical Preparations
 OPTX,7.12,845300.0,6018535.9033,8.73,-18.4422,True,True,True,False,Electronic Components
 OPXS,7.72,13500.0,104219.9972,10.24,-24.6094,True,False,False,False,Electronic Components
 OPY,86.49,100400.0,8683595.7855,120.0,-27.925,True,False,False,False,Investment Bankers/Brokers/Service
@@ -3023,6 +3038,7 @@ OVV,61.02,2437500.0,148736251.1158,65.18,-6.3823,True,True,True,False,Oil & Gas 
 OWL,9.21,19090000.0,175818900.7282,12.02,-23.3777,True,True,True,False,Investment Managers
 OWLS,2.11,26300.0,55492.9972,5.51,-61.706,True,False,False,False,Computer Software: Prepackaged Software
 OWLT,3.08,305200.0,940015.9767,5.01,-38.523,True,False,False,False,Industrial Machinery/Components
+OXLC,5.02,1946400.0,9770927.9629,9.67,-48.0869,True,True,True,False,Investment Managers
 OXM,26.26,434500.0,11409970.0994,38.2,-31.2565,True,True,True,False,Garments and Clothing
 OXY,53.95,8484900.0,457760361.4735,59.17,-8.822,True,True,True,False,Oil & Gas Production
 OYSE,10.49,0.0,0.0,10.37,1.1572,True,False,False,False,Blank Checks
@@ -3203,6 +3219,7 @@ PPHC,9.25,134400.0,1243200.0,11.2,-17.4107,True,False,False,False,Unclassified
 PPIH,26.09,176000.0,4591840.0269,27.22,-4.1514,True,False,False,False,Pollution Control Equipment
 PPL,35.38,6256900.0,221369128.6831,34.44,2.7294,True,True,True,False,Electric Utilities: Central
 PPLI,44.35,1328800.0,58932277.9724,39.32,12.7925,True,True,True,False,Computer Software: Programming Data Processing
+PPSI,2.03,41200.0,83635.9988,2.94,-30.9524,True,False,False,False,Industrial Machinery/Components
 PPT,3.21,436000.0,1399560.0166,3.45,-6.9565,True,False,False,False,Finance Companies
 PPTA,15.21,2067100.0,31440591.0789,26.18,-41.9022,True,True,True,False,Precious Metals
 PR,21.32,9823400.0,209434885.0021,23.18,-8.0242,True,True,True,False,Oil & Gas Production
@@ -3277,6 +3294,7 @@ PXS,4.89,29500.0,144254.9961,5.4,-9.4444,True,False,False,False,Marine Transport
 PYPD,4.57,1942300.0,8876311.3334,5.12,-10.7422,True,False,False,False,Medical/Dental Instruments
 PYPL,57.81,9450800.0,546350760.9787,61.47,-5.9541,True,True,True,False,Diversified Commercial Services
 PYT,23.0,1000.0,23000.0,23.47,-2.0026,True,False,False,False,Finance: Consumer Services
+PYXS,2.11,1725500.0,3640804.819,3.32,-36.4458,True,False,False,False,Biotechnology: Pharmaceutical Preparations
 PZZA,20.57,1138000.0,23408659.6527,23.23,-11.4507,True,True,True,False,Restaurants
 Q,108.42,2704600.0,293232727.0477,126.35,-14.1907,True,True,True,False,Semiconductors
 QADR,10.09,0.0,0.0,9.97,1.2036,True,False,False,False,Blank Checks
@@ -3290,7 +3308,6 @@ QH,3.225,10100.0,32572.499,4.22,-23.5782,True,False,False,False,Business Service
 QLEP,10.11,5000.0,50549.9983,10.01,0.999,True,False,False,False,Unclassified
 QLYS,196.38,509100.0,99977060.4858,188.59,4.1307,True,True,True,False,Computer Software: Prepackaged Software
 QMCO,12.09,719400.0,8697546.1098,23.56,-48.6842,True,True,True,False,Electronic Components
-QMLS,1.91,134300.0,256512.9955,6.47,-70.4791,True,False,False,False,EDP Services
 QNBC,46.19,204900.0,9464330.7186,45.0,2.6444,True,False,False,False,Major Banks
 QNRX,3.545,522400.0,1851908.0399,5.155,-31.2318,True,False,False,False,Biotechnology: Pharmaceutical Preparations
 QNST,18.53,815400.0,15109362.5599,18.9,-1.9577,True,True,True,False,Business Services
@@ -3300,7 +3317,6 @@ QS,2.94,16534200.0,48610548.9461,5.9,-50.1695,True,False,False,False,Industrial 
 QSEA,10.8,100.0,1080.0,10.6,1.8868,True,False,False,False,Blank Checks
 QSPC,9.83,143458.0,1410192.1291,,,False,False,False,False,Military/Government/Technical
 QSR,76.64,3388400.0,259686973.9319,78.07,-1.8317,True,True,True,False,Restaurants
-QTRX,1.975,738600.0,1458735.0176,2.64,-25.1894,True,False,False,False,Biotechnology: Laboratory Analytical Instruments
 QTTB,9.42,221500.0,2086530.0169,16.15,-41.6718,True,False,False,False,Biotechnology: Pharmaceutical Preparations
 QTWO,69.64,694300.0,48351051.5762,65.68,6.0292,True,True,True,False,Computer Software: Prepackaged Software
 QUAD,7.3,359700.0,2625810.0686,10.07,-27.5074,True,True,False,False,Publishing
@@ -3310,7 +3326,6 @@ QUIT,6.08,937600.0,5700607.9285,8.18,-25.6724,True,True,True,False,Biotechnology
 QUMS,10.435,0.0,0.0,10.32,1.1143,True,False,False,False,Unclassified
 QURE,22.4,1511000.0,33846399.4236,49.56,-54.8023,True,True,True,False,Biotechnology: Pharmaceutical Preparations
 QVCG,8.64,169000.0,1460160.058,16.23,-46.7652,True,False,False,False,Catalog/Specialty Distribution
-QXL,1.96,61500.0,120540.0023,4.7,-58.2979,True,False,False,False,Computer Software: Prepackaged Software
 QXO,11.97,28442200.0,340453141.5949,13.86,-13.6364,True,True,True,False,RETAIL: Building Materials
 R,282.69,277400.0,78418206.6772,248.09,13.9466,True,False,False,False,Rental/Leasing Companies
 RAC,10.61,115000.0,1220149.9605,10.55,0.5687,True,False,False,False,Unclassified
@@ -3319,6 +3334,7 @@ RACD,10.35,0.0,0.0,13.01,-20.4458,True,False,False,False,Unclassified
 RACE,409.59,472500.0,193531273.2697,414.04,-1.0748,True,True,True,False,Auto Manufacturing
 RAIL,4.76,120600.0,574056.0276,7.24,-34.2541,True,False,False,False,Railroads
 RAL,64.61,1306000.0,84380660.7971,63.32,2.0373,True,True,True,False,Industrial Machinery/Components
+RAND,8.88,1000.0,8880.0001,10.79,-17.7016,True,False,False,False,Finance: Consumer Services
 RANG,10.98,0.0,0.0,10.8,1.6667,True,False,False,False,Blank Checks
 RAPP,25.32,421500.0,10672379.8714,50.83,-50.1869,True,True,True,False,Biotechnology: Pharmaceutical Preparations
 RARE,18.11,1963300.0,35555364.1983,26.26,-31.0358,True,True,True,False,Biotechnology: Pharmaceutical Preparations
@@ -3342,7 +3358,7 @@ RDAC,11.29,17800.0,200961.9993,5.15,119.2233,True,False,False,False,Unclassified
 RDAG,10.51,7500.0,78825.0017,10.4,1.0577,True,False,False,False,Blank Checks
 RDCM,10.89,57900.0,630531.0199,10.41,4.611,True,False,False,False,Computer peripheral equipment
 RDDT,91.51,4192100.0,383619079.9553,153.95,-40.5586,True,True,True,False,EDP Services
-RDIB,,,,15.4,,False,False,False,False,Movies/Entertainment
+RDIB,10.66,0.0,0.0,15.4,-30.7792,True,False,False,False,Movies/Entertainment
 RDN,37.21,1223600.0,45530154.8798,36.52,1.8894,True,True,True,False,Property-Casualty Insurers
 RDNT,72.27,516900.0,37356361.2648,75.36,-4.1003,True,True,True,False,Medical Specialities
 RDNW,4.78,124500.0,595110.0261,5.9,-18.983,True,False,False,False,EDP Services
@@ -3419,6 +3435,7 @@ RMNI,4.97,511900.0,2544142.8926,5.37,-7.4488,True,False,False,False,Business Ser
 RMR,16.33,104200.0,1701585.9921,19.48,-16.1704,True,False,False,False,Professional Services
 RMT,11.97,126600.0,1515402.0338,14.1,-15.1064,True,False,False,False,Investment Managers
 RMTI,6.26,24800.0,155248.0057,7.75,-19.2258,True,False,False,False,Biotechnology: Pharmaceutical Preparations
+RMTX,25.99,45057.0,1171031.4197,,,False,False,False,False,Biotechnology: Biological Products (No Diagnostic Substances)
 RNA,7.6,350900.0,2666839.9665,13.98,-45.6366,True,True,False,False,Biotechnology: Pharmaceutical Preparations
 RNAC,7.17,205600.0,1474152.0157,9.97,-28.0843,True,False,False,False,Biotechnology: Pharmaceutical Preparations
 RNAQ,10.0,193500.0,1935000.0,,,True,False,False,False,Blank Checks
@@ -3507,7 +3524,6 @@ SAM,217.52,146700.0,31910184.6268,182.94,18.9024,True,False,False,False,Beverage
 SAMG,10.41,44400.0,462203.9932,10.12,2.8656,True,False,False,False,Investment Managers
 SAMO,9.83,0.0,0.0,,,True,False,False,False,Unclassified
 SAN,11.33,6929900.0,78515766.4713,14.55,-22.1306,True,True,True,False,Commercial Banks
-SANA,1.91,4498100.0,8591370.8499,4.09,-53.3007,True,False,False,False,Biotechnology: Biological Products (No Diagnostic Substances)
 SANG,4.69,17500.0,82075.001,3.79,23.7467,True,False,False,False,Computer Software: Programming Data Processing
 SANM,138.57,1085800.0,150459313.9526,203.35,-31.8564,True,True,True,False,Electrical Products
 SAP,209.37,2514700.0,526502726.7212,221.17,-5.3353,True,True,True,False,Computer Software: Prepackaged Software
@@ -3555,6 +3571,7 @@ SDHI,10.64,0.0,0.0,10.51,1.2369,True,False,False,False,Blank Checks
 SDOT,2.9,113400.0,328860.0108,16.21,-82.1098,True,False,False,False,Restaurants
 SDRL,41.02,388400.0,15932168.1778,48.38,-15.2129,True,True,True,False,Oil & Gas Production
 SE,66.88,5461900.0,365291856.9984,118.32,-43.4753,True,True,True,False,Other Consumer Services
+SEAT,2.06,1156300.0,2381977.9338,6.27,-67.1451,True,False,False,False,Services-Misc. Amusement & Recreation
 SEB,3677.24,12600.0,46333223.877,3949.8501,-6.9018,True,False,False,False,Farming/Seeds/Milling
 SECZ,6.86,1296800.0,8896048.1731,6.67,2.8486,True,True,True,False,Finance: Consumer Services
 SEDG,19.7,6169300.0,121535214.7068,33.51,-41.2116,True,True,True,False,Semiconductors
@@ -3573,7 +3590,6 @@ SF,68.68,1101800.0,75671624.3362,80.81,-15.0105,True,True,True,False,Investment 
 SFBC,44.66,2100.0,93785.9997,47.32,-5.6213,True,False,False,False,Savings Institutions
 SFBS,39.14,351300.0,13749881.7856,43.19,-9.3772,True,True,True,False,Major Banks
 SFD,19.03,1255500.0,23892165.8621,22.11,-13.9303,True,True,True,False,Meat/Poultry/Fish
-SFHG,2.055,2600.0,5343.0002,2.46,-16.4634,True,False,False,False,Publishing
 SFIX,2.57,2311900.0,5941582.8457,3.09,-16.8285,True,False,False,False,Catalog/Specialty Distribution
 SFL,10.65,867200.0,9235679.6692,12.35,-13.7652,True,True,True,False,Marine Transportation
 SFM,53.32,3502300.0,186742634.9312,81.04,-34.2053,True,True,True,False,Food Chains
@@ -3653,7 +3669,9 @@ SLMT,3.0,23500.0,70500.0,4.55,-34.0659,True,False,False,False,Services-Misc. Amu
 SLN,20.0,3105700.0,62114000.0,13.45,48.6989,True,True,True,True,Biotechnology: Pharmaceutical Preparations
 SLNG,3.4,12000.0,40800.0011,5.84,-41.7808,True,False,False,False,Oil/Gas Transmission
 SLQT,6.62,42300.0,280025.9952,10.8,-38.7037,True,False,False,False,Specialty Insurers
+SLRC,11.09,703200.0,7798488.1073,12.48,-11.1378,True,True,True,False,Finance/Investors Services
 SLS,12.77,8783400.0,112164022.0207,15.21,-16.0421,True,True,True,False,Biotechnology: Pharmaceutical Preparations
+SLSN,2.26,1508200.0,3408531.9856,0.95,137.8947,True,False,False,False,Package Goods/Cosmetics
 SLSR,5.12,413800.0,2118655.9526,8.91,-42.5365,True,True,False,False,Unclassified
 SLVM,36.97,223800.0,8273886.2732,36.6,1.0109,True,False,False,False,Paper
 SM,28.85,2229000.0,64306650.8503,36.81,-21.6246,True,True,True,False,Oil & Gas Production
@@ -3678,7 +3696,6 @@ SMX,2.06,692900.0,1427373.9604,46.7787,-95.5963,True,False,False,False,Industria
 SMXT,4.79,89400.0,428225.9966,3.02,58.6093,True,False,False,False,Engineering & Construction
 SN,232.5,1600700.0,372162750.0,192.86,20.5538,True,True,True,True,Consumer Electronics/Appliances
 SNA,360.44,283700.0,102256828.6926,395.84,-8.943,True,False,False,False,Industrial Machinery/Components
-SNAL,1.87,93500.0,174845.0004,2.95,-36.6102,True,False,False,False,Computer Software: Prepackaged Software
 SNAP,5.04,36345400.0,183180814.6135,5.33,-5.4409,True,True,True,False,Computer Software: Programming Data Processing
 SND,4.51,269400.0,1214994.0617,5.04,-10.5159,True,False,False,False,Mining & Quarrying of Nonmetallic Minerals (No Fuels)
 SNDA,34.76,409300.0,14227267.313,39.0,-10.8718,True,True,True,False,Hospital/Nursing Management
@@ -3707,7 +3724,7 @@ SOPH,6.275,846900.0,5314297.5808,8.92,-29.6525,True,True,True,False,EDP Services
 SOR,45.9,11300.0,518670.0172,46.55,-1.3963,True,False,False,False,Investment Managers
 SORA,2.39,20200.0,48278.0021,1.95,22.5641,True,False,False,False,Other Specialty Stores
 SORN,10.08,0.0,0.0,9.96,1.2048,True,False,False,False,Blank Checks
-SOS,,5386.0,,18.518,,False,False,False,False,Investment Bankers/Brokers/Service
+SOS,3.66,5400.0,19764.0005,18.52,-80.2376,True,False,False,False,Investment Bankers/Brokers/Service
 SOTK,4.27,44600.0,190441.9991,5.03,-15.1093,True,False,False,False,Industrial Machinery/Components
 SOUL,10.56,200.0,2112.0001,10.45,1.0526,True,False,False,False,Publishing
 SOUN,2.645,19266300.0,50959363.1325,7.22,-63.3657,True,False,False,False,Computer Software: Prepackaged Software
@@ -3734,7 +3751,6 @@ SPRY,3.1,2894600.0,8973259.7239,6.03,-48.5904,True,False,False,False,Biotechnolo
 SPSC,81.07,264000.0,21402479.9194,84.2,-3.7173,True,False,False,False,Computer Software: Prepackaged Software
 SPT,10.93,784700.0,8576771.2395,11.04,-0.9964,True,True,True,False,Computer Software: Prepackaged Software
 SPTX,20.2,185700.0,3751140.1417,26.25,-23.0476,True,False,False,False,Biotechnology: Pharmaceutical Preparations
-SPWR,1.95,417400.0,813930.0199,0.296,558.7838,True,False,False,False,Semiconductors
 SPXC,143.28,765400.0,109666511.0657,205.28,-30.2027,True,True,True,False,Industrial Machinery/Components
 SQM,47.84,1275900.0,61039056.1947,80.43,-40.5197,True,True,True,False,Mining & Quarrying of Nonmetallic Minerals (No Fuels)
 SQNS,2.3,37300.0,85789.9982,2.95,-22.0339,True,False,False,False,Semiconductors
@@ -3858,6 +3874,7 @@ TBBK,46.42,370000.0,17175399.3225,66.44,-30.1325,True,True,True,False,Major Bank
 TBCH,15.65,274700.0,4299054.8952,12.98,20.5701,True,False,False,False,Telecommunications Equipment
 TBCV,9.78,100.0,978.0,,,True,False,False,False,Blank Checks
 TBI,11.36,362700.0,4120271.8755,10.66,6.5666,True,True,False,False,Professional Services
+TBLD,19.66,105700.0,2078061.9839,22.375,-12.1341,True,False,False,False,Investment Managers
 TBN,22.91,184700.0,4231476.9718,37.75,-39.3113,True,False,False,False,Oil & Gas Production
 TCBK,48.79,148800.0,7259952.1362,53.87,-9.4301,True,False,False,False,Major Banks
 TCBS,17.51,11500.0,201365.0026,17.32,1.097,True,False,False,False,Banks
@@ -3866,6 +3883,7 @@ TCGX,10.03,18600.0,186557.995,13.78,-27.2134,True,False,False,False,Blank Checks
 TCI,44.54,10700.0,476578.0098,39.4,13.0457,True,False,False,False,Real Estate Investment Trusts
 TCMD,27.6,336200.0,9279120.1283,23.11,19.4288,True,True,True,False,Medical/Dental Instruments
 TCOM,40.88,2468300.0,100904106.6364,44.61,-8.3614,True,True,True,False,Business Services
+TCPC,4.24,754900.0,3200775.8272,4.13,2.6634,True,False,False,False,Finance/Investors Services
 TCX,14.41,49500.0,713294.9924,9.97,44.5336,True,False,False,False,EDP Services
 TCXB,10.17,2000.0,20340.0002,,,True,False,False,False,Unclassified
 TD,116.06,1000500.0,116118027.5574,121.09,-4.1539,True,True,True,False,Commercial Banks
@@ -3937,6 +3955,7 @@ TLX,8.91,291600.0,2598155.9555,11.375,-21.6703,True,False,False,False,Biotechnol
 TLYS,3.99,69200.0,276108.0007,3.84,3.9063,True,False,False,False,Clothing/Shoe/Accessory Stores
 TM,215.79,441000.0,95163387.0392,192.0,12.3906,True,True,True,False,Auto Manufacturing
 TMCI,4.15,333600.0,1384440.0318,4.6,-9.7826,True,False,False,False,Medical/Dental Instruments
+TMCR,2.19,366300.0,802197.021,6.28,-65.1274,True,False,False,False,Precious Metals
 TMDX,94.36,435800.0,41122088.266,91.75,2.8447,True,True,True,False,Biotechnology: Electromedical & Electrotherapeutic Apparatus
 TME,9.54,13420400.0,128030615.4881,8.66,10.1617,True,True,True,False,Broadcasting
 TMO,685.52,1642800.0,1126172288.0859,630.7,8.6919,True,True,True,False,Industrial Machinery/Components
@@ -3957,6 +3976,7 @@ TOMZ,2.21,11100.0,24531.0004,1.77,24.8588,True,False,False,False,Major Chemicals
 TONT,11.01,0.0,0.0,10.86,1.3812,True,False,False,False,Blank Checks
 TONX,2.26,270600.0,611555.9974,3.42,-33.9181,True,False,False,False,Finance: Consumer Services
 TOP,17.29,197000.0,3406130.1804,15.42,12.1271,True,False,False,False,Investment Bankers/Brokers/Service
+TOPS,2.45,265500.0,650475.0127,0.79,210.1266,True,False,False,False,Marine Transportation
 TORO,3.19,22900.0,73051.0013,6.23,-48.7961,True,False,False,False,Marine Transportation
 TOST,33.71,6718100.0,226467144.8494,35.17,-4.1513,True,True,True,False,EDP Services
 TOUR,3.72,3600.0,13392.0001,4.74,-21.519,True,False,False,False,Transportation Services
@@ -3994,6 +4014,7 @@ TRN,30.19,641300.0,19360847.3425,29.48,2.4084,True,True,True,False,Railroads
 TRNO,67.07,923000.0,61905609.7183,67.11,-0.0596,True,True,True,False,Real Estate
 TRNS,98.55,180400.0,17778420.5505,89.87,9.6584,True,False,False,False,Electrical Products
 TROW,103.55,2600800.0,269312847.937,112.36,-7.8409,True,True,True,False,Investment Managers
+TROX,2.03,4394100.0,8920022.8743,5.49,-63.0237,True,False,False,False,Major Chemicals
 TRP,62.88,3235700.0,203460819.4561,62.05,1.3376,True,True,True,False,Natural Gas Distribution
 TRS,37.31,547200.0,20416032.7515,39.58,-5.7352,True,True,True,False,Industrial Specialties
 TRST,57.0,90800.0,5175600.0,57.35,-0.6103,True,False,False,False,Major Banks
@@ -4109,7 +4130,6 @@ UNM,81.51,1329900.0,108400151.841,92.45,-11.8334,True,True,True,False,Accident &
 UNP,298.38,3061100.0,913371032.9468,307.67,-3.0195,True,True,True,False,Railroads
 UNTY,56.87,59400.0,3378077.9366,58.3,-2.4528,True,False,False,False,Major Banks
 UONE,2.22,1800.0,3996.0001,4.8,-53.75,True,False,False,False,Broadcasting
-UPB,1.88,729100.0,1370707.9965,6.79,-72.3122,True,False,False,False,Biotechnology: Pharmaceutical Preparations
 UPBD,27.39,1152200.0,31558757.2968,19.29,41.9907,True,True,True,True,Diversified Commercial Services
 UPS,111.47,5391200.0,600957070.5811,105.68,5.4788,True,True,True,False,Trucking Freight/Courier Services
 UPST,17.26,4250800.0,73368808.9729,30.46,-43.3355,True,True,True,False,Finance: Consumer Services
@@ -4133,6 +4153,7 @@ UTHR,590.67,375500.0,221796578.5828,527.91,11.8884,True,True,True,False,Biotechn
 UTI,18.95,1092900.0,20710455.8338,21.62,-12.3497,True,True,True,False,Other Consumer Services
 UTL,55.29,142300.0,7867767.1303,53.47,3.4038,True,False,False,False,Power Generation
 UTMD,72.88,15900.0,1158791.9563,71.8,1.5042,True,False,False,False,Medical/Dental Instruments
+UTSI,2.01,7600.0,15275.9999,2.34,-14.1026,True,False,False,False,Telecommunications Equipment
 UUUU,5.21,9443300.0,49199593.3602,15.74,-66.8996,True,True,True,False,Mining & Quarrying of Nonmetallic Minerals (No Fuels)
 UVE,47.95,312700.0,14993965.2386,43.37,10.5603,True,True,True,False,Property-Casualty Insurers
 UVSP,39.0,145000.0,5655000.0,41.69,-6.4524,True,False,False,False,Major Banks
@@ -4296,6 +4317,7 @@ WGO,32.28,344000.0,11104319.5801,30.37,6.2891,True,True,True,False,Homebuilding
 WGS,47.85,537900.0,25738514.1792,89.24,-46.3805,True,True,True,False,Medical/Nursing Services
 WH,80.76,1289500.0,104140022.7547,76.76,5.211,True,True,True,False,Hotels/Resorts
 WHD,61.43,476200.0,29252966.1453,68.53,-10.3604,True,True,True,False,Oil and Gas Field Machinery
+WHF,8.19,44800.0,366911.9812,7.13,14.8668,True,False,False,False,Finance Companies
 WHG,16.65,8100.0,134864.9969,19.83,-16.0363,True,False,False,False,Investment Managers
 WHK,25.04,135600.0,3395424.1241,26.47,-5.4023,True,False,False,False,Oil & Gas Production
 WHR,27.14,3622400.0,98311933.7891,39.75,-31.7233,True,True,True,False,Consumer Electronics/Appliances
@@ -4313,7 +4335,7 @@ WLII,10.15,0.0,0.0,10.26,-1.0721,True,False,False,False,Blank Checks
 WLK,62.59,1144400.0,71627996.1746,73.93,-15.3388,True,True,True,False,Major Chemicals
 WLTH,9.59,1324700.0,12703873.2021,9.41,1.9129,True,True,True,False,Finance: Consumer Services
 WLY,47.0,386729.0,18176263.0,54.04,-13.0274,True,True,True,False,Books
-WLYB,,,,54.18,,False,False,False,False,Books
+WLYB,51.158,0.0,0.0,54.18,-5.5777,True,False,False,False,Books
 WM,247.29,1896500.0,468985472.2672,217.76,13.5608,True,True,True,False,Environmental Services
 WMB,66.45,7674200.0,509950566.5802,74.19,-10.4327,True,True,True,False,Natural Gas Distribution
 WMG,32.46,1913100.0,62099224.2485,28.19,15.1472,True,True,True,False,Services-Misc. Amusement & Recreation
@@ -4349,6 +4371,7 @@ WST,372.94,1135000.0,423286902.771,346.09,7.7581,True,True,True,False,Medical/De
 WSTN,10.25,4100.0,42025.0,10.2,0.4902,True,False,False,False,EDP Services
 WT,19.51,2582200.0,50378722.591,25.04,-22.0847,True,True,True,False,Investment Bankers/Brokers/Service
 WTBA,28.72,111300.0,3196535.9236,28.38,1.198,True,False,False,False,Major Banks
+WTF,2.17,5000.0,10850.0004,2.89,-24.9135,True,False,False,False,Investment Bankers/Brokers/Service
 WTFC,149.0,553200.0,82426800.0,152.98,-2.6016,True,True,True,False,Major Banks
 WTG,10.68,0.0,0.0,10.56,1.1364,True,False,False,False,Blank Checks
 WTI,2.89,2769600.0,8004144.2905,3.66,-21.0383,True,False,False,False,Oil & Gas Production
@@ -4369,6 +4392,7 @@ WYFI,6.5,2643400.0,17182100.0,19.38,-66.4603,True,True,True,False,Finance: Consu
 WYHG,2.58,9400.0,24251.9993,5.035,-48.7587,True,False,False,False,Specialty Foods
 WYNN,86.08,2019100.0,173804131.6971,93.61,-8.044,True,True,True,False,Hotels/Resorts
 WYY,6.16,154300.0,950487.9765,10.18,-39.4892,True,False,False,False,EDP Services
+XBP,1.97,31000.0,61070.0009,2.87,-31.3589,True,False,False,False,EDP Services
 XCBE,10.07,150600.0,1516541.954,10.0,0.7,True,False,False,False,Unclassified
 XCH,5.42,48600.0,263412.0037,4.02,34.8259,True,False,False,False,Industrial Machinery/Components
 XE,8.22,14629200.0,120252027.9064,18.47,-55.4954,True,True,True,False,Metal Fabrications
@@ -4386,6 +4410,7 @@ XLO,7.75,3000.0,23250.0,9.01,-13.9845,True,False,False,False,Biotechnology: Phar
 XMAX,6.46,645000.0,4166700.0246,9.05,-28.6188,True,True,False,False,Home Furnishings
 XMTR,107.25,770700.0,82657575.0,96.26,11.417,True,True,True,False,Business Services
 XNCR,38.37,1490300.0,57182809.4082,28.88,32.8601,True,True,True,True,Biotechnology: Pharmaceutical Preparations
+XNDU,2.05,7336700.0,15040234.6502,10.38,-80.2505,True,False,False,False,Computer Manufacturing
 XNET,3.075,109500.0,336712.5052,5.01,-38.6228,True,False,False,False,Computer Software: Prepackaged Software
 XOM,158.08,21532400.0,3403841831.427,156.44,1.0483,True,True,True,False,Integrated oil Companies
 XP,14.39,10220200.0,147068681.5088,17.68,-18.6086,True,True,True,False,Investment Bankers/Brokers/Service
