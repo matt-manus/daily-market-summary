@@ -106,6 +106,20 @@ def build_universe():
     if scr is None and sd is None:
         raise SystemExit("No stock list source reachable — stopping.")
 
+    # diagnostics for specific tickers (25/11 Grok comparison)
+    DIAG = ["ARCC", "GBDC", "MFIC", "OXLC", "SLRC"]
+    if sd is not None:
+        for t in DIAG:
+            r = sd[sd["symbol"] == t]
+            log(f"Diag symdir {t}: " + ("not listed" if r.empty else
+                f"name={r.iloc[0]['Security Name']!r} ETF={r.iloc[0]['ETF']} test={r.iloc[0]['Test Issue']} "
+                f"name_excluded={bool(EXCLUDE_NAME.search(str(r.iloc[0]['Security Name'])))}"))
+    if scr is not None:
+        for t in DIAG:
+            r = scr[scr["symbol"] == t]
+            log(f"Diag screener {t}: " + ("not listed" if r.empty else
+                f"name={r.iloc[0]['name']!r} last={r.iloc[0].get('lastsale')} "
+                f"name_excluded={bool(EXCLUDE_NAME.search(str(r.iloc[0]['name'])))}"))
     if sd is not None:
         sd = sd[(sd["ETF"] == "N") & (sd["Test Issue"] == "N")].copy()
         sd = sd[~sd["Security Name"].fillna("").str.contains(EXCLUDE_NAME)]
