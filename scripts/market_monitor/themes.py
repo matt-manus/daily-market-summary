@@ -153,10 +153,10 @@ def compute_themes(c, asof, etf_groups, stock_groups, extra=()):
     listed = {t for g in etf_groups + stock_groups for t in g["members"]}
     missing = sorted(t for t in listed if t not in c or pd.isna(c[t].iloc[i]))
     e5, e21, e63 = _ex(c, i, 5), _ex(c, i, 21), _ex(c, i, 63)
-    j21, j63 = _ex(c, j, 21), _ex(c, j, 63)
+    j5, j21, j63 = _ex(c, j, 5), _ex(c, j, 21), _ex(c, j, 63)
     sma50 = c.iloc[max(0, i - 49):i + 1].mean()
     extra_ex = {t: {"ex5": float(e5[t]), "ex21": float(e21[t]), "ex63": float(e63[t]),
-                    "ex21_then": float(j21[t]), "ex63_then": float(j63[t]),
+                    "ex5_then": float(j5[t]), "ex21_then": float(j21[t]), "ex63_then": float(j63[t]),
                     "above50": bool(c[t].iloc[i] > sma50[t])}
                 for t in extra if t in c and pd.notna(c[t].iloc[i])}
     return {

@@ -198,7 +198,8 @@ def mom_chart(series, ref, title, note, W=700, H=210, color="#ce93d8"):
     g = [f'<line x1="{pl}" y1="{Y(v):.1f}" x2="{pl+iw}" y2="{Y(v):.1f}" stroke="#2a2a2a"/>'
          f'<text x="{pl-4}" y="{Y(v)+3:.1f}" text-anchor="end" font-size="9" fill="#888">{v}%</text>'
          for v in range(0, ymax + 1, 10)]
-    for q, lab, col in [(.10, "第 10 百分位", "#ef5350"), (.50, "中位數", "#9e9e9e"), (.90, "第 90 百分位", "#66bb6a")]:
+    for q, lab, col in [(.05, "第 5", "#c62828"), (.10, "第 10", "#ef5350"), (.50, "中位數", "#9e9e9e"),
+                        (.90, "第 90", "#66bb6a"), (.95, "第 95", "#2e7d32")]:
         v = ref.quantile(q)
         g.append(f'<line x1="{pl}" y1="{Y(v):.1f}" x2="{pl+iw}" y2="{Y(v):.1f}" stroke="{col}" stroke-dasharray="4 3" stroke-width="1"/>'
                  f'<text x="{pl+iw+3}" y="{Y(v)+3:.1f}" font-size="9" fill="{col}">{lab} {v:.1f}%</text>')
@@ -252,18 +253,19 @@ def sec5(latest):
     if not rows:
         return '<div class="mm-box">Sector ETF 數據今次攞唔到。</div>'
     df = pd.DataFrame([{"etf": t, "name": nm, **v} for t, nm, v in rows])
-    df["score"] = (df.ex21.rank(pct=True) + df.ex63.rank(pct=True)) / 2
-    df["score_then"] = (df.ex21_then.rank(pct=True) + df.ex63_then.rank(pct=True)) / 2
-    df["rank"] = df.score.rank(ascending=False, method="min").astype(int)
-    df["rank_then"] = df.score_then.rank(ascending=False, method="min").astype(int)
+    df["rank"] = df.ex5.rank(ascending=False, method="min").astype(int)
+    if "ex5_then" in df and df.ex5_then.notna().all():
+        df["rank_then"] = df.ex5_then.rank(ascending=False, method="min").astype(int)
+    else:
+        df["rank_then"] = None
     df = df.sort_values("rank")
     tr = "".join(
         f'<tr><td>{r.rank}</td><td style="text-align:left"><b>{r.etf}</b> {R.esc(r.name)}</td>'
         f'<td>{R.f(r.ex5,1,True)}</td><td>{R.f(r.ex21,1,True)}</td><td>{R.f(r.ex63,1,True)}</td>'
-        f'<td style="text-align:center">{"✓" if r.above50 else "✗"}</td><td>{V2._arrow(-r.rank, -r.rank_then)} {r.rank_then} → {r.rank}</td></tr>'
+        f'<td style="text-align:center">{"✓" if r.above50 else "✗"}</td><td>{(V2._arrow(-r.rank, -r.rank_then) + " " + str(int(r.rank_then)) + " → " + str(r.rank)) if r.rank_then == r.rank_then and r.rank_then is not None else "—"}</td></tr>'
         for r in df.itertuples())
     return ('<p class="mm-note">每隻 sector ETF 嘅回報減 SPY 同期回報（百分點，含股息）。正數 = 跑贏 SPY。'
-            '排名 = 21 日同 63 日超額回報嘅平均排位；排名變化 = 5 個交易日前 → 今日。</p>'
+            '預設按 5 日排。排名變化 = 5 個交易日前嗰陣嘅 5 日排名 → 今日。</p>'
             '<div class="mm-wrap"><table class="mm-t" data-sortable="1"><tr><th>#</th><th style="text-align:left">Sector</th><th>5 日 ⇅</th><th>21 日 ⇅</th><th>63 日 ⇅</th>'
             '<th>50 日線上</th><th>排名變化</th></tr>' + tr + '</table></div>'
             '<p class="mm-note">撳「5 日／21 日／63 日」嘅欄名，可以改用嗰一欄排（再撳一次反轉）。</p>')
