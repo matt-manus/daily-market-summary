@@ -1,0 +1,314 @@
+[
+  {
+    "date": "2026-10-02",
+    "universe": 2353,
+    "momentum": 279,
+    "share": 0.11857203569910753,
+    "lookback_date": "2026-07-06",
+    "note": "restated 2026-11-27: published old-rule Section 7 plus increment of US-listed foreign-registered ordinary shares from the 2026-11-25 screener"
+  },
+  {
+    "date": "2026-10-05",
+    "universe": 2378,
+    "momentum": 307,
+    "share": 0.12910008410428933,
+    "lookback_date": "2026-07-07",
+    "note": "restated 2026-11-27: published old-rule Section 7 plus increment of US-listed foreign-registered ordinary shares from the 2026-11-25 screener"
+  },
+  {
+    "date": "2026-10-06",
+    "universe": 2295,
+    "momentum": 308,
+    "share": 0.13420479302832244,
+    "lookback_date": "2026-07-08",
+    "note": "restated 2026-11-27: published old-rule Section 7 plus increment of US-listed foreign-registered ordinary shares from the 2026-11-25 screener"
+  },
+  {
+    "date": "2026-10-07",
+    "universe": 2341,
+    "momentum": 257,
+    "share": 0.10978214438274242,
+    "lookback_date": "2026-07-09",
+    "note": "restated 2026-11-27: published old-rule Section 7 plus increment of US-listed foreign-registered ordinary shares from the 2026-11-25 screener"
+  },
+  {
+    "date": "2026-10-08",
+    "universe": 2382,
+    "momentum": 279,
+    "share": 0.11712846347607053,
+    "lookback_date": "2026-07-10",
+    "note": "restated 2026-11-27: published old-rule Section 7 plus increment of US-listed foreign-registered ordinary shares from the 2026-11-25 screener"
+  },
+  {
+    "date": "2026-10-09",
+    "universe": 2203,
+    "momentum": 284,
+    "share": 0.1289151157512483,
+    "lookback_date": "2026-07-13",
+    "note": "restated 2026-11-27: published old-rule Section 7 plus increment of US-listed foreign-registered ordinary shares from the 2026-11-25 screener"
+  },
+  {
+    "date": "2026-10-12",
+    "universe": 2171,
+    "momentum": 266,
+    "share": 0.12252418240442192,
+    "lookback_date": "2026-07-14",
+    "note": "restated 2026-11-27: published old-rule Section 7 plus increment of US-listed foreign-registered ordinary shares from the 2026-11-25 screener"
+  },
+  {
+    "date": "2026-10-13",
+    "universe": 2255,
+    "momentum": 278,
+    "share": 0.12328159645232815,
+    "lookback_date": "2026-07-15",
+    "note": "restated 2026-11-27: published old-rule Section 7 plus increment of US-listed foreign-registered ordinary shares from the 2026-11-25 screener"
+  },
+  {
+    "date": "2026-10-14",
+    "universe": 2354,
+    "momentum": 266,
+    "share": 0.11299915038232795,
+    "lookback_date": "2026-07-16",
+    "note": "restated 2026-11-27: published old-rule Section 7 plus increment of US-listed foreign-registered ordinary shares from the 2026-11-25 screener"
+  },
+  {
+    "date": "2026-10-15",
+    "universe": 2375,
+    "momentum": 300,
+    "share": 0.12631578947368421,
+    "lookback_date": "2026-07-17",
+    "note": "restated 2026-11-27: published old-rule Section 7 plus increment of US-listed foreign-registered ordinary shares from the 2026-11-25 screener"
+  },
+  {
+    "date": "2026-10-16",
+    "universe": 2313,
+    "momentum": 286,
+    "share": 0.12364894076956334,
+    "lookback_date": "2026-07-20",
+    "note": "restated 2026-11-27: published old-rule Section 7 plus increment of US-listed foreign-registered ordinary shares from the 2026-11-25 screener"
+  },
+  {
+    "date": "2026-10-19",
+    "universe": 2215,
+    "momentum": 264,
+    "share": 0.11918735891647855,
+    "lookback_date": "2026-07-21",
+    "note": "restated 2026-11-27: published old-rule Section 7 plus increment of US-listed foreign-registered ordinary shares from the 2026-11-25 screener"
+  },
+  {
+    "date": "2026-10-20",
+    "universe": 2267,
+    "momentum": 316,
+    "share": 0.13939126599029555,
+    "lookback_date": "2026-07-22",
+    "note": "restated 2026-11-27: published old-rule Section 7 plus increment of US-listed foreign-registered ordinary shares from the 2026-11-25 screener"
+  },
+  {
+    "date": "2026-10-21",
+    "universe": 2262,
+    "momentum": 340,
+    "share": 0.15030946065428824,
+    "lookback_date": "2026-07-23",
+    "note": "restated 2026-11-27: published old-rule Section 7 plus increment of US-listed foreign-registered ordinary shares from the 2026-11-25 screener"
+  },
+  {
+    "date": "2026-10-22",
+    "universe": 2333,
+    "momentum": 345,
+    "share": 0.1478782683240463,
+    "lookback_date": "2026-07-24",
+    "note": "restated 2026-11-27: published old-rule Section 7 plus increment of US-listed foreign-registered ordinary shares from the 2026-11-25 screener"
+  },
+  {
+    "date": "2026-10-23",
+    "universe": 2282,
+    "momentum": 311,
+    "share": 0.13628396143733568,
+    "lookback_date": "2026-07-27",
+    "note": "restated 2026-11-27: published old-rule Section 7 plus increment of US-listed foreign-registered ordinary shares from the 2026-11-25 screener"
+  },
+  {
+    "date": "2026-10-26",
+    "universe": 2229,
+    "momentum": 299,
+    "share": 0.1341408703454464,
+    "lookback_date": "2026-07-28",
+    "note": "restated 2026-11-27: published old-rule Section 7 plus increment of US-listed foreign-registered ordinary shares from the 2026-11-25 screener"
+  },
+  {
+    "date": "2026-10-27",
+    "universe": 2303,
+    "momentum": 313,
+    "share": 0.13590968302214504,
+    "lookback_date": "2026-07-29",
+    "note": "restated 2026-11-27: published old-rule Section 7 plus increment of US-listed foreign-registered ordinary shares from the 2026-11-25 screener"
+  },
+  {
+    "date": "2026-10-28",
+    "universe": 2332,
+    "momentum": 307,
+    "share": 0.13164665523156088,
+    "lookback_date": "2026-07-30",
+    "note": "restated 2026-11-27: published old-rule Section 7 plus increment of US-listed foreign-registered ordinary shares from the 2026-11-25 screener"
+  },
+  {
+    "date": "2026-10-29",
+    "universe": 2329,
+    "momentum": 314,
+    "share": 0.1348218119364534,
+    "lookback_date": "2026-07-31",
+    "note": "restated 2026-11-27: published old-rule Section 7 plus increment of US-listed foreign-registered ordinary shares from the 2026-11-25 screener"
+  },
+  {
+    "date": "2026-10-30",
+    "universe": 2358,
+    "momentum": 280,
+    "share": 0.11874469889737066,
+    "lookback_date": "2026-08-03",
+    "note": "restated 2026-11-27: published old-rule Section 7 plus increment of US-listed foreign-registered ordinary shares from the 2026-11-25 screener"
+  },
+  {
+    "date": "2026-11-02",
+    "universe": 2378,
+    "momentum": 235,
+    "share": 0.09882253994953742,
+    "lookback_date": "2026-08-04",
+    "note": "restated 2026-11-27: published old-rule Section 7 plus increment of US-listed foreign-registered ordinary shares from the 2026-11-25 screener"
+  },
+  {
+    "date": "2026-11-03",
+    "universe": 2348,
+    "momentum": 219,
+    "share": 0.09327086882453152,
+    "lookback_date": "2026-08-05",
+    "note": "restated 2026-11-27: published old-rule Section 7 plus increment of US-listed foreign-registered ordinary shares from the 2026-11-25 screener"
+  },
+  {
+    "date": "2026-11-04",
+    "universe": 2470,
+    "momentum": 287,
+    "share": 0.11619433198380567,
+    "lookback_date": "2026-08-06",
+    "note": "restated 2026-11-27: published old-rule Section 7 plus increment of US-listed foreign-registered ordinary shares from the 2026-11-25 screener"
+  },
+  {
+    "date": "2026-11-05",
+    "universe": 2502,
+    "momentum": 207,
+    "share": 0.08273381294964029,
+    "lookback_date": "2026-08-07",
+    "note": "restated 2026-11-27: published old-rule Section 7 plus increment of US-listed foreign-registered ordinary shares from the 2026-11-25 screener"
+  },
+  {
+    "date": "2026-11-06",
+    "universe": 2360,
+    "momentum": 191,
+    "share": 0.08093220338983051,
+    "lookback_date": "2026-08-10",
+    "note": "restated 2026-11-27: published old-rule Section 7 plus increment of US-listed foreign-registered ordinary shares from the 2026-11-25 screener"
+  },
+  {
+    "date": "2026-11-09",
+    "universe": 2368,
+    "momentum": 236,
+    "share": 0.09966216216216216,
+    "lookback_date": "2026-08-11",
+    "note": "restated 2026-11-27: published old-rule Section 7 plus increment of US-listed foreign-registered ordinary shares from the 2026-11-25 screener"
+  },
+  {
+    "date": "2026-11-10",
+    "universe": 2293,
+    "momentum": 231,
+    "share": 0.10074138682948103,
+    "lookback_date": "2026-08-12",
+    "note": "restated 2026-11-27: published old-rule Section 7 plus increment of US-listed foreign-registered ordinary shares from the 2026-11-25 screener"
+  },
+  {
+    "date": "2026-11-11",
+    "universe": 2231,
+    "momentum": 208,
+    "share": 0.09323173464813984,
+    "lookback_date": "2026-08-13",
+    "note": "restated 2026-11-27: published old-rule Section 7 plus increment of US-listed foreign-registered ordinary shares from the 2026-11-25 screener"
+  },
+  {
+    "date": "2026-11-12",
+    "universe": 2242,
+    "momentum": 181,
+    "share": 0.08073148974130241,
+    "lookback_date": "2026-08-14",
+    "note": "restated 2026-11-27: published old-rule Section 7 plus increment of US-listed foreign-registered ordinary shares from the 2026-11-25 screener"
+  },
+  {
+    "date": "2026-11-13",
+    "universe": 2172,
+    "momentum": 201,
+    "share": 0.0925414364640884,
+    "lookback_date": "2026-08-17",
+    "note": "restated 2026-11-27: published old-rule Section 7 plus increment of US-listed foreign-registered ordinary shares from the 2026-11-25 screener"
+  },
+  {
+    "date": "2026-11-16",
+    "universe": 2237,
+    "momentum": 189,
+    "share": 0.08448815377738042,
+    "lookback_date": "2026-08-18",
+    "note": "restated 2026-11-27: published old-rule Section 7 plus increment of US-listed foreign-registered ordinary shares from the 2026-11-25 screener"
+  },
+  {
+    "date": "2026-11-17",
+    "universe": 2268,
+    "momentum": 142,
+    "share": 0.06261022927689594,
+    "lookback_date": "2026-08-19",
+    "note": "restated 2026-11-27: published old-rule Section 7 plus increment of US-listed foreign-registered ordinary shares from the 2026-11-25 screener"
+  },
+  {
+    "date": "2026-11-18",
+    "universe": 2282,
+    "momentum": 181,
+    "share": 0.07931638913234006,
+    "lookback_date": "2026-08-20",
+    "note": "restated 2026-11-27: published old-rule Section 7 plus increment of US-listed foreign-registered ordinary shares from the 2026-11-25 screener"
+  },
+  {
+    "date": "2026-11-19",
+    "universe": 2288,
+    "momentum": 124,
+    "share": 0.05419580419580419,
+    "lookback_date": "2026-08-21",
+    "note": "restated 2026-11-27: published old-rule Section 7 plus increment of US-listed foreign-registered ordinary shares from the 2026-11-25 screener"
+  },
+  {
+    "date": "2026-11-20",
+    "universe": 2359,
+    "momentum": 110,
+    "share": 0.04662992793556592,
+    "lookback_date": "2026-08-24",
+    "note": "restated 2026-11-27: published old-rule Section 7 plus increment of US-listed foreign-registered ordinary shares from the 2026-11-25 screener"
+  },
+  {
+    "date": "2026-11-23",
+    "universe": 2227,
+    "momentum": 133,
+    "share": 0.05972159856308936,
+    "lookback_date": "2026-08-25",
+    "note": "restated 2026-11-27: published old-rule Section 7 plus increment of US-listed foreign-registered ordinary shares from the 2026-11-25 screener"
+  },
+  {
+    "date": "2026-11-24",
+    "universe": 2219,
+    "momentum": 148,
+    "share": 0.06669671022983326,
+    "lookback_date": "2026-08-26",
+    "note": "restated 2026-11-27: published old-rule Section 7 plus increment of US-listed foreign-registered ordinary shares from the 2026-11-25 screener"
+  },
+  {
+    "date": "2026-11-25",
+    "universe": 2233,
+    "momentum": 152,
+    "share": 0.06806986117330945,
+    "lookback_date": "2026-08-27",
+    "note": "restated 2026-11-27: Section 7 new-rule recompute (universe 2233, momentum 152, share 6.81%)"
+  }
+]
