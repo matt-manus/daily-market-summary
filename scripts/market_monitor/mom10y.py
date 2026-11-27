@@ -18,7 +18,7 @@ import engine as E  # noqa: E402
 
 
 def main():
-    uni = E.build_universe()
+    uni, _info = E.build_universe()
     start = (datetime.now(timezone.utc) - timedelta(days=int(365.25 * 10) + 120)).strftime("%Y-%m-%d")
     close, vol, failed = E.download_bars(uni["ysym"].tolist(), start)
     E.log(f"10y bars: {close.shape[1]} tickers x {close.shape[0]} days; failed {len(failed)}")

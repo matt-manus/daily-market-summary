@@ -119,16 +119,19 @@ def trend_box(h, latest):
     t_top = sorted(srows, key=lambda r: r["rank"])[:5]
     t_up = sorted([r for r in srows if r.get("rank_then") == r.get("rank_then") and r.get("rank_then") is not None],
                   key=lambda r: r["rank"] - r["rank_then"])[:5]
+    fl = lambda r: "%s %s→%s" % (R.esc(r["industry"]), R.f(r["lift_then"], 1), R.f(r["lift"], 1))
+    fd = lambda r: "%s %s" % (R.esc(r["industry"]), R.f(r["dlift"], 2, True))
+    ft = lambda r: R.esc(r["theme"])
+    fu = lambda r: "%s %d→%d" % (R.esc(r["theme"]), int(r["rank_then"]), r["rank"])
     groups = (
         '<div class="mm-rl"><span>組別</span><div>'
-        f'動力股最集中（lift，21 日前 → 今日）：{li(top_l, lambda r: f"{R.esc(r["industry"])} {R.f(r["lift_then"],1)}→{R.f(r["lift"],1)}")}<br>'
-        f'21 日內升得最多（Δlift）：{li(top_d, lambda r: f"{R.esc(r["industry"])} {R.f(r["dlift"],2,True)}")}<br>'
-        f'21 日內跌得最多：{li(bot_d, lambda r: f"{R.esc(r["industry"])} {R.f(r["dlift"],2,True)}")}</div></div>')
+        + "動力股最集中（lift，21 日前 → 今日）：" + li(top_l, fl) + "<br>"
+        + "21 日內升得最多（Δlift）：" + li(top_d, fd) + "<br>"
+        + "21 日內跌得最多：" + li(bot_d, fd) + "</div></div>")
     if srows:
-        groups += (
-            '<div class="mm-rl"><span>主題</span><div>'
-            f'排名最高（你嘅 watchlist）：{li(t_top, lambda r: f"{R.esc(r["theme"])}")}<br>'
-            f'5 日內排名升得最多：{li(t_up, lambda r: f"{R.esc(r["theme"])} {int(r["rank_then"])}→{r["rank"]}")}</div></div>')
+        groups += ('<div class="mm-rl"><span>主題</span><div>'
+                   + "排名最高（你嘅 watchlist）：" + li(t_top, ft) + "<br>"
+                   + "5 日內排名升得最多：" + li(t_up, fu) + "</div></div>")
     return f"""
 <div class="mm-readout">
  <div class="mm-rt">趨勢一覽 · {R.ddmm(h.index[-1])}</div>
