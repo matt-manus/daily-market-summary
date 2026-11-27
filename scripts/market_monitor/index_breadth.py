@@ -57,14 +57,48 @@ def iwm_members():
     return sorted({_ysym(x) for x in df["Ticker"].dropna() if str(x).strip() not in ("-", "")})
 
 
+NASDAQ_UA = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+                           "(KHTML, like Gecko) Chrome/120.0 Safari/537.36",
+             "Accept": "application/json, text/plain, */*", "Origin": "https://www.nasdaq.com",
+             "Referer": "https://www.nasdaq.com/"}
+FALLBACK_WIKI = {
+    "Dow 30": [("https://en.wikipedia.org/wiki/Historical_components_of_the_Dow_Jones_Industrial_Average",
+                ["Symbol", "Ticker"], (28, 32))],
+    "Nasdaq-100": [("https://en.wikipedia.org/wiki/List_of_Nasdaq-100_companies", ["Ticker", "Symbol"], (90, 110))],
+}
+
+
+def nasdaq100_api():
+    r = requests.get("https://api.nasdaq.com/api/quote/list-type/nasdaq100", headers=NASDAQ_UA, timeout=30)
+    rows = (((r.json() or {}).get("data") or {}).get("data") or {}).get("rows") or []
+    return sorted({_ysym(x["symbol"]) for x in rows if x.get("symbol")})
+
+
 def members(log):
     out = {}
     for name, (url, cols, expect) in WIKI.items():
         try:
             out[name] = wiki_members(url, cols, expect, log)
-            log(f"4A members {name}: {len(out[name])}")
         except Exception as e:  # noqa: BLE001
             log(f"4A members {name} failed: {e!r}")
+            out[name] = []
+        if not out[name] and name == "Nasdaq-100":
+            try:
+                out[name] = nasdaq100_api()
+                log(f"4A Nasdaq-100 from api.nasdaq.com: {len(out[name])}")
+            except Exception as e:  # noqa: BLE001
+                log(f"4A Nasdaq-100 api failed: {e!r}")
+        for furl, fcols, fexp in FALLBACK_WIKI.get(name, []):
+            if out[name]:
+                break
+            try:
+                out[name] = wiki_members(furl, fcols, fexp, log)
+            except Exception as e:  # noqa: BLE001
+                log(f"4A fallback {furl} failed: {e!r}")
+        if not out[name]:
+            del out[name]
+        else:
+            log(f"4A members {name}: {len(out[name])}")
     try:
         out["Russell 2000"] = iwm_members()
         log(f"4A members Russell 2000 (IWM holdings): {len(out['Russell 2000'])}")
