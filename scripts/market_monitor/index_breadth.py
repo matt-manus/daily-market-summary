@@ -14,9 +14,9 @@ import requests
 
 UA = {"User-Agent": "Mozilla/5.0 (market-monitor; github actions)"}
 WIKI = {
-    "S&P 500": ("https://en.wikipedia.org/wiki/List_of_S%26P_500_companies", ["Symbol"]),
-    "Nasdaq-100": ("https://en.wikipedia.org/wiki/Nasdaq-100", ["Ticker", "Symbol"]),
-    "Dow 30": ("https://en.wikipedia.org/wiki/Dow_Jones_Industrial_Average", ["Symbol"]),
+    "S&P 500": ("https://en.wikipedia.org/wiki/List_of_S%26P_500_companies", ["Symbol"], (450, 600)),
+    "Nasdaq-100": ("https://en.wikipedia.org/wiki/Nasdaq-100", ["Ticker", "Symbol"], (90, 110)),
+    "Dow 30": ("https://en.wikipedia.org/wiki/Dow_Jones_Industrial_Average", ["Symbol", "Ticker"], (28, 32)),
 }
 IWM_URL = ("https://www.ishares.com/us/products/239710/ishares-russell-2000-etf/1467271812596.ajax"
            "?fileType=csv&fileName=IWM_holdings&dataType=fund")
@@ -27,23 +27,31 @@ def _ysym(s):
     return str(s).strip().replace(".", "-").replace("/", "-")
 
 
-def wiki_members(url, cols):
+def wiki_members(url, cols, expect=(20, 600), log=print):
     html = requests.get(url, headers=UA, timeout=30).text
+    tables = pd.read_html(io.StringIO(html))
     best = None
-    for t in pd.read_html(io.StringIO(html)):
-        for c in cols:
-            if c in t.columns and (best is None or len(t) > len(best[0])):
-                best = (t, c)
+    for t in tables:
+        if isinstance(t.columns, pd.MultiIndex):
+            t.columns = [" ".join(str(x) for x in c if "Unnamed" not in str(x)).strip() for c in t.columns]
+        hit = [c for c in t.columns if any(k.lower() in str(c).lower() for k in cols)]
+        if hit and expect[0] <= len(t) <= expect[1]:
+            if best is None or len(t) > len(best[0]):
+                best = (t, hit[0])
     if best is None:
+        log(f"4A no matching table at {url}; tables: {[ (len(t), list(map(str, t.columns))[:5]) for t in tables[:6]]}")
         return []
     t, c = best
-    return sorted({_ysym(x) for x in t[c].dropna() if str(x).strip()})
+    vals = [str(x).split(":")[-1].strip() for x in t[c].dropna()]
+    return sorted({_ysym(x) for x in vals if x and x.lower() != "nan"})
 
 
 def iwm_members():
-    txt = requests.get(IWM_URL, headers=UA, timeout=30).text
-    lines = txt.splitlines()
-    k = next(i for i, l in enumerate(lines) if l.startswith("Ticker,"))
+    r = requests.get(IWM_URL, headers=UA, timeout=30)
+    lines = r.text.splitlines()
+    k = next((i for i, l in enumerate(lines) if l.startswith("Ticker,")), None)
+    if k is None:
+        raise ValueError(f"no holdings table (HTTP {r.status_code}, {len(r.text)} bytes, starts {r.text[:80]!r})")
     df = pd.read_csv(io.StringIO("\n".join(lines[k:])))
     df = df[df.get("Asset Class", "Equity") == "Equity"]
     return sorted({_ysym(x) for x in df["Ticker"].dropna() if str(x).strip() not in ("-", "")})
@@ -51,9 +59,9 @@ def iwm_members():
 
 def members(log):
     out = {}
-    for name, (url, cols) in WIKI.items():
+    for name, (url, cols, expect) in WIKI.items():
         try:
-            out[name] = wiki_members(url, cols)
+            out[name] = wiki_members(url, cols, expect, log)
             log(f"4A members {name}: {len(out[name])}")
         except Exception as e:  # noqa: BLE001
             log(f"4A members {name} failed: {e!r}")
