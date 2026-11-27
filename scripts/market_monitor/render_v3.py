@@ -81,8 +81,8 @@ def sec4a():
         for nm in names)
     missing = [x for x in ["S&P 500", "Nasdaq-100", "Dow 30", "Russell 2000"] if x not in names]
     return (f'<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:10px">{charts}</div>'
-            f'<p class="mm-note">% 成份股收市高過 20／50／200 日簡單平均線，最近 130 個交易日。成份股名單：S&amp;P 500、Nasdaq-100、Dow 30 用 Wikipedia；'
-            f'Russell 2000 用 iShares IWM 持倉。全段歷史都用今日嘅名單，所以舊啲嘅數係近似值。價錢 = Yahoo Finance。'
+            f'<p class="mm-note">% 成份股收市高過 20／50／200 日簡單平均線，最近 130 個交易日。成份股名單：S&amp;P 500 用 Wikipedia，Nasdaq-100 用 NASDAQ 官網 API；'
+            f'Dow 30 同 Russell 2000 嘅來源未搞掂。全段歷史都用今日嘅名單，所以舊啲嘅數係近似值。價錢 = Yahoo Finance。'
             + (f' 今次攞唔到：{"、".join(missing)}。' if missing else "") + '</p>')
 
 
