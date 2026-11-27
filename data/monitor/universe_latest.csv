@@ -3724,7 +3724,7 @@ SOPH,6.275,846900.0,5314297.5808,8.92,-29.6525,True,True,True,False,EDP Services
 SOR,45.9,11300.0,518670.0172,46.55,-1.3963,True,False,False,False,Investment Managers
 SORA,2.39,20200.0,48278.0021,1.95,22.5641,True,False,False,False,Other Specialty Stores
 SORN,10.08,0.0,0.0,9.96,1.2048,True,False,False,False,Blank Checks
-SOS,3.66,5400.0,19764.0005,18.52,-80.2376,True,False,False,False,Investment Bankers/Brokers/Service
+SOS,,5386.0,,18.518,,False,False,False,False,Investment Bankers/Brokers/Service
 SOTK,4.27,44600.0,190441.9991,5.03,-15.1093,True,False,False,False,Industrial Machinery/Components
 SOUL,10.56,200.0,2112.0001,10.45,1.0526,True,False,False,False,Publishing
 SOUN,2.645,19318700.0,51097961.1315,7.22,-63.3657,True,False,False,False,Computer Software: Prepackaged Software
