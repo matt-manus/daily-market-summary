@@ -1,21 +1,21 @@
 {
   "meta": {
-    "generated_hkt": "2026-11-26 11:50",
-    "generated_et": "2026-11-25 22:50",
-    "date": "2026-11-25",
+    "generated_hkt": "2026-11-27 11:51",
+    "generated_et": "2026-11-26 22:51",
+    "date": "2026-11-26",
     "source": "Yahoo Finance + CNN + NAAIM + Finviz + Barchart",
     "rsi_method": "Wilder SMMA (EWM alpha=1/14)",
     "schema_version": "4.2",
-    "last_updated_hkt": "2026-11-26 11:50:34 HKT"
+    "last_updated_hkt": "2026-11-27 11:51:55 HKT"
   },
   "macro": {
     "VIX": {
-      "price": 28.29,
-      "change_1d": 1.93,
-      "change_1d_pct": 7.32
+      "price": 26.8,
+      "change_1d": -1.49,
+      "change_1d_pct": -5.27
     },
     "DXY": {
-      "price": 103.828,
+      "price": 103.688,
       "change_1d": 0.018,
       "change_1d_pct": 0.02
     },
@@ -25,19 +25,19 @@
       "change_1d_pct": -1.14
     },
     "GOLD": {
-      "price": 3603.5,
-      "change_1d": 41.6001,
-      "change_1d_pct": 1.17
+      "price": 3656.5,
+      "change_1d": 120.7,
+      "change_1d_pct": 3.41
     },
     "OIL_WTI": {
-      "price": 84.28,
-      "change_1d": 2.23,
-      "change_1d_pct": 2.72
+      "price": 85.68,
+      "change_1d": 2.0,
+      "change_1d_pct": 2.39
     },
     "BTC": {
-      "price": 60810.2695,
-      "change_1d": 1062.5039,
-      "change_1d_pct": 1.78
+      "price": 61420.1016,
+      "change_1d": 1041.9024,
+      "change_1d_pct": 1.73
     }
   },
   "indices": {
@@ -132,13 +132,13 @@
   },
   "sentiment": {
     "fear_greed": {
-      "score": 15.23,
+      "score": 15.0,
       "rating": "extreme fear",
-      "timestamp": "2026-11-25T23:59:57+00:00",
-      "prev_close": 17.42,
-      "prev_1w": 29.89,
-      "prev_1m": 16.69,
-      "prev_1y": 15.03,
+      "timestamp": "2026-11-26T01:59:59+00:00",
+      "prev_close": 15.23,
+      "prev_1w": 15.87,
+      "prev_1m": 29.83,
+      "prev_1y": 17.66,
       "source": "CNN Fear & Greed API"
     },
     "put_call": {
@@ -972,6 +972,25 @@
       "change_ytd_pct": "-"
     },
     {
+      "symbol": "BLOK",
+      "name": "Blockchain",
+      "price": 43.86,
+      "change_1d_pct": 0.78,
+      "rsi14": 34.951,
+      "ma20": 48.6125,
+      "ma50": 55.2092,
+      "ma200": 58.5154,
+      "vs_ma20_pct": -9.78,
+      "vs_ma50_pct": -20.56,
+      "vs_ma200_pct": -25.05,
+      "vs20ma": "Red",
+      "status": "BELOW ALL",
+      "change_1w_pct": "-",
+      "change_1m_pct": "-",
+      "change_3m_pct": "-",
+      "change_ytd_pct": "-"
+    },
+    {
       "symbol": "XOP",
       "name": "Oil & Gas E&P",
       "price": 167.93,
@@ -1289,14 +1308,14 @@
   },
   "stockbee_mm": {
     "source": "Stockbee Market Monitor (dynamic via stockbee_mm.json)",
-    "latest_date": "11/24/2026",
-    "t2108": 35.38,
-    "up_4_plus": 367,
-    "down_4_plus": 232,
+    "latest_date": "11/25/2026",
+    "t2108": 38.72,
+    "up_4_plus": 318,
+    "down_4_plus": 131,
     "data_stale": false
   },
   "data_status": "fresh",
-  "last_updated_hkt": "2026-11-26 11:50:34 HKT",
+  "last_updated_hkt": "2026-11-27 11:51:55 HKT",
   "thematic": [
     {
       "symbol": "TLT",
@@ -1598,6 +1617,13 @@
       "vs_20ma": -7.59,
       "vs_50ma": -13.82,
       "vs_200ma": -17.02
+    },
+    {
+      "symbol": "BLOK",
+      "price": 43.86,
+      "vs_20ma": -9.78,
+      "vs_50ma": -20.56,
+      "vs_200ma": -25.05
     },
     {
       "symbol": "XOP",
