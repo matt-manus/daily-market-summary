@@ -1,0 +1,41 @@
+name: Momentum share 10y (on demand)
+
+# Rebuilds data/monitor/mom10y.csv (weekly momentum share over ~10 years,
+# same definition as the daily engine). Heavy download; run rarely.
+on:
+  push:
+    branches: [ dev-monitor ]
+    paths:
+      - 'scripts/market_monitor/mom10y.py'
+      - '.github/workflows/mom10y.yml'
+  workflow_dispatch:
+
+concurrency:
+  group: mom10y
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: dev-monitor
+          fetch-depth: 1
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install
+        run: pip install "yfinance>=0.2.40" pandas numpy requests lxml
+      - name: Build 10y momentum share
+        run: python scripts/market_monitor/mom10y.py
+      - name: Commit
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/monitor/mom10y.csv
+          git commit -m "10y momentum share update [skip ci]" || exit 0
+          for i in 1 2 3; do git pull --rebase -q origin dev-monitor && git push -q origin HEAD:dev-monitor && break; sleep 10; done

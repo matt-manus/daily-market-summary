@@ -364,6 +364,13 @@ def main():
                 vol.loc[ok.index, t] = rv[t].reindex(ok.index)
         still = [t for t in miss if pd.isna(close.at[last, t])]
         log(f"Retry recovered {len(miss) - len(still)}; still missing {len(still)}, e.g. {still[:15]}")
+    # 4A: index constituents above 20/50/200-day SMA (history for line chart)
+    try:
+        sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+        import index_breadth
+        index_breadth.run(close, download_bars, start, OUT_DIR, log)
+    except Exception as e:  # noqa: BLE001
+        log(f"4A failed: {e!r}")
     # diagnostics: how many tickers are priced on the last few sessions
     for d in close.index[-3:]:
         log(f"Stocks priced on {pd.Timestamp(d).date()}: {int(close.loc[d].notna().sum())}")

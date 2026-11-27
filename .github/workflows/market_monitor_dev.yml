@@ -35,7 +35,7 @@ jobs:
           python-version: '3.11'
 
       - name: Install dependencies
-        run: pip install "yfinance>=0.2.40" pandas numpy requests
+        run: pip install "yfinance>=0.2.40" pandas numpy requests lxml
 
       - name: Use today's live index.html from dev-3.9
         run: |
@@ -49,14 +49,15 @@ jobs:
         run: |
           python scripts/market_monitor/render.py
           python scripts/market_monitor/render_v2.py
+          python scripts/market_monitor/render_v3.py || echo "v3 render failed"
 
       - name: Commit outputs to dev-monitor
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add market-monitor.html market-monitor-v2.html data/monitor/
+          git add market-monitor.html market-monitor-v2.html data/monitor/ && (git add market-monitor-v3.html 2>/dev/null || true)
           git reset -q index.html || true
           git checkout -- index.html 2>/dev/null || true
           if git diff --staged --quiet; then echo "No changes"; exit 0; fi
           git commit -m "Market monitor preview update [skip ci]"
-          git push origin HEAD:dev-monitor
+          for i in 1 2 3; do git pull --rebase -q origin dev-monitor && git push -q origin HEAD:dev-monitor && break; sleep 10; done
