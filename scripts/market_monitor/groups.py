@@ -98,3 +98,19 @@ def group_of(industry):
     if industry is None or str(industry).strip() in ("", "Unclassified", "nan"):
         return None
     return GROUP_OF.get(_key(industry))
+
+
+# Representative ETF per group (draft, 27/11/26). None = no clean single ETF.
+GROUP_ETF = {
+    "Biotech – Drugs": "XBI", "Biotech – Biologics": "IBB", "Diagnostics & Research Tools": None,
+    "Medical Devices": "IHI", "Healthcare Services": "IHF", "Software": "IGV", "IT Services": None,
+    "Semiconductors": "SMH", "Hardware & Networking": None, "Electrical & Infrastructure": "PAVE",
+    "Industrial Machinery": None, "Aerospace & Defense": "ITA", "Business Services": None,
+    "Shipping": "BOAT", "Transport & Logistics": "IYT", "Autos": None,
+    "Homebuilding & Building Products": "XHB", "Home & Leisure Goods": None, "Retail": "XRT",
+    "Apparel & Footwear": None, "Restaurants": None, "Travel & Leisure": "PEJ",
+    "Consumer Staples": "XLP", "Media": None, "Banks": "KBE", "Insurance": "KIE",
+    "Capital Markets": "IAI", "Consumer Finance": None, "Real Estate": "XLRE", "Oil & Gas": "XOP",
+    "Oil Services": "OIH", "Utilities & Power": "XLU", "Precious Metals": "GDX",
+    "Metals & Mining": "XME", "Chemicals & Materials": "XLB", "Other": None,
+}

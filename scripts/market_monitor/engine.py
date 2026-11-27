@@ -442,8 +442,10 @@ def main():
     try:
         sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
         import themes as th_mod
-        tc, etf_g, stk_g = th_mod.run(start)
-        themes = th_mod.compute_themes(tc, asof, etf_g, stk_g)
+        from groups import GROUP_ETF
+        gex = sorted({e for e in GROUP_ETF.values() if e} | {"XLK", "XLF", "XLV", "XLE", "XLY", "XLP", "XLI", "XLB", "XLU", "XLRE", "XLC"})
+        tc, etf_g, stk_g = th_mod.run(start, extra=gex)
+        themes = th_mod.compute_themes(tc, asof, etf_g, stk_g, extra=gex)
         log(f"Themes: {themes['n_etf']} ETFs, {themes['n_theme']} stock themes; missing {themes['missing']}")
     except Exception as e:  # noqa: BLE001
         log(f"Themes failed: {e!r}")
