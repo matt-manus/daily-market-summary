@@ -98,7 +98,7 @@ AEMD,5.73,44100.0,252693.0008,2.17,164.0553,True,False,False,False,Medical/Denta
 AENT,4.7,28000.0,131599.9947,5.48,-14.2336,True,False,False,False,Durable Goods
 AEO,22.2,6488400.0,144042484.9503,16.69,33.0138,True,True,True,True,Clothing/Shoe/Accessory Stores
 AEP,127.59,2871100.0,366323638.4857,122.71,3.9769,True,True,True,False,Electric Utilities: Central
-AER,,,,,,False,False,False,False,Diversified Commercial Services
+AER,168.77,970100.0,163723781.1447,147.97,14.0569,True,True,True,False,Diversified Commercial Services
 AERO,16.75,326300.0,5465525.0,15.14,10.6341,True,True,True,False,Air Freight/Delivery Services
 AERT,5.85,14100.0,82484.9987,6.87,-14.8472,True,False,False,False,Professional Services
 AES,15.02,7390800.0,111009819.3832,14.75,1.8305,True,True,True,False,Electric Utilities: Central
