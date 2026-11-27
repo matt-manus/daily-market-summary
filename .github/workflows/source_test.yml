@@ -1,0 +1,17 @@
+name: Source test (one-off)
+on:
+  push:
+    branches: [ dev-monitor ]
+    paths: [ 'scripts/market_monitor/source_test.py', '.github/workflows/source_test.yml' ]
+  workflow_dispatch:
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with: { ref: dev-monitor, fetch-depth: 1 }
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.11' }
+      - run: pip install "yfinance>=0.2.40" pandas requests openpyxl
+      - run: python scripts/market_monitor/source_test.py
