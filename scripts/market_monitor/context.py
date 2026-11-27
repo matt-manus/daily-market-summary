@@ -45,7 +45,7 @@ def rsi_wilder(a, n=14):
 
 def macro(asof):
     import yfinance as yf
-    d = yf.download([s for _, s in MACRO], period="15d", progress=False, auto_adjust=False)["Close"]
+    d = yf.download([s for _, s in MACRO], period="1mo", progress=False, auto_adjust=False)["Close"]
     out = {}
     for k, s in MACRO:
         col = d[s].dropna() if s in d else pd.Series(dtype=float)
@@ -53,9 +53,11 @@ def macro(asof):
             out[k] = None
             continue
         col.index = pd.to_datetime(col.index)
-        # BTC trades daily: use the bar for the session date, vs the day before
-        if k == "BTC":
-            col = col[col.index <= pd.Timestamp(asof)]
+        # use the bar dated on the session (futures / BTC also trade on market holidays), vs the bar before it
+        col = col[col.index <= pd.Timestamp(asof)]
+        if len(col) < 2:
+            out[k] = None
+            continue
         last, prev = col.iloc[-1], col.iloc[-2]
         out[k] = {"sym": s, "date": str(col.index[-1].date()), "price": float(last), "prev_date": str(col.index[-2].date()),
                   "chg": float(last / prev - 1)}
