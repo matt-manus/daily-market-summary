@@ -138,6 +138,113 @@ def mom10y_chart(h):
             '用今日嘅股票名單倒計，冇計已經除牌嘅股票，舊時嘅數會偏高少少：當大概走勢睇，唔好當準確歷史。</p>')
 
 
+# ---------------------------------------------------------------- interactive momentum charts
+HOVER_JS = """
+<script>
+(function(){
+  document.querySelectorAll('table[data-sortable]').forEach(function(t){
+    var heads=t.rows[0].cells;
+    for(let c=2;c<=4;c++){heads[c].style.cursor='pointer';heads[c].addEventListener('click',function(){
+      var rows=Array.prototype.slice.call(t.rows,1), dir=t.getAttribute('data-dir'+c)==='d'?1:-1;
+      t.setAttribute('data-dir'+c,dir===-1?'d':'a');
+      rows.sort(function(a,b){return dir*(parseFloat(a.cells[c].textContent)-parseFloat(b.cells[c].textContent));});
+      rows.forEach(function(r){t.tBodies[0].appendChild(r);});
+    });}
+  });
+})();
+</script>
+<script>
+(function(){
+  function fmt(p){return p.d+' · '+p.v.toFixed(1)+'% · 10 年第 '+Math.round(p.p)+' 百分位';}
+  document.querySelectorAll('svg[data-pts]').forEach(function(svg){
+    var pts=JSON.parse(svg.getAttribute('data-pts'));
+    var ns='http://www.w3.org/2000/svg';
+    var vb=svg.viewBox.baseVal;
+    var line=document.createElementNS(ns,'line');line.setAttribute('stroke','#666');line.setAttribute('y1',0);line.setAttribute('y2',vb.height);line.style.display='none';
+    var dot=document.createElementNS(ns,'circle');dot.setAttribute('r',3.5);dot.setAttribute('fill','#fff');dot.style.display='none';
+    svg.appendChild(line);svg.appendChild(dot);
+    var tip=document.createElement('div');
+    tip.style.cssText='position:absolute;pointer-events:none;background:#111;border:1px solid #555;color:#eee;font-size:11px;padding:3px 6px;border-radius:4px;white-space:nowrap;display:none;z-index:9';
+    svg.parentNode.style.position='relative';svg.parentNode.appendChild(tip);
+    function move(ev){
+      var e=ev.touches?ev.touches[0]:ev;var r=svg.getBoundingClientRect();
+      var x=(e.clientX-r.left)/r.width*vb.width;var best=pts[0];
+      for(var i=1;i<pts.length;i++){if(Math.abs(pts[i].x-x)<Math.abs(best.x-x))best=pts[i];}
+      line.setAttribute('x1',best.x);line.setAttribute('x2',best.x);line.style.display='';
+      dot.setAttribute('cx',best.x);dot.setAttribute('cy',best.y);dot.style.display='';
+      tip.textContent=fmt(best);tip.style.display='';
+      var px=best.x/vb.width*r.width, py=best.y/vb.height*r.height;
+      tip.style.left=Math.min(Math.max(px-60,0),r.width-170)+'px';tip.style.top=Math.max(py-30,0)+'px';
+    }
+    function hide(){line.style.display='none';dot.style.display='none';tip.style.display='none';}
+    svg.addEventListener('mousemove',move);svg.addEventListener('touchstart',move,{passive:true});
+    svg.addEventListener('touchmove',move,{passive:true});svg.addEventListener('mouseleave',hide);
+  });
+})();
+</script>
+"""
+
+
+def mom_chart(series, ref, title, note, W=700, H=210, color="#ce93d8"):
+    """series: dated mom_pct values to plot; ref: 10y weekly series for percentiles."""
+    import json as _json
+    series = series.dropna()
+    pl, pr, pt, pb = 34, 64, 14, 22
+    iw, ih = W - pl - pr, H - pt - pb
+    ymax = max(10, (int(max(series.max(), ref.quantile(.95)) / 10) + 1) * 10)
+    n = len(series)
+    X = lambda k: pl + k / (n - 1 if n > 1 else 1) * iw
+    Y = lambda v: pt + ih - v / ymax * ih
+    g = [f'<line x1="{pl}" y1="{Y(v):.1f}" x2="{pl+iw}" y2="{Y(v):.1f}" stroke="#2a2a2a"/>'
+         f'<text x="{pl-4}" y="{Y(v)+3:.1f}" text-anchor="end" font-size="9" fill="#888">{v}%</text>'
+         for v in range(0, ymax + 1, 10)]
+    for q, lab, col in [(.10, "第 10 百分位", "#ef5350"), (.50, "中位數", "#9e9e9e"), (.90, "第 90 百分位", "#66bb6a")]:
+        v = ref.quantile(q)
+        g.append(f'<line x1="{pl}" y1="{Y(v):.1f}" x2="{pl+iw}" y2="{Y(v):.1f}" stroke="{col}" stroke-dasharray="4 3" stroke-width="1"/>'
+                 f'<text x="{pl+iw+3}" y="{Y(v)+3:.1f}" font-size="9" fill="{col}">{lab} {v:.1f}%</text>')
+    idx = series.index
+    if (idx[-1] - idx[0]).days > 800:
+        for yr in sorted({d.year for d in idx}):
+            k = next(i for i, d in enumerate(idx) if d.year == yr)
+            g.append(f'<text x="{X(k)+2:.1f}" y="{H-6}" font-size="9" fill="#888">{yr}</text>')
+    else:
+        for k in sorted({0, n // 4, n // 2, 3 * n // 4, n - 1}):
+            g.append(f'<text x="{X(k):.1f}" y="{H-6}" text-anchor="middle" font-size="9" fill="#888">{R.ddmm(idx[k])}</text>')
+    refv = ref.values
+    pts = [{"x": round(X(k), 1), "y": round(Y(v), 1), "v": float(v), "d": d.strftime("%d/%m/%Y"),
+            "p": float(100 * (refv <= v).mean())} for k, (d, v) in enumerate(series.items())]
+    poly = " ".join(f"{p['x']},{p['y']}" for p in pts)
+    lv, lp = pts[-1]["v"], pts[-1]["p"]
+    svg = (f"<svg viewBox=\"0 0 {W} {H}\" xmlns=\"http://www.w3.org/2000/svg\" style=\"touch-action:pan-y;cursor:crosshair\" "
+           f"data-pts='{_json.dumps(pts, separators=(',', ':'))}'>{''.join(g)}"
+           f'<polyline points="{poly}" fill="none" stroke="{color}" stroke-width="1.4"/>'
+           f'<circle cx="{pts[-1]["x"]}" cy="{pts[-1]["y"]}" r="3" fill="{color}"/></svg>')
+    return (f'<div class="sub-title">{R.esc(title)}</div><div class="mom-chart" style="padding:8px">{svg}</div>'
+            f'<p class="mm-note">今日 {lv:.1f}%，係 10 年入面第 {lp:.0f} 百分位（即係 {lp:.0f}% 嘅星期等於或者低過今日）。'
+            f'將游標放喺線上（手機用手指撳住）就見到嗰日嘅數值、日期同百分位。{note}</p>')
+
+
+def momentum_charts(h):
+    p = os.path.join(DATA, "mom10y.csv")
+    if not os.path.exists(p):
+        return '<div class="mm-box">10 年動力股比例：數據計緊。</div>'
+    w = pd.read_csv(p, index_col="date", parse_dates=True)["mom_pct"].dropna()
+    daily = h["mom_pct"].dropna()
+    recent = daily.iloc[-260:]
+    after = daily[daily.index > w.index[-1]]
+    if len(after):
+        after = after.groupby(after.index.to_period("W")).tail(1)
+        w10 = pd.concat([w, after])
+    else:
+        w10 = w
+    ref = w10
+    return (mom_chart(recent, ref, "動力股比例：最近 260 個交易日（每日）",
+                      "百分位線用 10 年每星期數據計。")
+            + mom_chart(w10, ref, "動力股比例：10 年（每星期最後一個交易日）",
+                        "定義同每日數字一樣（$5、30 萬股、$500 萬、63 日 ≥ +20%）。用今日嘅股票名單倒計，冇計已經除牌嘅股票，"
+                        "舊時嘅數會偏高少少：當大概走勢睇，唔好當準確歷史。"))
+
+
 # ---------------------------------------------------------------- 5 / 6
 def sec5(latest):
     ex = ((latest.get("themes") or {}).get("extra_ex")) or {}
@@ -157,8 +264,9 @@ def sec5(latest):
         for r in df.itertuples())
     return ('<p class="mm-note">每隻 sector ETF 嘅回報減 SPY 同期回報（百分點，含股息）。正數 = 跑贏 SPY。'
             '排名 = 21 日同 63 日超額回報嘅平均排位；排名變化 = 5 個交易日前 → 今日。</p>'
-            '<div class="mm-wrap"><table class="mm-t"><tr><th>#</th><th style="text-align:left">Sector</th><th>5 日</th><th>21 日</th><th>63 日</th>'
-            '<th>50 日線上</th><th>排名變化</th></tr>' + tr + '</table></div>')
+            '<div class="mm-wrap"><table class="mm-t" data-sortable="1"><tr><th>#</th><th style="text-align:left">Sector</th><th>5 日 ⇅</th><th>21 日 ⇅</th><th>63 日 ⇅</th>'
+            '<th>50 日線上</th><th>排名變化</th></tr>' + tr + '</table></div>'
+            '<p class="mm-note">撳「5 日／21 日／63 日」嘅欄名，可以改用嗰一欄排（再撳一次反轉）。</p>')
 
 
 def leaders_box(latest):
@@ -212,8 +320,7 @@ def main():
           + '<div class="sub-title" style="margin-top:20px">4C — 全市場 breadth 同動力股</div>'
           + R.breadth_section(h, pcts, latest)
           + '<div class="sub-title">4% 動量脈搏</div>' + R.pulse_svg(h)
-          + '<div class="sub-title">動力股比例：最近</div>' + R.momentum_svg(h, pcts)
-          + mom10y_chart(h))
+          + momentum_charts(h))
     s6 = (level + '<div class="sub-title" style="margin-top:18px">方向：21 日內變強同變弱</div>' + direction
           + leaders_box(latest) + R.group_map_box(latest.get("sectors")))
 
@@ -224,7 +331,8 @@ def main():
             + V2.sec(4, "Market breadth", s4, "v3-s4")
             + V2.sec(5, "Core sector ETF 對比 SPY", sec5(latest), "v3-s5")
             + V2.sec(6, "Momentum stock breadth（組別）", s6, "v3-s6")
-            + R.notes_box(latest, h))
+            + R.notes_box(latest, h)
+            + HOVER_JS)
     body = renumber3(body)
     head_end = live.find('<div class="page-wrap">')
     page = live[:head_end] + '<div class="page-wrap">\n' + body + "\n</div>\n</body>\n</html>\n"
