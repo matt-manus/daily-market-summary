@@ -79,14 +79,14 @@ def sec4a():
         line_chart([d[f"{nm}|20"], d[f"{nm}|50"], d[f"{nm}|200"]], colors=(C20, C50, C200),
                    labels=("> 20 日", "> 50 日", "> 200 日"), title=f"{nm}（{cnt.get(nm, '?')} 隻）")
         for nm in names)
-    missing = [x for x in ["S&P 500", "Nasdaq-100", "Dow 30", "Russell 2000"] if x not in names]
+    missing = [x for x in ["S&P 500", "Nasdaq-100", "Dow 30"] if x not in names]
     return (f'<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:10px">{charts}</div>'
-            f'<p class="mm-note">% 成份股收市高過 20／50／200 日簡單平均線，最近 130 個交易日。成份股名單：S&amp;P 500 用 Wikipedia，Nasdaq-100 用 NASDAQ 官網 API；'
-            f'Dow 30 同 Russell 2000 嘅來源未搞掂。全段歷史都用今日嘅名單，所以舊啲嘅數係近似值。價錢 = Yahoo Finance。'
+            f'<p class="mm-note">% 成份股收市高過 20／50／200 日簡單平均線，最近 130 個交易日。成份股名單：S&amp;P 500 用 Wikipedia，Nasdaq-100 用 NASDAQ 官網 API，'
+            f'Dow 30 用 SSGA DIA 持倉；Russell 2000 唔包（冇攞到成份股名單）。全段歷史都用今日嘅名單，所以舊啲嘅數係近似值。價錢 = Yahoo Finance。'
             + (f' 今次攞唔到：{"、".join(missing)}。' if missing else "") + '</p>')
 
 
-def sec4b(live):
+def sec4b_grok(live):
     a = live.find('id="s4-breadth"')
     b = live.find('<div class="section"', a + 10)
     blk = live[a:b] if a >= 0 else ""
@@ -339,6 +339,93 @@ def trend20(h, latest, n=20):
             f'{note3}游標放喺圖上（手機用手指撳住）會顯示嗰日每條線嘅數值。</p>')
 
 
+# ---------------------------------------------------------------- Sections 1–3, 4B (own data, 27/11/26)
+def _ctx():
+    p = os.path.join(DATA, "context.json")
+    return json.load(open(p, encoding="utf-8")) if os.path.exists(p) else {}
+
+
+def _card(k, v, s, cls=""):
+    return f'<div class="mm-card"><div class="k">{k}</div><div class="v {cls}">{v}</div><div class="s">{s}</div></div>'
+
+
+def _pct(x, nd=2):
+    return "—" if x is None else f'<span class="{"text-green" if x > 0 else ("text-red" if x < 0 else "")}">{x*100:+.{nd}f}%</span>'
+
+
+def sec1(ctx):
+    m = ctx.get("macro")
+    if not m:
+        return '<div class="mm-box">Macro 數據今次攞唔到。</div>'
+    spec = [("VIX", "VIX", "恐慌指數", "{:.2f}"), ("DXY", "DXY", "美元指數", "{:.3f}"), ("TNX", "10Y", "美債息 %", "{:.3f}"),
+            ("GOLD", "Gold", "金 USD/oz", "{:,.1f}"), ("OIL", "WTI", "油 USD/bbl", "{:.2f}"), ("BTC", "Bitcoin", "USD", "{:,.0f}")]
+    cards = "".join(_card(lab, (fmt.format(m[k]["price"]) if m.get(k) else "—"),
+                          f'{sub} · {_pct(m[k]["chg"]) if m.get(k) else ""}') for k, lab, sub, fmt in spec)
+    dates = sorted({v["date"] for v in m.values() if v})
+    return (f'<div class="mm-cards">{cards}</div><p class="mm-note">Yahoo Finance 日線（{"、".join(R.ddmm(d) for d in dates)}），'
+            '變幅對比上一根日線。金同油係近月期貨（GC=F、CL=F）；Bitcoin 用當日 UTC 日線。</p>')
+
+
+def sec2(ctx):
+    fg, pc = ctx.get("fear_greed"), ctx.get("cboe")
+    cards = []
+    if fg:
+        cards.append(_card("CNN Fear &amp; Greed", f'{fg["score"]:.0f}', f'{R.esc(str(fg["rating"]).title())} · 前一日 {fg["previous_close"]:.0f}'))
+        cards.append(_card("1 星期前 / 1 個月前", f'{fg["previous_1_week"]:.0f} / {fg["previous_1_month"]:.0f}', f'1 年前 {fg["previous_1_year"]:.0f}'))
+    else:
+        cards.append(_card("CNN Fear &amp; Greed", "—", "今次攞唔到"))
+    if pc and pc.get("ratio") is not None:
+        cards.append(_card("Cboe Equity Put/Call", f'{pc["ratio"]:.2f}', f'Calls {pc["calls"]:,} / Puts {pc["puts"]:,}'))
+    else:
+        cards.append(_card("Cboe Equity Put/Call", "—", R.esc((pc or {}).get("note") or "今次攞唔到")))
+    ts = R.esc(str((fg or {}).get("timestamp", ""))[:16].replace("T", " "))
+    return (f'<div class="mm-cards">{"".join(cards)}</div>'
+            f'<p class="mm-note">Fear &amp; Greed = CNN graphdata（時間 {ts} UTC）。Put/Call = Cboe Daily Market Statistics 嘅 EQUITY PUT/CALL RATIO，'
+            f'{R.ddmm(ctx.get("asof", ""))} 收市；Cboe 未出就留空，唔會用上一日。高 = 多人買 put（驚），低 = 自滿。</p>')
+
+
+def sec3(ctx):
+    ix = ctx.get("indices")
+    if not ix:
+        return '<div class="mm-box">指數數據今次攞唔到。</div>'
+    names = {"SPY": "S&amp;P 500", "QQQ": "Nasdaq 100", "DIA": "Dow Jones", "IWM": "Russell 2000"}
+    tr = []
+    for s, nm in names.items():
+        r = ix.get(s)
+        if not r:
+            tr.append(f'<tr><td style="text-align:left"><b>{s}</b> {nm}</td><td colspan="7">—</td></tr>')
+            continue
+        ad = r.get("ad")
+        ad_s = (f'{ad["up"] / ad["down"]:.2f}（{ad["up"]}↑/{ad["down"]}↓）' if ad and ad["down"] else "—")
+        tr.append(f'<tr><td style="text-align:left"><b>{s}</b> {nm}</td><td>{r["close"]:,.2f}</td><td>{_pct(r["chg"])}</td>'
+                  f'<td>{R.f(r["rsi"],1)}</td><td>{_pct(r["vs20"])}</td><td>{_pct(r["vs50"])}</td><td>{_pct(r["vs200"])}</td><td>{ad_s}</td></tr>')
+    p = ix.get("participation") or {}
+    c = p.get("chg") or {}
+    part = (f'<div class="mm-box">參與度（1 日）：SPY {_pct(c.get("SPY"))} · RSP 等權重 {_pct(c.get("RSP"))} · IWM {_pct(c.get("IWM"))} · '
+            f'RSP − SPY {R.f((p.get("rsp_minus_spy") or 0)*100,2,True)} pp · IWM − SPY {R.f((p.get("iwm_minus_spy") or 0)*100,2,True)} pp</div>')
+    return (part + '<div class="mm-wrap"><table class="mm-t"><tr><th style="text-align:left">指數 ETF</th><th>價</th><th>1 日</th><th>RSI 14</th>'
+            '<th>vs 20MA</th><th>vs 50MA</th><th>vs 200MA</th><th>A/D</th></tr>' + "".join(tr) + '</table></div>'
+            '<p class="mm-note">價錢用 Yahoo 除息調整收市價；RSI 用 Wilder 14 日；MA 係簡單平均線。A/D = 當日升 ÷ 跌嘅成份股數：'
+            'S&amp;P 500、Nasdaq-100、Dow 30 用本站價錢計；Russell 2000 用 Finviz 執行時嘅數。</p>')
+
+
+def sec4b(ctx):
+    sb = ctx.get("stockbee")
+    if not sb or not sb.get("rows"):
+        return '<div class="mm-box">Stockbee 數據今次攞唔到。</div>'
+    short = ["日期", "Up 4%", "Down 4%", "5 日比率", "10 日比率", "季升 25%", "季跌 25%", "月升 25%", "月跌 25%",
+             "月升 50%", "月跌 50%", "34 日升 13%", "34 日跌 13%", "股票總數", "T2108", "S&amp;P"]
+    cols = sb["columns"]
+    heads = [short[i] if i < len(short) else R.esc(c[:14]) for i, c in enumerate(cols)]
+    rows = sb["rows"][:15]
+    tr = "".join("<tr>" + "".join(f"<td>{R.esc(v)}</td>" for v in r) + "</tr>" for r in rows)
+    return ('<div class="sub-title" style="margin-top:20px">4B — Stockbee Market Monitor</div>'
+            '<div class="mm-wrap"><table class="mm-t" style="font-size:11px"><tr>' + "".join(f"<th>{h}</th>" for h in heads) + "</tr>"
+            + tr + '</table></div>'
+            f'<p class="mm-note">直接讀 Stockbee 公開 Google Sheet（<a href="{sb["src"]}" style="color:#888">連結</a>），最近 15 行。'
+            'Stockbee 用佢自己嘅股票範圍，所以 Up/Down 4% 同 4C 嘅數唔同係正常。欄名係簡寫：季 = 一季、月 = 一個月。</p>')
+
+
 # ---------------------------------------------------------------- 5 / 6
 def sec5(latest):
     ex = ((latest.get("themes") or {}).get("extra_ex")) or {}
@@ -410,9 +497,10 @@ def main():
         latest["sectors"] = latest["groups"]
     level, direction = R.sector_tables(latest.get("sectors"))
 
+    ctx = _ctx()
     s4 = ('<div class="sub-title">4A — % 指數成份股高過 20／50／200 日線</div>' + sec4a()
           + '<div class="sub-title">4A — 最近 20 日 breadth 同參與度</div>' + trend20(h, latest)
-          + sec4b(live)
+          + (sec4b(ctx) if ctx.get('stockbee') else sec4b_grok(live))
           + '<div class="sub-title" style="margin-top:20px">4C — 全市場 breadth 同動力股</div>'
           + R.breadth_section(h, pcts, latest)
           + '<div class="sub-title">4% 動量脈搏</div>' + R.pulse_svg(h)
@@ -421,9 +509,9 @@ def main():
           + leaders_box(latest) + R.group_map_box(latest.get("sectors")))
 
     body = (R.CSS
-            + V2.grok_section(live, "s1-macro", 1, "Macro indicators")
-            + V2.grok_section(live, "s2-sentiment", 2, "Market sentiment")
-            + V2.grok_section(live, "s3-indices", 3, "Major indices")
+            + (V2.sec(1, "Macro indicators", sec1(ctx), "v3-s1") if ctx.get("macro") else V2.grok_section(live, "s1-macro", 1, "Macro indicators"))
+            + (V2.sec(2, "Market sentiment", sec2(ctx), "v3-s2") if ctx.get("fear_greed") or ctx.get("cboe") else V2.grok_section(live, "s2-sentiment", 2, "Market sentiment"))
+            + (V2.sec(3, "Major indices", sec3(ctx), "v3-s3") if ctx.get("indices") else V2.grok_section(live, "s3-indices", 3, "Major indices"))
             + V2.sec(4, "Market breadth", s4, "v3-s4")
             + V2.sec(5, "Core sector ETF 對比 SPY", sec5(latest), "v3-s5")
             + V2.sec(6, "Momentum stock breadth（組別）", s6, "v3-s6")

@@ -365,10 +365,12 @@ def main():
         still = [t for t in miss if pd.isna(close.at[last, t])]
         log(f"Retry recovered {len(miss) - len(still)}; still missing {len(still)}, e.g. {still[:15]}")
     # 4A: index constituents above 20/50/200-day SMA (history for line chart)
+    ib_mem = {}
     try:
         sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
         import index_breadth
-        index_breadth.run(close, download_bars, start, OUT_DIR, log)
+        _ib = index_breadth.run(close, download_bars, start, OUT_DIR, log)
+        ib_mem = _ib[1] if isinstance(_ib, tuple) else {}
     except Exception as e:  # noqa: BLE001
         log(f"4A failed: {e!r}")
     # diagnostics: how many tickers are priced on the last few sessions
@@ -380,6 +382,12 @@ def main():
     vol = vol.reindex(idx.index)
 
     h = compute_breadth(close, vol).join(idx, how="left")
+    # Sections 1-3 and 4B context (macro, sentiment, indices, Stockbee)
+    try:
+        import context
+        context.run(h.index[-1], close, ib_mem, OUT_DIR, log)
+    except Exception as e:  # noqa: BLE001
+        log(f"Context failed: {e!r}")
     # export the latest session's universe, one row per candidate ticker
     try:
         d = h.index[-1]

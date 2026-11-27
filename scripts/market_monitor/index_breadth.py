@@ -4,7 +4,7 @@ as a daily history (for a line chart). Uses *today's* member lists for the
 whole history (no point-in-time membership), so older values are approximate.
 
 Members: S&P 500, Nasdaq-100 and Dow 30 from Wikipedia; Russell 2000 from the
-iShares IWM holdings file (skipped if it cannot be read).
+(Russell 2000 dropped 27/11: no reachable member list).
 """
 import io
 import os
@@ -68,6 +68,14 @@ FALLBACK_WIKI = {
 }
 
 
+def ssga_dia():
+    url = ("https://www.ssga.com/us/en/intermediary/library-content/products/fund-data/etfs/us/"
+           "holdings-daily-us-en-dia.xlsx")
+    r = requests.get(url, headers=UA, timeout=30)
+    df = pd.read_excel(io.BytesIO(r.content), skiprows=4)
+    return sorted({_ysym(t) for t in df["Ticker"] if isinstance(t, str) and t.strip() and t.strip() != "-"})
+
+
 def nasdaq100_api():
     r = requests.get("https://api.nasdaq.com/api/quote/list-type/nasdaq100", headers=NASDAQ_UA, timeout=30)
     rows = (((r.json() or {}).get("data") or {}).get("data") or {}).get("rows") or []
@@ -82,6 +90,12 @@ def members(log):
         except Exception as e:  # noqa: BLE001
             log(f"4A members {name} failed: {e!r}")
             out[name] = []
+        if not out[name] and name == "Dow 30":
+            try:
+                out[name] = ssga_dia()
+                log(f"4A Dow 30 from SSGA DIA holdings: {len(out[name])}")
+            except Exception as e:  # noqa: BLE001
+                log(f"4A Dow 30 SSGA failed: {e!r}")
         if not out[name] and name == "Nasdaq-100":
             try:
                 out[name] = nasdaq100_api()
@@ -99,11 +113,6 @@ def members(log):
             del out[name]
         else:
             log(f"4A members {name}: {len(out[name])}")
-    try:
-        out["Russell 2000"] = iwm_members()
-        log(f"4A members Russell 2000 (IWM holdings): {len(out['Russell 2000'])}")
-    except Exception as e:  # noqa: BLE001
-        log(f"4A members Russell 2000 failed: {e!r}")
     return out
 
 
@@ -142,4 +151,4 @@ def run(close, download, start, out_dir, log):
         df.to_csv(os.path.join(out_dir, "index_breadth.csv"))
         counts = {k: len(v) for k, v in mem.items()}
         pd.Series(counts).to_json(os.path.join(out_dir, "index_members.json"))
-    return df
+    return df, mem
