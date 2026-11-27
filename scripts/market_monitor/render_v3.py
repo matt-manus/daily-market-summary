@@ -246,6 +246,99 @@ def momentum_charts(h):
                         "舊時嘅數會偏高少少：當大概走勢睇，唔好當準確歷史。"))
 
 
+# ---------------------------------------------------------------- 4A extra: 20-session trend charts (hover)
+MULTI_JS = """
+<script>
+(function(){
+  document.querySelectorAll('svg[data-multi]').forEach(function(svg){
+    var D=JSON.parse(svg.getAttribute('data-multi')), ns='http://www.w3.org/2000/svg', vb=svg.viewBox.baseVal;
+    var line=document.createElementNS(ns,'line');line.setAttribute('stroke','#666');line.setAttribute('y1',0);line.setAttribute('y2',vb.height);line.style.display='none';svg.appendChild(line);
+    var tip=document.createElement('div');
+    tip.style.cssText='position:absolute;pointer-events:none;background:#111;border:1px solid #555;color:#eee;font-size:11px;padding:3px 6px;border-radius:4px;white-space:nowrap;display:none;z-index:9';
+    svg.parentNode.style.position='relative';svg.parentNode.appendChild(tip);
+    function move(ev){
+      var e=ev.touches?ev.touches[0]:ev, r=svg.getBoundingClientRect(), x=(e.clientX-r.left)/r.width*vb.width, k=0;
+      for(var i=1;i<D.x.length;i++){if(Math.abs(D.x[i]-x)<Math.abs(D.x[k]-x))k=i;}
+      line.setAttribute('x1',D.x[k]);line.setAttribute('x2',D.x[k]);line.style.display='';
+      var h='<b>'+D.d[k]+'</b>';
+      D.s.forEach(function(s){var v=s.v[k];h+='<br><span style="color:'+s.c+'">■</span> '+s.n+': '+(v===null?'—':(v>0&&s.sign?'+':'')+v.toFixed(s.nd)+s.u);});
+      tip.innerHTML=h;tip.style.display='';
+      var px=D.x[k]/vb.width*r.width;tip.style.left=Math.min(Math.max(px-70,0),r.width-150)+'px';tip.style.top='4px';
+    }
+    function hide(){line.style.display='none';tip.style.display='none';}
+    svg.addEventListener('mousemove',move);svg.addEventListener('touchstart',move,{passive:true});
+    svg.addEventListener('touchmove',move,{passive:true});svg.addEventListener('mouseleave',hide);
+  });
+})();
+</script>
+"""
+
+
+def multi_chart(dates, series, title, unit="%", nd=1, sign=False, zero=False, W=360, H=190):
+    """series: list of (name, values list, color)."""
+    import json as _json
+    pl, pr, pt, pb = 30, 12, 10, 20
+    iw, ih = W - pl - pr, H - pt - pb
+    vals = [v for _, vs, _ in series for v in vs if v == v]
+    lo, hi = min(vals), max(vals)
+    if zero:
+        lo, hi = min(lo, 0), max(hi, 0)
+    pad = (hi - lo) * 0.1 or 1
+    lo, hi = lo - pad, hi + pad
+    if unit == "%" and not sign:
+        lo, hi = max(0, lo), min(100, hi)
+    n = len(dates)
+    X = lambda k: pl + k / (n - 1 if n > 1 else 1) * iw
+    Y = lambda v: pt + ih - (v - lo) / (hi - lo) * ih
+    step = [1, 2, 5, 10, 20, 25, 50][min(6, max(0, int((hi - lo) / 5).bit_length() - 1))]
+    g = []
+    v0 = int(lo // step + 1) * step
+    while v0 <= hi:
+        g.append(f'<line x1="{pl}" y1="{Y(v0):.1f}" x2="{pl+iw}" y2="{Y(v0):.1f}" stroke="{"#555" if v0 == 0 else "#2a2a2a"}"/>'
+                 f'<text x="{pl-4}" y="{Y(v0)+3:.1f}" text-anchor="end" font-size="9" fill="#888">{("+" if sign and v0 > 0 else "")}{v0:g}</text>')
+        v0 += step
+    for k in sorted({0, n // 2, n - 1}):
+        g.append(f'<text x="{X(k):.1f}" y="{H-5}" text-anchor="middle" font-size="9" fill="#888">{R.ddmm(dates[k])}</text>')
+    lines = []
+    for name, vs, col in series:
+        pts = [(X(k), Y(v)) for k, v in enumerate(vs) if v == v]
+        lines.append(f'<polyline points="{" ".join(f"{x:.1f},{y:.1f}" for x, y in pts)}" fill="none" stroke="{col}" stroke-width="1.6"/>')
+        lines += [f'<circle cx="{x:.1f}" cy="{y:.1f}" r="1.8" fill="{col}"/>' for x, y in pts]
+    data = {"x": [round(X(k), 1) for k in range(n)], "d": [d.strftime("%d/%m") for d in dates],
+            "s": [{"n": nm, "c": col, "u": (" pp" if sign else unit), "nd": nd, "sign": sign,
+                   "v": [round(float(v), 2) if v == v else None for v in vs]} for nm, vs, col in series]}
+    leg = "".join(f'<span style="margin-right:8px;white-space:nowrap"><span style="display:inline-block;width:9px;height:3px;'
+                  f'background:{c};vertical-align:middle;margin-right:3px"></span>{R.esc(nm)}</span>' for nm, _, c in series)
+    return (f'<div class="mom-chart" style="padding:8px"><div style="font-size:11px;font-weight:700;color:#ccc;margin-bottom:4px">'
+            f'{R.esc(title)} <span style="font-weight:400;color:var(--text-muted)">{leg}</span></div>'
+            f'<svg viewBox="0 0 {W} {H}" xmlns="http://www.w3.org/2000/svg" style="touch-action:pan-y;cursor:crosshair" '
+            f"data-multi='{_json.dumps(data, separators=(',', ':'))}'>{''.join(g)}{''.join(lines)}</svg></div>")
+
+
+def trend20(h, latest, n=20):
+    t = h.iloc[-n:]
+    c1 = multi_chart(list(t.index), [("> 20 日 EMA", t.pct20.tolist(), C20), ("> 50 日 SMA", t.pct50.tolist(), C50),
+                                     ("動力股", t.mom_pct.tolist(), C200)],
+                     "% 高過均線同動力股比例（全市場）")
+    rel = ((latest.get("themes") or {}).get("rel_closes")) or {}
+    if all(k in rel for k in ("SPY", "RSP", "IWM")):
+        df = pd.DataFrame({k: pd.Series({pd.Timestamp(d): v for d, v in rel[k]}) for k in ("SPY", "RSP", "IWM")}).dropna()
+        df = df.iloc[-(n + 1):]
+        base = df.iloc[0]
+        ret = (df / base - 1) * 100
+        sp = ret.iloc[1:]
+        c3 = multi_chart(list(sp.index), [("RSP − SPY", (sp.RSP - sp.SPY).tolist(), "#42a5f5"),
+                                          ("IWM − SPY", (sp.IWM - sp.SPY).tolist(), "#ff9800")],
+                         f"參與度：{R.ddmm(df.index[0])} 收市至今累計跑贏 SPY（pp）", sign=True, zero=True, nd=2)
+        note3 = (f'右圖：由 {R.ddmm(df.index[0])} 收市起計，RSP（S&amp;P 500 等權重）同 IWM（Russell 2000）嘅累計回報減 SPY，'
+                 '單位係百分點；高過 0 = 跑贏 SPY，即係參與度闊過大型股。')
+    else:
+        c3, note3 = '<div class="mm-box">RSP／IWM 數據等下一次 run。</div>', ""
+    return (f'<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:10px">{c1}{c3}</div>'
+            f'<p class="mm-note">最近 {n} 個交易日。左圖：全市場（同 4C 一樣嘅宇宙同定義）% 高過 20 日 EMA、50 日 SMA，同動力股比例。'
+            f'{note3}游標放喺圖上（手機用手指撳住）會顯示嗰日每條線嘅數值。</p>')
+
+
 # ---------------------------------------------------------------- 5 / 6
 def sec5(latest):
     ex = ((latest.get("themes") or {}).get("extra_ex")) or {}
@@ -318,6 +411,7 @@ def main():
     level, direction = R.sector_tables(latest.get("sectors"))
 
     s4 = ('<div class="sub-title">4A — % 指數成份股高過 20／50／200 日線</div>' + sec4a()
+          + '<div class="sub-title">4A — 最近 20 日 breadth 同參與度</div>' + trend20(h, latest)
           + sec4b(live)
           + '<div class="sub-title" style="margin-top:20px">4C — 全市場 breadth 同動力股</div>'
           + R.breadth_section(h, pcts, latest)
@@ -334,7 +428,7 @@ def main():
             + V2.sec(5, "Core sector ETF 對比 SPY", sec5(latest), "v3-s5")
             + V2.sec(6, "Momentum stock breadth（組別）", s6, "v3-s6")
             + R.notes_box(latest, h)
-            + HOVER_JS)
+            + HOVER_JS + MULTI_JS)
     body = renumber3(body)
     head_end = live.find('<div class="page-wrap">')
     page = live[:head_end] + '<div class="page-wrap">\n' + body + "\n</div>\n</body>\n</html>\n"

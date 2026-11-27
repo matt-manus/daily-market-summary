@@ -159,7 +159,13 @@ def compute_themes(c, asof, etf_groups, stock_groups, extra=()):
                     "ex5_then": float(j5[t]), "ex21_then": float(j21[t]), "ex63_then": float(j63[t]),
                     "above50": bool(c[t].iloc[i] > sma50[t])}
                 for t in extra if t in c and pd.notna(c[t].iloc[i])}
+    rel = {}
+    for t in ("SPY", "RSP", "IWM"):
+        if t in c:
+            seg = c[t].iloc[max(0, i - 80):i + 1]
+            rel[t] = [[str(d.date()), float(v)] for d, v in seg.items() if pd.notna(v)]
     return {
+        "rel_closes": rel,
         "extra_ex": extra_ex,
         "asof": str(c.index[i].date()),
         "then": str(c.index[j].date()),
