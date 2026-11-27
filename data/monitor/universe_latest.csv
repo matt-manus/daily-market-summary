@@ -67,7 +67,7 @@ ADAC,10.14,9000.0,91260.0031,10.09,0.4955,True,False,False,False,Blank Checks
 ADAM,5.33,1557000.0,8298809.8812,9.84,-45.8333,True,True,True,False,Real Estate Investment Trusts
 ADBE,232.83,3752600.0,873717864.8712,289.15,-19.4778,True,True,True,False,Computer Software: Prepackaged Software
 ADC,73.32,1090000.0,79918799.6674,73.2,0.1639,True,True,True,False,Real Estate Investment Trusts
-ADEA,,,,,,False,False,False,False,Cable & Other Pay Television Services
+ADEA,14.04,1854065.0,26031072.5293,26.22,-46.4531,True,True,True,False,Cable & Other Pay Television Services
 ADI,333.11,9202700.0,3065511262.1948,374.52,-11.0568,True,True,True,False,Semiconductors
 ADIG,9.99,1078100.0,10770218.7532,21.88,-54.3419,True,True,True,False,Wholesale Distributors
 ADM,66.66,3216500.0,214411901.7792,79.1,-15.7269,True,True,True,False,Packaged Foods
@@ -98,7 +98,7 @@ AEMD,5.73,44100.0,252693.0008,2.17,164.0553,True,False,False,False,Medical/Denta
 AENT,4.7,28000.0,131599.9947,5.48,-14.2336,True,False,False,False,Durable Goods
 AEO,22.2,6488400.0,144042484.9503,16.69,33.0138,True,True,True,True,Clothing/Shoe/Accessory Stores
 AEP,127.59,2871100.0,366323638.4857,122.71,3.9769,True,True,True,False,Electric Utilities: Central
-AER,168.77,970100.0,163723781.1447,147.97,14.0569,True,True,True,False,Diversified Commercial Services
+AER,,,,,,False,False,False,False,Diversified Commercial Services
 AERO,16.75,326300.0,5465525.0,15.14,10.6341,True,True,True,False,Air Freight/Delivery Services
 AERT,5.85,14100.0,82484.9987,6.87,-14.8472,True,False,False,False,Professional Services
 AES,15.02,7390800.0,111009819.3832,14.75,1.8305,True,True,True,False,Electric Utilities: Central
