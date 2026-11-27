@@ -1,5 +1,5 @@
 {
- "run_utc": "2026-11-26 16:43",
+ "run_utc": "2026-11-27 04:18",
  "session": "2026-11-25",
  "rules": {
   "breadth_universe": "US common stocks + ADRs (no ETFs/funds/preferreds/warrants/units), close >= $5, volume >= 300,000 shares that day",
@@ -13,7 +13,7 @@
   "symdir_ok": true,
   "candidates": 4482
  },
- "no_data_tickers": 1,
+ "no_data_tickers": 0,
  "sectors": {
   "asof": "2026-11-25",
   "N": 2261,
@@ -4768,6 +4768,256 @@
   ]
  },
  "themes": {
+  "extra_ex": {
+   "BOAT": {
+    "ex5": 2.0835,
+    "ex21": -2.9809,
+    "ex63": 4.228,
+    "ex21_then": -3.7616,
+    "ex63_then": 2.3111,
+    "above50": false
+   },
+   "GDX": {
+    "ex5": 0.6058,
+    "ex21": -4.2983,
+    "ex63": -21.9155,
+    "ex21_then": -8.0494,
+    "ex63_then": -21.0567,
+    "above50": false
+   },
+   "IAI": {
+    "ex5": -0.9591,
+    "ex21": 2.4692,
+    "ex63": -5.7612,
+    "ex21_then": 4.535,
+    "ex63_then": -2.9533,
+    "above50": false
+   },
+   "IBB": {
+    "ex5": 8.1149,
+    "ex21": 9.7368,
+    "ex63": 8.4403,
+    "ex21_then": 2.6241,
+    "ex63_then": 1.4358,
+    "above50": true
+   },
+   "IGV": {
+    "ex5": -0.1318,
+    "ex21": -8.1128,
+    "ex63": -7.0447,
+    "ex21_then": -4.2909,
+    "ex63_then": -0.866,
+    "above50": false
+   },
+   "IHF": {
+    "ex5": 1.3115,
+    "ex21": 0.5392,
+    "ex63": 4.0254,
+    "ex21_then": -2.3919,
+    "ex63_then": 3.2275,
+    "above50": false
+   },
+   "IHI": {
+    "ex5": 3.4835,
+    "ex21": 12.9143,
+    "ex63": 12.8483,
+    "ex21_then": 9.8794,
+    "ex63_then": 6.7683,
+    "above50": true
+   },
+   "ITA": {
+    "ex5": 0.9553,
+    "ex21": 6.9246,
+    "ex63": -5.0051,
+    "ex21_then": 6.0316,
+    "ex63_then": -8.2592,
+    "above50": false
+   },
+   "IYT": {
+    "ex5": 0.5214,
+    "ex21": 6.4063,
+    "ex63": 1.6787,
+    "ex21_then": 8.8208,
+    "ex63_then": 0.2864,
+    "above50": true
+   },
+   "KBE": {
+    "ex5": 1.3676,
+    "ex21": 3.9291,
+    "ex63": 1.0551,
+    "ex21_then": 5.1449,
+    "ex63_then": -1.5784,
+    "above50": false
+   },
+   "KIE": {
+    "ex5": 3.8877,
+    "ex21": 12.6446,
+    "ex63": 10.9196,
+    "ex21_then": 7.5695,
+    "ex63_then": 6.7527,
+    "above50": true
+   },
+   "OIH": {
+    "ex5": 0.6523,
+    "ex21": -8.2926,
+    "ex63": -9.5924,
+    "ex21_then": -3.7456,
+    "ex63_then": -11.6191,
+    "above50": false
+   },
+   "PAVE": {
+    "ex5": 0.5426,
+    "ex21": 3.8976,
+    "ex63": -1.5241,
+    "ex21_then": 3.9311,
+    "ex63_then": -3.0912,
+    "above50": false
+   },
+   "PEJ": {
+    "ex5": 1.2594,
+    "ex21": 10.0934,
+    "ex63": 7.828,
+    "ex21_then": 7.2809,
+    "ex63_then": 4.5162,
+    "above50": true
+   },
+   "SMH": {
+    "ex5": -6.2201,
+    "ex21": -17.4067,
+    "ex63": -19.4482,
+    "ex21_then": -10.8389,
+    "ex63_then": -14.3149,
+    "above50": false
+   },
+   "XBI": {
+    "ex5": 9.819,
+    "ex21": 8.0176,
+    "ex63": -0.0891,
+    "ex21_then": -0.2994,
+    "ex63_then": -7.2145,
+    "above50": true
+   },
+   "XHB": {
+    "ex5": 4.7471,
+    "ex21": 11.4292,
+    "ex63": 6.5654,
+    "ex21_then": 9.7596,
+    "ex63_then": -0.0666,
+    "above50": true
+   },
+   "XLB": {
+    "ex5": 3.3351,
+    "ex21": 5.7801,
+    "ex63": 3.4719,
+    "ex21_then": 3.5487,
+    "ex63_then": 0.7148,
+    "above50": true
+   },
+   "XLC": {
+    "ex5": 1.6594,
+    "ex21": 8.6187,
+    "ex63": 1.7233,
+    "ex21_then": 0.868,
+    "ex63_then": -0.2826,
+    "above50": false
+   },
+   "XLE": {
+    "ex5": 1.2125,
+    "ex21": -3.8359,
+    "ex63": 5.1737,
+    "ex21_then": -4.7762,
+    "ex63_then": 0.7235,
+    "above50": false
+   },
+   "XLF": {
+    "ex5": 2.0083,
+    "ex21": 8.0084,
+    "ex63": 4.8026,
+    "ex21_then": 6.308,
+    "ex63_then": 3.4308,
+    "above50": true
+   },
+   "XLI": {
+    "ex5": 0.8103,
+    "ex21": 3.9212,
+    "ex63": -1.7957,
+    "ex21_then": 3.7687,
+    "ex63_then": -4.1482,
+    "above50": false
+   },
+   "XLK": {
+    "ex5": -3.0471,
+    "ex21": -10.9036,
+    "ex63": -10.4805,
+    "ex21_then": -6.6125,
+    "ex63_then": -6.42,
+    "above50": false
+   },
+   "XLP": {
+    "ex5": 3.0772,
+    "ex21": 12.7903,
+    "ex63": 16.0237,
+    "ex21_then": 8.9605,
+    "ex63_then": 11.582,
+    "above50": true
+   },
+   "XLRE": {
+    "ex5": 2.399,
+    "ex21": 10.2269,
+    "ex63": 5.8594,
+    "ex21_then": 7.9776,
+    "ex63_then": 1.5866,
+    "above50": true
+   },
+   "XLU": {
+    "ex5": 1.9866,
+    "ex21": 8.6546,
+    "ex63": 8.5625,
+    "ex21_then": 9.0393,
+    "ex63_then": 4.2398,
+    "above50": true
+   },
+   "XLV": {
+    "ex5": 3.2342,
+    "ex21": 9.3924,
+    "ex63": 14.2859,
+    "ex21_then": 5.8024,
+    "ex63_then": 9.5062,
+    "above50": true
+   },
+   "XLY": {
+    "ex5": 0.4142,
+    "ex21": 8.648,
+    "ex63": 8.4367,
+    "ex21_then": 8.2551,
+    "ex63_then": 6.3956,
+    "above50": true
+   },
+   "XME": {
+    "ex5": -0.9897,
+    "ex21": -8.6514,
+    "ex63": -24.1133,
+    "ex21_then": -7.883,
+    "ex63_then": -19.7653,
+    "above50": false
+   },
+   "XOP": {
+    "ex5": -0.2728,
+    "ex21": -9.1582,
+    "ex63": -2.272,
+    "ex21_then": -9.1848,
+    "ex63_then": -4.0958,
+    "above50": false
+   },
+   "XRT": {
+    "ex5": 1.1401,
+    "ex21": 9.5725,
+    "ex63": 10.5883,
+    "ex21_then": 8.0163,
+    "ex63_then": 8.3471,
+    "above50": true
+   }
+  },
   "asof": "2026-11-25",
   "then": "2026-11-18",
   "etf_rows": [
@@ -6633,29 +6883,34 @@
   "n_theme": 33
  },
  "log": [
-  "[16:43:10Z] NASDAQ screener rows: 7374",
-  "[16:43:10Z] NASDAQ Trader symbol directory rows: 13312",
-  "[16:43:10Z] Kept by screener name but flagged by symbol-directory name: 25 ARCC=Ares Capital Corporation Common Stock; BANX=ArrowMark Financial Corp. Common Stock; BCIC=BCP Investment Corporation Common Stock; CGBD=Carlyle Secured Lending Inc. Common Stock; CPZ=Calamos Long/Short Equity & Dynamic Income Trust Common Stock; CSQ=Calamos Strategic Total Return Common Stock; DXR=Daxor Corporation Common Stock; FCNCP=First Citizens BancShares Inc. Depositary Shares; FDUS=Fidus Investment Corporation Common Stock; FRMEP=First Merchants Corporation Depository Shares; FUND=Sprott Focus Trust Inc. Common Stock; GBDC=Golub Capital BDC Inc. Common Stock; GECC=Great Elm Capital Corp. Common Stock; GLAD=Gladstone Capital Corporation Common Stock; IEP=Icahn Enterprises L.P. Common Stock; MFIC=MidCap Financial Investment Corporation Common Stock; NSLR=Neostellar Capital Corp. Common Stock; OCSL=Oaktree Specialty Lending Corporation Common Stock; OFS=OFS Capital Corporation Common Stock; OXLC=Oxford Lane Capital Corp. Common Stock; RAND=Rand Capital Corporation Common Stock; SLRC=SLR Investment Corp. Common Stock; TBLD=Thornburg Income Builder Opportunities Trust Common Stock; TCPC=BlackRock TCP Capital Corp. Common Stock; WHF=WhiteHorse Finance Inc. Common Stock",
-  "[16:43:10Z] Candidate tickers after filters: 4482",
-  "[16:43:19Z] downloaded 200/4482",
-  "[16:44:09Z] downloaded 1200/4482",
-  "[16:45:00Z] downloaded 2200/4482",
-  "[16:45:52Z] downloaded 3200/4482",
-  "[16:46:45Z] downloaded 4200/4482",
-  "[16:47:02Z] Bars: 4482 tickers x 522 days; no data for 1",
-  "[16:47:03Z] Missing latest bar (2026-11-25): 4 tickers, e.g. ['OBMT', 'SNDK', 'SOS', 'VABK']",
-  "[16:47:03Z] downloaded 4/4",
-  "[16:47:05Z] Retry recovered 0; still missing 4, e.g. ['OBMT', 'SNDK', 'SOS', 'VABK']",
-  "[16:47:05Z] Stocks priced on 2026-11-23: 4474",
-  "[16:47:05Z] Stocks priced on 2026-11-24: 4476",
-  "[16:47:05Z] Stocks priced on 2026-11-25: 4477",
-  "[16:47:05Z] SPY/QQQ/^GSPC last session: 2026-11-25",
-  "[16:47:10Z] Universe export 2026-11-25 00:00:00: breadth 2390, momentum universe 2261, momentum 152",
-  "[16:47:10Z] Diag 2026-11-25 CWT: close 50.45 volume 299,500",
-  "[16:47:10Z] Diag 2026-11-25 NTGR: close 18.29 volume 298,100",
-  "[16:47:10Z] Diag 2026-11-25 INDB: close 81.49 volume 299,000",
-  "[16:47:10Z] Diag: pass $5 and $5M but volume < 300k: 343",
-  "[16:47:10Z] Groups: 34 ranked; unmapped industries []",
-  "[16:47:21Z] Themes: 79 ETFs, 33 stock themes; missing ['SNDK']"
+  "[04:18:08Z] NASDAQ screener rows: 7374",
+  "[04:18:09Z] NASDAQ Trader symbol directory rows: 13312",
+  "[04:18:09Z] Kept by screener name but flagged by symbol-directory name: 25 ARCC=Ares Capital Corporation Common Stock; BANX=ArrowMark Financial Corp. Common Stock; BCIC=BCP Investment Corporation Common Stock; CGBD=Carlyle Secured Lending Inc. Common Stock; CPZ=Calamos Long/Short Equity & Dynamic Income Trust Common Stock; CSQ=Calamos Strategic Total Return Common Stock; DXR=Daxor Corporation Common Stock; FCNCP=First Citizens BancShares Inc. Depositary Shares; FDUS=Fidus Investment Corporation Common Stock; FRMEP=First Merchants Corporation Depository Shares; FUND=Sprott Focus Trust Inc. Common Stock; GBDC=Golub Capital BDC Inc. Common Stock; GECC=Great Elm Capital Corp. Common Stock; GLAD=Gladstone Capital Corporation Common Stock; IEP=Icahn Enterprises L.P. Common Stock; MFIC=MidCap Financial Investment Corporation Common Stock; NSLR=Neostellar Capital Corp. Common Stock; OCSL=Oaktree Specialty Lending Corporation Common Stock; OFS=OFS Capital Corporation Common Stock; OXLC=Oxford Lane Capital Corp. Common Stock; RAND=Rand Capital Corporation Common Stock; SLRC=SLR Investment Corp. Common Stock; TBLD=Thornburg Income Builder Opportunities Trust Common Stock; TCPC=BlackRock TCP Capital Corp. Common Stock; WHF=WhiteHorse Finance Inc. Common Stock",
+  "[04:18:09Z] Candidate tickers after filters: 4482",
+  "[04:18:22Z] downloaded 200/4482",
+  "[04:19:34Z] downloaded 1200/4482",
+  "[04:20:47Z] downloaded 2200/4482",
+  "[04:21:59Z] downloaded 3200/4482",
+  "[04:23:11Z] downloaded 4200/4482",
+  "[04:23:35Z] Bars: 4482 tickers x 522 days; no data for 0",
+  "[04:23:35Z] Missing latest bar (2026-11-25): 4 tickers, e.g. ['OBMT', 'SNDK', 'SOS', 'VABK']",
+  "[04:23:36Z] downloaded 4/4",
+  "[04:23:38Z] Retry recovered 0; still missing 4, e.g. ['OBMT', 'SNDK', 'SOS', 'VABK']",
+  "[04:23:38Z] 4A members S&P 500: 503",
+  "[04:23:38Z] 4A members Nasdaq-100: 0",
+  "[04:23:38Z] 4A members Dow 30: 0",
+  "[04:23:39Z] 4A members Russell 2000 failed: StopIteration()",
+  "[04:23:39Z] 4A S&P 500: 503/503 members priced",
+  "[04:23:39Z] Stocks priced on 2026-11-23: 4475",
+  "[04:23:39Z] Stocks priced on 2026-11-24: 4477",
+  "[04:23:39Z] Stocks priced on 2026-11-25: 4478",
+  "[04:23:40Z] SPY/QQQ/^GSPC last session: 2026-11-25",
+  "[04:23:43Z] Universe export 2026-11-25 00:00:00: breadth 2390, momentum universe 2261, momentum 152",
+  "[04:23:43Z] Diag 2026-11-25 CWT: close 50.45 volume 299,500",
+  "[04:23:43Z] Diag 2026-11-25 NTGR: close 18.29 volume 298,100",
+  "[04:23:43Z] Diag 2026-11-25 INDB: close 81.49 volume 299,000",
+  "[04:23:43Z] Diag: pass $5 and $5M but volume < 300k: 343",
+  "[04:23:43Z] Groups: 34 ranked; unmapped industries []",
+  "[04:24:07Z] Themes: 79 ETFs, 33 stock themes; missing ['SNDK']"
  ]
 }
